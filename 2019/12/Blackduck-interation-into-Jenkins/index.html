@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Blackduck 与 Jenkins 集成 | Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。 为什么要做源码扫描在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。 Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blackduck 与 Jenkins 集成">
+<meta property="og:url" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。 为什么要做源码扫描在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。 Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/open-source.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/blackduck-credentials.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/blackduck-config.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/blackduck-Jenkins-job.png">
+<meta property="article:published_time" content="2019-12-08T06:48:02.000Z">
+<meta property="article:modified_time" content="2020-05-12T08:18:10.270Z">
+<meta property="article:author" content="Xianpeng Shen">
+<meta property="article:tag" content="Jenkins">
+<meta property="article:tag" content="Blackduck">
+<meta property="article:tag" content="Synopsys">
+<meta property="article:tag" content="Detect">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/open-source.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello World</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">非著名程序员的网络日志，把分享变成一种习惯。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019/12/Blackduck-interation-into-Jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/Blackduck-interation-into-Jenkins/" class="article-date">
+  <time datetime="2019-12-08T06:48:02.000Z" itemprop="datePublished">2019-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Blackduck 与 Jenkins 集成
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。</p>
+<h2 id="为什么要做源码扫描"><a href="#为什么要做源码扫描" class="headerlink" title="为什么要做源码扫描"></a>为什么要做源码扫描</h2><p>在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。<br><img src="/2019/12/Blackduck-interation-into-Jenkins/open-source.png" alt="开源不等于安全"></p>
+<p>Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog Xray）。能够搜索安全的开源代码，检测产品的开源代码使用情况，以检查外来代码的开源代码使用情况和风险情况。</p>
+<p>如果不能及时的进行代码扫描，在产品发布快要发布才进行扫描，如果发现问题这时候再去解决就会变得非常被动，因此团队需要尽早发现并解决问题，将 CI 工具进行集成，进行每日、每周、每月扫描就变得十分重要。</p>
+<h2 id="Black-Duck-手动执行一般步骤"><a href="#Black-Duck-手动执行一般步骤" class="headerlink" title="Black Duck 手动执行一般步骤"></a>Black Duck 手动执行一般步骤</h2><ol>
+<li>手动下载指定 Git 仓库及分支代码</li>
+<li>去掉不相关的代码（也可以通过 Black Duck 参数去指定要扫描的特定文件或文件夹）</li>
+<li>手动执行 Black Duck 扫描命令​</li>
+<li>扫描成功后，结果传到内部 Black Duck 网站供相关人员进行审查</li>
+</ol>
+<h2 id="Black-Duck-与-Jenkins-的集成目标"><a href="#Black-Duck-与-Jenkins-的集成目标" class="headerlink" title="Black Duck 与 Jenkins 的集成目标"></a>Black Duck 与 Jenkins 的集成目标</h2><ol>
+<li>一个流水线支持定制化仓库的代码下载</li>
+<li>给开发和测试提供简单的、可随时可以执行源码扫描的界面</li>
+<li>支持定期自动扫描，以及与其他 Jenkins 任务联动执行​</li>
+</ol>
+<h2 id="Black-Duck-参数介绍"><a href="#Black-Duck-参数介绍" class="headerlink" title="Black Duck 参数介绍"></a>Black Duck 参数介绍</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--blackduck.url                                       <span class="comment"># 你的 Black Duck 网址</span></span><br><span class="line">--blackduck.username                                  <span class="comment"># 你的登录用户</span></span><br><span class="line">--blackduck.api.token                                 <span class="comment"># 你的登录用户 Token</span></span><br><span class="line">--detect.project.name                                 <span class="comment"># Black Duck 下面的项目</span></span><br><span class="line">--detect.project.version.name                         <span class="comment"># 项目版本号</span></span><br><span class="line">--detect.source.path                                  <span class="comment"># 要扫描的代码目录</span></span><br><span class="line">--logging.level.com.synopsys.integration              <span class="comment"># 扫描日志级别</span></span><br><span class="line">--blackduck.trust.cert=TRUE                           <span class="comment"># 是否信任 socket (SSL)</span></span><br><span class="line">--detect.blackduck.signature.scanner.snippet.matching <span class="comment"># 扫描片段模式</span></span><br></pre></td></tr></table></figure>
+
+<p>更多其他参数可以参照官方的 CI 集成文档 <a href="https://synopsys.atlassian.net/wiki/spaces/INTDOCS/pages/71106939/Synopsys+Detect+for+Jenkins" target="_blank" rel="noopener">Synopsys Detect for Jenkins</a></p>
+<h2 id="Black-Duck-配置"><a href="#Black-Duck-配置" class="headerlink" title="Black Duck 配置"></a>Black Duck 配置</h2><p>首先，安装 Black Duck 插件 <a href="https://wiki.jenkins.io/display/JENKINS/Synopsys+Detect+Plugin" target="_blank" rel="noopener">Synopsys Detect</a> 到 Jenkins</p>
+<p>然后，配置 Synopsys Detect 插件</p>
+<ul>
+<li>Jenkins -&gt; Confiruration（系统配置）</li>
+<li>Black Duck URL： 公司内部的 Black Duck 网址，例如 <a href="https://yourcompany.blackducksoftware.com" target="_blank" rel="noopener">https://yourcompany.blackducksoftware.com</a></li>
+<li>Black Duck credentials： 注意要选择 credentials 类型为 Secret text, Secret 填写你用户的 Token<br><img src="/2019/12/Blackduck-interation-into-Jenkins/blackduck-credentials.png" alt="Secret text 配置"></li>
+<li>配置完成后点击 Test connections to Black Duck，显示 Connection successful 表示配置成功。<br><img src="/2019/12/Blackduck-interation-into-Jenkins/blackduck-config.png" alt="Connection successful"></li>
+</ul>
+<h2 id="Black-Duck-流水线任务效果"><a href="#Black-Duck-流水线任务效果" class="headerlink" title="Black Duck 流水线任务效果"></a>Black Duck 流水线任务效果</h2><p><img src="/2019/12/Blackduck-interation-into-Jenkins/blackduck-Jenkins-job.png" alt="Build with Parameters"></p>
+<h2 id="Black-Duck-流水线代码"><a href="#Black-Duck-流水线代码" class="headerlink" title="Black Duck 流水线代码"></a>Black Duck 流水线代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">pipeline&#123;</span><br><span class="line">  agent &#123;</span><br><span class="line">    node &#123;</span><br><span class="line">      label <span class="string">'black-duck'</span></span><br><span class="line">      customWorkspace <span class="string">"/agent/workspace/blackduck"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  parameters &#123;</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'VERSION'</span>,</span><br><span class="line">      choices: [<span class="string">'MVSURE_v1.1'</span>, <span class="string">'MVSURE_v1.2'</span>, <span class="string">'MVSURE_v2.2'</span>],</span><br><span class="line">      description: <span class="string">'Which version do you want scan on black duck? MVSURE_v1.1, MVSURE_v1.2 or others?'</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'REPO'</span>,</span><br><span class="line">      choices: [<span class="string">'blog-server'</span>, <span class="string">'blog-client'</span>, <span class="string">'blog-docker'</span>],</span><br><span class="line">      description: <span class="string">'Which repository code does above VERSION belong to?'</span>)</span><br><span class="line">    string(</span><br><span class="line">      name: <span class="string">'BRANCH'</span>,</span><br><span class="line">      defaultValue: <span class="string">'develop'</span>,</span><br><span class="line">      description: <span class="string">'Which branch does above VERSION belong to?'</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'SNIPPET-MODES'</span>,</span><br><span class="line">      choices: [<span class="string">'SNIPPET_MATCHING'</span>, <span class="string">'SNIPPET_MATCHING_ONLY'</span>, <span class="string">'FULL_SNIPPET_MATCHING'</span>, <span class="string">'FULL_SNIPPET_MATCHING_ONLY'</span>, <span class="string">'NONE'</span>],</span><br><span class="line">      description: <span class="string">'What snippet scan mode do you want to choose?'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  environment &#123;</span><br><span class="line">    ROBOT                  = credentials(<span class="string">"d1cbab74-823d-41aa-abb7-858485121212"</span>)</span><br><span class="line">    hub_detect             = <span class="string">'https://blackducksoftware.github.io/hub-detect/hub-detect.sh'</span></span><br><span class="line">    blackduck_url          = <span class="string">'https://yourcompany.blackducksoftware.com'</span></span><br><span class="line">    blackduck_user         = <span class="string">'robot@yourcompany.com'</span></span><br><span class="line">    detect_project         = <span class="string">'GITHUB'</span></span><br><span class="line">    detect_project_version = <span class="string">'$&#123;VERSION&#125;'</span></span><br><span class="line">    detect_source_path     = <span class="string">'$&#123;WORKSPACE&#125;/$&#123;REPO&#125;/src'</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 只保留最近十次 Jenkins 执行结果</span></span><br><span class="line">  options &#123;buildDiscarder(logRotator(numToKeepStr:<span class="string">'10'</span>))&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 定时触发可以在这里添加</span></span><br><span class="line"></span><br><span class="line">  stages &#123;</span><br><span class="line">    stage(<span class="string">"git clone"</span>)&#123; <span class="comment"># 参数化 git clone 代码过程</span></span><br><span class="line">      steps&#123;</span><br><span class="line">        sh <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">        if [ -d $&#123;REPO&#125; ]; then</span></span><br><span class="line"><span class="string">            rm -rf $&#123;REPO&#125;</span></span><br><span class="line"><span class="string">        fi</span></span><br><span class="line"><span class="string">        git clone -b $&#123;BRANCH&#125; --depth 1 https://$ROBOT_USR:"$ROBOT_PSW"@git.yourcompany.com/scm/github/$&#123;REPO&#125;.git</span></span><br><span class="line"><span class="string">        '</span><span class="string">''</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">"black duck scan"</span>)&#123; <span class="comment"># 参数化 Black Duck 所用到的参数值</span></span><br><span class="line">      steps &#123;</span><br><span class="line">        withCredentials([string(credentialsId: <span class="string">'robot-black-duck-scan'</span>, variable: <span class="string">'TOKEN'</span>)]) &#123; <span class="comment"># 用 withCredentials 来获得 Token</span></span><br><span class="line">          synopsys_detect <span class="string">'bash &lt;(curl -s $&#123;hub_detect&#125;) --blackduck.url=$&#123;blackduck_url&#125; --blackduck.username=$&#123;blackduck_user&#125; --blackduck.api.token=$&#123;TOKEN&#125; --detect.project.name=$&#123;detect_project&#125; --detect.project.version.name=$&#123;detect_project_version&#125; --detect.source.path=$&#123;detect_source_path&#125; --logging.level.com.synopsys.integration=debug --blackduck.trust.cert=TRUE --detect.blackduck.signature.scanner.snippet.matching=$&#123;SNIPPET-MODES&#125;'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  post &#123;</span><br><span class="line">    <span class="comment"># 不论结果任何都给执行者发送邮件通知</span></span><br><span class="line">    always &#123;</span><br><span class="line">      script &#123;</span><br><span class="line">        def email = load <span class="string">"vars/email.groovy"</span></span><br><span class="line">        wrap([<span class="variable">$class</span>: <span class="string">'BuildUser'</span>]) &#123;</span><br><span class="line">            def user = env.BUILD_USER_ID</span><br><span class="line">            email.build(currentBuild.result, <span class="string">"<span class="variable">$&#123;user&#125;</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    success &#123;</span><br><span class="line">      <span class="built_in">echo</span> <span class="string">"success, cleanup blackduck workspace"</span></span><br><span class="line">      cleanWs()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/" data-id="ckc5mu1w90053swfobzcz8pqk" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blackduck/" rel="tag">Blackduck</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/detect/" rel="tag">Detect</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/synopsys/" rel="tag">Synopsys</a></li></ul>
+
+    </footer>
+    
+      <section id="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/12/JFrog-CLI/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JFrog CLI 安装和使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/Docker-commands/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Docker 常用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13.33px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.78px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 12.22px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14.44px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11.11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 12.22px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12.22px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 16.67px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15.56px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.22px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12.22px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 18.89px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/python/" style="font-size: 11.11px;">Python</a> <a href="/tags/release/" style="font-size: 10px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12.22px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11.11px;">Stats</a> <a href="/tags/summary/" style="font-size: 10px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.22px;">Thought</a> <a href="/tags/tips/" style="font-size: 11.11px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12.22px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12.22px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11.11px;">Webhooks</a> <a href="/tags/work/" style="font-size: 14.44px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/vscode/" style="font-size: 11.11px;">vscode</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/about-my-wechat-official-account/">一名软件测试工程师的成长之路</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Jenkins-tips-2/">《Jenkins Tips 002》 处理 Shell 返回的字符串成字符数组</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Jenkins-tips-1/">《Jenkins Tips 001》 忽略 Shell 步骤中的故障</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/vm-status-check-via-jenkins/">这也能用Jenkins？快速实现一个定期批量登录远程虚拟机并支持添加新的主机名称的Job</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Java-net-SocketException-on-AIX/">解决 Jenkins Artifactory Plugin 仅在 AIX 上传制品到 https 协议的 Artifactory 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/programmers-read-and-write/">从 “会写程序的干不过会写PPT的” —— 聊程序员写作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/jenkins-pipeline-linter-connector/">如何确保提交 Jenkins Pipeline 前没有语法错误</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/nightwatch-v1-3/">Nightwarch v1.3 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/jmeter-performance-testing/">How to use JMeter to do Performance Testing</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/sync-from-bitbucket-to-github/">Synchronize from Bitbucket to GitHub via Jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Bitbucket-webhooks-cn/">Jenkins 与 Bitbucket Webhooks 的配置和使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Bitbucket-webhooks/">Bitbucket Webhooks Configuration</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Jenkins-troubleshooting-1/">三种方法解决 Jenkins 声明式流水线 Exception Method code too large !</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Top-30-DevOps-Interview-Questions/">DevOps Top 30+ 面试问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/Best-14-CI-CD-Tools-in-2020/">2020年务必知道的最好用的14款CI/CD工具</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/maintaining-a-git-gepository/">如何给你的 Git 仓库“瘦身”</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/cppcheck/">一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/Setup-Linux-in-VirtualBox/">用 VirtualBox 配置一台 Linux 虚拟机</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/linux-tips/">最有用的 Linux 命令行技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/hpxu-tips/">HP-UX 安装工具以及一些使用总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+<script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Xianpeng Shen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

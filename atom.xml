@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hello World</title>
+  
+  <subtitle>非著名程序员的网络日志，把分享变成一种习惯。</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://shenxianpeng.github.io/"/>
+  <updated>2020-06-30T07:11:07.435Z</updated>
+  <id>https://shenxianpeng.github.io/</id>
+  
+  <author>
+    <name>Xianpeng Shen</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一名软件测试工程师的成长之路</title>
+    <link href="https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/"/>
+    <id>https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/</id>
+    <published>2020-06-30T14:13:26.000Z</published>
+    <updated>2020-06-30T07:11:07.435Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关注本公众号的读者们可能会感到困惑，我最开始分享是软件功能测试、自动化测试；之后短暂的分享过一点开发；再之后主要在分享 CI/CD 及 DevOps 相关的内容。&lt;/p&gt;
+&lt;p&gt;因此，我想通过本篇简单介绍下自己的公众号以及写公众号带来了哪些收获，通过这个过程展示了作为&lt;strong&gt;一名软件测试工程师的成长之路。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;细心的读者可能通过我的公众号的更名记录也能看出个一二来：&lt;/p&gt;
+&lt;p&gt;关注本公众号的读者们可能会感到困惑，从最开始分享是功能测试、自动化测试，之后短暂的写过一点开发，之后主要在分享CI/CD（持续集成、持续交付）及 DevOps 相关的内容。&lt;/p&gt;
+&lt;p&gt;可能细心的读者通过我的公众号的更名记录觉察到其实是我的岗位职责发生变化：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2017年08月01日 注册“软件测试QA”&lt;/li&gt;
+&lt;li&gt;2018年12月26日 “软件测试QA”改名“DevQA”&lt;/li&gt;
+&lt;li&gt;2018年12月29日 “DevQA”改名“软件测试与开发”&lt;/li&gt;
+&lt;li&gt;2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我原本是一名测试工程师，曾先后在 SIMcom、东软、京东、以及外企从事软件测试工作，从做手工测试到自动化测试和持续集成，一晃就是九年时间。&lt;/p&gt;
+&lt;p&gt;在做测试的过程中，我看到了软件技术不但是软件开发工程师的立命之本也是测试工程师的职业前进的必备技能，我心中期盼有朝一日自己不再是那个你不懂技术的测试。一直坚持拓展自己的视野、学习开发技术，期盼有机会去做一回开发，这对于我职业发展将会是一次非常好的经历，不但可以加快提高开发技能，也能通过角色的变化从而站在开发的角度看问题，为今后的职业发现提供更多可能。&lt;/p&gt;
+&lt;p&gt;时间终于给了一直在准备的人机会。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
+    
+    
+      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Jenkins Tips 002》 处理 Shell 返回的字符串成字符数组</title>
+    <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/"/>
+    <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/</id>
+    <published>2020-06-22T06:37:29.000Z</published>
+    <updated>2020-06-25T03:13:35.873Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/06/Jenkins-tips-2/jenkins-tips.png&quot; alt&gt;&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;想要把 Linux 上不同的文本数据通过 Jenkins 发送邮件给不同的人。&lt;/p&gt;
+&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;想通过 Shell 先对数据进行处理，然后返回到 Jenkins pipeline 里，但只能得到 Shell 返回的字符串，因此需要在 Jenkinsfile 里把字符串处理成数组，然后通过一个 for 循环对数组中的值进行处理。&lt;/p&gt;
+&lt;p&gt;以下是要处理的文本数据：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Example&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ ls&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fail-list-user1.txt  fail-list-user2.txt  fail-list-user3.txt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;要将以上文件通过 Jenkins 分别进行处理，得到用户 user1，user2，user3 然后发送邮件。&lt;/p&gt;
+&lt;h2 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《Jenkins Tips 001》 忽略 Shell 步骤中的故障</title>
+    <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/"/>
+    <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/</id>
+    <published>2020-06-21T13:42:17.000Z</published>
+    <updated>2020-06-22T01:31:10.395Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/06/Jenkins-tips-1/jenkins-tips.png&quot; alt&gt;&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;不希望 Shell 脚本因失败而中止&lt;/li&gt;
+&lt;li&gt;想一直运行 Shell 脚本并报告失败&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>这也能用Jenkins？快速实现一个定期批量登录远程虚拟机并支持添加新的主机名称的Job</title>
+    <link href="https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/"/>
+    <id>https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/</id>
+    <published>2020-06-12T19:34:28.000Z</published>
+    <updated>2020-06-18T09:00:32.320Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;实现定期批量登录远程虚拟机然后进行一些指定的操作，还支持用户添加新的 hostname。&lt;/p&gt;
+&lt;h2 id=&quot;需求分解&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决 Jenkins Artifactory Plugin 仅在 AIX 上传制品到 https 协议的 Artifactory 失败的问题</title>
+    <link href="https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/"/>
+    <id>https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/</id>
+    <published>2020-06-03T11:30:03.000Z</published>
+    <updated>2020-06-07T11:38:06.094Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;本文对于同样在 AIX 遇到这个问题的人会非常有帮助。另外，不要被标题无聊到，解决问题的过程值得参考。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;分享一个花了两天时间才解决的一个问题：使用 Jenkins Artifactory 插件上传制品到
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从 “会写程序的干不过会写PPT的” —— 聊程序员写作</title>
+    <link href="https://shenxianpeng.github.io/2020/05/programmers-read-and-write/"/>
+    <id>https://shenxianpeng.github.io/2020/05/programmers-read-and-write/</id>
+    <published>2020-05-30T13:32:08.000Z</published>
+    <updated>2020-06-07T03:27:59.633Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在程序员圈子里比较流行这样一句话“会写程序的干不过会写 PPT 的”，还记得 2019
+        
+      
+    
+    </summary>
+    
+      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
+    
+    
+      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
+    
+      <category term="write" scheme="https://shenxianpeng.github.io/tags/write/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何确保提交 Jenkins Pipeline 前没有语法错误</title>
+    <link href="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/"/>
+    <id>https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/</id>
+    <published>2020-05-23T06:38:59.000Z</published>
+    <updated>2020-06-18T09:00:32.318Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;我在做 Jenkins 声明式流水线开发时常会遇到的问题是：Pipeline 看起来没有问题，当提交到代码仓库后进行 Jenkins
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
+    
+      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nightwarch v1.3 介绍</title>
+    <link href="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/"/>
+    <id>https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/</id>
+    <published>2020-05-17T01:00:00.000Z</published>
+    <updated>2020-05-17T08:36:46.032Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Nightwatch js 是我之前写自动化测试用例使用了很长一段时间的测试框架，我当时的使用 v0.9 版本并且对使用和 API 进行了翻译。作为一名前测试工程师，对于自动化的知识不能不更新下自己的知识库，一转眼 Nightwatch 1.3
+        
+      
+    
+    </summary>
+    
+      <category term="Automation" scheme="https://shenxianpeng.github.io/categories/automation/"/>
+    
+    
+      <category term="Nightwatch" scheme="https://shenxianpeng.github.io/tags/nightwatch/"/>
+    
+      <category term="Javascript" scheme="https://shenxianpeng.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to use JMeter to do Performance Testing</title>
+    <link href="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/"/>
+    <id>https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/</id>
+    <published>2020-05-09T06:28:09.000Z</published>
+    <updated>2020-06-07T03:27:59.629Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Record-JMeter-Scripts&quot;&gt;&lt;a href=&quot;#Record-JMeter-Scripts&quot; class=&quot;headerlink&quot; title=&quot;Record JMeter Scripts&quot;&gt;&lt;/a&gt;Record JMeter
+        
+      
+    
+    </summary>
+    
+      <category term="Automation" scheme="https://shenxianpeng.github.io/categories/automation/"/>
+    
+    
+      <category term="JMeter" scheme="https://shenxianpeng.github.io/tags/jmeter/"/>
+    
+      <category term="performance" scheme="https://shenxianpeng.github.io/tags/performance/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Synchronize from Bitbucket to GitHub via Jenkins</title>
+    <link href="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/"/>
+    <id>https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/</id>
+    <published>2020-05-05T08:54:09.000Z</published>
+    <updated>2020-05-23T16:10:19.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;最近我们团队需要将一些示例和例子从内部的 Bitbucket 同步到 GitHub。我了解 GitHub
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins 与 Bitbucket Webhooks 的配置和使用</title>
+    <link href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/"/>
+    <id>https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/</id>
+    <published>2020-04-28T14:40:21.000Z</published>
+    <updated>2020-05-12T08:18:10.326Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;Jenkins 的 multi-branch pipeline 想必很多人已经在用了，使用这种类型的 Jenkins Job
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Webhooks" scheme="https://shenxianpeng.github.io/tags/webhooks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bitbucket Webhooks Configuration</title>
+    <link href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/"/>
+    <id>https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/</id>
+    <published>2020-04-24T09:40:21.000Z</published>
+    <updated>2020-05-12T08:18:10.330Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;I have set several multi-branch
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Webhooks" scheme="https://shenxianpeng.github.io/tags/webhooks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三种方法解决 Jenkins 声明式流水线 Exception Method code too large !</title>
+    <link href="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/"/>
+    <id>https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/</id>
+    <published>2020-04-20T13:33:09.000Z</published>
+    <updated>2020-05-12T08:18:10.333Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这是我第二次在使用 Jenkins 声明式流水线的时候遇到了这个问题，第一次遇到这个问题的时候是在一个 Pipeline 里大概写到 600 多行时候遇到如下错误&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DevOps Top 30+ 面试问题</title>
+    <link href="https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/"/>
+    <id>https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/</id>
+    <published>2020-03-29T05:18:14.000Z</published>
+    <updated>2020-05-12T08:18:10.333Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;DevOps术语和定义&quot;&gt;&lt;a href=&quot;#DevOps术语和定义&quot; class=&quot;headerlink&quot; title=&quot;DevOps术语和定义&quot;&gt;&lt;/a&gt;DevOps术语和定义&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;什么是DevOps&lt;/p&gt;
+&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Interview" scheme="https://shenxianpeng.github.io/tags/interview/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020年务必知道的最好用的14款CI/CD工具</title>
+    <link href="https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/"/>
+    <id>https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/</id>
+    <published>2020-03-29T03:37:07.000Z</published>
+    <updated>2020-05-12T08:18:10.324Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.katalon.com/resources-center/blog/ci-cd-tools/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
+    
+      <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何给你的 Git 仓库“瘦身”</title>
+    <link href="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/"/>
+    <id>https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/</id>
+    <published>2020-03-21T12:54:34.000Z</published>
+    <updated>2020-05-12T08:18:10.325Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;对 Git 仓库的维护通常是为了减少仓库的大小。如果你从另外一个版本控制系统导入了一个仓库，你可能需要在导入后清除掉不必要的文件。本文主要讨论如何从 Git
+        
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+      <category term="Cleanup" scheme="https://shenxianpeng.github.io/tags/cleanup/"/>
+    
+      <category term="Azure" scheme="https://shenxianpeng.github.io/tags/azure/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成</title>
+    <link href="https://shenxianpeng.github.io/2020/02/cppcheck/"/>
+    <id>https://shenxianpeng.github.io/2020/02/cppcheck/</id>
+    <published>2020-02-16T13:14:12.000Z</published>
+    <updated>2020-05-12T08:18:10.318Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;由于历史遗留原因，我们当前产品的代码仓库里遗留很多 Warning，这些 Warning 不是一时半会可以解决掉的。只有通过不断的丰富自动化测试用例，来保障最后的质量关卡，才敢有条不紊的进行 Warining 的修复，在次之前，如何有效杜绝继续引入更多的 Warining
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="cppcheck" scheme="https://shenxianpeng.github.io/tags/cppcheck/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 VirtualBox 配置一台 Linux 虚拟机</title>
+    <link href="https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/"/>
+    <id>https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/</id>
+    <published>2020-02-08T03:25:48.000Z</published>
+    <updated>2020-06-07T03:27:59.619Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;如果你想使用 Linux 但又不想租用云厂商的虚拟机，那么 VirtualBox 是一个比较好的选择。我们可以在 VirtualBox 安装你需要的绝大数的操作系统。&lt;/p&gt;
+&lt;p&gt;为了保证使用的流畅，这里最好使用内存建议 8G 及以上，硬盘 256 GB 的
+        
+      
+    
+    </summary>
+    
+      <category term="LinuxUnix" scheme="https://shenxianpeng.github.io/categories/linuxunix/"/>
+    
+    
+      <category term="Linux" scheme="https://shenxianpeng.github.io/tags/linux/"/>
+    
+      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最有用的 Linux 命令行技巧</title>
+    <link href="https://shenxianpeng.github.io/2020/02/linux-tips/"/>
+    <id>https://shenxianpeng.github.io/2020/02/linux-tips/</id>
+    <published>2020-02-05T14:34:27.000Z</published>
+    <updated>2020-06-07T03:27:59.625Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;ls-命令&quot;&gt;&lt;a href=&quot;#ls-命令&quot; class=&quot;headerlink&quot; title=&quot;ls 命令&quot;&gt;&lt;/a&gt;ls 命令&lt;/h2&gt;&lt;p&gt;列出当前目录的文件和文件夹。参数:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-l&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="LinuxUnix" scheme="https://shenxianpeng.github.io/categories/linuxunix/"/>
+    
+    
+      <category term="Linux" scheme="https://shenxianpeng.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HP-UX 安装工具以及一些使用总结</title>
+    <link href="https://shenxianpeng.github.io/2020/02/hpxu-tips/"/>
+    <id>https://shenxianpeng.github.io/2020/02/hpxu-tips/</id>
+    <published>2020-02-05T02:28:37.000Z</published>
+    <updated>2020-06-07T03:27:59.622Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;安装-Java8&quot;&gt;&lt;a href=&quot;#安装-Java8&quot; class=&quot;headerlink&quot; title=&quot;安装 Java8&quot;&gt;&lt;/a&gt;安装 Java8&lt;/h2&gt;&lt;p&gt;安装包下载链接是 &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="LinuxUnix" scheme="https://shenxianpeng.github.io/categories/linuxunix/"/>
+    
+    
+      <category term="UNIX" scheme="https://shenxianpeng.github.io/tags/unix/"/>
+    
+      <category term="HP-UX" scheme="https://shenxianpeng.github.io/tags/hp-ux/"/>
+    
+  </entry>
+  
+</feed>

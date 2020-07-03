@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>初识 JFrog Artifactory | Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是 ArtifactoryArtifactory 是 JFrog 的一个产品，用作二进制存储库管理器。二进制存储库可以将所有这些二进制统一托管，从而使团队的管理更加高效和简单。 就跟你用 Git 一样，Git 是用来管理代码的，Artifactory 是用来管理二进制文件的，通常是指 jar, war, pypi, DLL, EXE 等 build 文件。 我觉得使用 Artifactory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识 JFrog Artifactory">
+<meta property="og:url" content="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="什么是 ArtifactoryArtifactory 是 JFrog 的一个产品，用作二进制存储库管理器。二进制存储库可以将所有这些二进制统一托管，从而使团队的管理更加高效和简单。 就跟你用 Git 一样，Git 是用来管理代码的，Artifactory 是用来管理二进制文件的，通常是指 jar, war, pypi, DLL, EXE 等 build 文件。 我觉得使用 Artifactory">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/homepage.png">
+<meta property="article:published_time" content="2019-11-10T09:52:58.000Z">
+<meta property="article:modified_time" content="2020-06-07T03:27:59.595Z">
+<meta property="article:author" content="Xianpeng Shen">
+<meta property="article:tag" content="Artifactory">
+<meta property="article:tag" content="JFrog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/homepage.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello World</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">非著名程序员的网络日志，把分享变成一种习惯。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019/11/Artifactory-install-and-upgrade" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/Artifactory-install-and-upgrade/" class="article-date">
+  <time datetime="2019-11-10T09:52:58.000Z" itemprop="datePublished">2019-11-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      初识 JFrog Artifactory
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是-Artifactory"><a href="#什么是-Artifactory" class="headerlink" title="什么是 Artifactory"></a>什么是 Artifactory</h2><p>Artifactory 是 JFrog 的一个产品，用作二进制存储库管理器。二进制存储库可以将所有这些二进制统一托管，从而使团队的管理更加高效和简单。</p>
+<p>就跟你用 Git 一样，Git 是用来管理代码的，Artifactory 是用来管理二进制文件的，通常是指 jar, war, pypi, DLL, EXE 等 build 文件。</p>
+<p>我觉得使用 Artifactory 的最大优势是创造了更好的持续集成环境，有助于其他持续集成任务去 Artifactory 里调用，再部署到不同的测试或开发环境，这对于实施 DevOps 至关重要。</p>
+<p>如果想了解更多有关 Artifactory，请参看 <a href="https://www.jfrogchina.com/" target="_blank" rel="noopener">中文官网</a> 以及 <a href="https://jfrog.com/artifactory/" target="_blank" rel="noopener">English Website</a>。</p>
+<h2 id="安装-Artifactory"><a href="#安装-Artifactory" class="headerlink" title="安装 Artifactory"></a>安装 Artifactory</h2><ol>
+<li>从官网下载 Open Source <a href="https://jfrog.com/open-source/#artifactory" target="_blank" rel="noopener">Artifactory</a>，这里演示的是安装到 Linux，所以点击 Download RPM 下载</li>
+<li>将下载好的 jfrog-artifactory-oss-6.14.0.rpm 上传到 Linux 上</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在根目录创建一个文件，你也可以在任何目录创建文件夹</span></span><br><span class="line">sudo mkdir /artifactory</span><br><span class="line"><span class="built_in">cd</span> /artifactory</span><br><span class="line"><span class="comment"># 将下载好的 jfrog-artifactory-oss-6.15.0.rpm 上传到你的 Linux 上</span></span><br><span class="line">$ ls</span><br><span class="line">jfrog-artifactory-oss-6.14.0.rpm</span><br><span class="line"><span class="comment"># 安装 artifactory</span></span><br><span class="line">sudo rpm -ivh jfrog-artifactory-oss-6.14.0.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="Artifactory-服务启动和关闭"><a href="#Artifactory-服务启动和关闭" class="headerlink" title="Artifactory 服务启动和关闭"></a>Artifactory 服务启动和关闭</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">sudo systemctl start artifactory.service</span><br><span class="line"><span class="comment"># 停止服务</span></span><br><span class="line">sudo systemctl stop artifactory.service</span><br><span class="line"><span class="comment"># 查看服务状态</span></span><br><span class="line">sudo systemctl status artifactory.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="访问-Artifactory"><a href="#访问-Artifactory" class="headerlink" title="访问 Artifactory"></a>访问 Artifactory</h2><p>Artifactory 默认端口是8040，安装成功后访问：<code>http://hostname:8040</code> 即可登录（默认用户名 admin 密码 password）<br><img src="/2019/11/Artifactory-install-and-upgrade/homepage.png" alt="Artifactory 首页"></p>
+<h2 id="Artifactory-升级"><a href="#Artifactory-升级" class="headerlink" title="Artifactory 升级"></a>Artifactory 升级</h2><ol>
+<li><p>从官网下载最新的 <a href="https://jfrog.com/open-source/#artifactory" target="_blank" rel="noopener">Artifactory</a></p>
+</li>
+<li><p>将下载好的 jfrog-artifactory-oss-6.15.0.rpm（目前最新）上传到你的 Linux 上</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /artifactory</span><br><span class="line">ls</span><br><span class="line">jfrog-artifactory-oss-6.14.0.rpm  jfrog-artifactory-oss-6.15.0.rpm</span><br><span class="line"><span class="comment"># 停止服务</span></span><br><span class="line">sudo systemctl stop artifactory.service</span><br><span class="line"><span class="comment"># 进行升级</span></span><br><span class="line">sudo rpm -U jfrog-artifactory-oss-6.15.0.rpm</span><br><span class="line"><span class="comment"># 输出日志，显示升级成功</span></span><br><span class="line">warning: jfrog-artifactory-oss-6.15.0.rpm: Header V4 DSA/SHA1 Signature, key ID d7639232: NOKEY</span><br><span class="line">Checking <span class="keyword">if</span> ARTIFACTORY_HOME exists</span><br><span class="line">Removing tomcat work directory</span><br><span class="line">Removing Artifactory<span class="string">'s exploded WAR directory</span></span><br><span class="line"><span class="string">Initializing artifactory service with systemctl...</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">************ SUCCESS ****************</span></span><br><span class="line"><span class="string">The upgrade of Artifactory has completed successfully.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Start Artifactory with:</span></span><br><span class="line"><span class="string">&gt; systemctl start artifactory.service</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Check Artifactory status with:</span></span><br><span class="line"><span class="string">&gt; systemctl status artifactory.service</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">NOTE: Updating the ownership of files and directories. This may take several minutes. Do not stop the installation/upgrade process.</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/" data-id="ckc5mu1w4004mswfoe3nr486c" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a></li></ul>
+
+    </footer>
+    
+      <section id="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/11/Artifactory-integrate-with-Jenkins/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Artifactory 与 Jenkins 集成
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/output-display-color/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Jenkins Console Output 显示彩色</div>
+    </a>
+  
+</nav>
+
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13.33px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.78px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 12.22px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14.44px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11.11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 12.22px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12.22px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 16.67px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15.56px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.22px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12.22px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 18.89px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/python/" style="font-size: 11.11px;">Python</a> <a href="/tags/release/" style="font-size: 10px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12.22px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11.11px;">Stats</a> <a href="/tags/summary/" style="font-size: 10px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.22px;">Thought</a> <a href="/tags/tips/" style="font-size: 11.11px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12.22px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12.22px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11.11px;">Webhooks</a> <a href="/tags/work/" style="font-size: 14.44px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/vscode/" style="font-size: 11.11px;">vscode</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/about-my-wechat-official-account/">一名软件测试工程师的成长之路</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Jenkins-tips-2/">《Jenkins Tips 002》 处理 Shell 返回的字符串成字符数组</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Jenkins-tips-1/">《Jenkins Tips 001》 忽略 Shell 步骤中的故障</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/vm-status-check-via-jenkins/">这也能用Jenkins？快速实现一个定期批量登录远程虚拟机并支持添加新的主机名称的Job</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Java-net-SocketException-on-AIX/">解决 Jenkins Artifactory Plugin 仅在 AIX 上传制品到 https 协议的 Artifactory 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/programmers-read-and-write/">从 “会写程序的干不过会写PPT的” —— 聊程序员写作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/jenkins-pipeline-linter-connector/">如何确保提交 Jenkins Pipeline 前没有语法错误</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/nightwatch-v1-3/">Nightwarch v1.3 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/jmeter-performance-testing/">How to use JMeter to do Performance Testing</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/sync-from-bitbucket-to-github/">Synchronize from Bitbucket to GitHub via Jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Bitbucket-webhooks-cn/">Jenkins 与 Bitbucket Webhooks 的配置和使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Bitbucket-webhooks/">Bitbucket Webhooks Configuration</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Jenkins-troubleshooting-1/">三种方法解决 Jenkins 声明式流水线 Exception Method code too large !</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Top-30-DevOps-Interview-Questions/">DevOps Top 30+ 面试问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/Best-14-CI-CD-Tools-in-2020/">2020年务必知道的最好用的14款CI/CD工具</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/maintaining-a-git-gepository/">如何给你的 Git 仓库“瘦身”</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/cppcheck/">一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/Setup-Linux-in-VirtualBox/">用 VirtualBox 配置一台 Linux 虚拟机</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/linux-tips/">最有用的 Linux 命令行技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/hpxu-tips/">HP-UX 安装工具以及一些使用总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+<script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Xianpeng Shen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

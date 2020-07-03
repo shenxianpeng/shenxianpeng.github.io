@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I’ve been QA Engineer for the last nine years, from Jun 2018 I am a Software Engineer.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://shenxianpeng.github.io/page/6/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="I’ve been QA Engineer for the last nine years, from Jun 2018 I am a Software Engineer.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Xianpeng Shen">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello World</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">非著名程序员的网络日志，把分享变成一种习惯。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2019/05/code-coverage-tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/code-coverage-tools/" class="article-date">
+  <time datetime="2019-05-21T03:19:13.000Z" itemprop="datePublished">2019-05-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/code-coverage-tools/">Code Coverage tools of C/C++</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Code Coverage is a measurement of how many lines, statements, or blocks of your code are tested using your suite of automated tests. It’s an essential metric to understand the quality of your QA efforts.</p>
+<p>Code coverage shows you how much of your application is not covered by automated tests and is therefore vulnerable to defects. it is typically measured in percentage values – the closer to 100%, the better.</p>
+<p>When you’re trying to demonstrate test coverage to your higher-ups, code coverage tools (and other tools of the trade, of course) come in quite useful.</p>
+<p>List of Code Coverage Tools</p>
+<p>| Tools  | Support Language  | Cost | Partners  |<br>|—|—|—|—|—|<br>| <a href="https://www.froglogic.com/coco/" target="_blank" rel="noopener">Squish Coco</a>  | C, C++, C#, SystemC, Tcl and QML | Not disclosed |<a href="https://www.froglogic.com/coco/" target="_blank" rel="noopener">Botom of this page Selected Clients</a>|<br>| <a href="http://www.bullseye.com/productInfo.html" target="_blank" rel="noopener">BullseyeCoverage</a> | C, C++ |$800 for 1-year license and up |   |<br>| <a href="https://www.verifysoft.com/en_code_coverage.html" target="_blank" rel="noopener">Testwell</a>| C, C++, C#, Java| Not disclosed| |<br>| <a href="https://www.parasoft.com/products/ctest" target="_blank" rel="noopener">Parasoft C/C++test</a> |C, C++   | Not disclosed  | <a href="https://www.parasoft.com/company/partners" target="_blank" rel="noopener">partners</a> |<br>| <a href="https://www.vectorcast.com/software-testing-products/c-unit-testing" target="_blank" rel="noopener">VECTOR Code Coverage</a> | C, C++ | Not disclosed (free trial available)| <a href="https://www.vectorcast.com/partners" target="_blank" rel="noopener">partners</a> |<br>|<a href="https://www.eclemma.org/jacoco/" target="_blank" rel="noopener">JaCoCo</a>| Java | Open Source| Most famous code coverage tool in Java area |</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/code-coverage-tools/" data-id="ckc5mu1vr0036swfo54c08529" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/code-coverage-tools/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codecoverage/" rel="tag">CodeCoverage</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2019/05/GitSCM-clone-code-don-t-display-branch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/GitSCM-clone-code-don-t-display-branch/" class="article-date">
+  <time datetime="2019-05-14T14:41:22.000Z" itemprop="datePublished">2019-05-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/GitSCM-clone-code-don-t-display-branch/">GitSCM clone code don&#39;t display branch</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近遇到一个 regression bug，是产品完成构建之后，build commit number 不对，显示的 HEAD 而不是常见的 97b34931ac HASH number,这是什么原因呢？<br>我检查了 build 脚本没有发现问题，branch 的输出是正确的，那我怀疑是引入 Jenkins 的原因，果然登录到远程的 agent 上去查看分支名称如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\workspace\blog&gt;git branch</span><br><span class="line">* (HEAD detached at 97b3493)</span><br></pre></td></tr></table></figure>
+
+<p>果然问题出在了 Jenkins 上。这个问题有简单办法解决，就是直接使用git命令来clone代码，而不使用Git插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth 1 -b u2opensrc https://username:<span class="string">"passwowrd"</span>@git.github.com/scm/blog.git blog</span><br></pre></td></tr></table></figure>
+
+<p>这种方式固然简单，不会出错，但它是明码显示，我岂能容忍这种不堪的处理方式吗？肯定还是要在 Git 插件上找到解决办法的。<br>随后google一下，果然有遇到和我一样问题的人，问题链接 <a href="https://stackoverflow.com/questions/44006070/jenkins-gitscm-finishes-the-clone-in-a-detached-head-state-how-can-i-make-sure" target="_blank" rel="noopener">这里</a>。</p>
+<p>他说他做了很多调查，还跟专业的 Jenkins 人士联系，试了很多次，最后找到这个办法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">checkout([<span class="variable">$class</span>: <span class="string">'GitSCM'</span>, branches: [[name: <span class="string">'*/feature/*'</span>]], doGenerateSubmoduleConfigurations: <span class="literal">false</span>, extensions: [[<span class="variable">$class</span>: <span class="string">'LocalBranch'</span>, localBranch: <span class="string">"**"</span>]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: <span class="string">'99f978af-XXXX-XXXX-8147-2cf8f69ef864'</span>, url: <span class="string">'http://TFS_SERVER:8080/tfs/DefaultCollection/Product/_git/Project'</span>]]])</span><br></pre></td></tr></table></figure>
+
+<p>主要是在 extensions:[] 中加入这句 [$class: ‘LocalBranch’, localBranch: “**”]</p>
+<p>这是 Jenkins 的 Bug 吗？带着这个疑问随后通过 Pipeline Syntax，找到 checkout: Check out from version control，在 Additional Behaviours 里有 Check out to specific local branch 这个配置项</p>
+<p>If given, checkout the revision to build as HEAD on this branch.<br>If selected, and its value is an empty string or “**”, then the branch name is computed from the remote branch without the origin. In that case, a remote branch origin/master will be checked out to a local branch named master, and a remote branch origin/develop/new-feature will be checked out to a local branch named develop/newfeature.</p>
+<p>看介绍原来 Jenkins 自带这个设置，只是它不是默认选项，所以才遇到刚才那个问题。随后选择这个设置，然后填入”**”，然后生成 Pipeline 脚本，就跟上面的脚本一样了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/GitSCM-clone-code-don-t-display-branch/" data-id="ckc5mu1vn002qswfobic1g235" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/GitSCM-clone-code-don-t-display-branch/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2019/05/upload-to-ftp-parameterization-by-bat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/upload-to-ftp-parameterization-by-bat/" class="article-date">
+  <time datetime="2019-05-13T15:43:21.000Z" itemprop="datePublished">2019-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/automation/">Automation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/upload-to-ftp-parameterization-by-bat/">通过参数化上传文件到 FTP 服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实现 CI/CD 过程中，常常需要将构建好的 build 上传到一个公共的服务器，供测试、开发来获取最新的 build。如何上传 build 成果物到 FTP server，又不想把 FTP server登录的用户名和密码存在脚本里，想做这样的参数化如何实现呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">upload_to_ftp.bat [hostname] [username] [password] [local_path] [remote_pat]</span><br></pre></td></tr></table></figure>
+
+<p>windows batch 由于它的局限性，在实现上是比较麻烦的，但还是有办法。如何用 windows batch 来实现呢？借助一个临时文件，把需要的参数写入到临时文件里，然后通过 ftp -s 参数读取文件，最后把临时文件删除的方式来实现。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> ftp_hostname=%1</span><br><span class="line"><span class="built_in">set</span> ftp_username=%2</span><br><span class="line"><span class="built_in">set</span> ftp_password=%3</span><br><span class="line"><span class="built_in">set</span> local_path=%4</span><br><span class="line"><span class="built_in">set</span> remote_path=%5</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> %ftp_hostname%! == ! ( <span class="built_in">echo</span> <span class="string">"ftp_hostname not set correctly"</span> &amp; goto USAGE )</span><br><span class="line"><span class="keyword">if</span> %ftp_username%! == ! ( <span class="built_in">echo</span> <span class="string">"ftp_username not set correctly"</span> &amp; goto USAGE )</span><br><span class="line"><span class="keyword">if</span> %ftp_password%! == ! ( <span class="built_in">echo</span> <span class="string">"ftp_password not set correctly"</span> &amp; goto USAGE )</span><br><span class="line"><span class="keyword">if</span> %local_path%! == ! ( <span class="built_in">echo</span> <span class="string">"local_path not set correctly"</span> &amp; goto USAGE )</span><br><span class="line"><span class="keyword">if</span> %remote_path%! == ! ( <span class="built_in">echo</span> <span class="string">"remote_path not set correctly"</span> &amp; goto USAGE )</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> open %ftp_hostname% &gt; ftp.txt</span><br><span class="line"><span class="built_in">echo</span> user %ftp_username% %ftp_password% &gt;&gt; ftp.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">cd</span> %remote_path% &gt;&gt; ftp.txt</span><br><span class="line"><span class="built_in">echo</span> lcd %local_path% &gt;&gt;ftp.txt  </span><br><span class="line"><span class="built_in">echo</span> prompt off &gt;&gt;ftp.txt</span><br><span class="line"><span class="built_in">echo</span> bin &gt;&gt; ftp.txt</span><br><span class="line"><span class="built_in">echo</span> mput * &gt;&gt; ftp.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">bye</span> &gt;&gt; ftp.txt</span><br><span class="line">ftp -n -s:ftp.txt</span><br><span class="line"></span><br><span class="line">del ftp.txt</span><br><span class="line">goto END</span><br><span class="line"></span><br><span class="line">:USAGE</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"><span class="built_in">echo</span>.   - -------------------------------------------------------------------------------</span><br><span class="line"><span class="built_in">echo</span>.   - upload_to_ftp.bat [hostname] [username] [password] [local_path] [remote_pat]  -</span><br><span class="line"><span class="built_in">echo</span>.   - Example:                                                                      -</span><br><span class="line"><span class="built_in">echo</span>.   - upload_to_ftp.bat 192.168.1.1 guest guest D:\Media\* C:\Builds\               -</span><br><span class="line"><span class="built_in">echo</span>.   - -------------------------------------------------------------------------------</span><br><span class="line"><span class="built_in">echo</span>.</span><br><span class="line"></span><br><span class="line">:END</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/upload-to-ftp-parameterization-by-bat/" data-id="ckc5mu1vt003dswfoffdkh3yy" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/upload-to-ftp-parameterization-by-bat/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/automation/" rel="tag">Automation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/batch/" rel="tag">Batch</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2019/05/auto-bump-build-version" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/auto-bump-build-version/" class="article-date">
+  <time datetime="2019-05-12T13:21:55.000Z" itemprop="datePublished">2019-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/auto-bump-build-version/">Automatically commit code by Jenkins</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>When we need to release a product, we should change copyright, build version, release month, release note…<br>How to modify multiple files automatically?<br>I used a Jenkins pipeline project, the project is parameterized(string parameter) and regular expressions to implement. </p>
+<ol>
+<li><p>Here is the string parameter for copyright:</p>
+<ul>
+<li>Name: copyright</li>
+<li>Default Value: 1995—2019</li>
+<li>Description: Copyright format:1995—2019  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stage(&#39;change copyrigh&#39;) &#123;</span><br><span class="line">    steps &#123;</span><br><span class="line">        sh label: &#39;&#39;, script: &#39;sed -i -E &quot;s&#x2F;(1995—[0-9]&#123;4&#125;)&#x2F;$&#123;copyright&#125;&#x2F;&quot; 1033&#x2F;AutoRun.ini&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Here is the string parameter for build version:</p>
+<ul>
+<li>Name: build_version</li>
+<li>Default Value: 1.2.2.1002</li>
+<li>Description: build version format: 1.2.2.1002  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stage(&#39;change build version&#39;) &#123;</span><br><span class="line">    steps &#123;</span><br><span class="line">        sh label: &#39;&#39;, script: &#39;sed -i -E &quot;s&#x2F;([0-9].[0-9].[0-9].[0-9]&#123;4&#125;)&#x2F;$&#123;build_version&#125;&#x2F;&quot; 1033&#x2F;AutoRun.ini&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Here is the string parameter for build version:</p>
+<ul>
+<li>Name: release_month</li>
+<li>Default Value: May 2019</li>
+<li>Description: release month format: May 2019  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">stage(&#39;change release month&#39;) &#123;</span><br><span class="line">    steps &#123;</span><br><span class="line">        sh label: &#39;&#39;, script: &#39;&#39;&#39;</span><br><span class="line">        sed -i -E &quot;s&#x2F;([a-z]* 20[0-9]&#123;2&#125;)&#x2F;$&#123;release_month&#125;&#x2F;&quot; 1033&#x2F;AutoRun.ini</span><br><span class="line">        sed -i -E &quot;s&#x2F;([a-z]* 20[0-9]&#123;2&#125;)&#x2F;$&#123;release_month&#125;&#x2F;&quot; 1033&#x2F;MainMenu.ini</span><br><span class="line">        &#39;&#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>push change to Git</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">stage(&#39;git push to Git&#39;) &#123;</span><br><span class="line">    steps &#123;</span><br><span class="line">        sshagent([&#39;8dd766ba-ac0f-4302-afa8-bee59c726dee&#39;]) &#123;</span><br><span class="line">            sh(&quot;git add 1033&#x2F;AutoRun.ini&quot;)</span><br><span class="line">            sh(&quot;git add 1033&#x2F;MainMenu.ini&quot;)</span><br><span class="line">            sh(&quot;git commit -m &#39;Bld # $&#123;build_version&#125;&#39;&quot;)</span><br><span class="line">            sh(&quot;git push -u origin master&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Whole Jenkins Pipeline looks like:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent &#123;</span><br><span class="line">        label &#39;master&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    stages&#123;</span><br><span class="line">        stage(&#39;git clone&#39;) &#123;</span><br><span class="line">            steps&#123;</span><br><span class="line">                git branch: &#39;master&#39;,</span><br><span class="line">                credentialsId: &#39;8dd766ba-ac0f-4302-afa8-bee59c726dee&#39;,</span><br><span class="line">                url: &#39;git@github.com:shenxianpeng&#x2F;blog.git&#39;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        stage(&#39;change copyrigh&#39;) &#123;</span><br><span class="line">        steps &#123;</span><br><span class="line">            sh label: &#39;&#39;, script: &#39;sed -i -E &quot;s&#x2F;(1995—[0-9]&#123;4&#125;)&#x2F;$&#123;copyright&#125;&#x2F;&quot; 1033&#x2F;AutoRun.ini&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        stage(&#39;change release month&#39;) &#123;</span><br><span class="line">        steps &#123;</span><br><span class="line">            sh label: &#39;&#39;, script: &#39;&#39;&#39;</span><br><span class="line">            sed -i -E &quot;s&#x2F;([a-z]* 20[0-9]&#123;2&#125;)&#x2F;$&#123;release_month&#125;&#x2F;&quot; 1033&#x2F;AutoRun.ini</span><br><span class="line">            sed -i -E &quot;s&#x2F;([a-z]* 20[0-9]&#123;2&#125;)&#x2F;$&#123;release_month&#125;&#x2F;&quot; 1033&#x2F;MainMenu.ini</span><br><span class="line">            &#39;&#39;&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        stage(&#39;change build version&#39;) &#123;</span><br><span class="line">        steps &#123;</span><br><span class="line">            sh label: &#39;&#39;, script: &#39;sed -i -E &quot;s&#x2F;([0-9].[0-9].[0-9].[0-9]&#123;4&#125;)&#x2F;$&#123;build_version&#125;&#x2F;&quot; 1033&#x2F;AutoRun.ini&#39;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        stage(&#39;git push to Git&#39;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sshagent([&#39;8dd766ba-ac0f-4302-afa8-bee59c726dee&#39;]) &#123;</span><br><span class="line">                    sh(&quot;git add 1033&#x2F;AutoRun.ini&quot;)</span><br><span class="line">                    sh(&quot;git add 1033&#x2F;MainMenu.ini&quot;)</span><br><span class="line">                    sh(&quot;git commit -m &#39;Bld # $&#123;build_version&#125;&#39;&quot;)</span><br><span class="line">                    sh(&quot;git push -u origin master&quot;)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/auto-bump-build-version/" data-id="ckc5mu1vp002yswfohlkpe1dl" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/auto-bump-build-version/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/release/" rel="tag">Release</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2019/05/jenkins-linux-agent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/jenkins-linux-agent/" class="article-date">
+  <time datetime="2019-05-12T11:49:20.000Z" itemprop="datePublished">2019-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/jenkins-linux-agent/">Jenkins Linux agent configuration</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="Check-if-had-installed-java"><a href="#Check-if-had-installed-java" class="headerlink" title="Check if had installed java"></a>Check if had installed java</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">openjdk version <span class="string">"1.8.0_65"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_65-b17)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h4 id="if-not-Here-is-an-article-telling-you-how-to-install-it"><a href="#if-not-Here-is-an-article-telling-you-how-to-install-it" class="headerlink" title="if not Here is an article telling you how to install it"></a>if not Here is an <a href="https://www.javahelps.com/2015/03/install-oracle-jdk-in-ubuntu.html" target="_blank" rel="noopener">article</a> telling you how to install it</h4><h2 id="Create-Node"><a href="#Create-Node" class="headerlink" title="Create Node"></a>Create Node</h2><h3 id="1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine"><a href="#1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine" class="headerlink" title="1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine"></a>1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine</h3><h4 id="2-List-Linux-agent-settings"><a href="#2-List-Linux-agent-settings" class="headerlink" title="2. List Linux agent settings"></a>2. List Linux agent settings</h4><table>
+<thead>
+<tr>
+<th>Items</th>
+<th>Settings</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Name</td>
+<td>Linux-build-machine</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>used for Linux build</td>
+</tr>
+<tr>
+<td>of executors</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Remote root directory</td>
+<td>/home/agent</td>
+</tr>
+<tr>
+<td>Labels</td>
+<td>Linux, build</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>Use this node as much as possible</td>
+</tr>
+<tr>
+<td>Launch method</td>
+<td>Launch agent agents via SSH</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>192.168.1.112</td>
+</tr>
+<tr>
+<td>Credentials</td>
+<td>username/password</td>
+</tr>
+<tr>
+<td>Host Key Verification Strategy</td>
+<td>Manually trusted key Verification Strategy</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Keep this agent online as much as paossible</td>
+</tr>
+</tbody></table>
+<h4 id="3-How-to-set-credentials"><a href="#3-How-to-set-credentials" class="headerlink" title="3. How to set credentials"></a>3. How to set credentials</h4><table>
+<thead>
+<tr>
+<th>credentials</th>
+<th>configuration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Domain</td>
+<td>Global credentials (unrestricted)</td>
+</tr>
+<tr>
+<td>Kind</td>
+<td>Username with password</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Global(Jenkins, nodes, items, all child items, etc)</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>root</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>mypassword</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Linux agent username &amp; password</td>
+</tr>
+</tbody></table>
+<h4 id="4-Save-then-Connect"><a href="#4-Save-then-Connect" class="headerlink" title="4. Save then Connect"></a>4. Save then Connect</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Remoting version: 3.29</span><br><span class="line">This is a Unix agent</span><br><span class="line">Evacuated stdout</span><br><span class="line">Agent successfully connected and online</span><br><span class="line">SSHLauncher&#123;host=<span class="string">'192.168.1.112'</span>, port=22, credentialsId=<span class="string">'d1cbab74-823d-41aa-abb7-8584859503d0'</span>, jvmOptions=<span class="string">''</span>, javaPath=<span class="string">'/usr/bin/java'</span>,</span><br><span class="line">prefixStartSlaveCmd=<span class="string">''</span>, suffixStartSlaveCmd=<span class="string">''</span>, launchTimeoutSeconds=210, maxNumRetries=10, retryWaitTime=15,</span><br><span class="line">sshHostKeyVerificationStrategy=hudson.plugins.sshslaves.verifiers.ManuallyTrustedKeyVerificationStrategy, tcpNoDelay=<span class="literal">true</span>, trackCredentials=<span class="literal">true</span>&#125;</span><br><span class="line">[05/11/19 01:33:37] [SSH] Opening SSH connection to 192.168.1.112:22.</span><br><span class="line">[05/11/19 01:33:37] [SSH] SSH host key matches key seen previously <span class="keyword">for</span> this host. Connection will be allowed.</span><br><span class="line">[05/11/19 01:33:37] [SSH] Authentication successful.</span><br><span class="line">[05/11/19 01:33:37] [SSH] The remote user<span class="string">'s environment is:</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>how to fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[04/22/19 23:15:07] [SSH] WARNING: No entry currently exists in the Known Hosts file for this host. Connections will be denied until this new host and its associated key is added to the Known Hosts file.</td>
+<td>ssh-keyscan HOSTNAME &gt;&gt; known_hosts</td>
+</tr>
+<tr>
+<td>/var/lib/jenkins/.ssh/known_hosts [SSH] No Known Hosts file was found at /var/lib/jenkins/.ssh/known_hosts.</td>
+<td>changing the Host key verification strategy in LAUNCH METHOD from “Known Hosts file verification strategy” to “Manually trusted key verification strategy”</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/" data-id="ckc5mu1vq0033swfo9r7kburl" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2019/05/jenkins-windows-agent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/jenkins-windows-agent/" class="article-date">
+  <time datetime="2019-05-12T10:39:59.000Z" itemprop="datePublished">2019-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/jenkins-windows-agent/">Jenkins Windows agent configuration</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="1-Download-Java"><a href="#1-Download-Java" class="headerlink" title="1. Download Java"></a>1. <a href="https://www.java.com/en/download/" target="_blank" rel="noopener">Download Java</a></h3><h4 id="2-Configure-Java-Windows-path"><a href="#2-Configure-Java-Windows-path" class="headerlink" title="2. Configure Java Windows path"></a>2. Configure Java Windows path</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=C:\Program Files\Java\jdk1.8.0_201</span><br><span class="line">CLASSPATH=.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-Node"><a href="#Create-Node" class="headerlink" title="Create Node"></a>Create Node</h2><h3 id="1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine"><a href="#1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine" class="headerlink" title="1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine"></a>1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine</h3><h4 id="2-List-windows-agent-settings"><a href="#2-List-windows-agent-settings" class="headerlink" title="2. List windows agent settings"></a>2. List windows agent settings</h4><table>
+<thead>
+<tr>
+<th>Items</th>
+<th>Settings</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Name</td>
+<td>window-build-machine</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>used for windows build</td>
+</tr>
+<tr>
+<td>of executors</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Remote root directory</td>
+<td>C:\agent</td>
+</tr>
+<tr>
+<td>Labels</td>
+<td>windows, build</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>Use this node as much as possible</td>
+</tr>
+<tr>
+<td>Launch method</td>
+<td>Let Jenkins control this Windows slave as a Windows service</td>
+</tr>
+<tr>
+<td>Administrator user name</td>
+<td>.\Administrator</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>mypassword</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>192.168.1.111</td>
+</tr>
+<tr>
+<td>Run service as</td>
+<td>Use Administrator account given above</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Keep this agent online as much as paossible</td>
+</tr>
+</tbody></table>
+<h4 id="3-Save-then-Connect"><a href="#3-Save-then-Connect" class="headerlink" title="3. Save then Connect"></a>3. Save then Connect</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[2019-05-11 01:32:50] [windows-slaves] Connecting to 192.168.1.111</span><br><span class="line">Checking <span class="keyword">if</span> Java exists</span><br><span class="line">java -version returned 1.8.0.</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying jenkins-slave.xml</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying slave.jar</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Starting the service</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Waiting <span class="keyword">for</span> the service to become ready</span><br><span class="line">[2019-05-11 01:32:55] [windows-slaves] Connecting to port 52,347</span><br><span class="line">&lt;===[JENKINS REMOTING CAPACITY]===&gt;Remoting version: 3.29</span><br><span class="line">This is a Windows agent</span><br><span class="line">Agent successfully connected and online</span><br></pre></td></tr></table></figure>
+
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Problem</th>
+<th>how to fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ERROR: Message not found for errorCode: 0xC00000AC</td>
+<td>need to install JDK, and config JAVA environment variable</td>
+</tr>
+<tr>
+<td>2</td>
+<td>how to fix add windows node as Windows service error</td>
+<td><a href="https://issues.jenkins-ci.org/browse/JENKINS-16418" target="_blank" rel="noopener">JENKINS-16418</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>org.jinterop.dcom.common.JIException: Message not found for errorCode: 0x00000005</td>
+<td>HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID {72C24DD5-D70A-438B-8A42-98424B88AFB8} <br> HKEY_CLASSES_ROOT\CLSID{76A64158-CB41-11D1-8B02-00600806D9B6} <br>Launch ‘regedit’ (as Administrator) <br>Find (Ctrl+F) the following registry key: “{72C24DD5-D70A-438B-8A42-98424B88AFB8}” in HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID\ <br>Right click and select ‘Permissions’, Change owner to administrators group (Advanced…). <br>Change permissions for administrators group. Grant Full Control <br>Change owner back to TrustedInstaller (user is “NT Service\TrustedInstaller” on local machine)<br>Repeat the steps above for HKEY_CLASSES_ROOT\CLSID {76A64158-CB41-11D1-8B02-00600806D9B6} <br>Restart Remote Registry Service (Administrative Tools / Services)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</td>
+<td>Login remote machine and open Services find jenkinsslave-C__agent <br>Set startup type: Automatic <br>Log On: select This account, type correct account and password <br>start jenkinsslave-C__agent</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Caused by: org.jinterop.dcom.common.JIRuntimeException: Message not found for errorCode: 0x800703FA</td>
+<td>Slave under domain account <br>If your slave is running under a domain account and you get an error code 0x800703FA, change a group policy: <br>open the group policy editor (gpedit.msc) <br>go to Computer Configuration-&gt;Administrative Templates-&gt;System-&gt; UserProfiles, “Do not forcefully unload the user registry at user logoff” <br>Change the setting from “Not Configured” to “Enabled”, which disables the new User Profile Service feature (‘DisableForceUnload’ is the value added to the registry)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>more connect jenkins agent problem on windows …</td>
+<td>please refer to this link <a href="https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc" target="_blank" rel="noopener">https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>ERROR: Message not found for errorCode: 0xC0000001 Caused by: jcifs.smb.SmbException: Failed to connect: 0.0.0.0&lt;00&gt;/10.xxx.xxx.xxx</td>
+<td>need to enable SMB1 <br>Search in the start menu for ‘Turn Windows features on or off’ and open it. <br>Search for ‘SMB1.0/CIFS File Sharing Support’ in the list of optional features that appears, and select the checkbox next to it. <br>Click OK and Windows will add the selected feature. You’ll be asked to restart your computer as part of this process</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/" data-id="ckc5mu1vo002vswfo0v20gk9u" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2018/12/from-qa-to-dev" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/from-qa-to-dev/" class="article-date">
+  <time datetime="2018-12-26T14:57:20.000Z" itemprop="datePublished">2018-12-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mynotes/">MyNotes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/from-qa-to-dev/">从测试到开发的五个月</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>每当工作闲暇，我都会时常想起好久没有更新微信公众号的文章了，总想等工作不忙的时候赶紧跟大家分享我从测试转开发这段时间的经历和感受，但工作总是有忙不完的忙，一刻都停不下来。</p>
+<p>终于等到这一周有两天工作不是那么忙碌了，才决定将前几天写到一半的文章更新完。这是我这几个月下来感受最轻松的两天，暂时没有bug需要去调查和测试，不用去看十几年的C代码，终于有大块时间去写我负责的Python Client端代码了。这种写着代码，听着歌曲去重构，Debug，修改Unit Test Suite感觉真是幸福。</p>
+<p>幸福的时光总是短暂的，今天就又来了两个Bug需要去调查 ε=(´ο｀*)))唉…</p>
+<p>又把我打回原形，调查大半天之后发现原来是QA测的不对，可以松口气晚上可以不用工作更新下微信公众号了。</p>
+<p>这五个月来，几乎每天都是白天八小时，晚上继续背着电脑回家准备继续工作，周日偶尔去公司，经常在家学习。因为角色的转变，新的项目，需要学习的地方很多。从业务到技术，再加上产品发布在即，作为一名开发新人也肩负起Bug Fix的任务，十年前的代码，全英文的文档，复杂的系统，如果不全力一搏，真担心自己转型失败，那就太打脸了。</p>
+<p>一天的工作忙碌和压力，使得我晚上总是吃的停不下来，吃饭是我一天当中最轻松的时刻。去年我跟别人打赌减肥赢奖金，我毫无怨念的拿到了第一的奖金，可是今年再和别人打赌减肥，至今我都还没开始，马上年底了，输掉奖金是毫无悬念的。总结下来，大概是因为今年工作太忙，工作压力大的缘故，使得我无法在八小时之余安心去继续练习吉他，做keep，年假还没来得及休，真是计划不如变化快。</p>
+<p>虽然我还是个小开发，当角色变了，角度也会有变化。</p>
+<h2 id="自动化测试是本分，DevOps是阶梯"><a href="#自动化测试是本分，DevOps是阶梯" class="headerlink" title="自动化测试是本分，DevOps是阶梯"></a>自动化测试是本分，DevOps是阶梯</h2><p>这几年下来相信你也会真切感受到，如果一名测试人员不懂自动化测试，不会写自动化测试脚本，不但难有升职或是跳槽的机会，很有可能会被企业所淘汰。</p>
+<p>个人觉得DevOps是未来一段时间很多企业要走的路，一般的二线城市能把DevOps讲明白并且实施的人太少了，所以尽早掌握实施DevOps的人，就有机会成为DevOps教练或是测试架构师这样的角色。</p>
+<h2 id="没有做好抗压的准备，不要去做开发"><a href="#没有做好抗压的准备，不要去做开发" class="headerlink" title="没有做好抗压的准备，不要去做开发"></a>没有做好抗压的准备，不要去做开发</h2><p>这几个月来遇到压力非常多，从刚开始的学习C语言，到C语言考核；从学习全英文的业务文档，到业务文档的分享（也是一种考核）；从调研C代码的代码覆盖率、Git分享，到调查并解决Bug；从每天的站立会汇报到每周与国外同事的例会。终于等到九月份，Title从Quality Assurance Engineer变成了Software Engineer，这其中的压力、痛苦和短暂的喜悦只有走过的人才知道。</p>
+<h2 id="与年龄想匹配的能力"><a href="#与年龄想匹配的能力" class="headerlink" title="与年龄想匹配的能力"></a>与年龄想匹配的能力</h2><p>这点非常重要，如果现在问你，你与刚毕业两三年的同行年轻人有哪些优势？如果你不能肯定和清楚的说出自己优势的话，那就要好好反思一下了。</p>
+<p>如果从开发角度来说，我现在就是与年龄不相匹配的能力，因此测试相关的技能以及DevOps相关知识依旧是我要好好掌握的功课。</p>
+<h2 id="学好英语"><a href="#学好英语" class="headerlink" title="学好英语"></a>学好英语</h2><p>对于国内公司来说，工作上不会用到英语，但我想说如果想在测试和开发领域有更长远发展，英文非常重要。一般最流行开源的自动化测试框架、技术、DevOps相关的工具以及搜索最有效的解决问题的方案一般都是英文。如果你的英语不好，坚持一年半载去硬啃一手英文资料，形成习惯，受益终生。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/" data-id="ckc5mu1ww007hswfo4lyt099f" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work/" rel="tag">Work</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2018/09/most-popular-python-automated-testing-framework" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/most-popular-python-automated-testing-framework/" class="article-date">
+  <time datetime="2018-09-26T14:46:27.000Z" itemprop="datePublished">2018-09-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/automation/">Automation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/most-popular-python-automated-testing-framework/">最受欢迎的 Python 自动化测试框架推荐</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着技术的进步和自动化技术的出现，市面上出现了一些自动化测试框架。只需要进行一些适用性和效率参数的调整，这些自动化测试框架就能够开箱即用，大大节省了开发时间。</p>
+<p>本文整理了当前最受欢迎的 Python 自动化测试框架。</p>
+<h2 id="Robot-Framework"><a href="#Robot-Framework" class="headerlink" title="Robot Framework"></a>Robot Framework</h2><p>这是最流行的开源 Python 自动化测试框架，表格式的测试数据语法和关键词驱动测试使得它在全球的测试人员中非常流行。它还拥有众多可用的工具和库，并且留有 API 扩展空间，使得这个框架非常先进和健壮。</p>
+<p>Robot Framework 完全用 Python 开发，对于验收测试非常有用。该框架可以运行在 Java 和.NET 环境，同时支持跨平台，如 Windows、MacOS 和 Linux。它无疑是最易用的自动化测试框架，能允许开发者进行并行测试。</p>
+<h2 id="RedwoodHQ"><a href="#RedwoodHQ" class="headerlink" title="RedwoodHQ"></a>RedwoodHQ</h2><p>这是一个流行的自动化测试工具，它之所以流行是因为它支持大部分流行的编程语言，如 Java、Python、C# 等。它还支持多个测试人员在一个平台上协作并运行测试用例。</p>
+<p>RedwoodHQ 有一个内置的 IDE（集成开发环境），可以在那里创建、修改以及运行测试用例。RedwoodHQ 是对用户最友好或对测试人员最友好的平台之一，它关注一个重大项目的全部测试过程。</p>
+<h2 id="Jasmine"><a href="#Jasmine" class="headerlink" title="Jasmine"></a>Jasmine</h2><p>这是一套 Javascript 行为驱动开发测试框架（BDD），不依赖于其他任何框架和 DOM，适用于任何使用 JavaScript 的地方。除了 JavaScript 之外，Jasmine 还被用于 Python 和 Ruby 自动化测试。</p>
+<p>因此，使用 Jasmine 可以并行运行客户端测试用例和服务端测试用例。它是一个将客户端和服务端单元测试结合起来的完美的测试框架，而且被认为是测试领域的未来。</p>
+<h2 id="Pytest"><a href="#Pytest" class="headerlink" title="Pytest"></a>Pytest</h2><p>如果项目比较小、复杂度比较低，Pytest 是最适合的自动化测试平台。大部分 Python 开发者用它来进行单元测试。它也具有 Robot Framework 所闻名的验收测试能力。</p>
+<p>Pytest 最好的特性之一是，它提供了测试用例的详细失败信息，使开发者可以快速准确地改正问题。它还有各种可用插件来给现有测试技术和测试用例增加更多功能和多样性。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/" data-id="ckc5mu1wt0077swfo20ty2e1g" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/automation/" rel="tag">Automation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framework/" rel="tag">Framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2018/08/how-to-do-functional-testing" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/how-to-do-functional-testing/" class="article-date">
+  <time datetime="2018-08-07T14:31:22.000Z" itemprop="datePublished">2018-08-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mynotes/">MyNotes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/how-to-do-functional-testing/">如何做好功能测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当你第一次开始接触测试这个行业的时候，首先听说的应该都是功能测试。</p>
+<p>功能测试是通过一些测试手段来验证开发做出的代码是否符合产品需求。这些年功能测试好像不太受欢迎了，不少同学开始尝试自动化测试，测试开发等等，结果是功能测试、自动化测试、测试开发一样都没做好。</p>
+<p>我们通常认为的功能测试是根据需求，采取以下测试流程：需求分析，用例编写，用例评审，提测验证，Bug回归验证，上线与线上回归等测试。如此日复一日，年复一年，可是等准备换工作的时候却得不到认可，你也遇到这种情况吗？</p>
+<p>那么如何做好功能测试？功能测试用到哪些知识？有哪些相关的建议呢？</p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>业务方在提出需求的时候，产品是要分析这个需求的价值，影响范围和实现代价的。在需求评审的时候，作为一个测试人员必须了解这次需求的内容，影响到哪些现有的功能，涉及到的操作系统或是类别等，然后准确的评估出工作量，防止因评估不足造成后期测试不充分。</p>
+<p>再者，关注开发和产品的讨论，关注需求最后如何实现？其中做出的变动和难点就是测试的时候必须重点关注的部分，不能因为这些暂时和你没有关系就不去关注，防止欠债越来越多，不能做好充分的的测试。</p>
+<p>第三，需求评审结束后，要求产品更新此次评审过程中的所有改动部分，同时确保之后的任何需求变化都及时更新。</p>
+<p>第四，根据产品需求，同时与在会人员进行探讨，设计测试方案及时间安排，此时可以粗粒度考虑，时间上要合理。</p>
+<h2 id="用例设计与评审"><a href="#用例设计与评审" class="headerlink" title="用例设计与评审"></a>用例设计与评审</h2><p>测试用例是每个测试人员工作过程中必须要完成的工作，它对测试工作起到指导作用，也是相关业务的一个文档沉淀。在以往面试的经验中，有许多人的测试用例写的没有章法，他们是凭着感觉去写测试用例，也没有从用户的角度来思考如何编写测试用例，对于测试用例设计较为常见的方法论也不清楚。</p>
+<p>假如面试的时候给你一个场景：一个全新的App要发布，如果让你来测试，你能想到哪些测试方案？如果你只能想到如何去测试app的功能的话，作为功能测试人员就考虑不够全面。此时除了App的功能以外，还应关注App的兼容性，易用性，接口的功能测试和性能测试，数据的存储以及容灾情况等等都应考虑在内。</p>
+<p>测试用例可设计为两类： 一类是开发自测和验收提测试标准的冒烟测试用例；一类是针对需求的全面测试用例。</p>
+<p>编写完测试用例后主动联系相关人员进行用例评审，在评审过程中及时修改不合适的用例。</p>
+<h2 id="测试流程，注重项目控制"><a href="#测试流程，注重项目控制" class="headerlink" title="测试流程，注重项目控制"></a>测试流程，注重项目控制</h2><p>项目的流程控制在需求开始的时候就应该重视起来，只是很多时候我们没有意识到这是测试的工作，有的是产品来控制，有的是专门的项目经理来控制。</p>
+<p>测试人员需要有关注整体项目的意识。如果你不关注项目进度，什么时候提测什么时候开始测试，那么在测试过程中会遇到测试的内容和最初的需求不一致时候就会额外需要时间来解决，导致项目延期。另外主动关注项目，长此以往，你的这份主动性也会是你有效的竞争力。</p>
+<p>需求一旦明确了由你来负责的时候，就要时刻来关注项目的情况。中间变更需求的时候，要评估是否影响项目进度，如果影响了重新进行排期。如果开发提测试晚了，是否影响上线时间，如果影响需要及时跟相关的人员沟通，发风险邮件，通知大家详细的情况。</p>
+<p>同时在测试过程中，发现了bug需要详细描述问题，以方便开发去进行重现和修改。同时给bug准确分级，实时跟踪进度，保证项目高质量的按期完成。</p>
+<h2 id="上线回归与项目总结"><a href="#上线回归与项目总结" class="headerlink" title="上线回归与项目总结"></a>上线回归与项目总结</h2><p>一个需求上线完成后，要及时进行线上回归，同时必须回归我们在需求评审的时候考虑到的可能影响到的原有的功能，以确保新功能完全上线成功。</p>
+<p>在一个项目完成后，最好有一份个人总结报告，总结整个项目过程中遇到的问题及最后的解决办法，有哪些需要注意的问题？有什么可以借鉴的方案或是改进策略？项目中有没有通用性的问题等等。</p>
+<h2 id="能力的总结和沉淀"><a href="#能力的总结和沉淀" class="headerlink" title="能力的总结和沉淀"></a>能力的总结和沉淀</h2><p>在找工作的时候，很多做功能测试多年的同学都遭遇过面试失败，究其原因，我觉得最核心的原因是：不具备相应工作年限应该具备的能力。</p>
+<p>我们应该时常问自己一句话：离开现有的平台，我还有什么？如果仅仅是对现在公司业务和工具的熟悉，那是没有任何优势可言的。</p>
+<p>对同类业务流程的掌握，项目的整体把控，快速了解业务并能根据需求选择测试方案，引入提高测试效率测试方案和工具，测试过程中遇到问题的预判和解决办法等才是功能测试人员必须具备的能力。</p>
+<p>这些方面你做到了吗？不要抱怨功能测试如何如何，认清行业现状和自己的优缺点，做好自己的职业规划。</p>
+<p>如果你不善于编码，那么做务专家也是功能测试人员一个很好的选择。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/" data-id="ckc5mu1ws0073swfo4hudcjt1" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/" rel="tag">Test</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work/" rel="tag">Work</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2018/07/why-I-move-to-development" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/why-I-move-to-development/" class="article-date">
+  <time datetime="2018-07-21T14:52:35.000Z" itemprop="datePublished">2018-07-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mynotes/">MyNotes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/why-I-move-to-development/">做了9年测试，我为何转开发？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近几个月以来一直没有更新公众号文章，是因为五月开始，因为项目原因我有机会转为开发，我非常珍惜这一机会，所以一直在努力学习开发相关的技能。</p>
+<p>做了9年测试，我为何转开发？</p>
+<p>从三年前我在心里就种下了做开发的种子，因为这些年做自动化测试的原因，在写了很多自动化测试用例代码之后，觉得自己还是喜欢写代码，我想在技术上有更深入的学习，无疑作为开发是最直接的办法，所以一直在努力多看、多写代码，一直准备着等待能成为开发测试工程师，或是开发工程师的那一天。</p>
+<p>最近茹炳晟的一篇文章我看了也很受启发《我为何从开发转测试，并坚持了16年，我们正好是相反的职业历程，虽然如此，但是都是想往更好的职业发展方向上去努力，他在视频里提到了很多未来测试可以做的工作，不了解的可以去看看，可以开阔大家的思路，个人觉得良好的代码能力是做好工程师相关的工作基础。测试不是只要认真仔细的点点点就可以了，不是测试这工作更适合女生，不是做测试比做开发轻松，不是可以不思进取还能高枕无忧，做好测试同样需要比别人更多的努力才能看起来轻而易举。</p>
+<p>因为我学的是毕业之后再没接触的C语言，在这几个月的学习过程中，深刻体会了做开发我还有太多未知的领域知识需要去学习，作为开发语言需要深入的学习，这跟学自动化测试不一样，初学自动化测试脚本语言可以边用边查边学，但C语言不一样，它需要很系统的去学，从数组，指针，结构体，链表，二叉树，数据机构都要一个个突破，了解算法、操作系统、编译原理等等。</p>
+<p>虽然是转开发，但是作为测试出身，我会一如既往的关注测试。</p>
+<p>希望通过角色的转变能让我有更全方位的角度来看待产品质量，测试相关的思考和技术，分享更多有价值的内容。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/" data-id="ckc5mu1wq006wswfoh3gz7izq" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work/" rel="tag">Work</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/5/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/">next</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13.33px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.78px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 12.22px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14.44px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11.11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 12.22px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12.22px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 16.67px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15.56px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.22px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12.22px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 18.89px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/python/" style="font-size: 11.11px;">Python</a> <a href="/tags/release/" style="font-size: 10px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12.22px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11.11px;">Stats</a> <a href="/tags/summary/" style="font-size: 10px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.22px;">Thought</a> <a href="/tags/tips/" style="font-size: 11.11px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12.22px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12.22px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11.11px;">Webhooks</a> <a href="/tags/work/" style="font-size: 14.44px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/vscode/" style="font-size: 11.11px;">vscode</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/about-my-wechat-official-account/">一名软件测试工程师的成长之路</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Jenkins-tips-2/">《Jenkins Tips 002》 处理 Shell 返回的字符串成字符数组</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Jenkins-tips-1/">《Jenkins Tips 001》 忽略 Shell 步骤中的故障</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/vm-status-check-via-jenkins/">这也能用Jenkins？快速实现一个定期批量登录远程虚拟机并支持添加新的主机名称的Job</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/Java-net-SocketException-on-AIX/">解决 Jenkins Artifactory Plugin 仅在 AIX 上传制品到 https 协议的 Artifactory 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/programmers-read-and-write/">从 “会写程序的干不过会写PPT的” —— 聊程序员写作</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/jenkins-pipeline-linter-connector/">如何确保提交 Jenkins Pipeline 前没有语法错误</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/nightwatch-v1-3/">Nightwarch v1.3 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/jmeter-performance-testing/">How to use JMeter to do Performance Testing</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/sync-from-bitbucket-to-github/">Synchronize from Bitbucket to GitHub via Jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Bitbucket-webhooks-cn/">Jenkins 与 Bitbucket Webhooks 的配置和使用</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Bitbucket-webhooks/">Bitbucket Webhooks Configuration</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Jenkins-troubleshooting-1/">三种方法解决 Jenkins 声明式流水线 Exception Method code too large !</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/Top-30-DevOps-Interview-Questions/">DevOps Top 30+ 面试问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/Best-14-CI-CD-Tools-in-2020/">2020年务必知道的最好用的14款CI/CD工具</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/maintaining-a-git-gepository/">如何给你的 Git 仓库“瘦身”</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/cppcheck/">一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/Setup-Linux-in-VirtualBox/">用 VirtualBox 配置一台 Linux 虚拟机</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/linux-tips/">最有用的 Linux 命令行技巧</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/hpxu-tips/">HP-UX 安装工具以及一些使用总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+<script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Xianpeng Shen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
