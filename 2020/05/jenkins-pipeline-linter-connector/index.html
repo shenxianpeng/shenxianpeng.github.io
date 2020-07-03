@@ -15,10 +15,10 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/settings.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/example1.gif">
 <meta property="article:published_time" content="2020-05-23T06:38:59.000Z">
-<meta property="article:modified_time" content="2020-06-18T09:00:32.318Z">
+<meta property="article:modified_time" content="2020-07-03T05:17:07.753Z">
 <meta property="article:author" content="Xianpeng Shen">
-<meta property="article:tag" content="vscode">
 <meta property="article:tag" content="Pipeline">
+<meta property="article:tag" content="vscode">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/settings.png">
   
@@ -120,6 +120,8 @@ ga('send', 'pageview');
 <p>为了减少这种因为语法错误而需要频繁像代码库去提交的情况，最好还是在提交之前进行“编译”检查，来查看当前的 Pipeline 是否存在语法错误。</p>
 <p>经过调查发现 Jenkins 本身提供了这样的 REST API，可以直接使用这个 API 来对 Pipeline 声明式进行语法校验，这个方式需要执行一长串的 <code>curl</code> 命令，看起来似乎很麻烦，如果能在 IDE 里直接运行就好了。VS Code 作为当前当前最流行 IDE 工具，不负期望，果然是有插件的。</p>
 <p>本文介绍了两种方式来实现如何对 Jenkins 声明式流水线在 Jenkins 构建执行前进行语法错误检查，这两种方式的原理都是通过调用 Jenkins REST API 来实现的。</p>
+<a id="more"></a>
+
 <blockquote>
 <p>注意：</p>
 <p>当前只有声明式流水线支持语法校验，脚本式流水线不支持。</p>
@@ -152,7 +154,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/" data-id="ckc5mu1x6008uswfo8zw9bwia" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/" data-id="ckc5zkwxp005t9gfoahgd2ku0" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/#disqus_thread" class="article-comment-link">留言</a>
       

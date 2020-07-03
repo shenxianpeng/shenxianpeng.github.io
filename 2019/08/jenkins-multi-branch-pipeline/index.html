@@ -14,7 +14,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/cover.jpeg">
 <meta property="article:published_time" content="2019-08-05T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-05-12T08:18:10.254Z">
+<meta property="article:modified_time" content="2020-07-03T05:27:23.351Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Jenkins 多分支流水线">
 <meta property="article:tag" content="Jenkins">
@@ -117,6 +117,8 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>Jenkins 是 DevOps 领域里非常好的 CI/CD 工具，它凭借其独特的功能，几乎可以满足你一切的的业务要求。其中一个独特的功能是多分支流水线(Multi-branch 流水线)，可以动态配置流水线。但是，随着公司的发展，单独的多分支流水线并不能完全满足你的所有需求，特别是在涉及大型企业时，你需要考虑流水线的集中管理，治理，稳定性，限制和安全性等其他事项。因此对于具有 Jenkins 流水线的大规模 CI/CD 环境，你需要添加之前没有想到的更多功能。</p>
+<a id="more"></a>
+
 <p><img src="/2019/08/jenkins-multi-branch-pipeline/cover.jpeg" alt="jenkins multi branch"></p>
 <h2 id="动态配置流水线"><a href="#动态配置流水线" class="headerlink" title="动态配置流水线"></a>动态配置流水线</h2><p>当一个开发人员创建一个新分支并将其推送到远程代码仓库时，Jenkins 会为这个新分支动态创建流水线。根据代码仓库，甚至也可以作为动态创建 Pull Request 流水线。这个动态功能在使用 Feature 分支或其他类似功能的团队中非常有用，由于本文的主题不是多分支流水线，你可以在<a href="https://jenkins.io/doc/tutorials/build-a-multibranch-pipeline-project/" target="_blank" rel="noopener">端到端多分支流水线项目创建</a>中找到详细信息和一些示例。</p>
 <h2 id="流水线即代码"><a href="#流水线即代码" class="headerlink" title="流水线即代码"></a>流水线即代码</h2><p>在多分支流水线中，脚本存储在项目代码仓库中，这就是“流水线即代码”的概念。此外，当你拥有小型开发人员团队或项目没有大量分支时，它非常有用。这样，开发人员可以根据需要更改流水线，将更改推送到分支，并立即看到更改生效，但对于拥有数百或数千名拥有大量项目的开发人员的大型企业而言，这种方案就完成不可行了。</p>
@@ -135,7 +137,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/" data-id="ckc5mu1w2004eswfocmn4eezp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/" data-id="ckc5zkwwi001g9gfohzsqbwce" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/#disqus_thread" class="article-comment-link">留言</a>
       

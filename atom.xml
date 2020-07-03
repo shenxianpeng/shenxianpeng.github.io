@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-06-30T07:11:07.435Z</updated>
+  <updated>2020-07-03T05:18:07.554Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,24 +21,12 @@
     <link href="https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/"/>
     <id>https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/</id>
     <published>2020-06-30T14:13:26.000Z</published>
-    <updated>2020-06-30T07:11:07.435Z</updated>
+    <updated>2020-07-03T05:18:07.554Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;关注本公众号的读者们可能会感到困惑，我最开始分享是软件功能测试、自动化测试；之后短暂的分享过一点开发；再之后主要在分享 CI/CD 及 DevOps 相关的内容。&lt;/p&gt;
 &lt;p&gt;因此，我想通过本篇简单介绍下自己的公众号以及写公众号带来了哪些收获，通过这个过程展示了作为&lt;strong&gt;一名软件测试工程师的成长之路。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;细心的读者可能通过我的公众号的更名记录也能看出个一二来：&lt;/p&gt;
-&lt;p&gt;关注本公众号的读者们可能会感到困惑，从最开始分享是功能测试、自动化测试，之后短暂的写过一点开发，之后主要在分享CI/CD（持续集成、持续交付）及 DevOps 相关的内容。&lt;/p&gt;
-&lt;p&gt;可能细心的读者通过我的公众号的更名记录觉察到其实是我的岗位职责发生变化：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;2017年08月01日 注册“软件测试QA”&lt;/li&gt;
-&lt;li&gt;2018年12月26日 “软件测试QA”改名“DevQA”&lt;/li&gt;
-&lt;li&gt;2018年12月29日 “DevQA”改名“软件测试与开发”&lt;/li&gt;
-&lt;li&gt;2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我原本是一名测试工程师，曾先后在 SIMcom、东软、京东、以及外企从事软件测试工作，从做手工测试到自动化测试和持续集成，一晃就是九年时间。&lt;/p&gt;
-&lt;p&gt;在做测试的过程中，我看到了软件技术不但是软件开发工程师的立命之本也是测试工程师的职业前进的必备技能，我心中期盼有朝一日自己不再是那个你不懂技术的测试。一直坚持拓展自己的视野、学习开发技术，期盼有机会去做一回开发，这对于我职业发展将会是一次非常好的经历，不但可以加快提高开发技能，也能通过角色的变化从而站在开发的角度看问题，为今后的职业发现提供更多可能。&lt;/p&gt;
-&lt;p&gt;时间终于给了一直在准备的人机会。&lt;/p&gt;
     
     </summary>
     
@@ -54,20 +42,14 @@
     <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/"/>
     <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/</id>
     <published>2020-06-22T06:37:29.000Z</published>
-    <updated>2020-06-25T03:13:35.873Z</updated>
+    <updated>2020-07-03T05:18:43.882Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
 &lt;p&gt;Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/Jenkins-tips-2/jenkins-tips.png&quot; alt&gt;&lt;/p&gt;
 &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;想要把 Linux 上不同的文本数据通过 Jenkins 发送邮件给不同的人。&lt;/p&gt;
-&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;想通过 Shell 先对数据进行处理，然后返回到 Jenkins pipeline 里，但只能得到 Shell 返回的字符串，因此需要在 Jenkinsfile 里把字符串处理成数组，然后通过一个 for 循环对数组中的值进行处理。&lt;/p&gt;
-&lt;p&gt;以下是要处理的文本数据：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Example&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ ls&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;fail-list-user1.txt  fail-list-user2.txt  fail-list-user3.txt&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;要将以上文件通过 Jenkins 分别进行处理，得到用户 user1，user2，user3 然后发送邮件。&lt;/p&gt;
-&lt;h2 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h2&gt;
     
     </summary>
     
@@ -85,19 +67,17 @@
     <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/"/>
     <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/</id>
     <published>2020-06-21T13:42:17.000Z</published>
-    <updated>2020-06-22T01:31:10.395Z</updated>
+    <updated>2020-07-03T05:18:37.044Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
 &lt;p&gt;Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/06/Jenkins-tips-1/jenkins-tips.png&quot; alt&gt;&lt;/p&gt;
 &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;不希望 Shell 脚本因失败而中止&lt;/li&gt;
 &lt;li&gt;想一直运行 Shell 脚本并报告失败&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h2&gt;
     
     </summary>
     
@@ -115,18 +95,11 @@
     <link href="https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/"/>
     <id>https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/</id>
     <published>2020-06-12T19:34:28.000Z</published>
-    <updated>2020-06-18T09:00:32.320Z</updated>
+    <updated>2020-07-03T05:19:05.352Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;实现定期批量登录远程虚拟机然后进行一些指定的操作，还支持用户添加新的 hostname。&lt;/p&gt;
-&lt;h2 id=&quot;需求分解&quot;&gt;&lt;a
-        
-      
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;实现定期批量登录远程虚拟机然后进行一些指定的操作，还支持用户添加新的 hostname。&lt;/p&gt;
     
     </summary>
     
@@ -144,20 +117,14 @@
     <link href="https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/"/>
     <id>https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/</id>
     <published>2020-06-03T11:30:03.000Z</published>
-    <updated>2020-06-07T11:38:06.094Z</updated>
+    <updated>2020-07-03T05:17:27.155Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;本文对于同样在 AIX 遇到这个问题的人会非常有帮助。另外，不要被标题无聊到，解决问题的过程值得参考。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;分享一个花了两天时间才解决的一个问题：使用 Jenkins Artifactory 插件上传制品到
-        
-      
+&lt;p&gt;分享一个花了两天时间才解决的一个问题：使用 Jenkins Artifactory 插件上传制品到 https 协议的企业级的 Artifactory 失败。该问题只在 AIX 平台上出现的，其他 Windows，Linux, Unix 均正常。&lt;/p&gt;
     
     </summary>
     
@@ -177,17 +144,13 @@
     <link href="https://shenxianpeng.github.io/2020/05/programmers-read-and-write/"/>
     <id>https://shenxianpeng.github.io/2020/05/programmers-read-and-write/</id>
     <published>2020-05-30T13:32:08.000Z</published>
-    <updated>2020-06-07T03:27:59.633Z</updated>
+    <updated>2020-07-03T05:16:22.498Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;在程序员圈子里比较流行这样一句话“会写程序的干不过会写 PPT 的”，还记得 2019
-        
-      
+      &lt;p&gt;在程序员圈子里比较流行这样一句话“会写程序的干不过会写 PPT 的”，还记得 2019 年新东方年会的一首《放飞自我》里有这样一句歌词戳中了绝大大多数程序员的内心&lt;/p&gt;
+&lt;p&gt;“干的累死累活，有成果那又如何，到头来干不过写PPT的”。&lt;/p&gt;
+&lt;p&gt;一时间大家好像都认同了这个说法，表达着自己的不满和无奈。&lt;/p&gt;
     
     </summary>
     
@@ -205,26 +168,23 @@
     <link href="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/"/>
     <id>https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/</id>
     <published>2020-05-23T06:38:59.000Z</published>
-    <updated>2020-06-18T09:00:32.318Z</updated>
+    <updated>2020-07-03T05:17:07.753Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;我在做 Jenkins 声明式流水线开发时常会遇到的问题是：Pipeline 看起来没有问题，当提交到代码仓库后进行 Jenkins
-        
-      
+      &lt;p&gt;我在做 Jenkins 声明式流水线开发时常会遇到的问题是：Pipeline 看起来没有问题，当提交到代码仓库后进行 Jenkins 构建时发现原来有语法错误，然后再去修改、提交、构建，结果可能还有有其他没有注意到的语法问题。&lt;/p&gt;
+&lt;p&gt;为了减少这种因为语法错误而需要频繁像代码库去提交的情况，最好还是在提交之前进行“编译”检查，来查看当前的 Pipeline 是否存在语法错误。&lt;/p&gt;
+&lt;p&gt;经过调查发现 Jenkins 本身提供了这样的 REST API，可以直接使用这个 API 来对 Pipeline 声明式进行语法校验，这个方式需要执行一长串的 &lt;code&gt;curl&lt;/code&gt; 命令，看起来似乎很麻烦，如果能在 IDE 里直接运行就好了。VS Code 作为当前当前最流行 IDE 工具，不负期望，果然是有插件的。&lt;/p&gt;
+&lt;p&gt;本文介绍了两种方式来实现如何对 Jenkins 声明式流水线在 Jenkins 构建执行前进行语法错误检查，这两种方式的原理都是通过调用 Jenkins REST API 来实现的。&lt;/p&gt;
     
     </summary>
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
-    
       <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
+    
+      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
     
   </entry>
   
@@ -233,17 +193,13 @@
     <link href="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/"/>
     <id>https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/</id>
     <published>2020-05-17T01:00:00.000Z</published>
-    <updated>2020-05-17T08:36:46.032Z</updated>
+    <updated>2020-07-03T05:16:39.263Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Nightwatch js 是我之前写自动化测试用例使用了很长一段时间的测试框架，我当时的使用 v0.9 版本并且对使用和 API 进行了翻译。作为一名前测试工程师，对于自动化的知识不能不更新下自己的知识库，一转眼 Nightwatch 1.3
-        
-      
+      &lt;p&gt;Nightwatch js 是我之前写自动化测试用例使用了很长一段时间的测试框架，我当时的使用 v0.9 版本并且对使用和 API 进行了翻译。作为一名前测试工程师，对于自动化的知识不能不更新下自己的知识库，一转眼 Nightwatch 1.3 版本已经发布了，可以看到它在 GitHub 上的使用和关注度还是很高的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/05/nightwatch-v1-3/nightwatch-star.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;Nightwarch.js 是一个端到端的基于 Node.js 使用 W3C Webdriver （以前是 Selenium ）的自动化测试框架。它是一个完整的集成解决方案，用于 web 应用程序和网站的端到端测试，以及 Node.js 单元测试和集成测试。&lt;/p&gt;
     
     </summary>
     
@@ -261,17 +217,17 @@
     <link href="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/"/>
     <id>https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/</id>
     <published>2020-05-09T06:28:09.000Z</published>
-    <updated>2020-06-07T03:27:59.629Z</updated>
+    <updated>2020-07-03T05:16:53.235Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Record-JMeter-Scripts&quot;&gt;&lt;a href=&quot;#Record-JMeter-Scripts&quot; class=&quot;headerlink&quot; title=&quot;Record JMeter Scripts&quot;&gt;&lt;/a&gt;Record JMeter
-        
-      
+      &lt;h2 id=&quot;Record-JMeter-Scripts&quot;&gt;&lt;a href=&quot;#Record-JMeter-Scripts&quot; class=&quot;headerlink&quot; title=&quot;Record JMeter Scripts&quot;&gt;&lt;/a&gt;Record JMeter Scripts&lt;/h2&gt;&lt;p&gt;use JMeter’s HTTP(S) Test Script Recorder, please refer to this official document &lt;a href=&quot;https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Running-JMeter-Scripts&quot;&gt;&lt;a href=&quot;#Running-JMeter-Scripts&quot; class=&quot;headerlink&quot; title=&quot;Running JMeter Scripts&quot;&gt;&lt;/a&gt;Running JMeter Scripts&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Debug scripts on JMeter in GUI Mode&lt;/p&gt;
+&lt;p&gt;You can debug your record scripts in GUI Mode until there are no errors&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;run test scripts in Non-GUI Mode(Command Line mode) recommend&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;jmeter -n -t ..\extras\Test.jmx -l Test.jtl&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;&lt;/ul&gt;
     
     </summary>
     
@@ -289,26 +245,24 @@
     <link href="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/"/>
     <id>https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/</id>
     <published>2020-05-05T08:54:09.000Z</published>
-    <updated>2020-05-23T16:10:19.139Z</updated>
+    <updated>2020-07-03T05:20:19.554Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;最近我们团队需要将一些示例和例子从内部的 Bitbucket 同步到 GitHub。我了解 GitHub
-        
-      
+      &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;最近我们团队需要将一些示例和例子从内部的 Bitbucket 同步到 GitHub。我了解 GitHub 可以创建公共的或是私人的仓库，但我们需要保持以下两点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;只分享我们想给客户分享的内容&lt;/li&gt;
+&lt;li&gt;不改变当前的工作流程，即继续使用 Bitbucket&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
   </entry>
   
@@ -317,17 +271,14 @@
     <link href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/"/>
     <id>https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/</id>
     <published>2020-04-28T14:40:21.000Z</published>
-    <updated>2020-05-12T08:18:10.326Z</updated>
+    <updated>2020-07-03T05:21:08.270Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;Jenkins 的 multi-branch pipeline 想必很多人已经在用了，使用这种类型的 Jenkins Job
-        
-      
+      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;Jenkins 的 multi-branch pipeline 想必很多人已经在用了，使用这种类型的 Jenkins Job 最显著的作用就是可以对 Git 仓库里的任何分支和任何 Pull Request（以下简写为 PR）进行构建。&lt;/p&gt;
+&lt;p&gt;在做 Jenkins 与 Bitbucket 的集成时，需要安装插件：Bitbucket Branch Source，可以通过该插件在 Jenkins 里进行 webhook 的配置。这种方式对于没有 Bitbucket 仓库的管理权限，CI/CD 暂且处于变更比较频繁的阶段，不想麻烦的去申请添加 webhook 的同学来说是非常友好的，就是可以不用通过管理员在 Bitbucket 设置里添加 webhook 也可以实现创建 PR 后触发 Jenkins 构建。&lt;/p&gt;
+&lt;p&gt;但我最近遭遇了两次：在创建 PR 后没有触发 Jenkins 自动构建，查了 Jenkins 和 Bitbucket Branch Source 插件的配置，并没有任何改动，也各种 Google 之后也没有找到相应的解决办法（如果有遇到此情况的小伙伴欢迎一起交流）。&lt;/p&gt;
+&lt;p&gt;那既然这条路不稳定，不好走，那就走一条可以走通的路、直接的硬路，即在 Bitbucket 对应的仓库中添加 webhooks。&lt;/p&gt;
     
     </summary>
     
@@ -345,17 +296,11 @@
     <link href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/"/>
     <id>https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/</id>
     <published>2020-04-24T09:40:21.000Z</published>
-    <updated>2020-05-12T08:18:10.330Z</updated>
+    <updated>2020-07-03T05:20:58.899Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;I have set several multi-branch
-        
-      
+      &lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;I have set several multi-branch pipeline and it can support Bitbucket Pull Request build. So, when developer create a Pull Request on Bitbucket, Jenkins can auto-trigger PR build. but this jenkins-plugin may not very stable, it had not work two times and I actually don’t know why it does that. But I know the use Git webhook is a direct and hard approach could solve this problem. After my test, the answer is yes. it works as expect.&lt;/p&gt;
     
     </summary>
     
@@ -373,18 +318,12 @@
     <link href="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/"/>
     <id>https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/</id>
     <published>2020-04-20T13:33:09.000Z</published>
-    <updated>2020-05-12T08:18:10.333Z</updated>
+    <updated>2020-07-03T05:21:22.675Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;这是我第二次在使用 Jenkins 声明式流水线的时候遇到了这个问题，第一次遇到这个问题的时候是在一个 Pipeline 里大概写到 600 多行时候遇到如下错误&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
-        
-      
+      &lt;p&gt;这是我第二次在使用 Jenkins 声明式流水线的时候遇到了这个问题，第一次遇到这个问题的时候是在一个 Pipeline 里大概写到 600 多行时候遇到如下错误&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;General error during class generation: Method code too large!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;java.lang.RuntimeException: Method code too large!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	at groovyjarjarasm.asm.MethodWriter.a(Unknown Source)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	[...]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -402,19 +341,20 @@
     <link href="https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/"/>
     <id>https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/</id>
     <published>2020-03-29T05:18:14.000Z</published>
-    <updated>2020-05-12T08:18:10.333Z</updated>
+    <updated>2020-07-03T05:21:44.417Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;DevOps术语和定义&quot;&gt;&lt;a href=&quot;#DevOps术语和定义&quot; class=&quot;headerlink&quot; title=&quot;DevOps术语和定义&quot;&gt;&lt;/a&gt;DevOps术语和定义&lt;/h2&gt;&lt;ol&gt;
+      &lt;h2 id=&quot;DevOps术语和定义&quot;&gt;&lt;a href=&quot;#DevOps术语和定义&quot; class=&quot;headerlink&quot; title=&quot;DevOps术语和定义&quot;&gt;&lt;/a&gt;DevOps术语和定义&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;什么是DevOps&lt;/p&gt;
-&lt;p&gt;
-        
-      
+&lt;p&gt; 用最简单的术语来说，DevOps是产品开发过程中开发（Dev）和运营（Ops）团队之间的灰色区域。 DevOps是一种在产品开发周期中强调沟通，集成和协作的文化。因此，它消除了软件开发团队和运营团队之间的孤岛，使他们能够快速，连续地集成和部署产品。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;什么是持续集成&lt;/p&gt;
+&lt;p&gt; 持续集成（Continuous integration，缩写为 CI）是一种软件开发实践，团队开发成员经常集成他们的工作。利用自动测试来验证并断言其代码不会与现有代码库产生冲突。理想情况下，代码更改应该每天在CI工具的帮助下，在每次提交时进行自动化构建（包括编译，发布，自动化测试），从而尽早地发现集成错误，以确保合并的代码没有破坏主分支。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;什么是持续交付&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
@@ -430,18 +370,17 @@
     <link href="https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/"/>
     <id>https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/</id>
     <published>2020-03-29T03:37:07.000Z</published>
-    <updated>2020-05-12T08:18:10.324Z</updated>
+    <updated>2020-07-03T05:23:05.973Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.katalon.com/resources-center/blog/ci-cd-tools/&quot; target=&quot;_blank&quot;
-        
-      
+      &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.katalon.com/resources-center/blog/ci-cd-tools/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“Quality at Speed” 是软件开发中的新规范。&lt;/p&gt;
+&lt;p&gt;企业正在朝着DevOps方法论和敏捷文化迈进，以加快交付速度并确保产品质量。 在DevOps中，连续和自动化的交付周期是使快速可靠的交付成为可能的基础。&lt;/p&gt;
+&lt;p&gt;这导致我们需要适当的持续集成和持续交付（CI/CD）工具。 一个“好的”CI/CD工具可以利用团队当前的工作流程，以最佳利用自动化功能并创建可靠的CI/CD管道，并为团队发展提供所需的动力。&lt;/p&gt;
+&lt;p&gt;随着市场上大量CI/CD工具的出现，团队可能难以做出艰难的决定来挑选合适的工具。该列表包含“市场上最好的14种CI/CD工具”及其主要功能，使您和团队在选择过程中更加轻松。&lt;/p&gt;
     
     </summary>
     
@@ -459,17 +398,11 @@
     <link href="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/"/>
     <id>https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/</id>
     <published>2020-03-21T12:54:34.000Z</published>
-    <updated>2020-05-12T08:18:10.325Z</updated>
+    <updated>2020-07-03T05:22:49.880Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;对 Git 仓库的维护通常是为了减少仓库的大小。如果你从另外一个版本控制系统导入了一个仓库，你可能需要在导入后清除掉不必要的文件。本文主要讨论如何从 Git
-        
-      
+      &lt;p&gt;对 Git 仓库的维护通常是为了减少仓库的大小。如果你从另外一个版本控制系统导入了一个仓库，你可能需要在导入后清除掉不必要的文件。本文主要讨论如何从 Git 仓库中删除不需要的文件。&lt;/p&gt;
     
     </summary>
     
@@ -487,17 +420,11 @@
     <link href="https://shenxianpeng.github.io/2020/02/cppcheck/"/>
     <id>https://shenxianpeng.github.io/2020/02/cppcheck/</id>
     <published>2020-02-16T13:14:12.000Z</published>
-    <updated>2020-05-12T08:18:10.318Z</updated>
+    <updated>2020-07-03T05:23:20.515Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;由于历史遗留原因，我们当前产品的代码仓库里遗留很多 Warning，这些 Warning 不是一时半会可以解决掉的。只有通过不断的丰富自动化测试用例，来保障最后的质量关卡，才敢有条不紊的进行 Warining 的修复，在次之前，如何有效杜绝继续引入更多的 Warining
-        
-      
+      &lt;p&gt;由于历史遗留原因，我们当前产品的代码仓库里遗留很多 Warning，这些 Warning 不是一时半会可以解决掉的。只有通过不断的丰富自动化测试用例，来保障最后的质量关卡，才敢有条不紊的进行 Warining 的修复，在次之前，如何有效杜绝继续引入更多的 Warining 是当下应该做的。&lt;/p&gt;
     
     </summary>
     
@@ -515,18 +442,12 @@
     <link href="https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/"/>
     <id>https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/</id>
     <published>2020-02-08T03:25:48.000Z</published>
-    <updated>2020-06-07T03:27:59.619Z</updated>
+    <updated>2020-07-03T05:24:08.285Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;如果你想使用 Linux 但又不想租用云厂商的虚拟机，那么 VirtualBox 是一个比较好的选择。我们可以在 VirtualBox 安装你需要的绝大数的操作系统。&lt;/p&gt;
-&lt;p&gt;为了保证使用的流畅，这里最好使用内存建议 8G 及以上，硬盘 256 GB 的
-        
-      
+      &lt;p&gt;如果你想使用 Linux 但又不想租用云厂商的虚拟机，那么 VirtualBox 是一个比较好的选择。我们可以在 VirtualBox 安装你需要的绝大数的操作系统。&lt;/p&gt;
+&lt;p&gt;为了保证使用的流畅，这里最好使用内存建议 8G 及以上，硬盘 256 GB 的 Windows 电脑。&lt;/p&gt;
     
     </summary>
     
@@ -544,18 +465,13 @@
     <link href="https://shenxianpeng.github.io/2020/02/linux-tips/"/>
     <id>https://shenxianpeng.github.io/2020/02/linux-tips/</id>
     <published>2020-02-05T14:34:27.000Z</published>
-    <updated>2020-06-07T03:27:59.625Z</updated>
+    <updated>2020-07-03T05:23:58.158Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;ls-命令&quot;&gt;&lt;a href=&quot;#ls-命令&quot; class=&quot;headerlink&quot; title=&quot;ls 命令&quot;&gt;&lt;/a&gt;ls 命令&lt;/h2&gt;&lt;p&gt;列出当前目录的文件和文件夹。参数:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-l&lt;/code&gt;
-        
-      
+      &lt;h2 id=&quot;ls-命令&quot;&gt;&lt;a href=&quot;#ls-命令&quot; class=&quot;headerlink&quot; title=&quot;ls 命令&quot;&gt;&lt;/a&gt;ls 命令&lt;/h2&gt;&lt;p&gt;列出当前目录的文件和文件夹。参数:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-l&lt;/code&gt; 列出时显示详细信息&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; 显示所有文件，包括隐藏的和不隐藏的&lt;/p&gt;
     
     </summary>
     
@@ -571,17 +487,13 @@
     <link href="https://shenxianpeng.github.io/2020/02/hpxu-tips/"/>
     <id>https://shenxianpeng.github.io/2020/02/hpxu-tips/</id>
     <published>2020-02-05T02:28:37.000Z</published>
-    <updated>2020-06-07T03:27:59.622Z</updated>
+    <updated>2020-07-03T05:23:38.777Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;安装-Java8&quot;&gt;&lt;a href=&quot;#安装-Java8&quot; class=&quot;headerlink&quot; title=&quot;安装 Java8&quot;&gt;&lt;/a&gt;安装 Java8&lt;/h2&gt;&lt;p&gt;安装包下载链接是 &lt;a
-        
-      
+      &lt;h2 id=&quot;安装-Java8&quot;&gt;&lt;a href=&quot;#安装-Java8&quot; class=&quot;headerlink&quot; title=&quot;安装 Java8&quot;&gt;&lt;/a&gt;安装 Java8&lt;/h2&gt;&lt;p&gt;安装包下载链接是 &lt;a href=&quot;https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;需要先注册，然后登陆后才能下载，我下载的是 &lt;code&gt;Itanium_JDK_8.0.18_June_2019_Z7550-96733_java8_18018_ia.depot&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在线安装文档 &lt;a href=&quot;https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04481894&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04481894&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     

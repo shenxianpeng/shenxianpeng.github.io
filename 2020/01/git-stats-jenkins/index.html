@@ -13,7 +13,7 @@
 <meta property="og:description" content="上一篇（GitStats - Git 历史统计信息工具），我已经给老板提供了他想看的所有仓库的 Git 提交历史分析报告了，并且把报告都部署到了一台虚拟机的 tomcat 上了，老板可以通过网址访问直接查看每个仓库的分析报告了，看看谁的贡献大，谁活跃，谁偷懒了，谁周末写代码了（这里不鼓励 996）。 最近老板提需求了。 老板：你弄个这个网址的数据咋不更新呢？报告上咋没见你们提交代码呢？小开：老板儿">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-21T14:06:53.000Z">
-<meta property="article:modified_time" content="2020-05-12T08:18:10.316Z">
+<meta property="article:modified_time" content="2020-07-03T05:24:30.732Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="Stats">
@@ -116,6 +116,8 @@ ga('send', 'pageview');
         <p>上一篇（GitStats - Git 历史统计信息工具），我已经给老板提供了他想看的所有仓库的 Git 提交历史分析报告了，并且把报告都部署到了一台虚拟机的 tomcat 上了，老板可以通过网址访问直接查看每个仓库的分析报告了，看看谁的贡献大，谁活跃，谁偷懒了，谁周末写代码了（这里不鼓励 996）。</p>
 <p>最近老板提需求了。</p>
 <p><em>老板：你弄个这个网址的数据咋不更新呢？报告上咋没见你们提交代码呢？</em><br><em>小开：老板儿，您看到这些一个个仓库的数据都是小开我人肉手动生成的，要不您给我点时间，我来做个自动化任务吧。</em></p>
+<a id="more"></a>
+
 <p>我这么积极主动，不是我奉承老板，我心里也知道老板如果觉得 Git Stats 这个工具好用，肯定希望看到的分析报告是最新的。既然老板先提了，那我就别磨蹭了，赶紧干吧。</p>
 <p>不过用啥实现呢？肯定是 Jenkins 了。一来我已经在 Jenkins 上做了很多的自动化任务了，轻车熟路；二来使用同一套系统不但可以减少繁多的系统入口，降低学习成本，也提高 Jenkins 服务器的利用率。</p>
 <p>设身处地的考虑了下老板的使用需求，他肯定不希望自己去 Jenkins 服务器上去运行 Job 来生成这个Git 仓库的多维度代码分析报告，那么，如果我是老板，我希望：</p>
@@ -133,7 +135,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/01/git-stats-jenkins/" data-id="ckc5mu1wu007aswfo1jkv48gi" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/01/git-stats-jenkins/" data-id="ckc5zkwxh004v9gfo097g1gmx" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/01/git-stats-jenkins/#disqus_thread" class="article-comment-link">留言</a>
       

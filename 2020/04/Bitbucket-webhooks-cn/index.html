@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/multi-branch.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/multi-pr.png">
 <meta property="article:published_time" content="2020-04-28T14:40:21.000Z">
-<meta property="article:modified_time" content="2020-05-12T08:18:10.326Z">
+<meta property="article:modified_time" content="2020-07-03T05:21:08.270Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Bitbucket">
 <meta property="article:tag" content="Webhooks">
@@ -122,6 +122,8 @@ ga('send', 'pageview');
 <p>在做 Jenkins 与 Bitbucket 的集成时，需要安装插件：Bitbucket Branch Source，可以通过该插件在 Jenkins 里进行 webhook 的配置。这种方式对于没有 Bitbucket 仓库的管理权限，CI/CD 暂且处于变更比较频繁的阶段，不想麻烦的去申请添加 webhook 的同学来说是非常友好的，就是可以不用通过管理员在 Bitbucket 设置里添加 webhook 也可以实现创建 PR 后触发 Jenkins 构建。</p>
 <p>但我最近遭遇了两次：在创建 PR 后没有触发 Jenkins 自动构建，查了 Jenkins 和 Bitbucket Branch Source 插件的配置，并没有任何改动，也各种 Google 之后也没有找到相应的解决办法（如果有遇到此情况的小伙伴欢迎一起交流）。</p>
 <p>那既然这条路不稳定，不好走，那就走一条可以走通的路、直接的硬路，即在 Bitbucket 对应的仓库中添加 webhooks。</p>
+<a id="more"></a>
+
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在申请添加 webhooks 之前，我先在个人的私人仓库下，创建了测试仓库对 webhook 进行了测试，在经过反复的测试，觉得没有问题后，将相应的配置通过管理员添加到对应的 Repository 中。如下示例：</p>
 <ul>
 <li>Webhook name: test-multibranch</li>
@@ -163,7 +165,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/" data-id="ckc5mu1x3008dswfo0z7tfeh9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/" data-id="ckc5zkwxt00689gfo62129z69" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/#disqus_thread" class="article-comment-link">留言</a>
       

@@ -5,19 +5,19 @@
   
   <title>Blackduck 与 Jenkins 集成 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。 为什么要做源码扫描在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。 Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog">
+  <meta name="description" content="最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。 为什么要做源码扫描">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Blackduck 与 Jenkins 集成">
 <meta property="og:url" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。 为什么要做源码扫描在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。 Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog">
+<meta property="og:description" content="最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。 为什么要做源码扫描">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/open-source.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/blackduck-credentials.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/blackduck-config.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/blackduck-Jenkins-job.png">
 <meta property="article:published_time" content="2019-12-08T06:48:02.000Z">
-<meta property="article:modified_time" content="2020-05-12T08:18:10.270Z">
+<meta property="article:modified_time" content="2020-07-03T05:25:07.214Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Blackduck">
@@ -121,7 +121,9 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。</p>
-<h2 id="为什么要做源码扫描"><a href="#为什么要做源码扫描" class="headerlink" title="为什么要做源码扫描"></a>为什么要做源码扫描</h2><p>在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。<br><img src="/2019/12/Blackduck-interation-into-Jenkins/open-source.png" alt="开源不等于安全"></p>
+<h2 id="为什么要做源码扫描"><a href="#为什么要做源码扫描" class="headerlink" title="为什么要做源码扫描"></a>为什么要做源码扫描</h2><a id="more"></a>
+
+<p>在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。<br><img src="/2019/12/Blackduck-interation-into-Jenkins/open-source.png" alt="开源不等于安全"></p>
 <p>Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog Xray）。能够搜索安全的开源代码，检测产品的开源代码使用情况，以检查外来代码的开源代码使用情况和风险情况。</p>
 <p>如果不能及时的进行代码扫描，在产品发布快要发布才进行扫描，如果发现问题这时候再去解决就会变得非常被动，因此团队需要尽早发现并解决问题，将 CI 工具进行集成，进行每日、每周、每月扫描就变得十分重要。</p>
 <h2 id="Black-Duck-手动执行一般步骤"><a href="#Black-Duck-手动执行一般步骤" class="headerlink" title="Black Duck 手动执行一般步骤"></a>Black Duck 手动执行一般步骤</h2><ol>
@@ -152,7 +154,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/" data-id="ckc5mu1w90053swfobzcz8pqk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/" data-id="ckc5zkwwr002e9gfo1xg0d0mw" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/12/Blackduck-interation-into-Jenkins/#disqus_thread" class="article-comment-link">留言</a>
       

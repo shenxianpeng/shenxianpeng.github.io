@@ -115,48 +115,15 @@ ga('send', 'pageview');
 <p>在做 Jenkins 与 Bitbucket 的集成时，需要安装插件：Bitbucket Branch Source，可以通过该插件在 Jenkins 里进行 webhook 的配置。这种方式对于没有 Bitbucket 仓库的管理权限，CI/CD 暂且处于变更比较频繁的阶段，不想麻烦的去申请添加 webhook 的同学来说是非常友好的，就是可以不用通过管理员在 Bitbucket 设置里添加 webhook 也可以实现创建 PR 后触发 Jenkins 构建。</p>
 <p>但我最近遭遇了两次：在创建 PR 后没有触发 Jenkins 自动构建，查了 Jenkins 和 Bitbucket Branch Source 插件的配置，并没有任何改动，也各种 Google 之后也没有找到相应的解决办法（如果有遇到此情况的小伙伴欢迎一起交流）。</p>
 <p>那既然这条路不稳定，不好走，那就走一条可以走通的路、直接的硬路，即在 Bitbucket 对应的仓库中添加 webhooks。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>在申请添加 webhooks 之前，我先在个人的私人仓库下，创建了测试仓库对 webhook 进行了测试，在经过反复的测试，觉得没有问题后，将相应的配置通过管理员添加到对应的 Repository 中。如下示例：</p>
-<ul>
-<li>Webhook name: test-multibranch</li>
-<li>Webhook URL: <a href="http://localhost:8080/multibranch-webhook-trigger/invoke?token=test-multibranch" target="_blank" rel="noopener">http://localhost:8080/multibranch-webhook-trigger/invoke?token=test-multibranch</a></li>
-<li>Test connection: 返回 200, 连接测试通过。</li>
-<li>Events:<ul>
-<li>Repository: N/A</li>
-<li>Pull Request: Opened, Merged, Declined, Deleted.</li>
-</ul>
-</li>
-<li>Active: enable</li>
-</ul>
-<p>放两张截图方便参考</p>
-<p>Bitbucket webhooks 设置</p>
-<p><img src="/2020/04/Bitbucket-webhooks-cn/webhook-setting.png" alt="Bitbucket webhooks 设置"></p>
-<p>Jenkins multi-branch pipeline 设置</p>
-<p><img src="/2020/04/Bitbucket-webhooks-cn/jenkins-setting.png" alt="Jenkins multi-branch pipeline 设置"></p>
-<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>通过以上的设置，开发人员在每次创建 PR 都会立即触发 Jenkins 构建，显著的变化有两个：</p>
-<ul>
-<li>比以前依赖插件响应速度要快很多，之前的响应速度一般在 1~2 分支才能触发构建</li>
-<li>稳定程度大大提高，目前为止没有再出现创建 PR 之后没有触发 Jenkins 构建的情况</li>
-</ul>
-<p>最终的与 Jenkins 的集成效果是这样的：</p>
-<ul>
-<li>当创建 (Opened) 一个 Pull Request 时，会自动在 Jenkins 上创建相应的 Pull Request 任务（比如 PR-123）并开始构建。</li>
-<li>当合并 (Merged) 这个 Pull Request 时，会自动删除 Jenkins 中的 PR-123 任务。</li>
-<li>当拒绝 (Declined) 这个 Pull Request 时，会自动删除 Jenkins 中的 PR-123 任务。</li>
-<li>当删除 (Deleted) 这个 Pull Request 时，会自动删除 Jenkins 中的 PR-123 任务。</li>
-</ul>
-<p>已经 Merge 的分支，会显示已经划掉了，灰色的，这种分支不可以再进行执行构建；而 <code>develop</code> 和 <code>master</code> 分支则可以继续手动或自动构建。</p>
-<p><img src="/2020/04/Bitbucket-webhooks-cn/multi-branch.png" alt="Jenkins multi-branch pipeline 设置"></p>
-<p>已经 Merge 了的 Pull Request 同样显示为已经划掉了，灰色的。<code>PR-12</code>, <code>PR-13</code>, <code>PR-14</code> 可以继续手动或自动构建。</p>
-<p><img src="/2020/04/Bitbucket-webhooks-cn/multi-pr.png" alt="Jenkins multi-branch pipeline 设置"></p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>这里说一下我为什么没有添加 Modified 事件。此前我是添加了 Modified 事件，我发现一些处于待合并的分支不知不觉被 webhook 触发了很多次，由于我们的全平台构建、扫描、以及测试需要至少 2~3 小时的时间，当处于待合并的 Pull Request 过多时，对构建资源的占用可能会是全天的。</p>
-<p>我想应该是其中的哪个事件的特性所导致引起的，果不其然，这时候才注意到 Modified 事件的这段解释：A pull request’s description, title, or target branch is changed. 从解释里可以看到 Modified 事件包含修改 PR 描述、标题、还包括了目标分支的变更都会触发构建。</p>
-<p>其实这个 Modified 事件的这个特性本身是特别好的，可以不断的将已经合并到目标分支的代码拉取到源分支进行构建，保证源分支的代码一直是与最新的代码进行集成、构建和测试，这样集成的结果才是最准确可靠的。但只是不适合目前的我们，因此暂且没有开启 Modified 事件。</p>
-<p>这里没有添加其他 webhook 事件，比如对于主分支的触发事件，这个可以根据具体需要进行添加。如果不是那么频繁，每日构建满足需求，那么在 <code>Pipeline</code> 里添加一个 <code>trigger</code> 就可以了。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/04/Bitbucket-webhooks-cn/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/" data-id="ckc5mu1x3008dswfo0z7tfeh9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/" data-id="ckc5zkwxt00689gfo62129z69" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -197,38 +164,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>I have set several multi-branch pipeline and it can support Bitbucket Pull Request build. So, when developer create a Pull Request on Bitbucket, Jenkins can auto-trigger PR build. but this jenkins-plugin may not very stable, it had not work two times and I actually don’t know why it does that. But I know the use Git webhook is a direct and hard approach could solve this problem. After my test, the answer is yes. it works as expect.</p>
-<p>Here is my setting.</p>
-<ul>
-<li>Webhook name: test-multibranch</li>
-<li>Webhook URL: <a href="http://localhost:8080/multibranch-webhook-trigger/invoke?token=test-multibranch" target="_blank" rel="noopener">http://localhost:8080/multibranch-webhook-trigger/invoke?token=test-multibranch</a></li>
-<li>Test connection: 200(green), it passed.</li>
-<li>Events:<ul>
-<li>Repository: N/A</li>
-<li>Pull Request: Opened, Merged, Declined, Deleted.</li>
-</ul>
-</li>
-<li>Active: enable</li>
-</ul>
-<p>Here is setting screenshots.</p>
-<p><img src="/2020/04/Bitbucket-webhooks/webhook-setting.png" alt="Bitbucket webhooks setting"></p>
-<p><img src="/2020/04/Bitbucket-webhooks/jenkins-setting.png" alt="Jenkins multi-branch pipeline setting"></p>
-<p>At first, I also enable Modified event, but I found when there is new merged commits into our develop branch(this is our PR target branch), the holding Pull Request will be triggered and merge develop branch back to source branch then re-build.</p>
-<p>Then I notice the Modified description: A pull request’s description, title, or target branch is changed.</p>
-<p>This is a nice feature to make sure the source code integrate with target branch and build passed, but  this is too frequent for our product builds, because our product pull request build on some Unix platform need almost 3 hours, if has 5 Pull Requests waiting to review, when new commits into develop branch, these 5 PR need to rebuild again, this takes up all the build machines, resulting in those that need to be built not getting the resources.</p>
-<p>After enable above Pull Request event and have these functions.</p>
-<ul>
-<li>when open a new Pull Request on Bitbucket, auto create Pull Request branch and build in Jenkins.</li>
-<li>when merge the Pull Request Bitbucket, auto delete Pull Request branch in Jenkins.</li>
-<li>when decline the Pull Request Bitbucket, auto delete Pull Request branch in Jenkins.</li>
-<li>when delete the Pull Request Bitbucket, auto delete Pull Request branch in Jenkins.</li>
-</ul>
-<p>For other specific branches build my Jenkins job support manually build and timing trigger, so this event settings currently good to me.</p>
-<p>If there is new settings need to add, I will keep update this article in the future.</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/04/Bitbucket-webhooks/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/" data-id="ckc5mu1x10086swfo0jez6tt2" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/" data-id="ckc5zkwxt00649gfo32ip73jv" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -270,78 +214,15 @@ ga('send', 'pageview');
       
         <p>这是我第二次在使用 Jenkins 声明式流水线的时候遇到了这个问题，第一次遇到这个问题的时候是在一个 Pipeline 里大概写到 600 多行时候遇到如下错误</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:</span><br><span class="line">General error during class generation: Method code too large!</span><br><span class="line"></span><br><span class="line">java.lang.RuntimeException: Method code too large!</span><br><span class="line">	at groovyjarjarasm.asm.MethodWriter.a(Unknown Source)</span><br><span class="line">	[...]</span><br></pre></td></tr></table></figure>
-
-<p>当时我也使用了 Jenkins Shared Libraries，但那时候的代码组织的并不是很好，有不少步骤还没来得及单独抽离出来作为单独的方法。为了解决这个问题，经过一番重构，我将原来的 600 多行的 Pipeline 变成了现在的 300 多行，很不巧，随着继续添加功能，最近又遇到了这个问题。</p>
-<p>出现这个问题的原因是 Jenkins 将整个声明性管道放入单个方法中，并且在一定大小下，JVM 因 java.lang .RuntimeException 失败：方法代码太大！看来我还是有什么方法超过了 64k。</p>
-<p>Jenkins JIRA 上已经有了该问题的单子，但目前为止还是尚未解决。针对这个问题目前有三种方案，但他们都有各自的利弊。</p>
-<h2 id="方法1：将步骤放到管道外的方法中"><a href="#方法1：将步骤放到管道外的方法中" class="headerlink" title="方法1：将步骤放到管道外的方法中"></a>方法1：将步骤放到管道外的方法中</h2><p>自2017年中以来，你可以在管道的末尾声明一个方法，然后在声明性管道中调用它即可。 这样，我们可以达到与共享库相同的效果，但是避免了维护开销。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&#39;Test&#39;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                whateverFunction()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void whateverFunction() &#123;</span><br><span class="line">    sh &#39;ls &#x2F;&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>没有额外的维护费用</td>
-<td>这个解决方案不知道会不会一直有效</td>
-</tr>
-<tr>
-<td>所有的功能都反映在Jenkinsfile中</td>
-<td>有的方法在多个Jenkinsfile里用到时，这种方法还是会写很多重复的代码</td>
-</tr>
-</tbody></table>
-<h2 id="方法2：从声明式迁移到脚本式管道"><a href="#方法2：从声明式迁移到脚本式管道" class="headerlink" title="方法2：从声明式迁移到脚本式管道"></a>方法2：从声明式迁移到脚本式管道</h2><p>最后，我们可以迁移到脚本化的管道。有了它，我们就有了所有的自由。但是也就会失去我们最初决定使用声明式管道的原因。有了专用的DSL，就很容易理解管道是如何工作的</p>
-<table>
-<thead>
-<tr>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>完全没有限制</td>
-<td>需要比较大的重构</td>
-</tr>
-<tr>
-<td></td>
-<td>更容易出错</td>
-</tr>
-<tr>
-<td></td>
-<td>可能需要更多的代码来实现相同的功能</td>
-</tr>
-</tbody></table>
-<h2 id="方法3：使用-Shared-Libraries"><a href="#方法3：使用-Shared-Libraries" class="headerlink" title="方法3：使用 Shared Libraries"></a>方法3：使用 Shared Libraries</h2><p>我当前使用的就是 Jenkins Shared Libraries，有一个共享库来执行一些复杂的步骤。共享库目前看来使用的非常广泛，尤其是在维护一些比较大型的、复杂的项目里用的很多。</p>
-<p>最终我的解决办法是进一步缩减 Pipeline 里的代码，这里我也用到 方法1 的解决方案，将一些步骤提到 Pipeline {} 括号的外面，尤其是那些重复调用的​步骤。​</p>
-<table>
-<thead>
-<tr>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>减少了大量重复的代码</td>
-<td>任何一个修改都会影响到所有的引用，要测试好了再将变更放到引用分支里</td>
-</tr>
-<tr>
-<td>可以分块使用</td>
-<td>不熟悉的话很难理解一个步骤到底是做什么的</td>
-</tr>
-<tr>
-<td>生成的Jenkinsfile将易于阅读</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>方法1：对于单一的 Repository 的集成，可以快速实现，大多数人上手会很快。<br>方法2：脚本化提供了很少的限制，适合熟悉 Java，Groovy 的高级用户和有更复杂需求的人使用。<br>方法3：对于企业级项目，拥有很多 Repositories，需要进行大量集成，并且想了解共享库，推荐使用此方法。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/04/Jenkins-troubleshooting-1/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/" data-id="ckc5mu1x4008jswfo1z4o2oh9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/" data-id="ckc5zkwxu006b9gfo29hebi1k" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -389,195 +270,17 @@ ga('send', 'pageview');
 <p> 持续集成（Continuous integration，缩写为 CI）是一种软件开发实践，团队开发成员经常集成他们的工作。利用自动测试来验证并断言其代码不会与现有代码库产生冲突。理想情况下，代码更改应该每天在CI工具的帮助下，在每次提交时进行自动化构建（包括编译，发布，自动化测试），从而尽早地发现集成错误，以确保合并的代码没有破坏主分支。</p>
 </li>
 <li><p>什么是持续交付</p>
-<p> 持续交付（Continuous delivery，缩写为 CD）以及持续集成为交付代码包提供了完整的流程。在此阶段，将使用自动构建工具来编译工件，并使其准备好交付给最终用户。它的目标在于让软件的构建、测试与发布变得更快以及更频繁。这种方式可以减少软件开发的成本与时间，减少风险。</p>
-</li>
-<li><p>什么是持续部署</p>
-<p> 持续部署（Continuous deployment）通过集成新的代码更改并将其自动交付到发布分支，从而将持续交付提升到一个新的水平。 更具体地说，一旦更新通过了生产流程的所有阶段，便将它们直接部署到最终用户，而无需人工干预。因此，要成功利用连续部署，软件工件必须先经过严格建立的自动化测试和工具，然后才能部署到生产环境中。</p>
-</li>
-<li><p>什么是持续测试及其好处</p>
-<p> 连续测试是一种在软件交付管道中尽早、逐步和适当地应用自动化测试的实践。在典型的CI/CD工作流程中，将小批量发布构建。因此，为每个交付手动执行测试用例是不切实际的。自动化的连续测试消除了手动步骤，并将其转变为自动化例程，从而减少了人工。因此，对于DevOps文化而言，自动连续测试至关重要。</p>
-<p> 持续测试的好处</p>
-<ul>
-<li>确保构建的质量和速度。</li>
-<li>支持更快的软件交付和持续的反馈机制。</li>
-<li>一旦系统中出现错误，请立即检测。</li>
-<li>降低业务风险。 在潜在问题变成实际问题之前进行评估。</li>
-</ul>
-</li>
-<li><p>什么是版本控制及其用途？</p>
-<p> 版本控制（或源代码控制）是一个存储库，源代码中的所有更改都始终存储在这个代码仓库中。版本控件提供了代码开发的操作历史记录，追踪文件的变更内容、时间、人等信息忠实地了记录下来。版本控制是持续集成和持续构建的源头。</p>
-</li>
-<li><p>什么是Git？</p>
-<p> Git是一个分布式版本控制系统，可跟踪代码存储库中的更改。利用GitHub流，Git围绕着一个基于分支的工作流，该工作流随着团队项目的不断发展而简化了团队协作。</p>
 </li>
 </ol>
-<h2 id="实施DevOps的原因"><a href="#实施DevOps的原因" class="headerlink" title="实施DevOps的原因"></a>实施DevOps的原因</h2><ol start="8">
-<li><p>DevOps为什么重要？DevOps如何使团队在软件交付方面受益？</p>
-<p> 在当今的数字化世界中，组织必须重塑其产品部署系统，使其更强大，更灵活，以跟上竞争的步伐。</p>
-<p> 这就是DevOps概念出现的地方。DevOps在为整个软件开发管道（从构思到部署，再到最终用户）产生移动性和敏捷性方面发挥着至关重要的作用。DevOps是将不断更新和改进产品的更简化，更高效的流程整合在一起的解决方案。</p>
-</li>
-<li><p>解释DevOps对开发人员有何帮助</p>
-<p> 在没有DevOps的世界中，开发人员的工作流程将首先建立新代码，交付并集成它们，然后，操作团队有责任打包和部署代码。之后，他们将不得不等待反馈。而且如果出现问题，由于错误，他们将不得不重新执行一次。沿线是项目中涉及的不同团队之间的无数手动沟通。</p>
-<p> 由于CI/CD实践已经合并并自动化了其余任务，因此应用DevOps可以将开发人员的任务简化为仅构建代码。随着流程变得更加透明并且所有团队成员都可以访问，将工程团队和运营团队相结合有助于建立更好的沟通和协作。</p>
-</li>
-<li><p>为什么DevOps最近在软件交付方面变得越来越流行？</p>
-<p>DevOps在过去几年中受到关注，主要是因为它能够简化组织运营的开发，测试和部署流程，并将其转化为业务价值。</p>
-<p>技术发展迅速。因此，组织必须采用一种新的工作流程-DevOps和Agile方法-来简化和刺激其运营，而不能落后于其他公司。DevOps的功能通过Facebook和Netflix的持续部署方法所取得的成功得到了清晰体现，该方法成功地促进了其增长，而没有中断正在进行的运营。</p>
-</li>
-<li><p>CI/CD有什么好处？</p>
-<p>CI和CD的结合将所有代码更改统一到一个单一的存储库中，并通过自动化测试运行它们，从而在所有阶段全面开发产品，并随时准备部署。</p>
-<p>CI/CD使组织能够按照客户期望的那样快速，高效和自动地推出产品更新。</p>
-<p>简而言之，精心规划和执行良好的CI/CD管道可加快发布速度和可靠性，同时减轻产品的代码更改和缺陷。这最终将导致更高的客户满意度。</p>
-</li>
-<li><p>持续交付有什么好处？</p>
-<p>通过手动发布代码更改，团队可以完全控制产品。 在某些情况下，该产品的新版本将更有希望：具有明确业务目的的促销策略。</p>
-<p>通过自动执行重复性和平凡的任务，IT专业人员可以拥有更多的思考能力来专注于改进产品，而不必担心集成进度。</p>
-</li>
-<li><p>持续部署有哪些好处？</p>
-<p>通过持续部署，开发人员可以完全专注于产品，因为他们在管道中的最后任务是审查拉取请求并将其合并到分支。通过在自动测试后立即发布新功能和修复，此方法可实现快速部署并缩短部署持续时间。</p>
-<p>客户将是评估每个版本质量的人。新版本的错误修复更易于处理，因为现在每个版本都以小批量交付。</p>
-</li>
-</ol>
-<h2 id="如何有效实施DevOps"><a href="#如何有效实施DevOps" class="headerlink" title="如何有效实施DevOps"></a>如何有效实施DevOps</h2><ol start="14">
-<li><p>定义典型的DevOps工作流程</p>
-<p>典型的DevOps工作流程可以简化为4个阶段：</p>
-<ul>
-<li>版本控制：这是存储和管理源代码的阶段。 版本控件包含代码的不同版本。</li>
-<li>持续集成：在这一步中，开发人员开始构建组件，并对其进行编译，验证，然后通过代码审查，单元测试和集成测试进行测试。</li>
-<li>持续交付：这是持续集成的下一个层次，其中发布和测试过程是完全自动化的。 CD确保将新版本快速，可持续地交付给最终用户。</li>
-<li>持续部署：应用程序成功通过所有测试要求后，将自动部署到生产服务器上以进行发布，而无需任何人工干预。</li>
-</ul>
-</li>
-<li><p>DevOps的核心操作是什么？</p>
-<p>DevOps在开发和基础架构方面的核心运营是：</p>
-<p>Software development:</p>
-<ul>
-<li>Code building</li>
-<li>Code coverage</li>
-<li>Unit testing</li>
-<li>Packaging</li>
-<li>Deployment</li>
-</ul>
-<p>Infrastructure:</p>
-<ul>
-<li>Provisioning</li>
-<li>Configuration</li>
-<li>Orchestration</li>
-<li>Deployment</li>
-</ul>
-</li>
-<li><p>在实施DevOps之前，团队需要考虑哪些预防措施？</p>
-<p>当组织尝试应用这种新方法时，对DevOps做法存在一些误解，有可能导致悲惨的失败：</p>
-<ul>
-<li>DevOps不仅仅是简单地应用新工具和/或组建新的“部门”并期望它能正常工作。实际上，DevOps被认为是一种文化，开发团队和运营团队遵循共同的框架。</li>
-<li>企业没有为其DevOps实践定义清晰的愿景。对开发团队和运营团队而言，应用DevOps计划是一项显着的变化。因此，拥有明确的路线图，将DevOps集成到您的组织中的目标和期望将消除任何混乱，并从早期就提供清晰的指导方针。</li>
-<li>在整个组织中应用DevOps做法之后，管理团队需要建立持续的学习和改进文化。系统中的故障和问题应被视为团队从错误中学习并防止这些错误再次发生的宝贵媒介。</li>
-</ul>
-</li>
-<li><p>SCM团队在DevOps中扮演什么角色？</p>
-<p>软件配置管理（SCM）是跟踪和保留开发环境记录的实践，包括在操作系统中进行的所有更改和调整。</p>
-<p>在DevOps中，将SCM作为代码构建在基础架构即代码实践的保护下。</p>
-<p>SCM为开发人员简化了任务，因为他们不再需要手动管理配置过程。 现在，此过程以机器可读的形式构建，并且会自动复制和标准化。</p>
-</li>
-<li><p>质量保证（QA）团队在DevOps中扮演什么角色？</p>
-<p>随着DevOps实践在创新组织中变得越来越受欢迎，QA团队的职责和相关性在当今的自动化世界中已显示出下降的迹象。</p>
-<p>但是，这可以被认为是神话。 DevOps的增加并不等于QA角色的结束。 这仅意味着他们的工作环境和所需的专业知识正在发生变化。 因此，他们的主要重点是专业发展以跟上这种不断变化的趋势。</p>
-<p>在DevOps中，质量保证团队在确保连续交付实践的稳定性以及执行自动重复性测试无法完成的探索性测试任务方面发挥战略作用。 他们在评估测试和检测最有价值的测试方面的见识仍然在缓解发布的最后步骤中的错误方面起着至关重要的作用。</p>
-</li>
-<li><p>DevOps使用哪些工具？ 描述您使用任何这些工具的经验</p>
-<p>在典型的DevOps生命周期中，有不同的工具来支持产品开发的不同阶段。 因此，用于DevOps的最常用工具可以分为6个关键阶段：</p>
-<p>持续开发：Git, SVN, Mercurial, CVS, Jira<br>持续整合：Jenkins, Bamboo, CircleCI<br>持续交付：Nexus, Archiva, Tomcat<br>持续部署：Puppet, Chef, Docker<br>持续监控：Splunk, ELK Stack, Nagios<br>连续测试：Selenium，Katalon Studio</p>
-</li>
-<li><p>如何在DevOps实践中进行变更管理</p>
-<p>典型的变更管理方法需要与DevOps的现代实践适当集成。 第一步是将变更集中到一个平台中，以简化变更，问题和事件管理流程。</p>
-<p>接下来，企业应建立高透明度标准，以确保每个人都在同一页面上，并确保内部信息和沟通的准确性。</p>
-<p>对即将到来的变更进行分层并建立可靠的策略，将有助于最大程度地降低风险并缩短变更周期。 最后，组织应将自动化应用到其流程中，并与DevOps软件集成。</p>
-</li>
-</ol>
-<h2 id="如何有效实施CI-CD"><a href="#如何有效实施CI-CD" class="headerlink" title="如何有效实施CI/CD"></a>如何有效实施CI/CD</h2><ol start="21">
-<li><p>CI/CD的一些核心组件是什么？</p>
-<p>稳定的CI/CD管道需要用作版本控制系统的存储库管理工具。 这样开发人员就可以跟踪软件版本中的更改。</p>
-<p>在版本控制系统中，开发人员还可以在项目上进行协作，在版本之间进行比较并消除他们犯的任何错误，从而减轻对所有团队成员的干扰。</p>
-<p>连续测试和自动化测试是成功建立无缝CI / CD管道的两个最关键的关键。 自动化测试必须集成到所有产品开发阶段（包括单元测试，集成测试和系统测试），以涵盖所有功能，例如性能，可用性，性能，负载，压力和安全性。</p>
-</li>
-<li><p>CI/CD的一些常见做法是什么？</p>
-<p>以下是建立有效的CI / CD管道的一些最佳实践：</p>
-<ul>
-<li>发展DevOps文化</li>
-<li>实施和利用持续集成</li>
-<li>以相同的方式部署到每个环境</li>
-<li>失败并重新启动管道</li>
-<li>应用版本控制</li>
-<li>将数据库包含在管道中</li>
-<li>监控您的持续交付流程</li>
-<li>使您的CD流水线流畅</li>
-</ul>
-</li>
-<li><p>什么时候是实施CI/CD的最佳时间？</p>
-<p>向DevOps的过渡需要彻底重塑其软件开发文化，包括工作流，组织结构和基础架构。 因此，组织必须为实施DevOps的重大变化做好准备。</p>
-</li>
-<li><p>有哪些常见的CI/CD服务器</p>
-<p>Visual Studio<br>Visual Studio支持具有敏捷计划，源代码控制，包管理，测试和发布自动化以及持续监视的完整开发的DevOps系统。</p>
-<p>TeamCity<br>TeamCity是一款智能CI服务器，可提供框架支持和代码覆盖，而无需安装任何额外的插件，也无需模块来构建脚本。</p>
-<p>Jenkins<br>它是一个独立的CI服务器，通过共享管道和错误跟踪功能支持开发和运营团队之间的协作。 它也可以与数百个仪表板插件结合使用。</p>
-<p>GitLab<br>GitLab的用户可以自定义平台，以进行有效的持续集成和部署。 GitLab帮助CI / CD团队加快代码交付，错误识别和恢复程序的速度。</p>
-<p>Bamboo<br>Bamboo是用于产品发布管理自动化的连续集成服务器。 Bamboo跟踪所有工具上的所有部署，并实时传达错误。</p>
-</li>
-<li><p>描述持续集成的有效工作流程</p>
-<p>实施持续集成的成功工作流程包括以下实践：</p>
-<ul>
-<li>实施和维护项目源代码的存储库</li>
-<li>自动化构建和集成</li>
-<li>使构建自检</li>
-<li>每天将更改提交到基准</li>
-<li>构建所有添加到基准的提交</li>
-<li>保持快速构建</li>
-<li>在生产环境的克隆中运行测试</li>
-<li>轻松获取最新交付物</li>
-<li>使构建结果易于所有人监视</li>
-<li>自动化部署</li>
-</ul>
-</li>
-</ol>
-<h2 id="每种术语之间的差异"><a href="#每种术语之间的差异" class="headerlink" title="每种术语之间的差异"></a>每种术语之间的差异</h2><ol start="26">
-<li><p>敏捷和DevOps之间有哪些主要区别？</p>
-<p>基本上，DevOps和敏捷是相互补充的。敏捷更加关注开发新软件和以更有效的方式管理复杂过程的价值和原则。同时，DevOps旨在增强由开发人员和运营团队组成的不同团队之间的沟通，集成和协作。</p>
-<p>它需要采用敏捷方法和DevOps方法来形成无缝工作的产品开发生命周期：敏捷原理有助于塑造和引导正确的开发方向，而DevOps利用这些工具来确保将产品完全交付给客户。</p>
-</li>
-<li><p>持续集成，持续交付和持续部署之间有什么区别？</p>
-<p>持续集成（CI）是一种将代码版本连续集成到共享存储库中的实践。这种做法可确保自动测试新代码，并能快速检测和修复错误。</p>
-<p>持续交付使CI进一步迈出了一步，确保集成后，随时可以在一个按钮内就可以释放代码库。因此，CI可以视为持续交付的先决条件，这是CI / CD管道的另一个重要组成部分。</p>
-<p>对于连续部署，不需要任何手动步骤。这些代码通过测试后，便会自动推送到生产环境。</p>
-<p>所有这三个组件：持续集成，持续交付和持续部署是实施DevOps的重要阶段。</p>
-<p>一方面，连续交付更适合于活跃用户已经存在的应用程序，这样事情就可以变慢一些并进行更好的调整。另一方面，如果您打算发布一个全新的软件并且将整个过程指定为完全自动化的，则连续部署是您产品的更合适选择。</p>
-</li>
-<li><p>连续交付和连续部署之间有哪些根本区别？</p>
-<p>在连续交付的情况下，主分支中的代码始终可以手动部署。 通过这种做法，开发团队可以决定何时发布新的更改或功能，以最大程度地使组织受益。</p>
-<p>同时，连续部署将在测试阶段之后立即将代码中的所有更新和修补程序自动部署到生产环境中，而无需任何人工干预。</p>
-</li>
-<li><p>持续集成和持续交付之间的区别是什么？</p>
-<p>持续集成有助于确保软件组件紧密协作。 整合应该经常进行； 最好每小时或每天一次。 持续集成有助于提高代码提交的频率，并降低连接多个开发人员的代码的复杂性。 最终，此过程减少了不兼容代码和冗余工作的机会。</p>
-<p>持续交付是CI / CD流程中的下一步。 由于代码不断集成到共享存储库中，因此可以持续测试该代码。 在等待代码完成之前，没有间隙可以进行测试。 这样可确保找到尽可能多的错误，然后将其连续交付给生产。</p>
-</li>
-<li><p>DevOps和持续交付之间有什么区别？</p>
-<p>DevOps更像是一种组织和文化方法，可促进工程团队和运营团队之间的协作和沟通。</p>
-<p>同时，持续交付是成功将DevOps实施到产品开发工作流程中的重要因素。 持续交付实践有助于使新发行的版本更加乏味和可靠，并建立更加无缝和短的流程。</p>
-<p>DevOps的主要目的是有效地结合Dev和Ops角色，消除所有孤岛，并实现独立于持续交付实践的业务目标。</p>
-<p>另一方面，如果已经有DevOps流程，则连续交付效果最佳。 因此，它扩大了协作并简化了组织的统一产品开发周期。</p>
-</li>
-<li><p>敏捷，精益IT和DevOps之间有什么区别？</p>
-<p>敏捷是仅专注于软件开发的方法。 敏捷旨在迭代开发，建立持续交付，缩短反馈循环以及在整个软件开发生命周期（SDLC）中改善团队协作。</p>
-<p>精益IT是一种旨在简化产品开发周期价值流的方法。 精益专注于消除不必要的过程，这些过程不会增加价值，并创建流程来优化价值流。</p>
-<p>DevOps专注于开发和部署-产品开发过程的Dev和Ops。 其目标是有效整合自动化工具和IT专业人员之间的角色，以实现更简化和自动化的流程。</p>
-</li>
-</ol>
-<h2 id="准备好在下一次DevOps面试中取得成功吗？"><a href="#准备好在下一次DevOps面试中取得成功吗？" class="headerlink" title="准备好在下一次DevOps面试中取得成功吗？"></a>准备好在下一次DevOps面试中取得成功吗？</h2><p>目前有无数的DevOps面试问题，我们目前还不能完全解决。但是，我们希望这些问题和建议的答案能使您掌握DevOps和CI/CD的大量知识，并成功地帮助您完成面试。</p>
-<p>将来，我们将在此列表中添加更多内容。 因此，如果您对此主题有任何建议，请随时与我们联系。最后，我们祝您在测试事业中一切顺利！</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/04/Top-30-DevOps-Interview-Questions/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/" data-id="ckc5mu1x4008gswfo3vfy12cy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/" data-id="ckc5zkwxw006l9gfo5b1k74cm" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -624,196 +327,15 @@ ga('send', 'pageview');
 <p>企业正在朝着DevOps方法论和敏捷文化迈进，以加快交付速度并确保产品质量。 在DevOps中，连续和自动化的交付周期是使快速可靠的交付成为可能的基础。</p>
 <p>这导致我们需要适当的持续集成和持续交付（CI/CD）工具。 一个“好的”CI/CD工具可以利用团队当前的工作流程，以最佳利用自动化功能并创建可靠的CI/CD管道，并为团队发展提供所需的动力。</p>
 <p>随着市场上大量CI/CD工具的出现，团队可能难以做出艰难的决定来挑选合适的工具。该列表包含“市场上最好的14种CI/CD工具”及其主要功能，使您和团队在选择过程中更加轻松。</p>
-<p>以下罗列出了目前市场上最流行的14种最佳CI/CD工具。希望该列表为您在选择CI/CD前提供了足够的信息，更多详细信息您也可以查看官网做更深入的了解。最终结合您的需求以及现有基础架构以及未来潜力和改进的空间是将影响您最终选择的因素，帮助您选择到最适合您的规格的CI/CD软件。</p>
-<h2 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h2><p>Jenkins是一个开源自动化服务器，在其中进行集中构建和持续集成。它是一个独立的基于Java的程序，带有Windows，macOS，Unix的操作系统的软件包。通过数百种可用的插件，Jenkins支持软件开发项目的构建，部署和自动化。</p>
-<p>Jenkins主要功能：</p>
-<ul>
-<li>易于在各种操作系统上安装和升级</li>
-<li>简单易用的界面</li>
-<li>可通过社区提供的巨大插件资源进行扩展</li>
-<li>在用户界面中轻松配置环境</li>
-<li>支持主从架构的分布式构建</li>
-<li>根据表达式构建时间表</li>
-<li>在预构建步骤中支持Shell和Windows命令执行</li>
-<li>支持有关构建状态的通知</li>
-</ul>
-<p>许可：免费。Jenkins是一个拥有活跃社区的开源工具。</p>
-<p>主页：<a href="https://jenkins.io/" target="_blank" rel="noopener">https://jenkins.io/</a></p>
-<h2 id="CircleCI"><a href="#CircleCI" class="headerlink" title="CircleCI"></a>CircleCI</h2><p>CircleCI是一种CI/CD工具，支持快速的软件开发和发布。 CircleCI允许从代码构建，测试到部署的整个用户管道自动化。</p>
-<p>您可以将CircleCI与GitHub，GitHub Enterprise和Bitbucket集成，以在提交新代码行时创建内部版本。CircleCI还可以通过云托管选项托管持续集成，或在私有基础架构的防火墙后面运行。</p>
-<p>CircleCI主要功能:</p>
-<ul>
-<li>与Bitbucket，GitHub和GitHub Enterprise集成</li>
-<li>使用容器或虚拟机运行构建</li>
-<li>简易调试</li>
-<li>自动并行化</li>
-<li>快速测试</li>
-<li>个性化的电子邮件和IM通知</li>
-<li>连续和特定于分支机构的部署</li>
-<li>高度可定制</li>
-<li>自动合并和自定义命令以上传软件包</li>
-<li>快速设置和无限构建</li>
-</ul>
-<p>许可：Linux计划从选择不运行任何并行操作开始。开源项目获得了另外三个免费容器。 在注册期间，将看到价格以决定所需的计划。</p>
-<p>主页： <a href="https://circleci.com/" target="_blank" rel="noopener">https://circleci.com/</a></p>
-<h2 id="TeamCity"><a href="#TeamCity" class="headerlink" title="TeamCity"></a>TeamCity</h2><p>TeamCity是JetBrains的构建管理和持续集成服务器。</p>
-<p>TeamCity是一个持续集成工具，可帮助构建和部署不同类型的项目。 TeamCity在Java环境中运行，并与Visual Studio和IDE集成。该工具可以安装在Windows和Linux服务器上，支持.NET和开放堆栈项目。</p>
-<p>TeamCity 2019.1提供了新的UI和本机GitLab集成。它还支持GitLab和Bitbucket服务器拉取请求。该版本包括基于令牌的身份验证，检测，Go测试报告以及AWS Spot Fleet请求。</p>
-<p>TeamCity主要功能:</p>
-<ul>
-<li>提供多种方式将父项目的设置和配置重用到子项目</li>
-<li>在不同环境下同时运行并行构建</li>
-<li>启用运行历史记录构建，查看测试历史记录报告，固定，标记以及将构建添加到收藏夹</li>
-<li>易于定制，交互和扩展服务器</li>
-<li>保持CI服务器正常运行</li>
-<li>灵活的用户管理，用户角色分配，将用户分组，不同的用户身份验证方式以及带有所有用户操作的日志，以透明化服务器上所有活动</li>
-</ul>
-<p>许可：TeamCity是具有免费和专有许可证的商业工具。</p>
-<p>主页： <a href="https://www.jetbrains.com/teamcity/" target="_blank" rel="noopener">https://www.jetbrains.com/teamcity/</a></p>
-<h2 id="Bamboo"><a href="#Bamboo" class="headerlink" title="Bamboo"></a>Bamboo</h2><p>Bamboo是一个持续集成服务器，可自动执行软件应用程序版本的管理，从而创建了持续交付管道。Bamboo涵盖了构建和功能测试，分配版本，标记发行版，在生产中部署和激活新版本。</p>
-<p>Bamboo主要功能:</p>
-<ul>
-<li>支持多达100个远程构建代理</li>
-<li>并行运行批次测试并快速获得反馈</li>
-<li>创建图像并推送到注册表</li>
-<li>每个环境的权限，使开发人员和测试人员可以在生产保持锁定状态的情况下按需部署到他们的环境中</li>
-<li>在Git，Mercurial，SVN Repos中检测新分支，并将主线的CI方案自动应用于它们</li>
-<li>触发器基于在存储库中检测到的更改构建。 推送来自Bitbucket的通知，已设置的时间表，另一个构建的完成或其任何组合。</li>
-</ul>
-<p>许可：Bamboo定价层基于代理（Slave）而不是用户。 代理越多，花费越多。</p>
-<p>主页：<a href="https://www.atlassian.com/software/bamboo" target="_blank" rel="noopener">https://www.atlassian.com/software/bamboo</a></p>
-<h2 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h2><p>GitLab是一套用于管理软件开发生命周期各个方面的工具。 核心产品是基于Web的Git存储库管理器，具有问题跟踪，分析和Wiki等功能。</p>
-<p>GitLab允许您在每次提交或推送时触发构建，运行测试和部署代码。您可以在虚拟机，Docker容器或另一台服务器上构建作业。</p>
-<p>GitLab主要功能:</p>
-<ul>
-<li>通过分支工具查看，创建和管理代码以及项目数据</li>
-<li>通过单个分布式版本控制系统设计，开发和管理代码和项目数据，从而实现业务价值的快速迭代和交付</li>
-<li>提供真实性和可伸缩性的单一来源，以便在项目和代码上进行协作</li>
-<li>通过自动化源代码的构建，集成和验证，帮助交付团队完全接受CI。</li>
-<li>提供容器扫描，静态应用程序安全测试（SAST），动态应用程序安全测试（DAST）和依赖项扫描，以提供安全的应用程序以及许可证合规性</li>
-<li>帮助自动化并缩短发布和交付应用程序的时间</li>
-</ul>
-<p>许可：GitLab是一个商业工具和免费软件包。它提供了在GitLab或您的本地实例和/或公共云上托管SaaS的功能。</p>
-<p>主页：<a href="https://about.gitlab.com/" target="_blank" rel="noopener">https://about.gitlab.com/</a></p>
-<h2 id="Buddy"><a href="#Buddy" class="headerlink" title="Buddy"></a>Buddy</h2><p>Buddy是一个CI/CD软件，它使用GitHub，Bitbucket和GitLab的代码构建，测试，部署网站和应用程序。它使用具有预安装语言和框架的Docker容器以及DevOps来监视和通知操作，并以此为基础进行构建。</p>
-<p>Buddy主要功能:</p>
-<ul>
-<li>易于将基于Docker的映像自定义为测试环境</li>
-<li>智能变更检测，最新的缓存，并行性和全面的优化</li>
-<li>创建，定制和重用构建和测试环境</li>
-<li>普通和加密，固定和可设置范围：工作空间，项目，管道，操作</li>
-<li>与Elastic，MariaDB，Memcached，Mongo，PostgreSQL，RabbitMQ，Redis，Selenium Chrome和Firefox关联的服务</li>
-<li>实时监控进度和日志，无限历史记录</li>
-<li>使用模板进行工作流管理，以克隆，导出和导入管道</li>
-<li>一流的Git支持和集成</li>
-</ul>
-<p>许可：Buddy是免费的商业工具。</p>
-<p>主页：<a href="https://buddy.works/" target="_blank" rel="noopener">https://buddy.works/</a></p>
-<h2 id="Travis-CI"><a href="#Travis-CI" class="headerlink" title="Travis CI"></a>Travis CI</h2><p>Travis CI是用于构建和测试项目的CI服务。Travis CI自动检测新提交并推送到GitHub存储库的提交。每次提交新代码后，Travis CI都会构建项目并相应地运行测试。</p>
-<p>该工具支持许多构建配置和语言，例如Node，PHP，Python，Java，Perl等。</p>
-<p>Travis主要功能:</p>
-<ul>
-<li>快速设置</li>
-<li>GitHub项目监控的实时构建视图</li>
-<li>拉取请求支持</li>
-<li>部署到多个云服务</li>
-<li>预装的数据库服务</li>
-<li>通过构建时自动部署</li>
-<li>为每个版本清理虚拟机</li>
-<li>支持macOS，Linux和iOS</li>
-<li>支持多种语言，例如Android，C，C＃，C ++，Java，JavaScript（带有Node.js），Perl，PHP，Python，R，Ruby等。</li>
-</ul>
-<p>许可：Travis CI是一项托管的CI/CD服务。私人项目可以在travis-ci.com上进行收费测试。可以在travis-ci.org上免费应用开源项目。</p>
-<p>主页：<a href="https://travis-ci.com" target="_blank" rel="noopener">https://travis-ci.com</a></p>
-<h2 id="Codeship"><a href="#Codeship" class="headerlink" title="Codeship"></a>Codeship</h2><p>Codeship是一个托管平台，可多次支持早期和自动发布软件。通过优化测试和发布流程，它可以帮助软件公司更快地开发更好的产品。</p>
-<p>Codeship主要功能:</p>
-<ul>
-<li>与所选的任何工具，服务和云环境集成</li>
-<li>易于使用。提供快速而全面的开发人员支持。</li>
-<li>借助CodeShip的交钥匙环境和简单的UI，使构建和部署工作更快</li>
-<li>选择AWS实例大小，CPU和内存的选项</li>
-<li>通过通知中心为组织和团队成员设置团队和权限</li>
-<li>无缝的第三方集成，智能通知管理和项目仪表板，可提供有关项目及其运行状况的高级概述。</li>
-</ul>
-<p>许可：每月最多免费使用100个版本，无限版本从$49/月开始。您可以为更大的实例大小购买更多的并发构建或更多的并行管道。</p>
-<p>主页： <a href="https://codeship.com/" target="_blank" rel="noopener">https://codeship.com/</a></p>
-<h2 id="GoCD"><a href="#GoCD" class="headerlink" title="GoCD"></a>GoCD</h2><p>GoCD来自ThoughtWorks，是一个开放源代码工具，用于构建和发布支持CI/CD上的现代基础结构的软件。</p>
-<ul>
-<li>轻松配置相关性以实现快速反馈和按需部署</li>
-<li>促进可信构件：每个管道实例都锚定到特定的变更集</li>
-<li>提供对端到端工作流程的控制，一目了然地跟踪从提交到部署的更改</li>
-<li>容易看到上游和下游</li>
-<li>随时部署任何版本</li>
-<li>允许将任何已知的良好版本的应用程序部署到您喜欢的任何位置</li>
-<li>通过“比较内部版本”功能获得用于任何部署的简单物料清单</li>
-<li>通过GoCD模板系统重用管道配置，使配置保持整洁</li>
-<li>已经有许多插件</li>
-</ul>
-<p>许可：免费和开源</p>
-<p>主页：<a href="https://www.gocd.org/" target="_blank" rel="noopener">https://www.gocd.org/</a></p>
-<h2 id="Wercker"><a href="#Wercker" class="headerlink" title="Wercker"></a>Wercker</h2><p>对于正在使用或正在考虑基于Docker启动新项目的开发人员，Wercker可能是一个合适的选择。 Wercker支持组织及其开发团队使用CI/CD，微服务和Docker。</p>
-<p>2017年4月17日，甲骨文宣布已签署最终协议收购Wercker。</p>
-<p>Wercker主要功能:</p>
-<ul>
-<li>Git集成，包括GitHub，Bitbucket，GitLab和版本控制</li>
-<li>使用Wercker CLI在本地复制SaaS环境，这有助于在部署之前调试和测试管道</li>
-<li>支持Wercker的Docker集成以构建最少的容器并使尺寸可管理</li>
-<li>Walterbot – Wercker中的聊天机器人–允许您与通知交互以更新构建状态</li>
-<li>环境变量有助于使敏感信息远离存储库</li>
-<li>Wercker利用关键安全功能（包括源代码保护）来关闭测试日志，受保护的环境变量以及用户和项目的可自定义权限</li>
-</ul>
-<p>许可：甲骨文在收购后未提供Wercker的价格信息。</p>
-<p>主页：<a href="https://app.wercker.com" target="_blank" rel="noopener">https://app.wercker.com</a></p>
-<h2 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h2><p>Semaphore是一项托管的CI/CD服务，用于测试和部署软件项目。 Semaphore通过基于拉取请求的开发过程来建立CI/CD标准。</p>
-<p>Semaphore主要功能:</p>
-<ul>
-<li>与GitHub集成</li>
-<li>自动执行任何连续交付流程</li>
-<li>在最快的CI/CD平台上运行</li>
-<li>自动缩放您的项目，以便您仅需支付使用费用</li>
-<li>本机Docker支持。测试和部署基于Docker的应用程序</li>
-<li>提供Booster –一种功能，用于通过自动并行化Ruby项目的构建来减少测试套件的运行时间</li>
-</ul>
-<p>许可：灵活。使用传统的CI服务，您会受到计划容量的限制。同时，Semaphore 2.0将根据您团队的实际需求进行扩展，因此您无需使用该工具就不必付费</p>
-<p>主页：<a href="https://semaphoreci.com/" target="_blank" rel="noopener">https://semaphoreci.com/</a></p>
-<h2 id="Nevercode"><a href="#Nevercode" class="headerlink" title="Nevercode"></a>Nevercode</h2><p>Nevercode支持移动应用程序的CI/CD。它有助于更​​快地构建，测试和发布本机和跨平台应用程序。</p>
-<p>Nevercode主要功能:</p>
-<ul>
-<li>自动配置和设置</li>
-<li>测试自动化：单元和UI测试，代码分析，真实设备测试，测试并行化</li>
-<li>自动发布：iTunes Connect，Google Play，Crashlytics，T​​estFairy，HockeyApp</li>
-<li>您的构建和测试状态的详细概述</li>
-</ul>
-<p>许可：灵活。针对不同需求进行持续集成的不同计划。您可以从标准计划中选择，也可以请求根据自己的需求量身定制的计划。</p>
-<p>主页：<a href="https://nevercode.io/" target="_blank" rel="noopener">https://nevercode.io/</a></p>
-<h2 id="Spinnaker"><a href="#Spinnaker" class="headerlink" title="Spinnaker"></a>Spinnaker</h2><p>Spinnaker是一个多云连续交付平台，支持在不同的云提供商之间发布和部署软件更改，包括AWS EC2，Kubernetes，Google Compute Engine，Google Kubernetes Engine，Google App Engine等。</p>
-<p>Spinnaker主要功能:</p>
-<ul>
-<li>创建部署管道，以运行集成和系统测试，旋转服务器组和降低服务器组以及监视部署。通过Git事件，Jenkins，Travis CI，Docker，cron或其他Spinnaker管道触发管道</li>
-<li>创建和部署不可变映像，以实现更快的部署，更轻松的回滚以及消除难以调试的配置漂移问题</li>
-<li>使用它们的指标进行金丝雀分析，将您的发行版与诸如Datadog，Prometheus，Stackdriver或SignalFx的监视服务相关联</li>
-<li>使用Halyard – Spinnaker的CLI管理工具安装，配置和更新您的Spinnaker实例</li>
-<li>设置电子邮件，Slack，HipChat或SMS的事件通知（通过Twilio）</li>
-</ul>
-<p>许可：开源</p>
-<p>主页：<a href="https://www.spinnaker.io/" target="_blank" rel="noopener">https://www.spinnaker.io/</a></p>
-<h2 id="Buildbot"><a href="#Buildbot" class="headerlink" title="Buildbot"></a>Buildbot</h2><p>Buildbot是一个“基于Python的CI框架”，可自动执行编译和测试周期以验证代码更改，然后在每次更改后自动重建并测试树。因此，可以快速查明构建问题。</p>
-<p>Buildbot主要功能:</p>
-<ul>
-<li>自动化构建系统，应用程序部署以及复杂软件发布过程的管理</li>
-<li>支持跨多个平台的分布式并行执行，与版本控制系统的灵活集成，广泛的状态报告</li>
-<li>在各种从属平台上运行构建</li>
-<li>任意构建过程并使用C和Python处理项目</li>
-<li>最低主机要求：Python和Twisted</li>
-<li>注意：Buildbot将停止支持Python 2.7，并需要迁移到Python 3。</li>
-</ul>
-<p>许可：开源</p>
-<p>主页：<a href="https://buildbot.net/" target="_blank" rel="noopener">https://buildbot.net/</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/03/Best-14-CI-CD-Tools-in-2020/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/" data-id="ckc5mu1x00082swfo88g2553b" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/" data-id="ckc5zkwxm005c9gfoelt2ep1z" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -854,107 +376,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>对 Git 仓库的维护通常是为了减少仓库的大小。如果你从另外一个版本控制系统导入了一个仓库，你可能需要在导入后清除掉不必要的文件。本文主要讨论如何从 Git 仓库中删除不需要的文件。</p>
-<blockquote>
-<p>请格外小心…..</p>
-<p>本文中的步骤和工具使用的高级技术涉及破坏性操作。确保您在开始之前仔细读过并备份了你的仓库，创建一个备份最容易的方式是使用 –mirror 标志对你的仓库克隆，然后对整个克隆的文件进行打包压缩。有了这个备份，如果在维护期间意外损坏了你的仓库的关键元素，那么你可以通过备份的仓库来恢复。</p>
-<p>请记住，仓库维护对仓库的用户可能会是毁灭性的。与你的团队或者仓库的关注者进行沟通会是很有必要的。确保每个人都已经检查了他们的代码，并且同意在仓库维护期间停止开发。</p>
-</blockquote>
-<h2 id="理解从-Git-的历史记录中删除文件"><a href="#理解从-Git-的历史记录中删除文件" class="headerlink" title="理解从 Git 的历史记录中删除文件"></a>理解从 Git 的历史记录中删除文件</h2><p>回想一下，克隆仓库会克隆整个历史记录——包括每个源代码文件的所有版本。如果一个用户提交了一个较大的文件，比如一个 JAR，则随后的每次克隆都会包含这个文件。即使用户最终在后面的某次提交中删除了这个文件，但是这个文件仍然存在于这个仓库的历史记录中。要想完全的从你的仓库中删除这个文件，你必须：</p>
-<ul>
-<li>从你的项目的当前的文件树中删除该文件;</li>
-<li>从仓库的历史记录中删除文件——重写 Git 历史记录，从包含该文件的所有的提交中删除这个文件;</li>
-<li>删除指向旧的提交历史记录的所有 reflog 历史记录;</li>
-<li>重新整理仓库，使用 <code>git gc</code> 对现在没有使用的数据进行垃圾回收。</li>
-</ul>
-<p>Git 的 <code>gc</code>（垃圾回收）将通过你的任何一个分支或者标签来删除仓库中所有的实际没用的或者以某种方式引用的数据。为了使其发挥作用，我们需要重写包含不需要的文件的所有 Git 仓库历史记录，仓库将不再引用它 <code>git gc</code> 将会丢弃所有没用的数据。</p>
-<p>重写存储库历史是一个棘手的事情，因为每个提交都依赖它的父提交，所以任何一个很小的改变都会改变它的每一个随后的提交的提交。有两个自动化的工具可以帮助你做这件事：</p>
-<ol>
-<li><code>BFG Repo Cleaner</code> —— 快速、简单且易于使用，需要 Java 6 或者更高版本的运行环境。</li>
-<li><code>git filter-branch</code> —— 功能强大、配置麻烦，用于大于仓库时速度较慢，是核心 Git 套件的一部分。</li>
-</ol>
-<p>切记，当你重写历史记录后，无论你是使用 BFG 还是使用 filter-branch，你都需要删除指向旧的历史记录的 <code>reflog</code> 条目，最后运行垃圾回收器来删除旧的数据。</p>
-<h2 id="使用-BFG-重写历史记录"><a href="#使用-BFG-重写历史记录" class="headerlink" title="使用 BFG 重写历史记录"></a>使用 BFG 重写历史记录</h2><p>BFG 是为将像大文件或者密码这些不想要的数据从 Git 仓库中删除而专门设计的，所以它有一一个简单的标志用来删除那些大的历史文件（不在当前的提交里面）：<code>--strip-blobs-bigger-than</code></p>
-<p>BFG <a href="https://repo1.maven.org/maven2/com/madgag/bfg" target="_blank" rel="noopener">下载地址</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar bfg.jar --strip-blobs-than 100M</span><br></pre></td></tr></table></figure>
-
-<p>大小超过 100MB 的任何文件（不包含在你最近的提交中的文件——因为 BFG 默认会保护你的最新提交的内容）将会从你的 Git 仓库的历史记录中删除。如果你想用名字来指明具体的文件，你也可以这样做：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar bfg.jar --delete-files *.mp4</span><br></pre></td></tr></table></figure>
-
-<p>BFG 的速度要比 git filter-branch 快 10-1000 倍，而且通常更容易使用——查看完整的<a href="https://rtyley.github.io/bfg-repo-cleaner/#usage" target="_blank" rel="noopener">使用说明</a>和<a href="https://rtyley.github.io/bfg-repo-cleaner/#examples" target="_blank" rel="noopener">示例</a>获取更多细节。</p>
-<h2 id="或者，使用-git-filter-branch-来重写历史记录"><a href="#或者，使用-git-filter-branch-来重写历史记录" class="headerlink" title="或者，使用 git filter-branch 来重写历史记录"></a>或者，使用 git filter-branch 来重写历史记录</h2><p><code>filter-branch</code> 命令可以对 Git 仓库的历史记录重写，就像 BFG 一样，但是过程更慢和更手动化。如果你不知道这些大文件在哪里，那么你第一步就需要找到它们：</p>
-<h3 id="手动查看你-Git-仓库中的大文件"><a href="#手动查看你-Git-仓库中的大文件" class="headerlink" title="手动查看你 Git 仓库中的大文件"></a>手动查看你 Git 仓库中的大文件</h3><p><a href="https://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/" target="_blank" rel="noopener">Antony Stubbs</a> 写了一个可以很好地完成这个功能的 BASH 脚本。该脚本可以检查你的包文件的内容并列出大文件。在你开始删除文件之前，请执行以下操作获取并安装此脚本：</p>
-<ol>
-<li><p><a href="https://confluence.atlassian.com/bitbucket/files/321848291/321979854/1/1360604134990/git_find_big.sh" target="_blank" rel="noopener">下载脚本</a>到你的本地的系统</p>
-</li>
-<li><p>将它放在一个可以访问你的 Git 仓库的易于找到的位置</p>
-</li>
-<li><p>让脚本成为可执行文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 git_find_big.sh</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>克隆仓库到你本地系统</p>
-</li>
-<li><p>改变当前目录到你的仓库根目录</p>
-</li>
-<li><p>手动运行 Git 垃圾回收器</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git gc --auto</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找出 .git 文件夹的大小</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意文件大小，以便随后参考</span></span><br><span class="line">du -hs .git/objects</span><br><span class="line">45M .git/objects</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行 <code>git_find_big.sh</code> 脚本来列出你的仓库中的大文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git_find_big.sh</span><br><span class="line">All sizes are <span class="keyword">in</span> kB<span class="string">'s. The pack column is the size of the object, compressed, inside the pack file.</span></span><br><span class="line"><span class="string">size  pack  SHA                                       location</span></span><br><span class="line"><span class="string">592   580   e3117f48bc305dd1f5ae0df3419a0ce2d9617336  media/img/emojis.jar</span></span><br><span class="line"><span class="string">550   169   b594a7f59ba7ba9daebb20447a87ea4357874f43  media/js/aui/aui-dependencies.jar</span></span><br><span class="line"><span class="string">518   514   22f7f9a84905aaec019dae9ea1279a9450277130  media/images/screenshots/issue-tracker-wiki.jar</span></span><br><span class="line"><span class="string">337   92    1fd8ac97c9fecf74ba6246eacef8288e89b4bff5  media/js/lib/bundle.js</span></span><br><span class="line"><span class="string">240   239   e0c26d9959bd583e5ef32b6206fc8abe5fea8624  media/img/featuretour/heroshot.png</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>大文件都是 JAR 文件，包的大小列是最相关的。aui-dependencies.jar 被压缩到 169kb，但是 emojis.jar 只压缩到 500kb。emojis.jar 就是一个待删除的对象。</p>
-<h3 id="运行-filter-branch"><a href="#运行-filter-branch" class="headerlink" title="运行 filter-branch"></a>运行 filter-branch</h3><p>你可以给这个命令传递一个用于重写 Git 索引的过滤器。例如，一个过滤器可以可以将每个检索的提交删除。这个用法如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --index-filter <span class="string">'git rm --cached --ignore-unmatch&amp;nbsp; _pathname_ '</span> commitHASH</span><br></pre></td></tr></table></figure>
-
-<p><code>--index-filter</code> 选项可以修改仓库的索引，<code>--cached</code> 选项从索引中而不是磁盘来删除文件。这样会更快，因为你不需要在运行这个过滤器前检查每个修订版本。<br><code>git rm</code> 中的 <code>ignore-unmatch</code> 选项可以防止在尝试移走不存在的文件 pathname 的时候命令失败。通过指定一个提交 HASH 值，你可以从每个以这个 HASH 值开始的提交中删除 pathname。要从开始处删除，你可以省略这个参数或者指定为 HEAD。</p>
-<p>如果你的大文件在不同的分支，你将需要通过名字来删除每个文件。如果大文件都在一个单独的分支，你可以直接删除这个分支本身。</p>
-<h4 id="选项-1：通过文件名删除文件"><a href="#选项-1：通过文件名删除文件" class="headerlink" title="选项 1：通过文件名删除文件"></a>选项 1：通过文件名删除文件</h4><p>使用下面的步骤来删除大文件：</p>
-<ol>
-<li><p>使用下面的命令来删除你找到的第一个大文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --index-filter <span class="string">'git rm --cached --ignore-unmatch filename'</span> HEAD</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重复步骤 1 找到剩下的每个大文件</p>
-</li>
-<li><p>在你的仓库里更新引用。 <code>filter-branch</code> 会为你原先的引用创建一个 <code>refs/original/</code> 下的备份。一旦你确信已经删除了正确的文件，你可以运行下面的命令来删除备份文件，同时可以让垃圾回收器回收大的对象</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">for</span>-each-ref --format=<span class="string">"%(refname)"</span> refs/original/ | xargs -n 1 git update-ref -d</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h4 id="选项-2：直接删除分支"><a href="#选项-2：直接删除分支" class="headerlink" title="选项 2：直接删除分支"></a>选项 2：直接删除分支</h4><p>如果你所有的大文件都在一个单独的分支上，你可以直接删除这个分支。删除这个分支会自动删除所有的引用。</p>
-<ol>
-<li><p>删除分支</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D PROJ567bugfix</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从后面的分支中删除所有的 reflog 引用</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog expire --expire=now PROJ567bugfix</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h4 id="对不用的数据垃圾回收"><a href="#对不用的数据垃圾回收" class="headerlink" title="对不用的数据垃圾回收"></a>对不用的数据垃圾回收</h4><ol>
-<li><p>删除从现在到后面的所有 reflog 引用（除非你明确地只在一个分支上操作）</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog expire --expire=now --all</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过运行垃圾回收器和删除旧的对象重新打包仓库。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git gc --prune=now</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把你所有的修改推送回仓库</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --all --force</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确保你所有的标签也是当前最新的</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --tags --force</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p><a href="https://confluence.atlassian.com/bitbucket/maintaining-a-git-repository-321848291.html" target="_blank" rel="noopener">英文原文地址</a></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/03/maintaining-a-git-gepository/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/" data-id="ckc5mu1x20089swfo9ayfgrwr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/" data-id="ckc5zkwxj00529gfocegideju" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -995,61 +425,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>由于历史遗留原因，我们当前产品的代码仓库里遗留很多 Warning，这些 Warning 不是一时半会可以解决掉的。只有通过不断的丰富自动化测试用例，来保障最后的质量关卡，才敢有条不紊的进行 Warining 的修复，在次之前，如何有效杜绝继续引入更多的 Warining 是当下应该做的。</p>
-<p>因此我想在 Pull Request 阶段加入 C/C++ 的静态代码扫描的集成，但是很多工具只要涉及的是 C/C++ 经常都是收费的，比如这里首选的 SonarQube，Community 版本不支持 C/C++ 代码扫描，只有 Developer 以及 Enterprise 等付费版本才支持，在静态代码扫描还没有带来收益之前，盲目的付费只会给产品带来更多的成本，因此决定先寻找其他开源工具来替代。</p>
-<p>最终我选择了 CPPCheck，主要有以下几个原因：</p>
-<ol>
-<li>这是为数不多的 C/C++ 开源静态代码扫描工具</li>
-<li>可以与 Jenkins 集成，可以在 Jenkins 里查看结果报告</li>
-<li>支持 Jenkins Pipeline</li>
-</ol>
-<p>本文记录我调查和使用的经验，如果您也相关的需求，提供一点参考。</p>
-<h2 id="安装-Cppcheck"><a href="#安装-Cppcheck" class="headerlink" title="安装 Cppcheck"></a>安装 Cppcheck</h2><p>安装到 Linux</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install cppcheck.x86_64</span><br></pre></td></tr></table></figure>
-
-<p>其他平台安装请参考 cppcheck <a href="http://cppcheck.sourceforge.net/" target="_blank" rel="noopener">官网</a></p>
-<p>如果你在 Linux 无法通过命令一键安装，也可通过下载源代码构建 cppcheck。以下是从代码手动构建一个 cppcheck 可执行文件的步骤</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> opt &amp;&amp; mkdir cppcheck &amp;&amp; <span class="built_in">cd</span> cppcheck</span><br><span class="line"><span class="comment"># 下载代码</span></span><br><span class="line">wget https://github.com/danmar/cppcheck/archive/1.90.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xvf 1.90.tar.gz</span><br><span class="line"><span class="comment"># make build</span></span><br><span class="line"><span class="built_in">cd</span> cppcheck-1.90</span><br><span class="line">mkdir build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">cmake --build .</span><br><span class="line"><span class="comment"># link</span></span><br><span class="line">sudo ln -s /opt/cppcheck/cppcheck-1.90/cppcheck /usr/bin/cppcheck</span><br><span class="line"><span class="comment"># 检查是否安装成功</span></span><br><span class="line"><span class="built_in">which</span> cppcheck</span><br><span class="line">/usr/bin/cppcheck</span><br><span class="line">cppcheck --version</span><br><span class="line">Cppcheck 1.90</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-cppcheck-静态代码扫描"><a href="#使用-cppcheck-静态代码扫描" class="headerlink" title="使用 cppcheck 静态代码扫描"></a>使用 cppcheck 静态代码扫描</h2><p>在与 Jenkins 集成之前，先看看这个工具怎么用。通过查阅<a href="http://cppcheck.sourceforge.net/manual.pdf" target="_blank" rel="noopener">Cppcheck 官方文档</a>，一般的使用如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例如扫描 src 下 public 和 themes 两个目录下的代码将结果输出到 cppcheck.xml</span></span><br><span class="line">cppcheck src/public src/themes --xml 2&gt; cppcheck.xml</span><br></pre></td></tr></table></figure>
-
-<h2 id="Cppcheck-与-Jenkins-集成"><a href="#Cppcheck-与-Jenkins-集成" class="headerlink" title="Cppcheck 与 Jenkins 集成"></a>Cppcheck 与 Jenkins 集成</h2><p>首先，下载 Cppcheck Jenkins <a href="https://plugins.jenkins.io/cppcheck/" target="_blank" rel="noopener">插件</a>，通过 Pipeline Syntax 生成了此代码 <code>publishCppcheck pattern: &#39;cppcheck.xml&#39;</code></p>
-<p>但是在读取 xml 文件进行报告展示时，我遇到了两个问题：</p>
-<p>问题1：分析 cppcheck.xml 我在有的 Linux 机器上成功，有的机器上会失败，我怀疑是我的 JDK 版本不同所致。Jenkins JIRA 我也找到了次问题 <a href="https://issues.jenkins-ci.org/browse/JENKINS-60077" target="_blank" rel="noopener">JENKINS-60077</a> 但目前还没有人来解决。</p>
-<p>我之所以没有继续尝试去解决问题1，最主要的原因是它有一个对我来说是更致命的缺陷，那就是下面说的问题。</p>
-<p>问题2： 无法通过 Cppcheck Results 报告直接查看代码，这样就算扫描出来了问题还需要去 git 或是本地的 IDE 上去查看具体的问题，大大降低效率。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看代码文件时会出错</span></span><br><span class="line">Can<span class="string">'t read file: Can'</span>t access the file: file:/disk1/agent/workspace/cppcheck-ud113/src/public/dummy/err_printf.c</span><br></pre></td></tr></table></figure>
-
-<p>并且官方也相应的 Ticket 记录了该问题 <a href="https://issues.jenkins-ci.org/browse/JENKINS-42613" target="_blank" rel="noopener">JENKINS-42613</a> 和 <a href="https://issues.jenkins-ci.org/browse/JENKINS-54209" target="_blank" rel="noopener">JENKINS-54209</a>，JENKINS-42613 一直在等待 merge，截止发文，都还是暂时没有解决。</p>
-<p>最后我发现 <a href="https://plugins.jenkins.io/warnings-ng/" target="_blank" rel="noopener">Warnings Next Generation</a> 这个插件将取代整个 Jenkins 静态分析套件，其中包含了这些插件 Android Lint, CheckStyle, Dry, FindBugs, PMD, Warnings, Static Analysis Utilities, Static Analysis Collector，最后通过 Warnings Next Generation 插件解决了报告展示的问题。</p>
-<p>这里可以通过 Pipeline Syntax 生成读取报告代码 <code>recordIssues(tools: [codeAnalysis(pattern: &#39;cppcheck.xml&#39;)])</code></p>
-<p>更多有关 Warnings Next Generation 插件的使用，请参看<a href="https://github.com/jenkinsci/warnings-ng-plugin/blob/master/doc/Documentation.md" target="_blank" rel="noopener">文档</a></p>
-<h3 id="最终-Pipeline-示例如下"><a href="#最终-Pipeline-示例如下" class="headerlink" title="最终 Pipeline 示例如下"></a>最终 Pipeline 示例如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">pipeline&#123;</span><br><span class="line">  agent &#123;</span><br><span class="line">    node &#123;</span><br><span class="line">      label <span class="string">'cppcheck'</span></span><br><span class="line">      customWorkspace <span class="string">"/agent/workspace/cppcheck"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  parameters &#123;</span><br><span class="line">    string(name: <span class="string">'Branch'</span>, defaultValue: <span class="string">'develop'</span>, description: <span class="string">'Which branch do you want to do cppcheck?'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  options &#123;</span><br><span class="line">    timestamps ()</span><br><span class="line">    buildDiscarder(logRotator(numToKeepStr:<span class="string">'50'</span>))</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  stage(<span class="string">"Checkout"</span>)&#123;</span><br><span class="line">    steps&#123;</span><br><span class="line">      checkout([<span class="variable">$class</span>: <span class="string">'GitSCM'</span>, branches: [[name: <span class="string">'*/$&#123;Branch&#125;'</span>]],</span><br><span class="line">      browser: [<span class="variable">$class</span>: <span class="string">'BitbucketWeb'</span>, repoUrl: <span class="string">'https://git.yourcompany.com/projects/repos/cppcheck-example/browse'</span>],</span><br><span class="line">      doGenerateSubmoduleConfigurations: <span class="literal">false</span>, extensions: [</span><br><span class="line">      [<span class="variable">$class</span>: <span class="string">'LocalBranch'</span>, localBranch: <span class="string">'**'</span>], [<span class="variable">$class</span>: <span class="string">'CheckoutOption'</span>, timeout: 30], [<span class="variable">$class</span>: <span class="string">'CloneOption'</span>, depth: 1, noTags: <span class="literal">false</span>, reference: <span class="string">''</span>, shallow: <span class="literal">true</span>,   timeout: 30]], submoduleCfg: [],</span><br><span class="line">      userRemoteConfigs: [[credentialsId: <span class="string">'d1cbab74-823d-41aa-abb7'</span>, url: <span class="string">'https://git.yourcompany.com/scm/cppcheck-example.git'</span>]]])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  stage(<span class="string">"Cppcheck"</span>)&#123;</span><br><span class="line">    steps&#123;</span><br><span class="line">      script &#123;</span><br><span class="line">        sh <span class="string">'cppcheck src/public src/themes --xml 2&gt; cppcheck.xml'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  stage(<span class="string">'Publish results'</span>)&#123;</span><br><span class="line">    steps &#123;</span><br><span class="line">      recordIssues(tools: [cppCheck(pattern: <span class="string">'cppcheck.xml'</span>)])</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="报告展示"><a href="#报告展示" class="headerlink" title="报告展示"></a>报告展示</h3><p>我将 CPPCheck 应用到每个 Pull Request 里，当开发提交新的代码时，CPPCheck 就会去扫描代码，然后跟之前的历史记录做对比。CPPCheck 执行成功并生成报告，这里会出现一个按钮，点击进入。</p>
-<p><img src="/2020/02/cppcheck/cppcheck-icon.png" alt="CPPCheck 入口"></p>
-<p>打开之后就会当前分支代码的扫结果。</p>
-<p><img src="/2020/02/cppcheck/cppcheck-view.png" alt="CPPCheck 当前的结果"></p>
-<p>CPPCheck 有三个维度来来展示静态代码扫描结果：</p>
-<ol>
-<li><p>严重程度分布（Severities Distribution）：这里分为 High，Normal，Low 三种级别</p>
-</li>
-<li><p>参考比较（Reference Comparison）：这里会参考之前的数据进行比较，如果有新增就会显示 New，如果是现存的就显示为 Outstanding，如果减少了就会显示 Fixed</p>
-</li>
-<li><p>历史（History）：随着代码的增加和修改，这里会显示一个历史记录的趋势</p>
-</li>
-</ol>
-<p>注意：cppcheck 相关的 xml 是存储在 Jenkins master 上，只有当前的 Jenkins Job 被人为删掉，那么 cppcheck xml 才会被删掉。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-sh-4.2$ ls -l cppcheck*</span><br><span class="line">-rw-r--r-- 1 jenkins jenkins 418591 Feb 27 05:54 cppcheck-blames.xml</span><br><span class="line">-rw-r--r-- 1 jenkins jenkins    219 Feb 27 05:54 cppcheck-fixed-issues.xml</span><br><span class="line">-rw-r--r-- 1 jenkins jenkins 142298 Feb 27 05:54 cppcheck-forensics.xml</span><br><span class="line">-rw-r--r-- 1 jenkins jenkins    219 Feb 27 05:54 cppcheck-new-issues.xml</span><br><span class="line">-rw-r--r-- 1 jenkins jenkins 488636 Feb 27 05:54 cppcheck-outstanding-issues.xml</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2020/02/cppcheck/cppcheck-code.png" alt="查看具体 Warining 代码"></p>
-<p>点击相应的连接就可以直接跳转到具体的代码警告位置了。</p>
-<p>它是不是还挺香的？</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/02/cppcheck/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/02/cppcheck/" data-id="ckc5mu1wz007vswfo2whidst1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/02/cppcheck/" data-id="ckc5zkwxm005g9gfofh04cv39" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/02/cppcheck/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -1090,19 +474,16 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>如果你想使用 Linux 但又不想租用云厂商的虚拟机，那么 VirtualBox 是一个比较好的选择。我们可以在 VirtualBox 安装你需要的绝大数的操作系统。</p>
-<p>为了保证使用的流畅，这里最好使用内存建议 8G 及以上，硬盘 256 GB 的 Windows 电脑</p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
-<li>下载和安装 VirtualBox <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">https://www.virtualbox.org/wiki/Downloads</a></li>
-<li>CentOS 镜像下载地址 <a href="https://mirror.umd.edu/centos/7/isos/x86_64/" target="_blank" rel="noopener">https://mirror.umd.edu/centos/7/isos/x86_64/</a></li>
-<li>Ubuntu 镜像下载地址 <a href="https://ubuntu.com/#download" target="_blank" rel="noopener">https://ubuntu.com/#download</a></li>
-</ul>
-<p>安装和配置</p>
-<p><em>本文没有详细介绍每个安装步骤，只列出一些关键步骤。</em></p>
-
+<p>为了保证使用的流畅，这里最好使用内存建议 8G 及以上，硬盘 256 GB 的 Windows 电脑。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/02/Setup-Linux-in-VirtualBox/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/" data-id="ckc5mu1wx007oswfo7tzu5h1m" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/" data-id="ckc5zkwxk00559gfo7c6s3ib3" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -1145,28 +526,15 @@ ga('send', 'pageview');
         <h2 id="ls-命令"><a href="#ls-命令" class="headerlink" title="ls 命令"></a>ls 命令</h2><p>列出当前目录的文件和文件夹。参数:</p>
 <p><code>-l</code> 列出时显示详细信息</p>
 <p><code>-a</code> 显示所有文件，包括隐藏的和不隐藏的</p>
-<p>可以组合使用，像这样</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -la</span><br></pre></td></tr></table></figure>
-
-<h2 id="cp-命令"><a href="#cp-命令" class="headerlink" title="cp 命令"></a>cp 命令</h2><p>将源文件复制到目标。参数：</p>
-<p><code>-i</code> 交互模式意味着等待确认，如果目标上有文件将被覆盖。</p>
-<p><code>-r</code> 递归复制，意味着包含子目录（如果有的话）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp –ir source_dir target_dir</span><br></pre></td></tr></table></figure>
-
-<h2 id="tmp-空间不够怎么办"><a href="#tmp-空间不够怎么办" class="headerlink" title="/tmp 空间不够怎么办"></a>/tmp 空间不够怎么办</h2><p>在 /etc/fstab 文件里增加一行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/fstab</span><br><span class="line"><span class="comment"># 添加如下一行</span></span><br><span class="line">tmpfs                   /tmp                    tmpfs   defaults,size=4G          0 0</span><br></pre></td></tr></table></figure>
-
-<p>重启之后，<code>df -h</code> 查看，/tmp 目录已经就变成 4G 了。</p>
-<p>More, Refer to these links</p>
-<ul>
-<li><a href="https://likegeeks.com/main-linux-commands-easy-guide/" target="_blank" rel="noopener">https://likegeeks.com/main-linux-commands-easy-guide/</a></li>
-<li><a href="https://dzone.com/articles/most-useful-linux-command-line-tricks" target="_blank" rel="noopener">https://dzone.com/articles/most-useful-linux-command-line-tricks</a></li>
-</ul>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/02/linux-tips/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/02/linux-tips/" data-id="ckc5mu1wy007sswfoazds3kjh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/02/linux-tips/" data-id="ckc5zkwxo005m9gfo5bu0chq8" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/02/linux-tips/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -1209,23 +577,15 @@ ga('send', 'pageview');
         <h2 id="安装-Java8"><a href="#安装-Java8" class="headerlink" title="安装 Java8"></a>安装 Java8</h2><p>安装包下载链接是 <a href="https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018" target="_blank" rel="noopener">https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018</a></p>
 <p>需要先注册，然后登陆后才能下载，我下载的是 <code>Itanium_JDK_8.0.18_June_2019_Z7550-96733_java8_18018_ia.depot</code></p>
 <p>在线安装文档 <a href="https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04481894" target="_blank" rel="noopener">https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04481894</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">swinstall -s /tmp/Itanium_JDK_8.0.18_June_2019_Z7550-96733_java8_18018_ia.depot</span><br><span class="line"></span><br><span class="line"><span class="comment"># if swinstall not found</span></span><br><span class="line">/usr/sbin/swinstall -s /tmp/Itanium_JDK_8.0.18_June_2019_Z7550-96733_java8_18018_ia.depot</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后，会在根目录 opt 下多了一个 java8 目录，检查下 java 版本：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bash-5.0$ <span class="built_in">pwd</span></span><br><span class="line">/opt/java8</span><br><span class="line">bash-5.0$ <span class="built_in">cd</span> bin</span><br><span class="line">bash-5.0$ java -version</span><br><span class="line">java version <span class="string">"1.8.0.18-hp-ux"</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0.18-hp-ux-b1)</span><br><span class="line">Java HotSpot(TM) Server VM (build 25.18-b1, mixed mode)</span><br></pre></td></tr></table></figure>
-
-<p>创建软连接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /opt/java8/bin/java /bin/java</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装-gzip-和-gunzip"><a href="#安装-gzip-和-gunzip" class="headerlink" title="安装 gzip 和 gunzip"></a>安装 gzip 和 gunzip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 gzip</span></span><br><span class="line">/usr/bin/sudo /usr/<span class="built_in">local</span>/bin/depothelper gzip</span><br></pre></td></tr></table></figure>
-
-<p>如果你机器上已经有 zip 和 gunzip 了，只需要软连接一下即可，防止出现命令找不到的问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/sudo ln -s /usr/contrib/bin/gzip /usr/bin/gzip</span><br><span class="line">/usr/bin/sudo ln -s /usr/contrib/bin/gunzip /usr/bin/gunzip</span><br></pre></td></tr></table></figure>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/02/hpxu-tips/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/02/hpxu-tips/" data-id="ckc5mu1wz007zswfohxnzbrre" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/02/hpxu-tips/" data-id="ckc5zkwxn005j9gfo70c49rrl" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/02/hpxu-tips/#disqus_thread" class="article-comment-link">留言</a>
       

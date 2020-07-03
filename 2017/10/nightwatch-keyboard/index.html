@@ -13,10 +13,10 @@
 <meta property="og:description" content="在自动化测试中有这样一个场景，在一个输入框中输入一串字符，然后执行敲回车键，验证搜索结果，以 Google 搜索为例，代码如下： 12345678&#39;search nightwatch and click ENTER key&#39;: function(client) &amp;#123; client    .url(&#39;http:&#x2F;&#x2F;google.com&#39;)    .expect.element(&#39;body&#39;)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-10-19T08:56:20.000Z">
-<meta property="article:modified_time" content="2020-05-12T08:18:10.200Z">
+<meta property="article:modified_time" content="2020-07-03T08:47:41.331Z">
 <meta property="article:author" content="Xianpeng Shen">
-<meta property="article:tag" content="Nightwatch">
 <meta property="article:tag" content="Automation">
+<meta property="article:tag" content="Nightwatch">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
@@ -116,6 +116,8 @@ ga('send', 'pageview');
         <p>在自动化测试中有这样一个场景，在一个输入框中输入一串字符，然后执行敲回车键，验证搜索结果，以 Google 搜索为例，代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'search nightwatch and click ENTER key'</span>: <span class="function"><span class="keyword">function</span>(<span class="params">client</span>) </span>&#123;</span><br><span class="line"> client</span><br><span class="line">    .url(<span class="string">'http://google.com'</span>)</span><br><span class="line">    .expect.element(<span class="string">'body'</span>).to.be.present.before(<span class="number">1000</span>);</span><br><span class="line"> client.setValue(<span class="string">'input[type=text]'</span>, [<span class="string">'nightwatch'</span>, client.Keys.ENTER])</span><br><span class="line">    .pause(<span class="number">1000</span>)</span><br><span class="line">    .assert.containsText(<span class="string">'#main'</span>, <span class="string">'Night Watch'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 <p>不能翻墙的可换成 baidu，相应的 element 需要改一下否则以上代码会报错。<br>上面的代码是执行一个按键操作，如果想做组合键操作怎么办呢？比如在 Google 搜索框中输入 nightwatch，然后按 ctrl+a 组合键来进行全选操作。还是以 Google 搜索为例，代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">client.setValue(<span class="string">'input[type=text]'</span>,[<span class="string">'nightwatch'</span>, [client.Keys.CONTROL, <span class="string">'a'</span>]])</span><br></pre></td></tr></table></figure>
 
@@ -125,7 +127,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-keyboard/" data-id="ckc5mu1tr000lswfo5izkfxyu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-keyboard/" data-id="ckc5zkwxb00499gfo6moab1zg" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/nightwatch-keyboard/#disqus_thread" class="article-comment-link">留言</a>
       

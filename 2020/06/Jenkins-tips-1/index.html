@@ -5,25 +5,24 @@
   
   <title>《Jenkins Tips 001》 忽略 Shell 步骤中的故障 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。   问题 不希望 Shell 脚本因失败而中止 想一直运行 Shell 脚本并报告失败  解决">
+  <meta name="description" content="Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。  问题 不希望 Shell 脚本因失败而中止 想一直运行 Shell 脚本并报告失败">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Jenkins Tips 001》 忽略 Shell 步骤中的故障">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。   问题 不希望 Shell 脚本因失败而中止 想一直运行 Shell 脚本并报告失败  解决">
+<meta property="og:description" content="Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。  问题 不希望 Shell 脚本因失败而中止 想一直运行 Shell 脚本并报告失败">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/jenkins-tips.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/1.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/2.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/3.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/4.png">
 <meta property="article:published_time" content="2020-06-21T13:42:17.000Z">
-<meta property="article:modified_time" content="2020-06-22T01:31:10.395Z">
+<meta property="article:modified_time" content="2020-07-03T05:18:37.044Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Tips">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/jenkins-tips.png">
+<meta name="twitter:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -122,14 +121,13 @@ ga('send', 'pageview');
         <blockquote>
 <p>Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。</p>
 </blockquote>
-<p><img src="/2020/06/Jenkins-tips-1/jenkins-tips.png" alt></p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
 <li>不希望 Shell 脚本因失败而中止</li>
 <li>想一直运行 Shell 脚本并报告失败</li>
 </ul>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><a id="more"></a>
+<a id="more"></a>
 
-<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>运行 Shell 时，你可以通过使用内置的 <code>+e</code> 选项来控制执行你的脚本错误。这可以禁用“非 0 退出”的默认行为。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>运行 Shell 时，你可以通过使用内置的 <code>+e</code> 选项来控制执行你的脚本错误。这可以禁用“非 0 退出”的默认行为。</p>
 <p>请参考如下四个示例中的测试 Shell 和测试结果 Console Output。</p>
 <p><strong>示例一</strong></p>
 <p>执行的时候如果出现了返回值为非零（即命令执行失败）将会忽略错误，继续执行下面的脚本。</p>
@@ -152,7 +150,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/" data-id="ckc5mu1xa0098swfoclqqant3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/" data-id="ckc5zkwxv006f9gfo3bsv8eln" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/#disqus_thread" class="article-comment-link">留言</a>
       
