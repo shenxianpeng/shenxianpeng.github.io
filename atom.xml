@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-03T05:18:07.554Z</updated>
+  <updated>2020-07-04T10:11:39.204Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jenkins Top 3 best practice</title>
+    <link href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/"/>
+    <id>https://shenxianpeng.github.io/2020/07/jenkins-best-practice/</id>
+    <published>2020-07-03T10:57:02.000Z</published>
+    <updated>2020-07-04T10:11:39.204Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I am Xianpeng, a build engineer. Today, I am going to share with you three Jenkins Practice.&lt;/p&gt;
+&lt;p&gt;I will talk about Configuration as code, followed up with shared libraries, and then Multi-Branch Pipeline in the end.&lt;/p&gt;
+&lt;h2 id=&quot;Configuration-as-Code&quot;&gt;&lt;a href=&quot;#Configuration-as-Code&quot; class=&quot;headerlink&quot; title=&quot;Configuration as Code&quot;&gt;&lt;/a&gt;Configuration as Code&lt;/h2&gt;&lt;p&gt;What is Configuration as Code?&lt;/p&gt;
+&lt;p&gt;Configuration as code (CAC) is an approach that managing configuration resources in a bitbucket repository&lt;/p&gt;
+&lt;h3 id=&quot;What-are-the-benefits&quot;&gt;&lt;a href=&quot;#What-are-the-benefits&quot; class=&quot;headerlink&quot; title=&quot;What are the benefits?&quot;&gt;&lt;/a&gt;What are the benefits?&lt;/h3&gt;&lt;h4 id=&quot;First-Jenkins-Job-Transparency&quot;&gt;&lt;a href=&quot;#First-Jenkins-Job-Transparency&quot; class=&quot;headerlink&quot; title=&quot;First, Jenkins Job Transparency&quot;&gt;&lt;/a&gt;First, Jenkins Job Transparency&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins 三个最佳实践</title>
+    <link href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/"/>
+    <id>https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/</id>
+    <published>2020-07-03T10:57:02.000Z</published>
+    <updated>2020-07-04T10:12:08.136Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用 Jenkins 做了一年多的 CI/CD，我有三个最重要的实践想和你分享。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Configuration as Code（配置即代码）&lt;/li&gt;
+&lt;li&gt;Jenkins shared libraries（Jenkins 共享库）&lt;/li&gt;
+&lt;li&gt;Multi-Branch Pipeline（多分支流水线）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Configuration-as-Code&quot;&gt;&lt;a href=&quot;#Configuration-as-Code&quot; class=&quot;headerlink&quot; title=&quot;Configuration as Code&quot;&gt;&lt;/a&gt;Configuration as Code&lt;/h2&gt;&lt;p&gt;Configuration as Code 是一种在代码仓库里管理配置的方法。&lt;/p&gt;
+&lt;p&gt;它有什么好处呢？&lt;/p&gt;
+&lt;h3 id=&quot;1-作业透明化&quot;&gt;&lt;a href=&quot;#1-作业透明化&quot; class=&quot;headerlink&quot; title=&quot;1. 作业透明化&quot;&gt;&lt;/a&gt;1. 作业透明化&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+  </entry>
   
   <entry>
     <title>一名软件测试工程师的成长之路</title>
@@ -457,52 +513,6 @@
       <category term="Linux" scheme="https://shenxianpeng.github.io/tags/linux/"/>
     
       <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最有用的 Linux 命令行技巧</title>
-    <link href="https://shenxianpeng.github.io/2020/02/linux-tips/"/>
-    <id>https://shenxianpeng.github.io/2020/02/linux-tips/</id>
-    <published>2020-02-05T14:34:27.000Z</published>
-    <updated>2020-07-03T05:23:58.158Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;ls-命令&quot;&gt;&lt;a href=&quot;#ls-命令&quot; class=&quot;headerlink&quot; title=&quot;ls 命令&quot;&gt;&lt;/a&gt;ls 命令&lt;/h2&gt;&lt;p&gt;列出当前目录的文件和文件夹。参数:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-l&lt;/code&gt; 列出时显示详细信息&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;-a&lt;/code&gt; 显示所有文件，包括隐藏的和不隐藏的&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="LinuxUnix" scheme="https://shenxianpeng.github.io/categories/linuxunix/"/>
-    
-    
-      <category term="Linux" scheme="https://shenxianpeng.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HP-UX 安装工具以及一些使用总结</title>
-    <link href="https://shenxianpeng.github.io/2020/02/hpxu-tips/"/>
-    <id>https://shenxianpeng.github.io/2020/02/hpxu-tips/</id>
-    <published>2020-02-05T02:28:37.000Z</published>
-    <updated>2020-07-03T05:23:38.777Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;安装-Java8&quot;&gt;&lt;a href=&quot;#安装-Java8&quot; class=&quot;headerlink&quot; title=&quot;安装 Java8&quot;&gt;&lt;/a&gt;安装 Java8&lt;/h2&gt;&lt;p&gt;安装包下载链接是 &lt;a href=&quot;https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;需要先注册，然后登陆后才能下载，我下载的是 &lt;code&gt;Itanium_JDK_8.0.18_June_2019_Z7550-96733_java8_18018_ia.depot&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;在线安装文档 &lt;a href=&quot;https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04481894&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c04481894&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="LinuxUnix" scheme="https://shenxianpeng.github.io/categories/linuxunix/"/>
-    
-    
-      <category term="UNIX" scheme="https://shenxianpeng.github.io/tags/unix/"/>
-    
-      <category term="HP-UX" scheme="https://shenxianpeng.github.io/tags/hp-ux/"/>
     
   </entry>
   
