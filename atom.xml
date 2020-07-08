@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-08T06:32:26.452Z</updated>
+  <updated>2020-07-08T07:10:41.575Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/"/>
     <id>https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/</id>
     <published>2020-07-06T10:57:02.000Z</published>
-    <updated>2020-07-08T06:32:26.452Z</updated>
+    <updated>2020-07-08T07:10:41.575Z</updated>
     
     <summary type="html">
     
@@ -35,9 +35,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -61,9 +61,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -184,9 +184,9 @@
     
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
   </entry>
   
@@ -233,9 +233,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
-    
       <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
+    
+      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
     
   </entry>
   
