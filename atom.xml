@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-04T10:11:39.204Z</updated>
+  <updated>2020-07-08T06:32:26.452Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>每个 Jenkins 用户都应该知道这三个最佳实践</title>
+    <link href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/"/>
+    <id>https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/</id>
+    <published>2020-07-06T10:57:02.000Z</published>
+    <updated>2020-07-08T06:32:26.452Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;​在使用 Jenkins 实施了企业级的 CI/CD 工作，有如下三个最重要的实践和总结。&lt;/p&gt;
+&lt;p&gt;第一，Configuration as Code（配置即代码）&lt;br&gt;其次，Jenkins shared libraries（Jenkins 共享库）&lt;br&gt;最后，Multi-Branch Pipeline（多分支流水线）&lt;/p&gt;
+&lt;h2 id=&quot;配置即代码&quot;&gt;&lt;a href=&quot;#配置即代码&quot; class=&quot;headerlink&quot; title=&quot;配置即代码&quot;&gt;&lt;/a&gt;配置即代码&lt;/h2&gt;&lt;p&gt;配置即代码(Configuration as Code)是一种在代码仓库里管理配置的方法。&lt;/p&gt;
+&lt;h3 id=&quot;它有什么好处&quot;&gt;&lt;a href=&quot;#它有什么好处&quot; class=&quot;headerlink&quot; title=&quot;它有什么好处&quot;&gt;&lt;/a&gt;它有什么好处&lt;/h3&gt;&lt;h4 id=&quot;作业透明化&quot;&gt;&lt;a href=&quot;#作业透明化&quot; class=&quot;headerlink&quot; title=&quot;作业透明化&quot;&gt;&lt;/a&gt;作业透明化&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+  </entry>
   
   <entry>
     <title>Jenkins Top 3 best practice</title>
@@ -36,39 +61,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Jenkins 三个最佳实践</title>
-    <link href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/"/>
-    <id>https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/</id>
-    <published>2020-07-03T10:57:02.000Z</published>
-    <updated>2020-07-04T10:12:08.136Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在使用 Jenkins 做了一年多的 CI/CD，我有三个最重要的实践想和你分享。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Configuration as Code（配置即代码）&lt;/li&gt;
-&lt;li&gt;Jenkins shared libraries（Jenkins 共享库）&lt;/li&gt;
-&lt;li&gt;Multi-Branch Pipeline（多分支流水线）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;Configuration-as-Code&quot;&gt;&lt;a href=&quot;#Configuration-as-Code&quot; class=&quot;headerlink&quot; title=&quot;Configuration as Code&quot;&gt;&lt;/a&gt;Configuration as Code&lt;/h2&gt;&lt;p&gt;Configuration as Code 是一种在代码仓库里管理配置的方法。&lt;/p&gt;
-&lt;p&gt;它有什么好处呢？&lt;/p&gt;
-&lt;h3 id=&quot;1-作业透明化&quot;&gt;&lt;a href=&quot;#1-作业透明化&quot; class=&quot;headerlink&quot; title=&quot;1. 作业透明化&quot;&gt;&lt;/a&gt;1. 作业透明化&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -189,9 +184,9 @@
     
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
-      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
-    
       <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
     
   </entry>
   
@@ -238,9 +233,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
-    
       <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
+    
+      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
     
   </entry>
   
@@ -316,9 +311,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
