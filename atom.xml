@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-08T07:10:41.575Z</updated>
+  <updated>2020-07-16T03:53:45.489Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to fix &quot;.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service&quot;</title>
+    <link href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/"/>
+    <id>https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/</id>
+    <published>2020-07-16T03:28:20.000Z</published>
+    <updated>2020-07-16T03:53:45.489Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agnent can not connect with master successfully. and out come this warining message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
+    
+  </entry>
   
   <entry>
     <title>每个 Jenkins 用户都应该知道这三个最佳实践</title>
@@ -46,7 +68,7 @@
     <link href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/"/>
     <id>https://shenxianpeng.github.io/2020/07/jenkins-best-practice/</id>
     <published>2020-07-03T10:57:02.000Z</published>
-    <updated>2020-07-04T10:11:39.204Z</updated>
+    <updated>2020-07-14T10:52:15.092Z</updated>
     
     <summary type="html">
     
@@ -233,9 +255,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
-    
       <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
+    
+      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
     
   </entry>
   
@@ -485,29 +507,6 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="cppcheck" scheme="https://shenxianpeng.github.io/tags/cppcheck/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用 VirtualBox 配置一台 Linux 虚拟机</title>
-    <link href="https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/"/>
-    <id>https://shenxianpeng.github.io/2020/02/Setup-Linux-in-VirtualBox/</id>
-    <published>2020-02-08T03:25:48.000Z</published>
-    <updated>2020-07-03T05:24:08.285Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果你想使用 Linux 但又不想租用云厂商的虚拟机，那么 VirtualBox 是一个比较好的选择。我们可以在 VirtualBox 安装你需要的绝大数的操作系统。&lt;/p&gt;
-&lt;p&gt;为了保证使用的流畅，这里最好使用内存建议 8G 及以上，硬盘 256 GB 的 Windows 电脑。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="LinuxUnix" scheme="https://shenxianpeng.github.io/categories/linuxunix/"/>
-    
-    
-      <category term="Linux" scheme="https://shenxianpeng.github.io/tags/linux/"/>
-    
-      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
     
   </entry>
   
