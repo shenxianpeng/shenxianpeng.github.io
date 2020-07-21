@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/4.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/3.png">
 <meta property="article:published_time" content="2020-07-16T03:28:20.000Z">
-<meta property="article:modified_time" content="2020-07-16T03:53:45.489Z">
+<meta property="article:modified_time" content="2020-07-16T04:08:18.569Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="troubleshooting">
@@ -64,7 +64,7 @@ ga('send', 'pageview');
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">非著名程序员的网络日志，把分享变成一种习惯。</a>
+          <a href="/" id="subtitle">The blog of non-famous programmer, making sharing a habit.</a>
         </h2>
       
     </div>
@@ -132,7 +132,7 @@ ga('send', 'pageview');
 </ol>
 <p>Then try to reconnect Jenkins agnet it shoule back to work.</p>
 <h2 id="Install-Jenkins-agent-service"><a href="#Install-Jenkins-agent-service" class="headerlink" title="Install Jenkins agent service"></a>Install Jenkins agent service</h2><p>If you can not found <code>Jenkins agent</code> like me. </p>
-<p><img src="/2020/07/jenkins-windows-agent-connect-problem/4.png" alt="Features"></p>
+<p><img src="/2020/07/jenkins-windows-agent-connect-problem/4.png" alt="Jenkins agent service"></p>
 <p>you can try these steps to install <code>Jenkins agent</code>.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install Jenkins agent service</span></span><br><span class="line"><span class="built_in">cd</span> c:\\jenkins</span><br><span class="line">.\jenkins-agent.exe install</span><br><span class="line">net start jenkinsslave-C__agent</span><br><span class="line"></span><br><span class="line"><span class="comment"># unstall Jenkins agent service</span></span><br><span class="line">sc delete jenkinsslave-C__agent</span><br></pre></td></tr></table></figure>
 
@@ -149,7 +149,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckco9e9zx0089k0fo2y7537c4" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckcvmm2590080bofofgvy34a2" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">留言</a>
       
