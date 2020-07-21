@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hello World</title>
   
-  <subtitle>The blog of non-famous programmer, making sharing a habit.</subtitle>
+  <subtitle>Weblog of non-famous code farmers.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
@@ -57,9 +57,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -83,9 +83,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -333,9 +333,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
