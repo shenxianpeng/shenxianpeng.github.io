@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-16T04:08:18.569Z</updated>
+  <updated>2020-07-22T09:57:58.657Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jenkins 执行 Shell 如果返回值不为0，作业(Job)停止并失败怎么办？</title>
+    <link href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/"/>
+    <id>https://shenxianpeng.github.io/2020/07/jenkins-tips-3/</id>
+    <published>2020-07-22T08:11:36.000Z</published>
+    <updated>2020-07-22T09:57:58.657Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;《Jenkins Tips 3》—— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在使用 Jenkins pipeline 时，如果 Shell 的返回值不为零（也就是 Shell 命令执行时有错误），Jenkins Job 默认会标记当前的 stage 为失败。因此整个 Job 也会失败。&lt;/p&gt;
+&lt;p&gt;在有些时候我们希望 Shell 虽然执行失败返回的不为零，但希望Jenkins Job 在执行成功后，要显示成功状态。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
+    
+  </entry>
   
   <entry>
     <title>How to fix &quot;.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service&quot;</title>
@@ -111,16 +137,16 @@
   </entry>
   
   <entry>
-    <title>《Jenkins Tips 002》 处理 Shell 返回的字符串成字符数组</title>
+    <title>将 Jenkins Shell 返回的字符串处理为字符数组</title>
     <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/"/>
     <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/</id>
     <published>2020-06-22T06:37:29.000Z</published>
-    <updated>2020-07-03T05:18:43.882Z</updated>
+    <updated>2020-07-22T09:59:57.069Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
+&lt;p&gt;《Jenkins Tips 2》 —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;想要把 Linux 上不同的文本数据通过 Jenkins 发送邮件给不同的人。&lt;/p&gt;
     
@@ -136,16 +162,16 @@
   </entry>
   
   <entry>
-    <title>《Jenkins Tips 001》 忽略 Shell 步骤中的故障</title>
+    <title>忽略 Jenkins Shell 步骤中的故障</title>
     <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/"/>
     <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/</id>
     <published>2020-06-21T13:42:17.000Z</published>
-    <updated>2020-07-03T05:18:37.044Z</updated>
+    <updated>2020-07-22T09:59:11.851Z</updated>
     
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;Jenkins Tips —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
+&lt;p&gt;《Jenkins Tips 1》 —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;不希望 Shell 脚本因失败而中止&lt;/li&gt;
@@ -485,28 +511,6 @@
       <category term="Cleanup" scheme="https://shenxianpeng.github.io/tags/cleanup/"/>
     
       <category term="Azure" scheme="https://shenxianpeng.github.io/tags/azure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成</title>
-    <link href="https://shenxianpeng.github.io/2020/02/cppcheck/"/>
-    <id>https://shenxianpeng.github.io/2020/02/cppcheck/</id>
-    <published>2020-02-16T13:14:12.000Z</published>
-    <updated>2020-07-03T05:23:20.515Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于历史遗留原因，我们当前产品的代码仓库里遗留很多 Warning，这些 Warning 不是一时半会可以解决掉的。只有通过不断的丰富自动化测试用例，来保障最后的质量关卡，才敢有条不紊的进行 Warining 的修复，在次之前，如何有效杜绝继续引入更多的 Warining 是当下应该做的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="cppcheck" scheme="https://shenxianpeng.github.io/tags/cppcheck/"/>
     
   </entry>
   

@@ -85,6 +85,52 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2018/04/Jenkinsfile-configure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/Jenkinsfile-configure/" class="article-date">
+  <time datetime="2018-04-14T05:07:49.000Z" itemprop="datePublished">2018-04-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/Jenkinsfile-configure/">Jenkinsfile 配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在做有关 DevOps Build 的时候，学习了 Jenkins 的 Pipeline 的功能，不得不提到的就是 Jenkinsfile 这个文件。</p>
+<p>以下面是我配置的 Jenkinsfile 文件及简单说明，更多有关 <a href="https://jenkins.io/doc/book/pipeline/" target="_blank" rel="noopener">Pipeline</a> 请看官方文档。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        <span class="comment">// Build 阶段</span></span><br><span class="line">        stage(<span class="string">'Build'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">'Building...'</span></span><br><span class="line">                bat <span class="string">'npm run build webcomponent-sample'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 单元测试阶段</span></span><br><span class="line">        stage(<span class="string">'Unit Test'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">'Unit Testing...'</span></span><br><span class="line">                bat <span class="string">'npm test webcomponent-sample'</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123;</span><br><span class="line">                <span class="comment">// 执行成功后生产报告</span></span><br><span class="line">                publishHTML target: [</span><br><span class="line">                    allowMissing: <span class="literal">false</span>,</span><br><span class="line">                    alwaysLinkToLastBuild: <span class="literal">false</span>,</span><br><span class="line">                    keepAll: <span class="literal">true</span>,</span><br><span class="line">                    reportDir: <span class="string">'components/webcomponent-sample/coverage/chrome'</span>,</span><br><span class="line">                    reportFiles: <span class="string">'index.html'</span>,</span><br><span class="line">                    reportName: <span class="string">'RCov Report'</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// E2E 测试阶段</span></span><br><span class="line">        stage(<span class="string">'E2E Test'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                bat <span class="string">'node nightwatch e2e/demo/test.js'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Release'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">'Release...'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    post &#123;</span><br><span class="line">        <span class="comment">// 执行成功是触发</span></span><br><span class="line">        success &#123;  </span><br><span class="line">            mail bcc: <span class="string">'email@qq.com'</span>,</span><br><span class="line">            body: <span class="string">"&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; "</span>, <span class="attr">cc</span>: <span class="string">''</span>, <span class="attr">charset</span>: <span class="string">'UTF-8'</span>, <span class="attr">from</span>: <span class="string">'jenkins@qq.com'</span>, <span class="attr">mimeType</span>: <span class="string">'text/html'</span>, <span class="attr">replyTo</span>: <span class="string">''</span>, <span class="attr">subject</span>: <span class="string">"SUCCESS: Project Name -&gt; $&#123;env.JOB_NAME&#125;"</span>, <span class="attr">to</span>: <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行失败时触发</span></span><br><span class="line">        failure &#123;  </span><br><span class="line">            mail bcc: <span class="string">'email@qq.com'</span>,</span><br><span class="line">            body: <span class="string">"&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; "</span>, <span class="attr">cc</span>: <span class="string">''</span>, <span class="attr">charset</span>: <span class="string">'UTF-8'</span>, <span class="attr">from</span>: <span class="string">'jenkins@qq.com'</span>, <span class="attr">mimeType</span>: <span class="string">'text/html'</span>, <span class="attr">replyTo</span>: <span class="string">''</span>, <span class="attr">subject</span>: <span class="string">"FAILURE: Project Name -&gt; $&#123;env.JOB_NAME&#125;"</span>, <span class="attr">to</span>: <span class="string">""</span>;  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2018/04/Jenkinsfile-configure/" data-id="ckcvn3xi6002xckfobpfh2z2p" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2018/04/Jenkinsfile-configure/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
     <article id="post-2018/04/devops-practice" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/devops-practice/" class="article-date">
@@ -564,51 +610,6 @@ ga('send', 'pageview');
   
 </article>
   
-    <article id="post-2017/12/nightwatch-wait-for-text" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/nightwatch-wait-for-text/" class="article-date">
-  <time datetime="2017-12-19T02:29:41.000Z" itemprop="datePublished">2017-12-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/automation/">Automation</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/nightwatch-wait-for-text/">Nightwatch wait For Text</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在使用 Nightwatch 做自动化测试的时候，会遇到这样一种情况：<br>创建一个 query, 等待这个query的状态从 Wait 变成 Running 最后到 Available 时再执行操作。<br>Nightwatch 并没有提供这样的方法，可以通过下面的方式解决。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'Wait for text'</span>: <span class="function"><span class="keyword">function</span> <span class="title">waitForText</span>(<span class="params">client</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> query = client.page.query();</span><br><span class="line">    query.navigate();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">        client.getText(<span class="string">'status'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (result.value.indexOf(<span class="string">'Available'</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.break;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                client.pause(<span class="number">1000</span>);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// TODO something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/" data-id="ckcvn3xhc001fckfo6zss17l7" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/automation/" rel="tag">Automation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
 
 
   <nav id="page-nav">
@@ -622,7 +623,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -632,7 +633,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13.33px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.78px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 12.22px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14.44px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11.11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14.44px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12.22px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 16.67px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15.56px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.22px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12.22px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 18.89px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/python/" style="font-size: 11.11px;">Python</a> <a href="/tags/release/" style="font-size: 10px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12.22px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11.11px;">Stats</a> <a href="/tags/summary/" style="font-size: 10px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.22px;">Thought</a> <a href="/tags/tips/" style="font-size: 11.11px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12.22px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12.22px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11.11px;">Webhooks</a> <a href="/tags/work/" style="font-size: 14.44px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/vscode/" style="font-size: 11.11px;">vscode</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13.33px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.78px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 12.22px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12.22px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14.44px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11.11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14.44px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12.22px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 16.67px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15.56px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.22px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12.22px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/linux/" style="font-size: 11.11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 18.89px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/python/" style="font-size: 11.11px;">Python</a> <a href="/tags/release/" style="font-size: 10px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12.22px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11.11px;">Stats</a> <a href="/tags/summary/" style="font-size: 10px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.22px;">Thought</a> <a href="/tags/tips/" style="font-size: 12.22px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12.22px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12.22px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11.11px;">Webhooks</a> <a href="/tags/work/" style="font-size: 14.44px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/vscode/" style="font-size: 11.11px;">vscode</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -642,6 +643,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/07/jenkins-tips-3/">Jenkins 执行 Shell 如果返回值不为0，作业(Job)停止并失败怎么办？</a>
+          </li>
         
           <li>
             <a href="/2020/07/jenkins-windows-agent-connect-problem/">How to fix &#34;.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service&#34;</a>
@@ -660,11 +665,11 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            <a href="/2020/06/Jenkins-tips-2/">《Jenkins Tips 002》 处理 Shell 返回的字符串成字符数组</a>
+            <a href="/2020/06/Jenkins-tips-2/">将 Jenkins Shell 返回的字符串处理为字符数组</a>
           </li>
         
           <li>
-            <a href="/2020/06/Jenkins-tips-1/">《Jenkins Tips 001》 忽略 Shell 步骤中的故障</a>
+            <a href="/2020/06/Jenkins-tips-1/">忽略 Jenkins Shell 步骤中的故障</a>
           </li>
         
           <li>
@@ -719,10 +724,6 @@ ga('send', 'pageview');
             <a href="/2020/03/maintaining-a-git-gepository/">如何给你的 Git 仓库“瘦身”</a>
           </li>
         
-          <li>
-            <a href="/2020/02/cppcheck/">一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -732,7 +733,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -748,7 +749,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'shenxianpeng';
     
-    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
+    var disqus_url = 'https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/';
     
     (function(){
       var dsq = document.createElement('script');
