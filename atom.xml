@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-22T09:57:58.657Z</updated>
+  <updated>2020-07-26T03:02:37.729Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序员的自我修养 —— Git 提交信息规范</title>
+    <link href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/"/>
+    <id>https://shenxianpeng.github.io/2020/07/commit-messages-specification/</id>
+    <published>2020-07-26T00:39:22.000Z</published>
+    <updated>2020-07-26T03:02:37.729Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在使用 Git 提交代码的时候，在与他人合作同时开发的项目，一个良好的提交信息规范我总结有三个好处：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有助于其他人接手，进行 Bug 修复或是新功能的添加都是很好的参考&lt;/li&gt;
+&lt;li&gt;并且良好的规范有助于自动化脚本的识别&lt;/li&gt;
+&lt;li&gt;最后这也是体现了一个程序员的自我修养&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
+  </entry>
   
   <entry>
     <title>Jenkins 执行 Shell 如果返回值不为0，作业(Job)停止并失败怎么办？</title>
@@ -83,9 +111,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -109,9 +137,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -489,28 +517,6 @@
       <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
     
       <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何给你的 Git 仓库“瘦身”</title>
-    <link href="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/"/>
-    <id>https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/</id>
-    <published>2020-03-21T12:54:34.000Z</published>
-    <updated>2020-07-03T05:22:49.880Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;对 Git 仓库的维护通常是为了减少仓库的大小。如果你从另外一个版本控制系统导入了一个仓库，你可能需要在导入后清除掉不必要的文件。本文主要讨论如何从 Git 仓库中删除不需要的文件。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
-    
-    
-      <category term="Cleanup" scheme="https://shenxianpeng.github.io/tags/cleanup/"/>
-    
-      <category term="Azure" scheme="https://shenxianpeng.github.io/tags/azure/"/>
     
   </entry>
   

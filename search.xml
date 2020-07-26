@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>程序员的自我修养 —— Git 提交信息规范</title>
+      <link href="/2020/07/commit-messages-specification/"/>
+      <url>/2020/07/commit-messages-specification/</url>
+      
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在使用 Git 提交代码的时候，在与他人合作同时开发的项目，一个良好的提交信息规范我总结有三个好处：</p><ol><li>有助于其他人接手，进行 Bug 修复或是新功能的添加都是很好的参考</li><li>并且良好的规范有助于自动化脚本的识别</li><li>最后这也是体现了一个程序员的自我修养</li></ol><p>因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：</p><a id="more"></a><p>随便找的一个没有任何规范的提交信息</p><p><img src="/2020/07/commit-messages-specification/bad-commit-message.png" alt="没有规范的 Git 提交信息"></p><p>这是 Angular 有规范的提交信息，并且遵循了常规提交 <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a></p><p><img src="/2020/07/commit-messages-specification/angular-commit-message.png" alt="有规范的 Git 提交信息"></p><h2 id="如何治理提交信息规范"><a href="#如何治理提交信息规范" class="headerlink" title="如何治理提交信息规范"></a>如何治理提交信息规范</h2><p>在治理提交信息规范问题上，有两个解决办法。</p><ol><li>为团队制定出提交信息的规范，让团队了解和遵守。</li><li>在提交代码时，设置 Git Hook 把不规范的提交排除在外，比如提示用户当前提交的信息不符合规范。</li></ol><h2 id="制定规范"><a href="#制定规范" class="headerlink" title="制定规范"></a>制定规范</h2><p>制定合理的规范，最便捷的方法是参考软件行业里是否有大家通用的规范。经过一番搜索，虽然行业里并没有绝对的提交信息规范，但我看到有很多项目已经在采用这个 <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a> 的提交信息规范，比较有代表性的是 Auglar 及很多项目也在使用。</p><p>在此基础上，总结了适合自己团队的规范：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">JIRA-1234 Feat: support for async execution</span><br><span class="line"></span><br><span class="line">^-------^ ^--^: ^-------------------------^</span><br><span class="line">|         |     |</span><br><span class="line">|         |     +--&gt; Summary in present tense.</span><br><span class="line">|         |</span><br><span class="line">|         +--&gt; Type: Feat, Fix, Docs, Style, Refactor, Perf, Test or Chore.</span><br><span class="line">|</span><br><span class="line">+--&gt; Jira ticket number</span><br><span class="line"></span><br><span class="line">Type</span><br><span class="line"></span><br><span class="line">Must be one of the following:</span><br><span class="line"></span><br><span class="line">    Feat: A new feature</span><br><span class="line">    Fix: A bug fix</span><br><span class="line">    Docs: Documentation only changes</span><br><span class="line">    Style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</span><br><span class="line">    Refactor: A code change that neither fixes a bug nor adds a feature</span><br><span class="line">    Perf: A code change that improves performance</span><br><span class="line">    Test: Adding missing or correcting existing tests</span><br><span class="line">    Chore: Changes to the build process, .gitignore or auxiliary tools and libraries such as documentation generation, etc.</span><br></pre></td></tr></table></figure><h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><blockquote><p>Conventional Commits <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">https://www.conventionalcommits.org/en/v1.0.0/</a></p></blockquote><blockquote><p>Angular Commit Guidelines: <a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits" target="_blank" rel="noopener">https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits</a></p></blockquote><blockquote><p>Projects Using Conventional Commits: <a href="https://www.conventionalcommits.org/en/v1.0.0/#projects-using-conventional-commits" target="_blank" rel="noopener">https://www.conventionalcommits.org/en/v1.0.0/#projects-using-conventional-commits</a></p></blockquote><h2 id="设置-Git-Hook"><a href="#设置-Git-Hook" class="headerlink" title="设置 Git Hook"></a>设置 Git Hook</h2><p>以 Bitbuket 为例，开启 <a href="https://mohamicorp.atlassian.net/wiki/spaces/DOC/pages/1442119700/Yet+Another+Commit+Checker+YACC+for+Bitbucket" target="_blank" rel="noopener">Yet Another Commit Checker</a> 这个免费插件。</p><p><img src="/2020/07/commit-messages-specification/git-hook.png" alt></p><p>这里的设置很多，我举两个不那么严格的常见设置。</p><p><img src="/2020/07/commit-messages-specification/commit-checker-setting.png" alt="Commit Checker 设置"></p><ol><li>开启 Require Valid JIRA Issue(s)</li></ol><p>这个功能的开启，在开发者提交信息的时候如果不含有相关联的 Jira 单号，或是这个单号不存在，那么都会提交失败。这样就强制将代码与 Jira 单号进行关联。</p><ol start="2"><li>设置 Commit Message Regex（提交信息正则表达式）</li></ol><p>我设置了 <code>[A-Z\-0-9]+ .*</code> 这样的正则表达式，这就要求比如有以这样的 Jira 单号</p><p>ABCD-1234，并且在写描述之前必须与 Jira 单号之前有一个空格。</p><p>通过以上两个功能的设置，就将提交信息限定为如下格式：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ABCD-1234 Balabala......</span><br></pre></td></tr></table></figure><h3 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h3><p><img src="/2020/07/commit-messages-specification/commit-checker.png" alt="Yet Another Commit Checker 插件的其他设置选项"></p><p>另外还有一些其他的设置，比如关联的 Jira 单子必须处于什么样的状态，这个可以防止已经关闭的 Jira 单子，开发还往上面偷偷的修改代码，这时候测试也发现不了。</p><p>还有 Require Matching Committer Email 和 Require Matching Committer Name 来限定开发者必须配置好与登录用户名和邮箱相匹配的用户名和邮箱，来规范提交信息里显示的用户名和邮箱，也方便进行 Git 信息的统计等后续数据的收集。</p><p>更多请参考 <a href="https://mohamicorp.atlassian.net/wiki/spaces/DOC/pages/1442119700/Yet+Another+Commit+Checker+YACC+for+Bitbucket" target="_blank" rel="noopener">Yet Another Commit Checker 插件文档</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> Specification </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Jenkins 执行 Shell 如果返回值不为0，作业(Job)停止并失败怎么办？</title>
       <link href="/2020/07/jenkins-tips-3/"/>
       <url>/2020/07/jenkins-tips-3/</url>
@@ -74,9 +101,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -101,9 +128,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -911,9 +938,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
