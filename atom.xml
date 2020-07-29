@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-26T03:02:37.729Z</updated>
+  <updated>2020-07-29T06:00:11.724Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Annual work summary from 2019 - 2020</title>
+    <link href="https://shenxianpeng.github.io/2020/07/annual-work-summary/"/>
+    <id>https://shenxianpeng.github.io/2020/07/annual-work-summary/</id>
+    <published>2020-07-29T05:52:04.000Z</published>
+    <updated>2020-07-29T06:00:11.724Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Summarize what did I do from 2019.03 to 2020.07 when I became a Build Release/DevOps engineer.&lt;/p&gt;
+&lt;h2 id=&quot;Build-automation&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
+    
+    
+      <category term="Work" scheme="https://shenxianpeng.github.io/tags/work/"/>
+    
+      <category term="Summary" scheme="https://shenxianpeng.github.io/tags/summary/"/>
+    
+  </entry>
   
   <entry>
     <title>程序员的自我修养 —— Git 提交信息规范</title>
@@ -489,34 +518,6 @@
     
     
       <category term="Interview" scheme="https://shenxianpeng.github.io/tags/interview/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2020年务必知道的最好用的14款CI/CD工具</title>
-    <link href="https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/"/>
-    <id>https://shenxianpeng.github.io/2020/03/Best-14-CI-CD-Tools-in-2020/</id>
-    <published>2020-03-29T03:37:07.000Z</published>
-    <updated>2020-07-03T05:23:05.973Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.katalon.com/resources-center/blog/ci-cd-tools/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;“Quality at Speed” 是软件开发中的新规范。&lt;/p&gt;
-&lt;p&gt;企业正在朝着DevOps方法论和敏捷文化迈进，以加快交付速度并确保产品质量。 在DevOps中，连续和自动化的交付周期是使快速可靠的交付成为可能的基础。&lt;/p&gt;
-&lt;p&gt;这导致我们需要适当的持续集成和持续交付（CI/CD）工具。 一个“好的”CI/CD工具可以利用团队当前的工作流程，以最佳利用自动化功能并创建可靠的CI/CD管道，并为团队发展提供所需的动力。&lt;/p&gt;
-&lt;p&gt;随着市场上大量CI/CD工具的出现，团队可能难以做出艰难的决定来挑选合适的工具。该列表包含“市场上最好的14种CI/CD工具”及其主要功能，使您和团队在选择过程中更加轻松。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
-    
-      <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
     
   </entry>
   

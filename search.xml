@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Annual work summary from 2019 - 2020</title>
+      <link href="/2020/07/annual-work-summary/"/>
+      <url>/2020/07/annual-work-summary/</url>
+      
+        <content type="html"><![CDATA[<p>Summarize what did I do from 2019.03 to 2020.07 when I became a Build Release/DevOps engineer.</p><h2 id="Build-automation"><a href="#Build-automation" class="headerlink" title="Build automation"></a>Build automation</h2><ul><li>Support all server windows platform manual to auto.</li><li>Support clents build from manual to auto.</li><li>Switch linux/unix build from Bamboo to Jenkins.</li><li>Support all platforms branches and Pull Request build.</li><li>Provide auto builld as self-service to developer, not need to involve build engineer, they could build themselves.</li></ul><h2 id="Integration"><a href="#Integration" class="headerlink" title="Integration"></a>Integration</h2><ul><li><p>Integration with Jenkins</p><ul><li>Self-service installation.</li><li>Blackduck, polaris integaration.</li><li>Git stats, analyze Bitbucket data with Elastic stack.</li><li>Monitor legacy build machines status.</li><li>Product escrow, sync xdemo, provide NFS and SYNC mvopensrc, update Jenkins build status, etc.</li></ul></li><li><p>Integration with JFrog Ariifactory</p><ul><li>Establish deploy strategy and directory structure organization.</li><li>Handle artifacts(build, etc) with different maturity.</li></ul></li></ul><h2 id="Infrastructure-management"><a href="#Infrastructure-management" class="headerlink" title="Infrastructure management"></a>Infrastructure management</h2><ul><li>Manage Jenkins for setting, update backup.</li><li>Ariifactory Build cleanup, retention, backup.</li><li>Git branches/hooks management.</li><li>VMs tracking, management build machines.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> MyNotes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Work </tag>
+            
+            <tag> Summary </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>程序员的自我修养 —— Git 提交信息规范</title>
       <link href="/2020/07/commit-messages-specification/"/>
       <url>/2020/07/commit-messages-specification/</url>
