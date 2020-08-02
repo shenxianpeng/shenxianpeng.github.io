@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-07-29T06:14:55.731Z</updated>
+  <updated>2020-08-02T01:52:33.950Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何把自己的 Python 代码打包发布到 PyPI</title>
+    <link href="https://shenxianpeng.github.io/2020/08/release-to-pypi/"/>
+    <id>https://shenxianpeng.github.io/2020/08/release-to-pypi/</id>
+    <published>2020-08-02T00:13:17.000Z</published>
+    <updated>2020-08-02T01:52:33.950Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;使用 Python 编程的人都知道，Python 的优势之一就是有大量的第三方库，通常使用如下命令&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install xxxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;就可以轻松下载，真是即酷炫又方便，你有没有想过这个是怎么实现的？最近正好赶上又开始写 Python 借此机会分享一下。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
+    
+    
+      <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
+    
+      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
+    
+      <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
+    
+  </entry>
   
   <entry>
     <title>Annual work summary from 2019.03 - 2020.07</title>
@@ -489,35 +516,6 @@
       <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
     
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>DevOps Top 30+ 面试问题</title>
-    <link href="https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/"/>
-    <id>https://shenxianpeng.github.io/2020/04/Top-30-DevOps-Interview-Questions/</id>
-    <published>2020-03-29T05:18:14.000Z</published>
-    <updated>2020-07-03T05:21:44.417Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;DevOps术语和定义&quot;&gt;&lt;a href=&quot;#DevOps术语和定义&quot; class=&quot;headerlink&quot; title=&quot;DevOps术语和定义&quot;&gt;&lt;/a&gt;DevOps术语和定义&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;什么是DevOps&lt;/p&gt;
-&lt;p&gt; 用最简单的术语来说，DevOps是产品开发过程中开发（Dev）和运营（Ops）团队之间的灰色区域。 DevOps是一种在产品开发周期中强调沟通，集成和协作的文化。因此，它消除了软件开发团队和运营团队之间的孤岛，使他们能够快速，连续地集成和部署产品。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;什么是持续集成&lt;/p&gt;
-&lt;p&gt; 持续集成（Continuous integration，缩写为 CI）是一种软件开发实践，团队开发成员经常集成他们的工作。利用自动测试来验证并断言其代码不会与现有代码库产生冲突。理想情况下，代码更改应该每天在CI工具的帮助下，在每次提交时进行自动化构建（包括编译，发布，自动化测试），从而尽早地发现集成错误，以确保合并的代码没有破坏主分支。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;什么是持续交付&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Interview" scheme="https://shenxianpeng.github.io/tags/interview/"/>
     
   </entry>
   
