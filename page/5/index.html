@@ -122,7 +122,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/" data-id="ckd6zvugi003i6ofofb5ta0yd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/" data-id="ckde38j0w004x3sfo0wtph20y" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -170,7 +170,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/output-display-color/" data-id="ckd6zvugk003k6ofohu76dmic" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/output-display-color/" data-id="ckde38j0j004l3sfo6sk659mk" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/output-display-color/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -218,7 +218,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/" data-id="ckd6zvugm003q6ofochc36oab" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/" data-id="ckde38j1100543sfo5mmp7y2l" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -231,9 +231,9 @@ ga('send', 'pageview');
   
 </article>
   
-    <article id="post-2019/09/nfs-shared-code-to-your-team" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2019/09/nfs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/09/nfs-shared-code-to-your-team/" class="article-date">
+    <a href="/2019/09/nfs/" class="article-date">
   <time datetime="2019-09-10T14:38:47.000Z" itemprop="datePublished">2019-09-10</time>
 </a>
     
@@ -249,7 +249,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/nfs-shared-code-to-your-team/">通过 NFS 和 Jenkins 来共享和同步第三方库代码</a>
+      <a class="article-title" href="/2019/09/nfs/">如何设置 NFS 共享以及在不同的平台 Windows/Linux/Unix 进行挂载</a>
     </h1>
   
 
@@ -257,19 +257,20 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近遇到这样一个需求，我们有一个共享仓库的代码所在用的空间非常大（超过 20 G），在每个产品构建时候都需要用到这个仓库的代码（从里面 copy 第三方库），如果每个人都要 git clone 这个第三方仓库，一是网络开销非常大，二是 git clone 时间长，三是占用大量的物理空间。</p>
-<p>这里通过 NFS 和 Jenkins 来解决。</p>
+        <p>例如我有一个共享仓库的代码所在用的空间非常大（超过 20 G），在每个产品构建时候都需要用到这个仓库的代码（从里面 copy 第三方库），如果每个人都要 git clone 这个第三方仓库，一是网络开销非常大，二是 git clone 时间长，而且占用大量的物理空间。</p>
+<p>这可以通过 NFS 共享来解决。</p>
+<p>另外希望这个代码仓库能自动更新，这里引入了 Jenkins。用它来检查如果这个容量巨大的仓库有代码提交就自动执行 git pull 操作，更新最新的代码到共享服务器上。</p>
         
           <p class="article-more-link">
-            <a href="/2019/09/nfs-shared-code-to-your-team/#more">Read More</a>
+            <a href="/2019/09/nfs/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/nfs-shared-code-to-your-team/" data-id="ckd6zvugf003b6ofo621g92xb" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/nfs/" data-id="ckde38j07004c3sfo2e5ncpvu" class="article-share-link">Share</a>
       
-        <a href="https://shenxianpeng.github.io/2019/09/nfs-shared-code-to-your-team/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://shenxianpeng.github.io/2019/09/nfs/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nfs/" rel="tag">NFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">Shell</a></li></ul>
@@ -319,7 +320,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="ckd6zvugg003e6ofog9ck9o7f" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="ckde38j0a004f3sfo7d4n7830" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -386,7 +387,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="ckd6zvugd00366ofo3ulxfcw7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="ckde38j0l004p3sfoc8tb00vp" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/git-commit-squash/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -439,7 +440,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="ckd6zvuge00386ofoaatp3fhy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="ckde38j0z00513sfo713icrnu" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -487,7 +488,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/" data-id="ckd6zvugc00326ofofxlcc8fe" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/" data-id="ckde38j0n004r3sfo5jbc4uaf" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -535,7 +536,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/" data-id="ckd6zvugc002z6ofo42eh4k9j" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/" data-id="ckde38j0r004u3sfo82sdcef6" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -586,7 +587,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/07/git-branching-strategy/" data-id="ckd6zvuga002t6ofoed4fh8zs" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/07/git-branching-strategy/" data-id="ckde38j0000453sfo7pppcxas" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/07/git-branching-strategy/#disqus_thread" class="article-comment-link">留言</a>
       
