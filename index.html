@@ -105,7 +105,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/bitbucket-pull-request-event/">通过 generic 插件来实时获取 Bitbucket Repository Events</a>
+      <a class="article-title" href="/2020/08/bitbucket-pull-request-event/">通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</a>
     </h1>
   
 
@@ -113,7 +113,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Event）。比如获取仓库的 Pull Request ID 等。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Events）。比如获取仓库的 Pull Request ID 等。</p>
 <p>使用过 Jenkins Multi-branch pipeline Job 的用户知道，这个 Job 类型的环境变量中可以得到 Pull Request 的相关信息如下</p>
 <p><img src="/2020/08/bitbucket-pull-request-event/pull-request-env.png" alt="Multi-branch pipeline Job 环境变量"></p>
 <p>为了获取这个变量需要创建这种类型的 Job，并且可能需要 clone 该仓库的代码，有点杀鸡宰牛的意思，看起来并不是一个特别恰当的办法。</p>
@@ -145,14 +145,14 @@ ga('send', 'pageview');
 <p> <img src="/2020/08/bitbucket-pull-request-event/pull-request-id.png" alt="获取到了 Pull Request ID"></p>
 </li>
 </ol>
-<h2 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h2><p>假如你有个程序，可以通过传入的 Pull Request ID 通过 Bitbucket REST API 来获取并分析指定 Pull Request 的内容的。比如获取相关文件的历史记录，从而知道这些文件谁修改的最多以及这次修改涉及到了哪些 Jira 单号，从而做一些 Review 或是执行回归测试的推荐等等。</p>
+<h2 id="使用扩展"><a href="#使用扩展" class="headerlink" title="使用扩展"></a>使用扩展</h2><p>假如你有个程序，可以通过传入的 Pull Request ID 并借助 Bitbucket REST API 来获取并分析指定 Pull Request 的内容的。比如获取相关文件的历史记录，从而知道这些文件谁修改的最多以及这次修改涉及到了哪些 Jira 单号，从而做一些 Review 或是执行回归测试的推荐等等。</p>
 <p>有了这个 PR ID 就可以通过 Jenkins 来自动触发去执行你程序了。</p>
 <p>以上的这种方法适合不想或是不知道如何监听 Git 服务器（Bitbucket、GitHub 或是 GitLab 等）事件而需要要单独创建一个服务而准备的。如果你有什么很好的实践，期待你的留言分享。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckdmx2u4r009x7cfo1er94mtv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckdmzy8fv00fgu0fo4hgp2ubj" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -203,7 +203,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/release-to-pypi/" data-id="ckdmx2u5g00dy7cfo0iqy07qk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/release-to-pypi/" data-id="ckdmzy8fx00fhu0fofk9h3qck" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/release-to-pypi/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -277,7 +277,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="ckdmx2u4m009c7cfo5gx20nsx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="ckdmzy8dv0082u0fo8qah7nvv" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/annual-work-summary/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -331,7 +331,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckdmx2u4q009u7cfo8lhh2lag" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckdmzy8dx0089u0fo91cpfpsy" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -383,7 +383,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="ckdmx2u5h00dz7cfoatvu1vno" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="ckdmzy8dz008gu0foeyei4eei" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -431,7 +431,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckdmx2u4t00a77cfo3gb84fmn" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckdmzy8e1008ku0fo48dlhl4k" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -482,7 +482,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="ckdmx2u4r00a07cfofzzwhyvw" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="ckdmzy8dw0086u0foed5edn06" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -534,7 +534,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="ckdmx2u4s00a47cfoblb5h3vk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="ckdmzy8dy008du0fo3bofc2va" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -583,7 +583,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/" data-id="ckdmx2u4p009n7cfo0y4wdpc9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/" data-id="ckdmzy8dq007fu0fohsfi7uon" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -634,7 +634,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/" data-id="ckdmx2u4n009g7cfo7rpa5wmg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/" data-id="ckdmzy8dq007cu0fodqjdc1pn" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -682,7 +682,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2020/08/bitbucket-pull-request-event/">通过 generic 插件来实时获取 Bitbucket Repository Events</a>
+            <a href="/2020/08/bitbucket-pull-request-event/">通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</a>
           </li>
         
           <li>

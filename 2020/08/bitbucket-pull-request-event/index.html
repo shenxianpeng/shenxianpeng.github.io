@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>通过 generic 插件来实时获取 Bitbucket Repository Events | Hello World</title>
+  <title>通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Event）。比如获取仓库的 Pull Request ID 等。 使用过 Jenkins Multi-branch pipeline Job 的用户知道，这个 Job 类型的环境变量中可以得到 Pull Request 的相关信息如下  为了获取这个变量需要创建这种类型的 Job，">
+  <meta name="description" content="背景本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Events）。比如获取仓库的 Pull Request ID 等。 使用过 Jenkins Multi-branch pipeline Job 的用户知道，这个 Job 类型的环境变量中可以得到 Pull Request 的相关信息如下  为了获取这个变量需要创建这种类型的 Job">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过 generic 插件来实时获取 Bitbucket Repository Events">
+<meta property="og:title" content="通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="背景本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Event）。比如获取仓库的 Pull Request ID 等。 使用过 Jenkins Multi-branch pipeline Job 的用户知道，这个 Job 类型的环境变量中可以得到 Pull Request 的相关信息如下  为了获取这个变量需要创建这种类型的 Job，">
+<meta property="og:description" content="背景本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Events）。比如获取仓库的 Pull Request ID 等。 使用过 Jenkins Multi-branch pipeline Job 的用户知道，这个 Job 类型的环境变量中可以得到 Pull Request 的相关信息如下  为了获取这个变量需要创建这种类型的 Job">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/pull-request-env.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/webhook.png">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/auto-trigger-jenkins.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/pull-request-id.png">
 <meta property="article:published_time" content="2020-08-07T08:53:03.000Z">
-<meta property="article:modified_time" content="2020-08-09T10:00:18.776Z">
+<meta property="article:modified_time" content="2020-08-09T11:20:51.883Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Bitbucket">
@@ -116,7 +116,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      通过 generic 插件来实时获取 Bitbucket Repository Events
+      通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events
     </h1>
   
 
@@ -124,7 +124,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Event）。比如获取仓库的 Pull Request ID 等。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Events）。比如获取仓库的 Pull Request ID 等。</p>
 <p>使用过 Jenkins Multi-branch pipeline Job 的用户知道，这个 Job 类型的环境变量中可以得到 Pull Request 的相关信息如下</p>
 <p><img src="/2020/08/bitbucket-pull-request-event/pull-request-env.png" alt="Multi-branch pipeline Job 环境变量"></p>
 <p>为了获取这个变量需要创建这种类型的 Job，并且可能需要 clone 该仓库的代码，有点杀鸡宰牛的意思，看起来并不是一个特别恰当的办法。</p>
@@ -156,14 +156,14 @@ ga('send', 'pageview');
 <p> <img src="/2020/08/bitbucket-pull-request-event/pull-request-id.png" alt="获取到了 Pull Request ID"></p>
 </li>
 </ol>
-<h2 id="有什么用"><a href="#有什么用" class="headerlink" title="有什么用"></a>有什么用</h2><p>假如你有个程序，可以通过传入的 Pull Request ID 通过 Bitbucket REST API 来获取并分析指定 Pull Request 的内容的。比如获取相关文件的历史记录，从而知道这些文件谁修改的最多以及这次修改涉及到了哪些 Jira 单号，从而做一些 Review 或是执行回归测试的推荐等等。</p>
+<h2 id="使用扩展"><a href="#使用扩展" class="headerlink" title="使用扩展"></a>使用扩展</h2><p>假如你有个程序，可以通过传入的 Pull Request ID 并借助 Bitbucket REST API 来获取并分析指定 Pull Request 的内容的。比如获取相关文件的历史记录，从而知道这些文件谁修改的最多以及这次修改涉及到了哪些 Jira 单号，从而做一些 Review 或是执行回归测试的推荐等等。</p>
 <p>有了这个 PR ID 就可以通过 Jenkins 来自动触发去执行你程序了。</p>
 <p>以上的这种方法适合不想或是不知道如何监听 Git 服务器（Bitbucket、GitHub 或是 GitLab 等）事件而需要要单独创建一个服务而准备的。如果你有什么很好的实践，期待你的留言分享。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckdmx2u4r009x7cfo1er94mtv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckdmzy8fv00fgu0fo4hgp2ubj" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -222,7 +222,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2020/08/bitbucket-pull-request-event/">通过 generic 插件来实时获取 Bitbucket Repository Events</a>
+            <a href="/2020/08/bitbucket-pull-request-event/">通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</a>
           </li>
         
           <li>

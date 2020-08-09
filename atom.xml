@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-08-09T10:00:18.776Z</updated>
+  <updated>2020-08-09T11:20:51.883Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>通过 generic 插件来实时获取 Bitbucket Repository Events</title>
+    <title>通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</title>
     <link href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/"/>
     <id>https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/</id>
     <published>2020-08-07T08:53:03.000Z</published>
-    <updated>2020-08-09T10:00:18.776Z</updated>
+    <updated>2020-08-09T11:20:51.883Z</updated>
     
     <summary type="html">
     
@@ -348,9 +348,9 @@
     
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
-      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
-    
       <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
     
   </entry>
   
@@ -397,9 +397,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
-    
       <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
+    
+      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
     
   </entry>
   
