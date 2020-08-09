@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-08-02T01:52:33.950Z</updated>
+  <updated>2020-08-09T10:00:18.776Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过 generic 插件来实时获取 Bitbucket Repository Events</title>
+    <link href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/"/>
+    <id>https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/</id>
+    <published>2020-08-07T08:53:03.000Z</published>
+    <updated>2020-08-09T10:00:18.776Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="webhook" scheme="https://shenxianpeng.github.io/tags/webhook/"/>
+    
+      <category term="generic" scheme="https://shenxianpeng.github.io/tags/generic/"/>
+    
+  </entry>
   
   <entry>
     <title>如何把自己的 Python 代码打包发布到 PyPI</title>
@@ -365,9 +397,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
-    
       <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
+    
+      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
     
   </entry>
   
@@ -493,29 +525,6 @@
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
       <category term="Webhooks" scheme="https://shenxianpeng.github.io/tags/webhooks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三种方法解决 Jenkins 声明式流水线 Exception Method code too large !</title>
-    <link href="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/"/>
-    <id>https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/</id>
-    <published>2020-04-20T13:33:09.000Z</published>
-    <updated>2020-07-03T05:21:22.675Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是我第二次在使用 Jenkins 声明式流水线的时候遇到了这个问题，第一次遇到这个问题的时候是在一个 Pipeline 里大概写到 600 多行时候遇到如下错误&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;General error during class generation: Method code too large!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;java.lang.RuntimeException: Method code too large!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	at groovyjarjarasm.asm.MethodWriter.a(Unknown Source)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	[...]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
-    
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
   </entry>
   
