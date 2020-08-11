@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Fixed &quot;Remote session was disconnected because there are no Remote Desktop client access licenses available&quot;</title>
+      <link href="/2020/08/rdp-problem/"/>
+      <url>/2020/08/rdp-problem/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Sometime my Windows server 2012 R2 has RDP connect problem below:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Remote session was disconnected because there are no Remote Desktop client access licenses available for this computer.</span><br><span class="line">Please contact the server administrator.</span><br></pre></td></tr></table></figure><p><img src="/2020/08/rdp-problem/RDP-failed.png" alt="RDP connect problem"></p><h2 id="How-to-Fix"><a href="#How-to-Fix" class="headerlink" title="How to Fix"></a>How to Fix</h2><p>You could login to the vSphere Web Client if you have via console or have some other way to login that machine.</p><ol><li><p>Go into regedit and navigate to </p><p> <img src="/2020/08/rdp-problem/regedit.jpg" alt="Regedit"></p></li><li><p>Search and Delete <code>LicensingGracePeriod</code> and <code>LicensingGracePeriodExpirationWarningDays</code></p></li><li><p>If deletion failed, this failure message appears <code>unable to delete all specified values</code>, you need change permission.</p></li></ol><blockquote><p>You could follow related <a href="https://www.youtube.com/results?search_query=unable+to+delete+all+specified+values" target="_blank" rel="noopener">videos</a> on YouTuBe</p><p>Thanks Bill K. share with me above fix solution.</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> DevOps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> RDP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</title>
       <link href="/2020/08/bitbucket-pull-request-event/"/>
       <url>/2020/08/bitbucket-pull-request-event/</url>
@@ -188,9 +215,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -215,9 +242,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -350,9 +377,9 @@
             
             <tag> Troubleshooting </tag>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -940,9 +967,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1025,9 +1052,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1131,9 +1158,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1214,9 +1241,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> NFS </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> NFS </tag>
             
         </tags>
       
