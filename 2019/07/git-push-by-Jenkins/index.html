@@ -13,7 +13,7 @@
 <meta property="og:description" content="在持续集成中，你可能需要通过 Jenkins 来修改代码，并且将修改后的代码提交到Git仓库里。怎么做呢？最方便的做法还是 Jenkins 提供对应的插件，但是很遗憾我没找到合适的。另外我也觉得通过脚本的方式来实现会更加稳定，不用担心 Jenkins 以及插件升级带来潜在不好用的可能。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-07-22T13:54:42.000Z">
-<meta property="article:modified_time" content="2020-07-03T05:28:01.480Z">
+<meta property="article:modified_time" content="2020-08-16T05:20:14.418Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="Jenkins">
@@ -119,7 +119,7 @@ ga('send', 'pageview');
         <p>在持续集成中，你可能需要通过 Jenkins 来修改代码，并且将修改后的代码提交到Git仓库里。怎么做呢？最方便的做法还是 Jenkins 提供对应的插件，但是很遗憾我没找到合适的。另外我也觉得通过脚本的方式来实现会更加稳定，不用担心 Jenkins 以及插件升级带来潜在不好用的可能。</p>
 <a id="more"></a>
 
-<p>以下 pipeline 片段供参考使用：</p>
+<p>以下 <code>pipeline</code> 片段供参考使用：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// This pipeline is used <span class="keyword">for</span> bumping build number</span><br><span class="line"></span><br><span class="line">pipeline &#123;</span><br><span class="line"></span><br><span class="line">    environment &#123;</span><br><span class="line">        MYGIT = credentials(<span class="string">"d1cbab74-823d-41aa-abb7"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    stages &#123;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Git clone repo'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">'git clone -b develop --depth 1 https://$MYGIT_USR:"$MYGIT_PSW"@github.com/shenxianpeng/blog.git'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Change code stage'</span>)&#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">''</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Git push to remote repo'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh label: <span class="string">''</span>, script: <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">                cd blog</span></span><br><span class="line"><span class="string">                git add .</span></span><br><span class="line"><span class="string">                git commit -m "Bld # 1001"</span></span><br><span class="line"><span class="string">                git push https://$MYGIT_USR:"$MYGIT_PSW"@github.com/shenxianpeng/blog.git --all'</span><span class="string">''</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里面我所遇到最大的坑，我之前脚本是这样写的：</p>
@@ -130,7 +130,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/07/git-push-by-Jenkins/" data-id="ckdp9qrka004gk8foaqb727dq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/07/git-push-by-Jenkins/" data-id="ckdwnqw3y004dagfo11mh2jk5" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/07/git-push-by-Jenkins/#disqus_thread" class="article-comment-link">留言</a>
       

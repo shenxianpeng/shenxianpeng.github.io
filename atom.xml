@@ -191,11 +191,11 @@
     <link href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/"/>
     <id>https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/</id>
     <published>2020-07-16T03:28:20.000Z</published>
-    <updated>2020-08-03T07:07:59.038Z</updated>
+    <updated>2020-08-16T05:11:32.065Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agnent can not connect with master successfully. and out come this warining message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”.&lt;/p&gt;
+      &lt;p&gt;When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and out come this warining message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”.&lt;/p&gt;
     
     </summary>
     
@@ -227,9 +227,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -253,9 +253,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   

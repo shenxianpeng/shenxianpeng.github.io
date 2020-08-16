@@ -122,7 +122,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/12/Install-Docker-Jenkins/" data-id="ckdp9qrkn005lk8fogfkjb1t6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/12/Install-Docker-Jenkins/" data-id="ckdwnqw4q005gagfo4u8z7dds" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/12/Install-Docker-Jenkins/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -172,7 +172,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/11/Artifactory-integrate-with-Jenkins/" data-id="ckdp9qrkk0059k8fod2bv2b52" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/11/Artifactory-integrate-with-Jenkins/" data-id="ckdwnqw4g0051agfo7a8a58dq" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/11/Artifactory-integrate-with-Jenkins/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -222,7 +222,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/" data-id="ckdp9qrkl005ck8fo8ui69z28" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/" data-id="ckdwnqw4f004yagfog04h9w6z" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/11/Artifactory-install-and-upgrade/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -270,7 +270,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/output-display-color/" data-id="ckdp9qrki0050k8foe3usf5ia" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/output-display-color/" data-id="ckdwnqw4d004wagfo4qs1b7r5" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/output-display-color/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -318,7 +318,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/" data-id="ckdp9qrki0053k8fo502w0yk0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/" data-id="ckdwnqw4k0057agfogg5o53q9" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -368,7 +368,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/nfs/" data-id="ckdp9qrke004qk8fo9lx3ah9e" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/nfs/" data-id="ckdwnqw4i0054agfoedzr7k89" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/nfs/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -408,7 +408,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近我在运行 Jenkins Job 时候突然发现 git clone 代码的时候突然报了这个错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> ssh://git@git.companyname.com:7999/mvcc/opensrc.git</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> ssh://git@git.companyname.com:7999/repo/opensrc.git</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
 
 <p>这个错误只在我刚开始使用 git 的时候遇到过，那时候我还不知道如何使用 ssh 的方式来 clone 代码。怎么会出现这个错误呢？我也没改过什么，非常不理解。</p>
 <h2 id="常见解决方案"><a href="#常见解决方案" class="headerlink" title="常见解决方案"></a>常见解决方案</h2>
@@ -420,7 +420,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="ckdp9qrkg004wk8foaz6066pd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="ckdwnqw4a004sagfo3oyb7h5s" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -487,7 +487,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="ckdp9qrkb004kk8fo7m9h9uay" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="ckdwnqw44004magfo58ijfh5w" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/git-commit-squash/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -540,7 +540,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="ckdp9qrkf004tk8fogpi2cv2p" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="ckdwnqw47004pagfob60h0yad" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -588,7 +588,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/" data-id="ckdp9qrkd004nk8fo3h0j6w5q" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/" data-id="ckdwnqw40004gagfo003wa67p" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/#disqus_thread" class="article-comment-link">留言</a>
       
