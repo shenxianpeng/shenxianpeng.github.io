@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-08-16T05:45:17.729Z</updated>
+  <updated>2020-08-18T11:14:21.771Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Update Jira server account avatar with rest api</title>
+    <link href="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/"/>
+    <id>https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/</id>
+    <published>2020-08-17T06:17:10.000Z</published>
+    <updated>2020-08-18T11:14:21.771Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Backgroud&quot;&gt;&lt;a href=&quot;#Backgroud&quot; class=&quot;headerlink&quot; title=&quot;Backgroud&quot;&gt;&lt;/a&gt;Backgroud&lt;/h2&gt;&lt;p&gt;When you are using server account in CI/CD, if you want to updat the server account avatar to looks professional on Jira but you can’t login with server account to update the avatar. you could use Jira REST API to do this.&lt;/p&gt;
+&lt;p&gt;I assume you have an account called robot. here are the examples of how to update.&lt;/p&gt;
+&lt;h2 id=&quot;Example-in-Python&quot;&gt;&lt;a href=&quot;#Example-in-Python&quot; class=&quot;headerlink&quot; title=&quot;Example in Python&quot;&gt;&lt;/a&gt;Example in Python&lt;/h2&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; http.client&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conn = http.client.HTTPSConnection(&lt;span class=&quot;string&quot;&gt;&quot;jira.your-company.com&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;payload = &lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;\r\n\t\&quot;id\&quot;: \&quot;24880\&quot;,\r\n\t\&quot;isSelected\&quot;: false,\r\n\t\&quot;isSystemAvatar\&quot;: true,\r\n\t\&quot;urls\&quot;: &amp;#123;\r\n\t\t\&quot;16x16\&quot;: \&quot;https://jira.your-company.com/secure/useravatar?size=xsmall&amp;amp;avatarId=24880\&quot;,\r\n\t\t\&quot;24x24\&quot;: \&quot;https://jira.your-company.com/secure/useravatar?size=small&amp;amp;avatarId=24880\&quot;,\r\n\t\t\&quot;32x32\&quot;: \&quot;https://jira.your-company.com/secure/useravatar?size=medium&amp;amp;avatarId=24880\&quot;,\r\n\t\t\&quot;48x48\&quot;: \&quot;https://jira.your-company.com/secure/useravatar?avatarId=24880\&quot;&amp;#125;\r\n&amp;#125;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headers = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;content-type&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;application/json&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;authorization&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;Basic Ymx3bXY6SzhNcnk5ZGI=&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;cache-control&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;no-cache&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;postman-token&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;ecfc3260-9c9f-e80c-e3e8-d413f48dfbf4&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conn.request(&lt;span class=&quot;string&quot;&gt;&quot;PUT&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;/rest/api/latest/user/avatar?username=robot&quot;&lt;/span&gt;, payload, headers)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;res = conn.getresponse()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;data = res.read()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print(data.decode(&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;Example-in-Postman&quot;&gt;&lt;a href=&quot;#Example-in-Postman&quot; class=&quot;headerlink&quot; title=&quot;Example in Postman&quot;&gt;&lt;/a&gt;Example in Postman&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Jira" scheme="https://shenxianpeng.github.io/tags/jira/"/>
+    
+      <category term="REST-API" scheme="https://shenxianpeng.github.io/tags/rest-api/"/>
+    
+  </entry>
   
   <entry>
     <title>Fixed &quot;Remote session was disconnected because there are no Remote Desktop client access licenses available&quot;</title>
@@ -501,31 +527,6 @@
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jenkins 与 Bitbucket Webhooks 的配置和使用</title>
-    <link href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/"/>
-    <id>https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/</id>
-    <published>2020-04-28T14:40:21.000Z</published>
-    <updated>2020-07-03T05:21:08.270Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;Jenkins 的 multi-branch pipeline 想必很多人已经在用了，使用这种类型的 Jenkins Job 最显著的作用就是可以对 Git 仓库里的任何分支和任何 Pull Request（以下简写为 PR）进行构建。&lt;/p&gt;
-&lt;p&gt;在做 Jenkins 与 Bitbucket 的集成时，需要安装插件：Bitbucket Branch Source，可以通过该插件在 Jenkins 里进行 webhook 的配置。这种方式对于没有 Bitbucket 仓库的管理权限，CI/CD 暂且处于变更比较频繁的阶段，不想麻烦的去申请添加 webhook 的同学来说是非常友好的，就是可以不用通过管理员在 Bitbucket 设置里添加 webhook 也可以实现创建 PR 后触发 Jenkins 构建。&lt;/p&gt;
-&lt;p&gt;但我最近遭遇了两次：在创建 PR 后没有触发 Jenkins 自动构建，查了 Jenkins 和 Bitbucket Branch Source 插件的配置，并没有任何改动，也各种 Google 之后也没有找到相应的解决办法（如果有遇到此情况的小伙伴欢迎一起交流）。&lt;/p&gt;
-&lt;p&gt;那既然这条路不稳定，不好走，那就走一条可以走通的路、直接的硬路，即在 Bitbucket 对应的仓库中添加 webhooks。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
-      <category term="Webhooks" scheme="https://shenxianpeng.github.io/tags/webhooks/"/>
     
   </entry>
   
