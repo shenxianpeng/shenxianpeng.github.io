@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   
   <title>Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I’ve been QA Engineer for the last nine years, from Jun 2018 I am a Software Engineer.">
+  <meta name="description" content="I’ve been QA&#x2F;SDET Engineer for the last nine years. From Jun 2018 I&#39;m a Software Engineer.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hello World">
 <meta property="og:url" content="https://shenxianpeng.github.io/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="I’ve been QA Engineer for the last nine years, from Jun 2018 I am a Software Engineer.">
+<meta property="og:description" content="I’ve been QA&#x2F;SDET Engineer for the last nine years. From Jun 2018 I&#39;m a Software Engineer.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Xianpeng Shen">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="/favicon.png">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   
 <link rel="stylesheet" href="/css/style.css">
@@ -41,8 +42,9 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
+  <script data-ad-client="ca-pub-3986315287795783" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <meta name="generator" content="Hexo 4.2.0"></head>
-
 <body>
   <div id="container">
     <div id="wrap">
@@ -55,7 +57,7 @@ ga('send', 'pageview');
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Weblog of non-famous code farmers.</a>
+          <a href="/" id="subtitle">Weblog of non-famous code farmer.</a>
         </h2>
       
     </div>
@@ -113,8 +115,8 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h2><p>When you are using server account in CI/CD, if you want to updat the server account avatar to looks professional on Jira but you can’t login with server account to update the avatar. you could use Jira REST API to do this.</p>
-<p>I assume you have an account called robot. here are the examples of how to update.</p>
+        <h2 id="Backgroud"><a href="#Backgroud" class="headerlink" title="Backgroud"></a>Backgroud</h2><p>When you are using a server account for CI/CD, if you want to make the server account avatar to looks professional on Jira update but the server account may not allowed to log to Jira, so you can not update the avatar though GUI, you could use Jira REST API to do this.</p>
+<p>I assume you have an account called <code>robot</code>, here are the examples of how to update though REST API.</p>
 <h2 id="Example-in-Python"><a href="#Example-in-Python" class="headerlink" title="Example in Python"></a>Example in Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> http.client</span><br><span class="line"></span><br><span class="line">conn = http.client.HTTPSConnection(<span class="string">"jira.your-company.com"</span>)</span><br><span class="line"></span><br><span class="line">payload = <span class="string">"&#123;\r\n\t\"id\": \"24880\",\r\n\t\"isSelected\": false,\r\n\t\"isSystemAvatar\": true,\r\n\t\"urls\": &#123;\r\n\t\t\"16x16\": \"https://jira.your-company.com/secure/useravatar?size=xsmall&amp;avatarId=24880\",\r\n\t\t\"24x24\": \"https://jira.your-company.com/secure/useravatar?size=small&amp;avatarId=24880\",\r\n\t\t\"32x32\": \"https://jira.your-company.com/secure/useravatar?size=medium&amp;avatarId=24880\",\r\n\t\t\"48x48\": \"https://jira.your-company.com/secure/useravatar?avatarId=24880\"&#125;\r\n&#125;"</span></span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'content-type'</span>: <span class="string">"application/json"</span>,</span><br><span class="line">    <span class="string">'authorization'</span>: <span class="string">"Basic Ymx3bXY6SzhNcnk5ZGI="</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">"no-cache"</span>,</span><br><span class="line">    <span class="string">'postman-token'</span>: <span class="string">"ecfc3260-9c9f-e80c-e3e8-d413f48dfbf4"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">conn.request(<span class="string">"PUT"</span>, <span class="string">"/rest/api/latest/user/avatar?username=robot"</span>, payload, headers)</span><br><span class="line"></span><br><span class="line">res = conn.getresponse()</span><br><span class="line">data = res.read()</span><br><span class="line"></span><br><span class="line">print(data.decode(<span class="string">"utf-8"</span>))</span><br></pre></td></tr></table></figure>
 
 <h2 id="Example-in-Postman"><a href="#Example-in-Postman" class="headerlink" title="Example in Postman"></a>Example in Postman</h2>
@@ -126,7 +128,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="ckdzuos6k00g5rsfoaizrb3vi" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="cke0q62rk00fn4gfo592id09s" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -177,7 +179,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="ckdzuos51008orsfofuooco5j" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="cke0q62q1008s4gfo987chyoa" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/rdp-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -229,7 +231,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckdzuos50008jrsfoa6ir7im6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="cke0q62q0008p4gfo8v2ged9o" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -280,7 +282,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/release-to-pypi/" data-id="ckdzuos6j00g4rsfo925339qt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/release-to-pypi/" data-id="cke0q62rl00fo4gfog4u88k77" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/release-to-pypi/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -354,7 +356,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="ckdzuos4w0084rsfocef1etmd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="cke0q62ps008c4gfo1i5t2yqu" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/annual-work-summary/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -408,7 +410,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckdzuos4z008grsfoebxo26md" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="cke0q62pr00864gfo68nfa7lq" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -460,7 +462,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="ckdzuos4y008drsfohwfneiwc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="cke0q62q0008l4gfohlaha68n" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -508,7 +510,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckdzuos50008lrsfo30p771xk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="cke0q62q2008w4gfoaxfr7zf5" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -559,7 +561,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="ckdzuos4x0087rsfo7cfbefrd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="cke0q62pt008f4gfo3wly5mhe" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -611,7 +613,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="ckdzuos4y008arsfof922es4g" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="cke0q62py008i4gfo3hcqelw3" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/#disqus_thread" class="article-comment-link">留言</a>
       
