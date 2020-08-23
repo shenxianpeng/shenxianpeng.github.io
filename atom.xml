@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-08-23T08:32:50.951Z</updated>
+  <updated>2020-08-23T08:36:58.649Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/"/>
     <id>https://shenxianpeng.github.io/2020/08/how-to-release-python-project/</id>
     <published>2020-08-23T08:13:17.000Z</published>
-    <updated>2020-08-23T08:32:50.951Z</updated>
+    <updated>2020-08-23T08:36:58.649Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#选择License&quot;&gt;选择License&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#配置setup.py&quot;&gt;配置setup.py&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;发布到PyPI&quot;&gt;发布到PyPI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;关于pydoc&quot;&gt;关于pydoc&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;关于版本号&quot;&gt;关于版本号&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#发布到PyPI&quot;&gt;发布到PyPI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#关于pydoc&quot;&gt;关于pydoc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#关于版本号&quot;&gt;关于版本号&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;选择License&quot;&gt;&lt;a href=&quot;#选择License&quot; class=&quot;headerlink&quot; title=&quot;选择License&quot;&gt;&lt;/a&gt;选择License&lt;/h2&gt;&lt;p&gt;这里由一篇关于如何选择 GitHub License 的文章 &lt;a href=&quot;https://mp.weixin.qq.com/s/CjeWol3BdGkmGZi-zMnDkQ&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Github仓库如何选择开源许可证&lt;/a&gt;，这里就不过多介绍。&lt;/p&gt;
 &lt;h2 id=&quot;配置setup-py&quot;&gt;&lt;a href=&quot;#配置setup-py&quot; class=&quot;headerlink&quot; title=&quot;配置setup.py&quot;&gt;&lt;/a&gt;配置setup.py&lt;/h2&gt;&lt;p&gt;官方有详细的示例和文档 &lt;a href=&quot;https://packaging.python.org/tutorials/packaging-projects/。&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://packaging.python.org/tutorials/packaging-projects/。&lt;/a&gt;&lt;/p&gt;
@@ -258,9 +258,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -284,9 +284,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
