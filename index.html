@@ -89,6 +89,67 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2020/08/how-to-release-python-project" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/how-to-release-python-project/" class="article-date">
+  <time datetime="2020-08-23T08:13:17.000Z" itemprop="datePublished">2020-08-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/how-to-release-python-project/">如何在 GitHub 上发布一个企业级的 Python 项目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#选择License">选择License</a></li>
+<li><a href="#配置setup.py">配置setup.py</a></li>
+<li><a href="发布到PyPI">发布到PyPI</a></li>
+<li><a href="关于pydoc">关于pydoc</a></li>
+<li><a href="关于版本号">关于版本号</a></li>
+</ul>
+<h2 id="选择License"><a href="#选择License" class="headerlink" title="选择License"></a>选择License</h2><p>这里由一篇关于如何选择 GitHub License 的文章 <a href="https://mp.weixin.qq.com/s/CjeWol3BdGkmGZi-zMnDkQ" target="_blank" rel="noopener">Github仓库如何选择开源许可证</a>，这里就不过多介绍。</p>
+<h2 id="配置setup-py"><a href="#配置setup-py" class="headerlink" title="配置setup.py"></a>配置setup.py</h2><p>官方有详细的示例和文档 <a href="https://packaging.python.org/tutorials/packaging-projects/。" target="_blank" rel="noopener">https://packaging.python.org/tutorials/packaging-projects/。</a></p>
+<p>这里还有一个 sample 项目供你参考 <a href="https://github.com/pypa/sampleproject" target="_blank" rel="noopener">https://github.com/pypa/sampleproject</a></p>
+<p>攒点耐心将上面两个链接阅读，就基本可以满足一般项目的发布要求了。</p>
+<p>这里着重介绍下引入 <code>MANIFEST.in</code> 文件的作用。它是用来定制化生成 <code>dist/*.tar.gz</code> 时需要用到的。</p>
+<p>假设你的项目目录结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">demo</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── MANIFEST.in</span><br><span class="line">├── demo</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── setup.py</span><br><span class="line">├── tests</span><br><span class="line">│   └── __init__.py</span><br><span class="line">│   └── __pycache__&#x2F;</span><br><span class="line">└── docs</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2020/08/how-to-release-python-project/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/" data-id="cke6u4b51008ztwfodu3bgx77" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/release/" rel="tag">Release</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
     <article id="post-2020/08/udpate-jira-server-account-avatar-with-rest-api" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/udpate-jira-server-account-avatar-with-rest-api/" class="article-date">
@@ -128,7 +189,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="cke0q62rk00fn4gfo592id09s" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="cke6u4ba500fhtwfog4bncz69" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -179,7 +240,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="cke0q62q1008s4gfo987chyoa" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="cke6u4ba800fitwfohdo17oao" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/rdp-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -231,63 +292,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="cke0q62q0008p4gfo8v2ged9o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="cke6u4b4y008wtwfoholvh6ad" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/generic/" rel="tag">generic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webhook/" rel="tag">webhook</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article id="post-2020/08/release-to-pypi" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/08/release-to-pypi/" class="article-date">
-  <time datetime="2020-08-02T00:13:17.000Z" itemprop="datePublished">2020-08-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">Python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/release-to-pypi/">如何把自己的 Python 代码打包发布到 PyPI</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>使用 Python 编程的人都知道，Python 的优势之一就是有大量的第三方库，通常使用如下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xxxx</span><br></pre></td></tr></table></figure>
-
-<p>就可以轻松下载，真是即酷炫又方便，你有没有想过这个是怎么实现的？最近正好赶上又开始写 Python 借此机会分享一下。</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/08/release-to-pypi/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/release-to-pypi/" data-id="cke0q62rl00fo4gfog4u88k77" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2020/08/release-to-pypi/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/release/" rel="tag">Release</a></li></ul>
 
     </footer>
     
@@ -356,7 +366,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="cke0q62ps008c4gfo1i5t2yqu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="cke6u4b4f008ftwfobrey0yf7" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/annual-work-summary/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -410,7 +420,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="cke0q62pr00864gfo68nfa7lq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="cke6u4b4i008itwfobsaebqte" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -462,7 +472,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="cke0q62q0008l4gfohlaha68n" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="cke6u4b4l008ktwfobbnz2u9x" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -510,7 +520,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="cke0q62q2008w4gfoaxfr7zf5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="cke6u4b4u008stwfo0njs6zua" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -561,7 +571,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="cke0q62pt008f4gfo3wly5mhe" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="cke6u4b4n008mtwfo3made3wy" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -613,7 +623,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="cke0q62py008i4gfo3hcqelw3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="cke6u4b4r008ptwfo9qd1fvuq" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -661,6 +671,10 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2020/08/how-to-release-python-project/">如何在 GitHub 上发布一个企业级的 Python 项目</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/udpate-jira-server-account-avatar-with-rest-api/">Update Jira server account avatar with rest api</a>
           </li>
         
@@ -670,10 +684,6 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2020/08/bitbucket-pull-request-event/">通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/release-to-pypi/">如何把自己的 Python 代码打包发布到 PyPI</a>
           </li>
         
           <li>

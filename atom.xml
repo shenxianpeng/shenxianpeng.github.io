@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-08-19T01:43:49.965Z</updated>
+  <updated>2020-08-23T08:32:50.951Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在 GitHub 上发布一个企业级的 Python 项目</title>
+    <link href="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/"/>
+    <id>https://shenxianpeng.github.io/2020/08/how-to-release-python-project/</id>
+    <published>2020-08-23T08:13:17.000Z</published>
+    <updated>2020-08-23T08:32:50.951Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#选择License&quot;&gt;选择License&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#配置setup.py&quot;&gt;配置setup.py&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;发布到PyPI&quot;&gt;发布到PyPI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;关于pydoc&quot;&gt;关于pydoc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;关于版本号&quot;&gt;关于版本号&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;选择License&quot;&gt;&lt;a href=&quot;#选择License&quot; class=&quot;headerlink&quot; title=&quot;选择License&quot;&gt;&lt;/a&gt;选择License&lt;/h2&gt;&lt;p&gt;这里由一篇关于如何选择 GitHub License 的文章 &lt;a href=&quot;https://mp.weixin.qq.com/s/CjeWol3BdGkmGZi-zMnDkQ&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Github仓库如何选择开源许可证&lt;/a&gt;，这里就不过多介绍。&lt;/p&gt;
+&lt;h2 id=&quot;配置setup-py&quot;&gt;&lt;a href=&quot;#配置setup-py&quot; class=&quot;headerlink&quot; title=&quot;配置setup.py&quot;&gt;&lt;/a&gt;配置setup.py&lt;/h2&gt;&lt;p&gt;官方有详细的示例和文档 &lt;a href=&quot;https://packaging.python.org/tutorials/packaging-projects/。&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://packaging.python.org/tutorials/packaging-projects/。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里还有一个 sample 项目供你参考 &lt;a href=&quot;https://github.com/pypa/sampleproject&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/pypa/sampleproject&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;攒点耐心将上面两个链接阅读，就基本可以满足一般项目的发布要求了。&lt;/p&gt;
+&lt;p&gt;这里着重介绍下引入 &lt;code&gt;MANIFEST.in&lt;/code&gt; 文件的作用。它是用来定制化生成 &lt;code&gt;dist/*.tar.gz&lt;/code&gt; 时需要用到的。&lt;/p&gt;
+&lt;p&gt;假设你的项目目录结构如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;demo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── LICENSE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── README.md&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── MANIFEST.in&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── demo&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── __init__.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── setup.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── tests&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── __init__.py&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── __pycache__&amp;#x2F;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;└── docs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
+    
+    
+      <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
+    
+      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
+    
+      <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
+    
+  </entry>
   
   <entry>
     <title>Update Jira server account avatar with rest api</title>
@@ -94,33 +131,6 @@
       <category term="webhook" scheme="https://shenxianpeng.github.io/tags/webhook/"/>
     
       <category term="generic" scheme="https://shenxianpeng.github.io/tags/generic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何把自己的 Python 代码打包发布到 PyPI</title>
-    <link href="https://shenxianpeng.github.io/2020/08/release-to-pypi/"/>
-    <id>https://shenxianpeng.github.io/2020/08/release-to-pypi/</id>
-    <published>2020-08-02T00:13:17.000Z</published>
-    <updated>2020-08-02T01:52:33.950Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;使用 Python 编程的人都知道，Python 的优势之一就是有大量的第三方库，通常使用如下命令&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pip install xxxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;就可以轻松下载，真是即酷炫又方便，你有没有想过这个是怎么实现的？最近正好赶上又开始写 Python 借此机会分享一下。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
-    
-    
-      <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
-    
-      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
-    
-      <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
     
   </entry>
   
@@ -248,9 +258,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -274,9 +284,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
