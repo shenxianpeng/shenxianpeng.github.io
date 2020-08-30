@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-08-23T08:36:58.649Z</updated>
+  <updated>2020-08-30T15:14:37.270Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>About Python pip install and versioning</title>
+    <link href="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/"/>
+    <id>https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/</id>
+    <published>2020-08-30T14:30:50.000Z</published>
+    <updated>2020-08-30T15:14:37.270Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Backgroup&quot;&gt;&lt;a href=&quot;#Backgroup&quot; class=&quot;headerlink&quot; title=&quot;Backgroup&quot;&gt;&lt;/a&gt;Backgroup&lt;/h2&gt;&lt;p&gt;If you want to release python project on PyPI, you must need to know about PyPI usage characteristics, then I did some test about pip install command. &lt;/p&gt;
+&lt;p&gt;For example: I have a Python project called &lt;code&gt;demo-pip&lt;/code&gt;. and beta release would like &lt;code&gt;1.1.0.xxxx&lt;/code&gt;, offical release version is &lt;code&gt;1.1.0&lt;/code&gt; to see if could success upgrade when using &lt;code&gt;pip&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;Base on the below test results, I summarized as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install a specific version of demo-pip from PyPI, with &lt;code&gt;--upgrade&lt;/code&gt; option or not, they’ll all both success.&lt;/li&gt;
+&lt;li&gt;Install the latest package version of demo-pip from PyPI that version is large than the locally installed package version, with &lt;code&gt;--upgrade&lt;/code&gt; option installs successfully. without &lt;code&gt;--upgrade&lt;/code&gt; option install failed.&lt;/li&gt;
+&lt;li&gt;Install the latest package version of demo-pip from PyPI that version is less than the locally installed package version, with &lt;code&gt;--upgrade&lt;/code&gt; option or not, install failed.&lt;/li&gt;
+&lt;li&gt;1.1.0.xxxx version naming is OK, but when the beta version is larger than 1.1.0, for example, the beta version is 1.1.0.1000, pip install with &lt;code&gt;--upgrade&lt;/code&gt; not work when our official release version is 1.1.0.&lt;br&gt;a.    One option is the official release version start from 1.1.0.1000, beta version starts from 1.1.0.0001, 1.1.0.0002… Or the beta version should be less than 1.1.0, maybe 1.0.0.xxxx&lt;br&gt;b.    Another option is follow up &lt;a href=&quot;https://www.python.org/dev/peps/pep-0440/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;python official versioning&lt;/a&gt; that is the best practice, then the beta release version will be 1.1.b1, 1.1.b2, 1.1.bN… (it passed No.5 test below)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;My-Test-Case&quot;&gt;&lt;a href=&quot;#My-Test-Case&quot; class=&quot;headerlink&quot; title=&quot;My Test Case&quot;&gt;&lt;/a&gt;My Test Case&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
+    
+    
+      <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
+    
+      <category term="pip" scheme="https://shenxianpeng.github.io/tags/pip/"/>
+    
+      <category term="versioning" scheme="https://shenxianpeng.github.io/tags/versioning/"/>
+    
+  </entry>
   
   <entry>
     <title>如何在 GitHub 上发布一个企业级的 Python 项目</title>
@@ -258,9 +291,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -284,9 +317,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -456,9 +489,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
-    
       <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
+    
+      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
     
   </entry>
   
@@ -511,32 +544,6 @@
       <category term="JMeter" scheme="https://shenxianpeng.github.io/tags/jmeter/"/>
     
       <category term="performance" scheme="https://shenxianpeng.github.io/tags/performance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Synchronize from Bitbucket to GitHub via Jenkins</title>
-    <link href="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/"/>
-    <id>https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/</id>
-    <published>2020-05-05T08:54:09.000Z</published>
-    <updated>2020-07-03T05:20:19.554Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h3&gt;&lt;p&gt;最近我们团队需要将一些示例和例子从内部的 Bitbucket 同步到 GitHub。我了解 GitHub 可以创建公共的或是私人的仓库，但我们需要保持以下两点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;只分享我们想给客户分享的内容&lt;/li&gt;
-&lt;li&gt;不改变当前的工作流程，即继续使用 Bitbucket&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
