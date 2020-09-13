@@ -107,7 +107,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个企业级的 Python 项目需要注意哪些</a>
+      <a class="article-title" href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个 Python 项目需要注意哪些</a>
     </h1>
   
 
@@ -121,10 +121,10 @@ ga('send', 'pageview');
 <li><a href="#发布到PyPI">如何发布到PyPI</a></li>
 <li><a href="#关于pydoc">生成pydoc</a></li>
 <li><a href="#关于版本号">版本号的选择</a></li>
-<li><a href="#选择License">Lincense的选择</a></li>
+<li><a href="#选择License">License的选择</a></li>
 </ol>
 <h2 id="配置setup-py"><a href="#配置setup-py" class="headerlink" title="配置setup.py"></a>配置setup.py</h2><p>打包和发布一项都是通过准备一个 <code>setup.py</code> 文件来完成的。假设你的项目目录结构如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">demo</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── MANIFEST.in       <span class="comment"># 打包时，用来定制化生成 `dist/*.tar.gz` 里的内容</span></span><br><span class="line">├── demo</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── setup.py</span><br><span class="line">├── tests</span><br><span class="line">│   └── __init__.py</span><br><span class="line">│   └── __pycache__/</span><br><span class="line">└── docs</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">demo</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── MANIFEST.in <span class="comment"># 打包时，用来定制化生成 `dist/*.tar.gz` 里的内容</span></span><br><span class="line">├── demo</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── setup.py</span><br><span class="line">├── tests</span><br><span class="line">│   └── __init__.py</span><br><span class="line">│   └── __pycache__/</span><br><span class="line">└── docs</span><br></pre></td></tr></table></figure>
 
 <p>在使用打包命令 <code>python setup.py sdist bdist_wheel</code>，将会生成在 dist 目录下生成两个文件 <code>demo-1.0.0-py3-none-any.whl</code> 和 <code>demo-1.0.0.tar.gz</code></p>
 <ul>
@@ -141,7 +141,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="ckf0ob8o70067t8fo2vrsequ3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="ckf118tml0067h8foc97j1evf" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -198,7 +198,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="ckf0ob8o5005zt8foalldffbp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="ckf118tmb005kh8fo07ip5awi" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -250,7 +250,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="ckf0ob8o8006ct8fo2fjn3lis" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="ckf118tmm006bh8fo0bnb4wtu" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -301,7 +301,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="ckf0ob8o60062t8foa1f4e90p" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="ckf118tmg005sh8fo0mu7cp5o" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/rdp-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -353,7 +353,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckf0ob8o5005wt8fo8glr9r54" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckf118tmi005uh8fo6zyx7cy5" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -427,7 +427,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="ckf0ob8nu004ut8fofusoe9cv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="ckf118tm50051h8fo2m684w3f" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/annual-work-summary/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -481,7 +481,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckf0ob8nx0052t8fo9zd6g9oc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckf118tm8005ch8fo5wmr64ys" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -533,7 +533,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="ckf0ob8ny0055t8fogud411b7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="ckf118tmd005nh8fob8wx6ktq" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -581,7 +581,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckf0ob8o1005ft8fo5hzo56o9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckf118tm80059h8fodcdch5fh" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -632,7 +632,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="ckf0ob8nv004xt8fo6lum8hze" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="ckf118tma005hh8fohokggk5p" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -680,7 +680,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个企业级的 Python 项目需要注意哪些</a>
+            <a href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个 Python 项目需要注意哪些</a>
           </li>
         
           <li>
