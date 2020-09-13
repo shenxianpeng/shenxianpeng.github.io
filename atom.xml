@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-09-13T04:35:23.846Z</updated>
+  <updated>2020-09-13T05:43:17.154Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/"/>
     <id>https://shenxianpeng.github.io/2020/09/how-to-release-python-project/</id>
     <published>2020-09-13T08:13:17.000Z</published>
-    <updated>2020-09-13T04:35:23.846Z</updated>
+    <updated>2020-09-13T05:43:17.154Z</updated>
     
     <summary type="html">
     
@@ -51,9 +51,9 @@
     
       <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
     
-      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
-    
       <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
+    
+      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
     
   </entry>
   
@@ -468,9 +468,9 @@
       <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
     
     
-      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
-    
       <category term="write" scheme="https://shenxianpeng.github.io/tags/write/"/>
+    
+      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
     
   </entry>
   
