@@ -4,24 +4,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>如何在 GitHub 上发布一个企业级的 Python 项目 | Hello World</title>
+  <title>在 GitHub 上发布一个企业级的 Python 项目需要注意哪些 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录 选择License 配置setup.py 发布到PyPI 关于pydoc 关于版本号  选择License这里由一篇关于如何选择 GitHub License 的文章 Github仓库如何选择开源许可证，这里就不过多介绍。 配置setup.py官方有详细的示例和文档 https:&#x2F;&#x2F;packaging.python.org&#x2F;tutorials&#x2F;packaging-projects&#x2F;。 这里还">
+  <meta name="description" content="本篇介绍个人或企业在 GitHub 上发布一个 Python 项目需要了解和注意哪些内容  如何配置setup.py 如何发布到PyPI 生成pydoc 版本号的选择 Lincense的选择  配置setup.py打包和发布一项都是通过准备一个 setup.py 文件来完成的。假设你的项目目录结构如下： 1234567891011demo├── LICENSE├── README.md├── MA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在 GitHub 上发布一个企业级的 Python 项目">
-<meta property="og:url" content="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/index.html">
+<meta property="og:title" content="在 GitHub 上发布一个企业级的 Python 项目需要注意哪些">
+<meta property="og:url" content="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="目录 选择License 配置setup.py 发布到PyPI 关于pydoc 关于版本号  选择License这里由一篇关于如何选择 GitHub License 的文章 Github仓库如何选择开源许可证，这里就不过多介绍。 配置setup.py官方有详细的示例和文档 https:&#x2F;&#x2F;packaging.python.org&#x2F;tutorials&#x2F;packaging-projects&#x2F;。 这里还">
+<meta property="og:description" content="本篇介绍个人或企业在 GitHub 上发布一个 Python 项目需要了解和注意哪些内容  如何配置setup.py 如何发布到PyPI 生成pydoc 版本号的选择 Lincense的选择  配置setup.py打包和发布一项都是通过准备一个 setup.py 文件来完成的。假设你的项目目录结构如下： 1234567891011demo├── LICENSE├── README.md├── MA">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/pydoc-es.png">
-<meta property="article:published_time" content="2020-08-23T08:13:17.000Z">
-<meta property="article:modified_time" content="2020-08-23T08:36:58.649Z">
+<meta property="og:image" content="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/pydoc-es.png">
+<meta property="article:published_time" content="2020-09-13T08:13:17.000Z">
+<meta property="article:modified_time" content="2020-09-13T04:35:23.846Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Release">
 <meta property="article:tag" content="PyPI">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/pydoc-es.png">
+<meta name="twitter:image" content="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/pydoc-es.png">
   
   <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
   
@@ -94,10 +94,10 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2020/08/how-to-release-python-project" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2020/09/how-to-release-python-project" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/08/how-to-release-python-project/" class="article-date">
-  <time datetime="2020-08-23T08:13:17.000Z" itemprop="datePublished">2020-08-23</time>
+    <a href="/2020/09/how-to-release-python-project/" class="article-date">
+  <time datetime="2020-09-13T08:13:17.000Z" itemprop="datePublished">2020-09-13</time>
 </a>
     
   <div class="article-category">
@@ -112,7 +112,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      如何在 GitHub 上发布一个企业级的 Python 项目
+      在 GitHub 上发布一个企业级的 Python 项目需要注意哪些
     </h1>
   
 
@@ -120,62 +120,77 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#选择License">选择License</a></li>
-<li><a href="#配置setup.py">配置setup.py</a></li>
-<li><a href="#发布到PyPI">发布到PyPI</a></li>
-<li><a href="#关于pydoc">关于pydoc</a></li>
-<li><a href="#关于版本号">关于版本号</a></li>
-</ul>
-<h2 id="选择License"><a href="#选择License" class="headerlink" title="选择License"></a>选择License</h2><p>这里由一篇关于如何选择 GitHub License 的文章 <a href="https://mp.weixin.qq.com/s/CjeWol3BdGkmGZi-zMnDkQ" target="_blank" rel="noopener">Github仓库如何选择开源许可证</a>，这里就不过多介绍。</p>
-<h2 id="配置setup-py"><a href="#配置setup-py" class="headerlink" title="配置setup.py"></a>配置setup.py</h2><p>官方有详细的示例和文档 <a href="https://packaging.python.org/tutorials/packaging-projects/。" target="_blank" rel="noopener">https://packaging.python.org/tutorials/packaging-projects/。</a></p>
-<p>这里还有一个 sample 项目供你参考 <a href="https://github.com/pypa/sampleproject" target="_blank" rel="noopener">https://github.com/pypa/sampleproject</a></p>
-<p>攒点耐心将上面两个链接阅读，就基本可以满足一般项目的发布要求了。</p>
-<p>这里着重介绍下引入 <code>MANIFEST.in</code> 文件的作用。它是用来定制化生成 <code>dist/*.tar.gz</code> 时需要用到的。</p>
-<p>假设你的项目目录结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">demo</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── MANIFEST.in</span><br><span class="line">├── demo</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── setup.py</span><br><span class="line">├── tests</span><br><span class="line">│   └── __init__.py</span><br><span class="line">│   └── __pycache__&#x2F;</span><br><span class="line">└── docs</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
+        <p>本篇介绍个人或企业在 GitHub 上发布一个 Python 项目需要了解和注意哪些内容</p>
+<ol>
+<li><a href="#配置setup.py">如何配置setup.py</a></li>
+<li><a href="#发布到PyPI">如何发布到PyPI</a></li>
+<li><a href="#关于pydoc">生成pydoc</a></li>
+<li><a href="#关于版本号">版本号的选择</a></li>
+<li><a href="#选择License">Lincense的选择</a></li>
+</ol>
+<h2 id="配置setup-py"><a href="#配置setup-py" class="headerlink" title="配置setup.py"></a>配置setup.py</h2><p>打包和发布一项都是通过准备一个 <code>setup.py</code> 文件来完成的。假设你的项目目录结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">demo</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── MANIFEST.in       <span class="comment"># 打包时，用来定制化生成 `dist/*.tar.gz` 里的内容</span></span><br><span class="line">├── demo</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── setup.py</span><br><span class="line">├── tests</span><br><span class="line">│   └── __init__.py</span><br><span class="line">│   └── __pycache__/</span><br><span class="line">└── docs</span><br></pre></td></tr></table></figure>
 
 <p>在使用打包命令 <code>python setup.py sdist bdist_wheel</code>，将会生成在 dist 目录下生成两个文件 <code>demo-1.0.0-py3-none-any.whl</code> 和 <code>demo-1.0.0.tar.gz</code></p>
-<p><code>.whl</code> 文件是用于执行 <code>pip install dist/demo-1.0.0-py3-none-any.whl</code> 将其安装到 <code>...\Python38\Lib\site-packages\demo</code> 目录时使用的文件。</p>
-<p><code>.tar.gz</code> 是打包后的源代码的存档文件。而 <code>MANIFEST.in</code> 则是用来控制这个文件里到底要有哪些内容。</p>
-<p>以下面的 <code>MANIFEST.in</code> 文件为例：</p>
+<ul>
+<li><p><code>.whl</code> 文件是用于执行 <code>pip install dist/demo-1.0.0-py3-none-any.whl</code> 将其安装到 <code>...\Python38\Lib\site-packages\demo</code> 目录时使用的文件。</p>
+</li>
+<li><p><code>.tar.gz</code> 是打包后的源代码的存档文件。而 <code>MANIFEST.in</code> 则是用来控制这个文件里到底要有哪些内容。</p>
+</li>
+</ul>
+<a id="more"></a>
+
+<p>下面例子是如何使用 <code>MANIFEST.in</code> 来定制化生成 <code>dist/*.tar.gz</code> 里的内容。<code>MANIFEST.in</code> 文件内容如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">include LICENSE</span><br><span class="line">include README.md</span><br><span class="line">include MANIFEST.<span class="keyword">in</span></span><br><span class="line">graft demo</span><br><span class="line">graft tests</span><br><span class="line">graft docs</span><br><span class="line"><span class="keyword">global</span>-exclude __pycache__</span><br><span class="line"><span class="keyword">global</span>-exclude *.log</span><br><span class="line"><span class="keyword">global</span>-exclude *.pyc</span><br></pre></td></tr></table></figure>
 
 <p>根据以上文件描述，在使用命令 <code>python setup.py sdist bdist_wheel</code> 生成 <code>demo-1.0.0.tar.gz</code> 文件时会包含 <code>LICENSE</code>, <code>README.md</code>, <code>MANIFEST.in</code> 这三个文件，并且还会包含 <code>demo</code>, <code>tests</code>, <code>docs</code> 三个目录下的所有文件，最后排除掉所有的 <code>__pycache__</code>, <code>*.log</code>, <code>*.pyc</code> 文件。</p>
 <p>更多关于  <code>MANIFEST.in</code> 文件的语法请参看 <a href="https://packaging.python.org/guides/using-manifest-in/" target="_blank" rel="noopener">https://packaging.python.org/guides/using-manifest-in/</a></p>
-<h2 id="发布到PyPI"><a href="#发布到PyPI" class="headerlink" title="发布到PyPI"></a>发布到PyPI</h2><p>使用 Python 编程的人都知道，Python 的优势之一就是有大量的第三方库，通常使用如下命令</p>
+<blockquote>
+<p>官方有详细的示例和文档 <a href="https://packaging.python.org/tutorials/packaging-projects/。" target="_blank" rel="noopener">https://packaging.python.org/tutorials/packaging-projects/。</a></p>
+<p>Python sample 项目供你参考 <a href="https://github.com/pypa/sampleproject" target="_blank" rel="noopener">https://github.com/pypa/sampleproject</a></p>
+</blockquote>
+<p>攒点耐心将上面的链接看完，就完全满足一般项目的发布要求了。</p>
+<h2 id="发布到PyPI"><a href="#发布到PyPI" class="headerlink" title="发布到PyPI"></a>发布到PyPI</h2><p>使用 Python 大家都知道可以通过以下命令来下载你要是使用的外部库，Python 有着大量的第三方库，将开源项目发布到 PyPI 上方便用户使用。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install xxxx</span><br></pre></td></tr></table></figure>
 
-<p>就可以轻松下载，真是即酷炫又方便。</p>
 <h3 id="什么是-PyPI"><a href="#什么是-PyPI" class="headerlink" title="什么是 PyPI"></a>什么是 PyPI</h3><p>PyPI 是 The Python Package Index 的缩写，意思是 Python 包索引仓库，用来查找、安装和发布 Python 包。</p>
-<p>PyPI 又两个环境，一个是测试环境 <a href="https://test.pypi.org/" target="_blank" rel="noopener">TestPyPI</a> 和 正式环境 <a href="https://pypi.org/" target="_blank" rel="noopener">PyPI</a></p>
+<p>PyPI 又两个环境，一个是测试环境 <a href="https://test.pypi.org/" target="_blank" rel="noopener">TestPyPI</a> 和正式环境 <a href="https://pypi.org/" target="_blank" rel="noopener">PyPI</a></p>
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
 <li>如果想熟悉 PyPI 发布工具和发布流程可以使用测试环境 <a href="https://test.pypi.org/" target="_blank" rel="noopener">TestPyPI</a> </li>
 <li>如果已经熟悉了 PyPI 的发布工具和流程可以直接使用正式环境 <a href="https://pypi.org/" target="_blank" rel="noopener">PyPI</a></li>
-<li>TestPyPI 和 PyPI 需要单独注册，即在正式环境注册了，如果去使用测试环境也同样需要注册。</li>
-<li>已经写好并且可以正常使用的项目/库/方法。</li>
+<li>TestPyPI 和 PyPI 需要单独注册，即在正式环境注册了，如果去使用测试环境也同样需要注册。注意：同一个账号不能在 PyPI 和 TestPyPI 同时注册。</li>
 </ol>
-<p>发布一个 Python 项目到 PyPI 还是非常简单的，遵照上述的步骤，每个人都可以将上面的项目发布到自己账户下。</p>
+<p>假设你的项目已经完成了，准备要发布到 PyPI 了，执行下面的命令，就可以将项目发布到 PyPI 上了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rm dist/*</span><br><span class="line"><span class="comment"># 生成代码存档 .tar.gz 文件和构建文件 .whl 文件</span></span><br><span class="line">python setup.py sdist bdist_wheel</span><br><span class="line"><span class="comment"># 如果发布到TestPyPI使用以下命令</span></span><br><span class="line">twine upload --repository testpypi dist/*</span><br><span class="line"><span class="comment"># 如果发布到PyPI使用以下命令</span></span><br><span class="line">twine upload dist/*</span><br></pre></td></tr></table></figure>
+
 <h2 id="关于pydoc"><a href="#关于pydoc" class="headerlink" title="关于pydoc"></a>关于pydoc</h2><p>Python 内置了 doc 的功能，叫 <code>pydoc</code>。执行 <code>python -m pydoc</code> 可以看到它有哪些选项和功能。</p>
-<p>执行 <code>python -m pydoc -b</code> 可以在本地理解启动一个 web 页面来访问你 <code>...\Python38\Lib\site-packages\</code> 目录下所有项目的文档。</p>
-<p><img src="/2020/08/how-to-release-python-project/pydoc-es.png" alt="以 elasticsearch 文档为例"></p>
-<p>如何让用户可以在线访问你的 doc 呢？</p>
-<p>GitHub 有内置的 GitHub Pages 功能，可以很容易的提供一个在线网址。只要打开你的 python 项目设置选项 -&gt; 找到 GitHub Pages -&gt; Source 选择你的分支和路径，保存后就立刻拥有了一个网址。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> docs</span><br><span class="line">python -m pydoc -w ..\   <span class="comment"># 生成全部文档</span></span><br></pre></td></tr></table></figure>
+
+<p>执行 <code>python -m pydoc -b</code> 可以在本地理解启动一个 web 页面来访问你 <code>...\Python38\Lib\site-packages\</code> 目录下所有 Libraries 文档。</p>
+<p><img src="/2020/09/how-to-release-python-project/pydoc-es.png" alt="以 elasticsearch 文档为例"></p>
+<p>这些本吧的 web 文档如何在线访问？可以通过 GitHub 有内置的 GitHub Pages 功能，很容易提供一个在线网址。</p>
+<p>打开你的 GitHub python 项目设置选项 -&gt; 找到 GitHub Pages -&gt; Source 选择你的分支和路径，保存后就立刻拥有了一个网址。例如：</p>
 <ul>
 <li><a href="https://xxxxx.github.io/demo/" target="_blank" rel="noopener">https://xxxxx.github.io/demo/</a> 是你的项目主页，显示是 README.md 信息 </li>
 <li><a href="https://xxxxx.github.io/demo/docs/demo.html" target="_blank" rel="noopener">https://xxxxx.github.io/demo/docs/demo.html</a> 是你的项目的 pydoc 文档</li>
 </ul>
-<h2 id="关于版本号"><a href="#关于版本号" class="headerlink" title="关于版本号"></a>关于版本号</h2><p>另外如果是正式版本，在发布还需要注意版本号的选择。如果是功能很简答，完成度也不高，建议从 0.0.1 版本开始。</p>
-<p>如果是一个完成度很高的产品了，那么可以从 1.0.0 版本开始。</p>
+<h2 id="关于版本号"><a href="#关于版本号" class="headerlink" title="关于版本号"></a>关于版本号</h2><p>另外如果是正式版本，在发布还需要注意版本号的选择。如果是功能很简答，完成度也不高，建议从 0.0.1 版本开始。如果是一个完成度很高的产品了，那么可以从 1.0.0 版本开始。</p>
+<p>比如一个项目从准备发布到正式发布有四个阶段：Alpha, Beta, 候选发布以及正式发布。假如正式发布的版本号是 1.1.0 版本，根据以下的版本标识的规范</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X.YaN   # Alpha release</span><br><span class="line">X.YbN   # Beta release</span><br><span class="line">X.YrcN  # Release Candidate</span><br><span class="line">X.Y     # Final release</span><br></pre></td></tr></table></figure>
+
+<p>得出 Alpha, Beta, 候选发布及正式发布版本分别如下：</p>
+<p>Alpha release 版本号是 <code>1.1.0a1, 1.1.0a1, 1.1.0aN...</code><br>Beta release  版本号是 <code>1.1.0b1, 1.1.0b1, 1.1.0bN...</code><br>Release Candidate 版本号是 <code>1.1.0rc1, 1.1.0rc2, 1.1.0rcN...</code><br>Final release 版本号 <code>1.1.0, 1.1.1, 1.1.N...</code></p>
+<blockquote>
+<p>Python 官方的<a href="https://www.python.org/dev/peps/pep-0440/" target="_blank" rel="noopener">版本标识和依赖规范文档</a></p>
+</blockquote>
+<h2 id="选择License"><a href="#选择License" class="headerlink" title="选择License"></a>选择License</h2><p>企业级的项目 License 一般由公司的法律团队来提供，发布者只是拿到 License 文件做一些格式化工作（比如将 license.txt 格式化为 70~80 个字符）。如果是个人项目或是想了解开源许可相关的介绍，可以参看这篇文章 <a href="https://mp.weixin.qq.com/s/CjeWol3BdGkmGZi-zMnDkQ" target="_blank" rel="noopener">Github仓库如何选择开源许可证</a>。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/" data-id="ckeh8khah009kx4fofd4r6sa1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="ckf0lwd3h008rq4fo3n88gn2z" class="article-share-link">Share</a>
       
-        <a href="https://shenxianpeng.github.io/2020/08/how-to-release-python-project/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/release/" rel="tag">Release</a></li></ul>
@@ -193,19 +208,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2020/08/about-pip-install-and-versioning/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          About Python pip install and versioning
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/udpate-jira-server-account-avatar-with-rest-api/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/08/about-pip-install-and-versioning/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Update Jira server account avatar with rest api</div>
+      <div class="article-nav-title">About Python pip install and versioning</div>
     </a>
   
 </nav>
@@ -241,11 +247,11 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2020/08/about-pip-install-and-versioning/">About Python pip install and versioning</a>
+            <a href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个企业级的 Python 项目需要注意哪些</a>
           </li>
         
           <li>
-            <a href="/2020/08/how-to-release-python-project/">如何在 GitHub 上发布一个企业级的 Python 项目</a>
+            <a href="/2020/08/about-pip-install-and-versioning/">About Python pip install and versioning</a>
           </li>
         
           <li>
@@ -329,7 +335,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -383,7 +389,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'shenxianpeng';
     
-    var disqus_url = 'https://shenxianpeng.github.io/2020/08/how-to-release-python-project/';
+    var disqus_url = 'https://shenxianpeng.github.io/2020/09/how-to-release-python-project/';
     
     (function(){
       var dsq = document.createElement('script');
