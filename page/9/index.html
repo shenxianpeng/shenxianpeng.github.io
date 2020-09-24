@@ -89,6 +89,64 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2018/02/git-command-cheat" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/git-command-cheat/" class="article-date">
+  <time datetime="2018-02-26T12:46:44.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">Git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/git-command-cheat/">Git 命令备忘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有些git命令总是记不住，在我这台 Ubuntu 使用 web 版 OneNote 不方便，那就把他们记到 Blog 里吧，需要的时候翻看一下。</p>
+<p>git remote</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote -v                 <span class="comment"># 查看当前位置的远程代码库</span></span><br><span class="line">git remote remove origin      <span class="comment"># 取消远程仓库</span></span><br><span class="line">git remote add orgin git@github.com:shenxianpeng/nightwatch.git       <span class="comment"># 关联新的仓库</span></span><br></pre></td></tr></table></figure>
+
+<p>git log</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 得到某一时段提交日志</span></span><br><span class="line">git <span class="built_in">log</span> --after=<span class="string">'2017-12-04'</span> --before=<span class="string">'2017-12-08'</span> --author=xshen --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+
+<p>git tag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v1.6.700 -m <span class="string">'Release v1.6.700'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给前面的提交补上 tag</span></span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">git tag -a v1.6.700 -m <span class="string">'Release v1.6.700'</span> e454ad98862</span><br><span class="line"></span><br><span class="line">git push tag</span><br><span class="line">git push origin --tag</span><br></pre></td></tr></table></figure>
+
+<p>设置 npm install 代理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> proxy=http://10.17.201.60:8080       <span class="comment"># 设置代理</span></span><br><span class="line">npm config <span class="built_in">set</span> proxy null                           <span class="comment"># 取消代理</span></span><br></pre></td></tr></table></figure>
+
+<p>设置 cnpm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install [name]</span><br><span class="line">cnpm sync connect</span><br><span class="line">cnpm info connect</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2018/02/git-command-cheat/" data-id="ckfgqzjb800205ofo2vk56cas" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2018/02/git-command-cheat/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
     <article id="post-2018/02/remove-and-add-remote-repository" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/remove-and-add-remote-repository/" class="article-date">
@@ -121,7 +179,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/" data-id="ckf118tku0020h8foec4s650o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/" data-id="ckfgqzjbf00235ofo4mjghazs" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -170,7 +228,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/" data-id="ckf118tkt001xh8foanh47ruf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/" data-id="ckfgqzjb5001w5ofo2ei32qrf" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -223,7 +281,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/" data-id="ckf118tkq001mh8fo2m14esi1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/" data-id="ckfgqzjb3001u5ofof4mlch0t" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -268,7 +326,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/01/open-multiple-windows/" data-id="ckf118tks001uh8fo2ypwdcoy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/01/open-multiple-windows/" data-id="ckfgqzjax001o5ofofpcv0bvs" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/01/open-multiple-windows/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -323,7 +381,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/" data-id="ckf118tkp001ih8fo4jjpbaxr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/" data-id="ckfgqzjau001k5ofo1wka6sn9" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -378,7 +436,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/install-hexo-on-ubuntu/" data-id="ckf118tko001gh8fo1s9lf8xb" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/install-hexo-on-ubuntu/" data-id="ckfgqzjaj00175ofofro2go8a" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/install-hexo-on-ubuntu/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -425,7 +483,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/" data-id="ckf118tkj0015h8fo3b9kfydd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/" data-id="ckfgqzjal001a5ofo09i4fsve" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -470,7 +528,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/" data-id="ckf118tkr001ph8foh5ka0h04" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/" data-id="ckfgqzjaz001r5ofoa3cmfgd1" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -524,71 +582,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-element-check/" data-id="ckf118tkm001ch8foepto2x07" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-element-check/" data-id="ckfgqzjao001c5ofo7dfv2ryu" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/nightwatch-element-check/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/automation/" rel="tag">Automation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article id="post-2017/12/nightwatch-handle-cookies" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/nightwatch-handle-cookies/" class="article-date">
-  <time datetime="2017-12-14T06:21:56.000Z" itemprop="datePublished">2017-12-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/automation/">Automation</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/nightwatch-handle-cookies/">Nightwatch 得到和验证 cookies</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h2><p>验证登录 cookies 和清除 access_token。测试用例设计如下</p>
-<h2 id="测试用例设计"><a href="#测试用例设计" class="headerlink" title="测试用例设计"></a>测试用例设计</h2><p>登录系统时，不选择记住我按钮，验证 cookies</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">client.getCookies(<span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value.length, <span class="number">3</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">0</span>].name, <span class="string">'domain'</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">1</span>].name, <span class="string">'user_id'</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">2</span>].name, <span class="string">'access_token'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>登录系统时，选择记住我按钮，验证 cookies</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">client.getCookies(<span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value.length, <span class="number">5</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">0</span>].name, <span class="string">'domain'</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">1</span>].name, <span class="string">'user_id'</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">2</span>].name, <span class="string">'identifier'</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">3</span>].name, <span class="string">'access_token'</span>);</span><br><span class="line">    <span class="keyword">this</span>.assert.equal(result.value[<span class="number">4</span>].name, <span class="string">'persistent_token'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>登录系统时，不选择记住我按钮，删除 cookies</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> accesstoken;</span><br><span class="line">client.getCookies(<span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">    accesstoken = result.value[<span class="number">2</span>].name;</span><br><span class="line">    <span class="keyword">this</span>.deleteCookie(accesstoken, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// refresh current page, logout</span></span><br><span class="line">        <span class="keyword">this</span>.refresh().waitForElementVisible(<span class="string">'div.login-form'</span>, <span class="number">5000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>登录系统时，选择记住我按钮，删除 cookies</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> accesstoken;</span><br><span class="line">client.getCookies(<span class="function"><span class="keyword">function</span> <span class="title">cb</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">    accesstoken = result.value[<span class="number">3</span>].name;</span><br><span class="line">    <span class="keyword">this</span>.deleteCookie(accesstoken, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// refresh current page, still login</span></span><br><span class="line">        <span class="keyword">this</span>.refresh().waitForElementVisible(<span class="string">'.andes-header'</span>, <span class="number">5000</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="如何知道登录都有哪些参数"><a href="#如何知道登录都有哪些参数" class="headerlink" title="如何知道登录都有哪些参数"></a>如何知道登录都有哪些参数</h2><p>事先在手动测试的时候打开 chrome 浏览器，然后按 F12，登录时查看 Network。</p>
-<p>以成功百度登录时为例，可以看到 Headers 里的参数，我们可以通过验证这些参数来确定登录成功了。</p>
-<p>这样我们就可以这些参数来实现对 cookie，token 等等参数进行自动化测试的验证。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-handle-cookies/" data-id="ckf118tkl0019h8focf39ci0g" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2017/12/nightwatch-handle-cookies/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a></li></ul>
 
     </footer>
     
@@ -609,7 +608,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -619,7 +618,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 13px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -629,6 +628,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/09/getting-to-know-ansible/">初识 Ansible</a>
+          </li>
         
           <li>
             <a href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个 Python 项目需要注意哪些</a>
@@ -655,7 +658,7 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            <a href="/2020/07/commit-messages-specification/">程序员的自我修养 —— Git 提交信息规范</a>
+            <a href="/2020/07/commit-messages-specification/">项目必备：Git仓库提交信息和分支创建规范的制定与实施</a>
           </li>
         
           <li>
@@ -706,10 +709,6 @@ ga('send', 'pageview');
             <a href="/2020/05/nightwatch-v1-3/">Nightwarch v1.3 介绍</a>
           </li>
         
-          <li>
-            <a href="/2020/05/jmeter-performance-testing/">How to use JMeter to do Performance Testing</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -719,7 +718,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

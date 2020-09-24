@@ -89,6 +89,61 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2020/09/getting-to-know-ansible" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/getting-to-know-ansible/" class="article-date">
+  <time datetime="2020-09-21T10:40:17.000Z" itemprop="datePublished">2020-09-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/getting-to-know-ansible/">初识 Ansible</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a href="https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/" target="_blank" rel="noopener">https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/</a></p>
+</blockquote>
+<h2 id="为什么是-Ansible"><a href="#为什么是-Ansible" class="headerlink" title="为什么是 Ansible"></a>为什么是 Ansible</h2><p>市面上关于管理虚拟机的工具有很多，比如 Chef，Puppet，Saltstack，Ansible 等等，它们都是行业里常用的 DevOps 工具，</p>
+<p>那么为什么要有用 Ansible 呢</p>
+<h2 id="Ansible-TroubleShotting"><a href="#Ansible-TroubleShotting" class="headerlink" title="Ansible TroubleShotting"></a>Ansible TroubleShotting</h2><p><code>&quot;msg&quot;: &quot;winrm or requests is not installed: No module named winrm&quot;</code> </p>
+<p>Need install <code>pywinrm</code> on your master server. </p>
+<p>“msg”: “plaintext: auth method plaintext requires a password”</p>
+<p>when I run <code>ansible mywin -i hosts -m win_ping -vvv</code>, I notice the output used Python2.7, so I install <code>pywinrm</code> with command <code>sudo pip2 install pywinrm</code>, then my problem was resolved.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mywin | UNREACHABLE! &#x3D;&gt; &#123;</span><br><span class="line">    &quot;changed&quot;: false, </span><br><span class="line">    &quot;msg&quot;: &quot;plaintext: auth method plaintext requires a password&quot;, </span><br><span class="line">    &quot;unreachable&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Result: You should be using ansible_password and not ansible_pass. <a href="https://github.com/ansible/ansible/issues/16858#issuecomment-250908554" target="_blank" rel="noopener">link</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/" data-id="ckfgqzjm700g65ofogfpm86m5" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
     <article id="post-2020/09/how-to-release-python-project" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/how-to-release-python-project/" class="article-date">
@@ -141,7 +196,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="ckf118tml0067h8foc97j1evf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="ckfgqzjm400g55ofohedrfza2" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -198,7 +253,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="ckf118tmb005kh8fo07ip5awi" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="ckfgqzjhm008q5ofo7da8749p" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -250,7 +305,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="ckf118tmm006bh8fo0bnb4wtu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/" data-id="ckfgqzjhp008t5ofohk06e2js" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/udpate-jira-server-account-avatar-with-rest-api/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -301,7 +356,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="ckf118tmg005sh8fo0mu7cp5o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="ckfgqzjhu00915ofo7rov8f7v" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/rdp-problem/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -353,7 +408,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckf118tmi005uh8fo6zyx7cy5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckfgqzjhx00945ofobxuoapgc" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -427,7 +482,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="ckf118tm50051h8fo2m684w3f" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="ckfgqzjh900895ofoa390gnpf" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/annual-work-summary/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -458,7 +513,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/commit-messages-specification/">程序员的自我修养 —— Git 提交信息规范</a>
+      <a class="article-title" href="/2020/07/commit-messages-specification/">项目必备：Git仓库提交信息和分支创建规范的制定与实施</a>
     </h1>
   
 
@@ -466,13 +521,17 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在使用 Git 提交代码的时候，在与他人合作同时开发的项目，一个良好的提交信息规范我总结有三个好处：</p>
+        <h2 id="为什么要标准化提交信息"><a href="#为什么要标准化提交信息" class="headerlink" title="为什么要标准化提交信息"></a>为什么要标准化提交信息</h2><h3 id="1-没有规范的提交信息"><a href="#1-没有规范的提交信息" class="headerlink" title="1. 没有规范的提交信息"></a>1. 没有规范的提交信息</h3><p>先看一个没有任何规范的 Git 提交信息记录。从这个提交信息里你不知道他修改了什么，修改意图是什么。</p>
+<p><img src="/2020/07/commit-messages-specification/bad-commit-message.png" alt="没有规范的 Git 提交信息"></p>
+<p>特别是对于一个团队，当很多人在一起合作开发一个项目的时候，预先设定好提交信息规范，对于项目的长远发展以及后续人员加入和维护都至关重要。</p>
+<p>因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：总结以下几个好处：</p>
 <ol>
-<li>有助于其他人接手，进行 Bug 修复或是新功能的添加都是很好的参考</li>
-<li>并且良好的规范有助于自动化脚本的识别</li>
-<li>最后这也是体现了一个程序员的自我修养</li>
+<li>有助于他人更好的理解你的变更意图，更容易贡献/修改代码。</li>
+<li>结构化的提交信息有助于自动化脚本的识别，便于CI/CD。</li>
+<li>提供自动化生成 <code>CHANGELOGs</code> 的能力。</li>
+<li>最后，这也是体现了一个程序员的自我修养。</li>
 </ol>
-<p>因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：</p>
+<h3 id="2-有规范的提交信息"><a href="#2-有规范的提交信息" class="headerlink" title="2. 有规范的提交信息"></a>2. 有规范的提交信息</h3>
         
           <p class="article-more-link">
             <a href="/2020/07/commit-messages-specification/#more">Read More</a>
@@ -481,12 +540,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckf118tm8005ch8fo5wmr64ys" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckfgqzjhh008j5ofogf9v227m" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/specification/" rel="tag">Specification</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/branch/" rel="tag">Branch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conventional-commits/" rel="tag">Conventional Commits</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/specification/" rel="tag">Specification</a></li></ul>
 
     </footer>
     
@@ -533,7 +592,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="ckf118tmd005nh8fob8wx6ktq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="ckfgqzjhj008m5ofoa4nh6tgu" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -581,63 +640,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckf118tm80059h8fodcdch5fh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckfgqzjhs008y5ofo6sm43bic" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/troubleshooting/" rel="tag">troubleshooting</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article id="post-2020/07/jenkins-best-practice-cn" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/jenkins-best-practice-cn/" class="article-date">
-  <time datetime="2020-07-06T10:57:02.000Z" itemprop="datePublished">2020-07-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/jenkins-best-practice-cn/">每个 Jenkins 用户都应该知道这三个最佳实践</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​在使用 Jenkins 实施了企业级的 CI/CD 工作，有如下三个最重要的实践和总结。</p>
-<p>第一，Configuration as Code（配置即代码）<br>其次，Jenkins shared libraries（Jenkins 共享库）<br>最后，Multi-Branch Pipeline（多分支流水线）</p>
-<h2 id="配置即代码"><a href="#配置即代码" class="headerlink" title="配置即代码"></a>配置即代码</h2><p>配置即代码(Configuration as Code)是一种在代码仓库里管理配置的方法。</p>
-<h3 id="它有什么好处"><a href="#它有什么好处" class="headerlink" title="它有什么好处"></a>它有什么好处</h3><h4 id="作业透明化"><a href="#作业透明化" class="headerlink" title="作业透明化"></a>作业透明化</h4>
-        
-          <p class="article-more-link">
-            <a href="/2020/07/jenkins-best-practice-cn/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="ckf118tma005hh8fohokggk5p" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
 
     </footer>
     
@@ -658,7 +666,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -668,7 +676,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 13px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -678,6 +686,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/09/getting-to-know-ansible/">初识 Ansible</a>
+          </li>
         
           <li>
             <a href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个 Python 项目需要注意哪些</a>
@@ -704,7 +716,7 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            <a href="/2020/07/commit-messages-specification/">程序员的自我修养 —— Git 提交信息规范</a>
+            <a href="/2020/07/commit-messages-specification/">项目必备：Git仓库提交信息和分支创建规范的制定与实施</a>
           </li>
         
           <li>
@@ -755,10 +767,6 @@ ga('send', 'pageview');
             <a href="/2020/05/nightwatch-v1-3/">Nightwarch v1.3 介绍</a>
           </li>
         
-          <li>
-            <a href="/2020/05/jmeter-performance-testing/">How to use JMeter to do Performance Testing</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -768,7 +776,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-09-13T11:45:30.741Z</updated>
+  <updated>2020-09-24T11:04:48.970Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>初识 Ansible</title>
+    <link href="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/"/>
+    <id>https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/</id>
+    <published>2020-09-21T10:40:17.000Z</published>
+    <updated>2020-09-24T11:04:48.970Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Ansible" scheme="https://shenxianpeng.github.io/tags/ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>在 GitHub 上发布一个 Python 项目需要注意哪些</title>
@@ -201,21 +228,25 @@
   </entry>
   
   <entry>
-    <title>程序员的自我修养 —— Git 提交信息规范</title>
+    <title>项目必备：Git仓库提交信息和分支创建规范的制定与实施</title>
     <link href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/"/>
     <id>https://shenxianpeng.github.io/2020/07/commit-messages-specification/</id>
     <published>2020-07-26T00:39:22.000Z</published>
-    <updated>2020-08-02T02:53:39.488Z</updated>
+    <updated>2020-09-24T11:41:39.673Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在使用 Git 提交代码的时候，在与他人合作同时开发的项目，一个良好的提交信息规范我总结有三个好处：&lt;/p&gt;
+      &lt;h2 id=&quot;为什么要标准化提交信息&quot;&gt;&lt;a href=&quot;#为什么要标准化提交信息&quot; class=&quot;headerlink&quot; title=&quot;为什么要标准化提交信息&quot;&gt;&lt;/a&gt;为什么要标准化提交信息&lt;/h2&gt;&lt;h3 id=&quot;1-没有规范的提交信息&quot;&gt;&lt;a href=&quot;#1-没有规范的提交信息&quot; class=&quot;headerlink&quot; title=&quot;1. 没有规范的提交信息&quot;&gt;&lt;/a&gt;1. 没有规范的提交信息&lt;/h3&gt;&lt;p&gt;先看一个没有任何规范的 Git 提交信息记录。从这个提交信息里你不知道他修改了什么，修改意图是什么。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/07/commit-messages-specification/bad-commit-message.png&quot; alt=&quot;没有规范的 Git 提交信息&quot;&gt;&lt;/p&gt;
+&lt;p&gt;特别是对于一个团队，当很多人在一起合作开发一个项目的时候，预先设定好提交信息规范，对于项目的长远发展以及后续人员加入和维护都至关重要。&lt;/p&gt;
+&lt;p&gt;因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：总结以下几个好处：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;有助于其他人接手，进行 Bug 修复或是新功能的添加都是很好的参考&lt;/li&gt;
-&lt;li&gt;并且良好的规范有助于自动化脚本的识别&lt;/li&gt;
-&lt;li&gt;最后这也是体现了一个程序员的自我修养&lt;/li&gt;
+&lt;li&gt;有助于他人更好的理解你的变更意图，更容易贡献/修改代码。&lt;/li&gt;
+&lt;li&gt;结构化的提交信息有助于自动化脚本的识别，便于CI/CD。&lt;/li&gt;
+&lt;li&gt;提供自动化生成 &lt;code&gt;CHANGELOGs&lt;/code&gt; 的能力。&lt;/li&gt;
+&lt;li&gt;最后，这也是体现了一个程序员的自我修养。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：&lt;/p&gt;
+&lt;h3 id=&quot;2-有规范的提交信息&quot;&gt;&lt;a href=&quot;#2-有规范的提交信息&quot; class=&quot;headerlink&quot; title=&quot;2. 有规范的提交信息&quot;&gt;&lt;/a&gt;2. 有规范的提交信息&lt;/h3&gt;
     
     </summary>
     
@@ -224,7 +255,11 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
+    
       <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
+      <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     
   </entry>
   
@@ -295,9 +330,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -321,9 +356,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -468,9 +503,9 @@
       <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
     
     
-      <category term="write" scheme="https://shenxianpeng.github.io/tags/write/"/>
-    
       <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
+    
+      <category term="write" scheme="https://shenxianpeng.github.io/tags/write/"/>
     
   </entry>
   
@@ -520,34 +555,6 @@
       <category term="Nightwatch" scheme="https://shenxianpeng.github.io/tags/nightwatch/"/>
     
       <category term="Javascript" scheme="https://shenxianpeng.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to use JMeter to do Performance Testing</title>
-    <link href="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/"/>
-    <id>https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/</id>
-    <published>2020-05-09T06:28:09.000Z</published>
-    <updated>2020-07-03T05:16:53.235Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Record-JMeter-Scripts&quot;&gt;&lt;a href=&quot;#Record-JMeter-Scripts&quot; class=&quot;headerlink&quot; title=&quot;Record JMeter Scripts&quot;&gt;&lt;/a&gt;Record JMeter Scripts&lt;/h2&gt;&lt;p&gt;use JMeter’s HTTP(S) Test Script Recorder, please refer to this official document &lt;a href=&quot;https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Running-JMeter-Scripts&quot;&gt;&lt;a href=&quot;#Running-JMeter-Scripts&quot; class=&quot;headerlink&quot; title=&quot;Running JMeter Scripts&quot;&gt;&lt;/a&gt;Running JMeter Scripts&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Debug scripts on JMeter in GUI Mode&lt;/p&gt;
-&lt;p&gt;You can debug your record scripts in GUI Mode until there are no errors&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;run test scripts in Non-GUI Mode(Command Line mode) recommend&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;jmeter -n -t ..\extras\Test.jmx -l Test.jtl&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="Automation" scheme="https://shenxianpeng.github.io/categories/automation/"/>
-    
-    
-      <category term="JMeter" scheme="https://shenxianpeng.github.io/tags/jmeter/"/>
-    
-      <category term="performance" scheme="https://shenxianpeng.github.io/tags/performance/"/>
     
   </entry>
   

@@ -4,26 +4,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>程序员的自我修养 —— Git 提交信息规范 | Hello World</title>
+  <title>项目必备：Git仓库提交信息和分支创建规范的制定与实施 | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景在使用 Git 提交代码的时候，在与他人合作同时开发的项目，一个良好的提交信息规范我总结有三个好处：  有助于其他人接手，进行 Bug 修复或是新功能的添加都是很好的参考 并且良好的规范有助于自动化脚本的识别 最后这也是体现了一个程序员的自我修养  因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：">
+  <meta name="description" content="为什么要标准化提交信息1. 没有规范的提交信息先看一个没有任何规范的 Git 提交信息记录。从这个提交信息里你不知道他修改了什么，修改意图是什么。  特别是对于一个团队，当很多人在一起合作开发一个项目的时候，预先设定好提交信息规范，对于项目的长远发展以及后续人员加入和维护都至关重要。 因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：总结以下几个好处：  有助于他人更好的理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="程序员的自我修养 —— Git 提交信息规范">
+<meta property="og:title" content="项目必备：Git仓库提交信息和分支创建规范的制定与实施">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="背景在使用 Git 提交代码的时候，在与他人合作同时开发的项目，一个良好的提交信息规范我总结有三个好处：  有助于其他人接手，进行 Bug 修复或是新功能的添加都是很好的参考 并且良好的规范有助于自动化脚本的识别 最后这也是体现了一个程序员的自我修养  因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：">
+<meta property="og:description" content="为什么要标准化提交信息1. 没有规范的提交信息先看一个没有任何规范的 Git 提交信息记录。从这个提交信息里你不知道他修改了什么，修改意图是什么。  特别是对于一个团队，当很多人在一起合作开发一个项目的时候，预先设定好提交信息规范，对于项目的长远发展以及后续人员加入和维护都至关重要。 因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：总结以下几个好处：  有助于他人更好的理">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/bad-commit-message.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/angular-commit-message.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/git-hook.png">
-<meta property="og:image" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/commit-checker-setting.png">
-<meta property="og:image" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/branch-regex.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/commit-checker.png">
 <meta property="article:published_time" content="2020-07-26T00:39:22.000Z">
-<meta property="article:modified_time" content="2020-08-02T02:53:39.488Z">
+<meta property="article:modified_time" content="2020-09-24T11:41:39.673Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Git">
+<meta property="article:tag" content="Branch">
 <meta property="article:tag" content="Specification">
+<meta property="article:tag" content="Conventional Commits">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2020/07/commit-messages-specification/bad-commit-message.png">
   
@@ -116,7 +116,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      程序员的自我修养 —— Git 提交信息规范
+      项目必备：Git仓库提交信息和分支创建规范的制定与实施
     </h1>
   
 
@@ -124,78 +124,74 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在使用 Git 提交代码的时候，在与他人合作同时开发的项目，一个良好的提交信息规范我总结有三个好处：</p>
-<ol>
-<li>有助于其他人接手，进行 Bug 修复或是新功能的添加都是很好的参考</li>
-<li>并且良好的规范有助于自动化脚本的识别</li>
-<li>最后这也是体现了一个程序员的自我修养</li>
-</ol>
-<p>因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：</p>
-<a id="more"></a>
-
-<p>随便找的一个没有任何规范的提交信息</p>
+        <h2 id="为什么要标准化提交信息"><a href="#为什么要标准化提交信息" class="headerlink" title="为什么要标准化提交信息"></a>为什么要标准化提交信息</h2><h3 id="1-没有规范的提交信息"><a href="#1-没有规范的提交信息" class="headerlink" title="1. 没有规范的提交信息"></a>1. 没有规范的提交信息</h3><p>先看一个没有任何规范的 Git 提交信息记录。从这个提交信息里你不知道他修改了什么，修改意图是什么。</p>
 <p><img src="/2020/07/commit-messages-specification/bad-commit-message.png" alt="没有规范的 Git 提交信息"></p>
-<p>这是 Angular 有规范的提交信息，并且遵循了常规提交 <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a></p>
-<p><img src="/2020/07/commit-messages-specification/angular-commit-message.png" alt="有规范的 Git 提交信息"></p>
-<h2 id="如何治理提交信息规范"><a href="#如何治理提交信息规范" class="headerlink" title="如何治理提交信息规范"></a>如何治理提交信息规范</h2><p>在治理提交信息规范问题上，有两个解决办法。</p>
+<p>特别是对于一个团队，当很多人在一起合作开发一个项目的时候，预先设定好提交信息规范，对于项目的长远发展以及后续人员加入和维护都至关重要。</p>
+<p>因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：总结以下几个好处：</p>
 <ol>
-<li>为团队制定出提交信息的规范，让团队了解和遵守。</li>
-<li>在提交代码时，设置 Git Hook 把不规范的提交排除在外，比如提示用户当前提交的信息不符合规范。</li>
+<li>有助于他人更好的理解你的变更意图，更容易贡献/修改代码。</li>
+<li>结构化的提交信息有助于自动化脚本的识别，便于CI/CD。</li>
+<li>提供自动化生成 <code>CHANGELOGs</code> 的能力。</li>
+<li>最后，这也是体现了一个程序员的自我修养。</li>
 </ol>
-<h2 id="制定规范"><a href="#制定规范" class="headerlink" title="制定规范"></a>制定规范</h2><p>制定合理的规范，最便捷的方法是参考软件行业里是否有大家通用的规范。经过一番搜索，虽然行业里并没有绝对的提交信息规范，但我看到有很多项目已经在采用这个 <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a> 的提交信息规范，比较有代表性的是 Auglar 及很多项目也在使用。</p>
-<p>在此基础上，总结了适合自己团队的规范：</p>
+<h3 id="2-有规范的提交信息"><a href="#2-有规范的提交信息" class="headerlink" title="2. 有规范的提交信息"></a>2. 有规范的提交信息</h3><a id="more"></a>
+
+<p>让我们再看看一个有规范的提交信息。这是 Angular 有规范的提交信息，它遵循了常规提交 <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a>。</p>
+<p><img src="/2020/07/commit-messages-specification/angular-commit-message.png" alt="有规范的 Git 提交信息"></p>
+<p>这也是我检索到唯一应用最广泛的Git提交信息规范，已经有不少的项目在follow。当然，如果你的项目已经有了很好的规范，那继续保持；如果没有，建议参考这个规范。</p>
+<h2 id="解决规范问题"><a href="#解决规范问题" class="headerlink" title="解决规范问题"></a>解决规范问题</h2><p>在解决规范问题上，应该从两方面着手：</p>
+<ul>
+<li>首先，为团队制定出提交信息以及创建分支规范，让团队了解并遵守。</li>
+<li>然后，在提交代码或创建分支时，设置 Git Hook。把不规范的提交排除在外，比如提示用户当前提交不符合规范。</li>
+</ul>
+<h3 id="制定Git提交信息规范"><a href="#制定Git提交信息规范" class="headerlink" title="制定Git提交信息规范"></a>制定Git提交信息规范</h3><p>制定合理的规范，最有效的方法是参考软件行业里是否有大家通用的规范。<a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">Conventional Commits</a> 目前是最为流行的规范，很多项目在follow，比如 Auglar 等项目在使用。</p>
+<p>在此基础上，我们可以制定适合自己团队的规范，比如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">JIRA-1234 feat: support for async execution</span><br><span class="line"></span><br><span class="line">^-------^ ^--^: ^-------------------------^</span><br><span class="line">|         |     |</span><br><span class="line">|         |     +--&gt; Summary in present tense.</span><br><span class="line">|         |</span><br><span class="line">|         +--&gt; Type: feat, fix, docs, style, refactor, perf, test or chore.</span><br><span class="line">|</span><br><span class="line">+--&gt; Jira ticket number</span><br><span class="line"></span><br><span class="line">Type</span><br><span class="line"></span><br><span class="line">Must be one of the following:</span><br><span class="line"></span><br><span class="line">    feat: A new feature</span><br><span class="line">    fix: A bug fix</span><br><span class="line">    docs: Documentation only changes</span><br><span class="line">    style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</span><br><span class="line">    refactor: A code change that neither fixes a bug nor adds a feature</span><br><span class="line">    perf: A code change that improves performance</span><br><span class="line">    test: Adding missing or correcting existing tests</span><br><span class="line">    chore: Changes to the build process, .gitignore or auxiliary tools and libraries such as documentation generation, etc.</span><br></pre></td></tr></table></figure>
 
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><blockquote>
-<p>Conventional Commits <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">https://www.conventionalcommits.org/en/v1.0.0/</a></p>
-</blockquote>
-<blockquote>
-<p>Angular Commit Guidelines: <a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits" target="_blank" rel="noopener">https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits</a></p>
-</blockquote>
-<blockquote>
-<p>Projects Using Conventional Commits: <a href="https://www.conventionalcommits.org/en/v1.0.0/#projects-using-conventional-commits" target="_blank" rel="noopener">https://www.conventionalcommits.org/en/v1.0.0/#projects-using-conventional-commits</a></p>
-</blockquote>
 <h2 id="设置-Git-Hooks"><a href="#设置-Git-Hooks" class="headerlink" title="设置 Git Hooks"></a>设置 Git Hooks</h2><p>以 Bitbuket 为例，开启 <a href="https://mohamicorp.atlassian.net/wiki/spaces/DOC/pages/1442119700/Yet+Another+Commit+Checker+YACC+for+Bitbucket" target="_blank" rel="noopener">Yet Another Commit Checker</a> 这个免费插件。</p>
-<p><img src="/2020/07/commit-messages-specification/git-hook.png" alt></p>
-<p>这里的设置很多，我举两个不那么严格的常见设置。</p>
-<p><img src="/2020/07/commit-messages-specification/commit-checker-setting.png" alt="Commit Checker 设置"></p>
-<ol>
-<li>开启 Require Valid JIRA Issue(s)</li>
-</ol>
-<p>这个功能的开启，在开发者提交信息的时候如果不含有相关联的 Jira 单号，或是这个单号不存在，那么都会提交失败。这样就强制将代码与 Jira 单号进行关联。</p>
-<ol start="2">
-<li>设置 Commit Message Regex（提交信息正则表达式）</li>
-</ol>
-<p>我设置了 <code>[A-Z\-0-9]+ .*</code> 这样的正则表达式，这就要求比如有以这样的 Jira 单号</p>
-<p>ABCD-1234，并且在写描述之前必须与 Jira 单号之前有一个空格。</p>
+<p>开启 Yet Another Commit Checker</p>
+<p><img src="/2020/07/commit-messages-specification/git-hook.png" alt="开启 Yet Another Commit Checker"></p>
+<p>Commit Checker 设置，下面进行逐一介绍</p>
+<p><img src="/2020/07/commit-messages-specification/commit-checker.png" alt="Yet Another Commit Checker 插件的其他设置选项"></p>
+<h3 id="1-开启-Require-Valid-JIRA-Issue-s"><a href="#1-开启-Require-Valid-JIRA-Issue-s" class="headerlink" title="1. 开启 Require Valid JIRA Issue(s)"></a>1. 开启 Require Valid JIRA Issue(s)</h3><p>这个功能的开启，在开发者提交信息的时候如果不含有相关联的 Jira 单号，或是这个单号不存在，那么都会提交失败。这样就强制将代码与 Jira 单号进行关联。</p>
+<h3 id="2-Commit-Message-Regex"><a href="#2-Commit-Message-Regex" class="headerlink" title="2. Commit Message Regex"></a>2. Commit Message Regex</h3><p>我设置了 <code>[A-Z\-0-9]+ .*</code> 这样的正则表达式，这就要求比如有以这样的 Jira 单号 ABCD-1234 为开头，并且在写描述之前必须与 Jira 单号之前有一个空格。</p>
 <p>通过以上两个功能的设置，就将提交信息限定为如下格式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ABCD-1234 Balabala......</span><br></pre></td></tr></table></figure>
 
 <p>当然还有更复杂的正则表达式，比如如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^[A-Z-0-9]+ .*(?&lt;type&gt;chore|ci|docs|feat|fix|perf|refactor|revert|style|test|Bld|¯\\_\(ツ\)_\&#x2F;¯)(?&lt;scope&gt;\(\w+\)?((?&#x3D;:\s)|(?&#x3D;!:\s)))?(?&lt;breaking&gt;!)?(?&lt;subject&gt;:\s.*)?|^(?&lt;merge&gt;Merge.* \w+)|^(?&lt;revert&gt;Revert.* \w+)</span><br></pre></td></tr></table></figure>
 
-<p>看起来是不是很头晕，这个正则表达式限制了开头必须以 JIRA 单号开始，中间有一个空格，然后是 type 类型，之后是描述。</p>
+<p>第一眼看起来可能有点头晕，这个正则表达式不但限制了开头必须以 JIRA 单号开始，中间有一个空格，之后要有 type 类型，最后是描述。</p>
 <p>这里一并考虑了如果是 Merge 或是 Revert 会产生其他的描述信息。如果你要在你的 Git 仓库里也要设置这样严格并且复杂的正则表达式，建议一定要经过充分的考虑和测试才把它正式放入你的 Git 仓库的 Hooks 设置中。</p>
-<p>以上正则的测试结果供你参考 <a href="https://regex101.com/r/5m0SIJ/3" target="_blank" rel="noopener">https://regex101.com/r/5m0SIJ/3</a> （这正则表达式还有一个 Bug 你注意到了吗）</p>
-<h3 id="分支正则表达式"><a href="#分支正则表达式" class="headerlink" title="分支正则表达式"></a>分支正则表达式</h3><p>这里顺便提一下，Bitbucket Hooks 还是支持分支正则表达式。如果设置了相应的正则表达后，开发在创建分支时，只有符合正则表达式的条件才能创建分支。</p>
-<p><img src="/2020/07/commit-messages-specification/branch-regex.png" alt></p>
-<p>分享一个我写的分支正则表达式 <code>^(bugfix|feature|release|diag|hotfix).*|(master)|(.*-dev)</code></p>
-<p>这里限制了所有的分支必须以 bugfix, feature, release, diag, hotfix 开头或是也可以这样的 v1.0-dev 这种类型，提供一个编写和测试正则表达式的网址：<a href="https://regex101.com" target="_blank" rel="noopener">https://regex101.com</a> 。</p>
-<p>你可根据的项目不同来创建属于自己项目的分支正则表达式。</p>
-<h3 id="其他设置"><a href="#其他设置" class="headerlink" title="其他设置"></a>其他设置</h3><p><img src="/2020/07/commit-messages-specification/commit-checker.png" alt="Yet Another Commit Checker 插件的其他设置选项"></p>
-<p>另外还有一些其他的设置，比如关联的 Jira 单子必须处于什么样的状态，这个可以防止已经关闭的 Jira 单子，开发还往上面偷偷的修改代码，这时候测试也发现不了。</p>
+<p>通过以下的测试用例就很容易理解具体的提交规范是什么样子的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 测试通过的用例</span><br><span class="line">NV-1234 chore: change build progress</span><br><span class="line">DT-123456 docs: update xdemo usage</span><br><span class="line">QA-123 ci: update jenkins automatic backup</span><br><span class="line">CC-1234 feat: new fucntional about sync</span><br><span class="line">Merge branch master into develop</span><br><span class="line">Reverted: Revert support feature &amp; bugfix branches build</span><br><span class="line">Merge pull request #36 in cicd from test to develop</span><br><span class="line"></span><br><span class="line"># 测试不通过的用例</span><br><span class="line">NV-1234 build: update</span><br><span class="line">NV-1234 Chore: change progress</span><br><span class="line">DT-123456 Docs: update xdemo</span><br><span class="line">QA-123ci: update jenkins automatic backup</span><br><span class="line">CC-1234 Feat: new fucntional about sync</span><br><span class="line">DT-17734: 8.2.2 merge from CF1&#x2F;2- Enhance PORT.STATUS</span><br><span class="line">DT-17636 fix AIX cord dump issue</span><br><span class="line">DT-18183 Fix the UDTHOME problem for secure telnet</span><br><span class="line">DT-18183 Add new condition to get UDTHOME</span><br><span class="line">DT-15567 code merge by Peter Shen.</span><br></pre></td></tr></table></figure>
+
+<p>以上正则的测试结果可以在这里找到 <a href="https://regex101.com/r/5m0SIJ/10" target="_blank" rel="noopener">https://regex101.com/r/5m0SIJ/10</a></p>
+<h3 id="3-Commit-Regex-Error"><a href="#3-Commit-Regex-Error" class="headerlink" title="3. Commit Regex Error"></a>3. Commit Regex Error</h3><p>这个是用来团队成员在提交的时候，如果不符合规范失败了，给出合理的提示信息，有助于找到问题所在。比如可以是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Commit Message Specifications:</span><br><span class="line"></span><br><span class="line">&lt;Jira-ticket-number&gt; &lt;type&gt;: &lt;Description&gt;</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line"></span><br><span class="line">ABC-1234 feat: Support for async execution</span><br><span class="line"></span><br><span class="line">1. Between Jira ticket number and type MUST has one space.</span><br><span class="line">2. Between type and description MUST has a colon and a space.</span><br><span class="line"></span><br><span class="line">Type MUST be one of the following and lowercase</span><br><span class="line"></span><br><span class="line">feat: A new feature</span><br><span class="line">fix: A bug fix</span><br><span class="line">docs: Documentation only changes</span><br><span class="line">style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</span><br><span class="line">refactor: A code change that neither fixes a bug nor adds a feature</span><br><span class="line">perf: A code change that improves performance</span><br><span class="line">test: Adding missing or correcting existing tests</span><br><span class="line">chore: Changes to the build process, .gitignore or auxiliary tools and libraries such as documentation generation, etc.</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Branch-Name-Regex"><a href="#4-Branch-Name-Regex" class="headerlink" title="4. Branch Name Regex"></a>4. Branch Name Regex</h3><p>Bitbucket Hooks 同样还支持分支正则表达式。如果设置了相应的正则表达后，开发在创建分支时，只有符合正则表达式的条件才能创建分支。</p>
+<p>分享一个分支正则表达式 <code>^(bugfix|feature|release|hotfix).*|(master)|(.*-dev)</code></p>
+<p>这里限制了所有的分支必须以 bugfix, feature, release, hotfix 开头或是也可以这样的 v1.0-dev 这种类。</p>
+<p>你可以根据上面的正则表达式来设计属于自己项目的分支正则表达式。</p>
+<h3 id="5-Branch-Name-Regex-Error"><a href="#5-Branch-Name-Regex-Error" class="headerlink" title="5. Branch Name Regex Error"></a>5. Branch Name Regex Error</h3><p>这个是用来团队成员在推送分支的时候，如果不符合规范，推送失败，给出合理的提示信息。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Branches must begin with these types: bugfix&#x2F; feature&#x2F; release&#x2F; hotfix&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-其他设置"><a href="#6-其他设置" class="headerlink" title="6. 其他设置"></a>6. 其他设置</h3><p>另外还有一些其他的设置，比如关联的 Jira 单子必须处于什么样的状态，这个可以防止已经关闭的 Jira 单子，开发还往上面偷偷的修改代码，这时候测试也发现不了。</p>
 <p>还有 Require Matching Committer Email 和 Require Matching Committer Name 来限定开发者必须配置好与登录用户名和邮箱相匹配的用户名和邮箱，来规范提交信息里显示的用户名和邮箱，也方便进行 Git 信息的统计等后续数据的收集。</p>
-<p>更多请参考 <a href="https://mohamicorp.atlassian.net/wiki/spaces/DOC/pages/1442119700/Yet+Another+Commit+Checker+YACC+for+Bitbucket" target="_blank" rel="noopener">Yet Another Commit Checker 插件文档</a>。</p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><blockquote>
+<p>Conventional Commits <a href="https://www.conventionalcommits.org/en/v1.0.0/" target="_blank" rel="noopener">https://www.conventionalcommits.org/en/v1.0.0/</a> <br>Angular Commit Guidelines: <a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits" target="_blank" rel="noopener">https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits</a> <br>Projects Using Conventional Commits: <a href="https://www.conventionalcommits.org/en/v1.0.0/#projects-using-conventional-commits" target="_blank" rel="noopener">https://www.conventionalcommits.org/en/v1.0.0/#projects-using-conventional-commits</a> <br>Yet Another Commit Checker: <a href="https://mohamicorp.atlassian.net/wiki/spaces/DOC/pages/1442119700/Yet+Another+Commit+Checker+YACC+for+Bitbucket" target="_blank" rel="noopener">https://mohamicorp.atlassian.net/wiki/spaces/DOC/pages/1442119700/Yet+Another+Commit+Checker+YACC+for+Bitbucket</a></p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckf118tm8005ch8fo5wmr64ys" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/commit-messages-specification/" data-id="ckfgqzjhh008j5ofogf9v227m" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/specification/" rel="tag">Specification</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/branch/" rel="tag">Branch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conventional-commits/" rel="tag">Conventional Commits</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/specification/" rel="tag">Specification</a></li></ul>
 
     </footer>
     
@@ -236,7 +232,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -246,7 +242,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/artifactory/" style="font-size: 13px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 10px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 13px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -256,6 +252,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/09/getting-to-know-ansible/">初识 Ansible</a>
+          </li>
         
           <li>
             <a href="/2020/09/how-to-release-python-project/">在 GitHub 上发布一个 Python 项目需要注意哪些</a>
@@ -282,7 +282,7 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            <a href="/2020/07/commit-messages-specification/">程序员的自我修养 —— Git 提交信息规范</a>
+            <a href="/2020/07/commit-messages-specification/">项目必备：Git仓库提交信息和分支创建规范的制定与实施</a>
           </li>
         
           <li>
@@ -333,10 +333,6 @@ ga('send', 'pageview');
             <a href="/2020/05/nightwatch-v1-3/">Nightwarch v1.3 介绍</a>
           </li>
         
-          <li>
-            <a href="/2020/05/jmeter-performance-testing/">How to use JMeter to do Performance Testing</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -346,7 +342,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
