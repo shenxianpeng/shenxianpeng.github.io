@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-09-24T11:04:48.970Z</updated>
+  <updated>2020-09-25T15:19:17.890Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>程序员必读：Git提交信息和分支创建规范</title>
+    <link href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/"/>
+    <id>https://shenxianpeng.github.io/2020/09/commit-messages-specification/</id>
+    <published>2020-09-24T12:39:22.000Z</published>
+    <updated>2020-09-25T15:19:17.890Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;为什么要制定规范&quot;&gt;&lt;a href=&quot;#为什么要制定规范&quot; class=&quot;headerlink&quot; title=&quot;为什么要制定规范&quot;&gt;&lt;/a&gt;为什么要制定规范&lt;/h2&gt;&lt;p&gt;古话说，没有规矩不成方圆。在团队协作开发时，每个人提交代码时都会写 commit message，但如果没有规范，每个人都会有自己的书写风格，因此在翻看 git log 时经常看到的是五花八门，十分不利于阅读和维护。&lt;/p&gt;
+&lt;p&gt;通过下面两个例子来看看没规范和有规范的对比，以及有规范能带来哪些好处。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;提交信息 没规范 vs 有规范&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/09/commit-messages-specification/bad-commit-message.png&quot; alt=&quot;没有规范的 Git 提交信息&quot;&gt;&lt;/p&gt;
+&lt;p&gt;从这个提交信息里你不知道他修改了什么，修改意图是什么。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
+    
+      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
+      <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
+    
+  </entry>
   
   <entry>
     <title>初识 Ansible</title>
@@ -228,42 +258,6 @@
   </entry>
   
   <entry>
-    <title>项目必备：Git仓库提交信息和分支创建规范的制定与实施</title>
-    <link href="https://shenxianpeng.github.io/2020/07/commit-messages-specification/"/>
-    <id>https://shenxianpeng.github.io/2020/07/commit-messages-specification/</id>
-    <published>2020-07-26T00:39:22.000Z</published>
-    <updated>2020-09-24T11:41:39.673Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;为什么要标准化提交信息&quot;&gt;&lt;a href=&quot;#为什么要标准化提交信息&quot; class=&quot;headerlink&quot; title=&quot;为什么要标准化提交信息&quot;&gt;&lt;/a&gt;为什么要标准化提交信息&lt;/h2&gt;&lt;h3 id=&quot;1-没有规范的提交信息&quot;&gt;&lt;a href=&quot;#1-没有规范的提交信息&quot; class=&quot;headerlink&quot; title=&quot;1. 没有规范的提交信息&quot;&gt;&lt;/a&gt;1. 没有规范的提交信息&lt;/h3&gt;&lt;p&gt;先看一个没有任何规范的 Git 提交信息记录。从这个提交信息里你不知道他修改了什么，修改意图是什么。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/07/commit-messages-specification/bad-commit-message.png&quot; alt=&quot;没有规范的 Git 提交信息&quot;&gt;&lt;/p&gt;
-&lt;p&gt;特别是对于一个团队，当很多人在一起合作开发一个项目的时候，预先设定好提交信息规范，对于项目的长远发展以及后续人员加入和维护都至关重要。&lt;/p&gt;
-&lt;p&gt;因此对于一个长期发展的项目必须要有良好的信息信息规范的约定。先看两个例子：总结以下几个好处：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;有助于他人更好的理解你的变更意图，更容易贡献/修改代码。&lt;/li&gt;
-&lt;li&gt;结构化的提交信息有助于自动化脚本的识别，便于CI/CD。&lt;/li&gt;
-&lt;li&gt;提供自动化生成 &lt;code&gt;CHANGELOGs&lt;/code&gt; 的能力。&lt;/li&gt;
-&lt;li&gt;最后，这也是体现了一个程序员的自我修养。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;2-有规范的提交信息&quot;&gt;&lt;a href=&quot;#2-有规范的提交信息&quot; class=&quot;headerlink&quot; title=&quot;2. 有规范的提交信息&quot;&gt;&lt;/a&gt;2. 有规范的提交信息&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
-    
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
-      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
-    
-      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
-    
-      <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Jenkins 执行 Shell 如果返回值不为0，作业(Job)停止并失败怎么办？</title>
     <link href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/"/>
     <id>https://shenxianpeng.github.io/2020/07/jenkins-tips-3/</id>
@@ -330,9 +324,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -356,9 +350,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
