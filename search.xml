@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>程序员必读：Git提交信息和分支创建规范</title>
+      <title>程序员自我修养之Git提交信息和分支创建规范</title>
       <link href="/2020/09/commit-messages-specification/"/>
       <url>/2020/09/commit-messages-specification/</url>
       
@@ -300,9 +300,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -327,9 +327,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1137,9 +1137,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
