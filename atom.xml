@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-09-30T05:48:26.332Z</updated>
+  <updated>2020-10-24T12:02:56.867Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>企业版 Artifactory 的实践分享</title>
+    <link href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/"/>
+    <id>https://shenxianpeng.github.io/2020/10/what-is-artifactory/</id>
+    <published>2020-10-04T12:43:46.000Z</published>
+    <updated>2020-10-24T12:02:56.867Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇介绍使用企业版 Artifactory 有哪些优势。以及如何使用、工作流（包括，仓库命名，目录结构，Jenkins关键）、仓库权限、保留策略的实践分享。&lt;/p&gt;
+&lt;h2 id=&quot;什么是Artifactory&quot;&gt;&lt;a href=&quot;#什么是Artifactory&quot; class=&quot;headerlink&quot; title=&quot;什么是Artifactory&quot;&gt;&lt;/a&gt;什么是Artifactory&lt;/h2&gt;&lt;p&gt;一句话概括：Artifactory 是一个存放制品（Artifacts）的工具。目前，Artifactory 是一个非常流行，非常强大的 DevOps 工具链中非常重要的工具。&lt;/p&gt;
+&lt;h2 id=&quot;Artifactory有哪些优势&quot;&gt;&lt;a href=&quot;#Artifactory有哪些优势&quot; class=&quot;headerlink&quot; title=&quot;Artifactory有哪些优势&quot;&gt;&lt;/a&gt;Artifactory有哪些优势&lt;/h2&gt;&lt;p&gt;可能你的团队已经有了存放构建的工具了，比如 FTP，但为什么还了解 Artifactory。这就要说说它到底有有哪些优势。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以下优势都是针对 JFrog Aritifacvtory 企业版来介绍的。开源版，即 OSS 版本不具备以下丰富的功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;它是一个通用管理仓库&quot;&gt;&lt;a href=&quot;#它是一个通用管理仓库&quot; class=&quot;headerlink&quot; title=&quot;它是一个通用管理仓库&quot;&gt;&lt;/a&gt;它是一个通用管理仓库&lt;/h3&gt;&lt;p&gt;JFrog Artifactory 完全支持所有主要包格式的存储库管理器。它不但可以管理二进制文件，也可以对市面上几乎所有语言的包的依赖进行管理，如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/10/what-is-artifactory/support-package-formats.png&quot; alt=&quot;主要的包格式&quot;&gt;&lt;/p&gt;
+&lt;p&gt;因此，使用 Artifactory 能够将所有的二进制文件和包存储在一个地方。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
+    
+  </entry>
   
   <entry>
     <title>程序员自我修养之Git提交信息和分支创建规范</title>
@@ -525,30 +555,6 @@
       <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
     
       <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Nightwarch v1.3 介绍</title>
-    <link href="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/"/>
-    <id>https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/</id>
-    <published>2020-05-17T01:00:00.000Z</published>
-    <updated>2020-07-03T05:16:39.263Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Nightwatch js 是我之前写自动化测试用例使用了很长一段时间的测试框架，我当时的使用 v0.9 版本并且对使用和 API 进行了翻译。作为一名前测试工程师，对于自动化的知识不能不更新下自己的知识库，一转眼 Nightwatch 1.3 版本已经发布了，可以看到它在 GitHub 上的使用和关注度还是很高的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/05/nightwatch-v1-3/nightwatch-star.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;Nightwarch.js 是一个端到端的基于 Node.js 使用 W3C Webdriver （以前是 Selenium ）的自动化测试框架。它是一个完整的集成解决方案，用于 web 应用程序和网站的端到端测试，以及 Node.js 单元测试和集成测试。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Automation" scheme="https://shenxianpeng.github.io/categories/automation/"/>
-    
-    
-      <category term="Nightwatch" scheme="https://shenxianpeng.github.io/tags/nightwatch/"/>
-    
-      <category term="Javascript" scheme="https://shenxianpeng.github.io/tags/javascript/"/>
     
   </entry>
   
