@@ -1706,9 +1706,9 @@
       
         <tags>
             
-            <tag> CodeCoverage </tag>
-            
             <tag> Squishcoco </tag>
+            
+            <tag> CodeCoverage </tag>
             
         </tags>
       
