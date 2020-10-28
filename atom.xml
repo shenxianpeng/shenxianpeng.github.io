@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-10-24T12:02:56.867Z</updated>
+  <updated>2020-10-28T07:45:32.614Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ansible 实践（一）</title>
+    <link href="https://shenxianpeng.github.io/2020/10/ansible-practice1/"/>
+    <id>https://shenxianpeng.github.io/2020/10/ansible-practice1/</id>
+    <published>2020-10-28T02:09:41.000Z</published>
+    <updated>2020-10-28T07:45:32.614Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近我在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86.
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Ansible" scheme="https://shenxianpeng.github.io/tags/ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>企业版 Artifactory 的实践分享</title>
@@ -354,9 +380,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -380,9 +406,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -530,31 +556,6 @@
       <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
     
       <category term="write" scheme="https://shenxianpeng.github.io/tags/write/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何确保提交 Jenkins Pipeline 前没有语法错误</title>
-    <link href="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/"/>
-    <id>https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/</id>
-    <published>2020-05-23T06:38:59.000Z</published>
-    <updated>2020-07-03T05:17:07.753Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;我在做 Jenkins 声明式流水线开发时常会遇到的问题是：Pipeline 看起来没有问题，当提交到代码仓库后进行 Jenkins 构建时发现原来有语法错误，然后再去修改、提交、构建，结果可能还有有其他没有注意到的语法问题。&lt;/p&gt;
-&lt;p&gt;为了减少这种因为语法错误而需要频繁像代码库去提交的情况，最好还是在提交之前进行“编译”检查，来查看当前的 Pipeline 是否存在语法错误。&lt;/p&gt;
-&lt;p&gt;经过调查发现 Jenkins 本身提供了这样的 REST API，可以直接使用这个 API 来对 Pipeline 声明式进行语法校验，这个方式需要执行一长串的 &lt;code&gt;curl&lt;/code&gt; 命令，看起来似乎很麻烦，如果能在 IDE 里直接运行就好了。VS Code 作为当前当前最流行 IDE 工具，不负期望，果然是有插件的。&lt;/p&gt;
-&lt;p&gt;本文介绍了两种方式来实现如何对 Jenkins 声明式流水线在 Jenkins 构建执行前进行语法错误检查，这两种方式的原理都是通过调用 Jenkins REST API 来实现的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="vscode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
-    
-      <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
     
   </entry>
   
