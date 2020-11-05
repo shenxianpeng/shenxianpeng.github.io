@@ -6,15 +6,15 @@
   
   <title>Ansible 实践（一） | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近我在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这里需要结合你的具体场景来具体分析。 选择合适的工具仅管理 Windows 和 Linux如果你的虚拟机没有这么多平台，只是 Windows 和 Li">
+  <meta name="description" content="最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这需要结合具体场景来考虑。 选择合适的工具仅管理 Windows 和 Linux如果你的虚拟机没有这么多平台，只是 Windows 和 Linux，假如">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ansible 实践（一）">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/10/ansible-practice1/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="最近我在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这里需要结合你的具体场景来具体分析。 选择合适的工具仅管理 Windows 和 Linux如果你的虚拟机没有这么多平台，只是 Windows 和 Li">
+<meta property="og:description" content="最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这需要结合具体场景来考虑。 选择合适的工具仅管理 Windows 和 Linux如果你的虚拟机没有这么多平台，只是 Windows 和 Linux，假如">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-28T02:09:41.000Z">
-<meta property="article:modified_time" content="2020-11-01T08:57:56.181Z">
+<meta property="article:modified_time" content="2020-11-05T02:09:28.534Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Ansible">
 <meta name="twitter:card" content="summary">
@@ -116,15 +116,16 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近我在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这里需要结合你的具体场景来具体分析。</p>
-<h2 id="选择合适的工具"><a href="#选择合适的工具" class="headerlink" title="选择合适的工具"></a>选择合适的工具</h2><h3 id="仅管理-Windows-和-Linux"><a href="#仅管理-Windows-和-Linux" class="headerlink" title="仅管理 Windows 和 Linux"></a>仅管理 Windows 和 Linux</h3><p>如果你的虚拟机没有这么多平台，只是 Windows 和 Linux，假如你已经有了 VMware vSphere 来管理了，那么完全可以通过 VMware vSphere API 来查看这些机器的状态。这里是 VMware 官方的 API Library 供使用。</p>
+        <p>最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这需要结合具体场景来考虑。</p>
+<h2 id="选择合适的工具"><a href="#选择合适的工具" class="headerlink" title="选择合适的工具"></a>选择合适的工具</h2><h3 id="仅管理-Windows-和-Linux"><a href="#仅管理-Windows-和-Linux" class="headerlink" title="仅管理 Windows 和 Linux"></a>仅管理 Windows 和 Linux</h3><p>如果你的虚拟机没有这么多平台，只是 Windows 和 Linux，假如你已经有了 VMware vSphere 来管理了，那么可以通过 VMware vSphere API 来查看这些机器的状态。</p>
+<p>这里是 VMware 官方的 API Library 供使用：</p>
 <ul>
 <li><a href="https://github.com/vmware/pyvmomi" target="_blank" rel="noopener">VMware vSphere API Python Bindings</a></li>
 <li><a href="https://github.com/vmware/govmomi" target="_blank" rel="noopener">Go library for the VMware vSphere API</a></li>
 </ul>
-<h3 id="管理多个操作系统"><a href="#管理多个操作系统" class="headerlink" title="管理多个操作系统"></a>管理多个操作系统</h3><p>当你和我的情况一下，想监控很多个操作操作系统，那么就只能通过 ssh 来登录到每一台机器上去查看，比如执行 <code>uptime</code> 等命令。这里就写 shell 脚本来完成这些登录、检测等操作。</p>
-<p>另外就是使用 Ansible，写 Playbook。Playbook 里描述了你要做的操作，这是一个权衡，因为要花时间去学习 Ansible。</p>
-<p>如果想了解下 Ansible 那么可以试试 Ansible Playbook，否则完成不需要。以下是我使用 Ansible 做了一些练习。</p>
+<h3 id="管理多个操作系统"><a href="#管理多个操作系统" class="headerlink" title="管理多个操作系统"></a>管理多个操作系统</h3><p>如果你和我的情况一下，想监控很多个操作操作系统，那么就只能通过 ssh 来登录到每一台机器上去查看，比如执行 <code>uptime</code> 等命令。可以写 shell 脚本来完成这些登录、检测等操作。</p>
+<p>另外就是使用 Ansible 的 Playbook。Playbook 里描述了你要做的操作，这是一个权衡，学习 Ansible 的 Playbook 需要花些时间的。</p>
+<p>如果想了解下 Ansible 那么可以试试 Ansible Playbook。以下是我使用 Ansible 做了一些练习。</p>
 <h4 id="Playbook结构"><a href="#Playbook结构" class="headerlink" title="Playbook结构"></a>Playbook结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+- vars                </span><br><span class="line">|   +- vars.yml</span><br><span class="line">|   +- ...</span><br><span class="line">+- hosts               # save all hosts you want to monitor</span><br><span class="line">+- run.yml             # ansible executable file</span><br></pre></td></tr></table></figure>
 
 <h4 id="Playbook具体代码"><a href="#Playbook具体代码" class="headerlink" title="Playbook具体代码"></a>Playbook具体代码</h4><p>vars/vars.yml</p>
@@ -139,13 +140,13 @@ ga('send', 'pageview');
 <h4 id="如何执行"><a href="#如何执行" class="headerlink" title="如何执行"></a>如何执行</h4><p>首先需要安装了 ansible，然后执行</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run with playbook</span></span><br><span class="line">ansible-playbook -i hosts run.yml</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注：上面的代码是脱敏过的，不保证能一次性运行成功。</p>
+<p>注：上面的代码是脱敏过的，不保证能一次性运行成功 :)</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice1/" data-id="ckh0hzdv400dux8foe52l53vk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice1/" data-id="ckh470a0o00f9zsfo7btybpbp" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/ansible-practice1/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -308,7 +309,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'shenxianpeng';
     
-    var disqus_url = 'https://shenxianpeng.github.io/daily/index.html';
+    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
     
     (function(){
       var dsq = document.createElement('script');

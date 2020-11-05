@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-11-01T08:57:56.181Z</updated>
+  <updated>2020-11-05T02:09:28.534Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2020/10/ansible-practice1/"/>
     <id>https://shenxianpeng.github.io/2020/10/ansible-practice1/</id>
     <published>2020-10-28T02:09:41.000Z</published>
-    <updated>2020-11-01T08:57:56.181Z</updated>
+    <updated>2020-11-05T02:09:28.534Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;最近我在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86.
+          &lt;p&gt;最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86.
         
       
     
