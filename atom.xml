@@ -44,6 +44,34 @@
   </entry>
   
   <entry>
+    <title>JaCoCo 实现原理 (JaCoCo Implementation Design)</title>
+    <link href="https://shenxianpeng.github.io/2020/11/jacoco/"/>
+    <id>https://shenxianpeng.github.io/2020/11/jacoco/</id>
+    <published>2020-11-17T10:26:14.000Z</published>
+    <updated>2020-11-17T11:37:34.775Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;提到Java代码覆盖率的测试，我很容易想到的就是JaCoCo这个免费的代码覆盖率分析工具。没有多想，直接使用它来做代码覆盖率分析，顺便也翻译了一下JaCoCo的实现设计文档。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官方文档地址：&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ansible 实践（一）</title>
     <link href="https://shenxianpeng.github.io/2020/10/ansible-practice1/"/>
     <id>https://shenxianpeng.github.io/2020/10/ansible-practice1/</id>
@@ -407,9 +435,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -433,9 +461,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -532,33 +560,6 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决 Jenkins Artifactory Plugin 仅在 AIX 上传制品到 https 协议的 Artifactory 失败的问题</title>
-    <link href="https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/"/>
-    <id>https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/</id>
-    <published>2020-06-03T11:30:03.000Z</published>
-    <updated>2020-07-03T05:17:27.155Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;本文对于同样在 AIX 遇到这个问题的人会非常有帮助。另外，不要被标题无聊到，解决问题的过程值得参考。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;分享一个花了两天时间才解决的一个问题：使用 Jenkins Artifactory 插件上传制品到 https 协议的企业级的 Artifactory 失败。该问题只在 AIX 平台上出现的，其他 Windows，Linux, Unix 均正常。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
-    
-      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
-    
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
   </entry>
   

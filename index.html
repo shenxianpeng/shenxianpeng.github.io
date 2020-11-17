@@ -127,9 +127,116 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco-imp/" data-id="ckhlwjfvn0000zgfo0jwsbls0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco-imp/" data-id="ckhlwknzz009b8kfo3es4h9i6" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jacoco-imp/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article id="post-2020/11/jacoco" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/jacoco/" class="article-date">
+  <time datetime="2020-11-17T10:26:14.000Z" itemprop="datePublished">2020-11-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/jacoco/">JaCoCo 实现原理 (JaCoCo Implementation Design)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>提到Java代码覆盖率的测试，我很容易想到的就是JaCoCo这个免费的代码覆盖率分析工具。没有多想，直接使用它来做代码覆盖率分析，顺便也翻译了一下JaCoCo的实现设计文档。</p>
+<blockquote>
+<p>官方文档地址：<a href="https://www.jacoco.org/jacoco/trunk/doc/implementation.html" target="_blank" rel="noopener">https://www.jacoco.org/jacoco/trunk/doc/implementation.html</a></p>
+</blockquote>
+<h1 id="实现设计-Implementation-Design"><a href="#实现设计-Implementation-Design" class="headerlink" title="实现设计(Implementation Design)"></a>实现设计(Implementation Design)</h1><p>这是实现设计决策的一个无序列表。每个主题都试图遵循这样的结构:</p>
+<ul>
+<li>问题陈述</li>
+<li>建议的解决方案</li>
+<li>选择和讨论</li>
+</ul>
+<h2 id="覆盖率分析机制-Coverage-Analysis-Mechanism"><a href="#覆盖率分析机制-Coverage-Analysis-Mechanism" class="headerlink" title="覆盖率分析机制(Coverage Analysis Mechanism)"></a>覆盖率分析机制(Coverage Analysis Mechanism)</h2><blockquote>
+<p>覆盖率信息必须在运行时收集。为此，JaCoCo创建原始类定义的插装版本。插装过程发生在加载类期间使用一个叫做 Java agents 动态地完成。</p>
+</blockquote>
+<p>有几种收集覆盖率信息的不同方法。每种方法都有不同的实现技术。下面的图表给出了JaCoCo使用的技术的概述:</p>
+<p><img src="/2020/11/jacoco/implementation.png" alt="实现"></p>
+<p>字节码插装非常快，可以用纯Java实现，并且可以与每个Java VM一起工作。可以将带有Java代理钩子的动态插装添加到JVM中，而无需对目标应用程序进行任何修改。</p>
+<p>Java代理钩子至少需要1.5个JVMs。用调试信息(行号)编译的类文件允许突出显示源代码。不幸的是，一些Java语言结构被编译成字节代码，从而产生意外的突出显示结果，特别是在使用隐式生成的代码时（如缺省构造函数或finally语句的控制结构）。</p>
+<h2 id="覆盖Agent隔离-Coverage-Agent-Isolation"><a href="#覆盖Agent隔离-Coverage-Agent-Isolation" class="headerlink" title="覆盖Agent隔离(Coverage Agent Isolation)"></a>覆盖Agent隔离(Coverage Agent Isolation)</h2><blockquote>
+<p>Java代理由应用程序类装入器装入。因此，代理的类与应用程序类生活在相同的名称空间中，这可能会导致冲突，特别是与第三方库ASM。因此，JoCoCo构建将所有代理类移动到一个唯一的包中。</p>
+</blockquote>
+<p>JaCoCo构建将包含在<code>jacocoagent.jar</code>中的所有类重命名为具有<code>org.jacoco.agent.rt_&lt;randomid&gt;</code>前缀，包括所需的ASM库类。标识符是从一个随机数创建的。由于代理不提供任何API，因此没有人会受到此重命名的影响。这个技巧还允许使用JaCoCo验证JaCoCo测试。</p>
+<h2 id="最低的Java版本-Minimal-Java-Version"><a href="#最低的Java版本-Minimal-Java-Version" class="headerlink" title="最低的Java版本(Minimal Java Version)"></a>最低的Java版本(Minimal Java Version)</h2><blockquote>
+<p>JaCoCo 需要 Java 1.5 及以上版本。</p>
+</blockquote>
+<p>Java 1.5 VMs提供了用于动态插装的Java代理机制。使用Java 1.5语言级别进行编码和测试比使用旧版本更有效、更少出错——而且更有趣。JaCoCo仍然允许运行针对这些编译的Java代码。</p>
+<h2 id="字节码操纵-Byte-Code-Manipulation"><a href="#字节码操纵-Byte-Code-Manipulation" class="headerlink" title="字节码操纵(Byte Code Manipulation)"></a>字节码操纵(Byte Code Manipulation)</h2><blockquote>
+<p>插装需要修改和生成Java字节码的机制。JaCoCo在内部使用ASM库来实现这个目的。</p>
+</blockquote>
+<p>实现Java字节码规范将是一项广泛且容易出错的任务。因此，应该使用现有的库。ASM库是轻量级的，易于使用，在内存和CPU使用方面非常高效。它被积极地维护并包含为一个巨大的回归测试套件。它的简化BSD许可证得到了Eclipse基金会的批准，可以与EPL产品一起使用。</p>
+<h2 id="Java类的身份-Java-Class-Identity"><a href="#Java类的身份-Java-Class-Identity" class="headerlink" title="Java类的身份(Java Class Identity)"></a>Java类的身份(Java Class Identity)</h2><blockquote>
+<p>在运行时加载的每个类都需要一个唯一的标识来关联覆盖率数据。JaCoCo通过原始类定义的CRC64哈希代码创建这样的标识。</p>
+</blockquote>
+<p>在多类加载器环境中，类的纯名称不能明确地标识类。例如，OSGi允许在相同的虚拟机中加载相同类的不同版本。在复杂的部署场景中，测试目标的实际版本可能与当前开发版本不同。代码覆盖率报告应该保证所呈现的数字是从有效的测试目标中提取出来的。类定义的散列代码允许区分类和类的版本。CRC64哈希计算简单而快速，结果得到一个小的64位标识符。</p>
+<p>类加载器可能加载相同的类定义，这将导致Java运行时系统产生不同的类。对于覆盖率分析来说，这种区别应该是不相关的。类定义可能会被其他基于插装的技术(例如AspectJ)改变。在这种情况下，哈希码将改变，标识将丢失。另一方面，基于被改变的类的代码覆盖率分析将会产生意想不到的结果。CRC64代码可能会产生所谓的冲突，即为两个不同的类创建相同的哈希代码。尽管CRC64在密码学上并不强，而且很容易计算碰撞示例，但对于常规类文件，碰撞概率非常低。</p>
+<h2 id="覆盖运行时依赖-Coverage-Runtime-Dependency"><a href="#覆盖运行时依赖-Coverage-Runtime-Dependency" class="headerlink" title="覆盖运行时依赖(Coverage Runtime Dependency)"></a>覆盖运行时依赖(Coverage Runtime Dependency)</h2><blockquote>
+<p>插装代码通常依赖于负责收集和存储执行数据的覆盖运行时。JaCoCo只在生成的插装代码中使用JRE类型。</p>
+</blockquote>
+<p>在使用自己的类加载机制的框架中，使运行时库对所有插装类可用可能是一项痛苦或不可能完成的任务。自Java 1.6 <code>java.lang.instrument.Instrumentation</code>。插装有一个扩展引导带加载器的API。因为我们的最低目标是Java 1.5，所以JaCoCo只通过官方的JRE API类型来解耦插装类和覆盖运行时。插装的类通过<code>Object.equals(Object)</code>方法与运行时通信。插装类可以使用以下代码检索其探测数组实例。注意，只使用JRE APIs:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Object access = ...                          <span class="comment">// Retrieve instance</span></span><br><span class="line"></span><br><span class="line">Object[] args = <span class="keyword">new</span> Object[<span class="number">3</span>];</span><br><span class="line">args[<span class="number">0</span>] = Long.valueOf(<span class="number">8060044182221863588</span>); <span class="comment">// class id</span></span><br><span class="line">args[<span class="number">1</span>] = <span class="string">"com/example/MyClass"</span>;             <span class="comment">// class name</span></span><br><span class="line">args[<span class="number">2</span>] = Integer.valueOf(<span class="number">24</span>);               <span class="comment">// probe count</span></span><br><span class="line"></span><br><span class="line">access.equals(args);</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span>[] probes = (<span class="keyword">boolean</span>[]) args[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+
+<p>最棘手的部分发生在第1行，上面的代码片段中没有显示。必须获得通过equals()方法提供对覆盖运行时访问的对象实例。到目前为止，已经实施和测试了不同的方法:</p>
+<ul>
+<li><code>SystemPropertiesRuntime</code>: 这种方法将对象实例存储在系统属性下。这个解决方案打破了系统属性必须只包含<code>java.lang.String</code>的约定。字符串值，因此会在依赖于此定义的应用程序(如Ant)中造成麻烦。</li>
+<li><code>LoggerRuntime</code>: 这里我们使用共享的<code>java.util.logging.Logger</code>。并通过日志参数数组而不是equals()方法进行通信。覆盖运行时注册一个自定义处理程序来接收参数数组。这种方法可能会破坏安装自己日志管理器的环境(例如Glassfish)。</li>
+<li><code>ModifiedSystemClassRuntime</code>: 这种方法通过插装将公共静态字段添加到现有的JRE类中。与上面的其他方法不同，此方法仅适用于活动Java代理的环境。</li>
+<li><code>InjectedClassRuntime</code>:这个方法使用Java 9中引入的<code>java.lang.invoke.MethodHandles.Lookup.defineClass</code>定义了一个新类。</li>
+</ul>
+<p>从0.8.3版本开始，在JRE 9或更高版本上运行时，JaCoCo Java代理实现使用<code>InjectedClassRuntime</code>在引导类装入器中定义新类，否则使用<code>ModifiedSystemClassRuntime</code>向现有JRE类添加字段。从版本0.8.0开始，字段被添加到类<code>java.lang.UnknownError</code>中。version 0.5.0 - 0.7.9向类j<code>java.util.UUID</code>中添加了字段，与其他代理发生冲突的可能性较大。</p>
+<h2 id="内存使用-Memory-Usage"><a href="#内存使用-Memory-Usage" class="headerlink" title="内存使用(Memory Usage)"></a>内存使用(Memory Usage)</h2><blockquote>
+<p>对于具有数千类或数十万行代码的大型项目，覆盖率分析应该是可能的。为了允许合理的内存使用，覆盖率分析是基于流模式和“深度优先”遍历的。</p>
+</blockquote>
+<p>一个庞大的覆盖率报告的完整数据树太大了，无法适合合理的堆内存配置。因此，覆盖率分析和报告生成被实现为“深度优先”遍历。也就是说，在任何时间点，工作记忆中只需要保存以下数据:</p>
+<ul>
+<li>当前正在处理的单个类。</li>
+<li>这个类的所有父类(包、组)的汇总信息。</li>
+</ul>
+<h2 id="Java元素标识符-Java-Element-Identifiers"><a href="#Java元素标识符-Java-Element-Identifiers" class="headerlink" title="Java元素标识符(Java Element Identifiers)"></a>Java元素标识符(Java Element Identifiers)</h2><blockquote>
+<p>Java语言和Java VM对Java元素使用不同的字符串表示格式。例如，Java中的类型引用读起来像<code>java.lang.Object</code>。对象，VM引用的类型与<code>Ljava/lang/Object</code>相同。JaCoCo API仅基于VM标识符。</p>
+</blockquote>
+<p>直接使用VM标识符不会在运行时造成任何转换开销。有几种基于Java VM的编程语言可能使用不同的符号。因此，特定的转换应该只在用户界面级别发生，例如在报表生成期间。</p>
+<h2 id="JaCoCo实现的模块化-Modularization-of-the-JaCoCo-implementation"><a href="#JaCoCo实现的模块化-Modularization-of-the-JaCoCo-implementation" class="headerlink" title="JaCoCo实现的模块化(Modularization of the JaCoCo implementation)"></a>JaCoCo实现的模块化(Modularization of the JaCoCo implementation)</h2><blockquote>
+<p>JaCoCo是在提供不同功能的几个模块中实现的。这些模块是作为带有适当清单文件的OSGi包提供的。但是它不依赖于OSGi本身。</p>
+</blockquote>
+<p>使用OSGi bundle允许在开发时和运行时在OSGi容器中定义良好的依赖关系。由于对OSGi没有依赖关系，捆绑包也可以像普通的JAR文件一样使用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="ckhlwko00009e8kfo781e37k3" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2020/11/jacoco/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a></li></ul>
@@ -196,7 +303,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice1/" data-id="ckh49soxt009b6wfodq4ae8yc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice1/" data-id="ckhlwknzv00938kfo9khzhgf9" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/ansible-practice1/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -252,7 +359,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="ckh49soxs00956wfo8lxsh5ne" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="ckhlwknzy00988kfo99hg4ekh" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -304,7 +411,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/commit-messages-specification/" data-id="ckh49soxo008v6wfo75g16y1i" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/commit-messages-specification/" data-id="ckhlwknzs008x8kfo593q88ig" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -359,7 +466,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/" data-id="ckh49soxp008z6wfoe2061utv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/" data-id="ckhlwknzu00908kfo0d8x9q21" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -424,7 +531,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="ckh49soxt00986wfodrnkb8et" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="ckhlwknzx00968kfogfkc6a1m" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -481,7 +588,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="ckh49soxl008k6wfoaod21kas" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="ckhlwknzi008i8kfoef5x4msc" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -533,7 +640,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/update-jira-server-account-avatar-with-rest-api/" data-id="ckh49soxq00926wfob3qnc29u" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/update-jira-server-account-avatar-with-rest-api/" data-id="ckhlwknzp008u8kfo4usp25sg" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/update-jira-server-account-avatar-with-rest-api/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -584,64 +691,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="ckh49soxo008s6wfo09wbfw96" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="ckhlwknzm008q8kfo5cku13u5" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/rdp-problem/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rdp/" rel="tag">RDP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">Windows</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article id="post-2020/08/bitbucket-pull-request-event" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/08/bitbucket-pull-request-event/" class="article-date">
-  <time datetime="2020-08-07T08:53:03.000Z" itemprop="datePublished">2020-08-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/devops/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/bitbucket-pull-request-event/">通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本篇讨论如何通过 Jenkins generic webhook trigger 插件来获取 Git 仓库事件（Events）。比如获取仓库的 Pull Request ID 等。</p>
-<p>使用过 Jenkins Multi-branch pipeline Job 的用户知道，这个 Job 类型的环境变量中可以得到 Pull Request 的相关信息如下</p>
-<p><img src="/2020/08/bitbucket-pull-request-event/pull-request-env.png" alt="Multi-branch pipeline Job 环境变量"></p>
-<p>为了获取这个变量需要创建这种类型的 Job，并且可能需要 clone 该仓库的代码，有点杀鸡宰牛的意思，看起来并不是一个特别恰当的办法。</p>
-<p>如何通过创建一个普通的 Jenkins Job 就能实时获取 Bitbucket 仓库以及 Pull Request 事件呢？通过以下功能和插件可以实现。</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/08/bitbucket-pull-request-event/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="ckh49soxm008n6wfo8sf76p9z" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">留言</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/generic/" rel="tag">generic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webhook/" rel="tag">webhook</a></li></ul>
 
     </footer>
     
@@ -662,7 +717,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">30</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -672,7 +727,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 11px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 14px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 11px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 14px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 14px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 11px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/pipeline/" style="font-size: 16px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 11px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12px;">Thought</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 10px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -685,6 +740,10 @@ ga('send', 'pageview');
         
           <li>
             <a href="/2020/11/jacoco-imp/">JaCoCo 实践</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/jacoco/">JaCoCo 实现原理 (JaCoCo Implementation Design)</a>
           </li>
         
           <li>
@@ -759,10 +818,6 @@ ga('send', 'pageview');
             <a href="/2020/06/vm-status-check-via-jenkins/">这也能用Jenkins？快速实现一个定期批量登录远程虚拟机并支持添加新的主机名称的Job</a>
           </li>
         
-          <li>
-            <a href="/2020/06/Java-net-SocketException-on-AIX/">解决 Jenkins Artifactory Plugin 仅在 AIX 上传制品到 https 协议的 Artifactory 失败的问题</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -772,7 +827,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -788,7 +843,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'shenxianpeng';
     
-    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
+    var disqus_url = 'https://shenxianpeng.github.io/daily/index.html';
     
     (function(){
       var dsq = document.createElement('script');
