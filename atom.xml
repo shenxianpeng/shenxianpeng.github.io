@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-11-05T02:09:28.534Z</updated>
+  <updated>2020-11-17T11:32:40.562Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JaCoCo 实践</title>
+    <link href="https://shenxianpeng.github.io/2020/11/jacoco-imp/"/>
+    <id>https://shenxianpeng.github.io/2020/11/jacoco-imp/</id>
+    <published>2020-11-17T11:18:33.000Z</published>
+    <updated>2020-11-17T11:32:40.562Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;比如使用 gradle 来管理的项目可以在 &lt;code&gt;build.gradle&lt;/code&gt; 里添加如下代码&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
+    
+  </entry>
   
   <entry>
     <title>Ansible 实践（一）</title>
@@ -532,30 +559,6 @@
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
     
       <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从 “会写程序的干不过会写PPT的” —— 聊程序员写作</title>
-    <link href="https://shenxianpeng.github.io/2020/05/programmers-read-and-write/"/>
-    <id>https://shenxianpeng.github.io/2020/05/programmers-read-and-write/</id>
-    <published>2020-05-30T13:32:08.000Z</published>
-    <updated>2020-07-03T05:16:22.498Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在程序员圈子里比较流行这样一句话“会写程序的干不过会写 PPT 的”，还记得 2019 年新东方年会的一首《放飞自我》里有这样一句歌词戳中了绝大大多数程序员的内心&lt;/p&gt;
-&lt;p&gt;“干的累死累活，有成果那又如何，到头来干不过写PPT的”。&lt;/p&gt;
-&lt;p&gt;一时间大家好像都认同了这个说法，表达着自己的不满和无奈。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
-    
-    
-      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
-    
-      <category term="write" scheme="https://shenxianpeng.github.io/tags/write/"/>
     
   </entry>
   
