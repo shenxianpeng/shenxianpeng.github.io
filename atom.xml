@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-11-17T11:32:40.562Z</updated>
+  <updated>2020-11-24T05:49:35.557Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,22 +17,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>How to backup Jenkins</title>
+    <link href="https://shenxianpeng.github.io/2020/11/jenkins-backup/"/>
+    <id>https://shenxianpeng.github.io/2020/11/jenkins-backup/</id>
+    <published>2020-11-24T04:13:18.000Z</published>
+    <updated>2020-11-24T05:49:35.557Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I believe most of you have used the Jenkins configuration as code principle, so you build/test/release process will be described in code.&lt;/p&gt;
+&lt;p&gt;It looks like all is good, but not all of the configuration is in code, same of the Jenkins system configuration is store in the Jenkins service, so we also need to backup Jenkins in case of any disaster.&lt;/p&gt;
+&lt;p&gt;There are two ways to backup Jenkins, one used Jenkins plugin, the other is create shell scripts.&lt;/p&gt;
+&lt;h2 id=&quot;Using-plug-in-backup&quot;&gt;&lt;a href=&quot;#Using-plug-in-backup&quot; class=&quot;headerlink&quot; title=&quot;Using plug-in backup&quot;&gt;&lt;/a&gt;Using plug-in backup&lt;/h2&gt;&lt;p&gt;I used the &lt;code&gt;ThinBackup&lt;/code&gt; plugin, here is my thinBackup configuration.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/11/jenkins-backup/thinBackup-Configuration.png&quot; alt=&quot;ThinBackup Configuration&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JaCoCo 实践</title>
     <link href="https://shenxianpeng.github.io/2020/11/jacoco-imp/"/>
     <id>https://shenxianpeng.github.io/2020/11/jacoco-imp/</id>
     <published>2020-11-17T11:18:33.000Z</published>
-    <updated>2020-11-17T11:32:40.562Z</updated>
+    <updated>2020-11-24T05:49:23.503Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;比如使用 gradle 来管理的项目可以在 &lt;code&gt;build.gradle&lt;/code&gt; 里添加如下代码&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
+      &lt;p&gt;比如使用 gradle 来管理的项目可以在 &lt;code&gt;build.gradle&lt;/code&gt; 里添加如下代码&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;plugins &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id &amp;#39;jacoco&amp;#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacoco &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    toolVersion &amp;#x3D; &amp;quot;0.8.5&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    finalizedBy jacocoTestReport &amp;#x2F;&amp;#x2F; report is always generated after tests run&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacocoTestReport &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dependsOn test &amp;#x2F;&amp;#x2F; tests are required to run before generating the report&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reports &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        xml.enabled true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        csv.enabled false&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        html.destination file(&amp;quot;$&amp;#123;buildDir&amp;#125;&amp;#x2F;reports&amp;#x2F;jacoco&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后执行 &lt;code&gt;gradle test&lt;/code&gt; 就可以了。之后可以可以在 &lt;code&gt;build\reports\jacoco&lt;/code&gt; 目录下找到报告了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/11/jacoco-imp/reports.png&quot; alt=&quot;JaCoCo报告&quot;&gt;&lt;/p&gt;
+&lt;p&gt;重点是如何分析报告。打开 index.html，报告显示如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/11/jacoco-imp/index.png&quot; alt=&quot;JaCoCo报告首页&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -48,19 +75,27 @@
     <link href="https://shenxianpeng.github.io/2020/11/jacoco/"/>
     <id>https://shenxianpeng.github.io/2020/11/jacoco/</id>
     <published>2020-11-17T10:26:14.000Z</published>
-    <updated>2020-11-17T11:37:34.775Z</updated>
+    <updated>2020-11-24T05:48:58.783Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;提到Java代码覆盖率的测试，我很容易想到的就是JaCoCo这个免费的代码覆盖率分析工具。没有多想，直接使用它来做代码覆盖率分析，顺便也翻译了一下JaCoCo的实现设计文档。&lt;/p&gt;
+      &lt;p&gt;提到Java代码覆盖率的测试，我很容易想到的就是JaCoCo这个免费的代码覆盖率分析工具。没有多想，直接使用它来做代码覆盖率分析，顺便也翻译了一下JaCoCo的实现设计文档。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;官方文档地址：&lt;a
-        
-      
+&lt;p&gt;官方文档地址：&lt;a href=&quot;https://www.jacoco.org/jacoco/trunk/doc/implementation.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jacoco.org/jacoco/trunk/doc/implementation.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;实现设计-Implementation-Design&quot;&gt;&lt;a href=&quot;#实现设计-Implementation-Design&quot; class=&quot;headerlink&quot; title=&quot;实现设计(Implementation Design)&quot;&gt;&lt;/a&gt;实现设计(Implementation Design)&lt;/h1&gt;&lt;p&gt;这是实现设计决策的一个无序列表。每个主题都试图遵循这样的结构:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;问题陈述&lt;/li&gt;
+&lt;li&gt;建议的解决方案&lt;/li&gt;
+&lt;li&gt;选择和讨论&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;覆盖率分析机制-Coverage-Analysis-Mechanism&quot;&gt;&lt;a href=&quot;#覆盖率分析机制-Coverage-Analysis-Mechanism&quot; class=&quot;headerlink&quot; title=&quot;覆盖率分析机制(Coverage Analysis Mechanism)&quot;&gt;&lt;/a&gt;覆盖率分析机制(Coverage Analysis Mechanism)&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;覆盖率信息必须在运行时收集。为此，JaCoCo创建原始类定义的插装版本。插装过程发生在加载类期间使用一个叫做 Java agents 动态地完成。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;有几种收集覆盖率信息的不同方法。每种方法都有不同的实现技术。下面的图表给出了JaCoCo使用的技术的概述:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/11/jacoco/implementation.png&quot; alt=&quot;实现&quot;&gt;&lt;/p&gt;
+&lt;p&gt;字节码插装非常快，可以用纯Java实现，并且可以与每个Java VM一起工作。可以将带有Java代理钩子的动态插装添加到JVM中，而无需对目标应用程序进行任何修改。&lt;/p&gt;
+&lt;p&gt;Java代理钩子至少需要1.5个JVMs。用调试信息(行号)编译的类文件允许突出显示源代码。不幸的是，一些Java语言结构被编译成字节代码，从而产生意外的突出显示结果，特别是在使用隐式生成的代码时（如缺省构造函数或finally语句的控制结构）。&lt;/p&gt;
     
     </summary>
     
@@ -76,17 +111,23 @@
     <link href="https://shenxianpeng.github.io/2020/10/ansible-practice1/"/>
     <id>https://shenxianpeng.github.io/2020/10/ansible-practice1/</id>
     <published>2020-10-28T02:09:41.000Z</published>
-    <updated>2020-11-05T02:09:28.534Z</updated>
+    <updated>2020-11-24T05:48:36.549Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86.
-        
-      
+      &lt;p&gt;最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这需要结合具体场景来考虑。&lt;/p&gt;
+&lt;h2 id=&quot;选择合适的工具&quot;&gt;&lt;a href=&quot;#选择合适的工具&quot; class=&quot;headerlink&quot; title=&quot;选择合适的工具&quot;&gt;&lt;/a&gt;选择合适的工具&lt;/h2&gt;&lt;h3 id=&quot;仅管理-Windows-和-Linux&quot;&gt;&lt;a href=&quot;#仅管理-Windows-和-Linux&quot; class=&quot;headerlink&quot; title=&quot;仅管理 Windows 和 Linux&quot;&gt;&lt;/a&gt;仅管理 Windows 和 Linux&lt;/h3&gt;&lt;p&gt;如果你的虚拟机没有这么多平台，只是 Windows 和 Linux，假如你已经有了 VMware vSphere 来管理了，那么可以通过 VMware vSphere API 来查看这些机器的状态。&lt;/p&gt;
+&lt;p&gt;这里是 VMware 官方的 API Library 供使用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vmware/pyvmomi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;VMware vSphere API Python Bindings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vmware/govmomi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Go library for the VMware vSphere API&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;管理多个操作系统&quot;&gt;&lt;a href=&quot;#管理多个操作系统&quot; class=&quot;headerlink&quot; title=&quot;管理多个操作系统&quot;&gt;&lt;/a&gt;管理多个操作系统&lt;/h3&gt;&lt;p&gt;如果你和我的情况一下，想监控很多个操作操作系统，那么就只能通过 ssh 来登录到每一台机器上去查看，比如执行 &lt;code&gt;uptime&lt;/code&gt; 等命令。可以写 shell 脚本来完成这些登录、检测等操作。&lt;/p&gt;
+&lt;p&gt;另外就是使用 Ansible 的 Playbook。Playbook 里描述了你要做的操作，这是一个权衡，学习 Ansible 的 Playbook 需要花些时间的。&lt;/p&gt;
+&lt;p&gt;如果想了解下 Ansible 那么可以试试 Ansible Playbook。以下是我使用 Ansible 做了一些练习。&lt;/p&gt;
+&lt;h4 id=&quot;Playbook结构&quot;&gt;&lt;a href=&quot;#Playbook结构&quot; class=&quot;headerlink&quot; title=&quot;Playbook结构&quot;&gt;&lt;/a&gt;Playbook结构&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;+- vars                &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   +- vars.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   +- ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+- hosts               # save all hosts you want to monitor&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+- run.yml             # ansible executable file&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;Playbook具体代码&quot;&gt;&lt;a href=&quot;#Playbook具体代码&quot; class=&quot;headerlink&quot; title=&quot;Playbook具体代码&quot;&gt;&lt;/a&gt;Playbook具体代码&lt;/h4&gt;
     
     </summary>
     
@@ -435,9 +476,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -461,9 +502,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -538,28 +579,6 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>这也能用Jenkins？快速实现一个定期批量登录远程虚拟机并支持添加新的主机名称的Job</title>
-    <link href="https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/"/>
-    <id>https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/</id>
-    <published>2020-06-12T19:34:28.000Z</published>
-    <updated>2020-07-03T05:19:05.352Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;实现定期批量登录远程虚拟机然后进行一些指定的操作，还支持用户添加新的 hostname。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
