@@ -755,9 +755,9 @@
       
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -1864,9 +1864,9 @@
       
         <tags>
             
-            <tag> CodeCoverage </tag>
-            
             <tag> C </tag>
+            
+            <tag> CodeCoverage </tag>
             
         </tags>
       
@@ -1947,9 +1947,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Release </tag>
-            
             <tag> Pipeline </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
