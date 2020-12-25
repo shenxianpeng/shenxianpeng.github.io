@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-11-24T05:49:35.557Z</updated>
+  <updated>2020-12-12T13:24:35.658Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020 年终总结</title>
+    <link href="https://shenxianpeng.github.io/2020/12/2020-summary/"/>
+    <id>https://shenxianpeng.github.io/2020/12/2020-summary/</id>
+    <published>2020-12-12T12:21:56.000Z</published>
+    <updated>2020-12-12T13:24:35.658Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;时间飞快，2020年最后一个月了也快要过完了，又到了总结自己这一年来的所有的经历和收获。&lt;/p&gt;
+&lt;p&gt;2020年初开始的新冠病毒，它就像网络病毒一样，从一点扩散到一个城市，再到一个省，然后是整过国家，最后是全世界都感染上了这个病毒。&lt;/p&gt;
+&lt;p&gt;无论是生活还是工作，每个
+        
+      
+    
+    </summary>
+    
+      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
+    
+    
+      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
+    
+      <category term="Summary" scheme="https://shenxianpeng.github.io/tags/summary/"/>
+    
+  </entry>
   
   <entry>
     <title>How to backup Jenkins</title>
@@ -36,9 +66,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
@@ -330,7 +360,7 @@
     <link href="https://shenxianpeng.github.io/2020/08/rdp-problem/"/>
     <id>https://shenxianpeng.github.io/2020/08/rdp-problem/</id>
     <published>2020-08-10T07:40:04.000Z</published>
-    <updated>2020-08-16T05:45:17.729Z</updated>
+    <updated>2020-12-25T07:43:00.781Z</updated>
     
     <summary type="html">
     
@@ -476,9 +506,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -502,9 +532,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -542,34 +572,6 @@
 &lt;p&gt;《Jenkins Tips 2》 —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;想要把 Linux 上不同的文本数据通过 Jenkins 发送邮件给不同的人。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>忽略 Jenkins Shell 步骤中的故障</title>
-    <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/"/>
-    <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/</id>
-    <published>2020-06-21T13:42:17.000Z</published>
-    <updated>2020-07-22T09:59:11.851Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;《Jenkins Tips 1》 —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;不希望 Shell 脚本因失败而中止&lt;/li&gt;
-&lt;li&gt;想一直运行 Shell 脚本并报告失败&lt;/li&gt;
-&lt;/ul&gt;
     
     </summary>
     

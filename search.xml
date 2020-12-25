@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>2020 年终总结</title>
+      <link href="/2020/12/2020-summary/"/>
+      <url>/2020/12/2020-summary/</url>
+      
+        <content type="html"><![CDATA[<p>时间飞快，2020年最后一个月了也快要过完了，又到了总结自己这一年来的所有的经历和收获。</p><p>2020年初开始的新冠病毒，它就像网络病毒一样，从一点扩散到一个城市，再到一个省，然后是整过国家，最后是全世界都感染上了这个病毒。</p><p>无论是生活还是工作，每个人都被影响着。</p><h2 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h2><p>本来春节期间和小伙伴约好了要去一趟美国自驾，以及看望我们共同的朋友，机票早就订好了，但疫情的一天天的严重，机场也成为了最为危险的地方，最终机票被自动退票了，这趟令我们期盼的旅行也被迫终止。</p><p>另外一个</p><p>2020年全世界人都经历了太多，疫情、在家办公、戴口罩、</p><p>从中国新年腊月二十几开始，</p><h2 id="工作之内"><a href="#工作之内" class="headerlink" title="工作之内"></a>工作之内</h2><p>年底了，也到了写工作总结的时候了。应该很多人都不太愿意去写工作总结，我也是“被迫”的，但写总结可以倒逼我更好的回顾这一年来工作上的成绩，当写出来时发现时间的积累是惊人的，自己这一年做了很多事情，流水账就不写了，写几个重要的成果。</p><ol><li><p>通过 Jenkins Shared Libraries和 Multi-branch Pipeline 实现了无人值守的自动化构建。</p><ul><li>不但节省了我的时间，也节省了开发的时间，满足他们的构建需求。</li><li>让 Build Engineer 变成了 DevOps Engineer，去做更有价值的事。</li><li>通过 Pull Request Build 的引入，在 Merge 前校验所有平台构建是否正确，从而保证主分支的稳定。</li></ul></li><li><p>推动使用 Artifactory 来提供下载和存储构建。</p><ul><li>通过使用 Artifactory，进一步完善团队的 CI/CD 的自动化流水线。</li><li>同时更好的为团队的其他自动化做基础，比如自动下载、安装、测试等。</li></ul></li><li><p>其他</p></li></ol><ul><li>这一年更多的是使用 Python 来做一些集成，包括做了很多 Jira, BitBucket 的集成。另外还了解了 Python 发布一个项目需要注意哪些，并为公司发布了 <a href="https://pypi.org/project/uopy/" target="_blank" rel="noopener">UOPY</a> 这个项目。</li><li>学习了一些新工具，比如 JaCoCo、Ansible playbook、ELK等</li></ul><h2 id="工作以外"><a href="#工作以外" class="headerlink" title="工作以外"></a>工作以外</h2><p>依旧坚持在<a href="https://shenxianpeng.github.io/">博客</a>和公众号(DevOps攻城狮)分享一些工作中的技术总结。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MyNotes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Thought </tag>
+            
+            <tag> Summary </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to backup Jenkins</title>
       <link href="/2020/11/jenkins-backup/"/>
       <url>/2020/11/jenkins-backup/</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Backup </tag>
             
@@ -280,7 +307,7 @@
       <link href="/2020/08/rdp-problem/"/>
       <url>/2020/08/rdp-problem/</url>
       
-        <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Sometime my Windows server 2012 R2 has RDP connect problem below:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Remote session was disconnected because there are no Remote Desktop client access licenses available for this computer.</span><br><span class="line">Please contact the server administrator.</span><br></pre></td></tr></table></figure><p><img src="/2020/08/rdp-problem/RDP-failed.png" alt="RDP connect problem"></p><a id="more"></a><h2 id="How-to-Fix"><a href="#How-to-Fix" class="headerlink" title="How to Fix"></a>How to Fix</h2><p>You could login to the vSphere Web Client if you have via console or have some other way to login that machine.</p><ol><li><p>Go into regedit and navigate to </p><p> <img src="/2020/08/rdp-problem/regedit.jpg" alt="Regedit"></p></li><li><p>Search and Delete <code>LicensingGracePeriod</code> and <code>LicensingGracePeriodExpirationWarningDays</code></p></li><li><p>If deletion failed, this failure message appears <code>unable to delete all specified values</code>, you need change permission.</p></li></ol><blockquote><p>You could follow related <a href="https://www.youtube.com/results?search_query=unable+to+delete+all+specified+values" target="_blank" rel="noopener">videos</a> on YouTuBe</p><p>Thanks Bill K. share with me above fix solution.</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Sometime my Windows server 2012 R2 has RDP connect problem below:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Remote session was disconnected because there are no Remote Desktop client access licenses available for this computer.</span><br><span class="line">Please contact the server administrator.</span><br></pre></td></tr></table></figure><p><img src="/2020/08/rdp-problem/RDP-failed.png" alt="RDP connect problem"></p><a id="more"></a><h2 id="How-to-Fix"><a href="#How-to-Fix" class="headerlink" title="How to Fix"></a>How to Fix</h2><p>You could login to the vSphere Web Client if you have via console or have some other way to login that machine.</p><ol><li><p>Open regedit.exe and navigate to </p><p> <img src="/2020/08/rdp-problem/regedit.jpg" alt="Regedit"></p></li><li><p>Search and Delete <code>LicensingGracePeriod</code> and <code>LicensingGracePeriodExpirationWarningDays</code></p></li><li><p>If deletion failed, this failure message appears <code>unable to delete all specified values</code>, you need change permission. Refer to the related <a href="https://www.youtube.com/results?search_query=unable+to+delete+all+specified+values" target="_blank" rel="noopener">videos</a> on YouTuBe.</p></li><li><p>Reboot if still not work.</p></li></ol><p>In my case, every 90 to 120 days the RDP end of grace period shows up. this is not the final solution. please let me know if you have a better solution.</p><blockquote><p>Finally thanks Bill K. share with me above fix solution.</p></blockquote>]]></content>
       
       
       <categories>
@@ -431,9 +458,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -458,9 +485,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1114,8 +1141,8 @@
     
     <entry>
       <title>2019 年终总结</title>
-      <link href="/2019/12/my-2019-summary/"/>
-      <url>/2019/12/my-2019-summary/</url>
+      <link href="/2019/12/2019-summary/"/>
+      <url>/2019/12/2019-summary/</url>
       
         <content type="html"><![CDATA[<p>时间过得飞快，转眼已经是 2020 年的第三天了，回顾 2019 年，我给自己的年终关键词是：尽力。</p><p>这是我作为开发工程师的第二年，虽然 Title 是 SE (Software Engnieer)，但主要的工作内容是产品的构建和发布以及 CI/CD/DevOps 的落地（自称打杂）。流水的记录一下 2019 年发生在工作上的“成绩”。</p><a id="more"></a><p>2019 年在工作中除了完成日常产品构建、发布、Git 管理、VM 管理等，尝试在构建和发布自动化上做大的调整，将手工构建和部分自动构建从 Bamboo 迁移到 Jenkins，通过 Jenkins 的 multi-branch pipeline、Shared Libraries 与 Artifactory 做持续集成。</p><p>2019 年在公司内部提交了一个创新项目，有幸拿到了第一名和首席产品奖。</p><p>因此有机会再去美国，参加了公司的开发者大会。很开心这个项目最终进入到了产品的 Roadmap 里。</p><p>2019 年底 12 月去北京参加了一次两天的《JFrog Jenkins，Artifactory &amp; Kubernetes》训练营，跟 DevOps 行业工具里最有影响力（之一）的公司的工程师学习最佳实践。</p><p>这一年关于持续集成和持续交付收获不少新的知识，但只更新了 11 篇公众号相关原创文章，33 篇 Blog。这差别是因为 Blog 更像笔记，随时记录修改不怕错；公众号更像报纸，发出去的内容无法修改和补充，每次更新都需要一字一句反复修改和阅览确认，最终输出一篇完整的原创内容需要花费比写 Blog 多几倍的时间。</p><p>希望 2020 年能完成更多有价值的内容输出，有机会的话用 8 到 10 个月的业余时间完成一件以前一直不敢想的事（如果完成就写下来，没成就烂在肚子里）。</p><p>分享在 2019 年最后一天收到的一封邮件：</p><p>前段时间大家都做了年末总结。试问，有多少人对自己一年的表现满意？你是否在工作中体现出你的价值？你提交了多少次代码？提交的代码质量怎么样？你解决了多少个客户问题？你发现了多少 bug？<br>你是否在技术和业务知识有所提高？和你的同事比较，你的进步速度你自己是否满意？又有多少人把时间都花在了微信和聊天上？有没有人是待着混日子，或者应付公事的思路在这里工作。<br>我们年龄都差不多，多半是三四十岁。这个年龄被认为是最好的工作年龄。希望你不要在这里浪费你最好的时光。<br>有人可能说，我已经实现或者接近时间财务自由了，我对工作没有大的要求。首先我恭喜你实现财务自由，但同时我想说的是工作绝不只是一份收入来源这么简单。你是否能在工作中得到同事和领导的认可，是否能体现自己的价值。<br>我喜欢和有求知欲，有责任感，有上进心的人一起工作。我同时不喜欢工作时间，整天拿着手机不离手的， 工作上没有上进心的人。如果确实有事情，可以离开作为去打个电话，迅速解决一下。没有事情的闲看，是不赞成的。<br>还有人，到点就准时下班，很像多干几分钟自己就吃亏了一样，这种心态千万不可取。试问，如果你的能力水平不及你的同事，你每天还不比别人多努力，你怎么才能接近或者超过别人？难道永远都想落后？每天多走一里路，每天多做一些吧。</p><p>我读了好几遍，感谢上面的话，从个人角度非常认同以上观点，尤其是说工作绝不是一份收入来源这么简单，它是一个人的价值体现。如果喜欢这份工作，尽力去做到最好吧；如果不喜欢，还是趁早找到自己的乐趣所在。</p>]]></content>
       
@@ -1268,9 +1295,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1837,9 +1864,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> CodeCoverage </tag>
+            
+            <tag> C </tag>
             
         </tags>
       
@@ -1920,9 +1947,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Pipeline </tag>
-            
             <tag> Release </tag>
+            
+            <tag> Pipeline </tag>
             
         </tags>
       
@@ -2650,9 +2677,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
