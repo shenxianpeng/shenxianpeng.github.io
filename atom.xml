@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-12-12T13:24:35.658Z</updated>
+  <updated>2020-12-31T06:12:33.062Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2020/12/2020-summary/"/>
     <id>https://shenxianpeng.github.io/2020/12/2020-summary/</id>
     <published>2020-12-12T12:21:56.000Z</published>
-    <updated>2020-12-12T13:24:35.658Z</updated>
+    <updated>2020-12-31T06:12:33.062Z</updated>
     
     <summary type="html">
     
@@ -29,9 +29,7 @@
       
         
         
-          &lt;p&gt;时间飞快，2020年最后一个月了也快要过完了，又到了总结自己这一年来的所有的经历和收获。&lt;/p&gt;
-&lt;p&gt;2020年初开始的新冠病毒，它就像网络病毒一样，从一点扩散到一个城市，再到一个省，然后是整过国家，最后是全世界都感染上了这个病毒。&lt;/p&gt;
-&lt;p&gt;无论是生活还是工作，每个
+          &lt;p&gt;时间飞快，马上就迎来了 2021
         
       
     
@@ -220,9 +218,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
-    
       <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
     
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     
@@ -290,9 +288,9 @@
     
       <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
     
-      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
-    
       <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
+    
+      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
     
   </entry>
   
