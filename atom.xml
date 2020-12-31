@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-12-31T06:12:33.062Z</updated>
+  <updated>2020-12-31T06:21:42.853Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2020/12/2020-summary/"/>
     <id>https://shenxianpeng.github.io/2020/12/2020-summary/</id>
     <published>2020-12-12T12:21:56.000Z</published>
-    <updated>2020-12-31T06:12:33.062Z</updated>
+    <updated>2020-12-31T06:21:42.853Z</updated>
     
     <summary type="html">
     
@@ -218,9 +218,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
-    
       <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
+    
+      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
     
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     
@@ -288,9 +288,9 @@
     
       <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
     
-      <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
-    
       <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
+    
+      <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
     
   </entry>
   
