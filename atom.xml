@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2020-12-31T07:36:10.620Z</updated>
+  <updated>2021-01-03T04:33:49.499Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021 DevOps Engineer Job Requirement</title>
+    <link href="https://shenxianpeng.github.io/2021/2021-devops-job-requirement/"/>
+    <id>https://shenxianpeng.github.io/2021/2021-devops-job-requirement/</id>
+    <published>2021-01-03T03:22:38.000Z</published>
+    <updated>2021-01-03T04:33:49.499Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;自 2020 年因疫情开始，越来越多的 IT 公司都因不得不在家办公从而彻底转为 WFH（Work From Home） 公司，因此对于 IT
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2020 年终总结</title>
     <link href="https://shenxianpeng.github.io/2020/12/2020-summary/"/>
     <id>https://shenxianpeng.github.io/2020/12/2020-summary/</id>
     <published>2020-12-31T07:00:00.000Z</published>
-    <updated>2020-12-31T07:36:10.620Z</updated>
+    <updated>2020-12-31T08:01:18.914Z</updated>
     
     <summary type="html">
     
@@ -65,9 +91,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
@@ -505,9 +531,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -531,9 +557,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -555,31 +581,6 @@
     
     
       <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>将 Jenkins Shell 返回的字符串处理为字符数组</title>
-    <link href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/"/>
-    <id>https://shenxianpeng.github.io/2020/06/Jenkins-tips-2/</id>
-    <published>2020-06-22T06:37:29.000Z</published>
-    <updated>2020-07-22T09:59:57.069Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;《Jenkins Tips 2》 —— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;想要把 Linux 上不同的文本数据通过 Jenkins 发送邮件给不同的人。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
     
   </entry>
   
