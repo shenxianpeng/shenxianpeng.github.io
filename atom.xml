@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-03T04:33:49.499Z</updated>
+  <updated>2021-01-06T01:57:57.652Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>解决 InstallShield 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</title>
+    <link href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/"/>
+    <id>https://shenxianpeng.github.io/2021/01/verisign-server-not-working/</id>
+    <published>2021-01-06T01:35:41.000Z</published>
+    <updated>2021-01-06T01:57:57.652Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题和解决办法&quot;&gt;&lt;a href=&quot;#问题和解决办法&quot; class=&quot;headerlink&quot; title=&quot;问题和解决办法&quot;&gt;&lt;/a&gt;问题和解决办法&lt;/h2&gt;&lt;p&gt;相信很多 Build Engineer 在编译Windows build 时候很多时候会用到
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="InstallShield" scheme="https://shenxianpeng.github.io/tags/installshield/"/>
+    
+      <category term="Build" scheme="https://shenxianpeng.github.io/tags/build/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2021 DevOps Engineer Job Requirement</title>
-    <link href="https://shenxianpeng.github.io/2021/2021-devops-job-requirement/"/>
-    <id>https://shenxianpeng.github.io/2021/2021-devops-job-requirement/</id>
+    <link href="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/"/>
+    <id>https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/</id>
     <published>2021-01-03T03:22:38.000Z</published>
-    <updated>2021-01-03T04:33:49.499Z</updated>
+    <updated>2021-01-06T01:35:59.751Z</updated>
     
     <summary type="html">
     
@@ -245,9 +273,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
-    
       <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
+    
+      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
     
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     
@@ -315,9 +343,9 @@
     
       <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
     
-      <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
-    
       <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
+    
+      <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
     
   </entry>
   
@@ -560,27 +588,6 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一名软件测试工程师的成长之路</title>
-    <link href="https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/"/>
-    <id>https://shenxianpeng.github.io/2020/06/about-my-wechat-official-account/</id>
-    <published>2020-06-30T14:13:26.000Z</published>
-    <updated>2020-07-03T05:18:07.554Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;关注本公众号的读者们可能会感到困惑，我最开始分享是软件功能测试、自动化测试；之后短暂的分享过一点开发；再之后主要在分享 CI/CD 及 DevOps 相关的内容。&lt;/p&gt;
-&lt;p&gt;因此，我想通过本篇简单介绍下自己的公众号以及写公众号带来了哪些收获，通过这个过程展示了作为&lt;strong&gt;一名软件测试工程师的成长之路。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
-    
-    
-      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
     
   </entry>
   
