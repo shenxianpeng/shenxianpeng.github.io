@@ -101,9 +101,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Backup </tag>
             
@@ -234,9 +234,9 @@
             
             <tag> Git </tag>
             
-            <tag> Branch </tag>
-            
             <tag> Specification </tag>
+            
+            <tag> Branch </tag>
             
             <tag> Conventional Commits </tag>
             
@@ -290,9 +290,9 @@
             
             <tag> Python </tag>
             
-            <tag> Release </tag>
-            
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -512,9 +512,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -539,9 +539,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -701,9 +701,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> write </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -728,9 +728,9 @@
       
         <tags>
             
-            <tag> vscode </tag>
-            
             <tag> Pipeline </tag>
+            
+            <tag> vscode </tag>
             
         </tags>
       
@@ -809,9 +809,9 @@
       
         <tags>
             
-            <tag> Bitbucket </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -1349,9 +1349,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1727,11 +1727,11 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> Jenkins </tag>
             
             <tag> Pipeline </tag>
+            
+            <tag> Git </tag>
             
         </tags>
       
@@ -2731,9 +2731,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
         </tags>
       
