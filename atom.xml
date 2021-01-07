@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-07T03:47:17.822Z</updated>
+  <updated>2021-01-07T05:40:14.018Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>解决 InstallShield 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</title>
+    <title>解决 Code Sign 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</title>
     <link href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/"/>
     <id>https://shenxianpeng.github.io/2021/01/verisign-server-not-working/</id>
     <published>2021-01-06T01:35:41.000Z</published>
-    <updated>2021-01-07T03:47:17.822Z</updated>
+    <updated>2021-01-07T05:40:14.018Z</updated>
     
     <summary type="html">
     
@@ -38,9 +38,11 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="InstallShield" scheme="https://shenxianpeng.github.io/tags/installshield/"/>
+      <category term="CodeSign" scheme="https://shenxianpeng.github.io/tags/codesign/"/>
     
       <category term="Build" scheme="https://shenxianpeng.github.io/tags/build/"/>
+    
+      <category term="Timestamp" scheme="https://shenxianpeng.github.io/tags/timestamp/"/>
     
   </entry>
   

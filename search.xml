@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>解决 InstallShield 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</title>
+      <title>解决 Code Sign 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</title>
       <link href="/2021/01/verisign-server-not-working/"/>
       <url>/2021/01/verisign-server-not-working/</url>
       
@@ -20,9 +20,11 @@
       
         <tags>
             
-            <tag> InstallShield </tag>
+            <tag> CodeSign </tag>
             
             <tag> Build </tag>
+            
+            <tag> Timestamp </tag>
             
         </tags>
       
