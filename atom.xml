@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-06T10:33:48.759Z</updated>
+  <updated>2021-01-07T03:47:17.822Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/"/>
     <id>https://shenxianpeng.github.io/2021/01/verisign-server-not-working/</id>
     <published>2021-01-06T01:35:41.000Z</published>
-    <updated>2021-01-06T10:33:48.759Z</updated>
+    <updated>2021-01-07T03:47:17.822Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;相信许多程序员在新年在做 InstallShield 数字签名的时候，遇到了 Verisign Timestamp 服务器不好用了 &lt;a href=&quot;http://timestamp.verisign.com/scripts/timstamp.dll&quot;
+          &lt;p&gt;相信许多程序员在新年开始在做 code sign (数字签名)的时候可能遇到 Verisign Timestamp 服务器不好用了 &lt;a href=&quot;http://timestamp.verisign.com/scripts/timstamp.dll&quot;
         
       
     
@@ -251,9 +251,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
   </entry>
   

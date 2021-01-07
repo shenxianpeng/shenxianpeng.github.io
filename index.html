@@ -115,31 +115,31 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>相信许多程序员在新年在做 InstallShield 数字签名的时候，遇到了 Verisign Timestamp 服务器不好用了 <a href="http://timestamp.verisign.com/scripts/timstamp.dll" target="_blank" rel="noopener">http://timestamp.verisign.com/scripts/timstamp.dll</a></p>
-<p>出现了如下错误：</p>
+        <p>相信许多程序员在新年开始在做 code sign (数字签名)的时候可能遇到 Verisign Timestamp 服务器不好用了 <a href="http://timestamp.verisign.com/scripts/timstamp.dll" target="_blank" rel="noopener">http://timestamp.verisign.com/scripts/timstamp.dll</a> 的情况。出现了如下错误：</p>
 <p><img src="/2021/01/verisign-server-not-working/failed.png" alt></p>
-<p>究其原因就是它默认的时间戳服务器，出现了无法访问的情况。</p>
-<p>Stack overflow 上面有人给出了答案：<a href="https://stackoverflow.com/questions/65541786/is-the-verisign-timestamp-server-down" target="_blank" rel="noopener">https://stackoverflow.com/questions/65541786/is-the-verisign-timestamp-server-down</a></p>
-<p>Verisign Support 给出的回复是：</p>
-<p>在我们的身份验证服务出售给赛门铁克(Symantec，现在是Digicert)后，该服务器已弃用。</p>
-<p>你可以在网络上寻找免费的 timestamp servers 或这里有一个 <code>http://timestamp.digicert.com</code></p>
-<p>因此，<code>http://timestamp.verisign.com</code> 将不再有效。</p>
-<p>除了上面 Digicert 那个网址，还有如下网址可以作为替换</p>
+<p>原因是 code sign 默认的时间戳服务器无法访问了。</p>
+<p>在 Stack overflow 这个 <a href="https://stackoverflow.com/questions/65541786/is-the-verisign-timestamp-server-down" target="_blank" rel="noopener">post</a> 里上面有人给出了答案，是来自于 Verisign Support 的回复：</p>
+<blockquote>
+<p>他们的身份验证服务已出售给赛门铁克(Symante)，现在的服务商是 Digicert。该服务器已弃用了。</p>
+<p>他们建议联系 Digicert 或在网络上找免费的 timestamp servers</p>
+</blockquote>
+<p>以上是别人的回复，我在网络上没有找到一个官方回复，因此打算发邮件正式确认一下，发完不一会就得到了回复：</p>
+<p><img src="/2021/01/verisign-server-not-working/reply.png" alt></p>
+<p>和上面的回复类似：几年前，Verisign 的身份验证和证书业务被出售给赛门铁克(Symantec)，目前已过渡到Digicert。您将需要与当前供应商合作以获得支持或更新的时间戳URL。请访问 <a href="http://www.digicert.com" target="_blank" rel="noopener">http://www.digicert.com</a> 了解更多信息。</p>
+<p>好了，这下实锤了，放心大胆的开始动手修改到新的时间戳了。</p>
+<p>我找到了 Digicert 的时间戳服务器是 <code>http://timestamp.digicert.com</code>。更换到新的时间戳服务器后，数字签名恢复正常。</p>
+<p>除了上面 Digicert 那个网址，还有如下网址可以作为替换:</p>
 <ul>
 <li><a href="http://timestamp.comodoca.com/authenticode" target="_blank" rel="noopener">http://timestamp.comodoca.com/authenticode</a></li>
 <li><a href="http://timestamp.globalsign.com/scripts/timestamp.dll" target="_blank" rel="noopener">http://timestamp.globalsign.com/scripts/timestamp.dll</a></li>
 <li><a href="http://tsa.starfieldtech.com" target="_blank" rel="noopener">http://tsa.starfieldtech.com</a></li>
 </ul>
-<p>更换到新的时间戳服务器后，InstallShield 签名恢复正常。</p>
-<p>以上是别人的回复，因为在网络上没有找到一个官方回复，我打算发邮件正式问一下。发完不一会就得到了回复：</p>
-<p><img src="/2021/01/verisign-server-not-working/reply.png" alt></p>
-<p>大意如下：几年前，Verisign 的身份验证和证书业务被出售给赛门铁克(Symantec)，目前已过渡到Digicert。您将需要与当前供应商合作以获得支持或更新的时间戳URL。请访问 <a href="http://www.digicert.com" target="_blank" rel="noopener">http://www.digicert.com</a> 了解更多信息。</p>
-<p>好了，这下实锤了，放心大胆的开始动手修改到新的时间戳吧。</p>
+<p>但我都没有选用，我还是选择了官方的时间戳服务，留作备用吧。一旦又抽风 “官方” 哪天又被卖了呢？</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="ckjlabtxe00hkiofo0pitfadg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="ckjmb9ggp00gh3wfoau9cbpsd" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -199,7 +199,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/" data-id="ckjlabttc009qiofofkmt0nuq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/" data-id="ckjmb9gew00ao3wfoaraw2ctc" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -296,7 +296,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/12/2020-summary/" data-id="ckjlabtte009siofo3n67gcs6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/12/2020-summary/" data-id="ckjmb9gey00as3wfo915p3i20" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/12/2020-summary/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -348,7 +348,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jenkins-backup/" data-id="ckjlabtta009miofoc0sk66qd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jenkins-backup/" data-id="ckjmb9get00ai3wfo63voblwh" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jenkins-backup/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -402,7 +402,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco-imp/" data-id="ckjlabtt4009giofoaq52fpnr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco-imp/" data-id="ckjmb9gev00al3wfoajnmgbhe" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jacoco-imp/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -466,7 +466,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="ckjlabtt7009jiofobhk436fw" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="ckjmb9ger00ae3wfogpr1ccak" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jacoco/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -526,7 +526,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice1/" data-id="ckjlabtsx009biofo7w2g810t" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice1/" data-id="ckjmb9gen00a73wfo84q0ctc7" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/ansible-practice1/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -582,7 +582,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="ckjlabtt1009eiofo91kafrmm" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="ckjmb9gep00ab3wfo7dhe2sgf" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -634,7 +634,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/commit-messages-specification/" data-id="ckjlabtsc008iiofo1dyf4s6v" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/commit-messages-specification/" data-id="ckjmb9geb009l3wfo8x6l2rfj" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -689,7 +689,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/" data-id="ckjlabtsh008piofo9idbeexo" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/" data-id="ckjmb9gel00a43wfo7nzddr1a" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/#disqus_thread" class="article-comment-link">留言</a>
       
