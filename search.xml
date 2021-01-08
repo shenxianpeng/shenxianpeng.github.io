@@ -234,9 +234,9 @@
             
             <tag> Git </tag>
             
-            <tag> Specification </tag>
-            
             <tag> Branch </tag>
+            
+            <tag> Specification </tag>
             
             <tag> Conventional Commits </tag>
             
@@ -290,9 +290,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -701,9 +701,9 @@
       
         <tags>
             
-            <tag> write </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> write </tag>
             
         </tags>
       
@@ -728,9 +728,9 @@
       
         <tags>
             
-            <tag> Pipeline </tag>
-            
             <tag> vscode </tag>
+            
+            <tag> Pipeline </tag>
             
         </tags>
       
@@ -809,9 +809,9 @@
       
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -1727,11 +1727,11 @@
       
         <tags>
             
+            <tag> Git </tag>
+            
             <tag> Jenkins </tag>
             
             <tag> Pipeline </tag>
-            
-            <tag> Git </tag>
             
         </tags>
       
@@ -2731,9 +2731,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
