@@ -1322,9 +1322,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Docker </tag>
             
         </tags>
       
@@ -1918,9 +1918,9 @@
       
         <tags>
             
-            <tag> CodeCoverage </tag>
-            
             <tag> C </tag>
+            
+            <tag> CodeCoverage </tag>
             
         </tags>
       
