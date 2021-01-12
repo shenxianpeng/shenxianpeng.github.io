@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>These settings in Bitbucket/GitHub recommends enable</title>
+      <link href="/2021/01/git-repository-settings/"/>
+      <url>/2021/01/git-repository-settings/</url>
+      
+        <content type="html"><![CDATA[<p>As I have management our team’s git repositories for more than two years, and as my daily work using Bitbucket, so I’ll take it as an example.</p><p>Here are some settings recommend you to enable.</p><ol><li>Set Reject Force Push</li><li>Set Branch Prevent deletion</li><li>Set tags for each hotfix/GA releases</li><li>Merge Check -&gt; Minimum approvals (1)</li><li>Yet Another Commit Checker</li></ol><h2 id="Reject-Force-Push"><a href="#Reject-Force-Push" class="headerlink" title="Reject Force Push"></a>Reject Force Push</h2><p>This is the first setting I highly recommend you/your team to open it. if not, when someone using the <code>git push -f</code> command to the git repository, you may lost commits if his local code is old then remote repository.</p><p>you have to recover the lost commits manually, I have heard 3 times around me. so enable the hook: Reject Force Push ASAP!</p><h2 id="Set-Branch-Prevent-deletion"><a href="#Set-Branch-Prevent-deletion" class="headerlink" title="Set Branch Prevent deletion"></a>Set Branch Prevent deletion</h2><p>If some branch is very important, you don’t want to lost it, set Branch Prevent deletion ASAP!</p><h2 id="Set-tags-for-each-hotfix-GA-releases"><a href="#Set-tags-for-each-hotfix-GA-releases" class="headerlink" title="Set tags for each hotfix/GA releases"></a>Set tags for each hotfix/GA releases</h2><p>For each hotfix/GA release, highly recommend create tags after release.</p><h2 id="Merge-Check"><a href="#Merge-Check" class="headerlink" title="Merge Check"></a>Merge Check</h2><p>Pull Request is a very good workflow process for each team. in case of commits were merged directly without review, we enable Minimum approvals (1).</p><p>So, every branch wants to be merged to the main branch MUST add a reviewer (not allow yourself) and the review must click the Approve button otherwise the merge button is disabled.</p><h2 id="Yet-Another-Commit-Checker"><a href="#Yet-Another-Commit-Checker" class="headerlink" title="Yet Another Commit Checker"></a>Yet Another Commit Checker</h2><p>This is a very powerful feature. it helps to standardize commit messages and create a branch.</p><p>More details about this tool you can refer to <a href="https://mohamicorp.atlassian.net/wiki/spaces/DOC/pages/1442119700/Yet+Another+Commit+Checker+YACC+for+Bitbucket" target="_blank" rel="noopener">this introduction</a></p><p>I have a Chinese article to describe how to use Yet Another Commit Checker implement. if you interest it, you can see the post <a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/">here</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> DevOps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> Bitbucket </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to open port 22 and make it listening</title>
       <link href="/2021/01/open-port-22/"/>
       <url>/2021/01/open-port-22/</url>
       
-        <content type="html"><![CDATA[<p>Recently our Bamboo server has an error when connect to the Windows build system.</p><p>Some errors like: can not connect to the host XXXX 22 port.</p><p>I log in the build machine find port 22 with the below command </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -aon|findstr &quot;22&quot;</span><br></pre></td></tr></table></figure><p>but not found port 22 is inbound.</p><h2 id="inbound-port-22"><a href="#inbound-port-22" class="headerlink" title="inbound port 22"></a>inbound port 22</h2><p>There’s a lot of articles will tell you how to open ports on Windows. see this one</p><p><a href="https://www.windowscentral.com/how-open-port-windows-firewall" target="_blank" rel="noopener">https://www.windowscentral.com/how-open-port-windows-firewall</a></p><h2 id="But-still-not-works-for-me"><a href="#But-still-not-works-for-me" class="headerlink" title="But still not works for me"></a>But still not works for me</h2><p>My problem is when I inbound port 22, execute the above command still can’t see the port 22 is listening.</p><p>So I install the <a href="https://github.com/PowerShell/Win32-OpenSSH" target="_blank" rel="noopener">Win32-OpenSSH</a>, this will lanch two services, then port 22 is listening.</p><p>Here are the wiki page about download and installation <a href="https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH" target="_blank" rel="noopener">https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH</a></p>]]></content>
+        <content type="html"><![CDATA[<p>Recently our Bamboo server has an error when connect to the Windows build system.</p><p>Some errors like: Can not connect to the host XXXX 22 port.</p><p>I log in the build machine find port 22 with the below command </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -aon|findstr &quot;22&quot;</span><br></pre></td></tr></table></figure><p>but not found port 22 is inbound.</p><h2 id="inbound-port-22"><a href="#inbound-port-22" class="headerlink" title="inbound port 22"></a>inbound port 22</h2><p>There’s a lot of articles will tell you how to open ports on Windows. see this one</p><p><a href="https://www.windowscentral.com/how-open-port-windows-firewall" target="_blank" rel="noopener">https://www.windowscentral.com/how-open-port-windows-firewall</a></p><h2 id="But-still-not-works-for-me"><a href="#But-still-not-works-for-me" class="headerlink" title="But still not works for me"></a>But still not works for me</h2><p>My problem is when I inbound port 22, execute the above command still can’t see the port 22 is listening.</p><p>So I install the <a href="https://github.com/PowerShell/Win32-OpenSSH" target="_blank" rel="noopener">Win32-OpenSSH</a>, this will lanch two services, then port 22 is listening.</p><p>Here are the wiki page about download and installation <a href="https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH" target="_blank" rel="noopener">https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH</a></p>]]></content>
       
       
       <categories>

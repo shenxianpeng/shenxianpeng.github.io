@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-12T03:59:58.482Z</updated>
+  <updated>2021-01-12T10:11:44.409Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>These settings in Bitbucket/GitHub recommends enable</title>
+    <link href="https://shenxianpeng.github.io/2021/01/git-repository-settings/"/>
+    <id>https://shenxianpeng.github.io/2021/01/git-repository-settings/</id>
+    <published>2021-01-12T09:35:19.000Z</published>
+    <updated>2021-01-12T10:11:44.409Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;As I have management our team’s git repositories for more than two years, and as my daily work using Bitbucket, so I’ll take it as an
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+  </entry>
+  
+  <entry>
     <title>How to open port 22 and make it listening</title>
     <link href="https://shenxianpeng.github.io/2021/01/open-port-22/"/>
     <id>https://shenxianpeng.github.io/2021/01/open-port-22/</id>
     <published>2021-01-12T03:13:18.000Z</published>
-    <updated>2021-01-12T03:59:58.482Z</updated>
+    <updated>2021-01-12T10:11:46.543Z</updated>
     
     <summary type="html">
     
@@ -30,7 +58,7 @@
         
         
           &lt;p&gt;Recently our Bamboo server has an error when connect to the Windows build system.&lt;/p&gt;
-&lt;p&gt;Some errors like: can not connect to the host
+&lt;p&gt;Some errors like: Can not connect to the host
         
       
     
@@ -579,28 +607,6 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to fix &quot;.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service&quot;</title>
-    <link href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/"/>
-    <id>https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/</id>
-    <published>2020-07-16T03:28:20.000Z</published>
-    <updated>2020-08-16T05:11:32.065Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and out come this warining message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
   </entry>
   
