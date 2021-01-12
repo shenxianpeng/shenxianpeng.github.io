@@ -286,9 +286,9 @@
             
             <tag> Git </tag>
             
-            <tag> Specification </tag>
-            
             <tag> Branch </tag>
+            
+            <tag> Specification </tag>
             
             <tag> Conventional Commits </tag>
             
@@ -342,9 +342,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -753,9 +753,9 @@
       
         <tags>
             
-            <tag> write </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> write </tag>
             
         </tags>
       
