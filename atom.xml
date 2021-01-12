@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-07T05:40:14.018Z</updated>
+  <updated>2021-01-12T03:09:45.487Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git sparse-checkout enable and disable</title>
+    <link href="https://shenxianpeng.github.io/2021/01/sparse-checkout/"/>
+    <id>https://shenxianpeng.github.io/2021/01/sparse-checkout/</id>
+    <published>2021-01-11T07:03:45.000Z</published>
+    <updated>2021-01-12T03:09:45.487Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;This post just a note to myself and it works on my environment. it has not been widely tested.&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>解决 Code Sign 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</title>
@@ -127,9 +154,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
@@ -567,35 +594,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Jenkins Top 3 best practice</title>
-    <link href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/"/>
-    <id>https://shenxianpeng.github.io/2020/07/jenkins-best-practice/</id>
-    <published>2020-07-03T10:57:02.000Z</published>
-    <updated>2020-11-01T09:07:47.627Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I am Xianpeng, a build engineer. Today, I am going to share with you three Jenkins Practice.&lt;/p&gt;
-&lt;p&gt;I will talk about Configuration as code, followed up with shared libraries, and then Multi-Branch Pipeline in the end.&lt;/p&gt;
-&lt;h2 id=&quot;Configuration-as-Code&quot;&gt;&lt;a href=&quot;#Configuration-as-Code&quot; class=&quot;headerlink&quot; title=&quot;Configuration as Code&quot;&gt;&lt;/a&gt;Configuration as Code&lt;/h2&gt;&lt;p&gt;What is Configuration as Code?&lt;/p&gt;
-&lt;p&gt;Configuration as code (CAC) is an approach that managing configuration resources in a bitbucket repository&lt;/p&gt;
-&lt;h3 id=&quot;What-are-the-benefits&quot;&gt;&lt;a href=&quot;#What-are-the-benefits&quot; class=&quot;headerlink&quot; title=&quot;What are the benefits?&quot;&gt;&lt;/a&gt;What are the benefits?&lt;/h3&gt;&lt;h4 id=&quot;First-Jenkins-Job-Transparency&quot;&gt;&lt;a href=&quot;#First-Jenkins-Job-Transparency&quot; class=&quot;headerlink&quot; title=&quot;First, Jenkins Job Transparency&quot;&gt;&lt;/a&gt;First, Jenkins Job Transparency&lt;/h4&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
