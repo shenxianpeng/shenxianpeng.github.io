@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-14T03:08:07.884Z</updated>
+  <updated>2021-01-14T05:54:32.145Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/"/>
     <id>https://shenxianpeng.github.io/2021/01/result-vs-currentresult/</id>
     <published>2021-01-14T02:48:18.000Z</published>
-    <updated>2021-01-14T03:08:07.884Z</updated>
+    <updated>2021-01-14T05:54:32.145Z</updated>
     
     <summary type="html">
     
@@ -240,9 +240,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
