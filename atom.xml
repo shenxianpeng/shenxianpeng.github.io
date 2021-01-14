@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-12T10:11:44.409Z</updated>
+  <updated>2021-01-14T03:00:02.419Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>What&#39;s the difference between result and currentResult in Jenkins?</title>
+    <link href="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/"/>
+    <id>https://shenxianpeng.github.io/2021/01/result-vs-currentresult/</id>
+    <published>2021-01-14T02:48:18.000Z</published>
+    <updated>2021-01-14T03:00:02.419Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;This is just a note to myself about Jenkins result or currentResult&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Declarative-Pipeline&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+  </entry>
   
   <entry>
     <title>These settings in Bitbucket/GitHub recommends enable</title>
@@ -211,9 +240,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
@@ -581,32 +610,6 @@
       <category term="Work" scheme="https://shenxianpeng.github.io/tags/work/"/>
     
       <category term="Summary" scheme="https://shenxianpeng.github.io/tags/summary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Jenkins 执行 Shell 如果返回值不为0，作业(Job)停止并失败怎么办？</title>
-    <link href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/"/>
-    <id>https://shenxianpeng.github.io/2020/07/jenkins-tips-3/</id>
-    <published>2020-07-22T08:11:36.000Z</published>
-    <updated>2020-07-22T09:57:58.657Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;《Jenkins Tips 3》—— 每期用简短的图文描述一个 Jenkins 小技巧。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在使用 Jenkins pipeline 时，如果 Shell 的返回值不为零（也就是 Shell 命令执行时有错误），Jenkins Job 默认会标记当前的 stage 为失败。因此整个 Job 也会失败。&lt;/p&gt;
-&lt;p&gt;在有些时候我们希望 Shell 虽然执行失败返回的不为零，但希望Jenkins Job 在执行成功后，要显示成功状态。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="Tips" scheme="https://shenxianpeng.github.io/tags/tips/"/>
     
   </entry>
   

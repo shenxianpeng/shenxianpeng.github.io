@@ -88,6 +88,52 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2018/04/Jenkinsfile-configure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/Jenkinsfile-configure/" class="article-date">
+  <time datetime="2018-04-14T05:07:49.000Z" itemprop="datePublished">2018-04-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/Jenkinsfile-configure/">Jenkinsfile 配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在做有关 DevOps Build 的时候，学习了 Jenkins 的 Pipeline 的功能，不得不提到的就是 Jenkinsfile 这个文件。</p>
+<p>以下面是我配置的 Jenkinsfile 文件及简单说明，更多有关 <a href="https://jenkins.io/doc/book/pipeline/" target="_blank" rel="noopener">Pipeline</a> 请看官方文档。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        <span class="comment">// Build 阶段</span></span><br><span class="line">        stage(<span class="string">'Build'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">'Building...'</span></span><br><span class="line">                bat <span class="string">'npm run build webcomponent-sample'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 单元测试阶段</span></span><br><span class="line">        stage(<span class="string">'Unit Test'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">'Unit Testing...'</span></span><br><span class="line">                bat <span class="string">'npm test webcomponent-sample'</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123;</span><br><span class="line">                <span class="comment">// 执行成功后生产报告</span></span><br><span class="line">                publishHTML target: [</span><br><span class="line">                    allowMissing: <span class="literal">false</span>,</span><br><span class="line">                    alwaysLinkToLastBuild: <span class="literal">false</span>,</span><br><span class="line">                    keepAll: <span class="literal">true</span>,</span><br><span class="line">                    reportDir: <span class="string">'components/webcomponent-sample/coverage/chrome'</span>,</span><br><span class="line">                    reportFiles: <span class="string">'index.html'</span>,</span><br><span class="line">                    reportName: <span class="string">'RCov Report'</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// E2E 测试阶段</span></span><br><span class="line">        stage(<span class="string">'E2E Test'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                bat <span class="string">'node nightwatch e2e/demo/test.js'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Release'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">'Release...'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    post &#123;</span><br><span class="line">        <span class="comment">// 执行成功是触发</span></span><br><span class="line">        success &#123;  </span><br><span class="line">            mail bcc: <span class="string">'email@qq.com'</span>,</span><br><span class="line">            body: <span class="string">"&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; "</span>, <span class="attr">cc</span>: <span class="string">''</span>, <span class="attr">charset</span>: <span class="string">'UTF-8'</span>, <span class="attr">from</span>: <span class="string">'jenkins@qq.com'</span>, <span class="attr">mimeType</span>: <span class="string">'text/html'</span>, <span class="attr">replyTo</span>: <span class="string">''</span>, <span class="attr">subject</span>: <span class="string">"SUCCESS: Project Name -&gt; $&#123;env.JOB_NAME&#125;"</span>, <span class="attr">to</span>: <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行失败时触发</span></span><br><span class="line">        failure &#123;  </span><br><span class="line">            mail bcc: <span class="string">'email@qq.com'</span>,</span><br><span class="line">            body: <span class="string">"&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; "</span>, <span class="attr">cc</span>: <span class="string">''</span>, <span class="attr">charset</span>: <span class="string">'UTF-8'</span>, <span class="attr">from</span>: <span class="string">'jenkins@qq.com'</span>, <span class="attr">mimeType</span>: <span class="string">'text/html'</span>, <span class="attr">replyTo</span>: <span class="string">''</span>, <span class="attr">subject</span>: <span class="string">"FAILURE: Project Name -&gt; $&#123;env.JOB_NAME&#125;"</span>, <span class="attr">to</span>: <span class="string">""</span>;  </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2018/04/Jenkinsfile-configure/" data-id="ckjw9nm3k002vccfo58g5cm3s" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2018/04/Jenkinsfile-configure/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
     <article id="post-2018/04/devops-practice" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/devops-practice/" class="article-date">
@@ -147,7 +193,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/04/devops-practice/" data-id="ckjutfq7l0029bcfob81dcsg1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/04/devops-practice/" data-id="ckjw9nm3i002sccfo0o5n995b" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/04/devops-practice/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -205,7 +251,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/git-command-cheat/" data-id="ckjutfq70001wbcfocy4w9q10" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/git-command-cheat/" data-id="ckjw9nm32001zccfo7cpt9ds8" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/git-command-cheat/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -250,7 +296,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/" data-id="ckjutfq7g0026bcfoae4e4vj9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/" data-id="ckjw9nm360025ccfobfeu26pi" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -299,7 +345,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/" data-id="ckjutfq6w001tbcfo3xe2brj0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/" data-id="ckjw9nm30001vccfogj905xaa" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -352,7 +398,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/" data-id="ckjutfq6s001pbcfo04gjh1gl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/" data-id="ckjw9nm2w001pccfo514q9hps" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -397,7 +443,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/01/open-multiple-windows/" data-id="ckjutfq7c0022bcfoguex1jtk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/01/open-multiple-windows/" data-id="ckjw9nm2z001sccfoecl8ht5c" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/01/open-multiple-windows/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -452,7 +498,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/" data-id="ckjutfq6i001mbcfo8m2yc9is" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/" data-id="ckjw9nm2o001kccfo6l3rf8qg" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -507,7 +553,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/install-hexo-on-ubuntu/" data-id="ckjutfq5z001bbcfo2gg6g2t9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/install-hexo-on-ubuntu/" data-id="ckjw9nm2i001accfobv0bddj6" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/install-hexo-on-ubuntu/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -554,57 +600,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/" data-id="ckjutfq5o0012bcfocd80ahpw" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/" data-id="ckjw9nm2g0016ccfohmfmcjna" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article id="post-2017/12/nightwatch-wait-for-text" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/nightwatch-wait-for-text/" class="article-date">
-  <time datetime="2017-12-19T02:29:41.000Z" itemprop="datePublished">2017-12-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/automation/">Automation</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/nightwatch-wait-for-text/">Nightwatch wait For Text</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在使用 Nightwatch 做自动化测试的时候，会遇到这样一种情况：<br>创建一个 query, 等待这个query的状态从 Wait 变成 Running 最后到 Available 时再执行操作。<br>Nightwatch 并没有提供这样的方法，可以通过下面的方式解决。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'Wait for text'</span>: <span class="function"><span class="keyword">function</span> <span class="title">waitForText</span>(<span class="params">client</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> query = client.page.query();</span><br><span class="line">    query.navigate();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">        client.getText(<span class="string">'status'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (result.value.indexOf(<span class="string">'Available'</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.break;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                client.pause(<span class="number">1000</span>);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// TODO something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/" data-id="ckjutfq6b001ibcfo62y306k0" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/automation/" rel="tag">Automation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a></li></ul>
 
     </footer>
     
@@ -625,7 +626,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">31</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -645,6 +646,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/01/result-vs-currentresult/">What&#39;s the difference between result and currentResult in Jenkins?</a>
+          </li>
         
           <li>
             <a href="/2021/01/git-repository-settings/">These settings in Bitbucket/GitHub recommends enable</a>
@@ -722,10 +727,6 @@ ga('send', 'pageview');
             <a href="/2020/07/annual-work-summary/">Annual work summary from 2019.03 - 2020.07</a>
           </li>
         
-          <li>
-            <a href="/2020/07/jenkins-tips-3/">Jenkins 执行 Shell 如果返回值不为0，作业(Job)停止并失败怎么办？</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -735,7 +736,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
