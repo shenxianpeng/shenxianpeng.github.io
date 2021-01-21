@@ -88,6 +88,300 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2019/05/jenkins-linux-agent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/jenkins-linux-agent/" class="article-date">
+  <time datetime="2019-05-12T11:49:20.000Z" itemprop="datePublished">2019-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/jenkins-linux-agent/">Jenkins Linux agent configuration</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="Check-if-had-installed-java"><a href="#Check-if-had-installed-java" class="headerlink" title="Check if had installed java"></a>Check if had installed java</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">openjdk version <span class="string">"1.8.0_65"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_65-b17)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)</span><br></pre></td></tr></table></figure>
+
+<h4 id="if-not-Here-is-an-article-telling-you-how-to-install-it"><a href="#if-not-Here-is-an-article-telling-you-how-to-install-it" class="headerlink" title="if not Here is an article telling you how to install it"></a>if not Here is an <a href="https://www.javahelps.com/2015/03/install-oracle-jdk-in-ubuntu.html" target="_blank" rel="noopener">article</a> telling you how to install it</h4><h2 id="Create-Node"><a href="#Create-Node" class="headerlink" title="Create Node"></a>Create Node</h2><h3 id="1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine"><a href="#1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine" class="headerlink" title="1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine"></a>1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine</h3><h4 id="2-List-Linux-agent-settings"><a href="#2-List-Linux-agent-settings" class="headerlink" title="2. List Linux agent settings"></a>2. List Linux agent settings</h4><table>
+<thead>
+<tr>
+<th>Items</th>
+<th>Settings</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Name</td>
+<td>Linux-build-machine</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>used for Linux build</td>
+</tr>
+<tr>
+<td>of executors</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Remote root directory</td>
+<td>/home/agent</td>
+</tr>
+<tr>
+<td>Labels</td>
+<td>Linux, build</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>Use this node as much as possible</td>
+</tr>
+<tr>
+<td>Launch method</td>
+<td>Launch agent agents via SSH</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>192.168.1.112</td>
+</tr>
+<tr>
+<td>Credentials</td>
+<td>username/password</td>
+</tr>
+<tr>
+<td>Host Key Verification Strategy</td>
+<td>Manually trusted key Verification Strategy</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Keep this agent online as much as paossible</td>
+</tr>
+</tbody></table>
+<h4 id="3-How-to-set-credentials"><a href="#3-How-to-set-credentials" class="headerlink" title="3. How to set credentials"></a>3. How to set credentials</h4><table>
+<thead>
+<tr>
+<th>credentials</th>
+<th>configuration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Domain</td>
+<td>Global credentials (unrestricted)</td>
+</tr>
+<tr>
+<td>Kind</td>
+<td>Username with password</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Global(Jenkins, nodes, items, all child items, etc)</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>root</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>mypassword</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Linux agent username &amp; password</td>
+</tr>
+</tbody></table>
+<h4 id="4-Save-then-Connect"><a href="#4-Save-then-Connect" class="headerlink" title="4. Save then Connect"></a>4. Save then Connect</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Remoting version: 3.29</span><br><span class="line">This is a Unix agent</span><br><span class="line">Evacuated stdout</span><br><span class="line">Agent successfully connected and online</span><br><span class="line">SSHLauncher&#123;host=<span class="string">'192.168.1.112'</span>, port=22, credentialsId=<span class="string">'d1cbab74-823d-41aa-abb7-8584859503d0'</span>, jvmOptions=<span class="string">''</span>, javaPath=<span class="string">'/usr/bin/java'</span>,</span><br><span class="line">prefixStartSlaveCmd=<span class="string">''</span>, suffixStartSlaveCmd=<span class="string">''</span>, launchTimeoutSeconds=210, maxNumRetries=10, retryWaitTime=15,</span><br><span class="line">sshHostKeyVerificationStrategy=hudson.plugins.sshslaves.verifiers.ManuallyTrustedKeyVerificationStrategy, tcpNoDelay=<span class="literal">true</span>, trackCredentials=<span class="literal">true</span>&#125;</span><br><span class="line">[05/11/19 01:33:37] [SSH] Opening SSH connection to 192.168.1.112:22.</span><br><span class="line">[05/11/19 01:33:37] [SSH] SSH host key matches key seen previously <span class="keyword">for</span> this host. Connection will be allowed.</span><br><span class="line">[05/11/19 01:33:37] [SSH] Authentication successful.</span><br><span class="line">[05/11/19 01:33:37] [SSH] The remote user<span class="string">'s environment is:</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>how to fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[04/22/19 23:15:07] [SSH] WARNING: No entry currently exists in the Known Hosts file for this host. Connections will be denied until this new host and its associated key is added to the Known Hosts file.</td>
+<td>ssh-keyscan HOSTNAME &gt;&gt; known_hosts</td>
+</tr>
+<tr>
+<td>/var/lib/jenkins/.ssh/known_hosts [SSH] No Known Hosts file was found at /var/lib/jenkins/.ssh/known_hosts.</td>
+<td>changing the Host key verification strategy in LAUNCH METHOD from “Known Hosts file verification strategy” to “Manually trusted key verification strategy”</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/" data-id="ckk71octz003wd8fo742k7rke" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
+    <article id="post-2019/05/jenkins-windows-agent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/jenkins-windows-agent/" class="article-date">
+  <time datetime="2019-05-12T10:39:59.000Z" itemprop="datePublished">2019-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/jenkins-windows-agent/">Jenkins Windows agent configuration</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="1-Download-Java"><a href="#1-Download-Java" class="headerlink" title="1. Download Java"></a>1. <a href="https://www.java.com/en/download/" target="_blank" rel="noopener">Download Java</a></h3><h4 id="2-Configure-Java-Windows-path"><a href="#2-Configure-Java-Windows-path" class="headerlink" title="2. Configure Java Windows path"></a>2. Configure Java Windows path</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=C:\Program Files\Java\jdk1.8.0_201</span><br><span class="line">CLASSPATH=.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-Node"><a href="#Create-Node" class="headerlink" title="Create Node"></a>Create Node</h2><h3 id="1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine"><a href="#1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine" class="headerlink" title="1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine"></a>1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine</h3><h4 id="2-List-windows-agent-settings"><a href="#2-List-windows-agent-settings" class="headerlink" title="2. List windows agent settings"></a>2. List windows agent settings</h4><table>
+<thead>
+<tr>
+<th>Items</th>
+<th>Settings</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Name</td>
+<td>window-build-machine</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>used for windows build</td>
+</tr>
+<tr>
+<td>of executors</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Remote root directory</td>
+<td>C:\agent</td>
+</tr>
+<tr>
+<td>Labels</td>
+<td>windows, build</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>Use this node as much as possible</td>
+</tr>
+<tr>
+<td>Launch method</td>
+<td>Let Jenkins control this Windows slave as a Windows service</td>
+</tr>
+<tr>
+<td>Administrator user name</td>
+<td>.\Administrator</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>mypassword</td>
+</tr>
+<tr>
+<td>Host</td>
+<td>192.168.1.111</td>
+</tr>
+<tr>
+<td>Run service as</td>
+<td>Use Administrator account given above</td>
+</tr>
+<tr>
+<td>Availability</td>
+<td>Keep this agent online as much as paossible</td>
+</tr>
+</tbody></table>
+<h4 id="3-Save-then-Connect"><a href="#3-Save-then-Connect" class="headerlink" title="3. Save then Connect"></a>3. Save then Connect</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[2019-05-11 01:32:50] [windows-slaves] Connecting to 192.168.1.111</span><br><span class="line">Checking <span class="keyword">if</span> Java exists</span><br><span class="line">java -version returned 1.8.0.</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying jenkins-slave.xml</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying slave.jar</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Starting the service</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Waiting <span class="keyword">for</span> the service to become ready</span><br><span class="line">[2019-05-11 01:32:55] [windows-slaves] Connecting to port 52,347</span><br><span class="line">&lt;===[JENKINS REMOTING CAPACITY]===&gt;Remoting version: 3.29</span><br><span class="line">This is a Windows agent</span><br><span class="line">Agent successfully connected and online</span><br></pre></td></tr></table></figure>
+
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Problem</th>
+<th>how to fix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>ERROR: Message not found for errorCode: 0xC00000AC</td>
+<td>need to install JDK, and config JAVA environment variable</td>
+</tr>
+<tr>
+<td>2</td>
+<td>how to fix add windows node as Windows service error</td>
+<td><a href="https://issues.jenkins-ci.org/browse/JENKINS-16418" target="_blank" rel="noopener">JENKINS-16418</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>org.jinterop.dcom.common.JIException: Message not found for errorCode: 0x00000005</td>
+<td>HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID {72C24DD5-D70A-438B-8A42-98424B88AFB8} <br> HKEY_CLASSES_ROOT\CLSID{76A64158-CB41-11D1-8B02-00600806D9B6} <br>Launch ‘regedit’ (as Administrator) <br>Find (Ctrl+F) the following registry key: “{72C24DD5-D70A-438B-8A42-98424B88AFB8}” in HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID\ <br>Right click and select ‘Permissions’, Change owner to administrators group (Advanced…). <br>Change permissions for administrators group. Grant Full Control <br>Change owner back to TrustedInstaller (user is “NT Service\TrustedInstaller” on local machine)<br>Repeat the steps above for HKEY_CLASSES_ROOT\CLSID {76A64158-CB41-11D1-8B02-00600806D9B6} <br>Restart Remote Registry Service (Administrative Tools / Services)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</td>
+<td>Login remote machine and open Services find jenkinsslave-C__agent <br>Set startup type: Automatic <br>Log On: select This account, type correct account and password <br>start jenkinsslave-C__agent</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Caused by: org.jinterop.dcom.common.JIRuntimeException: Message not found for errorCode: 0x800703FA</td>
+<td>Slave under domain account <br>If your slave is running under a domain account and you get an error code 0x800703FA, change a group policy: <br>open the group policy editor (gpedit.msc) <br>go to Computer Configuration-&gt;Administrative Templates-&gt;System-&gt; UserProfiles, “Do not forcefully unload the user registry at user logoff” <br>Change the setting from “Not Configured” to “Enabled”, which disables the new User Profile Service feature (‘DisableForceUnload’ is the value added to the registry)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>more connect jenkins agent problem on windows …</td>
+<td>please refer to this link <a href="https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc" target="_blank" rel="noopener">https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>ERROR: Message not found for errorCode: 0xC0000001 Caused by: jcifs.smb.SmbException: Failed to connect: 0.0.0.0&lt;00&gt;/10.xxx.xxx.xxx</td>
+<td>need to enable SMB1 <br>Search in the start menu for ‘Turn Windows features on or off’ and open it. <br>Search for ‘SMB1.0/CIFS File Sharing Support’ in the list of optional features that appears, and select the checkbox next to it. <br>Click OK and Windows will add the selected feature. You’ll be asked to restart your computer as part of this process</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/" data-id="ckk71ocu2003zd8fo7prw5ji5" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
     <article id="post-2018/12/from-qa-to-dev" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/from-qa-to-dev/" class="article-date">
@@ -131,7 +425,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/" data-id="ckjwtrgpw0037acfo9m1k0ld1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/" data-id="ckk71octj003gd8fo2ykd5arn" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -184,7 +478,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/" data-id="ckjwtrgpu0035acfoa7yf2m7e" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/" data-id="ckk71octf003dd8fobgxgd78a" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -250,7 +544,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/" data-id="ckjwtrgpt0031acfogankckx7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/" data-id="ckk71octd0039d8fo6s3532qr" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -300,7 +594,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/" data-id="ckjwtrgpp002uacfoe1s19lbk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/" data-id="ckk71oct90036d8fobamh4bvt" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -348,7 +642,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/07/C-print/" data-id="ckjwtrgpr002yacfob2qc0u3o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/07/C-print/" data-id="ckk71oct60032d8fo1w15bl11" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/07/C-print/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -392,7 +686,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/05/C-score-input-sort-show/" data-id="ckjwtrgpg002eacfog2rz4ufj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/05/C-score-input-sort-show/" data-id="ckk71ocsn002gd8fobpp56n0z" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/05/C-score-input-sort-show/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -436,7 +730,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/05/calculate-graph-area/" data-id="ckjwtrgpj002kacfo9igs67cx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/05/calculate-graph-area/" data-id="ckk71ocsy002vd8foddoy3c8o" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/05/calculate-graph-area/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -481,124 +775,12 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/05/C-self-defining-function/" data-id="ckjwtrgpi002hacfoe6zk8796" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/05/C-self-defining-function/" data-id="ckk71ocsp002kd8fo9wg3afme" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2018/05/C-self-defining-function/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">C</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article id="post-2018/05/senior-test-engineer-in-my-eyes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/senior-test-engineer-in-my-eyes/" class="article-date">
-  <time datetime="2018-05-06T08:35:34.000Z" itemprop="datePublished">2018-05-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/mynotes/">MyNotes</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/senior-test-engineer-in-my-eyes/">我眼中的高级测试工程师</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>满足什么样的技术和经验才算高级工程师呢？说说我心中的高级工程师。</p>
-<h3 id="具有丰富的行业测试经验"><a href="#具有丰富的行业测试经验" class="headerlink" title="具有丰富的行业测试经验"></a>具有丰富的行业测试经验</h3><p>最好有传统和互联网大公司工作经验，没有的话至少与这些公司的高级测试工程师有交流，了解他们是如何开展测试的，有助提高自己的眼界。</p>
-<h3 id="有良好的测试基础"><a href="#有良好的测试基础" class="headerlink" title="有良好的测试基础"></a>有良好的测试基础</h3><p>掌握必要的测试理论，熟悉测试流程，需求分析，测试用例设计方法，根据项目实际需要制定测试方案。</p>
-<h3 id="有丰富的业务能力"><a href="#有丰富的业务能力" class="headerlink" title="有丰富的业务能力"></a>有丰富的业务能力</h3><p>做好功能测试的前提是熟悉业务，能更好的站在产品的角度去设计测试用例，才能发现基本功能以外的问题，能给产品提出建设性的需求和意见。</p>
-<h3 id="熟悉相关的测试工具"><a href="#熟悉相关的测试工具" class="headerlink" title="熟悉相关的测试工具"></a>熟悉相关的测试工具</h3><p>软件测试用到的相关工具非常多，了解和使用过这些工具，能更好的结合公司的要求及项目的需求来权衡引入哪些工具，提高工作效率。</p>
-<ol>
-<li>管理工具：比如JIRA，Testlink，Wiki，Confluence</li>
-<li>持续集成：Jenkins，Bamboo，Travis CI等，了解他们之间的区别以及如何实施。</li>
-<li>自动化测试：web和mobile平台之间是如何做自动化才测试的，用到哪些工具。了解Selenium，WebDriver，Appium，Robotium测试框架，以及用哪些语言去开发自动化测试用例，Python？Java？JavaScript？知道如何选择如何实施。</li>
-<li>性能测试：了解Jmeter，LoadRunner这两个主要的性能测试工具，如何开展性能测试。</li>
-</ol>
-<h3 id="有良好的代码能力"><a href="#有良好的代码能力" class="headerlink" title="有良好的代码能力"></a>有良好的代码能力</h3><p>良好的代码能力可以快速掌握自动化测试，甚至可以开发测试平台。另外，当你跳槽到任何一家公司可以让你快速熟悉Java、Python、Javascript等任何语言编写的自动化测试用例。</p>
-<h3 id="语言能力"><a href="#语言能力" class="headerlink" title="语言能力"></a>语言能力</h3><p>包括沟通能力和外语能力。沟通是一个测试人员在工作中必不可少的一项基本技能，良好的沟通会让开发人员了解问题所在，接受你的意见，从产品人员那里更好的了解需求。虽然只有在外企的时候才会用到英语，但是随着测试人员也需要学习很多的技术，开源社区的发展，很多第一手资料都是用英文写的，所以学好英文对于扩展和学习新知识有很大帮助。</p>
-<p>所以说成为一名优秀的高级测试工程师所要求的能力还是很多的，一起努力吧！💪</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/05/senior-test-engineer-in-my-eyes/" data-id="ckjwtrgpm002oacfo8g9v97yy" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2018/05/senior-test-engineer-in-my-eyes/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/work/" rel="tag">Work</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
-    <article id="post-2018/05/permission-denied-publickey" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/permission-denied-publickey/" class="article-date">
-  <time datetime="2018-05-06T08:15:18.000Z" itemprop="datePublished">2018-05-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/git/">Git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/permission-denied-publickey/">Error: Permission denied (publickey)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果你想在一台电脑上配置 github 和 bitbucket，如何配置多个 SSH git key？<br>输入以下命令生成 SSH Key，注意在生成过程中最好输入新的名字，比如 id_rsa_github 和 id_rsa_bitbucket</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span></span><br></pre></td></tr></table></figure>
-
-<p>然后将生成的 SSH key 文件内容复制到对应网址的个人用户设置中即可。但是明明按照官方教程做的但是在 git clone 的时候还是遇到以下问题：<br>Error: Permission denied (publickey)<br>困恼了几天的错误终于解决了。</p>
-<p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">参看这个文档</a></p>
-<p>由于我用的是macOS Sierra 10.13.3，<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">文档这里</a>写着如果是macOS Sierra 10.12.2 及以后的版本需要在<br>~/.ssh 目录下创建一个 config 文件<br>congfig 文件的具体配置如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line"></span><br><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa_bitbucket</span><br></pre></td></tr></table></figure>
-
-<p>配置了这个文件之后，再次尝试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:shenxianpeng/blog.git</span><br></pre></td></tr></table></figure>
-
-<p>可以 download 代码了，两个 SSH git 都好用了 : )</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/05/permission-denied-publickey/" data-id="ckjwtrgpo002sacfo5uwt1e2r" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2018/05/permission-denied-publickey/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
 
     </footer>
     
@@ -619,7 +801,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -629,7 +811,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 11px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 14px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 14px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 16px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 19px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 11px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pipeline/" style="font-size: 17px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 12px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 13px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 11px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 14px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 14px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 16px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 19px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 11px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pipeline/" style="font-size: 17px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 12px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 13px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -639,6 +821,14 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/01/devops-roadmap-2021/">2021 DevOps Roadmap</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/devops-trends-in-2021/">预测 2021 年的 DevOps 趋势</a>
+          </li>
         
           <li>
             <a href="/2021/01/result-vs-currentresult/">What&#39;s the difference between result and currentResult in Jenkins?</a>
@@ -712,14 +902,6 @@ ga('send', 'pageview');
             <a href="/2020/08/rdp-problem/">Fixed &#34;Remote session was disconnected because there are no Remote Desktop client access licenses available&#34;</a>
           </li>
         
-          <li>
-            <a href="/2020/08/bitbucket-pull-request-event/">通过 generic-webhook-trigger 插件实时获取 Bitbucket Repository Events</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/annual-work-summary/">Annual work summary from 2019.03 - 2020.07</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -729,7 +911,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
