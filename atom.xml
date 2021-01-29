@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-21T15:58:49.169Z</updated>
+  <updated>2021-01-29T13:15:14.519Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2021 DevOps Roadmap</title>
+    <title>2021年DevOps工程师的学习路线</title>
     <link href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/"/>
     <id>https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/</id>
     <published>2021-01-21T15:29:25.000Z</published>
-    <updated>2021-01-21T15:58:49.169Z</updated>
+    <updated>2021-01-29T13:15:14.519Z</updated>
     
     <summary type="html">
     
@@ -30,8 +30,7 @@
         
         
           &lt;p&gt;DevOps 实际上是什么意思？什么是 DevOps 工程师？ 🤔&lt;/p&gt;
-&lt;p&gt;DevOps 是一种软件开发方法，涉及持续开发，持续测试，持续集成，部署和监视。&lt;/p&gt;
-&lt;p&gt;上述过程跨越了传统上孤立的开发和运营团队，DevOps
+&lt;p&gt;DevOps 是一种软件开发方法，涉及持续开发，持续测试，持续集成，部署和监视。这一系列过程跨越了传统上孤立的开发和运营团队，DevOps
         
       
     
@@ -49,7 +48,7 @@
     <link href="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/"/>
     <id>https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/</id>
     <published>2021-01-21T14:12:32.000Z</published>
-    <updated>2021-01-21T15:58:41.018Z</updated>
+    <updated>2021-01-29T13:07:56.596Z</updated>
     
     <summary type="html">
     
@@ -296,9 +295,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
