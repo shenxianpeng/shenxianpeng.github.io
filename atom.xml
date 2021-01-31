@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-01-29T13:15:14.519Z</updated>
+  <updated>2021-01-31T08:51:07.524Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2021年DevOps工程师的学习路线</title>
-    <link href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/"/>
-    <id>https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/</id>
-    <published>2021-01-21T15:29:25.000Z</published>
-    <updated>2021-01-29T13:15:14.519Z</updated>
+    <title>Jenkins upgrade issue &quot;Windows agents won&#39;t start&quot; workaround</title>
+    <link href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/"/>
+    <id>https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/</id>
+    <published>2021-02-11T08:09:06.000Z</published>
+    <updated>2021-01-31T08:51:07.524Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,35 @@
       
         
         
-          &lt;p&gt;DevOps 实际上是什么意思？什么是 DevOps 工程师？ 🤔&lt;/p&gt;
-&lt;p&gt;DevOps 是一种软件开发方法，涉及持续开发，持续测试，持续集成，部署和监视。这一系列过程跨越了传统上孤立的开发和运营团队，DevOps
+          &lt;p&gt;Today, when I tried to upgrade my team’s Jenkins server from Jenkins 2.235.1 to Jenkins 2.263.3, I met a problem that can not launch the
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021年DevOps工程师的学习路线</title>
+    <link href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/"/>
+    <id>https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/</id>
+    <published>2021-01-21T15:29:25.000Z</published>
+    <updated>2021-01-31T04:24:46.207Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;DevOps 实际上是什么意思？🤔&lt;/p&gt;
+&lt;p&gt;DevOps 是一种软件开发方法，涉及持续开发，持续测试，持续集成，部署和监视。这一系列过程跨越了传统上孤立的开发和运营团队，DevOps 试图消除它们之间的障碍。&lt;/p&gt;
+&lt;p&gt;因此，DevOps 工程师基本上与
         
       
     
@@ -581,31 +608,6 @@
       <category term="Jira" scheme="https://shenxianpeng.github.io/tags/jira/"/>
     
       <category term="REST-API" scheme="https://shenxianpeng.github.io/tags/rest-api/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Fixed &quot;Remote session was disconnected because there are no Remote Desktop client access licenses available&quot;</title>
-    <link href="https://shenxianpeng.github.io/2020/08/rdp-problem/"/>
-    <id>https://shenxianpeng.github.io/2020/08/rdp-problem/</id>
-    <published>2020-08-10T07:40:04.000Z</published>
-    <updated>2020-12-25T07:43:00.781Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;Sometime my Windows server 2012 R2 has RDP connect problem below:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Remote session was disconnected because there are no Remote Desktop client access licenses available for this computer.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Please contact the server administrator.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;img src=&quot;/2020/08/rdp-problem/RDP-failed.png&quot; alt=&quot;RDP connect problem&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
-    
-      <category term="RDP" scheme="https://shenxianpeng.github.io/tags/rdp/"/>
     
   </entry>
   

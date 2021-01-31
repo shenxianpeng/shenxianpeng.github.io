@@ -6,18 +6,18 @@
   
   <title>How to fix &#34;.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service&#34; | Hello World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and out come this warning message “.NET Framework 2.0 or later is required on this computer">
+  <meta name="description" content="When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and outcome this warning message “.NET Framework 2.0 or later is required on this computer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to fix &quot;.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service&quot;">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and out come this warning message “.NET Framework 2.0 or later is required on this computer">
+<meta property="og:description" content="When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and outcome this warning message “.NET Framework 2.0 or later is required on this computer">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/1.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/2.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/4.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/3.png">
 <meta property="article:published_time" content="2020-07-16T03:28:20.000Z">
-<meta property="article:modified_time" content="2021-01-14T12:23:31.843Z">
+<meta property="article:modified_time" content="2021-01-31T08:05:01.716Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="troubleshooting">
@@ -121,10 +121,10 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and out come this warning message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”.</p>
+        <p>When I upgrade Jenkins 2.176.3 to Jenkins 2.235.1, my Windows agent can not connect with master successfully and outcome this warning message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”.</p>
 <a id="more"></a>
 
-<p>This means I need to upgrade my Windows agent .NET Framework. Here are steps about how to upgrade .NET Framework to version 3.5.</p>
+<p>It means I need to upgrade my Windows agent .NET Framework. Here are steps about how to upgrade .NET Framework to version 3.5.</p>
 <h2 id="Install-NET-Framework-3-5"><a href="#Install-NET-Framework-3-5" class="headerlink" title="Install .NET Framework 3.5"></a>Install .NET Framework 3.5</h2><ol>
 <li><p>Open Programs and Features </p>
 <p><img src="/2020/07/jenkins-windows-agent-connect-problem/1.png" alt="Programs and Features"></p>
@@ -133,26 +133,27 @@ ga('send', 'pageview');
 <p> <img src="/2020/07/jenkins-windows-agent-connect-problem/2.png" alt="Features"></p>
 </li>
 </ol>
-<p>Then try to reconnect Jenkins agent it should back to work.</p>
-<h2 id="Install-Jenkins-agent-service"><a href="#Install-Jenkins-agent-service" class="headerlink" title="Install Jenkins agent service"></a>Install Jenkins agent service</h2><p>If you can not found <code>Jenkins agent</code> like me. </p>
+<p>Then try to reconnect the Jenkins agent, then it should back to work.</p>
+<h2 id="Install-Jenkins-agent-service"><a href="#Install-Jenkins-agent-service" class="headerlink" title="Install Jenkins agent service"></a>Install Jenkins agent service</h2><p>If you can not found a <code>Jenkins agent</code> like me,</p>
 <p><img src="/2020/07/jenkins-windows-agent-connect-problem/4.png" alt="Jenkins agent service"></p>
-<p>you can try these steps to install <code>Jenkins agent</code>.</p>
+<p>You can try these steps to install <code>Jenkins agent</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install Jenkins agent service</span></span><br><span class="line"><span class="built_in">cd</span> c:\\jenkins</span><br><span class="line">.\jenkins-agent.exe install</span><br><span class="line">net start jenkinsslave-C__agent</span><br><span class="line"></span><br><span class="line"><span class="comment"># unstall Jenkins agent service</span></span><br><span class="line">sc delete jenkinsslave-C__agent</span><br></pre></td></tr></table></figure>
 
-<h2 id="Manual-install-NET-Framework-3-5"><a href="#Manual-install-NET-Framework-3-5" class="headerlink" title="Manual install .NET Framework 3.5"></a>Manual install .NET Framework 3.5</h2><p>Btw, if you could not installed .NET Framework 3.5 successful. you can try to install manually by this step</p>
+<h2 id="Manual-install-NET-Framework-3-5"><a href="#Manual-install-NET-Framework-3-5" class="headerlink" title="Manual install .NET Framework 3.5"></a>Manual install .NET Framework 3.5</h2><p>Btw, if you could not install .NET Framework 3.5 successfully. you can try to install manually by this step</p>
 <ol>
 <li><p>Manually download <a href="https://androidfilehost.com/?fid=1322778262904003837" target="_blank" rel="noopener">microsoft-windows-netfx3-ondemand-package.cab</a></p>
 </li>
-<li><p>Specify the file path like below to install</p>
+<li><p>Specify the path like below to install(note: the path is the directory where the file located)</p>
 <p> <img src="/2020/07/jenkins-windows-agent-connect-problem/3.png" alt="microsoft-windows-netfx3-ondemand-package.cab file path"></p>
 </li>
 </ol>
-<p>Hope this would also works for you. Pls let me know in case of you have any comments.</p>
+<p>In my case no need to reboot the Windows agent.</p>
+<p>Hopefully, this also works for you. Let me know in case you have any comments.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckkib9gmc008fowfoa9ndfzb0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="ckkkwoj79008im0fo1vo0gleu" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -198,7 +199,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -218,6 +219,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/02/jenkins-windows-agent-cannot-start/">Jenkins upgrade issue &#34;Windows agents won&#39;t start&#34; workaround</a>
+          </li>
         
           <li>
             <a href="/2021/01/devops-roadmap-2021/">2021年DevOps工程师的学习路线</a>
@@ -295,10 +300,6 @@ ga('send', 'pageview');
             <a href="/2020/08/update-jira-server-account-avatar-with-rest-api/">Update Jira server account avatar with rest API</a>
           </li>
         
-          <li>
-            <a href="/2020/08/rdp-problem/">Fixed &#34;Remote session was disconnected because there are no Remote Desktop client access licenses available&#34;</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -308,7 +309,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

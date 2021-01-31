@@ -88,6 +88,67 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2017/10/nightwatch-cdetermine-if-element-exists" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/10/nightwatch-cdetermine-if-element-exists/" class="article-date">
+  <time datetime="2017-10-26T09:09:06.000Z" itemprop="datePublished">2017-10-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/automation/">Automation</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/nightwatch-cdetermine-if-element-exists/">Nightwatch 验证元素是否存在</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="元素常用验证方法"><a href="#元素常用验证方法" class="headerlink" title="元素常用验证方法"></a>元素常用验证方法</h2><p>验证元素的值信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">andesFormSection</span><br><span class="line">    .assert.containsText(<span class="string">'@errorMessage'</span>, <span class="string">'The email address is invalid.'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>验证元素是否可用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">andesFormSection</span><br><span class="line">    .assert.attributeEquals(<span class="string">'@continueBtn'</span>, <span class="string">'disabled'</span>, <span class="string">'true'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>等待元素可用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">andesFormSection</span><br><span class="line">    .expect.element(<span class="string">'@signInBtn'</span>).to.be.visible.before(5000);</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">andesFormSection</span><br><span class="line">    waitForElementVisible(<span class="string">'signInBtn'</span>, 5000);</span><br></pre></td></tr></table></figure>
+
+<p>等待元素呈现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">andesFormSection</span><br><span class="line">    .expect.element(<span class="string">'@signInBtn'</span>).to.be.present.before(5000);</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">andesFormSection</span><br><span class="line">    waitForElementPresent(<span class="string">'signInBtn'</span>, 5000);</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断元素是否存在"><a href="#判断元素是否存在" class="headerlink" title="判断元素是否存在"></a>判断元素是否存在</h2><p>用 Nightwatch 去判断一个 element 是否存在，如果存在执行如下操作，如果不存在做另外的操作。<br>这个在 Java 编写的自动化测试用例中可以用 try catch 可以解决，Nightwatch 试过不行。<br>另外看到 stackoverflow 上有通过判断 (result.status != -1)，没有解决我的问题。</p>
+<p>最后这样解决的，请看下面 tutorial.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> tutorialCommands = &#123;</span><br><span class="line">  notShowTutorial: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> tutorialSection = <span class="keyword">this</span>.section.tutorial;</span><br><span class="line">    <span class="keyword">this</span>.api.element(<span class="string">'css selector'</span>, <span class="string">'.andes-dialog md-icon'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (result.value &amp;&amp; result.value.ELEMENT) &#123;</span><br><span class="line">        <span class="keyword">this</span>.pause(<span class="number">2000</span>);</span><br><span class="line">        tutorialSection.click(<span class="string">'@doNotShowBtn'</span>);</span><br><span class="line">        <span class="keyword">this</span>.pause(<span class="number">2000</span>);</span><br><span class="line">        tutorialSection.click(<span class="string">'@closeBtn'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'no tutorial exists'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  commands: [tutorialCommands],</span><br><span class="line">  url: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`https://shenxianpeng.github.io/`</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  sections: &#123;</span><br><span class="line">    tutorial: &#123;</span><br><span class="line">      selector: <span class="string">'.andes-dialog'</span>,</span><br><span class="line">      elements: &#123;</span><br><span class="line">        closeBtn: <span class="string">'md-icon'</span>,</span><br><span class="line">        doNotShowBtn: <span class="string">'md-checkbox .md-container'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注意：这里的元素不能通过 section 的方式引用，例如这样，怀疑这是 Nightwatch 的 bug。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tutorialSection.api.element(<span class="string">'css selector'</span>, <span class="string">'@closeBtn'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-cdetermine-if-element-exists/" data-id="ckkkwoj2f000pm0fo9iun01of" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2017/10/nightwatch-cdetermine-if-element-exists/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/automation/" rel="tag">Automation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a></li></ul>
+
+    </footer>
+    
+  </div>
+  
+</article>
+  
     <article id="post-2017/10/configure-rss-subscription-for-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/configure-rss-subscription-for-hexo/" class="article-date">
@@ -125,7 +186,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/configure-rss-subscription-for-hexo/" data-id="ckkib9ggv0007owfo4ur50rt7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/configure-rss-subscription-for-hexo/" data-id="ckkkwoj1m0007m0fo6au9cmjw" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/configure-rss-subscription-for-hexo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -172,7 +233,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/insert-img-in-hexo-article/" data-id="ckkib9ggy0008owfodgye1s8j" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/insert-img-in-hexo-article/" data-id="ckkkwoj1u0009m0fohh580lcm" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/insert-img-in-hexo-article/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -224,7 +285,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-auto-compare-colors/" data-id="ckkib9gh4000cowfofezed89z" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-auto-compare-colors/" data-id="ckkkwoj20000cm0foftdkho2m" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/nightwatch-auto-compare-colors/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -274,7 +335,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-get-interface-return-data/" data-id="ckkib9gh6000dowfo6xgcbain" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-get-interface-return-data/" data-id="ckkkwoj29000im0fo4qfbfsw0" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/nightwatch-get-interface-return-data/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -324,7 +385,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-async-operation/" data-id="ckkib9gh20009owfo19mzeauu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-async-operation/" data-id="ckkkwoj23000dm0fo8ahm5jk3" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/nightwatch-async-operation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -373,7 +434,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-keyboard/" data-id="ckkib9gh8000howfo6pwf962h" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatch-keyboard/" data-id="ckkkwoj2d000mm0fog42thvux" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/nightwatch-keyboard/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -424,7 +485,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatchjs-guilde/" data-id="ckkib9ghe000powfohh6b6qx5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/10/nightwatchjs-guilde/" data-id="ckkkwoj26000hm0fo113a7p9r" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/10/nightwatchjs-guilde/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -481,7 +542,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/07/JST-automation/" data-id="ckkib9ggi0003owfocsg13q50" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/07/JST-automation/" data-id="ckkkwoj1a0003m0fo2wpo7vix" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/07/JST-automation/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -538,7 +599,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/07/hello-git/" data-id="ckkib9ggo0004owfo26jt7rlz" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/07/hello-git/" data-id="ckkkwoj1g0004m0fo7vnl7cz8" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2017/07/hello-git/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -551,57 +612,10 @@ ga('send', 'pageview');
   
 </article>
   
-    <article id="post-2017/07/hello-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/hello-hexo/" class="article-date">
-  <time datetime="2017-07-07T08:26:15.000Z" itemprop="datePublished">2017-07-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/hexo/">Hexo</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/hello-hexo/">Hello Hexo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start-4-Steps"><a href="#Quick-Start-4-Steps" class="headerlink" title="Quick Start(4 Steps)"></a>Quick Start(4 Steps)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span>    <span class="comment">#Create a new post</span></span><br><span class="line">hexo server               <span class="comment">#Run server</span></span><br><span class="line">hexo generate             <span class="comment">#Generate static files</span></span><br><span class="line">hexo deploy               <span class="comment">#Deploy to remote sites</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Also"><a href="#Also" class="headerlink" title="Also"></a>Also</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">"My New Post"</span>    <span class="comment">#Create a new post</span></span><br><span class="line">hexo server               <span class="comment">#Run server</span></span><br><span class="line">hexo generate -deplogy    <span class="comment">#Generate then deploy</span></span><br><span class="line">or</span><br><span class="line">hexo g -d                 <span class="comment">#Simple write this</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/07/hello-hexo/" data-id="ckkib9gha000jowfo1f4xhtqj" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2017/07/hello-hexo/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/" rel="tag">Blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a></li></ul>
-
-    </footer>
-    
-  </div>
-  
-</article>
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/11/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span>
+    <a class="extend prev" rel="prev" href="/page/11/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/">next</a>
   </nav>
 </section>
         
@@ -611,7 +625,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -631,6 +645,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/02/jenkins-windows-agent-cannot-start/">Jenkins upgrade issue &#34;Windows agents won&#39;t start&#34; workaround</a>
+          </li>
         
           <li>
             <a href="/2021/01/devops-roadmap-2021/">2021年DevOps工程师的学习路线</a>
@@ -708,10 +726,6 @@ ga('send', 'pageview');
             <a href="/2020/08/update-jira-server-account-avatar-with-rest-api/">Update Jira server account avatar with rest API</a>
           </li>
         
-          <li>
-            <a href="/2020/08/rdp-problem/">Fixed &#34;Remote session was disconnected because there are no Remote Desktop client access licenses available&#34;</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -721,7 +735,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
