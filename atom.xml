@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hello World</title>
   
-  <subtitle>DevOps Engineer</subtitle>
+  <subtitle>A DevOps Engineer&#39;s Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
@@ -322,9 +322,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
@@ -476,9 +476,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
-    
       <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
     
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     
@@ -546,9 +546,9 @@
     
       <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
     
-      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
-    
       <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
+    
+      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
     
   </entry>
   
