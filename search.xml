@@ -149,9 +149,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> OpenSSH </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -386,9 +386,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -855,9 +855,9 @@
             
             <tag> Troubleshooting </tag>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -909,9 +909,9 @@
       
         <tags>
             
-            <tag> vscode </tag>
-            
             <tag> Pipeline </tag>
+            
+            <tag> vscode </tag>
             
         </tags>
       
@@ -990,9 +990,9 @@
       
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -1445,9 +1445,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -1636,9 +1636,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -2912,9 +2912,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
         </tags>
       
