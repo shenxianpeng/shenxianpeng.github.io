@@ -123,7 +123,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/" data-id="cklaffj06009gg4fo4yvvblni" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/" data-id="cklajkldx00czxkfo8zc05jvl" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/06/vm-status-check-via-jenkins/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -174,7 +174,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/" data-id="cklaffj05009dg4fo2az189ym" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/" data-id="cklajkldr00clxkfo61ute7y1" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/06/Java-net-SocketException-on-AIX/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -224,7 +224,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/programmers-read-and-write/" data-id="cklaffj0h00a1g4fo5kyt8ioj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/programmers-read-and-write/" data-id="cklajkldi00c4xkfo1fx2hw62" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/programmers-read-and-write/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -255,7 +255,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/jenkins-pipeline-linter-connector/">如何确保提交 Jenkins Pipeline 前没有语法错误</a>
+      <a class="article-title" href="/2020/05/jenkins-pipeline-linter-connector/">如何确保在提交 Jenkins Pipeline 前没有语法错误</a>
     </h1>
   
 
@@ -263,10 +263,11 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我在做 Jenkins 声明式流水线开发时常会遇到的问题是：Pipeline 看起来没有问题，当提交到代码仓库后进行 Jenkins 构建时发现原来有语法错误，然后再去修改、提交、构建，结果可能还有有其他没有注意到的语法问题。</p>
-<p>为了减少这种因为语法错误而需要频繁像代码库去提交的情况，最好还是在提交之前进行“编译”检查，来查看当前的 Pipeline 是否存在语法错误。</p>
-<p>经过调查发现 Jenkins 本身提供了这样的 REST API，可以直接使用这个 API 来对 Pipeline 声明式进行语法校验，这个方式需要执行一长串的 <code>curl</code> 命令，看起来似乎很麻烦，如果能在 IDE 里直接运行就好了。VS Code 作为当前当前最流行 IDE 工具，不负期望，果然是有插件的。</p>
-<p>本文介绍了两种方式来实现如何对 Jenkins 声明式流水线在 Jenkins 构建执行前进行语法错误检查，这两种方式的原理都是通过调用 Jenkins REST API 来实现的。</p>
+        <p>我在做 Jenkins 声明式流水线开发时常会遇到的问题是：修改后的 Pipeline 看起来没有问题，当提交到代码仓库后进行 Jenkins 构建时发现原来有语法错误，然后再去修改、提交、构建，结果可能还有有其他没有注意到的语法问题。</p>
+<p>为了减少这种因为语法错误而需要频繁像代码库去提交的情况，如果能在提交之前进行基本的语法校验，来检查当前的 Pipeline 是否存在语法错误就好了。</p>
+<p>经过调查发现 Jenkins 本身提供了这样的语法检查 REST API，可以直接使用这个 API 来对 Pipeline 声明式进行语法校验，这个方式需要执行一长串的 <code>curl</code> 命令，看起来似乎很麻烦，如果能在 IDE 里直接运行就好了。</p>
+<p>VS Code 作为当前当前最流行 IDE 工具，果然找到了相关的插件。</p>
+<p>以下就介绍两种方法：针对 Jenkins 声明式流水线中的 Jenkinsfile 文件进行语法错误检查，这两种方式的原理都是通过调用 Jenkins REST API 来实现的。</p>
         
           <p class="article-more-link">
             <a href="/2020/05/jenkins-pipeline-linter-connector/#more">Read More</a>
@@ -275,7 +276,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/" data-id="cklaffj08009jg4fo7s9ngatd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/" data-id="cklajklde00btxkfo5d9i8l1q" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/jenkins-pipeline-linter-connector/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -325,7 +326,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/" data-id="cklaffj0f009xg4fod88x1a7u" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/" data-id="cklajkldm00caxkfoc1rg8tnz" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -379,7 +380,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/" data-id="cklaffj0d009ug4fo30ao1fni" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/" data-id="cklajkldk00c7xkfoge4wfcxj" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -431,7 +432,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/" data-id="cklaffj0i00a4g4fo67bohiwo" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/" data-id="cklajklds00coxkfo2hu36i9o" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -482,7 +483,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/" data-id="cklaffizv008og4fob059equ8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/" data-id="cklajkldb00bjxkfo8y884u9z" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks-cn/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -530,7 +531,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/" data-id="cklaffizx008sg4foh08l3c1p" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/" data-id="cklajkld900bgxkfo72q11wcs" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Bitbucket-webhooks/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -579,7 +580,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/" data-id="cklaffj00008zg4fo8ns2dnks" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/" data-id="cklajkldc00bmxkfogjhqc8j7" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/Jenkins-troubleshooting-1/#disqus_thread" class="article-comment-link">Comments</a>
       
