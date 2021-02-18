@@ -149,9 +149,9 @@
       
         <tags>
             
-            <tag> OpenSSH </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> OpenSSH </tag>
             
         </tags>
       
@@ -282,9 +282,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -386,9 +386,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -693,9 +693,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -720,9 +720,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -855,9 +855,9 @@
             
             <tag> Troubleshooting </tag>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -909,9 +909,9 @@
       
         <tags>
             
-            <tag> Pipeline </tag>
-            
             <tag> vscode </tag>
+            
+            <tag> Pipeline </tag>
             
         </tags>
       
@@ -1445,9 +1445,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1530,9 +1530,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1636,9 +1636,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -2912,9 +2912,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Flask </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
