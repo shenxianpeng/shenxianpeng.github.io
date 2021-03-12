@@ -88,6 +88,102 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2021/02/code-review" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/02/code-review/" class="article-date">
+  <time datetime="2021-02-25T09:10:14.000Z" itemprop="datePublished">2021-02-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/code-review/">关于 Code Review 我的三个实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇文章就是结合我的工作经历对 Code Review 的简短的介绍。末尾附 Google Code Review 总结。</p>
+<p>Code Review 每个人都知道它很好，应该去好好做，但往往执行起来效果并不好。一来读别人代码需要花时间，往往还需要对方给你讲；二来自己手头的工作也很多，时间不允许。因此，需要先从流程、自动化以及对重要修改这三个主要的地方做好。</p>
+<h2 id="流程上规避任何不经-Review-的代码进入到主分支"><a href="#流程上规避任何不经-Review-的代码进入到主分支" class="headerlink" title="流程上规避任何不经 Review 的代码进入到主分支"></a>流程上规避任何不经 Review 的代码进入到主分支</h2><blockquote>
+<p>我使用的是 Bitucket，因此下面都是以 Bitucket 为例。GitHub 以及 GitLab 在设置上大同小异。</p>
+</blockquote>
+<ul>
+<li><p>打开分支权限设置里的选项 <code>Prevent changes without a pull request</code> 打开它。另外，这个选项里也可以添加 Exception，就是这些人可以不通过 Pull Reuqest 来提交代码。</p>
+</li>
+<li><p>在 Merge Check 里开启 <code>Minimum approvals</code> 这个选项，我的设置 Number of approvals = 1，及比如有一人点击 Approve 按钮才允许 Merge</p>
+</li>
+</ul>
+<h2 id="通过-CI-CD，自动化进行编译和测试验证"><a href="#通过-CI-CD，自动化进行编译和测试验证" class="headerlink" title="通过 CI/CD，自动化进行编译和测试验证"></a>通过 CI/CD，自动化进行编译和测试验证</h2><ul>
+<li><p>建立自动化构建和自动化测试的 Pipeline，能够在创建 Pull Request 的时候，或是针对任何分支进行构建和测试。比如 Jenkins 的 Multi-branch pipeline 功能。</p>
+</li>
+<li><p>当上面的 Pipeline 已经稳定，开启在 Bitucket 的 Merge Check 里 <code>Minimum successful builds</code> 选项，以防止任何没有通过编译和测试的代码进入主分支。</p>
+</li>
+<li><p>可以通过写一个小工具来分析每次的 Pull Request 里有哪些文件做了修改，假定这些文件过往的历史中哪个人修改的次数最多，就认为这个人对这部分的代码最为熟悉，然后推荐他来作为 Reiewer。这里的推荐机制可以再完善，这里只是提供一个思路。</p>
+</li>
+</ul>
+<h2 id="Reivew代码是一种责任"><a href="#Reivew代码是一种责任" class="headerlink" title="Reivew代码是一种责任"></a>Reivew代码是一种责任</h2><p>每个人作为 Reviewer，在点击 Approve 那个按钮其实是一份责任的。因此，如果你对要 Reivew 的代码不是特别有把握，那就要建议提交者引入更 Senior 的工程师来一起查 Review。</p>
+<hr>
+<p>以下是 Google 关于 Code Review 的具体法则的总结，供参考。</p>
+<blockquote>
+<p><a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html" target="_blank" rel="noopener">https://google.github.io/eng-practices/review/reviewer/looking-for.html</a></p>
+</blockquote>
+<p>Summary</p>
+<p>In doing a code review, you should make sure that:</p>
+<ul>
+<li>The code is well-designed.</li>
+<li>The functionality is good for the users of the code.</li>
+<li>Any UI changes are sensible and look good.</li>
+<li>Any parallel programming is done safely.</li>
+<li>The code isn’t more complex than it needs to be.</li>
+<li>The developer isn’t implementing things they might need in the future but don’t know they need now.</li>
+<li>Code has appropriate unit tests.</li>
+<li>Tests are well-designed.</li>
+<li>The developer used clear names for everything.</li>
+<li>Comments are clear and useful, and mostly explain why instead of what.</li>
+<li>Code is appropriately documented (generally in g3doc).</li>
+<li>The code conforms to our style guides.</li>
+</ul>
+<p>Make sure to review every line of code you’ve been asked to review, look at the context, make sure you’re improving code health, and compliment developers on good things that they do.</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/02/code-review/" data-id="ckm6j1wjk00i288foehnm0gqy" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/02/code-review/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pr/" rel="tag">PR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/review/" rel="tag">Review</a></li></ul>
+
+    </footer>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
     <article id="post-2021/02/jenkins-windows-agent-cannot-start" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/02/jenkins-windows-agent-cannot-start/" class="article-date">
@@ -144,9 +240,19 @@ ga('send', 'pageview');
 <p>Hopefully, this could help you to fix connect the issue of the Windows agent. Let me know in case of any questions.</p>
 
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="cklam5znj00ak8cfod5r2blcs" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="ckm6j1wjl00i588fo7obog0a1" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -155,6 +261,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -282,9 +389,19 @@ ga('send', 'pageview');
 </blockquote>
 
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="cklam5zn8009z8cfo46fz5ped" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="ckm6j1wij00hf88fo0qbicz9r" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -293,6 +410,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -400,9 +518,19 @@ ga('send', 'pageview');
 </blockquote>
 
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="cklam5zna00a38cfo46wihpmf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="ckm6j1wjb00hl88foce2cd7nz" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -411,6 +539,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -464,9 +593,19 @@ ga('send', 'pageview');
 <p>Output:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Started by user anonymous</span><br><span class="line">[Pipeline] Allocate node : Start</span><br><span class="line">Running on master <span class="keyword">in</span> /tmp/example/workspace/<span class="built_in">test</span></span><br><span class="line">[Pipeline] node &#123;</span><br><span class="line">[Pipeline] <span class="built_in">echo</span></span><br><span class="line">Im not going to fail</span><br><span class="line">[Pipeline] <span class="built_in">echo</span></span><br><span class="line">RESULT: SUCCESS</span><br><span class="line">[Pipeline] &#125; //node</span><br><span class="line">[Pipeline] Allocate node : End</span><br><span class="line">[Pipeline] End of Pipeline</span><br><span class="line">Finished: SUCCESS</span><br></pre></td></tr></table></figure>
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/" data-id="cklam5znd00aa8cfocqqu7g75" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/" data-id="ckm6j1wjh00hw88fobfja2tsi" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -475,6 +614,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -525,9 +665,19 @@ ga('send', 'pageview');
 <p>I have a Chinese article to describe how to use Yet Another Commit Checker implement. if you interest it, you can see the post <a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/">here</a></p>
 
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/git-repository-settings/" data-id="cklam5znb00a68cfoa2hi3lo4" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/git-repository-settings/" data-id="ckm6j1wj900hi88fo1g5j7jxq" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/git-repository-settings/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -536,6 +686,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -579,9 +730,19 @@ ga('send', 'pageview');
 <p>Here are the wiki page about download and installation <a href="https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH" target="_blank" rel="noopener">https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH</a></p>
 
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/open-port-22/" data-id="cklam5znf00ac8cfo8uh3619n" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/open-port-22/" data-id="ckm6j1wjd00ho88fobm5hdu5k" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/open-port-22/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -590,6 +751,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -631,9 +793,19 @@ ga('send', 'pageview');
 <h2 id="Disable-git-sparse-checkout"><a href="#Disable-git-sparse-checkout" class="headerlink" title="Disable git sparse-checkout"></a>Disable git sparse-checkout</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config core.sparseCheckout <span class="literal">false</span></span><br><span class="line">$ git <span class="built_in">read</span>-tree --empty</span><br><span class="line">$ git reset --hard</span><br></pre></td></tr></table></figure>
 
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/sparse-checkout/" data-id="cklam5znh00ag8cfo0vaj4uiz" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/sparse-checkout/" data-id="ckm6j1wjf00hs88fo7lt1f2fr" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/sparse-checkout/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -642,6 +814,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -694,9 +867,19 @@ ga('send', 'pageview');
 <p>但我都没有选用，我还是选择了官方的时间戳服务，留作备用吧。一旦又抽风 “官方” 哪天又被卖了呢？</p>
 
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="cklam5znl00ao8cfo0178avcn" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="ckm6j1wji00hz88foargqbi0c" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -705,6 +888,7 @@ ga('send', 'pageview');
 
     </footer>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -754,9 +938,19 @@ ga('send', 'pageview');
           </p>
         
       
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/" data-id="cklam5zn7009w8cfogn4i8364" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/" data-id="ckm6j1whs00hc88fo253w8tjk" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -765,103 +959,7 @@ ga('send', 'pageview');
 
     </footer>
     
-  </div>
-  
-</article>
-  
-    <article id="post-2020/12/2020-summary" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/12/2020-summary/" class="article-date">
-  <time datetime="2020-12-31T07:00:00.000Z" itemprop="datePublished">2020-12-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/mynotes/">MyNotes</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/2020-summary/">2020 年终总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>时间飞快，马上就迎来了 2021 年，又到了总结自己这一年来的所有的经历和收获的时候了。</p>
-<p>2020 是非比寻常的一年，对于每个人不论是生活还是工作，都因为新冠病毒被影响着。</p>
-<p>但生活总归要继续。刷微博、抖音各种社交媒体是一天；工作学习也是一天。我是那种一段时间感觉没进步就特别恐慌的人，做完后者总会让我感觉更安心一些。</p>
-<h2 id="回顾-2020"><a href="#回顾-2020" class="headerlink" title="回顾 2020"></a>回顾 2020</h2><h3 id="关于工作"><a href="#关于工作" class="headerlink" title="关于工作"></a>关于工作</h3><p>对于 2020 年，我一直努力想要去做到最好，年尾回头看看，还算满意吧。</p>
-<p>在年底写下工作工作总结的时候，发现自己这一年确实做了很多工作。除了做好构建和发布的本职工作之外，做了很多改进流程和提高效率工作，捡一些重要的来说：</p>
-<ul>
-<li><p>通过 Jenkins Shared Libraries 和 Multi-branch Pipeline 完成了无人值守的自动化构建，为团队和我节省了大量的时间；同时也通过验证 PR 构建和测试，提高签入代码的稳定和质量。</p>
-<blockquote>
-<p>输出文章 <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/">每个 Jenkins 用户都应该知道这三个最佳实践</a></p>
-</blockquote>
-</li>
-<li><p>推动团队迁移到企业级的 Artifactory 来下载和存储构建，从而改进 CI/CD 的效率和无人值守的能力。为更好的自动化下载、安装、测试等提供方便。</p>
-<blockquote>
-<p>输出文章 <a href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/">写给那些想使用 JFrog Artifactory 管理制品的人</a></p>
-</blockquote>
-</li>
-<li><p>使用 Python 来做了很多关于 Jira, BitBucket 的集成，通过自动化提高效率。另外还发布了一个 Python 项目 <a href="https://pypi.org/project/uopy/" target="_blank" rel="noopener">UOPY</a>。</p>
-<blockquote>
-<p>输出文章 <a href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/">在 GitHub 上发布一个 Python 项目需要注意哪些</a></p>
-</blockquote>
-</li>
-<li><p>落地了 Git 提交信息和分支创建规范，统一了 Git 提交信息和分支创建规范。</p>
-<blockquote>
-<p>输出文章 <a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/">程序员自我修养之Git提交信息和分支创建规范</a></p>
-</blockquote>
-</li>
-<li><p>学习和使用了一些新工具，比如 Ansible playbook、ELK、JaCoCo 等并应用到项目中。</p>
-<blockquote>
-<p>输出文章 <a href="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/">初识 Ansible</a>，<a href="https://shenxianpeng.github.io/2020/11/jacoco-imp/">JaCoCo 实践</a></p>
-</blockquote>
-</li>
-</ul>
-<p>作为 DevOps/软件工程师还需要有良好的表达能力，否则你做的东西再好，但无法很清晰的跟同事及领导分享出来也是事倍功半。尤其像我在外企，还需要用英文去做分享。</p>
-<p>另外，我想通过坚持阅读和实践，让自己在技术上有比较大的提高。有一段时间我坚持的比较好，完成了好几本技术书籍的阅读，但好的习惯就怕被打破，一旦被打破就很难坚持了。之前一般都是中午午休的时间会阅读半个小时以上的技术书，后来常常因为中午要去新房盯装修，加上每天要做的事情很多（工作、学英语、阅读、装修）的时候，很多时候往往是事情做了，但效果并没有达到预期。</p>
-<h3 id="分享上"><a href="#分享上" class="headerlink" title="分享上"></a>分享上</h3><p>2020 年<a href="https://shenxianpeng.github.io/">博客</a>上一共更新了 41 篇文章，在公众号『DevOps攻城狮』上面一共更新了 26 篇文章。</p>
-<p>这个数量和质量跟一些其他的技术公众号真的没法比，但对于我个人：一个不以写作为生、只写原创文章的攻城狮，只要能不间断的输出，达到这个数量我已经比较满意了。</p>
-<p>而且在年初有一个清华大学的编辑老师找到我，想让我出一本书，这真是让我受宠若惊。我知道自己几斤几两，但能够受到邀请，并寄给我合同，就已经是对我写作的最大鼓励了。</p>
-<p>当时打算写一本《Jenkins 2实践指南》，如果签了合同，我就需要投入至少一年的业余时间死磕自己才有可能完成。</p>
-<p>最后考虑到自己当时的状况：优先做好工作；其次还有比Jenkins更重要的技术我需要去学习；另外周末要装修等一系列的事情…我最终放弃了这个机会。</p>
-<p>我知道自己还处在输入比输出更加迫切的阶段，我想只要心中的小火苗还在，但行好事，莫问前程。</p>
-<h2 id="工作-flag"><a href="#工作-flag" class="headerlink" title="工作 flag"></a>工作 flag</h2><p>对于个人年终总结，不仅可以回顾自己过去的一年做了哪些，哪些没做好，有什么可以改进的，还能通过回顾和总结为新年立一个 flag。</p>
-<p>2021 我希望自己能更加专注，利用好时间，更加有效的工作和学习。</p>
-<p>除了做好工作，最重要的是<strong>提高英语口语</strong>和<strong>深入学习技术</strong>，其次才是输出。</p>
-<p>光有 flag 不行，还要落到具体的行动上。</p>
-<h3 id="提高英语口语"><a href="#提高英语口语" class="headerlink" title="提高英语口语"></a>提高英语口语</h3><p>🚩 2021 继续坚持至少每天半小时口语打卡练习；另外每周一次 50 分钟的与外教的口语交流。希望能够脱稿进行英文分享，同时能通过英语托业考试。</p>
-<h3 id="深入学习技术"><a href="#深入学习技术" class="headerlink" title="深入学习技术"></a>深入学习技术</h3><p>我现在学习技术的方式有这么几种：直接去官网阅读英文文档；如果读完还是没搞明白，就去 Linkedin Learning 或是 Udemy 上去搜相应的技术，不但学习了技术，同时也练习了英文听力；如果需要深入系统的去学习一门编程语言以及一些底层技术，会去读一些经典技术书籍。</p>
-<p>🚩 2021 年坚持每天也至少半个小时来阅读技术，一个月至少读完一本技术书籍并且有输出。</p>
-<h2 id="生活-flag"><a href="#生活-flag" class="headerlink" title="生活 flag"></a>生活 flag</h2><p>生活上希望家人和朋友都能身体健康，生活幸福。</p>
-<p>🚩 财务稳定，最好能增长；自己能够健康生活，减重 10 斤。</p>
-<p>最后，不时的来回顾自己 2021 年的 flag，时不时的看看自己是否偏离了最初的方向。2021 我来了！</p>
-<blockquote>
-<p><strong>过去年终的总结</strong></p>
-<p><a href="https://shenxianpeng.github.io/2019/12/2019-summary/">2019 年终总结</a><br><a href="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/">2018 从测试到开发的五个月</a></p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/12/2020-summary/" data-id="cklam5zn5009s8cfo5ayg0m7k" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2020/12/2020-summary/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/summary/" rel="tag">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thought/" rel="tag">Thought</a></li></ul>
-
-    </footer>
-    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </div>
   
 </article>
@@ -879,7 +977,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -889,7 +987,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 11px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 14px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 14px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 16px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 19px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 11px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pipeline/" style="font-size: 17px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 12px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 13px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 11px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 14px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 18px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 14px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 12px;">Blog</a> <a href="/tags/branch/" style="font-size: 11px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 14px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/codecoverage/" style="font-size: 11px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 16px;">DevOps</a> <a href="/tags/docker/" style="font-size: 12px;">Docker</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 19px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 11px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 12px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 11px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 19px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pr/" style="font-size: 10px;">PR</a> <a href="/tags/pipeline/" style="font-size: 17px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13px;">Python</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 11px;">Release</a> <a href="/tags/review/" style="font-size: 10px;">Review</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 12px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 11px;">Stats</a> <a href="/tags/summary/" style="font-size: 12px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 13px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 12px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 13px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 12px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 12px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 11px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11px;">Windows</a> <a href="/tags/work/" style="font-size: 15px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 11px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -899,6 +997,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/02/code-review/">关于 Code Review 我的三个实践</a>
+          </li>
         
           <li>
             <a href="/2021/02/jenkins-windows-agent-cannot-start/">Jenkins upgrade issue &#34;Windows agents won&#39;t start&#34; workaround</a>
@@ -976,10 +1078,6 @@ ga('send', 'pageview');
             <a href="/2020/08/about-pip-install-and-versioning/">About Python pip install and versioning</a>
           </li>
         
-          <li>
-            <a href="/2020/08/update-jira-server-account-avatar-with-rest-api/">Update Jira server account avatar with rest API</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -989,7 +1087,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
