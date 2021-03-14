@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-03-12T16:38:28.530Z</updated>
+  <updated>2021-03-14T16:41:00.988Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于 Code Review 我的三个实践</title>
-    <link href="https://shenxianpeng.github.io/2021/02/code-review/"/>
-    <id>https://shenxianpeng.github.io/2021/02/code-review/</id>
-    <published>2021-02-25T09:10:14.000Z</published>
-    <updated>2021-03-12T16:38:28.530Z</updated>
+    <title>Google 的代码审查法则以及我的实践和思考</title>
+    <link href="https://shenxianpeng.github.io/2021/03/code-review/"/>
+    <id>https://shenxianpeng.github.io/2021/03/code-review/</id>
+    <published>2021-03-25T09:10:14.000Z</published>
+    <updated>2021-03-14T16:41:00.988Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,8 @@
       
         
         
-          &lt;p&gt;这篇文章就是结合我的工作经历对 Code Review 的简短的介绍。末尾附 Google Code Review 总结。&lt;/p&gt;
-&lt;p&gt;Code Review
+          &lt;p&gt;Code Review 每个人都知道它很好，应该去好好做，但往往执行起来效果并不好。一来读别人代码需要花时间，往往还需要对方给你讲，执行成本太高；二来自己手头的工作也很多，时间不允许，执行不到位。&lt;/p&gt;
+&lt;p&gt;如果你还不知道如何开展 Code Review
         
       
     
@@ -42,6 +42,8 @@
       <category term="Review" scheme="https://shenxianpeng.github.io/tags/review/"/>
     
       <category term="PR" scheme="https://shenxianpeng.github.io/tags/pr/"/>
+    
+      <category term="Code" scheme="https://shenxianpeng.github.io/tags/code/"/>
     
   </entry>
   
