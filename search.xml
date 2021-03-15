@@ -178,9 +178,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> OpenSSH </tag>
+            
+            <tag> Windows </tag>
             
         </tags>
       
@@ -311,9 +311,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -415,9 +415,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -722,9 +722,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -749,9 +749,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -882,11 +882,11 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
+            <tag> Troubleshooting </tag>
             
             <tag> JFrog </tag>
             
-            <tag> Troubleshooting </tag>
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -1474,9 +1474,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -1559,9 +1559,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1665,9 +1665,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
