@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-03-14T16:41:00.988Z</updated>
+  <updated>2021-03-24T03:50:40.199Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Different branches have different default parameters in Jenkins</title>
+    <link href="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/"/>
+    <id>https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/</id>
+    <published>2021-03-24T02:50:53.000Z</published>
+    <updated>2021-03-24T03:50:40.199Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Question&quot;&gt;&lt;a href=&quot;#Question&quot; class=&quot;headerlink&quot; title=&quot;Question&quot;&gt;&lt;/a&gt;Question&lt;/h2&gt;&lt;p&gt;When you use Jenkins multibranch pipeline,
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="parameter" scheme="https://shenxianpeng.github.io/tags/parameter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Google 的代码审查法则以及我的实践和思考</title>
     <link href="https://shenxianpeng.github.io/2021/03/code-review/"/>
     <id>https://shenxianpeng.github.io/2021/03/code-review/</id>
-    <published>2021-03-25T09:10:14.000Z</published>
-    <updated>2021-03-14T16:41:00.988Z</updated>
+    <published>2021-03-20T09:10:14.000Z</published>
+    <updated>2021-03-24T03:45:25.333Z</updated>
     
     <summary type="html">
     
@@ -134,7 +162,7 @@
     <link href="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/"/>
     <id>https://shenxianpeng.github.io/2021/01/result-vs-currentresult/</id>
     <published>2021-01-14T02:48:18.000Z</published>
-    <updated>2021-01-21T10:05:51.521Z</updated>
+    <updated>2021-03-23T10:48:43.531Z</updated>
     
     <summary type="html">
     
@@ -143,9 +171,7 @@
         
         
           &lt;blockquote&gt;
-&lt;p&gt;This is just a note to myself about Jenkins result or currentResult&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Declarative-Pipeline&quot;&gt;&lt;a
+&lt;p&gt;This is just a note to myself about the difference between Jenkins &lt;code&gt;result&lt;/code&gt; and
         
       
     
@@ -353,9 +379,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
@@ -479,9 +505,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
   </entry>
   
@@ -507,9 +533,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
-    
       <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
     
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     
@@ -577,42 +603,9 @@
     
       <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
     
-      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
-    
       <category term="PyPI" scheme="https://shenxianpeng.github.io/tags/pypi/"/>
     
-  </entry>
-  
-  <entry>
-    <title>About Python pip install and versioning</title>
-    <link href="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/"/>
-    <id>https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/</id>
-    <published>2020-08-30T14:30:50.000Z</published>
-    <updated>2020-11-01T09:00:51.021Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Backgroup&quot;&gt;&lt;a href=&quot;#Backgroup&quot; class=&quot;headerlink&quot; title=&quot;Backgroup&quot;&gt;&lt;/a&gt;Backgroup&lt;/h2&gt;&lt;p&gt;If you want to release python project on PyPI, you must need to know about PyPI usage characteristics, then I did some test about pip install command. &lt;/p&gt;
-&lt;p&gt;For example: I have a Python project called &lt;code&gt;demo-pip&lt;/code&gt;. and beta release would like &lt;code&gt;1.1.0.xxxx&lt;/code&gt;, offical release version is &lt;code&gt;1.1.0&lt;/code&gt; to see if could success upgrade when using &lt;code&gt;pip&lt;/code&gt; command.&lt;/p&gt;
-&lt;p&gt;Base on the below test results, I summarized as follows:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Install a specific version of demo-pip from PyPI, with &lt;code&gt;--upgrade&lt;/code&gt; option or not, they’ll all both success.&lt;/li&gt;
-&lt;li&gt;Install the latest package version of demo-pip from PyPI that version is large than the locally installed package version, with &lt;code&gt;--upgrade&lt;/code&gt; option installs successfully. without &lt;code&gt;--upgrade&lt;/code&gt; option install failed.&lt;/li&gt;
-&lt;li&gt;Install the latest package version of demo-pip from PyPI that version is less than the locally installed package version, with &lt;code&gt;--upgrade&lt;/code&gt; option or not, install failed.&lt;/li&gt;
-&lt;li&gt;1.1.0.xxxx version naming is OK, but when the beta version is larger than 1.1.0, for example, the beta version is 1.1.0.1000, pip install with &lt;code&gt;--upgrade&lt;/code&gt; not work when our official release version is 1.1.0.&lt;br&gt;a.    One option is the official release version start from 1.1.0.1000, beta version starts from 1.1.0.0001, 1.1.0.0002… Or the beta version should be less than 1.1.0, maybe 1.0.0.xxxx&lt;br&gt;b.    Another option is follow up &lt;a href=&quot;https://www.python.org/dev/peps/pep-0440/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;python official versioning&lt;/a&gt; that is the best practice, then the beta release version will be 1.1.b1, 1.1.b2, 1.1.bN… (it passed No.5 test below)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;My-Test-Case&quot;&gt;&lt;a href=&quot;#My-Test-Case&quot; class=&quot;headerlink&quot; title=&quot;My Test Case&quot;&gt;&lt;/a&gt;My Test Case&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
-    
-    
-      <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
-    
-      <category term="pip" scheme="https://shenxianpeng.github.io/tags/pip/"/>
-    
-      <category term="versioning" scheme="https://shenxianpeng.github.io/tags/versioning/"/>
+      <category term="Release" scheme="https://shenxianpeng.github.io/tags/release/"/>
     
   </entry>
   
