@@ -263,9 +263,9 @@
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
     
     
-      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
-    
       <category term="OpenSSH" scheme="https://shenxianpeng.github.io/tags/openssh/"/>
+    
+      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
     
   </entry>
   
@@ -416,18 +416,18 @@
   </entry>
   
   <entry>
-    <title>JaCoCo 实践</title>
+    <title>JaCoCo 代码覆盖率实践</title>
     <link href="https://shenxianpeng.github.io/2020/11/jacoco-imp/"/>
     <id>https://shenxianpeng.github.io/2020/11/jacoco-imp/</id>
     <published>2020-11-17T11:18:33.000Z</published>
-    <updated>2020-11-24T05:49:23.503Z</updated>
+    <updated>2021-04-02T10:13:44.163Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;比如使用 gradle 来管理的项目可以在 &lt;code&gt;build.gradle&lt;/code&gt; 里添加如下代码&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;plugins &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id &amp;#39;jacoco&amp;#39;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacoco &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    toolVersion &amp;#x3D; &amp;quot;0.8.5&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    finalizedBy jacocoTestReport &amp;#x2F;&amp;#x2F; report is always generated after tests run&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacocoTestReport &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dependsOn test &amp;#x2F;&amp;#x2F; tests are required to run before generating the report&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reports &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        xml.enabled true&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        csv.enabled false&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        html.destination file(&amp;quot;$&amp;#123;buildDir&amp;#125;&amp;#x2F;reports&amp;#x2F;jacoco&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;build-gradle-文件配置&quot;&gt;&lt;a href=&quot;#build-gradle-文件配置&quot; class=&quot;headerlink&quot; title=&quot;build.gradle 文件配置&quot;&gt;&lt;/a&gt;&lt;code&gt;build.gradle&lt;/code&gt; 文件配置&lt;/h2&gt;&lt;p&gt;比如使用 gradle 来管理的项目可以在 &lt;code&gt;build.gradle&lt;/code&gt; 里添加如下代码&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;plugins &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id &lt;span class=&quot;string&quot;&gt;&#39;jacoco&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacoco &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    toolVersion = &lt;span class=&quot;string&quot;&gt;&quot;0.8.5&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    useJUnitPlatform()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    exclude &lt;span class=&quot;string&quot;&gt;&#39;**/**IgnoreTest.class&#39;&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;// 如果有 test case 不通过，如有必要可以通过这样忽略掉&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    finalizedBy jacocoTestReport       &lt;span class=&quot;comment&quot;&gt;// report is always generated after tests run&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacocoTestReport &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dependsOn test &lt;span class=&quot;comment&quot;&gt;// tests are required to run before generating the report&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reports &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        xml.enabled &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        csv.enabled &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        html.&lt;span class=&quot;function&quot;&gt;destination &lt;span class=&quot;title&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;string&quot;&gt;&quot;$&amp;#123;buildDir&amp;#125;/reports/jacoco&quot;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
-&lt;p&gt;然后执行 &lt;code&gt;gradle test&lt;/code&gt; 就可以了。之后可以可以在 &lt;code&gt;build\reports\jacoco&lt;/code&gt; 目录下找到报告了。&lt;/p&gt;
+&lt;h2 id=&quot;执行测试，生成代码覆盖率报告&quot;&gt;&lt;a href=&quot;#执行测试，生成代码覆盖率报告&quot; class=&quot;headerlink&quot; title=&quot;执行测试，生成代码覆盖率报告&quot;&gt;&lt;/a&gt;执行测试，生成代码覆盖率报告&lt;/h2&gt;&lt;p&gt;然后执行 &lt;code&gt;gradle test&lt;/code&gt; 就可以了。之后可以可以在 &lt;code&gt;build\reports\jacoco&lt;/code&gt; 目录下找到报告了。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2020/11/jacoco-imp/reports.png&quot; alt=&quot;JaCoCo报告&quot;&gt;&lt;/p&gt;
 &lt;p&gt;重点是如何分析报告。打开 index.html，报告显示如下：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2020/11/jacoco-imp/index.png&quot; alt=&quot;JaCoCo报告首页&quot;&gt;&lt;/p&gt;
@@ -438,6 +438,8 @@
     
     
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
+    
+      <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
   </entry>
   
@@ -561,9 +563,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
-    
       <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
+    
+      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
     
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     
