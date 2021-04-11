@@ -41,9 +41,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
-    
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
+    
+      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
     
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
@@ -540,9 +540,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
   </entry>
   
@@ -568,9 +568,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
-    
       <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
     
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
     

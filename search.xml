@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> CodeCoverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> CodeCoverage </tag>
             
             <tag> Gradle </tag>
             
@@ -473,9 +473,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -502,9 +502,9 @@
             
             <tag> Git </tag>
             
-            <tag> Branch </tag>
-            
             <tag> Specification </tag>
+            
+            <tag> Branch </tag>
             
             <tag> Conventional Commits </tag>
             
@@ -558,9 +558,9 @@
             
             <tag> Python </tag>
             
-            <tag> Release </tag>
-            
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -942,9 +942,9 @@
             
             <tag> Troubleshooting </tag>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -969,9 +969,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> write </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -1532,9 +1532,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1723,9 +1723,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -2159,9 +2159,9 @@
       
         <tags>
             
-            <tag> Squishcoco </tag>
-            
             <tag> CodeCoverage </tag>
+            
+            <tag> Squishcoco </tag>
             
             <tag> Squish </tag>
             
@@ -2375,9 +2375,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Automation </tag>
+            
+            <tag> Python </tag>
             
             <tag> Framework </tag>
             
