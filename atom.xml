@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-04-06T02:12:09.319Z</updated>
+  <updated>2021-04-22T11:10:46.112Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Why Windows installer pop up? (Resolved)</title>
+    <link href="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/"/>
+    <id>https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/</id>
+    <published>2021-04-22T05:33:01.000Z</published>
+    <updated>2021-04-22T11:10:46.112Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;What’s-the-Problem&quot;&gt;&lt;a href=&quot;#What’s-the-Problem&quot; class=&quot;headerlink&quot; title=&quot;What’s the Problem?&quot;&gt;&lt;/a&gt;What’s the
+        
+      
+    
+    </summary>
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
+    
+    
+      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
+    
+      <category term="installer" scheme="https://shenxianpeng.github.io/tags/installer/"/>
+    
+  </entry>
   
   <entry>
     <title>JaCoCo 代码覆盖率实践分享</title>
@@ -41,9 +69,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
-    
       <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
+    
+      <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
     
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
@@ -568,38 +596,11 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
-    
       <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
     
+      <category term="Specification" scheme="https://shenxianpeng.github.io/tags/specification/"/>
+    
       <category term="Conventional Commits" scheme="https://shenxianpeng.github.io/tags/conventional-commits/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识 Ansible</title>
-    <link href="https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/"/>
-    <id>https://shenxianpeng.github.io/2020/09/getting-to-know-ansible/</id>
-    <published>2020-09-21T10:40:17.000Z</published>
-    <updated>2020-09-24T11:04:48.970Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Ansible" scheme="https://shenxianpeng.github.io/tags/ansible/"/>
     
   </entry>
   

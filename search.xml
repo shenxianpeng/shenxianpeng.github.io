@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Why Windows installer pop up? (Resolved)</title>
+      <link href="/2021/04/why-windows-installer-pop-up/"/>
+      <url>/2021/04/why-windows-installer-pop-up/</url>
+      
+        <content type="html"><![CDATA[<h2 id="What’s-the-Problem"><a href="#What’s-the-Problem" class="headerlink" title="What’s the Problem?"></a>What’s the Problem?</h2><p>Today I am having a problem where the Windows installer I created is not installing and the following Windows installer box pops up.</p><p><img src="/2021/04/why-windows-installer-pop-up/windows-installer.png" alt="Windows installer"></p><p>This worked in the previous build and I didn’t make any code changes. This is very strange. Actually, fix this problem exactly very eary but not easy to find. </p><h2 id="How-to-fix"><a href="#How-to-fix" class="headerlink" title="How to fix?"></a>How to fix?</h2><p>In my case: just remove the space from my build folder naming. I made follow mistakes</p><p>My previours build name is <code>v2.2.2.3500-da121sa-Developer</code>, but for this build I named it to <code>v2.2.2.3500-32jkjdk - Developer</code></p><h2 id="How-to-find-the-solution"><a href="#How-to-find-the-solution" class="headerlink" title="How to find the solution?"></a>How to find the solution?</h2><p>This problem takes me several hours until I google this article <a href="https://community.spiceworks.com/topic/874022-msiexec-just-returns-a-pop-up" target="_blank" rel="noopener">article</a> inspired me. </p><p>I immediately remove the spaces from the build folder, then the installer back to work. Just like this acticle, if try to use the command line <code>msiexec.exe .....</code>, campare with the works installer, I will also quickly to find the root casue.</p><p>If this happens to you, hopes it aslo works for you. good luck.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Troubleshooting </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+            <tag> installer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JaCoCo 代码覆盖率实践分享</title>
       <link href="/2021/04/jacoco-imp/"/>
       <url>/2021/04/jacoco-imp/</url>
@@ -20,9 +47,9 @@
       
         <tags>
             
-            <tag> JaCoCo </tag>
-            
             <tag> CodeCoverage </tag>
+            
+            <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
             
@@ -502,9 +529,9 @@
             
             <tag> Git </tag>
             
-            <tag> Specification </tag>
-            
             <tag> Branch </tag>
+            
+            <tag> Specification </tag>
             
             <tag> Conventional Commits </tag>
             
@@ -558,9 +585,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -969,9 +996,9 @@
       
         <tags>
             
-            <tag> write </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> write </tag>
             
         </tags>
       
@@ -2190,9 +2217,9 @@
       
         <tags>
             
-            <tag> CodeCoverage </tag>
-            
             <tag> C </tag>
+            
+            <tag> CodeCoverage </tag>
             
         </tags>
       
