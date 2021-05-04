@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-05-04T06:37:37.430Z</updated>
+  <updated>2021-05-04T06:43:37.468Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/"/>
     <id>https://shenxianpeng.github.io/2021/05/artifactory-api-search/</id>
     <published>2021-05-04T06:37:00.000Z</published>
-    <updated>2021-05-04T06:37:37.430Z</updated>
+    <updated>2021-05-04T06:43:37.468Z</updated>
     
     <summary type="html">
     
@@ -43,33 +43,6 @@
       <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
       <category term="API" scheme="https://shenxianpeng.github.io/tags/api/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在二线城市，我用了七年追上了我在一线城市的工资</title>
-    <link href="https://shenxianpeng.github.io/2021/05/first-tier-or-second-tier/"/>
-    <id>https://shenxianpeng.github.io/2021/05/first-tier-or-second-tier/</id>
-    <published>2021-05-03T04:44:36.000Z</published>
-    <updated>2021-05-04T04:51:54.919Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近我的一个同学她从北京回到大连，十年后终于回到了自己的家乡所在的城市工作。然而一线、二线工资差距是我们避免不了要聊的话题，这种差距会让“回家”变得有些难以抉择，需要我们自己想好未来职业生涯的下半场在那里以及如何发展。&lt;/p&gt;
-&lt;p&gt;回想起七年前，我也是同样的情况，拿着当时
-        
-      
-    
-    </summary>
-    
-      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
-    
-    
-      <category term="Salary" scheme="https://shenxianpeng.github.io/tags/salary/"/>
     
   </entry>
   
@@ -598,6 +571,36 @@
     
     
       <category term="Ansible" scheme="https://shenxianpeng.github.io/tags/ansible/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>写给那些想使用 JFrog Artifactory 管理制品的人</title>
+    <link href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/"/>
+    <id>https://shenxianpeng.github.io/2020/10/what-is-artifactory/</id>
+    <published>2020-10-04T12:43:46.000Z</published>
+    <updated>2021-05-04T06:32:17.358Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我在使用 Artifactory 做持续集成已经有一段时间了，对企业级 Artifactory 也有了一些经验和总结，希望能通过本篇的分享帮助刚接触这个工具的人了解什么是Artifactory，它能做什么，为什么要选择它，以及在使用过程中应该注意什么。&lt;/p&gt;
+&lt;h2 id=&quot;什么是Artifactory&quot;&gt;&lt;a href=&quot;#什么是Artifactory&quot; class=&quot;headerlink&quot; title=&quot;什么是Artifactory&quot;&gt;&lt;/a&gt;什么是Artifactory&lt;/h2&gt;&lt;p&gt;一句话概括：Artifactory 是一个存放制品（Artifacts）的工具。当前，Artifactory 是一个非常有影响力，功能非常强大的工具。&lt;/p&gt;
+&lt;h2 id=&quot;Artifactory有哪些优势&quot;&gt;&lt;a href=&quot;#Artifactory有哪些优势&quot; class=&quot;headerlink&quot; title=&quot;Artifactory有哪些优势&quot;&gt;&lt;/a&gt;Artifactory有哪些优势&lt;/h2&gt;&lt;p&gt;可能你的团队已经有了自己的管理制品的方式，比如 FTP 等。Artifactory 能带来什么呢？让我先来看看它有哪些优势。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：以下优势都是针对 JFrog Aritifacvtory 企业版来介绍的。开源版，即 OSS 版本不具备以下丰富的功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;优势1：它是一个通用管理仓库&quot;&gt;&lt;a href=&quot;#优势1：它是一个通用管理仓库&quot; class=&quot;headerlink&quot; title=&quot;优势1：它是一个通用管理仓库&quot;&gt;&lt;/a&gt;优势1：它是一个通用管理仓库&lt;/h3&gt;&lt;p&gt;JFrog Artifactory 企业版完全支持所有主要包格式的存储库管理器。它不但可以管理二进制文件，也可以对市面上几乎所有语言的包的依赖进行管理，如下图所示&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2020/10/what-is-artifactory/support-package-formats.png&quot; alt=&quot;主要的包格式&quot;&gt;&lt;/p&gt;
+&lt;p&gt;因此，使用 Artifactory 能够将所有的二进制文件和包存储在&lt;strong&gt;一个地方&lt;/strong&gt;。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/categories/jfrog/"/>
+    
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
   </entry>
   
