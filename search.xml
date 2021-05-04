@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>How to download the entire folder artifacts when Artifactory &quot;Download Folder functionality is disabled&quot;?</title>
+      <link href="/2021/05/artifactory-api-search/"/>
+      <url>/2021/05/artifactory-api-search/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>When you do CI with JFrog Artifactory when you want to download the entire folder artifacts, but maybe your IT doesn’t enable this function, whatever some seasons.</p><p>You can try the below JFrog Artifactory API to know if you’re using Artifactory whether allowed to download the entire folder artifacts. </p><p>just visit this API URL: <code>https://den-artifactory.company.com/artifactory/api/archive/download/team-generic-release-den/project/abc/main/?archiveType=zip</code></p><p>You will see an error message returned if the Artifactory is not allowed to download the entire folder.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;errors&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;status&quot;: 403,</span><br><span class="line">      &quot;message&quot;: &quot;Download Folder functionality is disabled.&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>More details about the API could find here <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveFolderorRepositoryArchive" target="_blank" rel="noopener">Retrieve Folder or Repository Archive</a></p></blockquote><h2 id="Workaround"><a href="#Workaround" class="headerlink" title="Workaround"></a>Workaround</h2><p>So to be enabled to download entire folder artifacts, I found other JFrog Artifactory APIs provide a workaround.</p><p>How to download the entire folder artifacts programmatically? this post will show you how to use other <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API" target="_blank" rel="noopener">Artifactory REST API</a> to get a workaround.</p><h3 id="1-Get-All-Artifacts-Created-in-Date-Range"><a href="#1-Get-All-Artifacts-Created-in-Date-Range" class="headerlink" title="1. Get All Artifacts Created in Date Range"></a>1. Get All Artifacts Created in Date Range</h3><p>API URL: <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-ArtifactsCreatedinDateRange" target="_blank" rel="noopener">Artifacts Created in Date Range</a></p><p>This is the snippet code I use this API</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download.sh</span></span><br><span class="line"></span><br><span class="line">USERNAME=<span class="variable">$1</span></span><br><span class="line">PASSWORD=<span class="variable">$2</span></span><br><span class="line">REPO=<span class="variable">$3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># which day ago do you want to download</span></span><br><span class="line">N_DAY_AGO=<span class="variable">$4</span></span><br><span class="line"><span class="comment"># today</span></span><br><span class="line">START_TIME=$(($(date --date=<span class="string">"<span class="variable">$N_DAY_AGO</span> days ago"</span> +%s%N)/1000000))</span><br><span class="line">END_TIME=$(($(date +%s%N)/1000000))</span><br><span class="line"></span><br><span class="line">ARTIFACTORY=https://den-artifactory.company.com/artifactory</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -x <span class="string">"`which sha1sum`"</span> ]; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"You need to have the 'sha1sum' command in your path."</span>; <span class="built_in">exit</span> 1; <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">RESULTS=`curl -s -X GET -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> <span class="string">"<span class="variable">$ARTIFACTORY</span>/api/search/creation?from=<span class="variable">$START_TIME</span>&amp;to=<span class="variable">$END_TIME</span>&amp;repos=<span class="variable">$REPO</span>"</span> | grep uri | awk <span class="string">'&#123;print $3&#125;'</span> | sed s<span class="string">'/.$//'</span> | sed s<span class="string">'/.$//'</span> | sed -r <span class="string">'s/^.&#123;1&#125;//'</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$RESULTS</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> RESULT <span class="keyword">in</span> <span class="variable">$RESULTS</span> ; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"fetching path from <span class="variable">$RESULT</span>"</span></span><br><span class="line">    PATH_TO_FILE=`curl -s -X GET -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> <span class="variable">$RESULT</span> | grep downloadUri | awk <span class="string">'&#123;print $3&#125;'</span> | sed s<span class="string">'/.$//'</span> | sed s<span class="string">'/.$//'</span> | sed -r <span class="string">'s/^.&#123;1&#125;//'</span>`</span><br><span class="line">    </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"download file path <span class="variable">$PATH_TO_FILE</span>"</span></span><br><span class="line">  curl -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> -O <span class="variable">$PATH_TO_FILE</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure><p>Then you just use this as: <code>sh download.sh ${USERNAME} ${PASSWORD} ${REPO_PATH} ${N_DAY_AGO}</code></p><h3 id="2-Get-all-artifacts-matching-the-given-Ant-path-pattern"><a href="#2-Get-all-artifacts-matching-the-given-Ant-path-pattern" class="headerlink" title="2. Get all artifacts matching the given Ant path pattern"></a>2. Get all artifacts matching the given Ant path pattern</h3><p>More about this API see: <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-PatternSearch" target="_blank" rel="noopener">Pattern Search</a></p><p>Take an example screenshot of pattern search:</p><p><img src="/2021/05/artifactory-api-search/pattern-search.png" alt></p><p>Then you can use Shell, Python language to get the file path from the response, then use <code>curl -u $USERNAME:$PASSWORD -O $PATH_TO_FILE</code> command to download the file one by one.</p><p>If you have better solutions, suggestions, or questions, you can leave a comment.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> JFrog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
+            
+            <tag> API </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在二线城市，我用了七年追上了我在一线城市的工资</title>
+      <link href="/2021/05/first-tier-or-second-tier/"/>
+      <url>/2021/05/first-tier-or-second-tier/</url>
+      
+        <content type="html"><![CDATA[<p>最近我的一个同学她从北京回到大连，十年后终于回到了自己的家乡所在的城市工作。然而一线、二线工资差距是我们避免不了要聊的话题，这种差距会让“回家”变得有些难以抉择，需要我们自己想好未来职业生涯的下半场在那里以及如何发展。</p><p>回想起七年前，我也是同样的情况，拿着当时在北京一半的工资回到大连。那是一个比较重要的决定，辞去了当时在京东做测试工程师的工作，告别了在北京要好的朋友们。</p><p>为的是结束异地恋，以及能经常回家看看父母。早点结束北漂生活，也就能早点切换职业的新赛道。</p><p>现在看来，我们都做了对自己最有利的选择。</p><p>我的同学：终于熬到了在北京交够 10 的年养老保险，听她说等老了退休了可以选择在北京退休，因为北京会发相对更多的养老金。但她没有买房，因为家里有房，也不像有贷款的压力。</p><p>我：回到大连，买房、结婚。拿着砍半的工资，以及在父母的支援下买的，算是没有错过这些年房价上涨的红利。</p><p>只是以自己的经历来讨论是IT从业者是选择一线城市还是二线城市。</p><p>突然想到这个话题是因为一个同学</p><p>突然想到这个话题是因为最近我的一个同学从北京回到了大连，结束了自己的长达九年的北漂生活。她的工资相比于一线城市被砍了一半，但她还是回来了，因为一个</p><p>我们一起约了个饭，聊起了很多当年的北漂故事，其实也是不同的人生经历和变化。</p><p>我们几乎有着同样的经历，但不同是，我比他早回二线城市早了七年。</p><p>我们都是一毕业去了上海工作，之后短暂的去了沈阳工作了半年多，然后我就去北京了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MyNotes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Salary </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Why Windows Installer pop up? (Resolved)</title>
       <link href="/2021/04/why-windows-installer-pop-up/"/>
       <url>/2021/04/why-windows-installer-pop-up/</url>
@@ -493,7 +547,7 @@
       
       <categories>
           
-          <category> DevOps </category>
+          <category> JFrog </category>
           
       </categories>
       
@@ -1023,9 +1077,9 @@
       
         <tags>
             
-            <tag> vscode </tag>
-            
             <tag> Pipeline </tag>
+            
+            <tag> vscode </tag>
             
         </tags>
       
@@ -1552,7 +1606,7 @@
       
       <categories>
           
-          <category> DevOps </category>
+          <category> JFrog </category>
           
       </categories>
       
@@ -1610,7 +1664,7 @@
       
       <categories>
           
-          <category> DevOps </category>
+          <category> Docker </category>
           
       </categories>
       
@@ -1664,7 +1718,7 @@
       
       <categories>
           
-          <category> DevOps </category>
+          <category> Docker </category>
           
       </categories>
       
@@ -1689,7 +1743,7 @@
       
       <categories>
           
-          <category> Jenkins </category>
+          <category> Docker </category>
           
       </categories>
       
@@ -1716,7 +1770,7 @@
       
       <categories>
           
-          <category> Jenkins </category>
+          <category> JFrog </category>
           
       </categories>
       
@@ -1743,7 +1797,7 @@
       
       <categories>
           
-          <category> DevOps </category>
+          <category> JFrog </category>
           
       </categories>
       
@@ -3030,9 +3084,9 @@
       
         <tags>
             
-            <tag> Flask </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Flask </tag>
             
         </tags>
       
