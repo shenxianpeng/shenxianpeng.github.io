@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Atlassian REST API Python Wrapper</title>
+      <link href="/2021/05/atlassian-api-py/"/>
+      <url>/2021/05/atlassian-api-py/</url>
+      
+        <content type="html"><![CDATA[<p>Thanks for downloading!</p><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>About how to use and download <code>atlassian-api-py</code> please refer to the <a href="https://pypi.org/project/atlassian-api-py/" target="_blank" rel="noopener">pypi page</a>.</p><h2 id="Changelog"><a href="#Changelog" class="headerlink" title="Changelog"></a>Changelog</h2><p>I use this page to keep track of some <code>minor</code> and <code>micro</code> changes before it is fully open source (<code>1.0.0</code>).</p><p>[0.3.0] - May 9, 2021</p><ul><li>Fixed bitbucket and test_bitbucket issues.</li></ul><p>[0.2.7] - Apr 20, 2021</p><ul><li>Support create task with components.</li></ul><p>[0.2.5] - Apr 20, 2021 </p><ul><li>Support update_issue_component.</li></ul><p>[0.2.4] - Mar 28, 2021 </p><ul><li>Added create_task into Jira and refactor code.</li></ul><p>[0.2.0] - Mar 9, 2021 </p><ul><li>Convert API return from JSON data into Python object.</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Bitbucket </tag>
+            
+            <tag> Jira </tag>
+            
+            <tag> API </tag>
+            
+            <tag> REST </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to download the entire folder artifacts when Artifactory &quot;Download Folder functionality is disabled&quot;?</title>
       <link href="/2021/05/artifactory-api-search/"/>
       <url>/2021/05/artifactory-api-search/</url>
@@ -450,9 +483,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -836,9 +869,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -863,9 +896,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1673,9 +1706,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
