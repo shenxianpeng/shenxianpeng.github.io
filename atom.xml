@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-05-10T10:32:39.810Z</updated>
+  <updated>2021-05-13T16:16:30.618Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Branch Naming Convention</title>
+    <link href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/"/>
+    <id>https://shenxianpeng.github.io/2021/05/branch-naming-convention/</id>
+    <published>2021-05-13T15:52:01.000Z</published>
+    <updated>2021-05-13T16:16:30.618Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Why-need-branching-naming-convention&quot;&gt;&lt;a href=&quot;#Why-need-branching-naming-convention&quot; class=&quot;headerlink&quot; title=&quot;Why need branching
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
+    
+      <category term="Naming" scheme="https://shenxianpeng.github.io/tags/naming/"/>
+    
+  </entry>
   
   <entry>
     <title>Atlassian REST API Python Wrapper</title>
@@ -73,9 +101,9 @@
       <category term="JFrog" scheme="https://shenxianpeng.github.io/categories/jfrog/"/>
     
     
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
       <category term="API" scheme="https://shenxianpeng.github.io/tags/api/"/>
     
@@ -533,9 +561,9 @@
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
       <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
@@ -574,38 +602,6 @@
     
     
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ansible 实践（一）</title>
-    <link href="https://shenxianpeng.github.io/2020/10/ansible-practice1/"/>
-    <id>https://shenxianpeng.github.io/2020/10/ansible-practice1/</id>
-    <published>2020-10-28T02:09:41.000Z</published>
-    <updated>2020-11-24T05:48:36.549Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这需要结合具体场景来考虑。&lt;/p&gt;
-&lt;h2 id=&quot;选择合适的工具&quot;&gt;&lt;a href=&quot;#选择合适的工具&quot; class=&quot;headerlink&quot; title=&quot;选择合适的工具&quot;&gt;&lt;/a&gt;选择合适的工具&lt;/h2&gt;&lt;h3 id=&quot;仅管理-Windows-和-Linux&quot;&gt;&lt;a href=&quot;#仅管理-Windows-和-Linux&quot; class=&quot;headerlink&quot; title=&quot;仅管理 Windows 和 Linux&quot;&gt;&lt;/a&gt;仅管理 Windows 和 Linux&lt;/h3&gt;&lt;p&gt;如果你的虚拟机没有这么多平台，只是 Windows 和 Linux，假如你已经有了 VMware vSphere 来管理了，那么可以通过 VMware vSphere API 来查看这些机器的状态。&lt;/p&gt;
-&lt;p&gt;这里是 VMware 官方的 API Library 供使用：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vmware/pyvmomi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;VMware vSphere API Python Bindings&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vmware/govmomi&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Go library for the VMware vSphere API&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;管理多个操作系统&quot;&gt;&lt;a href=&quot;#管理多个操作系统&quot; class=&quot;headerlink&quot; title=&quot;管理多个操作系统&quot;&gt;&lt;/a&gt;管理多个操作系统&lt;/h3&gt;&lt;p&gt;如果你和我的情况一下，想监控很多个操作操作系统，那么就只能通过 ssh 来登录到每一台机器上去查看，比如执行 &lt;code&gt;uptime&lt;/code&gt; 等命令。可以写 shell 脚本来完成这些登录、检测等操作。&lt;/p&gt;
-&lt;p&gt;另外就是使用 Ansible 的 Playbook。Playbook 里描述了你要做的操作，这是一个权衡，学习 Ansible 的 Playbook 需要花些时间的。&lt;/p&gt;
-&lt;p&gt;如果想了解下 Ansible 那么可以试试 Ansible Playbook。以下是我使用 Ansible 做了一些练习。&lt;/p&gt;
-&lt;h4 id=&quot;Playbook结构&quot;&gt;&lt;a href=&quot;#Playbook结构&quot; class=&quot;headerlink&quot; title=&quot;Playbook结构&quot;&gt;&lt;/a&gt;Playbook结构&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;+- vars                &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   +- vars.yml&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;|   +- ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+- hosts               # save all hosts you want to monitor&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+- run.yml             # ansible executable file&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&quot;Playbook具体代码&quot;&gt;&lt;a href=&quot;#Playbook具体代码&quot; class=&quot;headerlink&quot; title=&quot;Playbook具体代码&quot;&gt;&lt;/a&gt;Playbook具体代码&lt;/h4&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Ansible" scheme="https://shenxianpeng.github.io/tags/ansible/"/>
     
   </entry>
   
