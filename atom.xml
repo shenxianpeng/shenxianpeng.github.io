@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-05-13T16:16:30.618Z</updated>
+  <updated>2021-05-22T10:54:14.071Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git guidelines</title>
+    <link href="https://shenxianpeng.github.io/2021/05/git-guidelines/"/>
+    <id>https://shenxianpeng.github.io/2021/05/git-guidelines/</id>
+    <published>2021-05-13T16:19:15.000Z</published>
+    <updated>2021-05-22T10:54:14.071Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Everyone use Git should know these Git guidelines below.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Configure name and email&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="Guidelines" scheme="https://shenxianpeng.github.io/tags/guidelines/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Branch Naming Convention</title>
     <link href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/"/>
     <id>https://shenxianpeng.github.io/2021/05/branch-naming-convention/</id>
     <published>2021-05-13T15:52:01.000Z</published>
-    <updated>2021-05-13T16:16:30.618Z</updated>
+    <updated>2021-05-14T08:03:29.408Z</updated>
     
     <summary type="html">
     
@@ -41,41 +73,6 @@
       <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
     
       <category term="Naming" scheme="https://shenxianpeng.github.io/tags/naming/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Atlassian REST API Python Wrapper</title>
-    <link href="https://shenxianpeng.github.io/2021/05/atlassian-api-py/"/>
-    <id>https://shenxianpeng.github.io/2021/05/atlassian-api-py/</id>
-    <published>2021-05-10T09:22:02.000Z</published>
-    <updated>2021-05-10T10:32:39.810Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Thanks for downloading!&lt;/p&gt;
-&lt;h2 id=&quot;Usage&quot;&gt;&lt;a href=&quot;#Usage&quot; class=&quot;headerlink&quot; title=&quot;Usage&quot;&gt;&lt;/a&gt;Usage&lt;/h2&gt;&lt;p&gt;About how to use and
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
-    
-    
-      <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
-    
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
-      <category term="Jira" scheme="https://shenxianpeng.github.io/tags/jira/"/>
-    
-      <category term="API" scheme="https://shenxianpeng.github.io/tags/api/"/>
-    
-      <category term="REST" scheme="https://shenxianpeng.github.io/tags/rest/"/>
     
   </entry>
   
