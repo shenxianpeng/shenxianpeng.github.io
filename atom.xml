@@ -168,11 +168,11 @@
   </entry>
   
   <entry>
-    <title>Pythonic 是什么意思？</title>
+    <title>你的 Python 代码够不够 Pythonic？</title>
     <link href="https://shenxianpeng.github.io/2021/03/pythonic/"/>
     <id>https://shenxianpeng.github.io/2021/03/pythonic/</id>
     <published>2021-03-28T02:27:57.000Z</published>
-    <updated>2021-03-28T09:05:37.067Z</updated>
+    <updated>2021-05-30T09:42:39.953Z</updated>
     
     <summary type="html">
     
@@ -180,7 +180,8 @@
       
         
         
-          &lt;h2 id=&quot;什么是-Pythonic&quot;&gt;&lt;a href=&quot;#什么是-Pythonic&quot; class=&quot;headerlink&quot; title=&quot;什么是 Pythonic&quot;&gt;&lt;/a&gt;什么是 Pythonic&lt;/h2&gt;&lt;p&gt;由于 Python
+          &lt;p&gt;Python 不必多说，它是众多编程语言中最为容易学习的动态类型语言。它的跨平台、易读、易写、丰富的 Package 等众多特性，也是众多DevOps/测试/开发工程师是最常用的语言之一。&lt;/p&gt;
+&lt;p&gt;相信不少人和我一样用 Python
         
       
     
@@ -414,9 +415,9 @@
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
     
     
-      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
-    
       <category term="OpenSSH" scheme="https://shenxianpeng.github.io/tags/openssh/"/>
+    
+      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
     
   </entry>
   
