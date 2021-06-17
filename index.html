@@ -88,6 +88,145 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2021/06/aix-ulimit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/aix-ulimit/" class="article-date">
+  <time datetime="2021-06-17T05:52:44.000Z" itemprop="datePublished">2021-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/troubleshooting/">Troubleshooting</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/aix-ulimit/">通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近使用 AIX 7.1 从 Bitucket 下载代码的时候遇到了这个错误 <code>fatal: write error: A file cannot be larger than the value set by ulimit.</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">fatal: write error: A file cannot be larger than the value <span class="built_in">set</span> by <span class="built_in">ulimit</span>.</span><br><span class="line">fatal: index-pack failed</span><br></pre></td></tr></table></figure>
+
+<p>这是由于这个仓库里的文件太大，超过了 AIX 对于用户文件资源使用的上限。通过 <code>ulimit -a</code> 可以来查看。更多关于 <code>ulimit</code> 命令的使用 <a href="https://www.ibm.com/docs/en/aix/7.1?topic=u-ulimit-command" target="_blank" rel="noopener">ulimit Command</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         2097151</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 file 有一个上限值 2097151。如果将它也改成 unlimited 应该就好了。</p>
+<p>通过 root 用户可以访问到 limits 文件 <code>/etc/security/limits</code>(普通用户没权限访问)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下是这个文件里的部分内容</span></span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = 2097151</span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br></pre></td></tr></table></figure>
+<p>将上述的值 fsize = 2097151 改成 fsize = -1 就将解除了文件块大小的限制了。修改完成后，重新登录，再次执行 <code>ulimit -a</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+<p>此时 file(blocks) 已经变成 unlimited 了。再次尝试 git clone</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+
+<p>这次就成功了！</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckq0m6cl700ds8kfo7q896m23" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/aix-ulimit/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aix/" rel="tag">AIX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
+    <article id="post-2021/06/artifactory-slow-upload" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/artifactory-slow-upload/" class="article-date">
+  <time datetime="2021-06-16T15:44:59.000Z" itemprop="datePublished">2021-06-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/troubleshooting/">Troubleshooting</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/artifactory-slow-upload/">关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在我使用 Artifactory Enterprise 遇到了上传制品非常缓慢的问题，在经过与 IT，Artifactory 管理员一起合作终于解决这个问题，在此分享一下这个问题的解决过程。</p>
+<p>如果你也遇到类似或许有所帮助。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>最近发现通过 Jenkins 往 Artifactory 里上传制品的时候偶尔出现上传非常缓慢的情况，尤其是当一个 Jenkins stage 里有多次上传，往往会在第二次上传的时候出现传输速度极为缓慢（KB/s ）。</p>
+<h2 id="问题排查和解决"><a href="#问题排查和解决" class="headerlink" title="问题排查和解决"></a>问题排查和解决</h2><p>我的构建环境和 Jenkins 都没有任何改动，所有的构建任务都出现了上传缓慢的情况，为了排除可能是使用 Artifactory plugin 的导致原因，通过 curl 命令来进行上传测试，也同样上传速度经常很慢。</p>
+<p>那么问题就在 Artifactory 上面。</p>
+<ol>
+<li>是 Artifactory 最近升级了？</li>
+<li>还是 Artifactory 最近修改了什么设置？</li>
+<li>也许是 Artifactory 服务器的问题？</li>
+</ol>
+<p>在跟 Artifactory 管理员进行了沟通之后，排除了以上 1，2 的可能。为了彻底排除是 Artifactory 的问题，通过 scp 进行拷贝的时候同样也出现了传输速度非常慢的情况，这问题就出现在网络上了。</p>
+<p>这样需要 IT 来帮助排查网络问题了，最终 IT 建议更换网卡进行尝试（因为他们之前有遇到类似的情况），但这种情况会有短暂的网络中断，不过最终还是得到了管理者的同意。</p>
+<p>幸运的是在更换网卡之后，Jenkins 往 Artifactory 传输制品的速度恢复了正常。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>处理次事件的一点点小小的总结：</p>
+<p>由于这个问题涉及到几个团队，为了能够快速推进，此时明确说明问题，推测要有理有据，以及该问题导致了什么样的严重后果（比如影响发布）才能让相关人重视起来，否则大家都等着，没人回来解决问题。</p>
+<p>当 Artifactory 管理推荐使用其他数据中心 instance，建议他们先尝试更换网卡；如果问题没有得到解决，在同一个数据中心创建另外一台服务器。如果问题还在，此时再考虑迁移到其他数据中心instance。这大大减少了作为用户去试错所带来的额外工作量。</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="ckq0m6cl300dl8kfoce9ucz5w" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
     <article id="post-2021/06/eslint-jenkins" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/06/eslint-jenkins/" class="article-date">
@@ -119,13 +258,13 @@ ga('send', 'pageview');
 </blockquote>
 <p>When I want to integrate the ESlint report with Jenkins. I encourage a problem</p>
 <p>That is eslint-report.html display different with it on my local machine, and I also log to Jenkins server and grab the eslint-report.html to local, it works well. </p>
-<p>I used <a href="https://plugins.jenkins.io/htmlpublisher/" target="_blank" rel="noopener">HTML Publisher</a> plugin to display the HTML report, but only ESlint HTML report has problems other report work well, so I guess this problem may be caused by Jenkins.</p>
+<p>I used <a href="https://plugins.jenkins.io/htmlpublisher/" target="_blank" rel="noopener">HTML Publisher</a> plugin to display the HTML report, but only the ESlint HTML report has problems other report work well, so I guess this problem may be caused by Jenkins.</p>
 <p>Finally, I find it. (Stackoverflow <a href="https://stackoverflow.com/questions/34315723/jenkins-error-blocked-script-execution-in-url-because-the-documents-frame/46197356?stw=2#46197356" target="_blank" rel="noopener">URL</a>)</p>
 <h2 id="Follow-the-below-steps-for-solution"><a href="#Follow-the-below-steps-for-solution" class="headerlink" title="Follow the below steps for solution:"></a>Follow the below steps for solution:</h2><ol>
 <li>Open the Jenkin home page.</li>
 <li>Go to Manage Jenkins.</li>
 <li>Now go to Script Console.</li>
-<li>And in that console paste below statement and click on Run. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;hudson.model.DirectoryBrowserSupport.CSP&quot;, &quot;&quot;)</span><br></pre></td></tr></table></figure></li>
+<li>And in that console paste the below statement and click on Run. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;hudson.model.DirectoryBrowserSupport.CSP&quot;, &quot;&quot;)</span><br></pre></td></tr></table></figure></li>
 <li>After that, it will load CSS and JS.</li>
 </ol>
 <p>According to Jenkins’s new <a href="https://www.jenkins.io/doc/book/security/configuring-content-security-policy/" target="_blank" rel="noopener">Content Security Policy</a> and I saw <code>No frames allowed</code>.</p>
@@ -144,12 +283,12 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="ckplels4i007sl8foazkp9wr7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="ckq0m6cl500dp8kfo3qjahe57" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a></li></ul>
 
     </footer>
     
@@ -223,7 +362,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="ckplels49007ll8fog639fb8a" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="ckq0m6cl100di8kfocb5ihxu6" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/git-guidelines/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -289,7 +428,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="ckplels4h007pl8fofrww7jcn" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="ckq0m6ckv00d88kfo6cfzgmb9" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -362,7 +501,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="ckplels44007fl8fo4s3sfkfh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="ckq0m6ckz00de8kfo5au6e646" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -425,7 +564,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="ckplels42007dl8focd7ob7b3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="ckq0m6ckx00db8kfo580q3b6e" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -493,7 +632,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/jacoco-imp/" data-id="ckplels3v0072l8foewwg6u1o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/jacoco-imp/" data-id="ckq0m6ckr00d18kfod57s2ni2" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/jacoco-imp/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -577,7 +716,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="ckplels3x0075l8fo7ngb8l9k" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="ckq0m6ckp00cx8kfo5but8azf" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/pythonic/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -636,7 +775,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="ckplels3z0078l8fo19cre6rl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="ckq0m6ckk00cq8kfochsgepcs" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -650,216 +789,10 @@ ga('send', 'pageview');
   
 </article>
   
-    <article id="post-2021/03/code-review" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/03/code-review/" class="article-date">
-  <time datetime="2021-03-20T09:10:14.000Z" itemprop="datePublished">2021-03-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/devops/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/code-review/">基于谷歌代码审查（Code Review）法则的思考与实践</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>代码审查（Code Review），就是让别人来审查你的代码，其目的就是确保代码库的整体代码运行状况随着时间推移而不断改善。</p>
-<p>中国有句古话：三人行必有我师。</p>
-<p>代码审查同样如此：</p>
-<ul>
-<li>他人的审查或许会有不一样的思考和建议；</li>
-<li>人都会犯错，多一个人检查就减少犯错的机率。</li>
-</ul>
-<p>因此代码审查是你编写的代码在合并到主分支前最重要的一项检查工作，也是一项最直接、最低成本的发现软件中的错误绝佳方式。</p>
-<p>既然代码审查这么重要，而且有这样显而易见的收益，但总能听到代码审查在团队里执行起来不容易、效果不理想的问题。问题出在哪呢？</p>
-<p>据我观察有两点原因：</p>
-<p>第一，读别人代码需要花时间，往往还需要代码提交者带着业务为审查者讲一遍，同时占用双方时间；<br>其次，如果代码审查者工作繁重、压力大而没有时间，也很容易造成执行不到位，走过场；</p>
-<p>如何才能比较好的开展代码审查？让我们先来看看大公司是怎么做的，Google 的这篇关于代码审查的文章里给出了具体法则。</p>
-<h2 id="Google-的代码审查法则"><a href="#Google-的代码审查法则" class="headerlink" title="Google 的代码审查法则"></a>Google 的代码审查法则</h2><p>在进行代码审查时，应确保：</p>
-<ul>
-<li>代码经过精心设计</li>
-<li>该功能对代码用户很有帮助</li>
-<li>任何 UI 更改都是明智的，并且看起来不错</li>
-<li>任何并行编程都是安全完成的</li>
-<li>代码没有比需要的复杂</li>
-<li>开发人员没有实现他们将来可能需要的东西</li>
-<li>代码具有适当的单元测试</li>
-<li>测试经过精心设计</li>
-<li>开发人员对所有内容使用了清晰的名称</li>
-<li>注释清晰实用，并且主要说明Why而不是What</li>
-<li>代码已正确文档化</li>
-<li>该代码符合我们的样式指南</li>
-</ul>
-<p>确保检查要求你检查的每一行代码，查看上下文，确保你在改善代码运行状况，并称赞开发人员所做的出色工作。</p>
-<blockquote>
-<p>原文：<a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html" target="_blank" rel="noopener">https://google.github.io/eng-practices/review/reviewer/looking-for.html</a></p>
-</blockquote>
-<h2 id="代码审查法的落地"><a href="#代码审查法的落地" class="headerlink" title="代码审查法的落地"></a>代码审查法的落地</h2><p>可见，想要更好的落地代码审查，需要先要确立法则，你可以根据实际情况对上述法则进行借鉴、删减或补充；</p>
-<p>第二，作为技术领导应当积极布道，让开发者了解统一的代码审查法则；</p>
-<p>第三，应当把法则里的具体规则尽可能地通过流程控制、自动化检查则纳入到 Pull Request 中。</p>
-<p>另外提醒作为 Reviewer 要 Peaceful ！！！在代码审查时注意不要带有“教育”性质的去给别人提出修改建议，那样很容易适得其反。</p>
-<p>以下是一些不完全实践，供参考。</p>
-<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p><strong>规避任何不经 Review 的代码进入到主分支</strong></p>
-<blockquote>
-<p>以 Bitucket 为例。GitHub，GitLab 在设置上大同小异。</p>
-</blockquote>
-<ul>
-<li><p>打开分支权限设置里的选项 <code>Prevent changes without a pull request</code> 打开它。当然如果有需要可以在这个选项里添加 Exception，被添加的人可以不通过 Pull Reuqest 来提交代码。</p>
-</li>
-<li><p>在 Merge Check 里开启 <code>Minimum approvals</code> 这个选项。比如设置 Number of approvals = 1，这样需要至少有一个 Reviewers 点击 Approve 按钮才允许 Merge。</p>
-</li>
-</ul>
-<h3 id="自动化检查"><a href="#自动化检查" class="headerlink" title="自动化检查"></a>自动化检查</h3><p><strong>通过CI流水线验证编译和测试</strong></p>
-<ul>
-<li><p>建立自动化构建和测试 Pipeline，这样在创建 Pull Request 的时候可以自动构建、测试以及检查。Jenkins 的 Multi-branch pipeline 可以满足这个需求。</p>
-</li>
-<li><p>开启 Bitucket 的 Merge Check 里 <code>Minimum successful builds</code> 选项，验证构建/测试结果，以防止任何没有通过构建和测试的代码可以 Merge 到主分支。</p>
-</li>
-<li><p>另外，可以通过自行编写工具来实现，或可以集成其他 CI 工具来做检查，例如：</p>
-<ul>
-<li>针对 Pull Request 的修改历史来分析提交历史并推荐 Reiewer；</li>
-<li>通过 Lint 工具来检查编码规范；</li>
-<li>通过 REST API 检查是否需要压缩 Commits 来保证清晰的提交历史；</li>
-<li>通过 SonarQube 检查 Quality Gate 等。</li>
-</ul>
-</li>
-</ul>
-<p>实现自动化检查，可以帮助 Reviewers 将审查的工作精力放在代码的具体实现上，其他的交给工具。</p>
-<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>代码审查做的好不好，跟一个团队有没有良好的技术氛围，或者是否存在有技术领导力，有“品位”的技术大牛也是正相关的。</p>
-<ul>
-<li><p>如果团队里大多数都是有“品位”的工程师，他们会以写出优秀的代码（或挑刺）乐此不疲。</p>
-</li>
-<li><p>相反如果团队不重视规范，只追求短期的绩效达成，只会让技术债越欠越多，产品越做越烂。</p>
-</li>
-</ul>
-<p>欢迎留言分享你的意见或建议。</p>
-
-      
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="ckplels3t006zl8fody3q1sj3" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2021/03/code-review/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/code/" rel="tag">Code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pr/" rel="tag">PR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/review/" rel="tag">Review</a></li></ul>
-
-    </footer>
-    
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  </div>
-  
-</article>
-  
-    <article id="post-2021/02/jenkins-windows-agent-cannot-start" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/02/jenkins-windows-agent-cannot-start/" class="article-date">
-  <time datetime="2021-02-11T08:09:06.000Z" itemprop="datePublished">2021-02-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/jenkins-windows-agent-cannot-start/">Jenkins upgrade issue &#34;Windows agents won&#39;t start&#34; workaround</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Today, when I tried to upgrade my team’s Jenkins server from Jenkins 2.235.1 to Jenkins 2.263.3, I met a problem that can not launch the Windows agent.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[2021-01-29 23:50:40] [windows-agents] Connecting to xxx.xxx.xxx.xxx</span><br><span class="line">Checking if Java exists</span><br><span class="line">java -version returned 11.0.2.</span><br><span class="line">[2021-01-29 23:50:40] [windows-agents] Installing the Jenkins agent service</span><br><span class="line">[2021-01-29 23:50:40] [windows-agents] Copying jenkins-agent.exe</span><br><span class="line">ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</span><br><span class="line">Also: java.lang.Throwable: launched here</span><br><span class="line">at hudson.slaves.SlaveComputer._connect(SlaveComputer.java:286)</span><br><span class="line">at hudson.model.Computer.connect(Computer.java:435)</span><br><span class="line">at hudson.slaves.SlaveComputer.doLaunchSlaveAgent(SlaveComputer.java:790)</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">java.lang.NullPointerException</span><br><span class="line">at hudson.os.windows.ManagedWindowsServiceLauncher.launch(ManagedWindowsServiceLauncher.java:298)</span><br></pre></td></tr></table></figure>
-
-<p>This issue had been raised in the Jenkins Jira project: <a href="https://issues.jenkins.io/browse/JENKINS-63198" target="_blank" rel="noopener">JENKINS-63198</a> and <a href="https://issues.jenkins.io/browse/JENKINS-63198" target="_blank" rel="noopener">JENKINS-63198</a></p>
-<p>There is also a Windows Support Updates guide <a href="https://www.jenkins.io/blog/2020/07/23/windows-support-updates/" target="_blank" rel="noopener">here</a> that mentioned this problem.</p>
-<p>Finally, I fixed this problem by the following steps:</p>
-<ol>
-<li>Update <a href="https://github.com/jenkinsci/windows-slaves-plugin" target="_blank" rel="noopener">windows-slaves-plugin</a> to the lastest version 1.7 (fixes for Jenkins 2.248+)</li>
-</ol>
-<p>Then the error should be like this</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[2021-01-30 23:53:40] [windows-agents] Connecting to xxx.xxx.xxx.xxx</span><br><span class="line">Checking if Java exists</span><br><span class="line">java -version returned 11.0.2.</span><br><span class="line">[2021-01-30 23:53:47] [windows-agents] Copying jenkins-agent.xml</span><br><span class="line">[2021-01-30 23:53:48] [windows-agents] Copying agent.jar</span><br><span class="line">[2021-01-30 23:53:48] [windows-agents] Starting the service</span><br><span class="line">ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</span><br><span class="line">org.jinterop.dcom.common.JIException: Unknown Failure</span><br><span class="line">	at org.jvnet.hudson.wmi.Win32Service$Implementation.start(Win32Service.java:149)</span><br><span class="line">Caused: java.lang.reflect.InvocationTargetException</span><br><span class="line">	at sun.reflect.GeneratedMethodAccessor219.invoke(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">	at org.kohsuke.jinterop.JInteropInvocationHandler.invoke(JInteropInvocationHandler.java:140)</span><br><span class="line">Also:   java.lang.Throwable: launched here</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Then change <code>jenkins-agent.exe.config</code> file. remove or comment out this line <code>&lt;supportedRuntime version=&quot;v2.0.50727&quot; /&gt;</code> as below</li>
-</ol>
-<blockquote>
-<p>also do this for <code>jenkins-slave.exe.config</code> in case it also exists.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;runtime&gt;</span><br><span class="line">    &lt;!-- see http:&#x2F;&#x2F;support.microsoft.com&#x2F;kb&#x2F;936707 --&gt;</span><br><span class="line">    &lt;generatePublisherEvidence enabled&#x3D;&quot;false&quot;&#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;runtime&gt;</span><br><span class="line">  &lt;startup&gt;</span><br><span class="line">    &lt;!-- this can be hosted either on .NET 2.0 or 4.0 --&gt;</span><br><span class="line">    &lt;!-- &lt;supportedRuntime version&#x3D;&quot;v2.0.50727&quot; &#x2F;&gt; --&gt;</span><br><span class="line">    &lt;supportedRuntime version&#x3D;&quot;v4.0&quot; &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;startup&gt;</span><br><span class="line">&lt;&#x2F;configuration&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>Then try to Launch agent.</li>
-</ol>
-<p>If it still does not work and has this error message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”, you need to upgrade your .NET Framework.</p>
-<blockquote>
-<p>Here is a <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/">link</a> for update .NET Framework.</p>
-</blockquote>
-<p>Hopefully, this could help you to fix connect the issue of the Windows agent. Let me know in case of any questions.</p>
-
-      
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="ckplels3r006vl8foctck6nae" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
-
-    </footer>
-    
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  </div>
-  
-</article>
-  
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">next</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">next</a>
   </nav>
 </section>
         
@@ -869,7 +802,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -879,7 +812,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10px;">AIX</a> <a href="/tags/api/" style="font-size: 10px;">API</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10.91px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 14.55px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.27px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13.64px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 11.82px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.82px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 13.64px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/coco/" style="font-size: 10px;">Coco</a> <a href="/tags/code/" style="font-size: 10px;">Code</a> <a href="/tags/codecoverage/" style="font-size: 11.82px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 15.45px;">DevOps</a> <a href="/tags/docker/" style="font-size: 11.82px;">Docker</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 19.09px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/guidelines/" style="font-size: 10px;">Guidelines</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.55px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.64px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.91px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.82px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 10.91px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/naming/" style="font-size: 10px;">Naming</a> <a href="/tags/nightwatch/" style="font-size: 18.18px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pr/" style="font-size: 10px;">PR</a> <a href="/tags/pipeline/" style="font-size: 16.36px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13.64px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 10.91px;">Release</a> <a href="/tags/review/" style="font-size: 10px;">Review</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 11.82px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squish/" style="font-size: 10px;">Squish</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 10.91px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.82px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.73px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 11.82px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 12.73px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 11.82px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 11.82px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 10.91px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11.82px;">Windows</a> <a href="/tags/work/" style="font-size: 14.55px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/installer/" style="font-size: 10px;">installer</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/parameter/" style="font-size: 10px;">parameter</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 10.91px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 10.83px;">AIX</a> <a href="/tags/api/" style="font-size: 10px;">API</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10.83px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.5px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13.33px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.67px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 13.33px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/coco/" style="font-size: 10px;">Coco</a> <a href="/tags/code/" style="font-size: 10px;">Code</a> <a href="/tags/codecoverage/" style="font-size: 11.67px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 15.83px;">DevOps</a> <a href="/tags/docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/git/" style="font-size: 19.17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/guidelines/" style="font-size: 10px;">Guidelines</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.17px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.33px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.83px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.67px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/naming/" style="font-size: 10px;">Naming</a> <a href="/tags/nightwatch/" style="font-size: 18.33px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pr/" style="font-size: 10px;">PR</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13.33px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 10.83px;">Release</a> <a href="/tags/review/" style="font-size: 10px;">Review</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squish/" style="font-size: 10px;">Squish</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 10.83px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.67px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.5px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 11.67px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 11.67px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 10.83px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11.67px;">Windows</a> <a href="/tags/work/" style="font-size: 14.17px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/installer/" style="font-size: 10px;">installer</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/parameter/" style="font-size: 10px;">parameter</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 10.83px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -889,6 +822,14 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/06/aix-ulimit/">通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/artifactory-slow-upload/">关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</a>
+          </li>
         
           <li>
             <a href="/2021/06/eslint-jenkins/">Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</a>
@@ -962,14 +903,6 @@ ga('send', 'pageview');
             <a href="/2021/01/2021-devops-job-requirement/">2021 年国外 IT 公司对于 DevOps 工程师的要求有哪些？</a>
           </li>
         
-          <li>
-            <a href="/2020/12/2020-summary/">2020 年终总结</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/jenkins-backup/">How to backup Jenkins</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -979,7 +912,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

@@ -4,11 +4,63 @@
   
     
     <entry>
+      <title>通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</title>
+      <link href="/2021/06/aix-ulimit/"/>
+      <url>/2021/06/aix-ulimit/</url>
+      
+        <content type="html"><![CDATA[<p>最近使用 AIX 7.1 从 Bitucket 下载代码的时候遇到了这个错误 <code>fatal: write error: A file cannot be larger than the value set by ulimit.</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">fatal: write error: A file cannot be larger than the value <span class="built_in">set</span> by <span class="built_in">ulimit</span>.</span><br><span class="line">fatal: index-pack failed</span><br></pre></td></tr></table></figure><p>这是由于这个仓库里的文件太大，超过了 AIX 对于用户文件资源使用的上限。通过 <code>ulimit -a</code> 可以来查看。更多关于 <code>ulimit</code> 命令的使用 <a href="https://www.ibm.com/docs/en/aix/7.1?topic=u-ulimit-command" target="_blank" rel="noopener">ulimit Command</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         2097151</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure><p>可以看到 file 有一个上限值 2097151。如果将它也改成 unlimited 应该就好了。</p><p>通过 root 用户可以访问到 limits 文件 <code>/etc/security/limits</code>(普通用户没权限访问)。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下是这个文件里的部分内容</span></span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = 2097151</span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br></pre></td></tr></table></figure><p>将上述的值 fsize = 2097151 改成 fsize = -1 就将解除了文件块大小的限制了。修改完成后，重新登录，再次执行 <code>ulimit -a</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure><p>此时 file(blocks) 已经变成 unlimited 了。再次尝试 git clone</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure><p>这次就成功了！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Troubleshooting </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> AIX </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</title>
+      <link href="/2021/06/artifactory-slow-upload/"/>
+      <url>/2021/06/artifactory-slow-upload/</url>
+      
+        <content type="html"><![CDATA[<p>最近在我使用 Artifactory Enterprise 遇到了上传制品非常缓慢的问题，在经过与 IT，Artifactory 管理员一起合作终于解决这个问题，在此分享一下这个问题的解决过程。</p><p>如果你也遇到类似或许有所帮助。</p><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>最近发现通过 Jenkins 往 Artifactory 里上传制品的时候偶尔出现上传非常缓慢的情况，尤其是当一个 Jenkins stage 里有多次上传，往往会在第二次上传的时候出现传输速度极为缓慢（KB/s ）。</p><h2 id="问题排查和解决"><a href="#问题排查和解决" class="headerlink" title="问题排查和解决"></a>问题排查和解决</h2><p>我的构建环境和 Jenkins 都没有任何改动，所有的构建任务都出现了上传缓慢的情况，为了排除可能是使用 Artifactory plugin 的导致原因，通过 curl 命令来进行上传测试，也同样上传速度经常很慢。</p><p>那么问题就在 Artifactory 上面。</p><ol><li>是 Artifactory 最近升级了？</li><li>还是 Artifactory 最近修改了什么设置？</li><li>也许是 Artifactory 服务器的问题？</li></ol><p>在跟 Artifactory 管理员进行了沟通之后，排除了以上 1，2 的可能。为了彻底排除是 Artifactory 的问题，通过 scp 进行拷贝的时候同样也出现了传输速度非常慢的情况，这问题就出现在网络上了。</p><p>这样需要 IT 来帮助排查网络问题了，最终 IT 建议更换网卡进行尝试（因为他们之前有遇到类似的情况），但这种情况会有短暂的网络中断，不过最终还是得到了管理者的同意。</p><p>幸运的是在更换网卡之后，Jenkins 往 Artifactory 传输制品的速度恢复了正常。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>处理次事件的一点点小小的总结：</p><p>由于这个问题涉及到几个团队，为了能够快速推进，此时明确说明问题，推测要有理有据，以及该问题导致了什么样的严重后果（比如影响发布）才能让相关人重视起来，否则大家都等着，没人回来解决问题。</p><p>当 Artifactory 管理推荐使用其他数据中心 instance，建议他们先尝试更换网卡；如果问题没有得到解决，在同一个数据中心创建另外一台服务器。如果问题还在，此时再考虑迁移到其他数据中心instance。这大大减少了作为用户去试错所带来的额外工作量。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Troubleshooting </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Artifactory </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</title>
       <link href="/2021/06/eslint-jenkins/"/>
       <url>/2021/06/eslint-jenkins/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>I’m just documenting to myself that it was solved by following.</p></blockquote><p>When I want to integrate the ESlint report with Jenkins. I encourage a problem</p><p>That is eslint-report.html display different with it on my local machine, and I also log to Jenkins server and grab the eslint-report.html to local, it works well. </p><p>I used <a href="https://plugins.jenkins.io/htmlpublisher/" target="_blank" rel="noopener">HTML Publisher</a> plugin to display the HTML report, but only ESlint HTML report has problems other report work well, so I guess this problem may be caused by Jenkins.</p><p>Finally, I find it. (Stackoverflow <a href="https://stackoverflow.com/questions/34315723/jenkins-error-blocked-script-execution-in-url-because-the-documents-frame/46197356?stw=2#46197356" target="_blank" rel="noopener">URL</a>)</p><h2 id="Follow-the-below-steps-for-solution"><a href="#Follow-the-below-steps-for-solution" class="headerlink" title="Follow the below steps for solution:"></a>Follow the below steps for solution:</h2><ol><li>Open the Jenkin home page.</li><li>Go to Manage Jenkins.</li><li>Now go to Script Console.</li><li>And in that console paste below statement and click on Run. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;hudson.model.DirectoryBrowserSupport.CSP&quot;, &quot;&quot;)</span><br></pre></td></tr></table></figure></li><li>After that, it will load CSS and JS.</li></ol><p>According to Jenkins’s new <a href="https://www.jenkins.io/doc/book/security/configuring-content-security-policy/" target="_blank" rel="noopener">Content Security Policy</a> and I saw <code>No frames allowed</code>.</p><p>That is exactly the error I get on chrome by right-clicking on Elements.</p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>I’m just documenting to myself that it was solved by following.</p></blockquote><p>When I want to integrate the ESlint report with Jenkins. I encourage a problem</p><p>That is eslint-report.html display different with it on my local machine, and I also log to Jenkins server and grab the eslint-report.html to local, it works well. </p><p>I used <a href="https://plugins.jenkins.io/htmlpublisher/" target="_blank" rel="noopener">HTML Publisher</a> plugin to display the HTML report, but only the ESlint HTML report has problems other report work well, so I guess this problem may be caused by Jenkins.</p><p>Finally, I find it. (Stackoverflow <a href="https://stackoverflow.com/questions/34315723/jenkins-error-blocked-script-execution-in-url-because-the-documents-frame/46197356?stw=2#46197356" target="_blank" rel="noopener">URL</a>)</p><h2 id="Follow-the-below-steps-for-solution"><a href="#Follow-the-below-steps-for-solution" class="headerlink" title="Follow the below steps for solution:"></a>Follow the below steps for solution:</h2><ol><li>Open the Jenkin home page.</li><li>Go to Manage Jenkins.</li><li>Now go to Script Console.</li><li>And in that console paste the below statement and click on Run. <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;hudson.model.DirectoryBrowserSupport.CSP&quot;, &quot;&quot;)</span><br></pre></td></tr></table></figure></li><li>After that, it will load CSS and JS.</li></ol><p>According to Jenkins’s new <a href="https://www.jenkins.io/doc/book/security/configuring-content-security-policy/" target="_blank" rel="noopener">Content Security Policy</a> and I saw <code>No frames allowed</code>.</p><p>That is exactly the error I get on chrome by right-clicking on Elements.</p>]]></content>
       
       
       <categories>
@@ -21,6 +73,8 @@
         <tags>
             
             <tag> Jenkins </tag>
+            
+            <tag> Troubleshooting </tag>
             
             <tag> ESlint </tag>
             
@@ -398,9 +452,9 @@
       
         <tags>
             
-            <tag> OpenSSH </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> OpenSSH </tag>
             
         </tags>
       

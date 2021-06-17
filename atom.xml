@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-06T16:30:45.203Z</updated>
+  <updated>2021-06-17T07:57:25.589Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</title>
+    <link href="https://shenxianpeng.github.io/2021/06/aix-ulimit/"/>
+    <id>https://shenxianpeng.github.io/2021/06/aix-ulimit/</id>
+    <published>2021-06-17T05:52:44.000Z</published>
+    <updated>2021-06-17T07:57:25.589Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近使用 AIX 7.1 从 Bitucket 下载代码的时候遇到了这个错误 &lt;code&gt;fatal: write error: A file cannot be larger than the value set by
+        
+      
+    
+    </summary>
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</title>
+    <link href="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/"/>
+    <id>https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/</id>
+    <published>2021-06-16T15:44:59.000Z</published>
+    <updated>2021-06-17T07:58:48.091Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近在我使用 Artifactory Enterprise 遇到了上传制品非常缓慢的问题，在经过与 IT，Artifactory 管理员一起合作终于解决这个问题，在此分享一下这个问题的解决过程。&lt;/p&gt;
+&lt;p&gt;如果你也遇到类似或许有所帮助。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
+    
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</title>
     <link href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/"/>
     <id>https://shenxianpeng.github.io/2021/06/eslint-jenkins/</id>
     <published>2021-06-07T04:30:02.000Z</published>
-    <updated>2021-06-06T16:30:45.203Z</updated>
+    <updated>2021-06-17T05:51:19.137Z</updated>
     
     <summary type="html">
     
@@ -42,6 +98,8 @@
     
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
       <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
     
@@ -441,9 +499,9 @@
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
     
     
-      <category term="OpenSSH" scheme="https://shenxianpeng.github.io/tags/openssh/"/>
-    
       <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
+    
+      <category term="OpenSSH" scheme="https://shenxianpeng.github.io/tags/openssh/"/>
     
   </entry>
   
@@ -533,63 +591,6 @@
     
     
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2020 年终总结</title>
-    <link href="https://shenxianpeng.github.io/2020/12/2020-summary/"/>
-    <id>https://shenxianpeng.github.io/2020/12/2020-summary/</id>
-    <published>2020-12-31T07:00:00.000Z</published>
-    <updated>2020-12-31T08:01:18.914Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;时间飞快，马上就迎来了 2021 年，又到了总结自己这一年来的所有的经历和收获的时候了。&lt;/p&gt;
-&lt;p&gt;2020
-        
-      
-    
-    </summary>
-    
-      <category term="MyNotes" scheme="https://shenxianpeng.github.io/categories/mynotes/"/>
-    
-    
-      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
-    
-      <category term="Summary" scheme="https://shenxianpeng.github.io/tags/summary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to backup Jenkins</title>
-    <link href="https://shenxianpeng.github.io/2020/11/jenkins-backup/"/>
-    <id>https://shenxianpeng.github.io/2020/11/jenkins-backup/</id>
-    <published>2020-11-24T04:13:18.000Z</published>
-    <updated>2020-11-24T05:49:35.557Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I believe most of you have used the Jenkins configuration as code principle, so you build/test/release process will be described in code.&lt;/p&gt;
-&lt;p&gt;It looks like all is good, but not all of the configuration is in code, same of the Jenkins system configuration is store in the Jenkins service, so we also need to backup Jenkins in case of any disaster.&lt;/p&gt;
-&lt;p&gt;There are two ways to backup Jenkins, one used Jenkins plugin, the other is create shell scripts.&lt;/p&gt;
-&lt;h2 id=&quot;Using-plug-in-backup&quot;&gt;&lt;a href=&quot;#Using-plug-in-backup&quot; class=&quot;headerlink&quot; title=&quot;Using plug-in backup&quot;&gt;&lt;/a&gt;Using plug-in backup&lt;/h2&gt;&lt;p&gt;I used the &lt;code&gt;ThinBackup&lt;/code&gt; plugin, here is my thinBackup configuration.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2020/11/jenkins-backup/thinBackup-Configuration.png&quot; alt=&quot;ThinBackup Configuration&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
-      <category term="Backup" scheme="https://shenxianpeng.github.io/tags/backup/"/>
     
   </entry>
   
