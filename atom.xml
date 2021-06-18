@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-17T07:57:25.589Z</updated>
+  <updated>2021-06-18T09:18:18.690Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Gcov 一个免费开源的 C/C++ 代码覆盖率工具</title>
+    <link href="https://shenxianpeng.github.io/2021/06/gcov/"/>
+    <id>https://shenxianpeng.github.io/2021/06/gcov/</id>
+    <published>2021-06-18T08:28:11.000Z</published>
+    <updated>2021-06-18T09:18:18.690Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://gcc.gnu.org/onlinedocs/gcc/Gcov-Intro.html#Gcov-Intro&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Gcov&lt;/a&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
+    
+      <category term="Coco" scheme="https://shenxianpeng.github.io/tags/coco/"/>
+    
+      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
+    
+  </entry>
   
   <entry>
     <title>通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</title>
@@ -559,38 +589,6 @@
       <category term="Build" scheme="https://shenxianpeng.github.io/tags/build/"/>
     
       <category term="Timestamp" scheme="https://shenxianpeng.github.io/tags/timestamp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2021 年国外 IT 公司对于 DevOps 工程师的要求有哪些？</title>
-    <link href="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/"/>
-    <id>https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/</id>
-    <published>2021-01-03T03:22:38.000Z</published>
-    <updated>2021-01-06T02:21:54.063Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;自 2020 年因疫情开始，越来越多的 IT 公司都因不得不在家办公从而彻底转为 WFH（Work From Home） 公司，因此对于 IT 从业者来说，工作机会今后将会是全球性的。&lt;/p&gt;
-&lt;p&gt;如果你有意想进入一个跨国公司工作，想与世界各地的人在一起工作，那么就不能仅仅的关注国内的这些大厂，要将眼光放眼到全世界，看看这些耳熟能详的公司对于工程师的职位要求有哪些。&lt;/p&gt;
-&lt;p&gt;今天就先来看看 DevOps 岗位的需求是什么样的，了解这些，一来可以帮助我们在2021 年树立学习方向，而来如果你有意向去这些公司，了解并提早做准备才能有机会获取你想要的岗位。&lt;/p&gt;
-&lt;p&gt;由于这些职位的介绍和要求会很长，因此我就先说结论。&lt;/p&gt;
-&lt;h2 id=&quot;主要技能&quot;&gt;&lt;a href=&quot;#主要技能&quot; class=&quot;headerlink&quot; title=&quot;主要技能&quot;&gt;&lt;/a&gt;主要技能&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;国外很多公司他们使用的云服务商主要是 AWS，因此熟悉和使用 AWS&lt;/li&gt;
-&lt;li&gt;熟练使用 DevOps 工具，如 Jenkins, Ansible（Chef）, Git 等&lt;/li&gt;
-&lt;li&gt;Docker 和 Kubernetes 是每个想从事 DevOps 需要掌握的&lt;/li&gt;
-&lt;li&gt;熟悉操作系统，至少要 Linux&lt;/li&gt;
-&lt;li&gt;大多数都是要求 Python 很熟练，高级一些的岗位会要求熟悉 Go, Java 语言&lt;/li&gt;
-&lt;li&gt;最后，乐于学习，积极主动，具有创造性思维是每个 DevOps 最重要的特质，因此新的技术和工具层出不穷，我们需要保持和新进同行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;具体的职位要求细节，请看后面的职位介绍吧 …&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
