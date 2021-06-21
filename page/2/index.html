@@ -88,6 +88,90 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2021/03/pythonic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/pythonic/" class="article-date">
+  <time datetime="2021-03-28T02:27:57.000Z" itemprop="datePublished">2021-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/pythonic/">你的 Python 代码够不够 Pythonic？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Python 不必多说，它是众多编程语言中最容易学习的动态类型语言。它的跨平台、易读、易写、丰富的 Packages 等众多特性，也是众多DevOps/测试/开发工程师是最常用的语言之一。</p>
+<p>相信不少人用它完成了很多工作，但你是不是仅仅止步于功能的实现而忽略了去写出更加简洁，优美的 <code>Pythonic</code> 代码呢？</p>
+<p>在我最开始用 Python 时，我还不知道 <code>Pythonic</code> 这个词，直到多年前一位资深的程序员在给我培训的时候提到了项目中有一些代码不够 <code>Pythonic</code>，需要重构。根据语境，我理解他的意思：就是 Python 的代码没有按照 Python 的方式来写。</p>
+<h2 id="什么是-Pythonic"><a href="#什么是-Pythonic" class="headerlink" title="什么是 Pythonic"></a>什么是 Pythonic</h2><p>充分利用 Python 语言的特性来产生清晰、简洁和可维护的代码。<code>Pythonic</code> 的意思是指代码不仅仅是语法正确，而是遵循 Python 社区的惯例，并以其预期的方式使用该语言。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>以下是 C/C++ 程序员的一段代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> total_sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (b &gt;= a) &#123;</span><br><span class="line">    total_sum += a;</span><br><span class="line">    a++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果没有学习 Python 编程模式，那么将上面的代码改用 Python 来写可能会是这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">100</span></span><br><span class="line">total_sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> b &gt;= a:</span><br><span class="line">    total_sum += a</span><br><span class="line">    a += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>如果用 Pythonic 的方式来写，应该是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">total_sum = sum(range(<span class="number">1</span>, <span class="number">101</span>))</span><br></pre></td></tr></table></figure>
+
+<p>再举个常见的例子，如果用 Java 可能是这样写出来一个 For 循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> index=<span class="number">0</span>; index &lt; items.length; index++) &#123;</span><br><span class="line">    items[index].performAction();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Python中，使用以下方法会更干净一些：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">    item.perform_action()</span><br></pre></td></tr></table></figure>
+
+<p>甚至是一个生成器表达式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(item.some_attribute <span class="keyword">for</span> item <span class="keyword">in</span> items)</span><br></pre></td></tr></table></figure>
+
+<p>因此，从本质上讲，当有人说某件事情不符合 <code>pythonic</code> 时，他们是在说这段代码可以用一种更适合 Python 编码风格的方式来重新编写。<br>另外，去了解 Python <a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">Built-in Functions</a>，而不是重新造轮子。</p>
+<h2 id="关于-Pythonic-的“官方介绍”"><a href="#关于-Pythonic-的“官方介绍”" class="headerlink" title="关于 Pythonic 的“官方介绍”"></a>关于 Pythonic 的“官方介绍”</h2><p>其实，Python 命令行里已经秘密“隐藏”了关于 <code>Pythonic</code> 的介绍。只要打开 Python 控制台，输入 <code>import this</code>，你就能看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\xshen&gt;python</span><br><span class="line">Python 3.8.6 (tags&#x2F;v3.8.6:db45529, Sep 23 2020, 15:52:53) [MSC v.1927 64 bit (AMD64)] on win32</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; import this</span><br><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>直译过来是：Tim Peters 的《Python的禅意》</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">美丽的比丑陋的好。</span><br><span class="line">明确的比含蓄的好。</span><br><span class="line">简单的比复杂的好</span><br><span class="line">复杂的比复杂的好</span><br><span class="line">扁平的比嵌套的好。</span><br><span class="line">稀疏比密集好。</span><br><span class="line">可读性很重要。</span><br><span class="line">特殊情况不特殊，不足以打破规则。</span><br><span class="line">虽然实用性胜过纯粹性。</span><br><span class="line">错误永远不应该默默地通过。</span><br><span class="line">除非明确沉默。</span><br><span class="line">在面对模棱两可的情况下，拒绝猜测的诱惑。</span><br><span class="line">应该有一个--最好只有一个--明显的方法。</span><br><span class="line">虽然这种方式一开始可能并不明显，除非你是荷兰人。</span><br><span class="line">现在总比不做要好。</span><br><span class="line">虽然从不比现在*好。</span><br><span class="line">如果实现很难解释，那就是个坏主意。</span><br><span class="line">如果实现很容易解释，它可能是个好主意。</span><br><span class="line">命名空间是一个非常棒的想法--让我们做更多的命名空间!</span><br></pre></td></tr></table></figure>
+
+<p>关于 <code>Pythonic</code> 你 get 到了吗？</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="ckq640boh00az9sfo0m07amin" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/03/pythonic/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+  
     <article id="post-2021/03/jenkins-dynamic-default-parameters" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/03/jenkins-dynamic-default-parameters/" class="article-date">
@@ -133,7 +217,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="ckq4n6srn00ief4fob53tcwi6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="ckq640bo500av9sfoag6d4ihx" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -257,7 +341,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="ckq4n6sr700hxf4fo31goen79" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="ckq640bnj00ap9sfofx77eqa8" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/code-review/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -339,7 +423,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="ckq4n6sra00i0f4focl673l87" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="ckq640bnz00at9sfobxlnfmuk" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -488,7 +572,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="ckq4n6sqe00h5f4foeq2wf64y" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="ckq640blv00a89sfobmkl1opg" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -617,7 +701,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="ckq4n6sqi00h9f4fo2bqi4b1v" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="ckq640blg00a49sfo9zer6jfz" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -692,7 +776,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/" data-id="ckq4n6sqx00hmf4fo0lzq7ajt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/" data-id="ckq640bl600a19sfo0y4edg1t" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -764,7 +848,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/git-repository-settings/" data-id="ckq4n6sqp00hgf4foe7j58x9v" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/git-repository-settings/" data-id="ckq640bmx00ai9sfobwf0awor" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/git-repository-settings/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -829,7 +913,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/open-port-22/" data-id="ckq4n6sql00hcf4fo5sxad13w" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/open-port-22/" data-id="ckq640bmg00ab9sfoffsn82uq" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/open-port-22/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -892,86 +976,12 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/sparse-checkout/" data-id="ckq4n6sqt00hjf4fo75c219q6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/sparse-checkout/" data-id="ckq640bmp00af9sfocqu0gdjh" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/sparse-checkout/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
-
-    </footer>
-    
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  </div>
-  
-</article>
-  
-    <article id="post-2021/01/verisign-server-not-working" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/01/verisign-server-not-working/" class="article-date">
-  <time datetime="2021-01-06T01:35:41.000Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/devops/">DevOps</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/verisign-server-not-working/">解决 Code Sign 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>相信许多程序员在新年开始在做 code sign (数字签名)的时候可能遇到 Verisign Timestamp 服务器不好用了 <a href="http://timestamp.verisign.com/scripts/timstamp.dll" target="_blank" rel="noopener">http://timestamp.verisign.com/scripts/timstamp.dll</a> 的情况。出现了如下错误：</p>
-<p><img src="/2021/01/verisign-server-not-working/failed.png" alt></p>
-<p>原因是 code sign 默认的时间戳服务器无法访问了。</p>
-<p>在 Stack overflow 这个 <a href="https://stackoverflow.com/questions/65541786/is-the-verisign-timestamp-server-down" target="_blank" rel="noopener">post</a> 里上面有人给出了答案，是来自于 Verisign Support 的回复：</p>
-<blockquote>
-<p>他们的身份验证服务已出售给赛门铁克(Symante)，现在的服务商是 Digicert。该服务器已弃用了。</p>
-<p>他们建议联系 Digicert 或在网络上找免费的 timestamp servers</p>
-</blockquote>
-<p>以上是别人的回复，我在网络上没有找到一个官方回复，因此打算发邮件正式确认一下，发完不一会就得到了回复：</p>
-<p><img src="/2021/01/verisign-server-not-working/reply.png" alt></p>
-<p>和上面的回复类似：几年前，Verisign 的身份验证和证书业务被出售给赛门铁克(Symantec)，目前已过渡到Digicert。您将需要与当前供应商合作以获得支持或更新的时间戳URL。请访问 <a href="http://www.digicert.com" target="_blank" rel="noopener">http://www.digicert.com</a> 了解更多信息。</p>
-<p>好了，这下实锤了，放心大胆的开始动手修改到新的时间戳了。</p>
-<p>我找到了 Digicert 的时间戳服务器是 <code>http://timestamp.digicert.com</code>。更换到新的时间戳服务器后，数字签名恢复正常。</p>
-<p>除了上面 Digicert 那个网址，还有如下网址可以作为替换:</p>
-<ul>
-<li><a href="http://timestamp.comodoca.com/authenticode" target="_blank" rel="noopener">http://timestamp.comodoca.com/authenticode</a></li>
-<li><a href="http://timestamp.globalsign.com/scripts/timestamp.dll" target="_blank" rel="noopener">http://timestamp.globalsign.com/scripts/timestamp.dll</a></li>
-<li><a href="http://tsa.starfieldtech.com" target="_blank" rel="noopener">http://tsa.starfieldtech.com</a></li>
-</ul>
-<p>但我都没有选用，我还是选择了官方的时间戳服务，留作备用吧。一旦又抽风 “官方” 哪天又被卖了呢？</p>
-
-      
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
-      <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="ckq4n6sr100hqf4foawnk9fsh" class="article-share-link">Share</a>
-      
-        <a href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/build/" rel="tag">Build</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a></li></ul>
 
     </footer>
     
@@ -993,7 +1003,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -1003,7 +1013,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/aix/" style="font-size: 10.83px;">AIX</a> <a href="/tags/api/" style="font-size: 10px;">API</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10.83px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.5px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13.33px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.67px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 13.33px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/coco/" style="font-size: 10.83px;">Coco</a> <a href="/tags/code/" style="font-size: 10px;">Code</a> <a href="/tags/codecoverage/" style="font-size: 12.5px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 15.83px;">DevOps</a> <a href="/tags/docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/gcov/" style="font-size: 10px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/guidelines/" style="font-size: 10px;">Guidelines</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.17px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.33px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.83px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.67px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/naming/" style="font-size: 10px;">Naming</a> <a href="/tags/nightwatch/" style="font-size: 18.33px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pr/" style="font-size: 10px;">PR</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13.33px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 10.83px;">Release</a> <a href="/tags/review/" style="font-size: 10px;">Review</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squish/" style="font-size: 10px;">Squish</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 10.83px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.67px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.5px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 11.67px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 11.67px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 10.83px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11.67px;">Windows</a> <a href="/tags/work/" style="font-size: 14.17px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/installer/" style="font-size: 10px;">installer</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/parameter/" style="font-size: 10px;">parameter</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 10.83px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+      <a href="/tags/aix/" style="font-size: 11.67px;">AIX</a> <a href="/tags/api/" style="font-size: 10px;">API</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10.83px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.5px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13.33px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.67px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 13.33px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/coco/" style="font-size: 10.83px;">Coco</a> <a href="/tags/code/" style="font-size: 10px;">Code</a> <a href="/tags/codecoverage/" style="font-size: 12.5px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 15.83px;">DevOps</a> <a href="/tags/docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/gcov/" style="font-size: 10px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/guidelines/" style="font-size: 10px;">Guidelines</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.17px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.33px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.83px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.67px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/naming/" style="font-size: 10px;">Naming</a> <a href="/tags/nightwatch/" style="font-size: 18.33px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pr/" style="font-size: 10px;">PR</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13.33px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 10.83px;">Release</a> <a href="/tags/review/" style="font-size: 10px;">Review</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squish/" style="font-size: 10px;">Squish</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 10.83px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.67px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.5px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 11.67px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 11.67px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 10.83px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11.67px;">Windows</a> <a href="/tags/work/" style="font-size: 14.17px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/installer/" style="font-size: 10px;">installer</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/parameter/" style="font-size: 10px;">parameter</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 10.83px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
     </div>
   </div>
 
@@ -1013,6 +1023,10 @@ ga('send', 'pageview');
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/06/git-clone-failed-on-aix/">解决在 AIX 7.1-TL5-SP6 上通过 SSH（OpenSSH_7.5p1）Git Clone 失败的问题</a>
+          </li>
         
           <li>
             <a href="/2021/06/gcov/">Gcov 一个免费开源的 C/C++ 代码覆盖率工具</a>
@@ -1090,10 +1104,6 @@ ga('send', 'pageview');
             <a href="/2021/01/sparse-checkout/">git sparse-checkout enable and disable</a>
           </li>
         
-          <li>
-            <a href="/2021/01/verisign-server-not-working/">解决 Code Sign 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1103,7 +1113,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

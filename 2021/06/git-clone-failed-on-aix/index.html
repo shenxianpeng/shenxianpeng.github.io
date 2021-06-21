@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>解决在 AIX 7.1-TL5-SP6 上通过 SSH（OpenSSH_7.5p1）Git Clone 失败的问题 | Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言随着团队当前的构建机器 AIX 7.1-TL4-SP1 快要 End of Service Pack Support，因此我要对它进行升级，目标是升级到 AIX 7.1-TL5-SP6。 但升级后的操作系统与Jenkins做集成遇到了 git clone 失败的问题。 问题1 - Authentication failed1234567$ git clone ssh:&#x2F;&#x2F;git@git.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决在 AIX 7.1-TL5-SP6 上通过 SSH（OpenSSH_7.5p1）Git Clone 失败的问题">
+<meta property="og:url" content="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="前言随着团队当前的构建机器 AIX 7.1-TL4-SP1 快要 End of Service Pack Support，因此我要对它进行升级，目标是升级到 AIX 7.1-TL5-SP6。 但升级后的操作系统与Jenkins做集成遇到了 git clone 失败的问题。 问题1 - Authentication failed1234567$ git clone ssh:&#x2F;&#x2F;git@git.com">
+<meta property="og:image" content="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/environment-variables.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/jvm-options.png">
+<meta property="article:published_time" content="2021-06-20T14:53:26.000Z">
+<meta property="article:modified_time" content="2021-06-21T04:16:17.011Z">
+<meta property="article:author" content="Xianpeng Shen">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Jenkins">
+<meta property="article:tag" content="AIX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/environment-variables.png">
+  
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  
+  
+  <link rel="icon" href="/favicon.png">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-168820225-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <script data-ad-client="ca-pub-3986315287795783" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello World</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Peter shen&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/daily/">Daily</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2021/06/git-clone-failed-on-aix" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/git-clone-failed-on-aix/" class="article-date">
+  <time datetime="2021-06-20T14:53:26.000Z" itemprop="datePublished">2021-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/troubleshooting/">Troubleshooting</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决在 AIX 7.1-TL5-SP6 上通过 SSH（OpenSSH_7.5p1）Git Clone 失败的问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着团队当前的构建机器 AIX 7.1-TL4-SP1 快要 End of Service Pack Support，因此我要对它进行升级，目标是升级到 AIX 7.1-TL5-SP6。</p>
+<p>但升级后的操作系统与Jenkins做集成遇到了 git clone 失败的问题。</p>
+<h2 id="问题1-Authentication-failed"><a href="#问题1-Authentication-failed" class="headerlink" title="问题1 - Authentication failed"></a>问题1 - Authentication failed</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> ssh://git@git.company.com:7999/vas/db.git</span><br><span class="line">Cloning into <span class="string">'db'</span>...</span><br><span class="line">Authentication failed.</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+
+<p>像这样的错误，在使用 Git SSH 方式来 clone 代码经常会遇到，一般情况就是通过 <code>ssh-keygen -t rsa -C your@email.com</code> 先生成 <code>id_rsa</code> keys，然后将 <code>id_rsa.pub</code> 的值添加到 GitHub/Bitbucket/GitLab 的 public key 中就能解决。</p>
+<p>但这次不一样，尽管已经设置了 public key，但错误依旧存在。很奇快，之前旧的 AIX 7.1 机器是好用的，弄了一台新的怎么就不能用了？</p>
+<p>使用 <code>ssh -vvv &lt;git-url&gt;</code> 来看看到底这两台机器有什么差异：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Old</span></span><br><span class="line">bash-4.3$ oslevel -s</span><br><span class="line">7100-04-01-1543</span><br><span class="line">bash-4.3$ ssh -vvv git.company.com</span><br><span class="line">OpenSSH_6.0p1, OpenSSL 1.0.1e 11 Feb 2013</span><br><span class="line">debug1: Reading configuration data /etc/ssh/ssh_config</span><br><span class="line">debug1: Failed dlopen: /usr/krb5/lib/libkrb5.a(libkrb5.a.so):   0509-022 Cannot load module /usr/krb5/lib/libkrb5.a(libkrb5.a.so).</span><br><span class="line">        0509-026 System error: A file or directory <span class="keyword">in</span> the path name does not exist.</span><br><span class="line"></span><br><span class="line">debug1: Error loading Kerberos, disabling Kerberos auth.</span><br><span class="line">debug2: ssh_connect: needpriv 0</span><br><span class="line">debug1: Connecting to git.company.com [137.134.250.53] port 22.</span><br><span class="line">debug1: Connection established.</span><br><span class="line">debug3: Incorrect RSA1 identifier</span><br><span class="line">debug3: Could not load <span class="string">"/home/peter/.ssh/id_rsa"</span> as a RSA1 public key</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_rsa <span class="built_in">type</span> 1</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_rsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_dsa <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_dsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_ecdsa <span class="built_in">type</span> -1</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_ecdsa-cert <span class="built_in">type</span> -1</span><br><span class="line">ssh_exchange_identification: <span class="built_in">read</span>: Connection reset by peer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># New AIX build machine</span></span><br><span class="line">$ oslevel -s</span><br><span class="line">7100-05-06-2015</span><br><span class="line">$ ssh -vvv git.company.com</span><br><span class="line">OpenSSH_7.5p1, OpenSSL 1.0.2t  10 Sep 2019</span><br><span class="line">debug1: Reading configuration data /etc/ssh/ssh_config</span><br><span class="line">debug1: Failed dlopen: /usr/krb5/lib/libkrb5.a(libkrb5.a.so):   0509-022 Cannot load module /usr/krb5/lib/libkrb5.a(libkrb5.a.so).</span><br><span class="line">        0509-026 System error: A file or directory <span class="keyword">in</span> the path name does not exist.</span><br><span class="line"></span><br><span class="line">debug1: Error loading Kerberos, disabling Kerberos auth.</span><br><span class="line">debug2: resolving <span class="string">"git.company.com"</span> port 22</span><br><span class="line">debug2: ssh_connect_direct: needpriv 0</span><br><span class="line">debug1: Connecting to git.company.com [137.134.250.53] port 22.</span><br><span class="line">debug1: Connection established.</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_rsa <span class="built_in">type</span> 1</span><br><span class="line">debug1: key_load_public: No such file or directory</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_rsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: key_load_public: No such file or directory</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_dsa <span class="built_in">type</span> -1</span><br><span class="line">debug1: key_load_public: No such file or directory</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_dsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: key_load_public: No such file or directory</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_ecdsa <span class="built_in">type</span> -1</span><br><span class="line">debug1: key_load_public: No such file or directory</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_ecdsa-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: key_load_public: No such file or directory</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_ed25519 <span class="built_in">type</span> -1</span><br><span class="line">debug1: key_load_public: No such file or directory</span><br><span class="line">debug1: identity file /home/peter/.ssh/id_ed25519-cert <span class="built_in">type</span> -1</span><br><span class="line">debug1: Enabling compatibility mode <span class="keyword">for</span> protocol 2.0</span><br><span class="line">debug1: Local version string SSH-2.0-OpenSSH_7.5</span><br><span class="line">ssh_exchange_identification: <span class="built_in">read</span>: Connection reset by peer</span><br></pre></td></tr></table></figure>
+
+<p>两台机器的 OpenSSH 的版本不同，可能就是因此导致的，很快就找到了类似的问题和答案（Stackoverflow <a href="https://stackoverflow.com/questions/54191112/bitbucket-ssh-clone-on-aix-7-1-fails" target="_blank" rel="noopener">链接</a>)</p>
+<h2 id="问题1-解决办法"><a href="#问题1-解决办法" class="headerlink" title="问题1 - 解决办法"></a>问题1 - 解决办法</h2><p>在 <code>~/.ssh/config</code> 文件里添加选项 <code>AllowPKCS12keystoreAutoOpen no</code></p>
+<p>但问题来了，这个选项是 AIX 上的一个定制选项，在 Linux 上是没有的。这会导致同一个账户在 Linux 上通过 SSH 进行 clone 会失败。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux 上不识别改选项</span></span><br><span class="line">stderr: /home/****/.ssh/config: line 1: Bad configuration option: allowpkcs12keystoreautoopen</span><br><span class="line">/home/****/.ssh/config: terminating, 1 bad configuration options</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>如果 <code>config</code> 文件可以支持条件选项就好了，即当为 AIX 是添加选项 <code>AllowPKCS12keystoreAutoOpen no</code>，其他系统则没有该选项。可惜 <code>config</code> 并不支持。</li>
+<li>如果能单独的设置当前 AIX 的 ssh config 文件就好了。尝试将 <code>/etc/ssh/config</code> 文件修改如下，重启服务，再次通过 SSH clone，成功~！</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AllowPKCS12keystoreAutoOpen no</span><br><span class="line"><span class="comment">#   ForwardAgent no</span></span><br><span class="line"><span class="comment">#   ForwardX11 no</span></span><br><span class="line"><span class="comment">#   RhostsRSAAuthentication no</span></span><br><span class="line"><span class="comment">#   RSAAuthentication yes</span></span><br><span class="line"><span class="comment">#   PasswordAuthentication yes</span></span><br><span class="line"><span class="comment">#   HostbasedAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIDelegateCredentials no</span></span><br><span class="line"><span class="comment">#   GSSAPIKeyExchange no</span></span><br><span class="line"><span class="comment">#   GSSAPITrustDNS no</span></span><br><span class="line"><span class="comment">#   ....省略</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="问题2-Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded"><a href="#问题2-Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded" class="headerlink" title="问题2 - Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded."></a>问题2 - Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</h2><p>Jenkins 通过 HTTPS 来 checkout 代码的时候，出现了如下错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">[2021-06-20T14:50:25.166Z] ERROR: Error cloning remote repo <span class="string">'origin'</span></span><br><span class="line">[2021-06-20T14:50:25.166Z] hudson.plugins.git.GitException: Command <span class="string">"git fetch --tags --force --progress --depth=1 -- https://git.company.com/scm/vas/db.git +refs/heads/*:refs/remotes/origin/*"</span> returned status code 128:</span><br><span class="line">[2021-06-20T14:50:25.166Z] stdout: </span><br><span class="line">[2021-06-20T14:50:25.166Z] stderr: <span class="built_in">exec</span>(): 0509-036 Cannot load program /opt/freeware/libexec64/git-core/git-remote-https because of the following errors:</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-150   Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-153   File /usr/lib/libldap.a is not an archive or</span><br><span class="line">[2021-06-20T14:50:25.166Z] 		   the file could not be <span class="built_in">read</span> properly.</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-026 System error: Cannot run a file that does not have a valid format.</span><br><span class="line">[2021-06-20T14:50:25.166Z] </span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2450)</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandWithCredentials(CliGitAPIImpl.java:2051)</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.access<span class="variable">$500</span>(CliGitAPIImpl.java:84)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$1</span>.execute(CliGitAPIImpl.java:573)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$2</span>.execute(CliGitAPIImpl.java:802)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span><span class="variable">$GitCommandMasterToSlaveCallable</span>.call(RemoteGitImpl.java:161)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span><span class="variable">$GitCommandMasterToSlaveCallable</span>.call(RemoteGitImpl.java:154)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at hudson.remoting.UserRequest.perform(UserRequest.java:211)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at hudson.remoting.UserRequest.perform(UserRequest.java:54)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at hudson.remoting.Request<span class="variable">$2</span>.run(Request.java:375)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at hudson.remoting.InterceptingExecutorService<span class="variable">$1</span>.call(InterceptingExecutorService.java:73)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at java.util.concurrent.FutureTask.run(FutureTask.java:277)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1153)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:628)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at java.lang.Thread.run(Thread.java:785)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	Suppressed: hudson.remoting.Channel<span class="variable">$CallSiteStackTrace</span>: Remote call to uv12-aix-dendevmvasbld30</span><br><span class="line">[2021-06-20T14:50:25.167Z] 		at hudson.remoting.Channel.attachCallSiteStackTrace(Channel.java:1800)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 		at hudson.remoting.UserRequest<span class="variable">$ExceptionResponse</span>.retrieve(UserRequest.java:357)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 		at hudson.remoting.Channel.call(Channel.java:1001)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 		at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span>.execute(RemoteGitImpl.java:146)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at sun.reflect.GeneratedMethodAccessor904.invoke(Unknown Source)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span>.invoke(RemoteGitImpl.java:132)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at com.sun.proxy.<span class="variable">$Proxy140</span>.execute(Unknown Source)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1221)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1299)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at org.jenkinsci.plugins.workflow.steps.scm.SCMStep.checkout(SCMStep.java:125)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at org.jenkinsci.plugins.workflow.steps.scm.SCMStep<span class="variable">$StepExecutionImpl</span>.run(SCMStep.java:93)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at org.jenkinsci.plugins.workflow.steps.scm.SCMStep<span class="variable">$StepExecutionImpl</span>.run(SCMStep.java:80)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda<span class="variable">$start</span><span class="variable">$0</span>(SynchronousNonBlockingStepExecution.java:47)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.util.concurrent.Executors<span class="variable">$RunnableAdapter</span>.call(Executors.java:511)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.util.concurrent.FutureTask.run(FutureTask.java:266)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.util.concurrent.ThreadPoolExecutor<span class="variable">$Worker</span>.run(ThreadPoolExecutor.java:624)</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">[2021-06-20T15:21:20.525Z] Cloning repository https://git.company.com/scm/vas/db.git</span><br></pre></td></tr></table></figure>
+
+<p>然后我在虚拟机上直接通过命令 <code>git clone https://git.company.com/scm/vas/db.git</code> 并没有出现任何问题。最后发现是 <code>LIBPATH</code> 这个变量所致。</p>
+<p>将它置为空 <code>export LIBPATH=</code> 或 <code>unset LIBPATH</code>，<code>git clone https://...</code> 正常，如果 <code>LIBPATH=/usr/lib;/lib</code> 则出现下列错误;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://git.company.com/scm/vas/db.git</span><br><span class="line">Cloning into <span class="string">'db'</span>...</span><br><span class="line"><span class="built_in">exec</span>(): 0509-036 Cannot load program /opt/freeware/libexec64/git-core/git-remote-https because of the following errors:</span><br><span class="line">        0509-150   Dependent module /lib/libldap.a(libldap-2.4.so.2) could not be loaded.</span><br><span class="line">        0509-153   File /lib/libldap.a is not an archive or</span><br><span class="line">                   the file could not be <span class="built_in">read</span> properly.</span><br><span class="line">        0509-026 System error: Cannot run a file that does not have a valid format.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">$ ldd /opt/freeware/libexec64/git-core/git-remote-https | grep libldap.a</span><br><span class="line">         /opt/freeware/lib64/libldap.a(libldap-2.4.so.2)</span><br><span class="line">$ ls -l /usr/lib/libldap.a</span><br><span class="line">lrwxrwxrwx    1 root     system           35 Jun 10 2020  /usr/lib/libldap.a -&gt; /opt/IBM/ldap/V6.4/lib/libidsldap.a</span><br><span class="line">$ ls -l /opt/freeware/lib64/libldap.a</span><br><span class="line">lrwxrwxrwx    1 root     system           13 Jun 10 2020  /opt/freeware/lib64/libldap.a -&gt; libldap-2.4.a</span><br><span class="line">$ ls -l libldap-2.4.a</span><br><span class="line">ls: 0653-341 The file libldap-2.4.a does not exist.</span><br><span class="line">$ ls -l /opt/freeware/lib64/libldap-2.4.a</span><br><span class="line">-rwxr-xr-x    1 root     system       580151 Sep 25 2019  /opt/freeware/lib64/libldap-2.4.a</span><br></pre></td></tr></table></figure>
+
+<p>但是不论是修改 <code>/home/peter/.profile</code>, <code>/home/peter/.bash_profile</code> 或是 <code>/etc/environment</code>, <code>/etc/profile</code> 里的 LIBPATH，都无法影响到 Jenkins 启动 agent.jar 文件后系统环境变量。</p>
+<p><code>LIBPATH</code> 的值始终为 <code>/tools/AIX-6.1/Java8_64-8.0.0.401/usr/java8_64/jre/lib/ppc64/j9vm:/tools/AIX-6.1/Java8_64-8.0.0.401/usr/java8_64/jre/lib/ppc64:/tools/AIX-6.1/Java8_64-8.0.0.401/usr/java8_64/jre/../lib/ppc64:/usr/lib</code></p>
+<p>也通过修改 Node Properties -&gt; Environment variables 以及 JVM Options，但还是没能改变 <code>LIBPATH</code> 的值。也许是 options 用错了？不得而知。</p>
+<p><img src="/2021/06/git-clone-failed-on-aix/environment-variables.png" alt="Environment variables"></p>
+<p><img src="/2021/06/git-clone-failed-on-aix/jvm-options.png" alt="JVM Options"></p>
+<h2 id="问题2-未解决"><a href="#问题2-未解决" class="headerlink" title="问题2 - 未解决"></a>问题2 - 未解决</h2><p>最终，使用 Jenkins 通过 HTTPS 来下载代码没有解决，暂且使用 SSH 方式来下载。如果你有任何思路或建议，欢迎留言分享，非常感谢.</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckq640c6n00kc9sfo0a009b8d" class="article-share-link">Share</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aix/" rel="tag">AIX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+      <section id="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/06/gcov/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Gcov 一个免费开源的 C/C++ 代码覆盖率工具</div>
+    </a>
+  
+</nav>
+
+  
+</article></section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linuxunix/">LinuxUnix</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/snippet/">Snippet</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/troubleshooting/">Troubleshooting</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 11.67px;">AIX</a> <a href="/tags/api/" style="font-size: 10px;">API</a> <a href="/tags/ansicolor/" style="font-size: 10px;">AnsiColor</a> <a href="/tags/ansible/" style="font-size: 10.83px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15px;">Artifactory</a> <a href="/tags/authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/automation/" style="font-size: 17.5px;">Automation</a> <a href="/tags/azure/" style="font-size: 10px;">Azure</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/batch/" style="font-size: 10px;">Batch</a> <a href="/tags/bitbucket/" style="font-size: 13.33px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">Blackduck</a> <a href="/tags/blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.67px;">Branch</a> <a href="/tags/build/" style="font-size: 10px;">Build</a> <a href="/tags/c/" style="font-size: 13.33px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10px;">CI</a> <a href="/tags/cleanup/" style="font-size: 10px;">Cleanup</a> <a href="/tags/coco/" style="font-size: 10.83px;">Coco</a> <a href="/tags/code/" style="font-size: 10px;">Code</a> <a href="/tags/codecoverage/" style="font-size: 12.5px;">CodeCoverage</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/conventional-commits/" style="font-size: 10px;">Conventional Commits</a> <a href="/tags/detect/" style="font-size: 10px;">Detect</a> <a href="/tags/devops/" style="font-size: 15.83px;">DevOps</a> <a href="/tags/docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/flask/" style="font-size: 10px;">Flask</a> <a href="/tags/framework/" style="font-size: 10px;">Framework</a> <a href="/tags/gcov/" style="font-size: 10px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.17px;">Git</a> <a href="/tags/github/" style="font-size: 10px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/guidelines/" style="font-size: 10px;">Guidelines</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.17px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.33px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.83px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.67px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/naming/" style="font-size: 10px;">Naming</a> <a href="/tags/nightwatch/" style="font-size: 18.33px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pr/" style="font-size: 10px;">PR</a> <a href="/tags/pipeline/" style="font-size: 16.67px;">Pipeline</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 13.33px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/rest-api/" style="font-size: 10px;">REST-API</a> <a href="/tags/release/" style="font-size: 10.83px;">Release</a> <a href="/tags/review/" style="font-size: 10px;">Review</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 11.67px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/specification/" style="font-size: 10px;">Specification</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squish/" style="font-size: 10px;">Squish</a> <a href="/tags/squishcoco/" style="font-size: 10px;">Squishcoco</a> <a href="/tags/stats/" style="font-size: 10.83px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.67px;">Summary</a> <a href="/tags/synopsys/" style="font-size: 10px;">Synopsys</a> <a href="/tags/test/" style="font-size: 10px;">Test</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.5px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/tips/" style="font-size: 11.67px;">Tips</a> <a href="/tags/translate/" style="font-size: 10px;">Translate</a> <a href="/tags/trends/" style="font-size: 10px;">Trends</a> <a href="/tags/troubleshooting/" style="font-size: 13.33px;">Troubleshooting</a> <a href="/tags/unix/" style="font-size: 11.67px;">UNIX</a> <a href="/tags/ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhooks/" style="font-size: 10.83px;">Webhooks</a> <a href="/tags/windows/" style="font-size: 11.67px;">Windows</a> <a href="/tags/work/" style="font-size: 14.17px;">Work</a> <a href="/tags/cppcheck/" style="font-size: 10px;">cppcheck</a> <a href="/tags/generic/" style="font-size: 10px;">generic</a> <a href="/tags/installer/" style="font-size: 10px;">installer</a> <a href="/tags/multi-branch/" style="font-size: 10px;">multi-branch</a> <a href="/tags/parameter/" style="font-size: 10px;">parameter</a> <a href="/tags/performance/" style="font-size: 10px;">performance</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/troubleshooting/" style="font-size: 10px;">troubleshooting</a> <a href="/tags/versioning/" style="font-size: 10px;">versioning</a> <a href="/tags/vscode/" style="font-size: 10.83px;">vscode</a> <a href="/tags/webhook/" style="font-size: 10px;">webhook</a> <a href="/tags/write/" style="font-size: 10px;">write</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/06/git-clone-failed-on-aix/">解决在 AIX 7.1-TL5-SP6 上通过 SSH（OpenSSH_7.5p1）Git Clone 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/gcov/">Gcov 一个免费开源的 C/C++ 代码覆盖率工具</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/aix-ulimit/">通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/artifactory-slow-upload/">关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/eslint-jenkins/">Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/git-guidelines/">Git 常见设置指北</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/branch-naming-convention/">Branch Naming Convention</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/artifactory-api-search/">How to download the entire folder artifacts when Artifactory &#34;Download Folder functionality is disabled&#34;?</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/why-windows-installer-pop-up/">Why Windows Installer pop up? (Resolved)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/jacoco-imp/">JaCoCo 代码覆盖率实践分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/pythonic/">你的 Python 代码够不够 Pythonic？</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/jenkins-dynamic-default-parameters/">Different branches have different default parameters in Jenkins</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/code-review/">基于谷歌代码审查（Code Review）法则的思考与实践</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/jenkins-windows-agent-cannot-start/">Jenkins upgrade issue &#34;Windows agents won&#39;t start&#34; workaround</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/devops-roadmap-2021/">2021年DevOps工程师的学习路线</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/devops-trends-in-2021/">预测 2021 年的 DevOps 趋势</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/result-vs-currentresult/">What&#39;s the difference between result and currentResult in Jenkins?</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/git-repository-settings/">These settings in Bitbucket/GitHub recommends enable</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/open-port-22/">How to open port 22 and make it listening</a>
+          </li>
+        
+          <li>
+            <a href="/2021/01/sparse-checkout/">git sparse-checkout enable and disable</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/README.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Xianpeng Shen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/daily/" class="mobile-nav-link">Daily</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
