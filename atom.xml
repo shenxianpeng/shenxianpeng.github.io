@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-21T04:16:17.011Z</updated>
+  <updated>2021-06-24T05:40:42.836Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>How to make a Jenkins job fail after timeout? (Resolved)</title>
+    <link href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/"/>
+    <id>https://shenxianpeng.github.io/2021/06/jenkins-timeout/</id>
+    <published>2021-06-24T03:00:45.000Z</published>
+    <updated>2021-06-24T05:40:42.836Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;When using Jenkins timeout like below, it can’t make the Jenkins build failed.&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="timeout" scheme="https://shenxianpeng.github.io/tags/timeout/"/>
+    
+  </entry>
+  
+  <entry>
     <title>解决在 AIX 7.1-TL5-SP6 上通过 SSH（OpenSSH_7.5p1）Git Clone 失败的问题</title>
     <link href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/</id>
     <published>2021-06-20T14:53:26.000Z</published>
-    <updated>2021-06-21T04:16:17.011Z</updated>
+    <updated>2021-06-21T05:10:13.646Z</updated>
     
     <summary type="html">
     
@@ -244,9 +273,9 @@
       <category term="JFrog" scheme="https://shenxianpeng.github.io/categories/jfrog/"/>
     
     
-      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
-    
       <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
     
       <category term="API" scheme="https://shenxianpeng.github.io/tags/api/"/>
     
@@ -562,33 +591,6 @@
       <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
     
       <category term="OpenSSH" scheme="https://shenxianpeng.github.io/tags/openssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git sparse-checkout enable and disable</title>
-    <link href="https://shenxianpeng.github.io/2021/01/sparse-checkout/"/>
-    <id>https://shenxianpeng.github.io/2021/01/sparse-checkout/</id>
-    <published>2021-01-11T07:03:45.000Z</published>
-    <updated>2021-01-12T03:28:55.913Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;This post just a note to myself and it works on my environment. it has not been widely tested.&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
-    
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
   </entry>
   
