@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-24T05:40:42.836Z</updated>
+  <updated>2021-06-24T09:31:54.143Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>How to make a Jenkins job fail after timeout? (Resolved)</title>
+    <title>How to make Jenkins job fail after timeout? (Resolved)</title>
     <link href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/"/>
     <id>https://shenxianpeng.github.io/2021/06/jenkins-timeout/</id>
     <published>2021-06-24T03:00:45.000Z</published>
-    <updated>2021-06-24T05:40:42.836Z</updated>
+    <updated>2021-06-24T09:31:54.143Z</updated>
     
     <summary type="html">
     
@@ -50,7 +50,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/</id>
     <published>2021-06-20T14:53:26.000Z</published>
-    <updated>2021-06-21T05:10:13.646Z</updated>
+    <updated>2021-06-24T09:32:47.469Z</updated>
     
     <summary type="html">
     
@@ -273,9 +273,9 @@
       <category term="JFrog" scheme="https://shenxianpeng.github.io/categories/jfrog/"/>
     
     
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
       <category term="API" scheme="https://shenxianpeng.github.io/tags/api/"/>
     

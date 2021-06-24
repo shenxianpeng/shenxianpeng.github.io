@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/environment-variables.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/jvm-options.png">
 <meta property="article:published_time" content="2021-06-20T14:53:26.000Z">
-<meta property="article:modified_time" content="2021-06-21T05:10:13.646Z">
+<meta property="article:modified_time" content="2021-06-24T09:32:47.469Z">
 <meta property="article:author" content="Xianpeng Shen">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="Jenkins">
@@ -139,7 +139,7 @@ ga('send', 'pageview');
 
 <ol>
 <li>如果 <code>config</code> 文件可以支持条件选项就好了，即当为 AIX 是添加选项 <code>AllowPKCS12keystoreAutoOpen no</code>，其他系统则没有该选项。可惜 <code>config</code> 并不支持。</li>
-<li>如果能单独的设置当前 AIX 的 ssh config 文件就好了。尝试将 <code>/etc/ssh/config</code> 文件修改如下，重启服务，再次通过 SSH clone，成功~！</li>
+<li>如果能单独的设置当前 AIX 的 ssh config 文件就好了。尝试将 <code>/etc/ssh/ssh_config</code> 文件修改如下，重启服务，再次通过 SSH clone，成功~！</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AllowPKCS12keystoreAutoOpen no</span><br><span class="line"><span class="comment">#   ForwardAgent no</span></span><br><span class="line"><span class="comment">#   ForwardX11 no</span></span><br><span class="line"><span class="comment">#   RhostsRSAAuthentication no</span></span><br><span class="line"><span class="comment">#   RSAAuthentication yes</span></span><br><span class="line"><span class="comment">#   PasswordAuthentication yes</span></span><br><span class="line"><span class="comment">#   HostbasedAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIDelegateCredentials no</span></span><br><span class="line"><span class="comment">#   GSSAPIKeyExchange no</span></span><br><span class="line"><span class="comment">#   GSSAPITrustDNS no</span></span><br><span class="line"><span class="comment">#   ....省略</span></span><br></pre></td></tr></table></figure>
 
@@ -170,7 +170,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckqahrf1400bqa4fobspa9rrp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckqapkjod00c1dcfo6x4se4t9" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -195,7 +195,7 @@ ga('send', 'pageview');
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          How to make a Jenkins job fail after timeout? (Resolved)
+          How to make Jenkins job fail after timeout? (Resolved)
         
       </div>
     </a>
@@ -239,7 +239,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2021/06/jenkins-timeout/">How to make a Jenkins job fail after timeout? (Resolved)</a>
+            <a href="/2021/06/jenkins-timeout/">How to make Jenkins job fail after timeout? (Resolved)</a>
           </li>
         
           <li>
