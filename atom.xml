@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-24T09:31:54.143Z</updated>
+  <updated>2021-06-28T14:03:38.342Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>-fprofile-arcs -ftest-coverage</title>
+    <link href="https://shenxianpeng.github.io/2021/06/fprofile-arcs-ftest-coverage/"/>
+    <id>https://shenxianpeng.github.io/2021/06/fprofile-arcs-ftest-coverage/</id>
+    <published>2021-06-27T09:22:32.000Z</published>
+    <updated>2021-06-28T14:03:38.342Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;error-0&quot;&gt;&lt;a href=&quot;#error-0&quot; class=&quot;headerlink&quot; title=&quot;error 0&quot;&gt;&lt;/a&gt;error 0&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="GCC" scheme="https://shenxianpeng.github.io/categories/gcc/"/>
+    
+    
+      <category term="-ftest-coverage" scheme="https://shenxianpeng.github.io/tags/ftest-coverage/"/>
+    
+      <category term="-fprofile-arcs" scheme="https://shenxianpeng.github.io/tags/fprofile-arcs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>How to make Jenkins job fail after timeout? (Resolved)</title>
     <link href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/"/>
     <id>https://shenxianpeng.github.io/2021/06/jenkins-timeout/</id>
     <published>2021-06-24T03:00:45.000Z</published>
-    <updated>2021-06-24T09:31:54.143Z</updated>
+    <updated>2021-06-28T15:44:39.575Z</updated>
     
     <summary type="html">
     
@@ -80,7 +108,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/gcov/"/>
     <id>https://shenxianpeng.github.io/2021/06/gcov/</id>
     <published>2021-06-18T08:28:11.000Z</published>
-    <updated>2021-06-20T03:35:01.551Z</updated>
+    <updated>2021-06-28T15:44:22.354Z</updated>
     
     <summary type="html">
     
@@ -99,9 +127,9 @@
     
       <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
     
-      <category term="Coco" scheme="https://shenxianpeng.github.io/tags/coco/"/>
-    
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
+    
+      <category term="Coco" scheme="https://shenxianpeng.github.io/tags/coco/"/>
     
   </entry>
   
@@ -166,7 +194,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/"/>
     <id>https://shenxianpeng.github.io/2021/06/eslint-jenkins/</id>
     <published>2021-06-07T04:30:02.000Z</published>
-    <updated>2021-06-17T05:51:19.137Z</updated>
+    <updated>2021-06-28T15:44:08.320Z</updated>
     
     <summary type="html">
     
@@ -188,9 +216,9 @@
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
-    
       <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
   </entry>
   
@@ -228,7 +256,7 @@
     <link href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/"/>
     <id>https://shenxianpeng.github.io/2021/05/branch-naming-convention/</id>
     <published>2021-05-13T15:52:01.000Z</published>
-    <updated>2021-05-14T08:03:29.408Z</updated>
+    <updated>2021-06-28T15:11:21.644Z</updated>
     
     <summary type="html">
     
@@ -245,9 +273,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
-    
       <category term="Naming" scheme="https://shenxianpeng.github.io/tags/naming/"/>
+    
+      <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
     
   </entry>
   
@@ -256,7 +284,7 @@
     <link href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/"/>
     <id>https://shenxianpeng.github.io/2021/05/artifactory-api-search/</id>
     <published>2021-05-04T06:37:00.000Z</published>
-    <updated>2021-05-04T06:43:37.468Z</updated>
+    <updated>2021-06-28T15:43:45.991Z</updated>
     
     <summary type="html">
     
@@ -273,9 +301,9 @@
       <category term="JFrog" scheme="https://shenxianpeng.github.io/categories/jfrog/"/>
     
     
-      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
-    
       <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
+    
+      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
     
       <category term="API" scheme="https://shenxianpeng.github.io/tags/api/"/>
     
@@ -314,14 +342,14 @@
     <link href="https://shenxianpeng.github.io/2021/04/jacoco-imp/"/>
     <id>https://shenxianpeng.github.io/2021/04/jacoco-imp/</id>
     <published>2021-04-06T11:18:33.000Z</published>
-    <updated>2021-04-06T02:12:09.319Z</updated>
+    <updated>2021-06-28T15:10:49.788Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;本文适用的是 Gradle 来构建和适用 JaCoCo。&lt;/p&gt;
 &lt;p&gt;分别介绍了 &lt;code&gt;build.gradle&lt;/code&gt; 的文件配置，执行测试和生成报告，报告参数说明，以及如何忽略指定的包或类从而影响测试覆盖率的结果。&lt;/p&gt;
 &lt;h2 id=&quot;build-gradle-文件配置&quot;&gt;&lt;a href=&quot;#build-gradle-文件配置&quot; class=&quot;headerlink&quot; title=&quot;build.gradle 文件配置&quot;&gt;&lt;/a&gt;build.gradle 文件配置&lt;/h2&gt;&lt;p&gt;比如使用 gradle 来管理的项目可以在 &lt;code&gt;build.gradle&lt;/code&gt; 里添加如下代码&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;plugins &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id &lt;span class=&quot;string&quot;&gt;&#39;jacoco&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacoco &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    toolVersion = &lt;span class=&quot;string&quot;&gt;&quot;0.8.5&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    useJUnitPlatform()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    exclude &lt;span class=&quot;string&quot;&gt;&#39;**/**IgnoreTest.class&#39;&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;// 如果有 test case 不通过，如有必要可以通过这样忽略掉&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    finalizedBy jacocoTestReport       &lt;span class=&quot;comment&quot;&gt;// report is always generated after tests run&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacocoTestReport &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dependsOn test &lt;span class=&quot;comment&quot;&gt;// tests are required to run before generating the report&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reports &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        xml.enabled &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        csv.enabled &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        html.&lt;span class=&quot;function&quot;&gt;destination &lt;span class=&quot;title&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;string&quot;&gt;&quot;$&amp;#123;buildDir&amp;#125;/reports/jacoco&quot;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;plugins &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    id &lt;span class=&quot;string&quot;&gt;&#39;jacoco&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacoco &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    toolVersion = &lt;span class=&quot;string&quot;&gt;&quot;0.8.5&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;test &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    useJUnitPlatform()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    exclude &lt;span class=&quot;string&quot;&gt;&#39;**/**IgnoreTest.class&#39;&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;// 如果有 test case 不通过，如有必要可以通过这样忽略掉&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    finalizedBy jacocoTestReport       &lt;span class=&quot;comment&quot;&gt;// report is always generated after tests run&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;jacocoTestReport &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dependsOn test &lt;span class=&quot;comment&quot;&gt;// tests are required to run before generating the report&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reports &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        xml.enabled &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        csv.enabled &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        html.&lt;span class=&quot;function&quot;&gt;destination &lt;span class=&quot;title&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;string&quot;&gt;&quot;$&amp;#123;buildDir&amp;#125;/reports/jacoco&quot;&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;执行测试，生成代码覆盖率报告&quot;&gt;&lt;a href=&quot;#执行测试，生成代码覆盖率报告&quot; class=&quot;headerlink&quot; title=&quot;执行测试，生成代码覆盖率报告&quot;&gt;&lt;/a&gt;执行测试，生成代码覆盖率报告&lt;/h2&gt;&lt;p&gt;然后执行 &lt;code&gt;gradle test&lt;/code&gt; 就可以了。之后可以可以在 &lt;code&gt;build\reports\jacoco&lt;/code&gt; 目录下找到报告了。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2021/04/jacoco-imp/reports.png&quot; alt=&quot;JaCoCo报告&quot;&gt;&lt;/p&gt;
@@ -334,11 +362,11 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
-    
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
     
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
+    
+      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
     
   </entry>
   
@@ -433,7 +461,7 @@
     <link href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/"/>
     <id>https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/</id>
     <published>2021-02-11T08:09:06.000Z</published>
-    <updated>2021-01-31T08:51:07.524Z</updated>
+    <updated>2021-06-28T15:43:33.425Z</updated>
     
     <summary type="html">
     
@@ -487,7 +515,7 @@
     <link href="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/"/>
     <id>https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/</id>
     <published>2021-01-21T14:12:32.000Z</published>
-    <updated>2021-01-29T13:07:56.596Z</updated>
+    <updated>2021-06-28T15:14:45.012Z</updated>
     
     <summary type="html">
     
@@ -515,7 +543,7 @@
     <link href="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/"/>
     <id>https://shenxianpeng.github.io/2021/01/result-vs-currentresult/</id>
     <published>2021-01-14T02:48:18.000Z</published>
-    <updated>2021-03-23T10:48:43.531Z</updated>
+    <updated>2021-06-28T15:10:20.739Z</updated>
     
     <summary type="html">
     
@@ -562,35 +590,6 @@
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to open port 22 and make it listening</title>
-    <link href="https://shenxianpeng.github.io/2021/01/open-port-22/"/>
-    <id>https://shenxianpeng.github.io/2021/01/open-port-22/</id>
-    <published>2021-01-12T03:13:18.000Z</published>
-    <updated>2021-01-21T10:07:03.921Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Recently our Bamboo server has an error when connecting to the Windows build system.&lt;/p&gt;
-&lt;p&gt;Some errors like: Can not connect to the
-        
-      
-    
-    </summary>
-    
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
-    
-    
-      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
-    
-      <category term="OpenSSH" scheme="https://shenxianpeng.github.io/tags/openssh/"/>
     
   </entry>
   
