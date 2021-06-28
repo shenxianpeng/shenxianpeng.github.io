@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-28T14:03:38.342Z</updated>
+  <updated>2021-06-28T16:32:40.027Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/fprofile-arcs-ftest-coverage/"/>
     <id>https://shenxianpeng.github.io/2021/06/fprofile-arcs-ftest-coverage/</id>
     <published>2021-06-27T09:22:32.000Z</published>
-    <updated>2021-06-28T14:03:38.342Z</updated>
+    <updated>2021-06-28T16:32:40.027Z</updated>
     
     <summary type="html">
     
@@ -127,9 +127,9 @@
     
       <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
     
-      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
-    
       <category term="Coco" scheme="https://shenxianpeng.github.io/tags/coco/"/>
+    
+      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
   </entry>
   
@@ -216,9 +216,9 @@
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
-      <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
-    
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
+    
+      <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
     
   </entry>
   
@@ -273,9 +273,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Naming" scheme="https://shenxianpeng.github.io/tags/naming/"/>
-    
       <category term="Branch" scheme="https://shenxianpeng.github.io/tags/branch/"/>
+    
+      <category term="Naming" scheme="https://shenxianpeng.github.io/tags/naming/"/>
     
   </entry>
   
@@ -301,9 +301,9 @@
       <category term="JFrog" scheme="https://shenxianpeng.github.io/categories/jfrog/"/>
     
     
-      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
-    
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+      <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
     
       <category term="API" scheme="https://shenxianpeng.github.io/tags/api/"/>
     
@@ -364,9 +364,9 @@
     
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
     
-      <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
-    
       <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
+    
+      <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
   </entry>
   
