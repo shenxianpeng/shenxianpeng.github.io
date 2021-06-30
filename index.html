@@ -117,10 +117,10 @@ ga('send', 'pageview');
         <p>When using Jenkins timeout like below, it can’t make the Jenkins build failed.</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent none</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">'Hello'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                timeout(time: <span class="number">1</span>, unit: <span class="string">'SECONDS'</span>) &#123;</span><br><span class="line">                    echo <span class="string">"timeout step"</span></span><br><span class="line">                    sleep <span class="number">2</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>So, If want to make the Job failed after it’s timeout, you can use <code>try</code> .. <code>catch</code> and <code>error</code> to make your Jenkins job failed. like below.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent none</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">'Hello'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        timeout(time: <span class="number">1</span>, unit: <span class="string">'SECONDS'</span>) &#123;</span><br><span class="line">                            echo <span class="string">"timeout step"</span></span><br><span class="line">                            sleep <span class="number">1</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">                        <span class="comment">// timeout reached or input false</span></span><br><span class="line">                        println err</span><br><span class="line">                        echo <span class="string">'Time out reached or user aborted'</span></span><br><span class="line">                        error <span class="string">'build timeout failed'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent none</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">'Hello'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        timeout(time: <span class="number">1</span>, unit: <span class="string">'SECONDS'</span>) &#123;</span><br><span class="line">                            echo <span class="string">"timeout step"</span></span><br><span class="line">                            sleep <span class="number">1</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">                        <span class="comment">// timeout reached</span></span><br><span class="line">                        println err</span><br><span class="line">                        echo <span class="string">'Time out reached.'</span></span><br><span class="line">                        error <span class="string">'build timeout failed'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Here is the output log</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">00:00:01.326  [Pipeline] Start of Pipeline</span><br><span class="line">00:00:01.475  [Pipeline] stage</span><br><span class="line">00:00:01.478  [Pipeline] &#123; (Hello)</span><br><span class="line">00:00:01.516  [Pipeline] script</span><br><span class="line">00:00:01.521  [Pipeline] &#123;</span><br><span class="line">00:00:01.534  [Pipeline] timeout</span><br><span class="line">00:00:01.534  Timeout set to expire in 1 sec</span><br><span class="line">00:00:01.537  [Pipeline] &#123;</span><br><span class="line">00:00:01.547  [Pipeline] echo</span><br><span class="line">00:00:01.548  timeout step</span><br><span class="line">00:00:01.555  [Pipeline] sleep</span><br><span class="line">00:00:01.558  Sleeping for 1 sec</span><br><span class="line">00:00:02.535  Cancelling nested steps due to timeout</span><br><span class="line">00:00:02.546  [Pipeline] &#125;</span><br><span class="line">00:00:02.610  [Pipeline] &#x2F;&#x2F; timeout</span><br><span class="line">00:00:02.619  [Pipeline] echo</span><br><span class="line">00:00:02.621  org.jenkinsci.plugins.workflow.steps.FlowInterruptedException</span><br><span class="line">00:00:02.625  [Pipeline] echo</span><br><span class="line">00:00:02.627  Time out reached or user aborted</span><br><span class="line">00:00:02.630  [Pipeline] error</span><br><span class="line">00:00:02.638  [Pipeline] &#125;</span><br><span class="line">00:00:02.656  [Pipeline] &#x2F;&#x2F; script</span><br><span class="line">00:00:02.668  [Pipeline] &#125;</span><br><span class="line">00:00:02.681  [Pipeline] &#x2F;&#x2F; stage</span><br><span class="line">00:00:02.696  [Pipeline] End of Pipeline</span><br><span class="line">00:00:02.709  ERROR: build timeout failed</span><br><span class="line">00:00:02.710  Finished: FAILURE</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">00:00:01.326  [Pipeline] Start of Pipeline</span><br><span class="line">00:00:01.475  [Pipeline] stage</span><br><span class="line">00:00:01.478  [Pipeline] &#123; (Hello)</span><br><span class="line">00:00:01.516  [Pipeline] script</span><br><span class="line">00:00:01.521  [Pipeline] &#123;</span><br><span class="line">00:00:01.534  [Pipeline] timeout</span><br><span class="line">00:00:01.534  Timeout set to expire in 1 sec</span><br><span class="line">00:00:01.537  [Pipeline] &#123;</span><br><span class="line">00:00:01.547  [Pipeline] echo</span><br><span class="line">00:00:01.548  timeout step</span><br><span class="line">00:00:01.555  [Pipeline] sleep</span><br><span class="line">00:00:01.558  Sleeping for 1 sec</span><br><span class="line">00:00:02.535  Cancelling nested steps due to timeout</span><br><span class="line">00:00:02.546  [Pipeline] &#125;</span><br><span class="line">00:00:02.610  [Pipeline] &#x2F;&#x2F; timeout</span><br><span class="line">00:00:02.619  [Pipeline] echo</span><br><span class="line">00:00:02.621  org.jenkinsci.plugins.workflow.steps.FlowInterruptedException</span><br><span class="line">00:00:02.625  [Pipeline] echo</span><br><span class="line">00:00:02.627  Time out reached.</span><br><span class="line">00:00:02.630  [Pipeline] error</span><br><span class="line">00:00:02.638  [Pipeline] &#125;</span><br><span class="line">00:00:02.656  [Pipeline] &#x2F;&#x2F; script</span><br><span class="line">00:00:02.668  [Pipeline] &#125;</span><br><span class="line">00:00:02.681  [Pipeline] &#x2F;&#x2F; stage</span><br><span class="line">00:00:02.696  [Pipeline] End of Pipeline</span><br><span class="line">00:00:02.709  ERROR: build timeout failed</span><br><span class="line">00:00:02.710  Finished: FAILURE</span><br></pre></td></tr></table></figure>
 
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -135,7 +135,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/jenkins-timeout/" data-id="ckqj3bnxw00byjsfo8hlzh2tz" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/jenkins-timeout/" data-id="ckqj3ibq700ccnkfohyitegsn" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -225,7 +225,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckqj3bnxt00bujsfocmcnbi2p" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckqj3ibq200c3nkfo6xknhbpd" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -337,7 +337,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/gcov/" data-id="ckqj3bnxq00bojsfoaw28g2lf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/gcov/" data-id="ckqj3ibq900cfnkfo53r12ihm" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/gcov/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -406,7 +406,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckqj3bnxm00bjjsfoaa04h7tx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckqj3ibq400c7nkfo49941923" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/aix-ulimit/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -476,7 +476,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="ckqj3bnxo00bmjsfo4bdi4i9d" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="ckqj3ibpx00bunkfo3aky3n7r" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -549,7 +549,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="ckqj3bnxs00brjsfo5cqi1opq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="ckqj3ibq600c9nkfo0ig8270j" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -628,7 +628,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="ckqj3bnxd00bajsfoeam58goj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="ckqj3ibpv00bqnkfo2msv1amy" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/git-guidelines/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -694,7 +694,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="ckqj3bnx000asjsfofkghbnzr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="ckqj3ibps00bnnkfo7tb43e0k" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -767,7 +767,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="ckqj3bnx600awjsfodosj4buy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="ckqj3ibpq00bknkfo8h6rhbkt" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -830,7 +830,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="ckqj3bnxk00bhjsfo3kr73udh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="ckqj3ibpy00bwnkfo033r99cd" class="article-share-link">Share</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/#disqus_thread" class="article-comment-link">Comments</a>
       
