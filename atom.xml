@@ -334,9 +334,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
-    
       <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
+    
+      <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
     
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
