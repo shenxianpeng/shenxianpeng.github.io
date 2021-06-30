@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-30T06:24:51.061Z</updated>
+  <updated>2021-06-30T07:12:12.377Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/"/>
     <id>https://shenxianpeng.github.io/2021/06/jenkins-timeout/</id>
     <published>2021-06-24T03:00:45.000Z</published>
-    <updated>2021-06-30T06:24:51.061Z</updated>
+    <updated>2021-06-30T07:12:12.377Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;p&gt;When using Jenkins timeout like below, it can’t make the Jenkins build failed.&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+          &lt;p&gt;I’ve run into some situations when the build fails, perhaps because some processes don’t finish, and even setting a timeout doesn’t make
         
       
     
