@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-06-30T07:12:12.377Z</updated>
+  <updated>2021-07-11T16:27:23.225Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Use Gcov and LCOV to perform code coverage testing for C/C++ projects</title>
+    <link href="https://shenxianpeng.github.io/2021/07/gcov-example/"/>
+    <id>https://shenxianpeng.github.io/2021/07/gcov-example/</id>
+    <published>2021-07-11T16:10:21.000Z</published>
+    <updated>2021-07-11T16:27:23.225Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Question&quot;&gt;&lt;a href=&quot;#Question&quot; class=&quot;headerlink&quot; title=&quot;Question&quot;&gt;&lt;/a&gt;Question&lt;/h2&gt;&lt;p&gt;How do you do when your C/C++ project does
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
+    
+      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
+    
+      <category term="LCOV" scheme="https://shenxianpeng.github.io/tags/lcov/"/>
+    
+  </entry>
   
   <entry>
     <title>How to make Jenkins job fail after timeout? (Resolved)</title>
@@ -75,11 +105,11 @@
   </entry>
   
   <entry>
-    <title>Gcov 一个免费开源的 C/C++ 代码覆盖率工具以及生成报告（WIP）</title>
+    <title>Gcov 一个免费开源的 C/C++ 代码覆盖率工具以及生成报告</title>
     <link href="https://shenxianpeng.github.io/2021/06/gcov/"/>
     <id>https://shenxianpeng.github.io/2021/06/gcov/</id>
     <published>2021-06-18T08:28:11.000Z</published>
-    <updated>2021-07-03T09:42:46.183Z</updated>
+    <updated>2021-07-11T16:30:22.338Z</updated>
     
     <summary type="html">
     
@@ -87,7 +117,7 @@
       
         
         
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在很早之前我做过一次 C/C++ 项目的代码覆盖率工具的调查，是一款叫 &lt;a
+          &lt;p&gt;注：这篇文章是边调查边写的，可能存在一些示例、命令输出、以及截图对应不上的情况，因此在调查完成后，我又重新编写了整理的示例代码，并放在 GitHub 上，这是 README: &lt;a
         
       
     
@@ -102,7 +132,9 @@
     
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
-      <category term="WIP" scheme="https://shenxianpeng.github.io/tags/wip/"/>
+      <category term="LCOV" scheme="https://shenxianpeng.github.io/tags/lcov/"/>
+    
+      <category term="gcovr" scheme="https://shenxianpeng.github.io/tags/gcovr/"/>
     
   </entry>
   
@@ -563,35 +595,6 @@
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to open port 22 and make it listening</title>
-    <link href="https://shenxianpeng.github.io/2021/01/open-port-22/"/>
-    <id>https://shenxianpeng.github.io/2021/01/open-port-22/</id>
-    <published>2021-01-12T03:13:18.000Z</published>
-    <updated>2021-06-28T15:42:48.745Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Recently our Bamboo server has an error when connecting to the Windows build system.&lt;/p&gt;
-&lt;p&gt;Some errors like: Can not connect to the
-        
-      
-    
-    </summary>
-    
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/categories/troubleshooting/"/>
-    
-    
-      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
-    
-      <category term="OpenSSH" scheme="https://shenxianpeng.github.io/tags/openssh/"/>
     
   </entry>
   
