@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-07-11T16:27:23.225Z</updated>
+  <updated>2021-07-15T15:23:26.597Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Use Gcov and LCOV to perform code coverage testing for C/C++ projects</title>
-    <link href="https://shenxianpeng.github.io/2021/07/gcov-example/"/>
-    <id>https://shenxianpeng.github.io/2021/07/gcov-example/</id>
-    <published>2021-07-11T16:10:21.000Z</published>
-    <updated>2021-07-11T16:27:23.225Z</updated>
+    <title>关于代码覆盖率(About Code Coverage)</title>
+    <link href="https://shenxianpeng.github.io/2021/07/code-coverage/"/>
+    <id>https://shenxianpeng.github.io/2021/07/code-coverage/</id>
+    <published>2021-07-14T14:49:39.000Z</published>
+    <updated>2021-07-15T15:23:26.597Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;Question&quot;&gt;&lt;a href=&quot;#Question&quot; class=&quot;headerlink&quot; title=&quot;Question&quot;&gt;&lt;/a&gt;Question&lt;/h2&gt;&lt;p&gt;How do you do when your C/C++ project does
+          &lt;h2 id=&quot;什么是代码覆盖率？&quot;&gt;&lt;a href=&quot;#什么是代码覆盖率？&quot; class=&quot;headerlink&quot;
         
       
     
@@ -38,7 +38,40 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Use Gcov and LCOV to perform code coverage testing for C/C++ projects</title>
+    <link href="https://shenxianpeng.github.io/2021/07/gcov-example/"/>
+    <id>https://shenxianpeng.github.io/2021/07/gcov-example/</id>
+    <published>2021-07-11T16:10:21.000Z</published>
+    <updated>2021-07-15T15:18:26.558Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Question&quot;&gt;&lt;a href=&quot;#Question&quot; class=&quot;headerlink&quot; title=&quot;Question&quot;&gt;&lt;/a&gt;Question&lt;/h2&gt;&lt;p&gt;How do you do when your C/C++ project does not have unit test code, and you want to do code coverage testing?&lt;/p&gt;
+&lt;p&gt;There are some of these tools for C/C++ project code coverage testing on the market, but most of them are charged.&lt;/p&gt;
+&lt;p&gt;I researched a paid C/C++ code coverage tool &lt;a href=&quot;https://shenxianpeng.github.io/2019/05/squishcoco/&quot;&gt;Squish Coco&lt;/a&gt; a long time ago. Since there were some compilation problems that were not resolved at that time, I just No purchase on hold.&lt;/p&gt;
+&lt;p&gt;When I restarted the work on code coverage testing of C/C++ projects, I learned that GCC actually provides code coverage compilation options &lt;code&gt;-fprofile-arcs&lt;/code&gt; and &lt;code&gt;-ftest-coverage&lt;/code&gt;. In order to figure out how &lt;a href=&quot;https://gcc.gnu.org/onlinedocs/gcc/Gcov.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Gcov&lt;/a&gt; works, I did some investigations, and the results are summarized as follows.&lt;/p&gt;
+&lt;h2 id=&quot;Precondition&quot;&gt;&lt;a href=&quot;#Precondition&quot; class=&quot;headerlink&quot; title=&quot;Precondition&quot;&gt;&lt;/a&gt;Precondition&lt;/h2&gt;&lt;p&gt;The demo code is in this GitHub &lt;a href=&quot;https://github.com/shenxianpeng/gcov-example&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;repository&lt;/a&gt;. You can clone with &lt;code&gt;git clone https://github.com/shenxianpeng/gcov-example.git&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;If you need to run the program in this repository, you need to install &lt;a href=&quot;https://gcc.gnu.org/install/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gcc&lt;/a&gt; and &lt;a href=&quot;http://ltp.sourceforge.net/coverage/lcov.php&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;lcov&lt;/a&gt; first.&lt;/p&gt;
+&lt;h2 id=&quot;About-the-branch&quot;&gt;&lt;a href=&quot;#About-the-branch&quot; class=&quot;headerlink&quot; title=&quot;About the branch&quot;&gt;&lt;/a&gt;About the branch&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;master&lt;/code&gt; branch only saves files such as &lt;code&gt;.c&lt;/code&gt;, &lt;code&gt;.h&lt;/code&gt;, and &lt;code&gt;makefile&lt;/code&gt; that need to be used for demonstration.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;coverage&lt;/code&gt; branch saves all the files generated during the compilation process, as well as the final code coverage HTML report file (under the &lt;code&gt;out&lt;/code&gt; directory).&lt;/p&gt;
+&lt;h2 id=&quot;Generate-code-coverage&quot;&gt;&lt;a href=&quot;#Generate-code-coverage&quot; class=&quot;headerlink&quot; title=&quot;Generate code coverage&quot;&gt;&lt;/a&gt;Generate code coverage&lt;/h2&gt;&lt;p&gt;Step by step&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# compile with -fprofile-arcs -ftest-coverage&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gcc -Wall -Werror -fPIC -fprofile-arcs -ftest-coverage  main.c foo.c -o main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# run run executable&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# generate gcov files.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gcov main.c foo.c&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# generate coverage.info file&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;lcov --capture --directory . --output-file coverage.info&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# generate HTML report&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;genhtml coverage.info --output-directory out&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Or introduce it to the &lt;code&gt;makefile&lt;/code&gt; and you can compile and generate reports in just 3 steps like the following, or even 1 step if you want.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# step 1 compile&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# step 2 run executable&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./main&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# step 3 generate the report&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make report&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# delete all files generated above&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make clean&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Each step output please refer to below.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
@@ -109,7 +142,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/gcov/"/>
     <id>https://shenxianpeng.github.io/2021/06/gcov/</id>
     <published>2021-06-18T08:28:11.000Z</published>
-    <updated>2021-07-11T16:30:22.338Z</updated>
+    <updated>2021-07-15T15:18:07.984Z</updated>
     
     <summary type="html">
     
@@ -126,7 +159,7 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Coco" scheme="https://shenxianpeng.github.io/tags/coco/"/>
     
@@ -347,7 +380,7 @@
     <link href="https://shenxianpeng.github.io/2021/04/jacoco-imp/"/>
     <id>https://shenxianpeng.github.io/2021/04/jacoco-imp/</id>
     <published>2021-04-06T11:18:33.000Z</published>
-    <updated>2021-06-28T15:10:49.788Z</updated>
+    <updated>2021-07-15T15:17:08.340Z</updated>
     
     <summary type="html">
     
@@ -367,11 +400,13 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
-    
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
     
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
+    
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
+    
+      <category term="CodeCoverage" scheme="https://shenxianpeng.github.io/tags/codecoverage/"/>
     
   </entry>
   
@@ -567,34 +602,6 @@
     
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>These settings in Bitbucket/GitHub recommends enable</title>
-    <link href="https://shenxianpeng.github.io/2021/01/git-repository-settings/"/>
-    <id>https://shenxianpeng.github.io/2021/01/git-repository-settings/</id>
-    <published>2021-01-12T09:35:19.000Z</published>
-    <updated>2021-01-12T10:11:44.409Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;As I have management our team’s git repositories for more than two years, and as my daily work using Bitbucket, so I’ll take it as an
-        
-      
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
   </entry>
   
