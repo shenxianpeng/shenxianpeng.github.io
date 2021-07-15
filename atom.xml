@@ -131,9 +131,9 @@
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   
@@ -400,9 +400,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
