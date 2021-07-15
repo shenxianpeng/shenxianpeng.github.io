@@ -354,9 +354,9 @@
       
         <tags>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
             
@@ -730,9 +730,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -759,9 +759,9 @@
       
         <tags>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
         </tags>
       
@@ -840,9 +840,9 @@
             
             <tag> Git </tag>
             
-            <tag> Specification </tag>
-            
             <tag> Branch </tag>
+            
+            <tag> Specification </tag>
             
             <tag> Conventional Commits </tag>
             
@@ -896,9 +896,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -1118,9 +1118,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1145,9 +1145,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1307,9 +1307,9 @@
       
         <tags>
             
-            <tag> write </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> write </tag>
             
         </tags>
       
@@ -1415,9 +1415,9 @@
       
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -1955,9 +1955,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2713,9 +2713,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Automation </tag>
             
             <tag> Framework </tag>
             
@@ -3156,9 +3156,9 @@
             
             <tag> Hexo </tag>
             
-            <tag> Ubuntu </tag>
-            
             <tag> Blog </tag>
+            
+            <tag> Ubuntu </tag>
             
         </tags>
       
