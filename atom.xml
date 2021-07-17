@@ -392,9 +392,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="JaCoCo" scheme="https://shenxianpeng.github.io/tags/jacoco/"/>
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
