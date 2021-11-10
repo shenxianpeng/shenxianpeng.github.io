@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Share knowledge in the fields of CI&#x2F;CD and DevOps.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://shenxianpeng.github.io/page/2/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="Share knowledge in the fields of CI&#x2F;CD and DevOps.">
+<meta property="article:author" content="shenxianpeng">
+<meta name="twitter:card" content="summary">
+  
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  
+  
+  <link rel="icon" href="/favicon.png">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-168820225-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <script data-ad-client="ca-pub-3986315287795783" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello World</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Peter shen&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/daily/">Daily</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-linkedin-btn" class="nav-icon" href=https://www.linkedin.com/in/xianpeng-shen/ target="_blank" title="LinkedIn"></a>
+        <a id="nav-github-btn" class="nav-icon" href=https://github.com/shenxianpeng target="_blank" title="GitHub"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2021/07/update-bitbucket-build-status" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/update-bitbucket-build-status/" class="article-date">
+  <time datetime="2021-07-25T12:26:02.000Z" itemprop="datePublished">2021-07-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/update-bitbucket-build-status/">Add or update Bitbucket build status with REST API</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Backgorud"><a href="#Backgorud" class="headerlink" title="Backgorud"></a>Backgorud</h2><ol>
+<li><p>When you want to <strong>add</strong> build status to your Bitbucket the specific commit of a branch when you start a build from the branch</p>
+</li>
+<li><p>When the build status is wrong, you want to <strong>update</strong> it manually. for example, update build status from FAILED to SUCCESSFUL</p>
+</li>
+</ol>
+<p>You can call Bitbucket REST API to do these.</p>
+<h2 id="Code-snippet"><a href="#Code-snippet" class="headerlink" title="Code snippet"></a>Code snippet</h2><p>Below is the code snippet to update Bitbucket build status with REST API in the shell script.</p>
+<p>The code on GitHub Gist: <a href="https://gist.github.com/shenxianpeng/bd5eddc5fb39e54110afb8e2e7a6c4fb" target="_blank" rel="noopener">https://gist.github.com/shenxianpeng/bd5eddc5fb39e54110afb8e2e7a6c4fb</a></p>
+<p>Click <strong>Read More</strong> to view the code here.</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/07/update-bitbucket-build-status/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/07/update-bitbucket-build-status/" data-id="ckvtpicoj00asjsfo0eyzd7zz" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/07/update-bitbucket-build-status/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">Shell</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/07/code-coverage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/code-coverage/" class="article-date">
+  <time datetime="2021-07-14T14:49:39.000Z" itemprop="datePublished">2021-07-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/coverage/">Coverage</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/code-coverage/">关于代码覆盖率 (About Code Coverage)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本篇简要介绍：什么是代码覆盖率？为什么要做代码覆盖率？代码覆盖率的指标、工作原理，主流的代码覆盖率工具以及不要高估代码覆盖率指标。</p>
+<h2 id="什么是代码覆盖率？"><a href="#什么是代码覆盖率？" class="headerlink" title="什么是代码覆盖率？"></a>什么是代码覆盖率？</h2><p>代码覆盖率是对整个测试过程中被执行的代码的衡量，它能测量源代码中的哪些语句在测试中被执行，哪些语句尚未被执行。</p>
+<h2 id="为什么要测量代码覆盖率？"><a href="#为什么要测量代码覆盖率？" class="headerlink" title="为什么要测量代码覆盖率？"></a>为什么要测量代码覆盖率？</h2><p>众所周知，测试可以提高软件版本的质量和可预测性。但是，你知道你的单元测试甚至是你的功能测试实际测试代码的效果如何吗？是否还需要更多的测试？</p>
+<p>这些是代码覆盖率可以试图回答的问题。总之，出于以下原因我们需要测量代码覆盖率：</p>
+<ul>
+<li>了解我们的测试用例对源代码的测试效果</li>
+<li>了解我们是否进行了足够的测试</li>
+<li>在软件的整个生命周期内保持测试质量</li>
+</ul>
+<p>注：代码覆盖率不是灵丹妙药，覆盖率测量不能替代良好的代码审查和优秀的编程实践。</p>
+<p>通常，我们应该采用合理的覆盖目标，力求在代码覆盖率在所有模块中实现均匀覆盖，而不是只看最终数字的是否高到令人满意。</p>
+<p>举例：假设代码覆盖率只在某一些模块代码覆盖率很高，但在一些关键模块并没有足够的测试用例覆盖，那样虽然代码覆盖率很高，但并不能说明产品质量就很高。</p>
+<h2 id="代码覆盖率的指标种类"><a href="#代码覆盖率的指标种类" class="headerlink" title="代码覆盖率的指标种类"></a>代码覆盖率的指标种类</h2><p>代码覆盖率工具通常使用一个或多个标准来确定你的代码在被自动化测试后是否得到了执行，常见的覆盖率报告中看到的指标包括：</p>
+<ul>
+<li>函数覆盖率：定义的函数中有多少被调用</li>
+<li>语句覆盖率：程序中的语句有多少被执行</li>
+<li>分支覆盖率：有多少控制结构的分支（例如if语句）被执行</li>
+<li>条件覆盖率：有多少布尔子表达式被测试为真值和假值</li>
+<li>行覆盖率：有多少行的源代码被测试过</li>
+</ul>
+<h2 id="代码覆盖率是如何工作的？"><a href="#代码覆盖率是如何工作的？" class="headerlink" title="代码覆盖率是如何工作的？"></a>代码覆盖率是如何工作的？</h2><p>代码覆盖率测量主要有以下三种方式：</p>
+<p><strong>1. Source code instrumentation - 源代码检测</strong></p>
+<p>将检测语句添加到源代码中，并使用正常的编译工具链编译代码以生成检测的程序集。这是我们常说的插桩，Gcov 是属于这一类的代码覆盖率工具。</p>
+<p><strong>2. Runtime instrumentation - 运行时收集</strong></p>
+<p>这种方法在代码执行时从运行时环境收集信息以确定覆盖率信息。以我的理解 JaCoCo 和 Coverage 这两个工具的原理属于这一类别。</p>
+<p><strong>3. Intermediate code instrumentation - 中间代码检测</strong></p>
+<p>通过添加新的字节码来检测编译后的类文件，并生成一个新的检测类。说实话，我 Google 了很多文章并找到确定的说明哪个工具是属于这一类的。</p>
+<p>了解这些工具的基本原理，结合现有的测试用例，有助于正确的选择代码覆盖率工具。比如：</p>
+<ul>
+<li>产品的源代码只有 E2E（端到端）测试用例，通常只能选择第一类工具，即通过插桩编译出的可执行文件，然后进行测试和结果收集。</li>
+<li>产品的源代码有单元测试用例，通常选择第二类工具，即运行时收集。这类工具的执行效率高，易于做持续集成。</li>
+</ul>
+<h2 id="当前主流代码覆盖率工具"><a href="#当前主流代码覆盖率工具" class="headerlink" title="当前主流代码覆盖率工具"></a>当前主流代码覆盖率工具</h2><p>代码覆盖率的工具有很多，以下是我用过的不同编程语言的代码覆盖率工具。在选择工具时，力求去选择那些开源、流行（活跃）、好用的工具。</p>
+<table>
+<thead>
+<tr>
+<th>编程语言</th>
+<th>代码覆盖率工具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C/C++</td>
+<td>Gcov</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>JaCoCo</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>Istanbul</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Coverage.py</td>
+</tr>
+<tr>
+<td>Golang</td>
+<td>cover</td>
+</tr>
+</tbody></table>
+<h2 id="不要高估代码覆盖率指标"><a href="#不要高估代码覆盖率指标" class="headerlink" title="不要高估代码覆盖率指标"></a>不要高估代码覆盖率指标</h2><p>代码覆盖率不是灵丹妙药，它只是告诉我们有哪些代码没有被测试用例“执行到”而已，高百分比的代码覆盖率不等于高质量的有效测试。</p>
+<p>首先，高代码覆盖率不足以衡量有效测试。相反，代码覆盖率更准确地给出了代码未被测试程度的度量。这意味着，如果我们的代码覆盖率指标较低，那么我们可以确定代码的重要部分没有经过测试，然而反过来不一定正确。具有高代码覆盖率并不能充分表明我们的代码已经过充分测试。</p>
+<p>其次，<code>100%</code> 的代码覆盖率不应该是我们明确努力的目标之一。这是因为在实现 <code>100%</code> 的代码覆盖率与实际测试重要的代码之间总是需要权衡。虽然可以测试所有代码，但考虑到为了满足覆盖率要求而编写更多无意义测试的趋势，当你接近此限制时，测试的价值也很可能会减少。</p>
+<p>借 Martin Fowler 在这篇<a href="https://www.martinfowler.com/bliki/TestCoverage.html" target="_blank" rel="noopener">测试覆盖率</a>的文章说的一句话：</p>
+<blockquote>
+<p>代码覆盖率是查找代码库中未测试部分的有用工具，然而它作为一个数字说明你的测试有多好用处不大。</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a href="https://www.lambdatest.com/blog/code-coverage-vs-test-coverage/" target="_blank" rel="noopener">https://www.lambdatest.com/blog/code-coverage-vs-test-coverage/</a><br><a href="https://www.atlassian.com/continuous-delivery/software-testing/code-coverage" target="_blank" rel="noopener">https://www.atlassian.com/continuous-delivery/software-testing/code-coverage</a><br><a href="https://www.thoughtworks.com/insights/blog/are-test-coverage-metrics-overrated" target="_blank" rel="noopener">https://www.thoughtworks.com/insights/blog/are-test-coverage-metrics-overrated</a></p>
+</blockquote>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/07/code-coverage/" data-id="ckvtpicoh00aijsfo9eg1cxnp" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/07/code-coverage/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/07/gcov-example" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/07/gcov-example/" class="article-date">
+  <time datetime="2021-07-11T16:10:21.000Z" itemprop="datePublished">2021-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/coverage/">Coverage</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/gcov-example/">Use Gcov and LCOV to perform code coverage testing on C/C++ projects</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This article shares how to use Gcov and LCOV to metrics code coverage for C/C++ projects. If you want to know how Gcov works, or you need to metrics code coverage for C/C++ projects in the future, I hope this article will be useful for you.</p>
+<h2 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h2><p>I don’t know wether you’ve ever had the same problem as me: a C/C++ project from decades ago had no unit tests, only regression tests, but you want to know what code was tested by the regression tests? What code is left untested? What is the code coverage rate? Where do I need to improve the automation test cases in the future?</p>
+<p>Maybe for people who have contact with Java Junit and JaCoCo, they can’t measure the code coverage without unit testing… Not really, if it doesn’t work, there’s nothing more :)</p>
+<h2 id="Current-state"><a href="#Current-state" class="headerlink" title="Current state"></a>Current state</h2><p>There are some tools on the market to measure code coverage for black-box tests, such as Squish Coco, Bullseye, etc. Their principle is to insert instrumentation during compilation, which is called stubbing in Chinese and is used to track and record results when running tests.</p>
+<p>I have a deeper understanding of <a href="https://shenxianpeng.github.io/2019/05/squishcoco/">Squish Coco</a> and how to use it, but for large projects, the introduction of such tools are more or less necessary to solve the compilation problems. It was because of some unresolved compilation issues that I never purchased this expensive tool license.</p>
+<p>When I re-investigated code coverage again, I was ashamed to find that the GCC I was using had a built-in code coverage tool called <a href="https://gcc.gnu.org/onlinedocs/gcc/Gcov.html" target="_blank" rel="noopener">Gcov</a></p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>For those who want to use Gcov, to illustrate how it works, I’ve prepared a sample program that requires <a href="https://gcc.gnu.org/install/index.html" target="_blank" rel="noopener">GCC</a> and <a href="http://ltp.sourceforge.net/" target="_blank" rel="noopener">LCOV</a> to be installed before running the program.</p>
+<p>If you don’t have the environment or don’t want to install it, you can just check out the GitHub repository for the example repository: <a href="https://github.com/shenxianpeng/gcov-example" target="_blank" rel="noopener">https://github.com/shenxianpeng/gcov-example</a></p>
+<p>Note: The source code is under the master branch <code>master</code>, and the <code>out</code> directory under the branch <code>coverage</code> is the final report of the results.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is the version of GCC and lcov on my test environment.</span></span><br><span class="line">sh-4.2$ gcc --version</span><br><span class="line">gcc (GCC) 4.8.5 20150623 (Red Hat 4.8.5-39)</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the <span class="built_in">source</span> <span class="keyword">for</span> copying conditions.  There is NO</span><br><span class="line">warranty; not even <span class="keyword">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br><span class="line"></span><br><span class="line">sh-4.2$ lcov -v</span><br><span class="line">lcov: LCOV version 1.14</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-Gcov-works"><a href="#How-Gcov-works" class="headerlink" title="How Gcov works"></a>How Gcov works</h2><p>Gcov workflow diagram</p>
+<p><img src="/2021/07/gcov-example/gcov-flow.jpg" alt="flow"></p>
+<p>There are three main steps:</p>
+<ol>
+<li>adding special compilation options to the GCC compilation to generate the executable, and <code>*.gcno</code>.</li>
+<li>running (testing) the generated executable, which generates the <code>*.gcda</code> data file.</li>
+<li>with <code>*.gcno</code> and <code>*.gcda</code>, generate the <code>gcov</code> file from the source code, and finally generate the code coverage report.</li>
+</ol>
+<p>Here’s how each of these steps is done exactly.</p>
+<h3 id="1-Compile"><a href="#1-Compile" class="headerlink" title="1. Compile"></a>1. Compile</h3><p>The first step is to compile. The parameters and files used for compilation are already written in the <code>makefile</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>Click to see the output of the make command</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2$ make</span><br><span class="line">gcc -fPIC -fprofile-arcs -ftest-coverage -c -Wall -Werror main.c</span><br><span class="line">gcc -fPIC -fprofile-arcs -ftest-coverage -c -Wall -Werror foo.c</span><br><span class="line">gcc -fPIC -fprofile-arcs -ftest-coverage -o main main.o foo.o</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>As you can see from the output, this program is compiled with two compile options <code>-fprofile-arcs</code> and <code>-ftest-coverage</code>. After successful compilation, not only the <code>main</code> and <code>.o</code> files are generated, but also two <code>.gcno</code> files are generated.</p>
+<blockquote>
+<p>The <code>.gcno</code> record file is generated after adding the GCC compile option <code>-ftest-coverage</code>, which contains information for reconstructing the base block map and assigning source line numbers to blocks during the compilation process.</p>
+</blockquote>
+<h3 id="2-Running-the-executable"><a href="#2-Running-the-executable" class="headerlink" title="2. Running the executable"></a>2. Running the executable</h3><p>After compilation, the executable <code>main</code> is generated, which is run (tested) as follows</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./main</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary>Click to see the output when running main</summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2$ ./main</span><br><span class="line">Start calling foo() ...</span><br><span class="line">when num is equal to 1...</span><br><span class="line">when num is equal to 2...</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<p>When <code>main</code> is run, the results are recorded in the <code>.gcda</code> data file, and if you look in the current directory, you can see that two <code>.gcda</code> files have been generated.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">foo.c  foo.gcda  foo.gcno  foo.h  foo.o  img  main  main.c  main.gcda  main.gcno  main.o  makefile  README.md</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>.gcda</code> record data files are generated because the program is compiled with the <code>-fprofile-arcs</code> option introduced. It contains arc transition counts, value distribution counts, and some summary information.</p>
+</blockquote>
+<h3 id="3-Generating-reports"><a href="#3-Generating-reports" class="headerlink" title="3. Generating reports"></a>3. Generating reports</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make report</span><br></pre></td></tr></table></figure>
+
+<details>
+<summary> Click to see the output of the generated report </summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2$ make report</span><br><span class="line">gcov main.c foo.c</span><br><span class="line">File <span class="string">'main.c'</span></span><br><span class="line">Lines executed:100.00% of 5</span><br><span class="line">Creating <span class="string">'main.c.gcov'</span></span><br><span class="line"></span><br><span class="line">File <span class="string">'foo.c'</span></span><br><span class="line">Lines executed:85.71% of 7</span><br><span class="line">Creating <span class="string">'foo.c.gcov'</span></span><br><span class="line"></span><br><span class="line">Lines executed:91.67% of 12</span><br><span class="line">lcov --capture --directory . --output-file coverage.info</span><br><span class="line">Capturing coverage data from .</span><br><span class="line">Found gcov version: 4.8.5</span><br><span class="line">Scanning . <span class="keyword">for</span> .gcda files ...</span><br><span class="line">Found 2 data files <span class="keyword">in</span> .</span><br><span class="line">Processing foo.gcda</span><br><span class="line">geninfo: WARNING: cannot find an entry <span class="keyword">for</span> main.c.gcov <span class="keyword">in</span> .gcno file, skipping file!</span><br><span class="line">Processing main.gcda</span><br><span class="line">Finished .info-file creation</span><br><span class="line">genhtml coverage.info --output-directory out</span><br><span class="line">Reading data file coverage.info</span><br><span class="line">Found 2 entries.</span><br><span class="line">Found common filename prefix <span class="string">"/workspace/coco"</span></span><br><span class="line">Writing .css and .png files.</span><br><span class="line">Generating output.</span><br><span class="line">Processing file gcov-example/main.c</span><br><span class="line">Processing file gcov-example/foo.c</span><br><span class="line">Writing directory view page.</span><br><span class="line">Overall coverage rate:</span><br><span class="line">  lines......: 91.7% (11 of 12 lines)</span><br><span class="line">  <span class="built_in">functions</span>..: 100.0% (2 of 2 <span class="built_in">functions</span>)</span><br></pre></td></tr></table></figure>
+</details>
+
+<p>Executing <code>make report</code> to generate an HTML report actually performs two main steps behind this command.</p>
+<ol>
+<li><p>With the <code>.gcno</code> and <code>.gcda</code> files generated at compile and run time, execute the command <code>gcov main.c foo.c</code> to generate the <code>.gcov</code> code coverage file.</p>
+</li>
+<li><p>With the code coverage <code>.gcov</code> file, generate a visual code coverage report via <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_blank" rel="noopener">LCOV</a>.</p>
+</li>
+</ol>
+<p>The steps to generate the HTML result report are as follows.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. Generate the coverage.info data file</span></span><br><span class="line">lcov --capture --directory . --output-file coverage.info</span><br><span class="line"><span class="comment"># 2. Generate a report from this data file</span></span><br><span class="line">genhtml coverage.info --output-directory out</span><br></pre></td></tr></table></figure>
+
+<h3 id="Delete-all-generated-files"><a href="#Delete-all-generated-files" class="headerlink" title="Delete all generated files"></a>Delete all generated files</h3><p>All the generated files can be removed by executing <code>make clean</code> command.</p>
+<details>
+<summary> Click to see the output of the make clean command </summary>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2$ make clean</span><br><span class="line">rm -rf main *.o *.so *.gcno *.gcda *.gcov coverage.info out</span><br></pre></td></tr></table></figure>
+</details>
+
+<h2 id="Code-coverage-report"><a href="#Code-coverage-report" class="headerlink" title="Code coverage report"></a>Code coverage report</h2><p><img src="/2021/07/gcov-example/index.png" alt="index"></p>
+<p>The home page is displayed in a directory structure</p>
+<p><img src="/2021/07/gcov-example/example.png" alt="example"></p>
+<p>After entering the directory, the source files in that directory are displayed</p>
+<p><img src="/2021/07/gcov-example/main.c.png" alt="main.c"></p>
+<p>The blue color indicates that these statements are overwritten</p>
+<p><img src="/2021/07/gcov-example/foo.c.png" alt="foo.c"></p>
+<p>Red indicates statements that are not overridden</p>
+<blockquote>
+<p>LCOV supports statement, function, and branch coverage metrics.</p>
+</blockquote>
+<p>Side notes:</p>
+<ul>
+<li>There is another tool for generating HTML reports called <a href="https://github.com/gcovr/gcovr" target="_blank" rel="noopener">gcovr</a>, developed in Python, whose reports are displayed slightly differently from LCOV. For example, LCOV displays it in a directory structure, while gcovr displays it in a file path, which is always the same as the code structure, so I prefer to use the former.</li>
+</ul>
+<h2 id="Related-reading"><a href="#Related-reading" class="headerlink" title="Related reading"></a>Related reading</h2><ul>
+<li>About Code Coverage: <a href="https://shenxianpeng.github.io/2021/07/code-coverage/">https://shenxianpeng.github.io/2021/07/code-coverage/</a></li>
+<li>Example of using Gcov in a Linux kernel: <a href="https://01.org/linuxgraphics/gfx-docs/drm/dev-tools/gcov.html" target="_blank" rel="noopener">https://01.org/linuxgraphics/gfx-docs/drm/dev-tools/gcov.html</a></li>
+<li>Setting environment variables when the build environment is different from the test environment: <a href="https://gcc.gnu.org/onlinedocs/gcc/Cross-profiling.html#Cross-profiling" target="_blank" rel="noopener">https://gcc.gnu.org/onlinedocs/gcc/Cross-profiling.html#Cross-profiling</a></li>
+</ul>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/07/gcov-example/" data-id="ckvtpicoi00aljsfocn4l5vyl" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/07/gcov-example/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/06/jenkins-timeout" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/jenkins-timeout/" class="article-date">
+  <time datetime="2021-06-24T03:00:45.000Z" itemprop="datePublished">2021-06-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/jenkins-timeout/">How to make Jenkins job fail after timeout? (Resolved)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’ve run into some situations when the build fails, perhaps because some processes don’t finish, and even setting a timeout doesn’t make the Jenkins job fail.</p>
+<p>So, to fix this problem, I used <code>try</code> .. <code>catch</code> and <code>error</code> to make my Jenkins job failed, hopes this also helps you.</p>
+<p>Please see the following example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent none</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">'Hello'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                script &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        timeout(time: <span class="number">1</span>, unit: <span class="string">'SECONDS'</span>) &#123;</span><br><span class="line">                            echo <span class="string">"timeout step"</span></span><br><span class="line">                            sleep <span class="number">2</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">                        <span class="comment">// timeout reached</span></span><br><span class="line">                        println err</span><br><span class="line">                        echo <span class="string">'Time out reached.'</span></span><br><span class="line">                        error <span class="string">'build timeout failed'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Here is the output log</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">00:00:01.326  [Pipeline] Start of Pipeline</span><br><span class="line">00:00:01.475  [Pipeline] stage</span><br><span class="line">00:00:01.478  [Pipeline] &#123; (Hello)</span><br><span class="line">00:00:01.516  [Pipeline] script</span><br><span class="line">00:00:01.521  [Pipeline] &#123;</span><br><span class="line">00:00:01.534  [Pipeline] timeout</span><br><span class="line">00:00:01.534  Timeout set to expire in 1 sec</span><br><span class="line">00:00:01.537  [Pipeline] &#123;</span><br><span class="line">00:00:01.547  [Pipeline] echo</span><br><span class="line">00:00:01.548  timeout step</span><br><span class="line">00:00:01.555  [Pipeline] sleep</span><br><span class="line">00:00:01.558  Sleeping for 2 sec</span><br><span class="line">00:00:02.535  Cancelling nested steps due to timeout</span><br><span class="line">00:00:02.546  [Pipeline] &#125;</span><br><span class="line">00:00:02.610  [Pipeline] &#x2F;&#x2F; timeout</span><br><span class="line">00:00:02.619  [Pipeline] echo</span><br><span class="line">00:00:02.621  org.jenkinsci.plugins.workflow.steps.FlowInterruptedException</span><br><span class="line">00:00:02.625  [Pipeline] echo</span><br><span class="line">00:00:02.627  Time out reached.</span><br><span class="line">00:00:02.630  [Pipeline] error</span><br><span class="line">00:00:02.638  [Pipeline] &#125;</span><br><span class="line">00:00:02.656  [Pipeline] &#x2F;&#x2F; script</span><br><span class="line">00:00:02.668  [Pipeline] &#125;</span><br><span class="line">00:00:02.681  [Pipeline] &#x2F;&#x2F; stage</span><br><span class="line">00:00:02.696  [Pipeline] End of Pipeline</span><br><span class="line">00:00:02.709  ERROR: build timeout failed</span><br><span class="line">00:00:02.710  Finished: FAILURE</span><br></pre></td></tr></table></figure>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/jenkins-timeout/" data-id="ckvtpicod00a4jsfoaugc6p2k" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/06/git-clone-failed-on-aix" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/git-clone-failed-on-aix/" class="article-date">
+  <time datetime="2021-06-20T14:53:26.000Z" itemprop="datePublished">2021-06-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/aix/">AIX</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/git-clone-failed-on-aix/">解决两个 AIX 上 Git Clone 失败的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇记录两个在做 Jenkins 与 AIX 做持续集成得时候遇到的 Git clone 代码失败的问题，并已解决，分享出来或许能有所帮助。</p>
+<ol>
+<li>Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</li>
+<li>通过 SSH 进行 git clone 出现 Authentication failed</li>
+</ol>
+<h2 id="问题1：Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded"><a href="#问题1：Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded" class="headerlink" title="问题1：Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded."></a>问题1：Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</h2><p>Jenkins 通过 HTTPS 来 checkout 代码的时候，出现了如下错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[2021-06-20T14:50:25.166Z] ERROR: Error cloning remote repo <span class="string">'origin'</span></span><br><span class="line">[2021-06-20T14:50:25.166Z] hudson.plugins.git.GitException: Command <span class="string">"git fetch --tags --force --progress --depth=1 -- https://git.company.com/scm/vas/db.git +refs/heads/*:refs/remotes/origin/*"</span> returned status code 128:</span><br><span class="line">[2021-06-20T14:50:25.166Z] stdout:</span><br><span class="line">[2021-06-20T14:50:25.166Z] stderr: <span class="built_in">exec</span>(): 0509-036 Cannot load program /opt/freeware/libexec64/git-core/git-remote-https because of the following errors:</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-150   Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-153   File /usr/lib/libldap.a is not an archive or</span><br><span class="line">[2021-06-20T14:50:25.166Z] 		   the file could not be <span class="built_in">read</span> properly.</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-026 System error: Cannot run a file that does not have a valid format.</span><br><span class="line">[2021-06-20T14:50:25.166Z]</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2450)</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandWithCredentials(CliGitAPIImpl.java:2051)</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.access<span class="variable">$500</span>(CliGitAPIImpl.java:84)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$1</span>.execute(CliGitAPIImpl.java:573)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$2</span>.execute(CliGitAPIImpl.java:802)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span><span class="variable">$GitCommandMasterToSlaveCallable</span>.call(RemoteGitImpl.java:161)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span><span class="variable">$GitCommandMasterToSlaveCallable</span>.call(RemoteGitImpl.java:154)</span><br><span class="line">..........................</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	Suppressed: hudson.remoting.Channel<span class="variable">$CallSiteStackTrace</span>: Remote call to aix-devasbld-01</span><br><span class="line">[2021-06-20T14:50:25.167Z] 		at hudson.remoting.Channel.attachCallSiteStackTrace(Channel.java:1800)</span><br><span class="line">..........................</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">[2021-06-20T15:21:20.525Z] Cloning repository https://git.company.com/scm/vas/db.git</span><br></pre></td></tr></table></figure>
+
+<p>直接在虚拟机上通过命令 <code>git clone https://git.company.com/scm/vas/db.git</code> ，可以成功下载，没有出现任何问题。</p>
+<ul>
+<li>如果将 <code>LIBPATH</code> 设置为 <code>LIBPATH=/usr/lib</code> 就能重新上面的错误，这说明通过 Jenkins 下载代码的时候它是去 <code>/usr/lib/</code> 下面找 <code>libldap.a</code></li>
+<li>如果将变量 <code>LIBPATH</code> 设置为空 <code>export LIBPATH=</code> 或 <code>unset LIBPATH</code>，执行 <code>git clone https://...</code> 就正常了。</li>
+</ul>
+<blockquote>
+<p>尝试在 Jenkins 启动 agent 的时候修改 <code>LIBPATH</code> 变量设置为空，但均都没设置成功。</p>
+</blockquote>
+<p>那看看 <code>/usr/lib/libldap.a</code> 是什么问题了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ldd 的时候发现这个静态库有问题</span></span><br><span class="line">$ ldd /usr/lib/libldap.a</span><br><span class="line">/usr/lib/libldap.a needs:</span><br><span class="line">         /opt/IBM/ldap/V6.4/lib/libibmldapdbg.a</span><br><span class="line">         /usr/lib/threads/libc.a(shr.o)</span><br><span class="line">Cannot find libpthreads.a(shr_xpg5.o)</span><br><span class="line">         /opt/IBM/ldap/V6.4/lib/libidsldapiconv.a</span><br><span class="line">Cannot find libpthreads.a(shr_xpg5.o)</span><br><span class="line">Cannot find libc_r.a(shr.o)</span><br><span class="line">         /unix</span><br><span class="line">         /usr/lib/libcrypt.a(shr.o)</span><br><span class="line">Cannot find libpthreads.a(shr_xpg5.o)</span><br><span class="line">Cannot find libc_r.a(shr.o)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以看到它链接到是 IBM LDAP</span></span><br><span class="line">$ ls -l /usr/lib/libldap.a</span><br><span class="line">lrwxrwxrwx    1 root     system           35 Jun 10 2020  /usr/lib/libldap.a -&gt; /opt/IBM/ldap/V6.4/lib/libidsldap.a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再看看同样的 libldap.a 在 /opt/freeware/lib/ 是没问题的</span></span><br><span class="line">$ ldd /opt/freeware/lib/libldap.a</span><br><span class="line">ldd: /opt/freeware/lib/libldap.a: File is an archive.</span><br><span class="line"></span><br><span class="line">$ ls -l /opt/freeware/lib/libldap.a</span><br><span class="line">lrwxrwxrwx    1 root     system           13 May 27 2020  /opt/freeware/lib/libldap.a -&gt; libldap-2.4.a</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题1：解决办法"><a href="#问题1：解决办法" class="headerlink" title="问题1：解决办法"></a>问题1：解决办法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 尝试替换。先将 libldap.a 重名为 libldap.a.old（不要删除以防需要恢复）</span></span><br><span class="line">$ sudo mv /usr/lib/libldap.a /usr/lib/libldap.a.old</span><br><span class="line"><span class="comment"># 重新链接</span></span><br><span class="line">$ sudo ln -s /opt/freeware/lib/libldap.a /usr/lib/libldap.a</span><br><span class="line">$ ls -l /usr/lib/libldap.a</span><br><span class="line">lrwxrwxrwx    1 root     system           27 Oct 31 23:27 /usr/lib/libldap.a -&gt; /opt/freeware/lib/libldap.a</span><br></pre></td></tr></table></figure>
+
+<p>重新链接完成后，重新连接 AIX agent，再次执行 clone 代码，成功！</p>
+<h2 id="问题2：通过-SSH-进行-git-clone-出现-Authentication-failed"><a href="#问题2：通过-SSH-进行-git-clone-出现-Authentication-failed" class="headerlink" title="问题2：通过 SSH 进行 git clone 出现 Authentication failed"></a>问题2：通过 SSH 进行 git clone 出现 Authentication failed</h2><p>由于 AIX 7.1-TL4-SP1 即将 End of Service Pack Support，因此需要升级。但是升级到 AIX 7.1-TL5-SP6 后无法通过 SSH 下载代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> ssh://git@git.company.com:7999/vas/db.git</span><br><span class="line">Cloning into <span class="string">'db'</span>...</span><br><span class="line">Authentication failed.</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+
+<p>像这样的错误，在使用 Git SSH 方式来 clone 代码经常会遇到，通常都是没有设置 public key。只要执行 <code>ssh-keygen -t rsa -C your@email.com</code> 生成 <code>id_rsa</code> keys，然后将 <code>id_rsa.pub</code> 的值添加到 GitHub/Bitbucket/GitLab 的 public key 中一般就能解决。</p>
+<p>但这次不一样，尽管已经设置了 public key，但错误依旧存在。奇快的是之前 AIX 7.1-TL4-SP1 是好用的，升级到 AIX 7.1-TL5-SP6 就不好用了呢？</p>
+<p>使用命令 <code>ssh -vvv &lt;git-url&gt;</code> 来看看他们在请求 git 服务器时候 debug 信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># AIX 7.1-TL4-SP1</span></span><br><span class="line">bash-4.3$ oslevel -s</span><br><span class="line">7100-04-01-1543</span><br><span class="line">bash-4.3$ ssh -vvv git.company.com</span><br><span class="line">OpenSSH_6.0p1, OpenSSL 1.0.1e 11 Feb 2013</span><br><span class="line">debug1: Reading configuration data /etc/ssh/ssh_config</span><br><span class="line">debug1: Failed dlopen: /usr/krb5/lib/libkrb5.a(libkrb5.a.so):   0509-022 Cannot load module /usr/krb5/lib/libkrb5.a(libkrb5.a.so).</span><br><span class="line">        0509-026 System error: A file or directory <span class="keyword">in</span> the path name does not exist.</span><br><span class="line"></span><br><span class="line">debug1: Error loading Kerberos, disabling Kerberos auth.</span><br><span class="line">.......</span><br><span class="line">.......</span><br><span class="line">ssh_exchange_identification: <span class="built_in">read</span>: Connection reset by peer</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># New machine AIX 7.1-TL5-SP6</span></span><br><span class="line">$ oslevel -s</span><br><span class="line">7100-05-06-2015</span><br><span class="line">$ ssh -vvv git.company.com</span><br><span class="line">OpenSSH_7.5p1, OpenSSL 1.0.2t  10 Sep 2019</span><br><span class="line">debug1: Reading configuration data /etc/ssh/ssh_config</span><br><span class="line">debug1: Failed dlopen: /usr/krb5/lib/libkrb5.a(libkrb5.a.so):   0509-022 Cannot load module /usr/krb5/lib/libkrb5.a(libkrb5.a.so).</span><br><span class="line">        0509-026 System error: A file or directory <span class="keyword">in</span> the path name does not exist.</span><br><span class="line"></span><br><span class="line">debug1: Error loading Kerberos, disabling Kerberos auth.</span><br><span class="line">.......</span><br><span class="line">.......</span><br><span class="line">ssh_exchange_identification: <span class="built_in">read</span>: Connection reset by peer</span><br></pre></td></tr></table></figure>
+
+<p>可以看到的差别是 OpenSSH 的版本不同，可能是因此导致的，根据这个推测很快就找到了类似的问题和答案（Stackoverflow <a href="https://stackoverflow.com/questions/54191112/bitbucket-ssh-clone-on-aix-7-1-fails" target="_blank" rel="noopener">链接</a>)</p>
+<h2 id="问题2：解决办法"><a href="#问题2：解决办法" class="headerlink" title="问题2：解决办法"></a>问题2：解决办法</h2><p>在 <code>~/.ssh/config</code> 文件里添加选项 <code>AllowPKCS12keystoreAutoOpen no</code></p>
+<p>但问题又来了，这个选项是 AIX 上的一个定制选项，在 Linux 上是没有的。</p>
+<p>这会导致同一个域账户在 AIX 通过 SSH 可以 git clone 成功，但在 Linux 上 git clone 会失败。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux 上不识别改选项</span></span><br><span class="line">stderr: /home/****/.ssh/config: line 1: Bad configuration option: allowpkcs12keystoreautoopen</span><br><span class="line">/home/****/.ssh/config: terminating, 1 bad configuration options</span><br><span class="line">fatal: Could not <span class="built_in">read</span> from remote repository.</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>如果 <code>config</code> 文件可以支持条件选项就好了，即当为 AIX 是添加选项 <code>AllowPKCS12keystoreAutoOpen no</code>，其他系统则没有该选项。可惜 <code>config</code> 并不支持。</li>
+<li>如果能单独的设置当前 AIX 的 ssh config 文件就好了。尝试将 <code>/etc/ssh/ssh_config</code> 文件修改如下，重启服务，再次通过 SSH clone，成功~！</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AllowPKCS12keystoreAutoOpen no</span><br><span class="line"><span class="comment">#   ForwardAgent no</span></span><br><span class="line"><span class="comment">#   ForwardX11 no</span></span><br><span class="line"><span class="comment">#   RhostsRSAAuthentication no</span></span><br><span class="line"><span class="comment">#   RSAAuthentication yes</span></span><br><span class="line"><span class="comment">#   PasswordAuthentication yes</span></span><br><span class="line"><span class="comment">#   HostbasedAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIDelegateCredentials no</span></span><br><span class="line"><span class="comment">#   GSSAPIKeyExchange no</span></span><br><span class="line"><span class="comment">#   GSSAPITrustDNS no</span></span><br><span class="line"><span class="comment">#   ....省略</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="完！"><a href="#完！" class="headerlink" title="完！"></a>完！</h2>
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckvtpicoc00a0jsfofq6yb9rf" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aix/" rel="tag">AIX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/06/gcov" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/gcov/" class="article-date">
+  <time datetime="2021-06-18T08:28:11.000Z" itemprop="datePublished">2021-06-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/coverage/">Coverage</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/gcov/">Gcov 一个免费开源的 C/C++ 代码覆盖率工具以及生成报告</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>注：这篇文章是边调查边写的，可能存在一些示例、命令输出、以及截图对应不上的情况，因此在调查完成后，我又重新编写了整理的示例代码，并放在 GitHub 上，这是 README: <a href="https://github.com/shenxianpeng/gcov-example/blob/master/README-CN.md" target="_blank" rel="noopener">https://github.com/shenxianpeng/gcov-example/blob/master/README-CN.md</a></p>
+<p>因为这篇文章中有用到 gcovr （上面的链接里没有），因此保留这篇就不删除了。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在很早之前我做过一次 C/C++ 项目的代码覆盖率工具的调查，是一款叫 <a href="https://shenxianpeng.github.io/2019/05/squishcoco/">Squish Coco</a> 的付费工具，当时由于有一些问题没有解决，就搁置了并没有最终购买。最近又开始了这项工作，也有购买工具的预算，但作为个人还是希望有好用的开源软件可以来做这件事，也能为产品减少每年几千刀的 License 的支出。</p>
+<p>本次调查的是 <a href="https://gcc.gnu.org/onlinedocs/gcc/Gcov-Intro.html#Gcov-Intro" target="_blank" rel="noopener">Gcov</a>，一个可以与 GCC 结合使用的工具，测试程序中的代码覆盖率。</p>
+<p>本篇文章通过一个最简单的示例来了解 Gcov 是如何工作的，以及通过 gcovr 来生成 Code Coverage 报告。</p>
+<blockquote>
+<p>关于 Squish Coco 与 Gcov/LCOV 的对比，froglogic 官方有一个说明：<a href="https://www.froglogic.com/coco/faq/" target="_blank" rel="noopener">https://www.froglogic.com/coco/faq/</a></p>
+</blockquote>
+<h2 id="Gcov-演示示例"><a href="#Gcov-演示示例" class="headerlink" title="Gcov 演示示例"></a>Gcov 演示示例</h2><ol>
+<li>创建 C 程序</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"foo.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Start testing shared library in main.c ...\n"</span>);</span><br><span class="line">    foo(<span class="number">1</span>);</span><br><span class="line">    foo(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// foo.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num == <span class="number">1</span>) &#123;</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">"Calling foo() shared library\n\n"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Num is not equals to 1...\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// foo.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> foo_h__</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> foo_h__</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">extern</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span>  <span class="comment">// foo_h__</span></span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>然后使用 gcc 编译的时候加入 <code>-fprofile-arcs</code> 和 <code>-ftest-coverage</code> 这两个 flags 进行编译</li>
+</ol>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -fPIC -fprofile-arcs -ftest-coverage -o libfoo.so foo.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># /workspace/code/gcov/test 是我的代码路径</span></span><br><span class="line">gcc -lgcov -L/workspace/code/gcov/<span class="built_in">test</span> -o <span class="built_in">test</span> main.c -lfoo</span><br></pre></td></tr></table></figure>
+
+<p>这两个 flags 会让 GCC 在编译出来的二进制文件里加入 instrumentation，也就是我们俗称的插桩，它是用来收集执行的数据。</p>
+<p>注：.gcno 注释文件是在用 GCC <code>-ftest-coverage</code> 选项编译源文件时生成的，它包含了重建基本块图和给块分配源行号的信息。</p>
+<blockquote>
+<p>当前的 GCC 版本是：gcc version 8.3.1 20191121 (Red Hat 8.3.1-5) (GCC)</p>
+</blockquote>
+<ol start="3">
+<li>运行可执行文件 <code>test</code> 进行测试</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>当一个包含用 GCC <code>-fprofile-arcs</code> 选项编译的对象文件的程序被执行时，会产生 .gcda 计数数据文件，也就是这里的 <code>test.gcda</code> 文件。</p>
+<p>每个用该选项编译的对象文件都会创建一个单独的 .gcda 文件，它包含弧线过渡计数、数值剖面计数和一些摘要信息。</p>
+<ol start="4">
+<li>执行 <code>gcov test.c</code> 生成报告文件 <code>test.c.gcov</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[xshen@dendevblr01 gcov]$ gcov test.c</span><br><span class="line">File <span class="string">'test.c'</span></span><br><span class="line">Lines executed:100.00% of 3</span><br><span class="line">Creating <span class="string">'test.c.gcov'</span></span><br><span class="line"></span><br><span class="line">[xshen@dendevblr01 gcov]$ ls</span><br><span class="line">a.out  test.c  test.c.gcov  test.gcda  test.gcno</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 <code>test.c</code> 代码被 100% 执行了。</p>
+<h2 id="生成-Code-Coverage-报告"><a href="#生成-Code-Coverage-报告" class="headerlink" title="生成 Code Coverage 报告"></a>生成 Code Coverage 报告</h2><p>目前我看到有两个对于 GCOV 可以生成报告得工具，一个是 <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_blank" rel="noopener">LCOV</a>，另外一个是 <a href="https://github.com/gcovr/gcovr" target="_blank" rel="noopener">gcovr</a>。</p>
+<p>前者主要用 Perl 写的，后者用 Python 来写的，但从使用上来说，我觉得 LCOV 能更方便使用一些，对于具体被执行或没被执行的代码显示的更直观。</p>
+<h3 id="LCOV"><a href="#LCOV" class="headerlink" title="LCOV"></a>LCOV</h3><p><a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_blank" rel="noopener">http://ltp.sourceforge.net/coverage/lcov.php</a></p>
+<p>具体安装就不介绍了，可以看官方网站。安装完成后，要用到的两个命令</p>
+<ol>
+<li>收集 coverage 数据</li>
+</ol>
+<p><code>lcov --capture --directory project-dir --output-file coverage.info</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lcov --capture --directory . --output-file coverage.info</span><br><span class="line">Capturing coverage data from .</span><br><span class="line">Found gcov version: 4.8.5</span><br><span class="line">Scanning . <span class="keyword">for</span> .gcda files ...</span><br><span class="line">Found 2 data files <span class="keyword">in</span> .</span><br><span class="line">Processing foo.gcda</span><br><span class="line">geninfo: WARNING: cannot find an entry <span class="keyword">for</span> main.c.gcov <span class="keyword">in</span> .gcno file, skipping file!</span><br><span class="line">Processing main.gcda</span><br><span class="line">Finished .info-file creation</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>生成 HTML 报告</li>
+</ol>
+<p><code>genhtml coverage.info --output-directory out</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2$ genhtml coverage.info --output-directory out</span><br><span class="line">Reading data file coverage.info</span><br><span class="line">Found 2 entries.</span><br><span class="line">Found common filename prefix <span class="string">"/workspace/mvas-code/coco"</span></span><br><span class="line">Writing .css and .png files.</span><br><span class="line">Generating output.</span><br><span class="line">Processing file <span class="built_in">test</span>/foo.c</span><br><span class="line">Processing file <span class="built_in">test</span>/main.c</span><br><span class="line">Writing directory view page.</span><br><span class="line">Overall coverage rate:</span><br><span class="line">  lines......: 100.0% (10 of 10 lines)</span><br><span class="line">  <span class="built_in">functions</span>..: 100.0% (2 of 2 <span class="built_in">functions</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>查看报告</li>
+</ol>
+<p><img src="/2021/06/gcov/lcov.png" alt></p>
+<p><img src="/2021/06/gcov/lcov-files.png" alt></p>
+<p><img src="/2021/06/gcov/lcov-main.c.png" alt></p>
+<p><img src="/2021/06/gcov/lcov-foo.c.png" alt></p>
+<h3 id="gcovr"><a href="#gcovr" class="headerlink" title="gcovr"></a>gcovr</h3><p>这里使用的是 gcovr 这个项目：<a href="https://github.com/gcovr/gcovr" target="_blank" rel="noopener">https://github.com/gcovr/gcovr</a></p>
+<ol>
+<li>安装 <code>gcovr</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gcovr</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>重新编译上面的代码</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -fprofile-arcs -ftest-coverage -O0 test.c -o <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>执行 <code>./test</code></p>
+</li>
+<li><p>执行 <code>gcovr -r .</code> 生成报告</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-sh-4.2$ gcovr -r .</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">                           GCC Code Coverage Report</span><br><span class="line">Directory: .</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">File                                       Lines    Exec  Cover   Missing</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">test.c                                         3       3   100%</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">TOTAL                                          3       3   100%</span><br><span class="line">------------------------------------------------------------------------------</span><br><span class="line">-sh-4.2$</span><br></pre></td></tr></table></figure>
+
+<p>生成 html 报告</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir report</span><br><span class="line">gcovr -r . --html --html-details -o report/coverage.html</span><br><span class="line"></span><br><span class="line">-sh-4.2$ ls report</span><br><span class="line">coverage.css  coverage.html  coverage.test.c.d02a618fa88f46a768e6df00dddaad2a.html</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>查看报告</li>
+</ol>
+<p>打开 coverage.html</p>
+<p><img src="/2021/06/gcov/gcovr.png" alt></p>
+<p><img src="/2021/06/gcov/gcovr-main.c.png" alt></p>
+<p><img src="/2021/06/gcov/gcovr-foo.c.png" alt></p>
+<h2 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h2><ol>
+<li><p><code>--coverage</code> <a href="https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-coverage" target="_blank" rel="noopener">https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-coverage</a></p>
+</li>
+<li><p><code>GCOV_PREFIX</code>, <code>GCOV_PREFIX_STRIP</code></p>
+</li>
+</ol>
+<p>默认情况下，每个 source 文件编译通过 <code>-fprofile-arcs</code> 参数编译出来的 <code>.gcda</code> 文件时放在 object 文件目录下的，但当你的编译的机器和测试的机器不在同一台机器上的时候，就会出现找不到文件的请看。可以在编译之前通过 <code>GCOV_PREFIX</code> and <code>GCOV_PREFIX_STRIP</code> 这两个参数设置 <code>.gcda</code> 文件的输出位置。</p>
+<p><a href="https://gcc.gnu.org/onlinedocs/gcc/Cross-profiling.html#Cross-profiling" target="_blank" rel="noopener">https://gcc.gnu.org/onlinedocs/gcc/Cross-profiling.html#Cross-profiling</a></p>
+<p><a href="https://stackoverflow.com/questions/7671612/crossprofiling-with-gcov-but-gcov-prefix-and-gcov-prefix-strip-is-ignored" target="_blank" rel="noopener">https://stackoverflow.com/questions/7671612/crossprofiling-with-gcov-but-gcov-prefix-and-gcov-prefix-strip-is-ignored</a></p>
+<ol start="3">
+<li>Linux kernel 使用 gcov 的文章，非常好的示例。</li>
+</ol>
+<p><a href="https://01.org/linuxgraphics/gfx-docs/drm/dev-tools/gcov.html" target="_blank" rel="noopener">https://01.org/linuxgraphics/gfx-docs/drm/dev-tools/gcov.html</a></p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/gcov/" data-id="ckvtpicob009wjsfo2o9j4l4i" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/gcov/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/06/aix-ulimit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/aix-ulimit/" class="article-date">
+  <time datetime="2021-06-17T05:52:44.000Z" itemprop="datePublished">2021-06-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/aix/">AIX</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/aix-ulimit/">通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近使用 AIX 7.1 从 Bitucket 下载代码的时候遇到了这个错误 <code>fatal: write error: A file cannot be larger than the value set by ulimit.</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">fatal: write error: A file cannot be larger than the value <span class="built_in">set</span> by <span class="built_in">ulimit</span>.</span><br><span class="line">fatal: index-pack failed</span><br></pre></td></tr></table></figure>
+
+<p>这是由于这个仓库里的文件太大，超过了 AIX 对于用户文件资源使用的上限。通过 <code>ulimit -a</code> 可以来查看。更多关于 <code>ulimit</code> 命令的使用 <a href="https://www.ibm.com/docs/en/aix/7.1?topic=u-ulimit-command" target="_blank" rel="noopener">ulimit Command</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         2097151</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 file 有一个上限值 2097151。如果将它也改成 unlimited 应该就好了。</p>
+<p>通过 root 用户可以访问到 limits 文件 <code>/etc/security/limits</code>(普通用户没权限访问)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下是这个文件里的部分内容</span></span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = 2097151</span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br></pre></td></tr></table></figure>
+<p>将上述的值 fsize = 2097151 改成 fsize = -1 就将解除了文件块大小的限制了。修改完成后，重新登录，再次执行 <code>ulimit -a</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+<p>此时 file(blocks) 已经变成 unlimited 了。再次尝试 git clone</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+
+<p>这次就成功了！</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckvtpicoa009pjsfo0t0475a7" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/aix-ulimit/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aix/" rel="tag">AIX</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/06/artifactory-slow-upload" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/artifactory-slow-upload/" class="article-date">
+  <time datetime="2021-06-16T15:44:59.000Z" itemprop="datePublished">2021-06-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/artifactory/">Artifactory</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/artifactory-slow-upload/">关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在我使用 Artifactory Enterprise 遇到了上传制品非常缓慢的问题，在经过与 IT，Artifactory 管理员一起合作终于解决这个问题，在此分享一下这个问题的解决过程。</p>
+<p>如果你也遇到类似或许有所帮助。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>最近发现通过 Jenkins 往 Artifactory 里上传制品的时候偶尔出现上传非常缓慢的情况，尤其是当一个 Jenkins stage 里有多次上传，往往会在第二次上传的时候出现传输速度极为缓慢（KB/s ）。</p>
+<h2 id="问题排查和解决"><a href="#问题排查和解决" class="headerlink" title="问题排查和解决"></a>问题排查和解决</h2><p>我的构建环境和 Jenkins 都没有任何改动，所有的构建任务都出现了上传缓慢的情况，为了排除可能是使用 Artifactory plugin 的导致原因，通过 curl 命令来进行上传测试，也同样上传速度经常很慢。</p>
+<p>那么问题就在 Artifactory 上面。</p>
+<ol>
+<li>是 Artifactory 最近升级了？</li>
+<li>还是 Artifactory 最近修改了什么设置？</li>
+<li>也许是 Artifactory 服务器的问题？</li>
+</ol>
+<p>在跟 Artifactory 管理员进行了沟通之后，排除了以上 1，2 的可能。为了彻底排除是 Artifactory 的问题，通过 scp 进行拷贝的时候同样也出现了传输速度非常慢的情况，这问题就出现在网络上了。</p>
+<p>这样需要 IT 来帮助排查网络问题了，最终 IT 建议更换网卡进行尝试（因为他们之前有遇到类似的情况），但这种情况会有短暂的网络中断，不过最终还是得到了管理者的同意。</p>
+<p>幸运的是在更换网卡之后，Jenkins 往 Artifactory 传输制品的速度恢复了正常。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>处理次事件的一点点小小的总结：</p>
+<p>由于这个问题涉及到几个团队，为了能够快速推进，此时明确说明问题，推测要有理有据，以及该问题导致了什么样的严重后果（比如影响发布）才能让相关人重视起来，否则大家都等着，没人回来解决问题。</p>
+<p>当 Artifactory 管理推荐使用其他数据中心 instance，建议他们先尝试更换网卡；如果问题没有得到解决，在同一个数据中心创建另外一台服务器。如果问题还在，此时再考虑迁移到其他数据中心instance。这大大减少了作为用户去试错所带来的额外工作量。</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="ckvtpico8009hjsfo145v6go3" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/06/eslint-jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/eslint-jenkins/" class="article-date">
+  <time datetime="2021-06-07T04:30:02.000Z" itemprop="datePublished">2021-06-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/eslint-jenkins/">Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>I’m just documenting to myself that it was solved by following.</p>
+</blockquote>
+<p>When I want to integrate the ESlint report with Jenkins. I encourage a problem</p>
+<p>That is eslint-report.html display different with it on my local machine, and I also log to Jenkins server and grab the eslint-report.html to local, it works well.</p>
+<p>I used <a href="https://plugins.jenkins.io/htmlpublisher/" target="_blank" rel="noopener">HTML Publisher</a> plugin to display the HTML report, but only the ESlint HTML report has problems other report work well, so I guess this problem may be caused by Jenkins.</p>
+<p>Finally, I find it. (Stackoverflow <a href="https://stackoverflow.com/questions/34315723/jenkins-error-blocked-script-execution-in-url-because-the-documents-frame/46197356?stw=2#46197356" target="_blank" rel="noopener">URL</a>)</p>
+<h2 id="Follow-the-below-steps-for-solution"><a href="#Follow-the-below-steps-for-solution" class="headerlink" title="Follow the below steps for solution:"></a>Follow the below steps for solution:</h2><ol>
+<li>Open the Jenkin home page.</li>
+<li>Go to Manage Jenkins.</li>
+<li>Now go to Script Console.</li>
+<li>And in that console paste the below statement and click on Run.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(<span class="string">"hudson.model.DirectoryBrowserSupport.CSP"</span>, <span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>After that, it will load CSS and JS.</li>
+</ol>
+<p>According to Jenkins’s new <a href="https://www.jenkins.io/doc/book/security/configuring-content-security-policy/" target="_blank" rel="noopener">Content Security Policy</a> and I saw <code>No frames allowed</code>.</p>
+<p>That is exactly the error I get on chrome by right-clicking on Elements.</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="ckvtpicoa009sjsfo1jxn50kw" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/05/git-guidelines" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/git-guidelines/" class="article-date">
+  <time datetime="2021-05-13T16:19:15.000Z" itemprop="datePublished">2021-05-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/git-guidelines/">Git 常见设置指北</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用 Git 提交代码之前，建议做以下这些设置。</p>
+<p>叫指南有点夸张，因为它在有些情况下下不适用，比如你已经有了 <code>.gitattributes</code> 或 <code>.editorconfig</code> 等文件，那么有些设置就不用做了。</p>
+<p>因此暂且叫他指北吧，它通常情况下还是很有用的。</p>
+<p>废话不多说，看看都需要哪些设置吧。</p>
+<h2 id="1-配置-name-和-email"><a href="#1-配置-name-和-email" class="headerlink" title="1. 配置 name 和 email"></a>1. 配置 name 和 email</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意，你需要将下面示例中我的 name 和 email 换成你自己的</span></span><br><span class="line">$ git config --global user.name <span class="string">"shenxianpeng"</span></span><br><span class="line">$ git config --global user.email <span class="string">"xianpeng.shen@gmail.com"</span></span><br></pre></td></tr></table></figure>
+
+<p>对于，我还推荐你设置头像，这样方便同事间的快速识别。</p>
+<p>当你不设置头像的时候，只有把鼠标放到头像上才知道 Pull Request 的 Reviewers 是谁（来自于Bitubkcet）。</p>
+<p><img src="/2021/05/git-guidelines/avatar.png" alt></p>
+<h2 id="2-设置-core-autocrlf-false"><a href="#2-设置-core-autocrlf-false" class="headerlink" title="2. 设置 core.autocrlf=false"></a>2. 设置 core.autocrlf=false</h2><p>为了防止 CRLF(windows) 和 LF(UNIX/Linux/Mac) 的转换问题。为了避免在使用 Git 提交代码时出现历史被掩盖的问题，强烈建议每个使用 Git 的人执行以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line"><span class="comment"># 检查并查看是否输出 "core.autocrlf=false"，这意味着命令设置成功。</span></span><br><span class="line">$ git config --list</span><br></pre></td></tr></table></figure>
+
+<p>如果你的项目底下已经有了 <code>.gitattributes</code> 或 <code>.editorconfig</code> 文件，通常这些文件里面都有放置 CRLF 和 LF 的转换问题的设置项。</p>
+<p>这时候你就不必特意执行命令 <code>git config --global core.autocrlf false</code></p>
+<h2 id="3-编写有规范的提交"><a href="#3-编写有规范的提交" class="headerlink" title="3. 编写有规范的提交"></a>3. 编写有规范的提交</h2><p>我在之前的文章里分享过关于如何设置提交信息规范，请参看<a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/">《Git提交信息和分支创建规范》</a>。</p>
+<h2 id="4-提交历史的压缩"><a href="#4-提交历史的压缩" class="headerlink" title="4. 提交历史的压缩"></a>4. 提交历史的压缩</h2><p>比如你修改一个 bug，假设你通过 3 次提交到你的个人分支才把它改好。这时候你提 Pull Request 就会显示有三个提交。</p>
+<p>如果提交历史不进行压缩，这个 PR 被合并到主分支后，以后别人看到你这个 bug 的修复就是去这三个 commits 里去一一查看，进行对比，才能知道到底修改了什么。</p>
+<p>压缩提交历史就是将三次提交压缩成一次提交。</p>
+<p>可以通过 git rebase 命令进行 commit 的压缩，比如将最近三次提交压缩成一次可以执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~3</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-删除已经-merge-的分支"><a href="#5-删除已经-merge-的分支" class="headerlink" title="5. 删除已经 merge 的分支"></a>5. 删除已经 merge 的分支</h2><p>有些 SCM，比如 Bitbucket 不支持默认勾选 <code>Delete source branch after merging</code>，这个问题终于在 Bitbucket 7.3 版本修复了。详见 <a href="https://jira.atlassian.com/browse/BSERV-9254" target="_blank" rel="noopener">BSERV-9254</a> 和 <a href="https://jira.atlassian.com/browse/BSERV-3272" target="_blank" rel="noopener">BSERV-3272</a> （2013年创建的）。</p>
+<p>注意在合并代码时勾选删除源分支这一选项，否则会造成大量的开发分支留在 Git 仓库下。</p>
+<hr>
+<p>如果还需要哪些设置这里没有提到的，欢迎补充。</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="ckvtpicog00aejsfo2p6g034u" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/05/git-guidelines/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">next</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/aix/">AIX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/artifactory/">Artifactory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coverage/">Coverage</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">Language</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/os/">OS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/polaris/">Polaris</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/quality/">Quality</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonarqube/">SonarQube</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">Windows</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/special-repository/">如何将每次发布的博客文章自动同步到 GitHub 个人主页？</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/world-quality-report/">2021-22 世界质量报告（World Quality Report）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/docker-best-practice/">Docker 最佳实践</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/what-is-polaris/">Polaris - 静态代码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/git-cheatsheet/">Git 常用命令备忘录</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/sonarqube-integration/">How does SonarQube Community Edition integrate with the project</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/lcov-error/">Run lcov failed &#34;Can&#39;t locate JSON/PP.pm in @INC ...&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/gcov-example-cn/">使用 Gcov 和 LCOV 度量 C/C++ 项目的代码覆盖率</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/sonarqube-setup/">SonarQube installation and troubleshootings</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/how-to-fix-gcov-hidden-symbol/">How to fix &#34;hidden symbol `__gcov_init&#39; in ../libgcov.a(_gcov.o) is referenced by DSO&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/update-bitbucket-build-status/">Add or update Bitbucket build status with REST API</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/code-coverage/">关于代码覆盖率 (About Code Coverage)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/gcov-example/">Use Gcov and LCOV to perform code coverage testing on C/C++ projects</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/jenkins-timeout/">How to make Jenkins job fail after timeout? (Resolved)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/git-clone-failed-on-aix/">解决两个 AIX 上 Git Clone 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/gcov/">Gcov 一个免费开源的 C/C++ 代码覆盖率工具以及生成报告</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/aix-ulimit/">通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/artifactory-slow-upload/">关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/eslint-jenkins/">Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/git-guidelines/">Git 常见设置指北</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/branch-naming-convention/">Branch Naming Convention</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/artifactory-api-search/">How to download the entire folder artifacts when Artifactory &#34;Download Folder functionality is disabled&#34;?</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/why-windows-installer-pop-up/">Why Windows Installer pop up? (Resolved)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/jacoco-imp/">JaCoCo 代码覆盖率实践分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/pythonic/">你的 Python 代码够不够 Pythonic？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aix/" rel="tag">AIX</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automation/" rel="tag">Automation</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backup/" rel="tag">Backup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blackduck/" rel="tag">BlackDuck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">Blog</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/branch/" rel="tag">Branch</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">C</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cicd/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/" rel="tag">Cheatsheet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cppcheck/" rel="tag">Cppcheck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/" rel="tag">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functiontest/" rel="tag">FunctionTest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">Git</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hp-ux/" rel="tag">HP-UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jmeter/" rel="tag">JMeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ldap/" rel="tag">LDAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/" rel="tag">NFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">Pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/" rel="tag">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quality/" rel="tag">Quality</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rdp/" rel="tag">RDP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/release/" rel="tag">Release</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/report/" rel="tag">Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">Selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">Shell</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solaris/" rel="tag">Solaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonarqube/" rel="tag">SonarQube</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squash/" rel="tag">Squash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squishcoco/" rel="tag">SquishCoco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">Static</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stats/" rel="tag">Stats</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/" rel="tag">Summary</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testng/" rel="tag">TestNG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thought/" rel="tag">Thought</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VScode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webhook/" rel="tag">Webhook</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">Work</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/writing/" rel="tag">Writing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">lcov</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/" rel="tag">perl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 11.67px;">AIX</a> <a href="/tags/actions/" style="font-size: 10px;">Actions</a> <a href="/tags/ansible/" style="font-size: 10.83px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15px;">Artifactory</a> <a href="/tags/automation/" style="font-size: 16.67px;">Automation</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/bitbucket/" style="font-size: 14.17px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">BlackDuck</a> <a href="/tags/blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.67px;">Branch</a> <a href="/tags/c/" style="font-size: 13.33px;">C</a> <a href="/tags/cicd/" style="font-size: 10px;">CICD</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">Cheatsheet</a> <a href="/tags/codereview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/coverage/" style="font-size: 15.83px;">Coverage</a> <a href="/tags/coverity/" style="font-size: 10px;">Coverity</a> <a href="/tags/cppcheck/" style="font-size: 10px;">Cppcheck</a> <a href="/tags/devops/" style="font-size: 18.33px;">DevOps</a> <a href="/tags/disqus/" style="font-size: 10px;">Disqus</a> <a href="/tags/docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/dokerfile/" style="font-size: 10px;">Dokerfile</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/ftp/" style="font-size: 10px;">FTP</a> <a href="/tags/functiontest/" style="font-size: 10px;">FunctionTest</a> <a href="/tags/gcov/" style="font-size: 12.5px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.17px;">Git</a> <a href="/tags/github/" style="font-size: 10.83px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10.83px;">Gradle</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.17px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.33px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.83px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.67px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/lcov/" style="font-size: 11.67px;">LCOV</a> <a href="/tags/ldap/" style="font-size: 10px;">LDAP</a> <a href="/tags/linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 17.5px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pip/" style="font-size: 10px;">Pip</a> <a href="/tags/pipeline/" style="font-size: 15.83px;">Pipeline</a> <a href="/tags/polaris/" style="font-size: 10px;">Polaris</a> <a href="/tags/postgresql/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 12.5px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/quality/" style="font-size: 10px;">Quality</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/release/" style="font-size: 10.83px;">Release</a> <a href="/tags/report/" style="font-size: 10px;">Report</a> <a href="/tags/security/" style="font-size: 10px;">Security</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 13.33px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/sonarqube/" style="font-size: 10.83px;">SonarQube</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">SquishCoco</a> <a href="/tags/static/" style="font-size: 10px;">Static</a> <a href="/tags/stats/" style="font-size: 10.83px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.67px;">Summary</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 11.67px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/troubleshooting/" style="font-size: 14.17px;">Troubleshooting</a> <a href="/tags/ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/vscode/" style="font-size: 10px;">VScode</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhook/" style="font-size: 11.67px;">Webhook</a> <a href="/tags/windows/" style="font-size: 11.67px;">Windows</a> <a href="/tags/work/" style="font-size: 13.33px;">Work</a> <a href="/tags/writing/" style="font-size: 10px;">Writing</a> <a href="/tags/lcov/" style="font-size: 10px;">lcov</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/ulimit/" style="font-size: 10px;">ulimit</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/README.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 - 2021 shenxianpeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/daily/" class="mobile-nav-link">Daily</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

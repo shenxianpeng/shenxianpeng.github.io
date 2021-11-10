@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jenkins Warnings Next Generation 插件 | Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Jenkins Warnings Next Generation 插件Jenkins Warnings Next Generation 插件可收集编译器警告或静态分析工具报告的问题并可视化结果，它内置了对众多静态分析工具（包括多个编译器）的支持，更多支持的报告格式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins Warnings Next Generation 插件">
+<meta property="og:url" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="Jenkins Warnings Next Generation 插件Jenkins Warnings Next Generation 插件可收集编译器警告或静态分析工具报告的问题并可视化结果，它内置了对众多静态分析工具（包括多个编译器）的支持，更多支持的报告格式。">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/01.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/02.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/03.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/04.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/05.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/06.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/07.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/08.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/09.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/10.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/12.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/13.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/14.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/15.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/16.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/17.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/18.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/19.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/20.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/20.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/22.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/23.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/24.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/25.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/26.png">
+<meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/27.png">
+<meta property="article:published_time" content="2019-12-28T15:16:30.000Z">
+<meta property="article:modified_time" content="2021-07-15T16:08:42.878Z">
+<meta property="article:author" content="shenxianpeng">
+<meta property="article:tag" content="Jenkins">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/01.png">
+  
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  
+  
+  <link rel="icon" href="/favicon.png">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-168820225-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <script data-ad-client="ca-pub-3986315287795783" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello World</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Peter shen&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/daily/">Daily</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-linkedin-btn" class="nav-icon" href=https://www.linkedin.com/in/xianpeng-shen/ target="_blank" title="LinkedIn"></a>
+        <a id="nav-github-btn" class="nav-icon" href=https://github.com/shenxianpeng target="_blank" title="GitHub"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2019/12/Jenkins-Warnings-Next-Generation-Plugin" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/" class="article-date">
+  <time datetime="2019-12-28T15:16:30.000Z" itemprop="datePublished">2019-12-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jenkins Warnings Next Generation 插件
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Jenkins-Warnings-Next-Generation-插件"><a href="#Jenkins-Warnings-Next-Generation-插件" class="headerlink" title="Jenkins Warnings Next Generation 插件"></a>Jenkins Warnings Next Generation 插件</h2><p>Jenkins Warnings Next Generation 插件可收集编译器警告或静态分析工具报告的问题并可视化结果，它内置了对众多静态分析工具（包括多个编译器）的支持，更多<a href="https://github.com/jenkinsci/warnings-ng-plugin/blob/master/SUPPORTED-FORMATS.md" target="_blank" rel="noopener">支持的报告格式</a>。</p>
+<a id="more"></a>
+
+<h3 id="支持的项目类型"><a href="#支持的项目类型" class="headerlink" title="支持的项目类型"></a>支持的项目类型</h3><p>Warnings Next Generation 插件支持以下 Jenkins 项目类型：</p>
+<ul>
+<li>自由式项目</li>
+<li>Maven 项目</li>
+<li>矩阵项目</li>
+<li>脚本化管道（顺序和并行步骤）</li>
+<li>声明式管道（顺序步骤和并行步骤）</li>
+<li>多分支管道</li>
+</ul>
+<h3 id="功能概述"><a href="#功能概述" class="headerlink" title="功能概述"></a>功能概述</h3><p>当作为后续构建任务操作（或步骤）添加时，Warnings Next Generation 插件提供以下功能：</p>
+<ol>
+<li><p>该插件会扫描 Jenkins 版本的控制台日志或你工作区中的文件中是否存在任何问题。支持一百多种<a href="https://github.com/jenkinsci/warnings-ng-plugin/blob/master/SUPPORTED-FORMATS.md" target="_blank" rel="noopener">报告格式</a>，它可以检测到的问题包括：</p>
+<ul>
+<li>来自编译器的错误（C，C＃，Java等）</li>
+<li>来自静态分析工具（CheckStyle，StyleCop，SpotBugs 等）的警告</li>
+<li>来自复制粘贴检测器（CPD, Simian 等）的重复</li>
+<li>漏洞</li>
+<li>在源文件的注释中打开任务</li>
+</ul>
+</li>
+<li><p>该插件会发布有关在构建中发现的问题的报告，因此可以从以下位置导航到摘要报告，主构建页面。你还可以从那里深入了解细节：</p>
+<ul>
+<li>发行新的，固定的和未解决的问题</li>
+<li>按严重性，类别，类型，模块或程序包分发问题</li>
+<li>所有问题的列表，包括来自报告工具的有用评论</li>
+<li>受影响文件的带注释的源代码</li>
+<li>问题趋势图</li>
+</ul>
+</li>
+</ol>
+<p>该插件不会运行静态分析，它只是可视化此类工具报告的结果。你仍然需要在构建文件或 Jenkinsfile 中启用和配置静态分析工具。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>你可以在 Jenkins 作业配置用户界面中配置插件的每个选项（在自由式，maven 或矩阵作业中）。在这里你需要在工作中添加并启用生成后操作“记录编译器警告和静态分析结果”。</p>
+<p>在管道中，将通过添加 recordIssues 激活插件。也可以使用相同的用户界面来配置此步骤（通过使用 Snippet 编辑器）。请注意，对于脚本化管道，一些其他功能可用于汇总和分组问题，有关详细信息，请参阅“高级管道配置”部分。</p>
+<p>在以下各节中，将同时显示图形配置和管道配置。</p>
+<h3 id="工具选择"><a href="#工具选择" class="headerlink" title="工具选择"></a>工具选择</h3><p>下图显示了插件的基本配置：</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/01.png" alt="静态分析工具"></p>
+<p>首先，你需要指定用于创建问题的工具，根据所选工具，你可能还会配置一些其他参数。</p>
+<p>对于所有读取报告文件的解析器，你需要指定应分析和扫描问题的报告文件的模式。如果未指定模式，则将扫描构建的控制台日志。对于几种流行的工具，提供了默认模式，在这种情况下，如果模式为空，则将使用默认模式。</p>
+<p>为了让扫描程序正确解析你的报告，需要设置文件的编码，否则将使用平台编码，这可能不正确。</p>
+<p>每个工具都由一个 ID 标识，该 ID 用作分析结果的 URL。对于每个工具，都提供了一个默认 URL（和名称），可以根据需要进行更改。例如，如果你打算多次使用解析器，则需要为每个调用指定不同的 ID。</p>
+<p>你可以指定将用于同一配置的多个工具（和模式），由于 Jenkins 的技术（或市场）限制，无法通过使用多个后期构建操作来选择不同的配置。</p>
+<p>通过使用“汇总结果”复选框，可以使用一项新功能。如果选中此选项，则将创建一个结果，其中包含所选工具的所有问题的汇总。这是之前静态分析收集器插件提供的。激活此选项后，你将获得所有问题的唯一入口点。以下屏幕截图显示了此新行为：</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/02.png" alt="汇总结果"></p>
+<p>如果未启用此选项，则将为每个工具创建单独的结果。此结果具有唯一的 URL 和图标，因此你可以快速查看创建的报告之间的区别：</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/03.png" alt="分开的结果"></p>
+<p>在基本配置部分中，你还可以选择是否针对失败的构建也运行该步骤。默认情况下禁用此选项，因为如果构建失败，分析结果可能会不准确。</p>
+<p>以下代码段显示了具有这些选项的示例管道：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">recordIssues(</span><br><span class="line">    enabledForFailure: <span class="keyword">true</span>, aggregatingResults: <span class="keyword">true</span>,</span><br><span class="line">    tools: [java(), checkStyle(pattern: <span class="string">'checkstyle-result.xml'</span>, reportEncoding: <span class="string">'UTF-8'</span>)]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>如果使用单个工具，则可以使用属性工具代替工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues enabledForFailure: <span class="literal">true</span>, aggregatingResults: <span class="literal">true</span>, tool: checkStyle(pattern: <span class="string">'checkstyle-result.xml'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="创建对自定义工具的支持"><a href="#创建对自定义工具的支持" class="headerlink" title="创建对自定义工具的支持"></a>创建对自定义工具的支持</h3><p>如果你的项目中没有内置工具，则可以通过多种方式添加其他工具。</p>
+<h4 id="将问题导出为受支持的格式"><a href="#将问题导出为受支持的格式" class="headerlink" title="将问题导出为受支持的格式"></a>将问题导出为受支持的格式</h4><p>将工具的分析结果获取到 Warnings 插件中的一种简单方法是将信息导出为一种已经支持的格式。例如，几种工具将其问题导出为 CheckStyle 或 PMD 格式。如果要使用警告插件的所有功能，则最好将信息导出为本机 XML 或 JSON 格式（此解析器使用 ID 问题）。<br>这些格式已经在用户界面中注册，你可以直接使用它们。你甚至可以在包含单行 JSON 问题的简单日志文件中提供问题，请参见示例。</p>
+<p>这是一个示例步骤，可用于解析本机 JSON（或 XML）格式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues(tool: issues())</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用自定义插件部署新工具"><a href="#使用自定义插件部署新工具" class="headerlink" title="使用自定义插件部署新工具"></a>使用自定义插件部署新工具</h4><p>最灵活的方法是通过编写将在你自己的小型 Jenkins 插件中部署的 Java 类来定义新工具，有关详细信息，请参见文档“为自定义静态分析工具提供支持”。</p>
+<h4 id="使用Groovy解析器创建新工具"><a href="#使用Groovy解析器创建新工具" class="headerlink" title="使用Groovy解析器创建新工具"></a>使用Groovy解析器创建新工具</h4><p>如果日志消息的格式非常简单，则可以通过在 Jenkins 的用户界面中创建简单的工具配置来定义对工具的支持。 出于安全原因（Groovy 脚本可能会危害你的主服务器），此配置仅在系统配置中可用。 新解析器的配置采用正则表达式，该正则表达式将用于匹配报告格式。 如果表达式匹配，则将调用 Groovy 脚本，该脚本将匹配的文本转换为问题实例。 这是基于 Groovy 的解析器的示例：</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/04.png" alt="Groovy 解析器"></p>
+<h4 id="以编程方式创建-Groovy-解析器"><a href="#以编程方式创建-Groovy-解析器" class="headerlink" title="以编程方式创建 Groovy 解析器"></a>以编程方式创建 Groovy 解析器</h4><p>还可以使用 Groovy 脚本从管道，Jenkins 启动脚本或脚本控制台中创建基于 Groovy 的解析器，请参见以下示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def config = io.jenkins.plugins.analysis.warnings.groovy.ParserConfiguration.getInstance()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!config.contains(<span class="string">'pep8-groovy'</span>))&#123;</span><br><span class="line">  def newParser = new io.jenkins.plugins.analysis.warnings.groovy.GroovyParser(</span><br><span class="line">    <span class="string">'pep8-groovy'</span>,</span><br><span class="line">    <span class="string">'Pep8 Groovy Parser'</span>,</span><br><span class="line">    <span class="string">'(.*):(\\d+):(\\d+): (\\D\\d*) (.*)'</span>,</span><br><span class="line">    <span class="string">'return builder.setFileName(matcher.group(1)).setCategory(matcher.group(4)).setMessage(matcher.group(5)).buildOptional()'</span>,</span><br><span class="line">    <span class="string">"optparse.py:69:11: E401 multiple imports on one line"</span></span><br><span class="line">  )</span><br><span class="line">  config.setParsers(config.getParsers().plus(newParser))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用配置作为代码导入解析器（JCasC）"><a href="#使用配置作为代码导入解析器（JCasC）" class="headerlink" title="使用配置作为代码导入解析器（JCasC）"></a>使用配置作为代码导入解析器（JCasC）</h4><p>还可以使用 JCasC yaml 文件中的部分来指定基于 Groovy 的解析器。这是一个小示例，展示了如何添加这样的解析器：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">unclassified:</span></span><br><span class="line">  <span class="attr">warningsParsers:</span></span><br><span class="line">    <span class="attr">parsers:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">"Example parser"</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">example-id</span></span><br><span class="line">        <span class="attr">regexp:</span> <span class="string">"^\\s*(.*):(\\d+):(.*):\\s*(.*)$"</span></span><br><span class="line">        <span class="attr">script:</span> <span class="string">|</span></span><br><span class="line">          <span class="string">import</span> <span class="string">edu.hm.hafner.analysis.Severity</span></span><br><span class="line">          <span class="string">builder.setFileName(matcher.group(1))</span></span><br><span class="line">                  <span class="string">.setLineStart(Integer.parseInt(matcher.group(2)))</span></span><br><span class="line">                  <span class="string">.setSeverity(Severity.WARNING_NORMAL)</span></span><br><span class="line">                  <span class="string">.setCategory(matcher.group(3))</span></span><br><span class="line">                  <span class="string">.setMessage(matcher.group(4))</span></span><br><span class="line">          <span class="string">return</span> <span class="string">builder.buildOptional();</span></span><br><span class="line">        <span class="attr">example:</span> <span class="string">"somefile.txt:2:SeriousWarnings:SomethingWentWrong"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用定义的工具"><a href="#使用定义的工具" class="headerlink" title="使用定义的工具"></a>使用定义的工具</h4><p>一旦注册了 Groovy 解析器，就可以在作业的工具配置部分中使用它：</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/05.png" alt="Groovy 配置"></p>
+<p>首先，你需要选择工具 “Groovy Parser” 以获取 Groovy 解析器的配置屏幕。 然后，你可以从可用解析器列表中选择解析器。 该列表是根据 Jenkins 的“系统配置”部分中定义的解析器动态创建的。可以使用与其他工具相同的方式来设置自定义 ID 和名称属性。</p>
+<p>为了在管道中使用 Groovy 解析器，你需要使用以下形式的脚本语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">recordIssues sourceCodeEncoding: <span class="string">'UTF-8'</span>,</span><br><span class="line">    tool: groovyScript(parserId: <span class="string">'groovy-id-in-system-config'</span>, pattern:<span class="string">'**/*report.log'</span>, reportEncoding:<span class="string">'UTF-8'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理受影响的源代码文件的属性"><a href="#处理受影响的源代码文件的属性" class="headerlink" title="处理受影响的源代码文件的属性"></a>处理受影响的源代码文件的属性</h3><p>为了让插件解析并显示你的源代码文件，需要为这些文件设置正确的编码。 此外，如果你的源代码不在工作区中（例如，它已签出到共享代理文件夹中），则该插件将不会自动找到你的源文件。 为了让插件显示这些文件，你可以添加一个附加的源目录：</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/06.png" alt="受影响文件"></p>
+<p>以下代码段显示了带有这些选项的示例管道，请注意，如果需要，可以不同地设置报告文件的编码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues sourceCodeEncoding: <span class="string">'ISO-8859-1'</span>, sourceDirectory: <span class="string">'/path/to/sources'</span>, tool: java(reportEncoding: <span class="string">'UTF-8'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>请注意，工作区外部的文件内容可能很敏感。 为了防止意外显示此类文件，你需要在 Jenkins 系统配置屏幕中提供允许的源代码目录的白名单：</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/07.png" alt="源代码目录的白名单"></p>
+<p>另外，此配置设置可以由 JCasC yaml 文件中的以下子节提供</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">unclassified:</span></span><br><span class="line">  <span class="attr">warningsPlugin:</span></span><br><span class="line">    <span class="attr">sourceDirectories:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">"C:\\Temp"</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">path:</span> <span class="string">"/mnt/sources"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="控制参考构建的选择（基准）"><a href="#控制参考构建的选择（基准）" class="headerlink" title="控制参考构建的选择（基准）"></a>控制参考构建的选择（基准）</h3><p>警告下一代插件的一项重要功能是将问题分类为新问题，未解决问题和已解决问题：</p>
+<ul>
+<li>新增：所有问题，属于当前报告的一部分，但未在参考报告中显示</li>
+<li>已修复：所有问题，属于参考报告的一部分，但不再存在于当前报告中</li>
+<li>未解决：所有问题，是当前报告和参考报告的一部分</li>
+</ul>
+<p>为了计算此分类，插件需要参考构建（基准）。 然后，通过比较当前版本和基准中的问题来计算新的，已修复的和未解决的问题。 有三个选项可控制参考构建的选择。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/08.png" alt="参考"></p>
+<p>以下代码段显示了具有这些选项的示例管道：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues tool: java(), ignoreQualityGate: <span class="literal">false</span>, ignoreFailedBuilds: <span class="literal">true</span>, referenceJobName: <span class="string">'my-project/master'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="筛选问题"><a href="#筛选问题" class="headerlink" title="筛选问题"></a>筛选问题</h3><p>创建的问题报告可以随后进行过滤。 你可以指定任意数量的包含或排除过滤器。 当前，支持按模块名称，程序包或名称空间名称，文件名，类别或类型过滤问题。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/09.png" alt="筛选"></p>
+<p>以下代码段显示了具有这些选项的示例管道：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues tool: java(pattern: <span class="string">'*.log'</span>), filters: [includeFile(<span class="string">'MyFile.*.java'</span>), excludeCategory(<span class="string">'WHITESPACE'</span>)]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Quality-gate-配置"><a href="#Quality-gate-配置" class="headerlink" title="Quality gate 配置"></a>Quality gate 配置</h3><p>你可以定义几个 Quality gate (质量门)，在报告问题后将对其进行检查。这些质量门使你可以修改詹金斯的生产状态，以便立即查看是否满足所需的产品质量。对于这些质量门中的每一个，都可以将构建设置为不稳定或失败。所有质量门都使用一个简单的度量标准：给定质量门将失败的问题数量。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/10.png" alt="质量门"></p>
+<p>以下代码段显示了具有这些选项的示例管道：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues tool: java(pattern: <span class="string">'*.log'</span>), qualityGates: [[threshold: 1, <span class="built_in">type</span>: <span class="string">'TOTAL'</span>, unstable: <span class="literal">true</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>类型确定将用来评估质量门的属性。请参阅枚举 QualityGateType 以查看支持哪些不同类型。</p>
+<h3 id="健康报告配置"><a href="#健康报告配置" class="headerlink" title="健康报告配置"></a>健康报告配置</h3><p>该插件可以参与你项目的运行状况报告。你可以更改将运行状况更改为 0％ 和 100％ 的问题数。此外，可以选择在创建运行状况报告时应考虑的严重性。</p>
+<p><a href="Jenkins-Warnings-Next-Generation-Plugin/11.png">健康报告配置!</a></p>
+<p>以下代码段显示了具有这些选项的示例管道：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues tool: java(pattern: <span class="string">'*.log'</span>), healthy: 10, unhealthy: 100, minimumSeverity: <span class="string">'HIGH'</span></span><br></pre></td></tr></table></figure>
+
+<p>该作业根据严重性为 HIGH 和错误的所有警告来调整构建运行状况。如果内部版本包含 10 条或更少的警告，则运行状况为 100％。如果内部版本有 100 个以上的警告，则运行状况为 0％。</p>
+<h3 id="管道配置"><a href="#管道配置" class="headerlink" title="管道配置"></a>管道配置</h3><p>在 Jenkins Pipeline 中使用 Warnings 插件的要求可能很复杂，有时会引起争议。为了尽可能灵活，我决定将主要步骤分为两个独立的部分，然后可以彼此独立使用。</p>
+<h4 id="简单的管道配置"><a href="#简单的管道配置" class="headerlink" title="简单的管道配置"></a>简单的管道配置</h4><p>步骤 recordIssues 提供了简单的管道配置，它提供了与构建后操作相同的属性（请参见上文）。此步骤扫描给定文件集（或控制台日志）中的问题，并在构建中报告这些问题。你可以使用代码片段生成器来创建一个有效的代码片段，以调用此步骤。以下示例显示了此步骤的典型示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">recordIssues(</span><br><span class="line">    enabledForFailure: <span class="literal">true</span>,</span><br><span class="line">    tool: java(pattern: <span class="string">'*.log'</span>),</span><br><span class="line">    filters: [includeFile(<span class="string">'MyFile.*.java'</span>), excludeCategory(<span class="string">'WHITESPACE'</span>)]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>在此示例中，将扫描文件 <code>* .log</code> 中的 Java 问题。仅包括文件名与模式 <code>MyFile.*.java</code> 匹配的问题。类别 <code>WHITESPACE</code> 的问题将被排除，即使构建失败，也会执行该步骤。</p>
+<p>为了查看所有配置选项，你可以研究<a href="https://github.com/jenkinsci/warnings-ng-plugin/blob/master/src/main/java/io/jenkins/plugins/analysis/core/steps/IssuesRecorder.java" target="_blank" rel="noopener">步骤实现</a>。</p>
+<h4 id="声明式管道配置"><a href="#声明式管道配置" class="headerlink" title="声明式管道配置"></a>声明式管道配置</h4><p>声明性管道作业中的插件配置与脚本管道中的配置相同，请参见以下示例，该示例在 Jenkins 上构建分析模型库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent <span class="string">'any'</span></span><br><span class="line">    tools &#123;</span><br><span class="line">        maven <span class="string">'mvn-default'</span></span><br><span class="line">        jdk <span class="string">'jdk-default'</span></span><br><span class="line">    &#125;</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage (<span class="string">'Build'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">'$&#123;M2_HOME&#125;/bin/mvn --batch-mode -V -U -e clean verify -Dsurefire.useFile=false -Dmaven.test.failure.ignore'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stage (<span class="string">'Analysis'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">'$&#123;M2_HOME&#125;/bin/mvn --batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs spotbugs:spotbugs'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    post &#123;</span><br><span class="line">        always &#123;</span><br><span class="line">            junit testResults: <span class="string">'**/target/surefire-reports/TEST-*.xml'</span></span><br><span class="line"></span><br><span class="line">            recordIssues enabledForFailure: <span class="literal">true</span>, tools: [mavenConsole(), java(), javaDoc()]</span><br><span class="line">            recordIssues enabledForFailure: <span class="literal">true</span>, tool: checkStyle()</span><br><span class="line">            recordIssues enabledForFailure: <span class="literal">true</span>, tool: spotBugs()</span><br><span class="line">            recordIssues enabledForFailure: <span class="literal">true</span>, tool: cpd(pattern: <span class="string">'**/target/cpd.xml'</span>)</span><br><span class="line">            recordIssues enabledForFailure: <span class="literal">true</span>, tool: pmdParser(pattern: <span class="string">'**/target/pmd.xml'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="高级管道配置"><a href="#高级管道配置" class="headerlink" title="高级管道配置"></a>高级管道配置</h4><p>有时仅使用一个步骤发布和报告问题是不够的。例如，如果你使用多个并行步骤来构建产品，并且想要将所有这些步骤中的问题合并为一个结果。然后，你需要拆分扫描和聚合。该插件提供以下两个步骤：</p>
+<ul>
+<li>scanForIssues 此步骤使用特定的解析器扫描报告文件或控制台日志，并创建一个包含报告的中 间 AnnotatedReport 对象。有关详细信息，请参见步骤实现。</li>
+<li>publishIssues：此步骤在你的构建中发布一个新报告，其中包含几个 scanForIssues 步骤的汇总结果。有关详细信息，请参见步骤实现。</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">node &#123;</span><br><span class="line">  stage (<span class="string">'Checkout'</span>) &#123;</span><br><span class="line">      git branch:<span class="string">'5.0'</span>, url: <span class="string">'git@github.com:jenkinsci/warnings-plugin.git'</span></span><br><span class="line">  &#125;</span><br><span class="line">  stage (<span class="string">'Build'</span>) &#123;</span><br><span class="line">    def mvnHome = tool <span class="string">'mvn-default'</span></span><br><span class="line"></span><br><span class="line">    sh <span class="string">"<span class="variable">$&#123;mvnHome&#125;</span>/bin/mvn --batch-mode -V -U -e clean verify -Dsurefire.useFile=false"</span></span><br><span class="line"></span><br><span class="line">    junit testResults: <span class="string">'**/target/*-reports/TEST-*.xml'</span></span><br><span class="line"></span><br><span class="line">    def java = scanForIssues tool: java()</span><br><span class="line">    def javadoc = scanForIssues tool: javaDoc()</span><br><span class="line"></span><br><span class="line">    publishIssues issues: [java, javadoc], filters: [includePackage(<span class="string">'io.jenkins.plugins.analysis.*'</span>)]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  stage (<span class="string">'Analysis'</span>) &#123;</span><br><span class="line">    def mvnHome = tool <span class="string">'mvn-default'</span></span><br><span class="line"></span><br><span class="line">    sh <span class="string">"<span class="variable">$&#123;mvnHome&#125;</span>/bin/mvn --batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs"</span></span><br><span class="line"></span><br><span class="line">    def checkstyle = scanForIssues tool: checkStyle(pattern: <span class="string">'**/target/checkstyle-result.xml'</span>)</span><br><span class="line">    publishIssues issues: [checkstyle]</span><br><span class="line"></span><br><span class="line">    def pmd = scanForIssues tool: pmdParser(pattern: <span class="string">'**/target/pmd.xml'</span>)</span><br><span class="line">    publishIssues issues: [pmd]</span><br><span class="line"></span><br><span class="line">    def cpd = scanForIssues tool: cpd(pattern: <span class="string">'**/target/cpd.xml'</span>)</span><br><span class="line">    publishIssues issues: [cpd]</span><br><span class="line"></span><br><span class="line">    def spotbugs = scanForIssues tool: spotBugs(pattern: <span class="string">'**/target/findbugsXml.xml'</span>)</span><br><span class="line">    publishIssues issues: [spotbugs]</span><br><span class="line"></span><br><span class="line">    def maven = scanForIssues tool: mavenConsole()</span><br><span class="line">    publishIssues issues: [maven]</span><br><span class="line"></span><br><span class="line">    publishIssues id: <span class="string">'analysis'</span>, name: <span class="string">'All Issues'</span>, issues: [checkstyle, pmd, spotbugs], filters: [includePackage(<span class="string">'io.jenkins.plugins.analysis.*'</span>)]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="新功能"><a href="#新功能" class="headerlink" title="新功能"></a>新功能</h2><p>以下各节介绍了最重要的新功能。</p>
+<h3 id="发行记录：New-Fixed-Outstanding-问题"><a href="#发行记录：New-Fixed-Outstanding-问题" class="headerlink" title="发行记录：New, Fixed, Outstanding 问题"></a>发行记录：New, Fixed, Outstanding 问题</h3><p>该插件的一大亮点是能够将后续版本的问题分类为 New, Fixed, Outstanding。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/12.png" alt="趋势"></p>
+<p>使用此功能可以更轻松地控制项目的质量：你只能专注于最近引入的警告。</p>
+<p>注意：新警告的检测基于复杂的算法，该算法试图在源代码的两个不同版本中跟踪同一警告。根据源代码的修改程度，它可能会产生一些误报，即，即使应该没有警告也可能会收到一些新的固定警告。该算法的准确性仍在研究中，并将在接下来的几个月中进行完善。</p>
+<h3 id="Severities-严重程度"><a href="#Severities-严重程度" class="headerlink" title="Severities 严重程度"></a>Severities 严重程度</h3><p>该插件在图表中显示问题严重性的分布，它定义了以下默认严重级别，但是扩展警告插件的插件可能会添加其他默认级别。</p>
+<ul>
+<li><strong>Error</strong>：表示通常会导致构建失败的错误</li>
+<li><strong>Warning</strong> (High, Normal, Low)：指示给定优先级的警告。映射到优先级取决于各个解析器。</li>
+</ul>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/13.png" alt="严重程度"></p>
+<p>请注意，并非每个解析器都能产生不同严重性的警告。某些解析器仅对所有问题使用相同的严重性。</p>
+<h3 id="Build-trend-构建趋势"><a href="#Build-trend-构建趋势" class="headerlink" title="Build trend 构建趋势"></a>Build trend 构建趋势</h3><p>为了查看分析结果的趋势，几个图表显示了每个构建的问题数量。这些图表用于详细信息页面和作业概述中。当前提供以下不同的趋势图类型：</p>
+<h4 id="问题的严重程度分布"><a href="#问题的严重程度分布" class="headerlink" title="问题的严重程度分布"></a>问题的严重程度分布</h4><p>默认趋势图显示问题总数，按严重性堆叠。使用此图表，你可以查看哪种严重程度对问题总数贡献最大。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/14.png" alt="严重度趋势图"></p>
+<h4 id="每种静态分析类型的问题"><a href="#每种静态分析类型的问题" class="headerlink" title="每种静态分析类型的问题"></a>每种静态分析类型的问题</h4><p>如果你要汇总几个静态分析结果，则类型图将使用单独的一行显示每个工具的问题数量。你可以通过单击相应的图例符号暂时隐藏工具。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/15.png" alt="工具趋势图"></p>
+<h4 id="新问题与已修复问题"><a href="#新问题与已修复问题" class="headerlink" title="新问题与已修复问题"></a>新问题与已修复问题</h4><p>如果你对积压的问题感兴趣，可以打开新的与固定的图表。它映射了引入的问题与通过一系列构建解决的问题。这可以帮助你了解整个待办事项列表是在增加还是在减少。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/16.png" alt="新修复趋势图"></p>
+<h4 id="项目健康"><a href="#项目健康" class="headerlink" title="项目健康"></a>项目健康</h4><p>仅当启用了运行状况报告后，运行状况图表才可用。在这种情况下，趋势图将显示健康和不健康区域中的警告数量。你的项目目标应该是使警告数量不逃避图表的绿色部分。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/17.png" alt="健康趋势图"></p>
+<h4 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h4><p>细节视图中的所有趋势图都支持使用图表底部的范围滑块缩放构建轴。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/18.png" alt="放大"></p>
+<h4 id="构建与日期轴"><a href="#构建与日期轴" class="headerlink" title="构建与日期轴"></a>构建与日期轴</h4><p>详细信息视图中的所有趋势图都可以显示每个构建或每天的警告数量。你可以通过选择右上角的相应图标在X轴变体之间切换，每天显示平均警告数。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/19.png" alt="构建与日期"></p>
+<h3 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h3><p>你可以在几个聚合视图中快速，高效地查看报告的问题集。根据问题的数量或类型，你将看到问题的分布</p>
+<ul>
+<li>Static Analysis Tool（静态分析工具）</li>
+<li>Module（模组）</li>
+<li>Package or Namespace（包或命名空间）</li>
+<li>Severity（严重程度）</li>
+<li>Category（类别）</li>
+<li>Type（类型）</li>
+</ul>
+<p>这些详细信息视图中的每一个都是交互式的，即，你可以导航到已分类问题的子集。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/20.png" alt="软件包"></p>
+<h3 id="问题详情"><a href="#问题详情" class="headerlink" title="问题详情"></a>问题详情</h3><p>一组已报告的问题显示在一个现代化的响应表中。该表使用 Ajax 调用按需加载，它提供以下功能：</p>
+<ul>
+<li><strong>Pagination</strong>（分页）：问题的数量分为几个页面，可以使用提供的页面链接进行选择。请注意，目前分页是在客户端进行的，即从服务器获取整个问题表可能要花费一些时间。</li>
+<li><strong>Sorting</strong>（排序）：可以通过单击表列中的仅一个来对表内容进行排序。</li>
+<li><strong>Filtering, Searching</strong>（过滤，搜索）：你可以通过在搜索框中输入一些文本来过滤显示的问题。</li>
+<li><strong>Content Aware</strong>（内容感知）：仅当有必要显示的内容时才显示列。也就是说，如果工具未报告问题类别，则该类别将被自动隐藏。</li>
+<li><strong>Responsive</strong>（响应式）：布局应适应实际的屏幕阈值。</li>
+<li><strong>Details</strong>（详细信息）：问题的详细信息消息（如果由相应的静态分析工具提供）在表中显示为子行。</li>
+</ul>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/20.png" alt="详情"></p>
+<h3 id="源代码-Blame（归咎于）"><a href="#源代码-Blame（归咎于）" class="headerlink" title="源代码 Blame（归咎于）"></a>源代码 Blame（归咎于）</h3><p>这个功能需要安装其他插件：<a href="https://github.com/jenkinsci/git-forensics-plugin" target="_blank" rel="noopener">Git Forensics 插件</a></p>
+<p>如果未在作业配置中禁用，则插件将执行 <code>git blame</code> 以确定谁是问题的负责 <code>author</code>。在相应的 SCM Blames 视图中，所有问题将与 <code>auther name</code>, <code>email</code>, 和 <code>commit ID</code> 一起列出。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/22.png" alt="Git"></p>
+<p>为了禁用 <code>git blame</code> 功能，请将属性 <code>blameDisabled</code> 设置为 <code>true</code>，请参见以下示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues blameDisabled: <span class="literal">true</span>, tool: java(pattern: <span class="string">'*.log'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Git-仓库取证"><a href="#Git-仓库取证" class="headerlink" title="Git 仓库取证"></a>Git 仓库取证</h3><p>此功能需要安装其他插件：<a href="https://github.com/jenkinsci/git-forensics-plugin" target="_blank" rel="noopener">Git Forensics 插件</a></p>
+<p>如果未在作业配置中禁用，则该插件将以“犯罪现场代码”的样式（Adam Tornhill，2013年11月）挖掘源代码存储库，以确定受影响文件的统计信息。在相应的 “SCM 取证” 视图中，将列出所有问题以及受影响文件的以下属性：</p>
+<ul>
+<li>提交总数</li>
+<li>不同作者总数</li>
+<li>创作时间</li>
+<li>最后修改时间</li>
+<li>源代码控制概述</li>
+</ul>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/23.png" alt="取证视图"></p>
+<p>为了禁用 Git 取证功能，请将属性 <code>forensicsDisabled</code>设置为 <code>true</code>，请参见以下示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues forensicsDisabled: <span class="literal">true</span>, tool: java(pattern: <span class="string">'*.log'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="源代码视图"><a href="#源代码视图" class="headerlink" title="源代码视图"></a>源代码视图</h3><p>现在，源代码视图使用 JS 库 Prism 在受影响的文件中显示警告。该库为最流行的语言提供语法高亮显示，并在客户端呈现所有内容。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/24.png" alt="源视图"></p>
+<h3 id="发行总数栏"><a href="#发行总数栏" class="headerlink" title="发行总数栏"></a>发行总数栏</h3><p>你可以在 Jenkins 作业表的单独列中显示作业的总数。 默认情况下，Jenkins 主列表视图将显示一个新列，该列计算所有工具的发行总数。 你可以添加可以配置的其他列</p>
+<ul>
+<li>列名</li>
+<li>应考虑的实际工具</li>
+<li>要显示的总计类型（总体警告，新警告，特定严重性等），请参阅 “token宏支持” 部分。</li>
+</ul>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/25.png" alt="问题列"></p>
+<h3 id="仪表板视图支持"><a href="#仪表板视图支持" class="headerlink" title="仪表板视图支持"></a>仪表板视图支持</h3><p>还提供对 Jenkins 仪表板视图的支持。当前，以下 portlet 可用：</p>
+<h4 id="每个工具和作业表的问题"><a href="#每个工具和作业表的问题" class="headerlink" title="每个工具和作业表的问题"></a>每个工具和作业表的问题</h4><p>问题表显示了作业的问题总数（由每个工具分开）。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/26.png" alt="问题 portlet"></p>
+<h4 id="问题趋势"><a href="#问题趋势" class="headerlink" title="问题趋势"></a>问题趋势</h4><p>可以将趋势图添加为 portlet，该趋势图显示所有作业的发行总数。</p>
+<p><img src="/2019/12/Jenkins-Warnings-Next-Generation-Plugin/27.png" alt="图表 portlet"></p>
+<h3 id="远程API"><a href="#远程API" class="headerlink" title="远程API"></a>远程API</h3><p>该插件提供以下 REST API 端点。</p>
+<h4 id="所有分析结果的汇总摘要"><a href="#所有分析结果的汇总摘要" class="headerlink" title="所有分析结果的汇总摘要"></a>所有分析结果的汇总摘要</h4><p>可以使用 URL <code>[build-url]/warnings-ng/api/json</code>（或 <code>[build-url]/warnings-ng/api/xml</code>）查询构建中已配置的所有静态分析工具。此汇总显示每个工具的 ID，名称，URL 和问题总数。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"_class"</span>: <span class="string">"io.jenkins.plugins.analysis.core.restapi.AggregationApi"</span>,</span><br><span class="line">  <span class="attr">"tools"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"maven"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/maven"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Maven Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">9</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"java"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/java"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Java Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"javadoc"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/javadoc"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"JavaDoc Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"checkstyle"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/checkstyle"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"CheckStyle Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"pmd"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/pmd"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"PMD Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">671</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"spotbugs"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/spotbugs"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"SpotBugs Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"cpd"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/cpd"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"CPD Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">123</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"id"</span>: <span class="string">"open-tasks"</span>,</span><br><span class="line">      <span class="attr">"latestUrl"</span>: <span class="string">"http://localhost:8080/view/White%20Mountains/job/New%20-%20Pipeline%20-%20Simple%20Model/26/open-tasks"</span>,</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"Open Tasks Scanner Warnings"</span>,</span><br><span class="line">      <span class="attr">"size"</span>: <span class="number">11</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="分析结果汇总"><a href="#分析结果汇总" class="headerlink" title="分析结果汇总"></a>分析结果汇总</h4><p>你可以使用 URL <code>[build-url]/[tool-id]/api/xml</code>（或 <code>[build-url]/[tool-id]/api/json</code>）获得特定分析报告的摘要。摘要包含问题数量，质量门状态以及所有信息和错误消息。</p>
+<p>这是一个示例 XML 报告：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">analysisResultApi</span> <span class="attr">_class</span>=<span class="string">'io.jenkins.plugins.analysis.core.restapi.AnalysisResultApi'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">totalSize</span>&gt;</span>3<span class="tag">&lt;/<span class="name">totalSize</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">fixedSize</span>&gt;</span>0<span class="tag">&lt;/<span class="name">fixedSize</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">newSize</span>&gt;</span>0<span class="tag">&lt;/<span class="name">newSize</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">noIssuesSinceBuild</span>&gt;</span>-1<span class="tag">&lt;/<span class="name">noIssuesSinceBuild</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">successfulSinceBuild</span>&gt;</span>-1<span class="tag">&lt;/<span class="name">successfulSinceBuild</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">qualityGateStatus</span>&gt;</span>WARNING<span class="tag">&lt;/<span class="name">qualityGateStatus</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">owner</span> <span class="attr">_class</span>=<span class="string">'org.jenkinsci.plugins.workflow.job.WorkflowRun'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">number</span>&gt;</span>46<span class="tag">&lt;/<span class="name">number</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8080/view/White%20Mountains/job/Full%20Analysis%20-%20Model/46/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">owner</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Searching for all files in '/tmp/node1/workspace/Full Analysis - Model' that match the pattern</span><br><span class="line">    '**/target/spotbugsXml.xml'</span><br><span class="line">  <span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; found 1 file<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Successfully parsed file /tmp/node1/workspace/Full Analysis - Model/target/spotbugsXml.xml<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; found 3 issues (skipped 0 duplicates)<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Post processing issues on 'node1' with encoding 'UTF-8'<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Resolving absolute file names for all issues<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; affected files for all issues already have absolute paths<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Copying affected files to Jenkins' build folder /Users/hafner/Development/jenkins/jobs/Full Analysis -</span><br><span class="line">    Model/builds/46</span><br><span class="line">  <span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; 2 copied, 0 not in workspace, 0 not-found, 0 with I/O error<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; all issues already have a valid module name<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Resolving package names (or namespaces) by parsing the affected files<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; all affected files already have a valid package name<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Creating fingerprints for all affected code blocks to track issues over different builds<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>No filter has been set, publishing all 3 issues<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>No valid reference build found - all reported issues will be considered outstanding<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Evaluating quality qualityGates<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; WARNING - Total number of issues: 3 - Quality Gate: 1<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>-&gt; Some quality qualityGates have been missed: overall result is WARNING<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">infoMessage</span>&gt;</span>Health report is disabled - skipping<span class="tag">&lt;/<span class="name">infoMessage</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">analysisResultApi</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Token-宏支持"><a href="#Token-宏支持" class="headerlink" title="Token 宏支持"></a>Token 宏支持</h3><p>Warnings 插件提供了 token <code>ANALYSIS_ISSUES_COUNT</code>，可用于其他后期构建处理步骤，例如在邮件中。为了使用此 token，你需要安装 token 宏插件。token 具有以下可选参数：</p>
+<ul>
+<li><code>tool</code>：选择特定的分析结果，如果未定义，则将所有结果相加</li>
+<li><code>type</code>：选择要使用的计数器的类型，请选择以下之一<ul>
+<li>Total（任何严重性）</li>
+<li>Total（仅错误）</li>
+<li>Total（仅严重度高）</li>
+<li>Total（仅严重级别正常）</li>
+<li>Total（仅限严重性低）</li>
+<li>New  （任何严重程度）</li>
+<li>New  （仅限错误）</li>
+<li>New  （仅限严重性高）</li>
+<li>New  （仅严重性为正常）</li>
+<li>New  （仅限严重性低）</li>
+<li>Delta（任何严重程度）</li>
+<li>Delta（仅错误）</li>
+<li>Delta（仅严重度高）</li>
+<li>Delta（仅严重等级正常）</li>
+<li>Delta（仅严重度低）</li>
+<li>Fixed（任何严重性）</li>
+</ul>
+</li>
+</ul>
+<p>例子：</p>
+<p><code>${ANALYSIS_ISSUES_COUNT}</code>：扩展到所有分析工具的合计数量</p>
+<p><code>${ANALYSIS_ISSUES_COUNT, tool=&quot;checkstyle&quot;}</code>：扩展到CheckStyle问题的总数</p>
+<p><code>${ANALYSIS_ISSUES_COUNT, tool=&quot;checkstyle&quot;, type: &quot;NEW&quot;}</code>：扩展到新的 CheckStyle 问题数</p>
+<h2 id="从静态分析套件过渡"><a href="#从静态分析套件过渡" class="headerlink" title="从静态分析套件过渡"></a>从静态分析套件过渡</h2><p>以前，静态分析套件的插件提供了相同的功能集（CheckStyle，PMD，FindBugs，静态分析实用工具，Analysis Collector，任务扫描器，Warnings 等）。为了简化用户体验和开发过程，这些插件和核心功能已合并到Warnings Next Generation 插件中。这些旧的静态分析插件不再需要，现在已经停产。如果当前使用这些旧插件之一，则应尽快迁移到新的记录器和步骤。我仍然会保留旧代码一段时间，但是主要的开发工作将花在新的代码库中。</p>
+<ul>
+<li>迁移 Pipelines</li>
+</ul>
+<p>调用旧的静态分析步骤（例如，findbug，checkstyle 等）的管道需要立即调用新的 recordIssues 步骤。所有静态分析工具都使用相同的步骤，使用 step 属性工具选择实际的解析器。有关可用参数集的更多详细信息，请参见“<a href="https://github.com/jenkinsci/warnings-ng-plugin/blob/master/doc/Documentation.md#configuration" target="_blank" rel="noopener">配置</a>”部分。</p>
+<ul>
+<li>迁移其他所有工作</li>
+</ul>
+<p>使用旧版 API 的 Freestyle，Matrix 或 Maven Jobs 使用了由每个插件提供的所谓的 Post Build Action。例如，FindBugs 插件确实提供了构建后操作“发布 FindBugs 分析结果”。这些旧的插件特定操作不再受支持，它们现在在用户界面中标记为 [Deprecated]。现在，你需要添加一个新的后期构建步骤-对于所有静态分析工具，此步骤现在称为“记录编译器警告和静态分析结果”。工具的选择是此后期构建步骤配置的一部分。注意：新的后期制作操作无法读取使用旧 API 的后期制作步骤所产生的警告。也就是说，你看不到新旧结果的合并历史记录-你仅看到两个不相关的结果。也不会自动转换以旧格式存储的结果。</p>
+<ul>
+<li>插件的迁移取决于分析核心</li>
+</ul>
+<p>以下插件已集成到此警告插件的新版本中：</p>
+<ul>
+<li>Android-Lint 插件</li>
+<li>Analysis Collector 插件</li>
+<li>CheckStyle 插件</li>
+<li>CCM 插件</li>
+<li>Dry 插件</li>
+<li>PMD 插件</li>
+<li>FindBugs 插件</li>
+<li>Tasks Scanner 插件</li>
+<li>Warnings 插件</li>
+</ul>
+<p>所有其他插件仍需要集成或需要重构以使用新的 API</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/" data-id="ckvtpicnx007zjsfo3fo2hmqh" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+      <section id="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/01/solaris-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Solaris 安装工具以及一些使用总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/2019-summary/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2019 年终总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/aix/">AIX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/artifactory/">Artifactory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coverage/">Coverage</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">Language</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/os/">OS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/polaris/">Polaris</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/quality/">Quality</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonarqube/">SonarQube</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">Windows</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/special-repository/">如何将每次发布的博客文章自动同步到 GitHub 个人主页？</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/world-quality-report/">2021-22 世界质量报告（World Quality Report）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/docker-best-practice/">Docker 最佳实践</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/what-is-polaris/">Polaris - 静态代码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/git-cheatsheet/">Git 常用命令备忘录</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/sonarqube-integration/">How does SonarQube Community Edition integrate with the project</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/lcov-error/">Run lcov failed &#34;Can&#39;t locate JSON/PP.pm in @INC ...&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/gcov-example-cn/">使用 Gcov 和 LCOV 度量 C/C++ 项目的代码覆盖率</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/sonarqube-setup/">SonarQube installation and troubleshootings</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/how-to-fix-gcov-hidden-symbol/">How to fix &#34;hidden symbol `__gcov_init&#39; in ../libgcov.a(_gcov.o) is referenced by DSO&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/update-bitbucket-build-status/">Add or update Bitbucket build status with REST API</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/code-coverage/">关于代码覆盖率 (About Code Coverage)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/gcov-example/">Use Gcov and LCOV to perform code coverage testing on C/C++ projects</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/jenkins-timeout/">How to make Jenkins job fail after timeout? (Resolved)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/git-clone-failed-on-aix/">解决两个 AIX 上 Git Clone 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/gcov/">Gcov 一个免费开源的 C/C++ 代码覆盖率工具以及生成报告</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/aix-ulimit/">通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/artifactory-slow-upload/">关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/eslint-jenkins/">Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/git-guidelines/">Git 常见设置指北</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/branch-naming-convention/">Branch Naming Convention</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/artifactory-api-search/">How to download the entire folder artifacts when Artifactory &#34;Download Folder functionality is disabled&#34;?</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/why-windows-installer-pop-up/">Why Windows Installer pop up? (Resolved)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/jacoco-imp/">JaCoCo 代码覆盖率实践分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/pythonic/">你的 Python 代码够不够 Pythonic？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aix/" rel="tag">AIX</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automation/" rel="tag">Automation</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backup/" rel="tag">Backup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blackduck/" rel="tag">BlackDuck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">Blog</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/branch/" rel="tag">Branch</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">C</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cicd/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/" rel="tag">Cheatsheet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cppcheck/" rel="tag">Cppcheck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/" rel="tag">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functiontest/" rel="tag">FunctionTest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">Git</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hp-ux/" rel="tag">HP-UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jmeter/" rel="tag">JMeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ldap/" rel="tag">LDAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/" rel="tag">NFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">Pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/" rel="tag">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quality/" rel="tag">Quality</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rdp/" rel="tag">RDP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/release/" rel="tag">Release</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/report/" rel="tag">Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">Selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">Shell</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solaris/" rel="tag">Solaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonarqube/" rel="tag">SonarQube</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squash/" rel="tag">Squash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squishcoco/" rel="tag">SquishCoco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">Static</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stats/" rel="tag">Stats</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/" rel="tag">Summary</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testng/" rel="tag">TestNG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thought/" rel="tag">Thought</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VScode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webhook/" rel="tag">Webhook</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">Work</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/writing/" rel="tag">Writing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">lcov</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/" rel="tag">perl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 11.67px;">AIX</a> <a href="/tags/actions/" style="font-size: 10px;">Actions</a> <a href="/tags/ansible/" style="font-size: 10.83px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15px;">Artifactory</a> <a href="/tags/automation/" style="font-size: 16.67px;">Automation</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/bitbucket/" style="font-size: 14.17px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">BlackDuck</a> <a href="/tags/blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.67px;">Branch</a> <a href="/tags/c/" style="font-size: 13.33px;">C</a> <a href="/tags/cicd/" style="font-size: 10px;">CICD</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">Cheatsheet</a> <a href="/tags/codereview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/coverage/" style="font-size: 15.83px;">Coverage</a> <a href="/tags/coverity/" style="font-size: 10px;">Coverity</a> <a href="/tags/cppcheck/" style="font-size: 10px;">Cppcheck</a> <a href="/tags/devops/" style="font-size: 18.33px;">DevOps</a> <a href="/tags/disqus/" style="font-size: 10px;">Disqus</a> <a href="/tags/docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/dokerfile/" style="font-size: 10px;">Dokerfile</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/ftp/" style="font-size: 10px;">FTP</a> <a href="/tags/functiontest/" style="font-size: 10px;">FunctionTest</a> <a href="/tags/gcov/" style="font-size: 12.5px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.17px;">Git</a> <a href="/tags/github/" style="font-size: 10.83px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10.83px;">Gradle</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.17px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.33px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.83px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.67px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/lcov/" style="font-size: 11.67px;">LCOV</a> <a href="/tags/ldap/" style="font-size: 10px;">LDAP</a> <a href="/tags/linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 17.5px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pip/" style="font-size: 10px;">Pip</a> <a href="/tags/pipeline/" style="font-size: 15.83px;">Pipeline</a> <a href="/tags/polaris/" style="font-size: 10px;">Polaris</a> <a href="/tags/postgresql/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 12.5px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/quality/" style="font-size: 10px;">Quality</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/release/" style="font-size: 10.83px;">Release</a> <a href="/tags/report/" style="font-size: 10px;">Report</a> <a href="/tags/security/" style="font-size: 10px;">Security</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 13.33px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/sonarqube/" style="font-size: 10.83px;">SonarQube</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">SquishCoco</a> <a href="/tags/static/" style="font-size: 10px;">Static</a> <a href="/tags/stats/" style="font-size: 10.83px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.67px;">Summary</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 11.67px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/troubleshooting/" style="font-size: 14.17px;">Troubleshooting</a> <a href="/tags/ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/vscode/" style="font-size: 10px;">VScode</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhook/" style="font-size: 11.67px;">Webhook</a> <a href="/tags/windows/" style="font-size: 11.67px;">Windows</a> <a href="/tags/work/" style="font-size: 13.33px;">Work</a> <a href="/tags/writing/" style="font-size: 10px;">Writing</a> <a href="/tags/lcov/" style="font-size: 10px;">lcov</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/ulimit/" style="font-size: 10px;">ulimit</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/README.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 - 2021 shenxianpeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/daily/" class="mobile-nav-link">Daily</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Share knowledge in the fields of CI&#x2F;CD and DevOps.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://shenxianpeng.github.io/page/3/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="Share knowledge in the fields of CI&#x2F;CD and DevOps.">
+<meta property="article:author" content="shenxianpeng">
+<meta name="twitter:card" content="summary">
+  
+  <link rel="alternate" href="/atom.xml" title="Hello World" type="application/atom+xml">
+  
+  
+  <link rel="icon" href="/favicon.png">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-168820225-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <script data-ad-client="ca-pub-3986315287795783" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello World</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Peter shen&#39;s blog</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/daily/">Daily</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <a id="nav-linkedin-btn" class="nav-icon" href=https://www.linkedin.com/in/xianpeng-shen/ target="_blank" title="LinkedIn"></a>
+        <a id="nav-github-btn" class="nav-icon" href=https://github.com/shenxianpeng target="_blank" title="GitHub"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-2021/05/branch-naming-convention" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/branch-naming-convention/" class="article-date">
+  <time datetime="2021-05-13T15:52:01.000Z" itemprop="datePublished">2021-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/branch-naming-convention/">Branch Naming Convention</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Why-need-branching-naming-convention"><a href="#Why-need-branching-naming-convention" class="headerlink" title="Why need branching naming convention"></a>Why need branching naming convention</h2><p>To better manage the branches on Git(I sued Bitbucket), integration with CI tool, Artifactory, and automation will be more simple and clear.</p>
+<p>For example, good unified partition naming can help the team easily find and integrate without special processing. Therefore, you should unify the partition naming rules for all repositories.</p>
+<h2 id="Branches-naming-convention"><a href="#Branches-naming-convention" class="headerlink" title="Branches naming convention"></a>Branches naming convention</h2><h3 id="main-branch-naming"><a href="#main-branch-naming" class="headerlink" title="main branch naming"></a>main branch naming</h3><p>In general, the main’s branch names most like <code>master</code> or <code>main</code>.</p>
+<h3 id="Development-branch-naming"><a href="#Development-branch-naming" class="headerlink" title="Development branch naming"></a>Development branch naming</h3><p>I would name my development branch just called <code>develop</code>.</p>
+<h3 id="Bugfix-and-feature-branches-naming"><a href="#Bugfix-and-feature-branches-naming" class="headerlink" title="Bugfix and feature branches naming"></a>Bugfix and feature branches naming</h3><p>For Bitbucket, it has default types of branches for use, like <code>bugfix/</code>, <code>feature/</code>.<br>So my <code>bugfix</code>, <code>feature</code> combine with the Jira key together, such as <code>bugfix/ABC-1234</code> or <code>feature/ABC-2345</code>.</p>
+<h3 id="Hotfix-and-release-branches-naming"><a href="#Hotfix-and-release-branches-naming" class="headerlink" title="Hotfix and release branches naming"></a>Hotfix and release branches naming</h3><p>For hotfix and release, my naming convention always like <code>release/1.1.0</code>, <code>hotfix/1.1.0.HF1</code>.</p>
+<h3 id="Other-branches"><a href="#Other-branches" class="headerlink" title="Other branches"></a>Other branches</h3><p>Maybe your Jira task ticket you don’t want to make it in <code>bugfix</code> or <code>feature</code>, you can name it to start with <code>task</code>, so the branch name is <code>task/ABC-3456</code>.</p>
+<p>If you have to provide diagnostic build to custom, you can name your branch <code>diag/ABC-5678</code>.</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>Anyway, having a unified branch naming convention is very important for implement CI/CD and your whole team.</p>
+<blockquote>
+<p>Related Reading: <a href="https://shenxianpeng.github.io/2019/07/git-branching-strategy/">Git Branch Strategy</a> (Chinese)</p>
+</blockquote>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="ckvtpicof00abjsfodn4cecv2" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/branch/" rel="tag">Branch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/05/artifactory-api-search" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/artifactory-api-search/" class="article-date">
+  <time datetime="2021-05-04T06:37:00.000Z" itemprop="datePublished">2021-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jfrog/">JFrog</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/artifactory-api-search/">How to download the entire folder artifacts when Artifactory &#34;Download Folder functionality is disabled&#34;?</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>When you do CI with JFrog Artifactory when you want to download the entire folder artifacts, but maybe your IT doesn’t enable this function, whatever some seasons.</p>
+<p>You can try the below JFrog Artifactory API to know if you’re using Artifactory whether allowed to download the entire folder artifacts.</p>
+<p>just visit this API URL: <code>https://den-artifactory.company.com/artifactory/api/archive/download/team-generic-release-den/project/abc/main/?archiveType=zip</code></p>
+<p>You will see an error message returned if the Artifactory is not allowed to download the entire folder.</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"errors"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"status"</span>: <span class="number">403</span>,</span><br><span class="line">      <span class="attr">"message"</span>: <span class="string">"Download Folder functionality is disabled."</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>More details about the API could find here <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveFolderorRepositoryArchive" target="_blank" rel="noopener">Retrieve Folder or Repository Archive</a></p>
+</blockquote>
+<h2 id="Workaround"><a href="#Workaround" class="headerlink" title="Workaround"></a>Workaround</h2><p>So to be enabled to download entire folder artifacts, I found other JFrog Artifactory APIs provide a workaround.</p>
+<p>How to download the entire folder artifacts programmatically? this post will show you how to use other <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API" target="_blank" rel="noopener">Artifactory REST API</a> to get a workaround.</p>
+<h3 id="1-Get-All-Artifacts-Created-in-Date-Range"><a href="#1-Get-All-Artifacts-Created-in-Date-Range" class="headerlink" title="1. Get All Artifacts Created in Date Range"></a>1. Get All Artifacts Created in Date Range</h3><p>API URL: <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-ArtifactsCreatedinDateRange" target="_blank" rel="noopener">Artifacts Created in Date Range</a></p>
+<p>This is the snippet code I use this API</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download.sh</span></span><br><span class="line"></span><br><span class="line">USERNAME=<span class="variable">$1</span></span><br><span class="line">PASSWORD=<span class="variable">$2</span></span><br><span class="line">REPO=<span class="variable">$3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># which day ago do you want to download</span></span><br><span class="line">N_DAY_AGO=<span class="variable">$4</span></span><br><span class="line"><span class="comment"># today</span></span><br><span class="line">START_TIME=$(($(date --date=<span class="string">"<span class="variable">$N_DAY_AGO</span> days ago"</span> +%s%N)/1000000))</span><br><span class="line">END_TIME=$(($(date +%s%N)/1000000))</span><br><span class="line"></span><br><span class="line">ARTIFACTORY=https://den-artifactory.company.com/artifactory</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -x <span class="string">"`which sha1sum`"</span> ]; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"You need to have the 'sha1sum' command in your path."</span>; <span class="built_in">exit</span> 1; <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">RESULTS=`curl -s -X GET -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> <span class="string">"<span class="variable">$ARTIFACTORY</span>/api/search/creation?from=<span class="variable">$START_TIME</span>&amp;to=<span class="variable">$END_TIME</span>&amp;repos=<span class="variable">$REPO</span>"</span> | grep uri | awk <span class="string">'&#123;print $3&#125;'</span> | sed s<span class="string">'/.$//'</span> | sed s<span class="string">'/.$//'</span> | sed -r <span class="string">'s/^.&#123;1&#125;//'</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$RESULTS</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> RESULT <span class="keyword">in</span> <span class="variable">$RESULTS</span> ; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"fetching path from <span class="variable">$RESULT</span>"</span></span><br><span class="line">    PATH_TO_FILE=`curl -s -X GET -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> <span class="variable">$RESULT</span> | grep downloadUri | awk <span class="string">'&#123;print $3&#125;'</span> | sed s<span class="string">'/.$//'</span> | sed s<span class="string">'/.$//'</span> | sed -r <span class="string">'s/^.&#123;1&#125;//'</span>`</span><br><span class="line"></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"download file path <span class="variable">$PATH_TO_FILE</span>"</span></span><br><span class="line">  curl -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> -O <span class="variable">$PATH_TO_FILE</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>Then you just use this as: <code>sh download.sh ${USERNAME} ${PASSWORD} ${REPO_PATH} ${N_DAY_AGO}</code></p>
+<h3 id="2-Get-all-artifacts-matching-the-given-Ant-path-pattern"><a href="#2-Get-all-artifacts-matching-the-given-Ant-path-pattern" class="headerlink" title="2. Get all artifacts matching the given Ant path pattern"></a>2. Get all artifacts matching the given Ant path pattern</h3><p>More about this API see: <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-PatternSearch" target="_blank" rel="noopener">Pattern Search</a></p>
+<p>Take an example screenshot of pattern search:</p>
+<p><img src="/2021/05/artifactory-api-search/pattern-search.png" alt></p>
+<p>Then you can use Shell, Python language to get the file path from the response, then use <code>curl -u $USERNAME:$PASSWORD -O $PATH_TO_FILE</code> command to download the file one by one.</p>
+<p>If you have better solutions, suggestions, or questions, you can leave a comment.</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="ckvtpicoe00a7jsfo1hfgd2nf" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/04/why-windows-installer-pop-up" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/why-windows-installer-pop-up/" class="article-date">
+  <time datetime="2021-04-22T05:33:01.000Z" itemprop="datePublished">2021-04-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/windows/">Windows</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/why-windows-installer-pop-up/">Why Windows Installer pop up? (Resolved)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="What’s-the-problem"><a href="#What’s-the-problem" class="headerlink" title="What’s the problem?"></a>What’s the problem?</h2><p>Today I am having a problem where the Windows installer I created is not installing, and the following Windows installer box pops up.</p>
+<p><img src="/2021/04/why-windows-installer-pop-up/windows-installer.png" alt></p>
+<p>But it works well in the previous build, and I didn’t make any code changes. It is strange, actually fix this problem is very easy but not easy to find.</p>
+<h2 id="How-to-fix-it"><a href="#How-to-fix-it" class="headerlink" title="How to fix it?"></a>How to fix it?</h2><p>In my case, I just remove the space from my build folder naming. I have made follow mistakes:</p>
+<p>My previous build name is <code>v2.2.2.3500-da121sa-Developer</code>, but for this build, I named it to <code>v2.2.2.3500-32jkjdk - Developer</code></p>
+<h2 id="How-to-find-the-solution"><a href="#How-to-find-the-solution" class="headerlink" title="How to find the solution?"></a>How to find the solution?</h2><p>This problem takes me several hours until I google this <a href="https://community.spiceworks.com/topic/874022-msiexec-just-returns-a-pop-up" target="_blank" rel="noopener">article</a> which inspired me.</p>
+<p>Just like the above article, if I try to use the command line <code>msiexec.exe other-commands ...</code>, compare with the works installer will also quick to find the root cause.</p>
+<p>I realized it immediately I should try to remove the spaces from the build folder… Wow, the installer back to work.</p>
+<p>If this happens to you, I hope it also works for you, and leave a comment if it works for you.</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="ckvtpico7009djsfo82xjgrux" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">Windows</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/04/jacoco-imp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/jacoco-imp/" class="article-date">
+  <time datetime="2021-04-06T11:18:33.000Z" itemprop="datePublished">2021-04-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/coverage/">Coverage</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/jacoco-imp/">JaCoCo 代码覆盖率实践分享</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文适用的是 Gradle 来构建和适用 JaCoCo。</p>
+<p>分别介绍了 <code>build.gradle</code> 的文件配置，执行测试和生成报告，报告参数说明，以及如何忽略指定的包或类从而影响测试覆盖率的结果。</p>
+<h2 id="build-gradle-文件配置"><a href="#build-gradle-文件配置" class="headerlink" title="build.gradle 文件配置"></a>build.gradle 文件配置</h2><p>比如使用 gradle 来管理的项目可以在 <code>build.gradle</code> 里添加如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">plugins &#123;</span><br><span class="line">    id <span class="string">'jacoco'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jacoco &#123;</span><br><span class="line">    toolVersion = <span class="string">"0.8.5"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test &#123;</span><br><span class="line">    useJUnitPlatform()</span><br><span class="line">    exclude <span class="string">'**/**IgnoreTest.class'</span>  <span class="comment">// 如果有 test case 不通过，如有必要可以通过这样忽略掉</span></span><br><span class="line">    finalizedBy jacocoTestReport       <span class="comment">// report is always generated after tests run</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jacocoTestReport &#123;</span><br><span class="line">    dependsOn test <span class="comment">// tests are required to run before generating the report</span></span><br><span class="line">    reports &#123;</span><br><span class="line">        xml.enabled <span class="keyword">true</span></span><br><span class="line">        csv.enabled <span class="keyword">false</span></span><br><span class="line">        html.<span class="function">destination <span class="title">file</span><span class="params">(<span class="string">"$&#123;buildDir&#125;/reports/jacoco"</span>)</span></span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="执行测试，生成代码覆盖率报告"><a href="#执行测试，生成代码覆盖率报告" class="headerlink" title="执行测试，生成代码覆盖率报告"></a>执行测试，生成代码覆盖率报告</h2><p>然后执行 <code>gradle test</code> 就可以了。之后可以可以在 <code>build\reports\jacoco</code> 目录下找到报告了。</p>
+<p><img src="/2021/04/jacoco-imp/reports.png" alt="JaCoCo报告"></p>
+<p>重点是如何分析报告。打开 index.html，报告显示如下：</p>
+<p><img src="/2021/04/jacoco-imp/index.png" alt="JaCoCo报告首页"></p>
+<h2 id="报告参数说明"><a href="#报告参数说明" class="headerlink" title="报告参数说明"></a>报告参数说明</h2>
+        
+          <p class="article-more-link">
+            <a href="/2021/04/jacoco-imp/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/04/jacoco-imp/" data-id="ckvtpico9009kjsfodnax9zl9" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/04/jacoco-imp/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/03/pythonic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/pythonic/" class="article-date">
+  <time datetime="2021-03-28T02:27:57.000Z" itemprop="datePublished">2021-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/language/">Language</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/pythonic/">你的 Python 代码够不够 Pythonic？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Python 不必多说，它是众多编程语言中最容易学习的动态类型语言。它的跨平台、易读、易写、丰富的 Packages 等众多特性，也是众多DevOps/测试/开发工程师是最常用的语言之一。</p>
+<p>相信不少人用它完成了很多工作，但你是不是仅仅止步于功能的实现而忽略了去写出更加简洁，优美的 <code>Pythonic</code> 代码呢？</p>
+<p>在我最开始用 Python 时，我还不知道 <code>Pythonic</code> 这个词，直到多年前一位资深的程序员在给我培训的时候提到了项目中有一些代码不够 <code>Pythonic</code>，需要重构。根据语境，我理解他的意思：就是 Python 的代码没有按照 Python 的方式来写。</p>
+<h2 id="什么是-Pythonic"><a href="#什么是-Pythonic" class="headerlink" title="什么是 Pythonic"></a>什么是 Pythonic</h2><p>充分利用 Python 语言的特性来产生清晰、简洁和可维护的代码。<code>Pythonic</code> 的意思是指代码不仅仅是语法正确，而是遵循 Python 社区的惯例，并以其预期的方式使用该语言。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>以下是 C/C++ 程序员的一段代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">int</span> total_sum = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (b &gt;= a) &#123;</span><br><span class="line">    total_sum += a;</span><br><span class="line">    a++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果没有学习 Python 编程模式，那么将上面的代码改用 Python 来写可能会是这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">100</span></span><br><span class="line">total_sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> b &gt;= a:</span><br><span class="line">    total_sum += a</span><br><span class="line">    a += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>如果用 Pythonic 的方式来写，应该是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">total_sum = sum(range(<span class="number">1</span>, <span class="number">101</span>))</span><br></pre></td></tr></table></figure>
+
+<p>再举个常见的例子，如果用 Java 可能是这样写出来一个 For 循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> index=<span class="number">0</span>; index &lt; items.length; index++) &#123;</span><br><span class="line">    items[index].performAction();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Python中，使用以下方法会更干净一些：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">    item.perform_action()</span><br></pre></td></tr></table></figure>
+
+<p>甚至是一个生成器表达式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(item.some_attribute <span class="keyword">for</span> item <span class="keyword">in</span> items)</span><br></pre></td></tr></table></figure>
+
+<p>因此，从本质上讲，当有人说某件事情不符合 <code>pythonic</code> 时，他们是在说这段代码可以用一种更适合 Python 编码风格的方式来重新编写。<br>另外，去了解 Python <a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">Built-in Functions</a>，而不是重新造轮子。</p>
+<h2 id="关于-Pythonic-的“官方介绍”"><a href="#关于-Pythonic-的“官方介绍”" class="headerlink" title="关于 Pythonic 的“官方介绍”"></a>关于 Pythonic 的“官方介绍”</h2><p>其实，Python 命令行里已经秘密“隐藏”了关于 <code>Pythonic</code> 的介绍。只要打开 Python 控制台，输入 <code>import this</code>，你就能看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\xshen&gt;python</span><br><span class="line">Python 3.8.6 (tags&#x2F;v3.8.6:db45529, Sep 23 2020, 15:52:53) [MSC v.1927 64 bit (AMD64)] on win32</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; import this</span><br><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>直译过来是：Tim Peters 的《Python的禅意》</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">美丽的比丑陋的好。</span><br><span class="line">明确的比含蓄的好。</span><br><span class="line">简单的比复杂的好</span><br><span class="line">复杂的比复杂的好</span><br><span class="line">扁平的比嵌套的好。</span><br><span class="line">稀疏比密集好。</span><br><span class="line">可读性很重要。</span><br><span class="line">特殊情况不特殊，不足以打破规则。</span><br><span class="line">虽然实用性胜过纯粹性。</span><br><span class="line">错误永远不应该默默地通过。</span><br><span class="line">除非明确沉默。</span><br><span class="line">在面对模棱两可的情况下，拒绝猜测的诱惑。</span><br><span class="line">应该有一个--最好只有一个--明显的方法。</span><br><span class="line">虽然这种方式一开始可能并不明显，除非你是荷兰人。</span><br><span class="line">现在总比不做要好。</span><br><span class="line">虽然从不比现在*好。</span><br><span class="line">如果实现很难解释，那就是个坏主意。</span><br><span class="line">如果实现很容易解释，它可能是个好主意。</span><br><span class="line">命名空间是一个非常棒的想法--让我们做更多的命名空间!</span><br></pre></td></tr></table></figure>
+
+<p>关于 <code>Pythonic</code> 你 get 到了吗？</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="ckvtpico4008zjsfohfyl0flv" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/03/pythonic/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/03/jenkins-dynamic-default-parameters" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/jenkins-dynamic-default-parameters/" class="article-date">
+  <time datetime="2021-03-24T02:50:53.000Z" itemprop="datePublished">2021-03-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/jenkins-dynamic-default-parameters/">Different branches have different default parameters in Jenkins</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>When you use Jenkins multibranch pipeline, you may want to have different default parameters settings for defferent branches build.</p>
+<p>For example:</p>
+<p>For develop/hotfix/release branches, except regular build, you also want to do some code analyzes, like code scanning, etc.<br>For other branches, like feature/bugfix or Pull Request that you just want to do a regular build.</p>
+<p>So you need to have dynamic parameter settings for your multibranch pipeline job.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>So for these cases, how to deal with Jenkins multibranch pipeline. Here are some code snippet that is works well in my Jenkinsfile.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">def polarisValue = <span class="literal">false</span></span><br><span class="line">def blackduckValue = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (env.BRANCH_NAME.startsWith(<span class="string">"develop"</span>) || env.BRANCH_NAME.startsWith(<span class="string">"hotfix"</span>)</span><br><span class="line"> || env.BRANCH_NAME.startsWith(<span class="string">"release"</span>)) &#123;</span><br><span class="line">	polarisValue = <span class="literal">true</span></span><br><span class="line">	blackduckValue = <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> pipeline &#123;</span><br><span class="line">   agent &#123; node &#123; label <span class="string">'gradle'</span> &#125; &#125;</span><br><span class="line"></span><br><span class="line">   parameters &#123;</span><br><span class="line">       booleanParam defaultValue: polarisValue, name: <span class="string">'Polaris'</span>,  description: <span class="string">'Uncheck to disable Polaris'</span></span><br><span class="line">       booleanParam defaultValue: blackduckValue, name: <span class="string">'BlackDuck'</span>, description: <span class="string">'Uncheck to disable BD scan'</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   stages &#123;</span><br><span class="line">     // ...</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="ckvtpico7009ajsfo3eoeccyi" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/03/code-review" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/03/code-review/" class="article-date">
+  <time datetime="2021-03-20T09:10:14.000Z" itemprop="datePublished">2021-03-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/code-review/">基于谷歌代码审查（Code Review）法则的思考与实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>代码审查（Code Review），就是让别人来审查你的代码，其目的就是确保代码库的整体代码运行状况随着时间推移而不断改善。</p>
+<p>中国有句古话：三人行必有我师。</p>
+<p>代码审查同样如此：</p>
+<ul>
+<li>他人的审查或许会有不一样的思考和建议；</li>
+<li>人都会犯错，多一个人检查就减少犯错的机率。</li>
+</ul>
+<p>因此代码审查是你编写的代码在合并到主分支前最重要的一项检查工作，也是一项最直接、最低成本的发现软件中的错误绝佳方式。</p>
+<p>既然代码审查这么重要，而且有这样显而易见的收益，但总能听到代码审查在团队里执行起来不容易、效果不理想的问题。问题出在哪呢？</p>
+<p>据我观察有两点原因：</p>
+<p>第一，读别人代码需要花时间，往往还需要代码提交者带着业务为审查者讲一遍，同时占用双方时间；<br>其次，如果代码审查者工作繁重、压力大而没有时间，也很容易造成执行不到位，走过场；</p>
+<p>如何才能比较好的开展代码审查？让我们先来看看大公司是怎么做的，Google 的这篇关于代码审查的文章里给出了具体法则。</p>
+<h2 id="Google-的代码审查法则"><a href="#Google-的代码审查法则" class="headerlink" title="Google 的代码审查法则"></a>Google 的代码审查法则</h2><p>在进行代码审查时，应确保：</p>
+<ul>
+<li>代码经过精心设计</li>
+<li>该功能对代码用户很有帮助</li>
+<li>任何 UI 更改都是明智的，并且看起来不错</li>
+<li>任何并行编程都是安全完成的</li>
+<li>代码没有比需要的复杂</li>
+<li>开发人员没有实现他们将来可能需要的东西</li>
+<li>代码具有适当的单元测试</li>
+<li>测试经过精心设计</li>
+<li>开发人员对所有内容使用了清晰的名称</li>
+<li>注释清晰实用，并且主要说明Why而不是What</li>
+<li>代码已正确文档化</li>
+<li>该代码符合我们的样式指南</li>
+</ul>
+<p>确保检查要求你检查的每一行代码，查看上下文，确保你在改善代码运行状况，并称赞开发人员所做的出色工作。</p>
+<blockquote>
+<p>原文：<a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html" target="_blank" rel="noopener">https://google.github.io/eng-practices/review/reviewer/looking-for.html</a></p>
+</blockquote>
+<h2 id="代码审查法的落地"><a href="#代码审查法的落地" class="headerlink" title="代码审查法的落地"></a>代码审查法的落地</h2><p>可见，想要更好的落地代码审查，需要先要确立法则，你可以根据实际情况对上述法则进行借鉴、删减或补充；</p>
+<p>第二，作为技术领导应当积极布道，让开发者了解统一的代码审查法则；</p>
+<p>第三，应当把法则里的具体规则尽可能地通过流程控制、自动化检查则纳入到 Pull Request 中。</p>
+<p>另外提醒作为 Reviewer 要 Peaceful ！！！在代码审查时注意不要带有“教育”性质的去给别人提出修改建议，那样很容易适得其反。</p>
+<p>以下是一些不完全实践，供参考。</p>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p><strong>规避任何不经 Review 的代码进入到主分支</strong></p>
+<blockquote>
+<p>以 Bitucket 为例。GitHub，GitLab 在设置上大同小异。</p>
+</blockquote>
+<ul>
+<li><p>打开分支权限设置里的选项 <code>Prevent changes without a pull request</code> 打开它。当然如果有需要可以在这个选项里添加 Exception，被添加的人可以不通过 Pull Reuqest 来提交代码。</p>
+</li>
+<li><p>在 Merge Check 里开启 <code>Minimum approvals</code> 这个选项。比如设置 Number of approvals = 1，这样需要至少有一个 Reviewers 点击 Approve 按钮才允许 Merge。</p>
+</li>
+</ul>
+<h3 id="自动化检查"><a href="#自动化检查" class="headerlink" title="自动化检查"></a>自动化检查</h3><p><strong>通过CI流水线验证编译和测试</strong></p>
+<ul>
+<li><p>建立自动化构建和测试 Pipeline，这样在创建 Pull Request 的时候可以自动构建、测试以及检查。Jenkins 的 Multi-branch pipeline 可以满足这个需求。</p>
+</li>
+<li><p>开启 Bitucket 的 Merge Check 里 <code>Minimum successful builds</code> 选项，验证构建/测试结果，以防止任何没有通过构建和测试的代码可以 Merge 到主分支。</p>
+</li>
+<li><p>另外，可以通过自行编写工具来实现，或可以集成其他 CI 工具来做检查，例如：</p>
+<ul>
+<li>针对 Pull Request 的修改历史来分析提交历史并推荐 Reiewer；</li>
+<li>通过 Lint 工具来检查编码规范；</li>
+<li>通过 REST API 检查是否需要压缩 Commits 来保证清晰的提交历史；</li>
+<li>通过 SonarQube 检查 Quality Gate 等。</li>
+</ul>
+</li>
+</ul>
+<p>实现自动化检查，可以帮助 Reviewers 将审查的工作精力放在代码的具体实现上，其他的交给工具。</p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>代码审查做的好不好，跟一个团队有没有良好的技术氛围，或者是否存在有技术领导力，有“品位”的技术大牛也是正相关的。</p>
+<ul>
+<li><p>如果团队里大多数都是有“品位”的工程师，他们会以写出优秀的代码（或挑刺）乐此不疲。</p>
+</li>
+<li><p>相反如果团队不重视规范，只追求短期的绩效达成，只会让技术债越欠越多，产品越做越烂。</p>
+</li>
+</ul>
+<p>欢迎留言分享你的意见或建议。</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="ckvtpico50093jsfoex4s3vuk" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/03/code-review/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/02/jenkins-windows-agent-cannot-start" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/02/jenkins-windows-agent-cannot-start/" class="article-date">
+  <time datetime="2021-02-11T08:09:06.000Z" itemprop="datePublished">2021-02-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/jenkins-windows-agent-cannot-start/">Jenkins upgrade issue &#34;Windows agents won&#39;t start&#34; workaround</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Today, when I tried to upgrade my team’s Jenkins server from Jenkins 2.235.1 to Jenkins 2.263.3, I met a problem that can not launch the Windows agent.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[2021-01-29 23:50:40] [windows-agents] Connecting to xxx.xxx.xxx.xxx</span><br><span class="line">Checking if Java exists</span><br><span class="line">java -version returned 11.0.2.</span><br><span class="line">[2021-01-29 23:50:40] [windows-agents] Installing the Jenkins agent service</span><br><span class="line">[2021-01-29 23:50:40] [windows-agents] Copying jenkins-agent.exe</span><br><span class="line">ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</span><br><span class="line">Also: java.lang.Throwable: launched here</span><br><span class="line">at hudson.slaves.SlaveComputer._connect(SlaveComputer.java:286)</span><br><span class="line">at hudson.model.Computer.connect(Computer.java:435)</span><br><span class="line">at hudson.slaves.SlaveComputer.doLaunchSlaveAgent(SlaveComputer.java:790)</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">java.lang.NullPointerException</span><br><span class="line">at hudson.os.windows.ManagedWindowsServiceLauncher.launch(ManagedWindowsServiceLauncher.java:298)</span><br></pre></td></tr></table></figure>
+
+<p>This issue had been raised in the Jenkins Jira project: <a href="https://issues.jenkins.io/browse/JENKINS-63198" target="_blank" rel="noopener">JENKINS-63198</a> and <a href="https://issues.jenkins.io/browse/JENKINS-63198" target="_blank" rel="noopener">JENKINS-63198</a></p>
+<p>There is also a Windows Support Updates guide <a href="https://www.jenkins.io/blog/2020/07/23/windows-support-updates/" target="_blank" rel="noopener">here</a> that mentioned this problem.</p>
+<p>Finally, I fixed this problem by the following steps:</p>
+<ol>
+<li>Update <a href="https://github.com/jenkinsci/windows-slaves-plugin" target="_blank" rel="noopener">windows-slaves-plugin</a> to the lastest version 1.7 (fixes for Jenkins 2.248+)</li>
+</ol>
+<p>Then the error should be like this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[2021-01-30 23:53:40] [windows-agents] Connecting to xxx.xxx.xxx.xxx</span><br><span class="line">Checking if Java exists</span><br><span class="line">java -version returned 11.0.2.</span><br><span class="line">[2021-01-30 23:53:47] [windows-agents] Copying jenkins-agent.xml</span><br><span class="line">[2021-01-30 23:53:48] [windows-agents] Copying agent.jar</span><br><span class="line">[2021-01-30 23:53:48] [windows-agents] Starting the service</span><br><span class="line">ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</span><br><span class="line">org.jinterop.dcom.common.JIException: Unknown Failure</span><br><span class="line">	at org.jvnet.hudson.wmi.Win32Service$Implementation.start(Win32Service.java:149)</span><br><span class="line">Caused: java.lang.reflect.InvocationTargetException</span><br><span class="line">	at sun.reflect.GeneratedMethodAccessor219.invoke(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">	at org.kohsuke.jinterop.JInteropInvocationHandler.invoke(JInteropInvocationHandler.java:140)</span><br><span class="line">Also:   java.lang.Throwable: launched here</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Then change <code>jenkins-agent.exe.config</code> file. remove or comment out this line <code>&lt;supportedRuntime version=&quot;v2.0.50727&quot; /&gt;</code> as below</li>
+</ol>
+<blockquote>
+<p>also do this for <code>jenkins-slave.exe.config</code> in case it also exists.</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">runtime</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- see http://support.microsoft.com/kb/936707 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">generatePublisherEvidence</span> <span class="attr">enabled</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">runtime</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">startup</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- this can be hosted either on .NET 2.0 or 4.0 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;supportedRuntime version="v2.0.50727" /&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">supportedRuntime</span> <span class="attr">version</span>=<span class="string">"v4.0"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Then try to Launch agent.</li>
+</ol>
+<p>If it still does not work and has this error message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”, you need to upgrade your .NET Framework.</p>
+<blockquote>
+<p>Here is a <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/">link</a> for update .NET Framework.</p>
+</blockquote>
+<p>Hopefully, this could help you to fix connect the issue of the Windows agent. Let me know in case of any questions.</p>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="ckvtpico60096jsfo4t3tfw2x" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/devops-roadmap-2021" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/devops-roadmap-2021/" class="article-date">
+  <time datetime="2021-01-21T15:29:25.000Z" itemprop="datePublished">2021-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/devops-roadmap-2021/">2021年DevOps工程师的学习路线</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DevOps 实际上是什么意思？🤔</p>
+<p>DevOps 是一种软件开发方法，涉及持续开发，持续测试，持续集成，部署和监视。这一系列过程跨越了传统上孤立的开发和运营团队，DevOps 试图消除它们之间的障碍。</p>
+<p>因此，DevOps 工程师基本上与 Development 和 Operations 团队合作。它是这两个主要部分之间的链接。</p>
+<h1 id="概念与工具"><a href="#概念与工具" class="headerlink" title="概念与工具"></a>概念与工具</h1><p>DevOps 包括诸如构建自动化、CI/CD、基础架构即代码等概念，并且有许多工具可以实现这些概念。由于这些工具数量众多，因此可能会造成混乱和压倒性的结果。</p>
+<p>最重要的是要了解概念，并为每个类别的学习找一种特定的工具。例如，当你已经知道什么是 CI/CD 并知道如何使用 Jenkins 时，也将很容易学习同类型的其他替代工具。</p>
+<p>接下来让就来看看学习 DevOps 需要掌握哪些技能。</p>
+<h2 id="1）软件开发的概念"><a href="#1）软件开发的概念" class="headerlink" title="1）软件开发的概念"></a>1）软件开发的概念</h2><p>作为一名 DevOps 工程师，你不会直接对应用程序进行编程，但是当你与开发团队紧密合作以改善和自动化他们的任务时，你需要了解以下概念：</p>
+<ul>
+<li>开发人员的工作方式</li>
+<li>他们正在使用哪个 git 工作流程</li>
+<li>如何配置应用程序</li>
+<li>自动化测试</li>
+</ul>
+<h2 id="2）操作系统"><a href="#2）操作系统" class="headerlink" title="2）操作系统"></a>2）操作系统</h2><p>作为 DevOps 工程师，你负责准备在操作系统上部署应用程序的所需要的基础结构环境。并且由于大多数服务器是 Linux 服务器，因此你需要了解 Linux 操作系统，并善于使用命令行，所以你需要知道：</p>
+<ul>
+<li>基本的 Shell 命令</li>
+<li>Linux 文件系统</li>
+<li>管理服务器的基础知识</li>
+<li>SSH 密钥管理</li>
+<li>在服务器上安装不同的工具</li>
+</ul>
+<h2 id="3）网络与安全"><a href="#3）网络与安全" class="headerlink" title="3）网络与安全"></a>3）网络与安全</h2><p>你还需要了解网络和安全性的基础知识才能配置基础架构，例如：</p>
+<ul>
+<li>配置防火墙以保护应用程序</li>
+<li>了解 IP 地址，端口和 DNS 的工作方式</li>
+<li>负载均衡器</li>
+<li>代理服务器</li>
+<li>HTTP/HTTPS</li>
+</ul>
+<p>但是，要在 DevOps 和 IT Operations 之间划清界线，你不是系统管理员。因此，在这里不需要高级知识，理解和了解基本知识就够了。IT 方面是这些 SysAdmins，Networking 或 Security Engineers 人的专长。</p>
+<h2 id="4）容器化"><a href="#4）容器化" class="headerlink" title="4）容器化"></a>4）容器化</h2><p>随着容器成为新标准，你可能会将应用程序作为容器运行，这意味着你需要大致了解：</p>
+<ul>
+<li>虚拟化的概念</li>
+<li>容器的概念</li>
+<li>学习哪个工具？ Docker - 当今最受欢迎的容器技术</li>
+</ul>
+<h2 id="5）持续集成和部署"><a href="#5）持续集成和部署" class="headerlink" title="5）持续集成和部署"></a>5）持续集成和部署</h2><p>在 DevOps 中，所有代码更改（例如开发人员的新功能和错误修复）都应集成到现有应用程序中，并以自动化方式连续地部署到最终用户。因此，建立完整的 CI/CD 管道是 DevOps 工程师的主要任务和职责。</p>
+<p>在完成功能或错误修正后，应自动触发在 CI 服务器（例如 Jenkins ）上运行的管道，该管道：</p>
+<ul>
+<li>运行测试</li>
+<li>打包应用程序</li>
+<li>构建 Docker 镜像</li>
+<li>将 Docker Image 推送到工件存储库，最后</li>
+<li>将新版本部署到服务器（可以是开发，测试或生产服务器）</li>
+</ul>
+<p>因此，你需要在此处学习技能：</p>
+<ul>
+<li>设置 CI/CD 服务器</li>
+<li>构建工具和程序包管理器工具以执行测试并打包应用程序</li>
+<li>配置工件存储库（例如 Nexus，Artifactory）</li>
+</ul>
+<p>当然，可以集成更多的步骤，但是此流程代表 CI/CD 管道的核心，并且是 DevOps 任务和职责的核心。</p>
+<p>学习哪个工具？Jenkins 是最受欢迎的人之一。其他：Bamboo，Gitlab，TeamCity，CircleCI，TravisCI。</p>
+<h2 id="6）云提供商"><a href="#6）云提供商" class="headerlink" title="6）云提供商"></a>6）云提供商</h2><p>如今，许多公司正在使用云上的虚拟基础架构，而不是管理自己的基础架构。这些是基础架构即服务（IaaS）平台，可提供一系列服务，例如备份，安全性，负载平衡等。</p>
+<p>因此，你需要学习云平台的服务。例如。对于 AWS，你应该了解以下基本知识：</p>
+<ul>
+<li>IAM 服务-管理用户和权限</li>
+<li>VPC 服务-你的专用网络</li>
+<li>EC2 服务-虚拟服务器</li>
+<li>AWS 提供了更多的服务，但是你只需要了解你实际需要的服务即可。例如，当 K8s 集群在 AWS 上运行时，你还需要学习 EKS 服务。</li>
+</ul>
+<p>AWS 是功能最强大，使用最广泛的一种，但也是最困难的一种。</p>
+<p>学习哪个工具？AWS 是最受欢迎的一种。其他热门：Azure，Google Cloud，阿里云，腾讯云。</p>
+<h2 id="7）容器编排"><a href="#7）容器编排" class="headerlink" title="7）容器编排"></a>7）容器编排</h2><p>如前所述，容器已被广泛使用，在大公司中，成百上千个容器正在多台服务器上运行，这意味着需要以某种方式管理这些容器。</p>
+<p>为此目的，有一些容器编排工具，而最受欢迎的是 Kubernetes。因此，你需要学习：</p>
+<ul>
+<li>Kubernetes 如何工作</li>
+<li>管理和管理 Kubernetes 集群</li>
+<li>并在其中部署应用程序</li>
+</ul>
+<p>学习哪个工具？Kubernetes - 最受欢迎，没有之一。</p>
+<h2 id="8）监视和日志管理"><a href="#8）监视和日志管理" class="headerlink" title="8）监视和日志管理"></a>8）监视和日志管理</h2><p>软件投入生产后，对其进行监视以跟踪性能，发现基础结构以及应用程序中的问题非常重要。因此，作为 DevOps 工程师的职责之一是：</p>
+<ul>
+<li>设置软件监控</li>
+<li>设置基础架构监控，例如用于你的 Kubernetes 集群和底层服务器。</li>
+</ul>
+<p>学习哪个工具？Prometheus, Grafana…</p>
+<h2 id="9）基础设施即代码"><a href="#9）基础设施即代码" class="headerlink" title="9）基础设施即代码"></a>9）基础设施即代码</h2><p>手动创建和维护基础架构非常耗时且容易出错，尤其是当你需要复制基础架构时，例如用于开发，测试和生产环境。</p>
+<p>在 DevOps 中，希望尽可能地自动化，那就是将“基础结构即代码（Infrastructure as Configuration）”引入其中。因此使用 IaC ，我们将使用代码来创建和配置基础结构，你需要了解两种 IaC 方式：</p>
+<ul>
+<li>基础设施配置</li>
+<li>配置管理</li>
+</ul>
+<p>使用这些工具，可以轻松地复制和恢复基础结构。因此，你应该在每个类别中都知道一种工具，以使自己的工作更有效率，并改善与同事的协作。</p>
+<p>学习哪个工具？</p>
+<p>基础架构设置：Terraform 是最受欢迎的一种。<br>配置管理：Ansible，Puppet，Chef。</p>
+<h2 id="10）脚本语言"><a href="#10）脚本语言" class="headerlink" title="10）脚本语言"></a>10）脚本语言</h2><p>作为 DevOps 工程师就常见的工作就是编写脚本和小型的应用程序以自动化任务。为了能够做到这一点，你需要了解一种脚本或编程语言。</p>
+<p>这可能是特定于操作系统的脚本语言，例如 bash 或 Powershell。</p>
+<p>还需要掌握一种独立于操作系统的语言，例如 Python 或 Go。这些语言功能更强大，更灵活。如果你善于使用其中之一，它将使你在就业市场上更具价值。</p>
+<p>学习哪个工具？Python：目前是最需要的一个，它易于学习，易于阅读并且具有许多可用的库。其他：Go，NodeJS，Ruby。</p>
+<h2 id="11）版本控制"><a href="#11）版本控制" class="headerlink" title="11）版本控制"></a>11）版本控制</h2><p>上述所有这些自动化逻辑都作为代码编写，使用版本控制工具（例如Git）来管理这些代码和配置文件。</p>
+<p>学习哪个工具？Git - 最受欢迎和广泛使用，没有之一。</p>
+<blockquote>
+<p><a href="https://dev.to/techworld_with_nana/devops-roadmap-2021-how-to-become-a-devops-engineer-1n9p" target="_blank" rel="noopener">DevOps Roadmap [2021] - How to become a DevOps Engineer</a></p>
+</blockquote>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="ckvtpicny0082jsfog1ja2p10" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/devops-trends-in-2021" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/devops-trends-in-2021/" class="article-date">
+  <time datetime="2021-01-21T14:12:32.000Z" itemprop="datePublished">2021-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/devops-trends-in-2021/">预测 2021 年的 DevOps 趋势</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DevOps 已经走了很长一段路，毫无疑问，它将在今年继续发光。由于许多公司都在寻求有关数字化转型的最佳实践，因此重要的是要了解领导者认为行业发展的方向。从这个意义上讲，以下文章是 DevOps 领导者对 DevOps 趋势的回应的集合，需要在 2021 年关注。</p>
+<p>让我们看看他们每个人对来年的 DevOps 有何评价。</p>
+<ol>
+<li>迁移到微服务将成为必须 —— Wipro Limited 首席 DevOps 工程师</li>
+</ol>
+<p>“从整体迁移到微服务和容器化架构对于所有公司的数字化转型之旅都是必不可少的，它不再是一个选择或选项。这就是Kubernetes 的采用率将上升的地方，当组织迁移到多重云时，Terraform 将成为实现基础架构自动化的最终选择。”</p>
+<ol start="2">
+<li>Hybrid将成为部署规范 —— JFrog 开发人员关系 VP</li>
+</ol>
+<p>“2020年将加速远程工作，加快向云的迁移，并将 DevOps 从最佳实践转变为每个业务的重要组成部分。随着我们进入2021年，该行业将在多个方面拥抱Hybrid。首先，企业将完全采用混合型劳动力，将远程工作和现场团队协作的优势相结合。 其次，商业模式将变得混合，例如将虚拟规模与本地网络合并的会议。最终，随着公司对堆栈进行现代化以利用云原生技术的优势，混合将成为部署规范，但要意识到并非所有事物都可以迁移到外部。2021年的赢家将是拥抱业务，模型和产品混合的公司。”</p>
+<ol start="3">
+<li>DataOps将蓬勃发展 - 乐天高级 DevOps 工程师</li>
+</ol>
+<p>“DataOps 肯定会在 2021 年蓬勃发展，COVID 可能会在其中发挥作用。由于 COVID 和 WFH 的情况，数字内容的消费量猛增，这要求自动缩放和自我修复系统的自动化达到新水平，以满足增长和需求。</p>
+<p>到目前为止，DevOps 设置的系统仅用于日志记录，监视和警报（ELK/EFK 堆栈，Prometheus/Grafana/Alertmanager等）。现在，DevOps 现在应该加强并使用可用数据和指标来 产生有价值的见解，学习并应用机器学习模型来预测事件或中断，开发从数据中学习自身并预测能力的自动化以改进预算计划。许多人已经开始对此部分调用 MLOps/AIOps。”</p>
+<ol start="4">
+<li>弹性测试将成为主流 —— Neotys 产品负责人</li>
+</ol>
+<p>从我的角度来看，可观察性，性能测试和弹性测试之间的交叉点将成为主流。 随着 AWS 和 Google 等 WW 领导者最近发布的 Ops 问题，以及各个领域的数字化转型都在加速发展，市场将逐渐意识到，公共或私有云形式提供的无限可扩展性是不够的。” - Neotys 产品负责人 Patrick Wolf</p>
+<ol start="5">
+<li>GitOps 将成为常态 —— 梅西百货的首席架构师</li>
+</ol>
+<p>“一个“构建，拥有，拥有”的开发过程需要开发人员知道和理解的工具。GitOps 是 DevOps 如何使用开发人员工具来驱动操作的名称。</p>
+<p>GitOps 是一种进行持续交付的方法。 更具体地说，它是用于构建统一部署，监视和管理的 Cloud Native 应用程序的操作模型。 它通过将 Git 用作声明性基础结构和应用程序的真实来源来工作。 当在 Git 中推送和批准提交时，自动化的 CI/CD 管道将对你的基础架构进行更改。它还利用差异工具将实际生产状态与源代码控制下的生产状态进行比较，并在出现差异时提醒你。GitOps 的最终目标是加快开发速度，以便你的团队可以安全可靠地对 Kubernetes 中运行的复杂应用程序进行更改和更新。” -梅西百货（Macy’s）首席建筑师 Soumen Sarkar</p>
+<ol start="6">
+<li>将会有更多的迁移到无服务器 —— ADP Lifion 的站点 SRE 经理</li>
+</ol>
+<p>“2021 年将是注视更多迁移到无服务器的一年。如果容器和业务流程是 Z 代.. 那么无服务器的实时负载将是 Gen+ .. 仅在你使用时使用和付款可能看起来是一样的.. 但请考虑运行基于 k8s pod 的微服务，以便在需要时在无服务器上运行相同的服务。” - ADP Lifion 网站可靠性工程经理 Shivaramakrishnan G</p>
+<ol start="7">
+<li>NoOps 出现 —— ClickIT Smart Technologies 的 CEO</li>
+</ol>
+<p>“我希望出现更多托管服务，并减少我们的 DevOps 运营并减少客户的运营支出。更多无服务器应用程序，更多无服务器服务，例如 Aurora 无服务器，Fargate，Amazon S3 和无服务器静态网站。数据中心中的 Amazon ECS/EKS（新版本 re：invent 2020）以及云管理服务，可让你减少数据中心的维护和开发。同样，将更多云原生的原理和功能移植到数据中心，例如。亲戚。”  - ClickIT Smart Technologies 首席执行官 Alfonso Valdes</p>
+<ol start="8">
+<li>BizDevOps 将大放异彩 —— Petco 的 DevOps 经理</li>
+</ol>
+<p>“在架构和公司层次结构方面朝着成本优化的方向发展-随着业务的发展，DevOps 的价值不断提高。</p>
+<p>专注于灵活的，云原生的架构和工具，这些功能一旦具备了“大佬”的能力，就可以打包成小型企业使用的包装（Snowflake 或 Hazelcast 与 Oracle/Teradata）</p>
+<p>FaaS 才刚刚起步（无服务器，Lambda 等）- 运营问题正在得到解决，人们正在意识到潜力。”</p>
+<ol start="9">
+<li>基础设施即代码（IaC）的地位将更高 —— 沃尔沃高级解决方案架构师</li>
+</ol>
+<p>“基础架构即代码（IaC）：云中 DevOps 的核心原则。你的基础架构本地或云中的服务器，网络和存储设备（定义为代码）。这使公司可以自动化并简化其基础架构。 IaC 还提供了一个简单的基础结构版本控制系统，该系统可让团队在发生灾难性故障时回退到“有效的最后配置”。这意味着可以快速恢复并减少停机时间。”</p>
+<ol start="10">
+<li>自动化和混乱工程变得非常重要 —— 直布罗陀印度开发中心的集团开发经理</li>
+</ol>
+<p>“一切都是自动化的-构建，部署，测试，基础架构和发布。</p>
+<p>具有所需质量门的生产线。更快，可重复，可自定义和可靠的自动化是任何项目成功的关键。混沌工程-在当今混合基础设施世界中非常关键的方面。系统行为和客户体验紧密结合在一起，你越早对其进行测试，就越能为客户提供更好的体验。”</p>
+<ol start="11">
+<li>云原生方法将被标准化 —— Ben Sapp</li>
+</ol>
+<p>“由于云空间已经真正地发展起来（最近十年左右），并且容器化已成为规范，所以一切都非常标准化，几乎就像大型机时代一样。</p>
+<p>当然，会有趋势和赚钱的机会。但是我不知道下一个大破坏者是什么。现在的一切基本上都与五年前的最佳做法相同，但更加可靠。我想越来越多的人将继续从宠物转移到牛身上，剩下诸如 Ansible 和 puppet 之类的工具仅用于打包程序和云 init 来构建容器主机。</p>
+<p>imo 是软件开发的黄金时代。 DevOps 和云原生方法已经实现了许多目标。管道，托管，存储，负载平衡……这些都在 5 分钟之内解决了。”</p>
+<ol start="12">
+<li>安全将成为重中之重 —— CloudSkiff</li>
+</ol>
+<p>“从 DevSecOps 角度绝对跟踪基础设施中不受控制的变化。作为代码的基础架构很棒，但是有太多可移动的部分：代码库，状态文件，实际云状态。事情倾向于漂移。这些更改可能有多种原因：从开发人员通过 Web 控制台创建或更新基础架构而不告知任何人，到云提供商方面不受控制的更新。处理基础架构漂移与代码库之间的挑战可能会充满挑战。” - CloudSkiff</p>
+<ol start="13">
+<li>Chaos Engineering 将变得越来越重要 —— International Technology Ventures 的 CTO</li>
+</ol>
+<p>“在更多组织中的 DevOps 规划讨论中，混沌工程将变得越来越重要（且更常见）。大多数组织通常不执行混沌工程学（Chaos Engineering），即在生产中对软件系统进行实验以建立对系统抵御动荡和意外情况能力的信心。</p>
+<p>如果我们在传统的五个成熟度模型框架内考虑 DevOps，那么 Chaos Engineering 将是第 4 或第 5 级学科，将包含在 DevOps 实践的保护范围内。正如将单独的测试/质量保证小组的传统角色纳入 DevOops 的学科一样，Chaos Engineering 也应如此。”</p>
+<ol start="14">
+<li>更关注即时日志以快速验证成功或失败 —— ADESA 平台稳定性总监</li>
+</ol>
+<p>“在后期部署中使用日志来验证发布是否成功，或存在严重错误。人们需要建立的最大联系是定义手动流程，然后实现自动化的巨大飞跃。一键部署，即时日志可快速验证成功或失败，然后触发回滚。随之而来的是复杂性以及跨服务依赖性，是否可以回滚某些内容，或者是否需要对其他服务进行进一步测试。想象一下 100 种微服务（又称管道，甚至还有 100 个容器）。</p>
+<p>作为一项，我总是庆祝成功的回滚，因为它不会对服务产生影响，而且是成功的。” -ADESA平台稳定性总监Craig Schultz</p>
+<ol start="15">
+<li>DevSecOps 将成为 DevOps 的默认部分 —— JFrog 的 DevOps 架构师</li>
+</ol>
+<p>DevSecOps 的 “Sec” 部分将越来越成为软件开发生命周期中不可或缺的一部分，真正的安全性 “向左移动” 方法将成为新的规范，CI/CD 管道中的专用安全性步骤将更少从开发人员的 IDE 到依赖关系和静态代码分析，安全和自动识别和采取措施将是所有流程步骤的一部分。在没有适当（自动？）解决这些问题的情况下，不会发布软件组件。真正的安全问题是免费软件。”</p>
+<p>希望你喜欢我们对 DevOps 趋势的专家综述，并在 2021 年关注。如果你认为这里缺少应考虑的内容，请在评论中分享你的观点。</p>
+<blockquote>
+<p>原文 <a href="https://dzone.com/articles/15-devops-trends-to-expect-in-2021" target="_blank" rel="noopener">15 DevOps Trends to Expect in 2021</a> 的翻译。</p>
+</blockquote>
+
+      
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-3986315287795783"
+          data-ad-slot="2662771257"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="ckvtpico0008ejsfogmnx41ua" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li></ul>
+
+    </footer>
+    
+    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </div>
+  
+</article>
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">next</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/aix/">AIX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/artifactory/">Artifactory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coverage/">Coverage</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">35</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">Language</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mynotes/">MyNotes</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/os/">OS</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/polaris/">Polaris</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/quality/">Quality</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonarqube/">SonarQube</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">Windows</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/special-repository/">如何将每次发布的博客文章自动同步到 GitHub 个人主页？</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/world-quality-report/">2021-22 世界质量报告（World Quality Report）</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/docker-best-practice/">Docker 最佳实践</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/what-is-polaris/">Polaris - 静态代码分析</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/git-cheatsheet/">Git 常用命令备忘录</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/sonarqube-integration/">How does SonarQube Community Edition integrate with the project</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/lcov-error/">Run lcov failed &#34;Can&#39;t locate JSON/PP.pm in @INC ...&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/gcov-example-cn/">使用 Gcov 和 LCOV 度量 C/C++ 项目的代码覆盖率</a>
+          </li>
+        
+          <li>
+            <a href="/2021/08/sonarqube-setup/">SonarQube installation and troubleshootings</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/how-to-fix-gcov-hidden-symbol/">How to fix &#34;hidden symbol `__gcov_init&#39; in ../libgcov.a(_gcov.o) is referenced by DSO&#34;</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/update-bitbucket-build-status/">Add or update Bitbucket build status with REST API</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/code-coverage/">关于代码覆盖率 (About Code Coverage)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/gcov-example/">Use Gcov and LCOV to perform code coverage testing on C/C++ projects</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/jenkins-timeout/">How to make Jenkins job fail after timeout? (Resolved)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/git-clone-failed-on-aix/">解决两个 AIX 上 Git Clone 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/gcov/">Gcov 一个免费开源的 C/C++ 代码覆盖率工具以及生成报告</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/aix-ulimit/">通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/artifactory-slow-upload/">关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/06/eslint-jenkins/">Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/git-guidelines/">Git 常见设置指北</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/branch-naming-convention/">Branch Naming Convention</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/artifactory-api-search/">How to download the entire folder artifacts when Artifactory &#34;Download Folder functionality is disabled&#34;?</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/why-windows-installer-pop-up/">Why Windows Installer pop up? (Resolved)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/jacoco-imp/">JaCoCo 代码覆盖率实践分享</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/pythonic/">你的 Python 代码够不够 Pythonic？</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aix/" rel="tag">AIX</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automation/" rel="tag">Automation</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backup/" rel="tag">Backup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blackduck/" rel="tag">BlackDuck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">Blog</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/branch/" rel="tag">Branch</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">C</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cicd/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/" rel="tag">Cheatsheet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cppcheck/" rel="tag">Cppcheck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/" rel="tag">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functiontest/" rel="tag">FunctionTest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">Git</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hp-ux/" rel="tag">HP-UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jmeter/" rel="tag">JMeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">39</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ldap/" rel="tag">LDAP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/" rel="tag">NFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">Pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/" rel="tag">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quality/" rel="tag">Quality</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rdp/" rel="tag">RDP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/release/" rel="tag">Release</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/report/" rel="tag">Report</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">Selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">Shell</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solaris/" rel="tag">Solaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonarqube/" rel="tag">SonarQube</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squash/" rel="tag">Squash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squishcoco/" rel="tag">SquishCoco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">Static</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stats/" rel="tag">Stats</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/" rel="tag">Summary</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testng/" rel="tag">TestNG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thought/" rel="tag">Thought</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VScode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webhook/" rel="tag">Webhook</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">Windows</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">Work</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/writing/" rel="tag">Writing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">lcov</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/" rel="tag">perl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 11.67px;">AIX</a> <a href="/tags/actions/" style="font-size: 10px;">Actions</a> <a href="/tags/ansible/" style="font-size: 10.83px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15px;">Artifactory</a> <a href="/tags/automation/" style="font-size: 16.67px;">Automation</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/bitbucket/" style="font-size: 14.17px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10px;">BlackDuck</a> <a href="/tags/blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/branch/" style="font-size: 11.67px;">Branch</a> <a href="/tags/c/" style="font-size: 13.33px;">C</a> <a href="/tags/cicd/" style="font-size: 10px;">CICD</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">Cheatsheet</a> <a href="/tags/codereview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/coverage/" style="font-size: 15.83px;">Coverage</a> <a href="/tags/coverity/" style="font-size: 10px;">Coverity</a> <a href="/tags/cppcheck/" style="font-size: 10px;">Cppcheck</a> <a href="/tags/devops/" style="font-size: 18.33px;">DevOps</a> <a href="/tags/disqus/" style="font-size: 10px;">Disqus</a> <a href="/tags/docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/dokerfile/" style="font-size: 10px;">Dokerfile</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/ftp/" style="font-size: 10px;">FTP</a> <a href="/tags/functiontest/" style="font-size: 10px;">FunctionTest</a> <a href="/tags/gcov/" style="font-size: 12.5px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.17px;">Git</a> <a href="/tags/github/" style="font-size: 10.83px;">GitHub</a> <a href="/tags/gradle/" style="font-size: 10.83px;">Gradle</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 14.17px;">Hexo</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 13.33px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.83px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 10px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.67px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/lcov/" style="font-size: 11.67px;">LCOV</a> <a href="/tags/ldap/" style="font-size: 10px;">LDAP</a> <a href="/tags/linux/" style="font-size: 10.83px;">Linux</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 17.5px;">Nightwatch</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pip/" style="font-size: 10px;">Pip</a> <a href="/tags/pipeline/" style="font-size: 15.83px;">Pipeline</a> <a href="/tags/polaris/" style="font-size: 10px;">Polaris</a> <a href="/tags/postgresql/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 12.5px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/quality/" style="font-size: 10px;">Quality</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/release/" style="font-size: 10.83px;">Release</a> <a href="/tags/report/" style="font-size: 10px;">Report</a> <a href="/tags/security/" style="font-size: 10px;">Security</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 13.33px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/sonarqube/" style="font-size: 10.83px;">SonarQube</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">SquishCoco</a> <a href="/tags/static/" style="font-size: 10px;">Static</a> <a href="/tags/stats/" style="font-size: 10.83px;">Stats</a> <a href="/tags/summary/" style="font-size: 11.67px;">Summary</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 11.67px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/troubleshooting/" style="font-size: 14.17px;">Troubleshooting</a> <a href="/tags/ubuntu/" style="font-size: 11.67px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/vscode/" style="font-size: 10px;">VScode</a> <a href="/tags/virtualbox/" style="font-size: 10px;">VirtualBox</a> <a href="/tags/webhook/" style="font-size: 11.67px;">Webhook</a> <a href="/tags/windows/" style="font-size: 11.67px;">Windows</a> <a href="/tags/work/" style="font-size: 13.33px;">Work</a> <a href="/tags/writing/" style="font-size: 10px;">Writing</a> <a href="/tags/lcov/" style="font-size: 10px;">lcov</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/ulimit/" style="font-size: 10px;">ulimit</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/README.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 - 2021 shenxianpeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/daily/" class="mobile-nav-link">Daily</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
