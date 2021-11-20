@@ -4,35 +4,6 @@
   
     
     <entry>
-      <title>DevOps 工程师需不需要学些 Groovy？</title>
-      <link href="/2021/11/groovy/"/>
-      <url>/2021/11/groovy/</url>
-      
-        <content type="html"><![CDATA[<p>作为 DevOps 工程师因为 Jenkins 的原因你或多或少都回接触到 Groovy，或许你会简单的在 Jenkins pepeline 中使用它。</p><p>但我们要掌握到什么程度？<br>有没有必要需要花点时间来学习它？<br>Groovy 和 Java 有什么区别？<br>Groovy 到底是什么？<br>Groovy 在整个开发语言中占什么位置<br>什么项目，什么样的工作需要选择 Groovy</p><h2 id="Groovy-和-Java-有什么区别？"><a href="#Groovy-和-Java-有什么区别？" class="headerlink" title="Groovy 和 Java 有什么区别？"></a>Groovy 和 Java 有什么区别？</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> Groovy </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Jenkins </tag>
-            
-            <tag> DevOps </tag>
-            
-            <tag> Groovy </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>如何将每次发布的博客文章自动同步到 GitHub 个人主页？</title>
       <link href="/2021/11/special-repository/"/>
       <url>/2021/11/special-repository/</url>
@@ -632,9 +603,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -1131,9 +1102,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -1582,11 +1553,11 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
+            <tag> Troubleshooting </tag>
             
             <tag> JFrog </tag>
             
-            <tag> Troubleshooting </tag>
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -2162,9 +2133,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -2349,9 +2320,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -2781,9 +2752,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> Coverage </tag>
-            
             <tag> SquishCoco </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -2808,9 +2779,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> C </tag>
             
             <tag> Coverage </tag>
             

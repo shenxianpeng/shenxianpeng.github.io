@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-11-18T14:24:27.512Z</updated>
+  <updated>2021-11-10T15:29:11.559Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,37 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>DevOps 工程师需不需要学些 Groovy？</title>
-    <link href="https://shenxianpeng.github.io/2021/11/groovy/"/>
-    <id>https://shenxianpeng.github.io/2021/11/groovy/</id>
-    <published>2021-11-18T14:19:31.000Z</published>
-    <updated>2021-11-18T14:24:27.512Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;作为 DevOps 工程师因为 Jenkins 的原因你或多或少都回接触到 Groovy，或许你会简单的在 Jenkins pepeline 中使用它。&lt;/p&gt;
-&lt;p&gt;但我们要掌握到什么程度？&lt;br&gt;有没有必要需要花点时间来学习它？&lt;br&gt;Groovy 和 Java
-        
-      
-    
-    </summary>
-    
-      <category term="Groovy" scheme="https://shenxianpeng.github.io/categories/groovy/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
-      <category term="Groovy" scheme="https://shenxianpeng.github.io/tags/groovy/"/>
-    
-  </entry>
   
   <entry>
     <title>如何将每次发布的博客文章自动同步到 GitHub 个人主页？</title>
@@ -720,6 +689,33 @@
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
       <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git 常见设置指北</title>
+    <link href="https://shenxianpeng.github.io/2021/05/git-guidelines/"/>
+    <id>https://shenxianpeng.github.io/2021/05/git-guidelines/</id>
+    <published>2021-05-13T16:19:15.000Z</published>
+    <updated>2021-07-15T15:59:15.119Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在使用 Git 提交代码之前，建议做以下这些设置。&lt;/p&gt;
+&lt;p&gt;叫指南有点夸张，因为它在有些情况下下不适用，比如你已经有了 &lt;code&gt;.gitattributes&lt;/code&gt; 或 &lt;code&gt;.editorconfig&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
   </entry>
   
