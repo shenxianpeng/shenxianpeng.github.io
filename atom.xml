@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-11-10T15:29:11.559Z</updated>
+  <updated>2021-11-18T14:24:27.512Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DevOps 工程师需不需要学些 Groovy？</title>
+    <link href="https://shenxianpeng.github.io/2021/11/groovy/"/>
+    <id>https://shenxianpeng.github.io/2021/11/groovy/</id>
+    <published>2021-11-18T14:19:31.000Z</published>
+    <updated>2021-11-18T14:24:27.512Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;作为 DevOps 工程师因为 Jenkins 的原因你或多或少都回接触到 Groovy，或许你会简单的在 Jenkins pepeline 中使用它。&lt;/p&gt;
+&lt;p&gt;但我们要掌握到什么程度？&lt;br&gt;有没有必要需要花点时间来学习它？&lt;br&gt;Groovy 和 Java
+        
+      
+    
+    </summary>
+    
+      <category term="Groovy" scheme="https://shenxianpeng.github.io/categories/groovy/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Groovy" scheme="https://shenxianpeng.github.io/tags/groovy/"/>
+    
+  </entry>
   
   <entry>
     <title>如何将每次发布的博客文章自动同步到 GitHub 个人主页？</title>
@@ -50,7 +81,7 @@
     <link href="https://shenxianpeng.github.io/2021/11/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2021/11/world-quality-report/</id>
     <published>2021-11-06T07:57:10.000Z</published>
-    <updated>2021-11-08T03:32:58.768Z</updated>
+    <updated>2021-11-20T11:58:15.597Z</updated>
     
     <summary type="html">
     
@@ -58,7 +89,7 @@
 &lt;p&gt;这份报告共采访了 1750 名高管和专业人士。从最高管理层到 QA 测试经理和质量工程师，涵盖了来自全球 32 个国家的 10 个行业。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2021/11/world-quality-report/0.png&quot; alt&gt;&lt;/p&gt;
 &lt;p&gt;世界质量报告（WQR）是一项独一无二的全球研究，今年的调查强调了新部署方法中不断变化的受大流行影响的应用程序需求的影响，以及 QA 对敏捷和 DevOps 实践的采用，AI 的持续增长。&lt;/p&gt;
-&lt;p&gt;做为测试关注这类软件质量报告可以帮助我们快速了解软件测试行业的现状和发展。&lt;/p&gt;
+&lt;p&gt;作为测试关注这类软件质量报告可以帮助我们快速了解软件测试行业的现状和趋势。&lt;/p&gt;
 &lt;h2 id=&quot;五大主题&quot;&gt;&lt;a href=&quot;#五大主题&quot; class=&quot;headerlink&quot; title=&quot;五大主题&quot;&gt;&lt;/a&gt;五大主题&lt;/h2&gt;&lt;p&gt;WQR 的一个关键信息：在新冠疫情依旧的今天，我们看到了数字化转型的融合以及敏捷和 DevOps 实践的实时采用。此外，QA 正在成为采用敏捷和 DevOps 实践的领导者，为团队提供工具和流程以促进整个软件生命周期（SDLC）的质量。&lt;/p&gt;
 &lt;p&gt;WQR 围绕关键发现和趋势突出了五个特定主题：&lt;/p&gt;
 &lt;ol&gt;
@@ -139,7 +170,7 @@
     <link href="https://shenxianpeng.github.io/2021/10/what-is-polaris/"/>
     <id>https://shenxianpeng.github.io/2021/10/what-is-polaris/</id>
     <published>2021-10-24T13:33:53.000Z</published>
-    <updated>2021-11-08T01:05:35.855Z</updated>
+    <updated>2021-11-20T11:58:15.588Z</updated>
     
     <summary type="html">
     
@@ -158,7 +189,7 @@
 &lt;p&gt;如果你的 Polaris server URL 为：&lt;code&gt;POLARIS_SERVER_URL=https://organization.polaris.synopsys.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;下载连接为：&lt;code&gt;$POLARIS_SERVER_URL/api/tools/polaris_cli-linux64.zip&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;然后将下载到本地的 &lt;code&gt;polaris_cli-linux64.zip&lt;/code&gt; 进行解压，将其 bin 目录添加到 PATH 中。&lt;/p&gt;
-&lt;h3 id=&quot;Polaris-YAML-文件配置&quot;&gt;&lt;a href=&quot;#Polaris-YAML-文件配置&quot; class=&quot;headerlink&quot; title=&quot;Polaris YAML 文件配置&quot;&gt;&lt;/a&gt;Polaris YAML 文件配置&lt;/h3&gt;&lt;p&gt;在进行扫描之前，你需要为你的项目创建 YAML 文件。默认配置文件名为 &lt;code&gt;polaris.yml&lt;/code&gt;，位于项目根目录。如果你希望指定不同的配置文件名，您可以在 &lt;code&gt;polaris&lt;/code&gt; 命令中使用 &lt;code&gt;-c&lt;/code&gt; 选项。&lt;/p&gt;
+&lt;h3 id=&quot;Polaris-YAML-文件配置&quot;&gt;&lt;a href=&quot;#Polaris-YAML-文件配置&quot; class=&quot;headerlink&quot; title=&quot;Polaris YAML 文件配置&quot;&gt;&lt;/a&gt;Polaris YAML 文件配置&lt;/h3&gt;&lt;p&gt;在进行扫描之前，你需要为你的项目创建 YAML 文件。默认配置文件名为 &lt;code&gt;polaris.yml&lt;/code&gt;，位于项目根目录。如果你希望指定不同的配置文件名，你可以在 &lt;code&gt;polaris&lt;/code&gt; 命令中使用 &lt;code&gt;-c&lt;/code&gt; 选项。&lt;/p&gt;
 &lt;p&gt;在项目根目录运行 &lt;code&gt;polaris setup&lt;/code&gt; 以生成通用的 &lt;code&gt;polaris.yml&lt;/code&gt; 文件。&lt;/p&gt;
 &lt;p&gt;运行 &lt;code&gt;polaris configure&lt;/code&gt; 以确认你的文件在语法上是正确的并且 &lt;code&gt;polaris&lt;/code&gt; 没有任何问题。&lt;/p&gt;
 &lt;h4 id=&quot;Capture-捕获&quot;&gt;&lt;a href=&quot;#Capture-捕获&quot; class=&quot;headerlink&quot; title=&quot;Capture - 捕获&quot;&gt;&lt;/a&gt;Capture - 捕获&lt;/h4&gt;&lt;p&gt;YAML 配置文件可以包含三种类型的 Capture：&lt;/p&gt;
@@ -184,7 +215,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;C#, Visual Basic.&lt;/td&gt;
-&lt;td&gt;如果想获得更准确的结果使用 Build 捕获；如用寻求简单使用 Buildless 捕获&lt;/td&gt;
+&lt;td&gt;如果想获得更准确的结果使用 Build 捕获；如果寻求简单使用 Buildless 捕获&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Java&lt;/td&gt;
@@ -195,7 +226,7 @@
 &lt;td&gt;使用 Filesystem 捕获；如果寻求简单使用 Buildless 捕获&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
-&lt;h4 id=&quot;Analyze-分析&quot;&gt;&lt;a href=&quot;#Analyze-分析&quot; class=&quot;headerlink&quot; title=&quot;Analyze - 分析&quot;&gt;&lt;/a&gt;Analyze - 分析&lt;/h4&gt;&lt;p&gt;如果您正在扫描 C/C++ 代码，则应包括此分析部分以充分利用 Polaris 的扫描功能：&lt;/p&gt;
+&lt;h4 id=&quot;Analyze-分析&quot;&gt;&lt;a href=&quot;#Analyze-分析&quot; class=&quot;headerlink&quot; title=&quot;Analyze - 分析&quot;&gt;&lt;/a&gt;Analyze - 分析&lt;/h4&gt;&lt;p&gt;如果你正在扫描 C/C++ 代码，则应包括此分析部分以充分利用 Polaris 的扫描功能：&lt;/p&gt;
 &lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;analyze:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;mode:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;central&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;coverity:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;cov-analyze:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;[&quot;--security&quot;,&quot;--concurrency&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;Polaris-YAML-示例文件&quot;&gt;&lt;a href=&quot;#Polaris-YAML-示例文件&quot; class=&quot;headerlink&quot; title=&quot;Polaris YAML 示例文件&quot;&gt;&lt;/a&gt;Polaris YAML 示例文件&lt;/h4&gt;
@@ -689,33 +720,6 @@
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
       <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git 常见设置指北</title>
-    <link href="https://shenxianpeng.github.io/2021/05/git-guidelines/"/>
-    <id>https://shenxianpeng.github.io/2021/05/git-guidelines/</id>
-    <published>2021-05-13T16:19:15.000Z</published>
-    <updated>2021-07-15T15:59:15.119Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在使用 Git 提交代码之前，建议做以下这些设置。&lt;/p&gt;
-&lt;p&gt;叫指南有点夸张，因为它在有些情况下下不适用，比如你已经有了 &lt;code&gt;.gitattributes&lt;/code&gt; 或 &lt;code&gt;.editorconfig&lt;/code&gt;
-        
-      
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
   </entry>
   
