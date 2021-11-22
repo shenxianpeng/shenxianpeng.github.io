@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/26.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/27.png">
 <meta property="article:published_time" content="2019-12-28T15:16:30.000Z">
-<meta property="article:modified_time" content="2021-11-22T13:40:04.163Z">
+<meta property="article:modified_time" content="2021-11-22T15:52:05.346Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta name="twitter:card" content="summary">
@@ -196,8 +196,10 @@ ga('send', 'pageview');
 <p>在基本配置部分中，你还可以选择是否针对失败的构建也运行该步骤。默认情况下禁用此选项，因为如果构建失败，分析结果可能会不准确。</p>
 <p>以下代码段显示了具有这些选项的示例管道：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">recordIssues(</span><br><span class="line">    enabledForFailure: <span class="keyword">true</span>, aggregatingResults: <span class="keyword">true</span>,</span><br><span class="line">    tools: [java(), checkStyle(pattern: <span class="string">'checkstyle-result.xml'</span>, reportEncoding: <span class="string">'UTF-8'</span>)]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <p>如果使用单个工具，则可以使用属性工具代替工具：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recordIssues enabledForFailure: <span class="literal">true</span>, aggregatingResults: <span class="literal">true</span>, tool: checkStyle(pattern: <span class="string">'checkstyle-result.xml'</span>)</span><br></pre></td></tr></table></figure>
+
 <h3 id="创建对自定义工具的支持"><a href="#创建对自定义工具的支持" class="headerlink" title="创建对自定义工具的支持"></a>创建对自定义工具的支持</h3><p>如果你的项目中没有内置工具，则可以通过多种方式添加其他工具。</p>
 <h4 id="将问题导出为受支持的格式"><a href="#将问题导出为受支持的格式" class="headerlink" title="将问题导出为受支持的格式"></a>将问题导出为受支持的格式</h4><p>将工具的分析结果获取到 Warnings 插件中的一种简单方法是将信息导出为一种已经支持的格式。例如，几种工具将其问题导出为 CheckStyle 或 PMD 格式。如果要使用警告插件的所有功能，则最好将信息导出为本机 XML 或 JSON 格式（此解析器使用 ID 问题）。<br>这些格式已经在用户界面中注册，你可以直接使用它们。你甚至可以在包含单行 JSON 问题的简单日志文件中提供问题，请参见示例。</p>
 <p>这是一个示例步骤，可用于解析本机 JSON（或 XML）格式：</p>
@@ -425,7 +427,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/" data-id="ckwarcwlj009qd0fo9o473uv3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/" data-id="ckwaupxks0069zofo3s5c7g3l" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/12/Jenkins-Warnings-Next-Generation-Plugin/#disqus_thread" class="article-comment-link">Comments</a>

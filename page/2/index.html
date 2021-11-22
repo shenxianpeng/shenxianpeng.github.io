@@ -145,7 +145,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/07/update-bitbucket-build-status/" data-id="ckwarcwmm00cfd0fo3e8rflox" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/07/update-bitbucket-build-status/" data-id="ckwaupxnp00d3zofocghk23w9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/07/update-bitbucket-build-status/#disqus_thread" class="article-comment-link">Comments</a>
@@ -269,7 +269,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/07/code-coverage/" data-id="ckwarcwmg00bxd0foc3ria62h" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/07/code-coverage/" data-id="ckwaupxnj00cpzofo8eps2r2h" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/07/code-coverage/#disqus_thread" class="article-comment-link">Comments</a>
@@ -338,6 +338,7 @@ ga('send', 'pageview');
 <summary>Click to see the output of the make command</summary>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2$ make</span><br><span class="line">gcc -fPIC -fprofile-arcs -ftest-coverage -c -Wall -Werror main.c</span><br><span class="line">gcc -fPIC -fprofile-arcs -ftest-coverage -c -Wall -Werror foo.c</span><br><span class="line">gcc -fPIC -fprofile-arcs -ftest-coverage -o main main.o foo.o</span><br></pre></td></tr></table></figure>
+
 </details>
 
 <p>As you can see from the output, this program is compiled with two compile options <code>-fprofile-arcs</code> and <code>-ftest-coverage</code>. After successful compilation, not only the <code>main</code> and <code>.o</code> files are generated, but also two <code>.gcno</code> files are generated.</p>
@@ -366,6 +367,7 @@ ga('send', 'pageview');
 <summary> Click to see the output of the generated report </summary>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">sh-4.2$ make report</span><br><span class="line">gcov main.c foo.c</span><br><span class="line">File <span class="string">'main.c'</span></span><br><span class="line">Lines executed:100.00% of 5</span><br><span class="line">Creating <span class="string">'main.c.gcov'</span></span><br><span class="line"></span><br><span class="line">File <span class="string">'foo.c'</span></span><br><span class="line">Lines executed:85.71% of 7</span><br><span class="line">Creating <span class="string">'foo.c.gcov'</span></span><br><span class="line"></span><br><span class="line">Lines executed:91.67% of 12</span><br><span class="line">lcov --capture --directory . --output-file coverage.info</span><br><span class="line">Capturing coverage data from .</span><br><span class="line">Found gcov version: 4.8.5</span><br><span class="line">Scanning . <span class="keyword">for</span> .gcda files ...</span><br><span class="line">Found 2 data files <span class="keyword">in</span> .</span><br><span class="line">Processing foo.gcda</span><br><span class="line">geninfo: WARNING: cannot find an entry <span class="keyword">for</span> main.c.gcov <span class="keyword">in</span> .gcno file, skipping file!</span><br><span class="line">Processing main.gcda</span><br><span class="line">Finished .info-file creation</span><br><span class="line">genhtml coverage.info --output-directory out</span><br><span class="line">Reading data file coverage.info</span><br><span class="line">Found 2 entries.</span><br><span class="line">Found common filename prefix <span class="string">"/workspace/coco"</span></span><br><span class="line">Writing .css and .png files.</span><br><span class="line">Generating output.</span><br><span class="line">Processing file gcov-example/main.c</span><br><span class="line">Processing file gcov-example/foo.c</span><br><span class="line">Writing directory view page.</span><br><span class="line">Overall coverage rate:</span><br><span class="line">  lines......: 91.7% (11 of 12 lines)</span><br><span class="line">  <span class="built_in">functions</span>..: 100.0% (2 of 2 <span class="built_in">functions</span>)</span><br></pre></td></tr></table></figure>
+
 </details>
 
 <p>Executing <code>make report</code> to generate an HTML report actually performs two main steps behind this command.</p>
@@ -419,7 +421,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/07/gcov-example/" data-id="ckwarcwmc00bmd0fo51q86hlg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/07/gcov-example/" data-id="ckwaupxnk00cszofo92p3cdw0" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/07/gcov-example/#disqus_thread" class="article-comment-link">Comments</a>
@@ -482,7 +484,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/jenkins-timeout/" data-id="ckwarcwmz00dgd0fo9573ftux" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/jenkins-timeout/" data-id="ckwaupxnh00ckzofoccavbg52" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/#disqus_thread" class="article-comment-link">Comments</a>
@@ -529,7 +531,7 @@ ga('send', 'pageview');
 <li>Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</li>
 <li>通过 SSH 进行 git clone 出现 Authentication failed</li>
 </ol>
-<h2 id="问题1：Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded"><a href="#问题1：Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded" class="headerlink" title="问题1：Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded."></a>问题1：Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</h2><p>Jenkins 通过 HTTPS 来 checkout 代码的时候，出现了如下错误：</p>
+<h2 id="问题1：Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded"><a href="#问题1：Dependent-module-usr-lib-libldap-a-libldap-2-4-so-2-could-not-be-loaded" class="headerlink" title="问题1：Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded"></a>问题1：Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded</h2><p>Jenkins 通过 HTTPS 来 checkout 代码的时候，出现了如下错误：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[2021-06-20T14:50:25.166Z] ERROR: Error cloning remote repo <span class="string">'origin'</span></span><br><span class="line">[2021-06-20T14:50:25.166Z] hudson.plugins.git.GitException: Command <span class="string">"git fetch --tags --force --progress --depth=1 -- https://git.company.com/scm/vas/db.git +refs/heads/*:refs/remotes/origin/*"</span> returned status code 128:</span><br><span class="line">[2021-06-20T14:50:25.166Z] stdout:</span><br><span class="line">[2021-06-20T14:50:25.166Z] stderr: <span class="built_in">exec</span>(): 0509-036 Cannot load program /opt/freeware/libexec64/git-core/git-remote-https because of the following errors:</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-150   Dependent module /usr/lib/libldap.a(libldap-2.4.so.2) could not be loaded.</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-153   File /usr/lib/libldap.a is not an archive or</span><br><span class="line">[2021-06-20T14:50:25.166Z] 		   the file could not be <span class="built_in">read</span> properly.</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	0509-026 System error: Cannot run a file that does not have a valid format.</span><br><span class="line">[2021-06-20T14:50:25.166Z]</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2450)</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandWithCredentials(CliGitAPIImpl.java:2051)</span><br><span class="line">[2021-06-20T14:50:25.166Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.access<span class="variable">$500</span>(CliGitAPIImpl.java:84)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$1</span>.execute(CliGitAPIImpl.java:573)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$2</span>.execute(CliGitAPIImpl.java:802)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span><span class="variable">$GitCommandMasterToSlaveCallable</span>.call(RemoteGitImpl.java:161)</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl<span class="variable">$CommandInvocationHandler</span><span class="variable">$GitCommandMasterToSlaveCallable</span>.call(RemoteGitImpl.java:154)</span><br><span class="line">..........................</span><br><span class="line">[2021-06-20T14:50:25.167Z] 	Suppressed: hudson.remoting.Channel<span class="variable">$CallSiteStackTrace</span>: Remote call to aix-devasbld-01</span><br><span class="line">[2021-06-20T14:50:25.167Z] 		at hudson.remoting.Channel.attachCallSiteStackTrace(Channel.java:1800)</span><br><span class="line">..........................</span><br><span class="line">[2021-06-20T14:50:25.168Z] 		at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">[2021-06-20T15:21:20.525Z] Cloning repository https://git.company.com/scm/vas/db.git</span><br></pre></td></tr></table></figure>
 
 <p>直接在虚拟机上通过命令 <code>git clone https://git.company.com/scm/vas/db.git</code> ，可以成功下载，没有出现任何问题。</p>
@@ -568,7 +570,6 @@ ga('send', 'pageview');
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AllowPKCS12keystoreAutoOpen no</span><br><span class="line"><span class="comment">#   ForwardAgent no</span></span><br><span class="line"><span class="comment">#   ForwardX11 no</span></span><br><span class="line"><span class="comment">#   RhostsRSAAuthentication no</span></span><br><span class="line"><span class="comment">#   RSAAuthentication yes</span></span><br><span class="line"><span class="comment">#   PasswordAuthentication yes</span></span><br><span class="line"><span class="comment">#   HostbasedAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIDelegateCredentials no</span></span><br><span class="line"><span class="comment">#   GSSAPIKeyExchange no</span></span><br><span class="line"><span class="comment">#   GSSAPITrustDNS no</span></span><br><span class="line"><span class="comment">#   ....省略</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="完！"><a href="#完！" class="headerlink" title="完！"></a>完！</h2>
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
@@ -582,7 +583,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckwarcwmy00dcd0focvplait4" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="ckwaupxnm00cwzofo585v4cs0" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
@@ -710,9 +711,9 @@ ga('send', 'pageview');
 <li>查看报告</li>
 </ol>
 <p>打开 coverage.html</p>
-<p><img src="/2021/06/gcov/gcovr.png" alt></p>
-<p><img src="/2021/06/gcov/gcovr-main.c.png" alt></p>
-<p><img src="/2021/06/gcov/gcovr-foo.c.png" alt></p>
+<p><img src="/2021/06/gcov/gcovr.png" alt="summary"></p>
+<p><img src="/2021/06/gcov/gcovr-main.c.png" alt="gcovr-main.c"></p>
+<p><img src="/2021/06/gcov/gcovr-foo.c.png" alt="gcovr-foo.c"></p>
 <h2 id="更多用法"><a href="#更多用法" class="headerlink" title="更多用法"></a>更多用法</h2><ol>
 <li><p><code>--coverage</code> <a href="https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-coverage" target="_blank" rel="noopener">https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html#index-coverage</a></p>
 </li>
@@ -740,7 +741,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/gcov/" data-id="ckwarcwmx00d8d0fodik7hsuu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/gcov/" data-id="ckwaupxnf00chzofofdm13ayk" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/gcov/#disqus_thread" class="article-comment-link">Comments</a>
@@ -791,10 +792,12 @@ ga('send', 'pageview');
 <p>可以看到 file 有一个上限值 2097151。如果将它也改成 unlimited 应该就好了。</p>
 <p>通过 root 用户可以访问到 limits 文件 <code>/etc/security/limits</code>(普通用户没权限访问)。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下是这个文件里的部分内容</span></span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = 2097151</span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br></pre></td></tr></table></figure>
+
 <p>将上述的值 fsize = 2097151 改成 fsize = -1 就将解除了文件块大小的限制了。修改完成后，重新登录，再次执行 <code>ulimit -a</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+
 <p>此时 file(blocks) 已经变成 unlimited 了。再次尝试 git clone</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
 
 <p>这次就成功了！</p>
 
@@ -811,7 +814,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckwarcwmu00d1d0fohqvrgto5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckwaupxnb00c6zofo4k8m9pn3" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/aix-ulimit/#disqus_thread" class="article-comment-link">Comments</a>
@@ -883,7 +886,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="ckwarcwmr00ctd0fo1gsl3pk9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="ckwaupxnd00c9zofocu21hilq" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/#disqus_thread" class="article-comment-link">Comments</a>
@@ -932,13 +935,14 @@ ga('send', 'pageview');
 <p>That is eslint-report.html display different with it on my local machine, and I also log to Jenkins server and grab the eslint-report.html to local, it works well.</p>
 <p>I used <a href="https://plugins.jenkins.io/htmlpublisher/" target="_blank" rel="noopener">HTML Publisher</a> plugin to display the HTML report, but only the ESlint HTML report has problems other report work well, so I guess this problem may be caused by Jenkins.</p>
 <p>Finally, I find it. (Stackoverflow <a href="https://stackoverflow.com/questions/34315723/jenkins-error-blocked-script-execution-in-url-because-the-documents-frame/46197356?stw=2#46197356" target="_blank" rel="noopener">URL</a>)</p>
-<h2 id="Follow-the-below-steps-for-solution"><a href="#Follow-the-below-steps-for-solution" class="headerlink" title="Follow the below steps for solution:"></a>Follow the below steps for solution:</h2><ol>
+<h2 id="Follow-the-below-steps-for-solution"><a href="#Follow-the-below-steps-for-solution" class="headerlink" title="Follow the below steps for solution"></a>Follow the below steps for solution</h2><ol>
 <li>Open the Jenkin home page.</li>
 <li>Go to Manage Jenkins.</li>
 <li>Now go to Script Console.</li>
 <li>And in that console paste the below statement and click on Run.</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(<span class="string">"hudson.model.DirectoryBrowserSupport.CSP"</span>, <span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+
 <ol start="5">
 <li>After that, it will load CSS and JS.</li>
 </ol>
@@ -958,7 +962,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="ckwarcwmv00d4d0fogaf9e0gx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="ckwaupxne00cezofoa0xkhj20" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1039,7 +1043,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="ckwarcwmn00cid0fo7baodx3z" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="ckwaupxn800bvzofo4t6z0wx1" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/git-guidelines/#disqus_thread" class="article-comment-link">Comments</a>

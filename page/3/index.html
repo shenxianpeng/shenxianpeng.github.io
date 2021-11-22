@@ -143,7 +143,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="ckwarcwmq00cpd0fo7x8y0qwq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="ckwaupxn900bzzofo7t6n8cbp" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/#disqus_thread" class="article-comment-link">Comments</a>
@@ -190,6 +190,7 @@ ga('send', 'pageview');
 <p>just visit this API URL: <code>https://den-artifactory.company.com/artifactory/api/archive/download/team-generic-release-den/project/abc/main/?archiveType=zip</code></p>
 <p>You will see an error message returned if the Artifactory is not allowed to download the entire folder.</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"errors"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"status"</span>: <span class="number">403</span>,</span><br><span class="line">      <span class="attr">"message"</span>: <span class="string">"Download Folder functionality is disabled."</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>More details about the API could find here <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-RetrieveFolderorRepositoryArchive" target="_blank" rel="noopener">Retrieve Folder or Repository Archive</a></p>
 </blockquote>
@@ -198,6 +199,7 @@ ga('send', 'pageview');
 <h3 id="1-Get-All-Artifacts-Created-in-Date-Range"><a href="#1-Get-All-Artifacts-Created-in-Date-Range" class="headerlink" title="1. Get All Artifacts Created in Date Range"></a>1. Get All Artifacts Created in Date Range</h3><p>API URL: <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-ArtifactsCreatedinDateRange" target="_blank" rel="noopener">Artifacts Created in Date Range</a></p>
 <p>This is the snippet code I use this API</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># download.sh</span></span><br><span class="line"></span><br><span class="line">USERNAME=<span class="variable">$1</span></span><br><span class="line">PASSWORD=<span class="variable">$2</span></span><br><span class="line">REPO=<span class="variable">$3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># which day ago do you want to download</span></span><br><span class="line">N_DAY_AGO=<span class="variable">$4</span></span><br><span class="line"><span class="comment"># today</span></span><br><span class="line">START_TIME=$(($(date --date=<span class="string">"<span class="variable">$N_DAY_AGO</span> days ago"</span> +%s%N)/1000000))</span><br><span class="line">END_TIME=$(($(date +%s%N)/1000000))</span><br><span class="line"></span><br><span class="line">ARTIFACTORY=https://den-artifactory.company.com/artifactory</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ ! -x <span class="string">"`which sha1sum`"</span> ]; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"You need to have the 'sha1sum' command in your path."</span>; <span class="built_in">exit</span> 1; <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">RESULTS=`curl -s -X GET -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> <span class="string">"<span class="variable">$ARTIFACTORY</span>/api/search/creation?from=<span class="variable">$START_TIME</span>&amp;to=<span class="variable">$END_TIME</span>&amp;repos=<span class="variable">$REPO</span>"</span> | grep uri | awk <span class="string">'&#123;print $3&#125;'</span> | sed s<span class="string">'/.$//'</span> | sed s<span class="string">'/.$//'</span> | sed -r <span class="string">'s/^.&#123;1&#125;//'</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$RESULTS</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> RESULT <span class="keyword">in</span> <span class="variable">$RESULTS</span> ; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"fetching path from <span class="variable">$RESULT</span>"</span></span><br><span class="line">    PATH_TO_FILE=`curl -s -X GET -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> <span class="variable">$RESULT</span> | grep downloadUri | awk <span class="string">'&#123;print $3&#125;'</span> | sed s<span class="string">'/.$//'</span> | sed s<span class="string">'/.$//'</span> | sed -r <span class="string">'s/^.&#123;1&#125;//'</span>`</span><br><span class="line"></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"download file path <span class="variable">$PATH_TO_FILE</span>"</span></span><br><span class="line">  curl -u <span class="variable">$USERNAME</span>:<span class="variable">$PASSWORD</span> -O <span class="variable">$PATH_TO_FILE</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
 <p>Then you just use this as: <code>sh download.sh ${USERNAME} ${PASSWORD} ${REPO_PATH} ${N_DAY_AGO}</code></p>
 <h3 id="2-Get-all-artifacts-matching-the-given-Ant-path-pattern"><a href="#2-Get-all-artifacts-matching-the-given-Ant-path-pattern" class="headerlink" title="2. Get all artifacts matching the given Ant path pattern"></a>2. Get all artifacts matching the given Ant path pattern</h3><p>More about this API see: <a href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-PatternSearch" target="_blank" rel="noopener">Pattern Search</a></p>
 <p>Take an example screenshot of pattern search:</p>
@@ -218,7 +220,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="ckwarcwmk00cad0foewub2np9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="ckwaupxna00c2zofo2l95f70b" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/#disqus_thread" class="article-comment-link">Comments</a>
@@ -283,7 +285,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="ckwarcwmf00btd0fo87ojcgr7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="ckwaupxn400bozofoct2x26zg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/#disqus_thread" class="article-comment-link">Comments</a>
@@ -353,7 +355,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/jacoco-imp/" data-id="ckwarcwmd00bqd0fo7hcserh6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/jacoco-imp/" data-id="ckwaupxmy00bezofo184w565z" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/jacoco-imp/#disqus_thread" class="article-comment-link">Comments</a>
@@ -439,7 +441,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="ckwarcwmb00bjd0fo2qhk0knp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="ckwaupxn300blzofo3i4paios" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/pythonic/#disqus_thread" class="article-comment-link">Comments</a>
@@ -501,7 +503,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="ckwarcwm900bfd0fo0ghl7bbh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="ckwaupxmv00bazofoe1ivf49j" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/#disqus_thread" class="article-comment-link">Comments</a>
@@ -579,8 +581,7 @@ ga('send', 'pageview');
 <p>第三，应当把法则里的具体规则尽可能地通过流程控制、自动化检查则纳入到 Pull Request 中。</p>
 <p>另外提醒作为 Reviewer 要 Peaceful ！！！在代码审查时注意不要带有“教育”性质的去给别人提出修改建议，那样很容易适得其反。</p>
 <p>以下是一些不完全实践，供参考。</p>
-<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><p><strong>规避任何不经 Review 的代码进入到主分支</strong></p>
-<blockquote>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h3 id="规避任何不经-Review-的代码进入到主分支"><a href="#规避任何不经-Review-的代码进入到主分支" class="headerlink" title="规避任何不经 Review 的代码进入到主分支"></a>规避任何不经 Review 的代码进入到主分支</h3><blockquote>
 <p>以 Bitucket 为例。GitHub，GitLab 在设置上大同小异。</p>
 </blockquote>
 <ul>
@@ -589,8 +590,7 @@ ga('send', 'pageview');
 <li><p>在 Merge Check 里开启 <code>Minimum approvals</code> 这个选项。比如设置 Number of approvals = 1，这样需要至少有一个 Reviewers 点击 Approve 按钮才允许 Merge。</p>
 </li>
 </ul>
-<h3 id="自动化检查"><a href="#自动化检查" class="headerlink" title="自动化检查"></a>自动化检查</h3><p><strong>通过CI流水线验证编译和测试</strong></p>
-<ul>
+<h3 id="自动化检查"><a href="#自动化检查" class="headerlink" title="自动化检查"></a>自动化检查</h3><h3 id="通过CI流水线验证编译和测试"><a href="#通过CI流水线验证编译和测试" class="headerlink" title="通过CI流水线验证编译和测试"></a>通过CI流水线验证编译和测试</h3><ul>
 <li><p>建立自动化构建和测试 Pipeline，这样在创建 Pull Request 的时候可以自动构建、测试以及检查。Jenkins 的 Multi-branch pipeline 可以满足这个需求。</p>
 </li>
 <li><p>开启 Bitucket 的 Merge Check 里 <code>Minimum successful builds</code> 选项，验证构建/测试结果，以防止任何没有通过构建和测试的代码可以 Merge 到主分支。</p>
@@ -607,10 +607,8 @@ ga('send', 'pageview');
 <p>实现自动化检查，可以帮助 Reviewers 将审查的工作精力放在代码的具体实现上，其他的交给工具。</p>
 <h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>代码审查做的好不好，跟一个团队有没有良好的技术氛围，或者是否存在有技术领导力，有“品位”的技术大牛也是正相关的。</p>
 <ul>
-<li><p>如果团队里大多数都是有“品位”的工程师，他们会以写出优秀的代码（或挑刺）乐此不疲。</p>
-</li>
-<li><p>相反如果团队不重视规范，只追求短期的绩效达成，只会让技术债越欠越多，产品越做越烂。</p>
-</li>
+<li>如果团队里大多数都是有“品位”的工程师，他们会以写出优秀的代码（或挑刺）乐此不疲。</li>
+<li>相反如果团队不重视规范，只追求短期的绩效达成，只会让技术债越欠越多，产品越做越烂。</li>
 </ul>
 <p>欢迎留言分享你的意见或建议。</p>
 
@@ -627,7 +625,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="ckwarcwm800bcd0fo2hoc2uot" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="ckwaupxmz00bhzofo10znhzdn" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/code-review/#disqus_thread" class="article-comment-link">Comments</a>
@@ -711,7 +709,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="ckwarcwm600b8d0fo9ffyg0m2" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="ckwaupxn600bszofo3nni70vh" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/#disqus_thread" class="article-comment-link">Comments</a>
@@ -756,17 +754,17 @@ ga('send', 'pageview');
         <p>DevOps 实际上是什么意思？🤔</p>
 <p>DevOps 是一种软件开发方法，涉及持续开发，持续测试，持续集成，部署和监视。这一系列过程跨越了传统上孤立的开发和运营团队，DevOps 试图消除它们之间的障碍。</p>
 <p>因此，DevOps 工程师基本上与 Development 和 Operations 团队合作。它是这两个主要部分之间的链接。</p>
-<h1 id="概念与工具"><a href="#概念与工具" class="headerlink" title="概念与工具"></a>概念与工具</h1><p>DevOps 包括诸如构建自动化、CI/CD、基础架构即代码等概念，并且有许多工具可以实现这些概念。由于这些工具数量众多，因此可能会造成混乱和压倒性的结果。</p>
+<h2 id="概念与工具"><a href="#概念与工具" class="headerlink" title="概念与工具"></a>概念与工具</h2><p>DevOps 包括诸如构建自动化、CI/CD、基础架构即代码等概念，并且有许多工具可以实现这些概念。由于这些工具数量众多，因此可能会造成混乱和压倒性的结果。</p>
 <p>最重要的是要了解概念，并为每个类别的学习找一种特定的工具。例如，当你已经知道什么是 CI/CD 并知道如何使用 Jenkins 时，也将很容易学习同类型的其他替代工具。</p>
 <p>接下来让就来看看学习 DevOps 需要掌握哪些技能。</p>
-<h2 id="1）软件开发的概念"><a href="#1）软件开发的概念" class="headerlink" title="1）软件开发的概念"></a>1）软件开发的概念</h2><p>作为一名 DevOps 工程师，你不会直接对应用程序进行编程，但是当你与开发团队紧密合作以改善和自动化他们的任务时，你需要了解以下概念：</p>
+<h3 id="1）软件开发的概念"><a href="#1）软件开发的概念" class="headerlink" title="1）软件开发的概念"></a>1）软件开发的概念</h3><p>作为一名 DevOps 工程师，你不会直接对应用程序进行编程，但是当你与开发团队紧密合作以改善和自动化他们的任务时，你需要了解以下概念：</p>
 <ul>
 <li>开发人员的工作方式</li>
 <li>他们正在使用哪个 git 工作流程</li>
 <li>如何配置应用程序</li>
 <li>自动化测试</li>
 </ul>
-<h2 id="2）操作系统"><a href="#2）操作系统" class="headerlink" title="2）操作系统"></a>2）操作系统</h2><p>作为 DevOps 工程师，你负责准备在操作系统上部署应用程序的所需要的基础结构环境。并且由于大多数服务器是 Linux 服务器，因此你需要了解 Linux 操作系统，并善于使用命令行，所以你需要知道：</p>
+<h3 id="2）操作系统"><a href="#2）操作系统" class="headerlink" title="2）操作系统"></a>2）操作系统</h3><p>作为 DevOps 工程师，你负责准备在操作系统上部署应用程序的所需要的基础结构环境。并且由于大多数服务器是 Linux 服务器，因此你需要了解 Linux 操作系统，并善于使用命令行，所以你需要知道：</p>
 <ul>
 <li>基本的 Shell 命令</li>
 <li>Linux 文件系统</li>
@@ -774,7 +772,7 @@ ga('send', 'pageview');
 <li>SSH 密钥管理</li>
 <li>在服务器上安装不同的工具</li>
 </ul>
-<h2 id="3）网络与安全"><a href="#3）网络与安全" class="headerlink" title="3）网络与安全"></a>3）网络与安全</h2><p>你还需要了解网络和安全性的基础知识才能配置基础架构，例如：</p>
+<h3 id="3）网络与安全"><a href="#3）网络与安全" class="headerlink" title="3）网络与安全"></a>3）网络与安全</h3><p>你还需要了解网络和安全性的基础知识才能配置基础架构，例如：</p>
 <ul>
 <li>配置防火墙以保护应用程序</li>
 <li>了解 IP 地址，端口和 DNS 的工作方式</li>
@@ -783,13 +781,13 @@ ga('send', 'pageview');
 <li>HTTP/HTTPS</li>
 </ul>
 <p>但是，要在 DevOps 和 IT Operations 之间划清界线，你不是系统管理员。因此，在这里不需要高级知识，理解和了解基本知识就够了。IT 方面是这些 SysAdmins，Networking 或 Security Engineers 人的专长。</p>
-<h2 id="4）容器化"><a href="#4）容器化" class="headerlink" title="4）容器化"></a>4）容器化</h2><p>随着容器成为新标准，你可能会将应用程序作为容器运行，这意味着你需要大致了解：</p>
+<h3 id="4）容器化"><a href="#4）容器化" class="headerlink" title="4）容器化"></a>4）容器化</h3><p>随着容器成为新标准，你可能会将应用程序作为容器运行，这意味着你需要大致了解：</p>
 <ul>
 <li>虚拟化的概念</li>
 <li>容器的概念</li>
 <li>学习哪个工具？ Docker - 当今最受欢迎的容器技术</li>
 </ul>
-<h2 id="5）持续集成和部署"><a href="#5）持续集成和部署" class="headerlink" title="5）持续集成和部署"></a>5）持续集成和部署</h2><p>在 DevOps 中，所有代码更改（例如开发人员的新功能和错误修复）都应集成到现有应用程序中，并以自动化方式连续地部署到最终用户。因此，建立完整的 CI/CD 管道是 DevOps 工程师的主要任务和职责。</p>
+<h3 id="5）持续集成和部署"><a href="#5）持续集成和部署" class="headerlink" title="5）持续集成和部署"></a>5）持续集成和部署</h3><p>在 DevOps 中，所有代码更改（例如开发人员的新功能和错误修复）都应集成到现有应用程序中，并以自动化方式连续地部署到最终用户。因此，建立完整的 CI/CD 管道是 DevOps 工程师的主要任务和职责。</p>
 <p>在完成功能或错误修正后，应自动触发在 CI 服务器（例如 Jenkins ）上运行的管道，该管道：</p>
 <ul>
 <li>运行测试</li>
@@ -806,7 +804,7 @@ ga('send', 'pageview');
 </ul>
 <p>当然，可以集成更多的步骤，但是此流程代表 CI/CD 管道的核心，并且是 DevOps 任务和职责的核心。</p>
 <p>学习哪个工具？Jenkins 是最受欢迎的人之一。其他：Bamboo，Gitlab，TeamCity，CircleCI，TravisCI。</p>
-<h2 id="6）云提供商"><a href="#6）云提供商" class="headerlink" title="6）云提供商"></a>6）云提供商</h2><p>如今，许多公司正在使用云上的虚拟基础架构，而不是管理自己的基础架构。这些是基础架构即服务（IaaS）平台，可提供一系列服务，例如备份，安全性，负载平衡等。</p>
+<h3 id="6）云提供商"><a href="#6）云提供商" class="headerlink" title="6）云提供商"></a>6）云提供商</h3><p>如今，许多公司正在使用云上的虚拟基础架构，而不是管理自己的基础架构。这些是基础架构即服务（IaaS）平台，可提供一系列服务，例如备份，安全性，负载平衡等。</p>
 <p>因此，你需要学习云平台的服务。例如。对于 AWS，你应该了解以下基本知识：</p>
 <ul>
 <li>IAM 服务-管理用户和权限</li>
@@ -816,7 +814,7 @@ ga('send', 'pageview');
 </ul>
 <p>AWS 是功能最强大，使用最广泛的一种，但也是最困难的一种。</p>
 <p>学习哪个工具？AWS 是最受欢迎的一种。其他热门：Azure，Google Cloud，阿里云，腾讯云。</p>
-<h2 id="7）容器编排"><a href="#7）容器编排" class="headerlink" title="7）容器编排"></a>7）容器编排</h2><p>如前所述，容器已被广泛使用，在大公司中，成百上千个容器正在多台服务器上运行，这意味着需要以某种方式管理这些容器。</p>
+<h3 id="7）容器编排"><a href="#7）容器编排" class="headerlink" title="7）容器编排"></a>7）容器编排</h3><p>如前所述，容器已被广泛使用，在大公司中，成百上千个容器正在多台服务器上运行，这意味着需要以某种方式管理这些容器。</p>
 <p>为此目的，有一些容器编排工具，而最受欢迎的是 Kubernetes。因此，你需要学习：</p>
 <ul>
 <li>Kubernetes 如何工作</li>
@@ -824,13 +822,13 @@ ga('send', 'pageview');
 <li>并在其中部署应用程序</li>
 </ul>
 <p>学习哪个工具？Kubernetes - 最受欢迎，没有之一。</p>
-<h2 id="8）监视和日志管理"><a href="#8）监视和日志管理" class="headerlink" title="8）监视和日志管理"></a>8）监视和日志管理</h2><p>软件投入生产后，对其进行监视以跟踪性能，发现基础结构以及应用程序中的问题非常重要。因此，作为 DevOps 工程师的职责之一是：</p>
+<h3 id="8）监视和日志管理"><a href="#8）监视和日志管理" class="headerlink" title="8）监视和日志管理"></a>8）监视和日志管理</h3><p>软件投入生产后，对其进行监视以跟踪性能，发现基础结构以及应用程序中的问题非常重要。因此，作为 DevOps 工程师的职责之一是：</p>
 <ul>
 <li>设置软件监控</li>
 <li>设置基础架构监控，例如用于你的 Kubernetes 集群和底层服务器。</li>
 </ul>
 <p>学习哪个工具？Prometheus, Grafana…</p>
-<h2 id="9）基础设施即代码"><a href="#9）基础设施即代码" class="headerlink" title="9）基础设施即代码"></a>9）基础设施即代码</h2><p>手动创建和维护基础架构非常耗时且容易出错，尤其是当你需要复制基础架构时，例如用于开发，测试和生产环境。</p>
+<h3 id="9）基础设施即代码"><a href="#9）基础设施即代码" class="headerlink" title="9）基础设施即代码"></a>9）基础设施即代码</h3><p>手动创建和维护基础架构非常耗时且容易出错，尤其是当你需要复制基础架构时，例如用于开发，测试和生产环境。</p>
 <p>在 DevOps 中，希望尽可能地自动化，那就是将“基础结构即代码（Infrastructure as Configuration）”引入其中。因此使用 IaC ，我们将使用代码来创建和配置基础结构，你需要了解两种 IaC 方式：</p>
 <ul>
 <li>基础设施配置</li>
@@ -839,11 +837,11 @@ ga('send', 'pageview');
 <p>使用这些工具，可以轻松地复制和恢复基础结构。因此，你应该在每个类别中都知道一种工具，以使自己的工作更有效率，并改善与同事的协作。</p>
 <p>学习哪个工具？</p>
 <p>基础架构设置：Terraform 是最受欢迎的一种。<br>配置管理：Ansible，Puppet，Chef。</p>
-<h2 id="10）脚本语言"><a href="#10）脚本语言" class="headerlink" title="10）脚本语言"></a>10）脚本语言</h2><p>作为 DevOps 工程师就常见的工作就是编写脚本和小型的应用程序以自动化任务。为了能够做到这一点，你需要了解一种脚本或编程语言。</p>
+<h3 id="10）脚本语言"><a href="#10）脚本语言" class="headerlink" title="10）脚本语言"></a>10）脚本语言</h3><p>作为 DevOps 工程师就常见的工作就是编写脚本和小型的应用程序以自动化任务。为了能够做到这一点，你需要了解一种脚本或编程语言。</p>
 <p>这可能是特定于操作系统的脚本语言，例如 bash 或 Powershell。</p>
 <p>还需要掌握一种独立于操作系统的语言，例如 Python 或 Go。这些语言功能更强大，更灵活。如果你善于使用其中之一，它将使你在就业市场上更具价值。</p>
 <p>学习哪个工具？Python：目前是最需要的一个，它易于学习，易于阅读并且具有许多可用的库。其他：Go，NodeJS，Ruby。</p>
-<h2 id="11）版本控制"><a href="#11）版本控制" class="headerlink" title="11）版本控制"></a>11）版本控制</h2><p>上述所有这些自动化逻辑都作为代码编写，使用版本控制工具（例如Git）来管理这些代码和配置文件。</p>
+<h3 id="11）版本控制"><a href="#11）版本控制" class="headerlink" title="11）版本控制"></a>11）版本控制</h3><p>上述所有这些自动化逻辑都作为代码编写，使用版本控制工具（例如Git）来管理这些代码和配置文件。</p>
 <p>学习哪个工具？Git - 最受欢迎和广泛使用，没有之一。</p>
 <blockquote>
 <p><a href="https://dev.to/techworld_with_nana/devops-roadmap-2021-how-to-become-a-devops-engineer-1n9p" target="_blank" rel="noopener">DevOps Roadmap [2021] - How to become a DevOps Engineer</a></p>
@@ -862,7 +860,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="ckwarcwlx00akd0fo6sin5cl5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="ckwaupxmk00ajzofo01zxaux9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/#disqus_thread" class="article-comment-link">Comments</a>
@@ -993,7 +991,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="ckwarcwlz00aod0foatt1d7mx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="ckwaupxmo00aqzofohu8y4hlk" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/#disqus_thread" class="article-comment-link">Comments</a>

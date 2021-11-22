@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="最近使用 AIX 7.1 从 Bitucket 下载代码的时候遇到了这个错误 fatal: write error: A file cannot be larger than the value set by ulimit. 123456$ git clone -b dev https:&#x2F;&#x2F;&lt;username&gt;:&lt;password&gt;@git.company.com&#x2F;scm&#x2F;">
 <meta property="article:published_time" content="2021-06-17T05:52:44.000Z">
-<meta property="article:modified_time" content="2021-11-01T13:47:57.401Z">
+<meta property="article:modified_time" content="2021-11-22T15:23:50.142Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="AIX">
@@ -129,10 +129,12 @@ ga('send', 'pageview');
 <p>可以看到 file 有一个上限值 2097151。如果将它也改成 unlimited 应该就好了。</p>
 <p>通过 root 用户可以访问到 limits 文件 <code>/etc/security/limits</code>(普通用户没权限访问)。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下是这个文件里的部分内容</span></span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = 2097151</span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br></pre></td></tr></table></figure>
+
 <p>将上述的值 fsize = 2097151 改成 fsize = -1 就将解除了文件块大小的限制了。修改完成后，重新登录，再次执行 <code>ulimit -a</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+
 <p>此时 file(blocks) 已经变成 unlimited 了。再次尝试 git clone</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">'opensrc'</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
 
 <p>这次就成功了！</p>
 
@@ -149,7 +151,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckwarcwmu00d1d0fohqvrgto5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="ckwaupxnb00c6zofo4k8m9pn3" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/aix-ulimit/#disqus_thread" class="article-comment-link">Comments</a>

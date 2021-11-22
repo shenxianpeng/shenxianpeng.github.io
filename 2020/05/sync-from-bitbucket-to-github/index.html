@@ -16,11 +16,11 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/branch-strategy.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/branch-strategy.png">
 <meta property="article:published_time" content="2020-05-05T08:54:09.000Z">
-<meta property="article:modified_time" content="2021-07-15T15:58:28.052Z">
+<meta property="article:modified_time" content="2021-11-22T14:36:11.900Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
-<meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="Bitbucket">
+<meta property="article:tag" content="GitHub">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/sync-diagrom.png">
   
@@ -124,7 +124,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>最近我们团队需要将一些示例和例子从内部的 Bitbucket 同步到 GitHub。我了解 GitHub 可以创建公共的或是私人的仓库，但我们需要保持以下两点</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近我们团队需要将一些示例和例子从内部的 Bitbucket 同步到 GitHub。我了解 GitHub 可以创建公共的或是私人的仓库，但我们需要保持以下两点</p>
 <ul>
 <li>只分享我们想给客户分享的内容</li>
 <li>不改变当前的工作流程，即继续使用 Bitbucket</li>
@@ -133,7 +133,7 @@ ga('send', 'pageview');
 
 <p>因此我们需要在 GitHub 上创建相应的仓库，然后将内部 Bitbucket 仓库中对应的 master 分支定期的通过 CI job 同步到 BitHub 上去。</p>
 <p><img src="/2020/05/sync-from-bitbucket-to-github/sync-diagrom.png" alt></p>
-<h3 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h3><p>首先，需要对 Bitbucket 进行分支权限设置</p>
+<h2 id="分支策略"><a href="#分支策略" class="headerlink" title="分支策略"></a>分支策略</h2><p>首先，需要对 Bitbucket 进行分支权限设置</p>
 <ul>
 <li>master 分支只允许通过 Pull Request 来进行修改</li>
 <li>Pull Request 默认的 reviewer 至少需要一人，并且只有同意状态才允许合并</li>
@@ -146,7 +146,7 @@ ga('send', 'pageview');
 <li>当 reviewer 同意状态，才能进行合并进入到 master 分支</li>
 </ol>
 <p><img src="/2020/05/sync-from-bitbucket-to-github/branch-strategy.png" alt="分支策略"></p>
-<h3 id="Jenkins-Pipeline"><a href="#Jenkins-Pipeline" class="headerlink" title="Jenkins Pipeline"></a>Jenkins Pipeline</h3><p>基于这样的工作不是特别的频繁，也为了方便维护 Jenkins Pipeline 的简单和易于维护，我没有在需要同步的每个仓库里添加 <code>Jenkinsfile</code> 或在 Bitbucket 里添加 <code>webhooks</code>。有以下几点好处：</p>
+<h2 id="Jenkins-Pipeline"><a href="#Jenkins-Pipeline" class="headerlink" title="Jenkins Pipeline"></a>Jenkins Pipeline</h2><p>基于这样的工作不是特别的频繁，也为了方便维护 Jenkins Pipeline 的简单和易于维护，我没有在需要同步的每个仓库里添加 <code>Jenkinsfile</code> 或在 Bitbucket 里添加 <code>webhooks</code>。有以下几点好处：</p>
 <ul>
 <li>只创建一个 Jenkins Job，用一个 <code>Jenkinsfile</code> 满足所有仓库的同步</li>
 <li>减少了冗余的 <code>Jenkinsfile</code> 的代码，修改时只需更维护一个文件</li>
@@ -203,7 +203,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/" data-id="ckwarcwj8004gd0fo34kuhrel" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/" data-id="ckwaupxlm008hzofoe83ahnox" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/sync-from-bitbucket-to-github/#disqus_thread" class="article-comment-link">Comments</a>

@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/3.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/4.png">
 <meta property="article:published_time" content="2020-06-21T13:42:17.000Z">
-<meta property="article:modified_time" content="2021-11-22T13:41:08.077Z">
+<meta property="article:modified_time" content="2021-11-22T15:44:05.261Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta name="twitter:card" content="summary">
@@ -135,17 +135,20 @@ ga('send', 'pageview');
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>运行 Shell 时，你可以通过使用内置的 <code>+e</code> 选项来控制执行你的脚本错误。这可以禁用“非 0 退出”的默认行为。</p>
 <p>请参考如下四个示例中的测试 Shell 和测试结果 Console Output。</p>
 <h4 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h4><p>执行的时候如果出现了返回值为非零（即命令执行失败）将会忽略错误，继续执行下面的脚本。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">set</span> +e</span><br><span class="line">$ ls no-exit-file</span><br><span class="line">$ whoami</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> +e</span><br><span class="line">ls no-exit-file</span><br><span class="line">whoami</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2020/06/Jenkins-tips-1/1.png" alt="示例一：测试结果"></p>
 <h4 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h4><p>执行的时候如果出现了返回值为非零，整个脚本就会立即退出。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">set</span> -e</span><br><span class="line">$ ls no-exit-file</span><br><span class="line">$ whoami</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> -e</span><br><span class="line">ls no-exit-file</span><br><span class="line">whoami</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2020/06/Jenkins-tips-1/2.png" alt="示例二：测试结果"></p>
 <h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><h4 id="示例三"><a href="#示例三" class="headerlink" title="示例三"></a>示例三</h4><p>还有一种方式，如果不想停止失败的另一种方法是添加 <code>|| true</code> 到你的命令结尾。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 做可能会失败，但并不关注失败的命令时</span></span><br><span class="line">$ ls no-exit-file || <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 做可能会失败，但并不关注失败的命令时</span></span><br><span class="line">ls no-exit-file || <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/2020/06/Jenkins-tips-1/3.png" alt="示例三：测试结果"></p>
 <h4 id="示例四"><a href="#示例四" class="headerlink" title="示例四"></a>示例四</h4><p>如果要在失败时执行某些操作则添加 <code>|| &lt;doSomethingOnFailure&gt;</code> 。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 做可能会失败的事情，并关注失败的命令</span></span><br><span class="line"><span class="comment"># 如果存在错误，则会创建变量 error 并将其设置为 true</span></span><br><span class="line">$ ls no-exit-file || error=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后去判断 error 变量的值。如果为真，则退出 Shell</span></span><br><span class="line">$ <span class="keyword">if</span> [ <span class="variable">$error</span> ]</span><br><span class="line">$ <span class="keyword">then</span></span><br><span class="line">$    <span class="built_in">exit</span> -1</span><br><span class="line">$ <span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 做可能会失败的事情，并关注失败的命令</span></span><br><span class="line"><span class="comment"># 如果存在错误，则会创建变量 error 并将其设置为 true</span></span><br><span class="line">ls no-exit-file || error=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后去判断 error 变量的值。如果为真，则退出 Shell</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$error</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">   <span class="built_in">exit</span> -1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
 <p><img src="/2020/06/Jenkins-tips-1/4.png" alt="示例四：测试结果"></p>
 
       
@@ -161,7 +164,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/" data-id="ckwarcwjw005ld0foclze1g2i" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/" data-id="ckwaupxll008dzofo076z3uru" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/06/Jenkins-tips-1/#disqus_thread" class="article-comment-link">Comments</a>
