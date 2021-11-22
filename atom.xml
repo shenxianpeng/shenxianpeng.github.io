@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-11-10T15:29:11.559Z</updated>
+  <updated>2021-11-22T14:09:23.617Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2021/11/special-repository/"/>
     <id>https://shenxianpeng.github.io/2021/11/special-repository/</id>
     <published>2021-11-09T14:02:15.000Z</published>
-    <updated>2021-11-10T15:29:11.559Z</updated>
+    <updated>2021-11-22T14:09:23.617Z</updated>
     
     <summary type="html">
     
@@ -50,7 +50,7 @@
     <link href="https://shenxianpeng.github.io/2021/11/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2021/11/world-quality-report/</id>
     <published>2021-11-06T07:57:10.000Z</published>
-    <updated>2021-11-20T11:58:15.597Z</updated>
+    <updated>2021-11-22T13:46:49.771Z</updated>
     
     <summary type="html">
     
@@ -85,7 +85,7 @@
     <link href="https://shenxianpeng.github.io/2021/11/docker-best-practice/"/>
     <id>https://shenxianpeng.github.io/2021/11/docker-best-practice/</id>
     <published>2021-10-31T02:57:16.000Z</published>
-    <updated>2021-11-01T15:44:53.658Z</updated>
+    <updated>2021-11-22T14:18:19.219Z</updated>
     
     <summary type="html">
     
@@ -139,7 +139,7 @@
     <link href="https://shenxianpeng.github.io/2021/10/what-is-polaris/"/>
     <id>https://shenxianpeng.github.io/2021/10/what-is-polaris/</id>
     <published>2021-10-24T13:33:53.000Z</published>
-    <updated>2021-11-20T11:58:15.588Z</updated>
+    <updated>2021-11-22T13:49:08.110Z</updated>
     
     <summary type="html">
     
@@ -220,7 +220,7 @@
     <link href="https://shenxianpeng.github.io/2021/10/git-cheatsheet/"/>
     <id>https://shenxianpeng.github.io/2021/10/git-cheatsheet/</id>
     <published>2021-10-23T11:40:06.000Z</published>
-    <updated>2021-11-08T01:04:07.654Z</updated>
+    <updated>2021-11-22T14:06:44.329Z</updated>
     
     <summary type="html">
     
@@ -249,7 +249,7 @@
     <link href="https://shenxianpeng.github.io/2021/09/sonarqube-integration/"/>
     <id>https://shenxianpeng.github.io/2021/09/sonarqube-integration/</id>
     <published>2021-09-18T02:19:51.000Z</published>
-    <updated>2021-11-08T01:04:07.649Z</updated>
+    <updated>2021-11-22T14:06:23.779Z</updated>
     
     <summary type="html">
     
@@ -306,7 +306,7 @@
     <link href="https://shenxianpeng.github.io/2021/08/gcov-example-cn/"/>
     <id>https://shenxianpeng.github.io/2021/08/gcov-example-cn/</id>
     <published>2021-08-16T16:10:21.000Z</published>
-    <updated>2021-08-23T03:23:16.695Z</updated>
+    <updated>2021-11-22T14:20:08.417Z</updated>
     
     <summary type="html">
     
@@ -448,9 +448,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -459,7 +459,7 @@
     <link href="https://shenxianpeng.github.io/2021/07/code-coverage/"/>
     <id>https://shenxianpeng.github.io/2021/07/code-coverage/</id>
     <published>2021-07-14T14:49:39.000Z</published>
-    <updated>2021-08-20T17:26:50.049Z</updated>
+    <updated>2021-11-22T13:44:40.350Z</updated>
     
     <summary type="html">
     
@@ -544,7 +544,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/</id>
     <published>2021-06-20T14:53:26.000Z</published>
-    <updated>2021-11-01T13:46:18.696Z</updated>
+    <updated>2021-11-22T14:16:43.598Z</updated>
     
     <summary type="html">
     
@@ -574,7 +574,7 @@
     <link href="https://shenxianpeng.github.io/2021/06/gcov/"/>
     <id>https://shenxianpeng.github.io/2021/06/gcov/</id>
     <published>2021-06-18T08:28:11.000Z</published>
-    <updated>2021-07-27T15:21:01.979Z</updated>
+    <updated>2021-11-22T13:47:59.143Z</updated>
     
     <summary type="html">
     
