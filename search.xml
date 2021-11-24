@@ -300,9 +300,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -655,9 +655,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gradle </tag>
             
@@ -1019,9 +1019,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Backup </tag>
             
@@ -1050,9 +1050,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1181,11 +1181,11 @@
       
         <tags>
             
-            <tag> Release </tag>
-            
             <tag> Python </tag>
             
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -1397,9 +1397,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1424,9 +1424,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -2214,9 +2214,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -2779,9 +2779,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> C </tag>
             
             <tag> Coverage </tag>
             
