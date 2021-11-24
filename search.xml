@@ -300,9 +300,9 @@
       
         <tags>
             
-            <tag> Bitbucket </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -655,9 +655,9 @@
       
         <tags>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
             
@@ -1050,9 +1050,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
         </tags>
       
@@ -1183,9 +1183,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
