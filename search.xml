@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> Actions </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Actions </tag>
             
         </tags>
       
@@ -74,9 +74,9 @@
       
         <tags>
             
-            <tag> Dokerfile </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Dokerfile </tag>
             
         </tags>
       
@@ -300,9 +300,9 @@
       
         <tags>
             
-            <tag> Bitbucket </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -524,9 +524,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> ESlint </tag>
-            
             <tag> Troubleshooting </tag>
+            
+            <tag> ESlint </tag>
             
         </tags>
       
@@ -655,11 +655,11 @@
       
         <tags>
             
+            <tag> Coverage </tag>
+            
             <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
-            
-            <tag> Coverage </tag>
             
         </tags>
       
@@ -888,9 +888,9 @@
       
         <tags>
             
-            <tag> OpenSSH </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> OpenSSH </tag>
             
         </tags>
       
@@ -1019,9 +1019,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -1050,9 +1050,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
         </tags>
       
@@ -1181,9 +1181,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Release </tag>
+            
+            <tag> Python </tag>
             
             <tag> PyPI </tag>
             
@@ -1397,9 +1397,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1424,9 +1424,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2214,9 +2214,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
