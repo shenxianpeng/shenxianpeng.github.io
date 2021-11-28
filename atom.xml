@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-11-22T16:11:06.270Z</updated>
+  <updated>2021-11-28T08:23:21.141Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,32 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何将每次发布的博客文章自动同步到 GitHub 个人主页？</title>
+    <title>如何通过 GitHub Actions 将每次发布的博客文章自动同步到 GitHub 个人主页？</title>
     <link href="https://shenxianpeng.github.io/2021/11/special-repository/"/>
     <id>https://shenxianpeng.github.io/2021/11/special-repository/</id>
     <published>2021-11-09T14:02:15.000Z</published>
-    <updated>2021-11-22T16:11:06.270Z</updated>
+    <updated>2021-11-28T08:23:21.141Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;如何将每次发布的博客文章自动同步到 GitHub 个人主页？就像这样，在个人主页展示自己最近发布的博客文章。&lt;/p&gt;
+      &lt;p&gt;最近实现了一个很有意思的 Worflow，就是通过 GitHub Actions 自动将每次最新发布的文章自动同步到我的 GitHub 首页。&lt;/p&gt;
+&lt;p&gt;就像这样在首页显示最近发布的博客文章。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2021/11/special-repository/final.png&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;当然可以每次发布完一篇文章后到主页上这个特殊的仓库下面的 &lt;code&gt;README.md&lt;/code&gt; 将标题和链接手动更新一下。但这也太麻烦了，DevOps 工程师不会这么干的 :)&lt;/p&gt;
-&lt;p&gt;我想象中自动化工作流应该是这样的：&lt;/p&gt;
+&lt;p&gt;要实现这样的工作流需要了解以下这几点：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;通过 Workflow 自动获取最新的文章的标题和地址并更新 &lt;code&gt;README.md&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;只有当有新的文章发布的时候才触发上面的自动获取文章 Workflow&lt;/li&gt;
+&lt;li&gt;需要创建一个与 GitHub 同名的个人仓库，这个仓库的 &lt;code&gt;README.md&lt;/code&gt; 信息会显示在首页&lt;/li&gt;
+&lt;li&gt;通过 GitHub Actions 自动获取博客的最新文章并更新 &lt;code&gt;README.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;只有当有新的文章发布的时候才触发自动获取、更新文章 GitHub Action&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;如果你不了解为什么 GitHub 个人主页可以显示这些丰富的信息，这里做个简单介绍：这其实是 GitHub 早在 2020 年发布的一个新功能。即创建一个与你的 GitHub 账号同名的仓库，添加的 &lt;code&gt;README.md&lt;/code&gt; 会在 GitHub 个人主页显示。&lt;/p&gt;
     
     </summary>
     
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
-    
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
     
   </entry>
   
