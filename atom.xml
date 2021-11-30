@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-11-28T08:23:21.141Z</updated>
+  <updated>2021-11-30T02:47:20.803Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,15 +17,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何通过 GitHub Actions 将每次发布的博客文章自动同步到 GitHub 个人主页？</title>
+    <title>GitHub Actions 还能这么玩？自动将发布的博客文章更新到 GitHub 个人主页</title>
     <link href="https://shenxianpeng.github.io/2021/11/special-repository/"/>
     <id>https://shenxianpeng.github.io/2021/11/special-repository/</id>
     <published>2021-11-09T14:02:15.000Z</published>
-    <updated>2021-11-28T08:23:21.141Z</updated>
+    <updated>2021-11-30T02:47:20.803Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;最近实现了一个很有意思的 Worflow，就是通过 GitHub Actions 自动将每次最新发布的文章自动同步到我的 GitHub 首页。&lt;/p&gt;
+      &lt;p&gt;最近实现了一个很有意思的 Workflow，就是通过 GitHub Actions 自动将每次最新发布的文章自动同步到我的 GitHub 首页。&lt;/p&gt;
 &lt;p&gt;就像这样在首页显示最近发布的博客文章。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2021/11/special-repository/final.png&quot; alt&gt;&lt;/p&gt;
 &lt;p&gt;要实现这样的工作流需要了解以下这几点：&lt;/p&gt;
@@ -447,9 +447,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -560,9 +560,9 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
