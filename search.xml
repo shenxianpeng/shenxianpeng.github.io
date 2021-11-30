@@ -300,9 +300,9 @@
       
         <tags>
             
-            <tag> Bitbucket </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -408,9 +408,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> Git </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> AIX </tag>
             
@@ -655,9 +655,9 @@
       
         <tags>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
             
@@ -1050,9 +1050,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
         </tags>
       
@@ -1183,9 +1183,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -1686,9 +1686,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -2561,11 +2561,11 @@
       
         <tags>
             
+            <tag> Git </tag>
+            
             <tag> Jenkins </tag>
             
             <tag> Pipeline </tag>
-            
-            <tag> Git </tag>
             
         </tags>
       
@@ -2752,9 +2752,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> C </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Coverage </tag>
             
