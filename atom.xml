@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-11-30T02:47:20.803Z</updated>
+  <updated>2021-12-07T14:53:01.860Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何帮助组织建立统一的规则来评估 CI/CD 成熟度</title>
+    <link href="https://shenxianpeng.github.io/2021/12/cicd-assessment/"/>
+    <id>https://shenxianpeng.github.io/2021/12/cicd-assessment/</id>
+    <published>2021-12-07T14:02:53.000Z</published>
+    <updated>2021-12-07T14:53:01.860Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;如果你的组织需要对 CI/CD
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
+    
+      <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
+    
+  </entry>
   
   <entry>
     <title>GitHub Actions 还能这么玩？自动将发布的博客文章更新到 GitHub 个人主页</title>
@@ -688,33 +716,6 @@
       <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
       <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git 常见设置指北</title>
-    <link href="https://shenxianpeng.github.io/2021/05/git-guidelines/"/>
-    <id>https://shenxianpeng.github.io/2021/05/git-guidelines/</id>
-    <published>2021-05-13T16:19:15.000Z</published>
-    <updated>2021-07-15T15:59:15.119Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;在使用 Git 提交代码之前，建议做以下这些设置。&lt;/p&gt;
-&lt;p&gt;叫指南有点夸张，因为它在有些情况下下不适用，比如你已经有了 &lt;code&gt;.gitattributes&lt;/code&gt; 或 &lt;code&gt;.editorconfig&lt;/code&gt;
-        
-      
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
   </entry>
   
