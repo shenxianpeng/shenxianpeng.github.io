@@ -435,9 +435,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> Git </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> AIX </tag>
             
@@ -1046,9 +1046,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -1399,9 +1399,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1426,9 +1426,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2189,9 +2189,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2563,11 +2563,11 @@
       
         <tags>
             
+            <tag> Git </tag>
+            
             <tag> Jenkins </tag>
             
             <tag> Pipeline </tag>
-            
-            <tag> Git </tag>
             
         </tags>
       
