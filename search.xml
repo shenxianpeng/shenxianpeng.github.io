@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>如何帮助组织建立统一的规则来评估 CI/CD 成熟度</title>
+      <title>如何建立统一的规则来评估 CI/CD 成熟度</title>
       <link href="/2021/12/cicd-assessment/"/>
       <url>/2021/12/cicd-assessment/</url>
       
-        <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>如果你的组织需要对 CI/CD 的成熟度做统一的评估该如何建立评估？如何设定标准从而帮助团队往一直的方向努力。</p><p>这些标准中会包含必须要做的，还有一些是做了会更好的标准。</p><h2 id="如何评估"><a href="#如何评估" class="headerlink" title="如何评估"></a>如何评估</h2><p>在参考了开源项目 <a href="https://github.com/coreinfrastructure/best-practices-badge" target="_blank" rel="noopener">best-practices-badge</a>，以及根据我的实践，总结以下标准并分配了相应的成熟度徽章，供参考。</p><h3 id="计算规则"><a href="#计算规则" class="headerlink" title="计算规则"></a>计算规则</h3><ol><li>每个标准都会给分数，通常一般的标准是10分，重要的标准是20分</li><li>带有🔰的标准表示它们是必须要有的</li><li>带有👍的标准意味着如果有会更好</li><li>每个项目的标准分数之和落在的区间获得对应的徽章</li></ol><h3 id="徽章分数对照表"><a href="#徽章分数对照表" class="headerlink" title="徽章分数对照表"></a>徽章分数对照表</h3><table><thead><tr><th>徽章</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td>🚩WIP</td><td>&lt; 100</td><td>小于100分获得 🚩Work In Progress 徽章</td></tr><tr><td>✅PASSING</td><td>= 100</td><td>等于100分获得 ✅PASSING 徽章</td></tr><tr><td>🥈SILVER</td><td>&gt; 100 &amp;&amp; &lt;= 150</td><td>大于100，小于等于150分获得🥈银牌徽章</td></tr><tr><td>🥇GOLD</td><td>&gt; 150</td><td>大于等于150分获得🥇金牌徽章</td></tr></tbody></table><p>注：这个分数区间可调整。</p><h3 id="标准和分数"><a href="#标准和分数" class="headerlink" title="标准和分数"></a>标准和分数</h3><table><thead><tr><th>类别</th><th>标准</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td><strong>基本</strong></td><td>🔰<strong>构建任何分支</strong></td><td><strong>20</strong></td><td>Jenkins：支持任何分支构建</td></tr><tr><td></td><td>🔰<strong>构建任何PR</strong></td><td><strong>20</strong></td><td>Jenkins：支持对任何 Pull Request 在 Merge 之前进行构建</td></tr><tr><td></td><td>🔰上传制品</td><td>10</td><td>Jenkins：构建产物上传到制品仓库保存</td></tr><tr><td></td><td>👍容器化构建</td><td>10</td><td>推荐使用容器化技术实现Pipeline</td></tr><tr><td><strong>质量</strong></td><td>🔰<strong>自动化测试</strong></td><td><strong>20</strong></td><td>Jenkins：支持触发冒烟/单元/回归测试</td></tr><tr><td></td><td>👍性能测试</td><td>10</td><td>Jenkins：支持触发性能测试</td></tr><tr><td></td><td>👍代码覆盖率收集</td><td>10</td><td>Jenkins：支持获得代码覆盖率</td></tr><tr><td><strong>安全</strong></td><td>🔰漏洞扫描</td><td>10</td><td>Jenkins：支持触发漏洞扫描</td></tr><tr><td></td><td>🔰License扫描</td><td>10</td><td>Jenkins：支持触发证书扫描</td></tr><tr><td><strong>分析</strong></td><td>👍Code Lint</td><td>10</td><td>Jenkins：支持对PR进行代码格式检查</td></tr><tr><td></td><td>👍静态代码分析</td><td>10</td><td>Jenkins：支持对PR进行静态代码分析</td></tr><tr><td></td><td>👍动态代码分析</td><td>10</td><td>Jenkins：支持对PR进行动态代码分析</td></tr><tr><td><strong>报告</strong></td><td>🔰Email或Slack通知</td><td>10</td><td>支持通过Email或Slack等方式通知</td></tr></tbody></table><p>注：以Jenkins为例。</p><h2 id="最终的结果"><a href="#最终的结果" class="headerlink" title="最终的结果"></a>最终的结果</h2><table><thead><tr><th>No</th><th>Repository Name</th><th>实现的标准</th><th>徽章</th></tr></thead><tbody><tr><td>1</td><td>project-a</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰Email或Slack通知</td><td>🚩WIP</td></tr><tr><td>2</td><td>project-b</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>✅PASSING</td></tr><tr><td>3</td><td>project-c</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>🥈SILVER</td></tr><tr><td>4</td><td>project-d</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>👍性能测试<br>👍代码覆盖率收集<br>🔰漏洞扫描<br>🔰License扫描<br>👍Code Lint<br>👍静态代码分析<br>👍动态代码分析<br>🔰Email或Slack通知</td><td>🥇GOLD</td></tr></tbody></table><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>通过徽章而不是分数的的方式，能更好的帮助不同团队向目标努力，而不是向分数努力；</li><li>建立统一的标准，团队之间容易进行技术共享，也方便未来纳入新的标准，让团队保持在统一的高水准。</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在一个组织内，不同的团队之间可能会有不同的维度来评估 CI/CD 的成熟度。这使得对衡量每个团队的 CI/CD 的表现变得困难。</p><p>因此组织内需要建立一个由团队成员一起讨论出来的标准来帮助团队建立明确的努力方向。</p><h2 id="如何评估"><a href="#如何评估" class="headerlink" title="如何评估"></a>如何评估</h2><p>在参考了开源项目 <a href="https://github.com/coreinfrastructure/best-practices-badge" target="_blank" rel="noopener">best-practices-badge</a>，结合我的实践，总结以下标准并分配了相应的成熟度徽章，供参考。</p><h3 id="计算规则"><a href="#计算规则" class="headerlink" title="计算规则"></a>计算规则</h3><ol><li>每个标准都有分数，通常一般的标准是10分，重要的标准是20分</li><li>带有🔰的标准表示它们是必须要有的</li><li>带有👍的标准意味着如果有会更好</li><li>每个项目的标准分数之和落在的区间获得对应的徽章</li></ol><h3 id="徽章分数对照表"><a href="#徽章分数对照表" class="headerlink" title="徽章分数对照表"></a>徽章分数对照表</h3><table><thead><tr><th>徽章</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td>🚩WIP</td><td>&lt; 100</td><td>小于100分获得 🚩Work In Progress 徽章</td></tr><tr><td>✅PASSING</td><td>= 100</td><td>等于100分获得 ✅PASSING 徽章</td></tr><tr><td>🥈SILVER</td><td>&gt; 100 &amp;&amp; &lt;= 150</td><td>大于100，小于等于150分获得🥈银牌徽章</td></tr><tr><td>🥇GOLD</td><td>&gt; 150</td><td>大于等于150分获得🥇金牌徽章</td></tr></tbody></table><p>注：这个分数区间可调整。</p><h3 id="标准和分数"><a href="#标准和分数" class="headerlink" title="标准和分数"></a>标准和分数</h3><table><thead><tr><th>类别</th><th>标准</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td><strong>基本</strong></td><td>🔰<strong>构建任何分支</strong></td><td><strong>20</strong></td><td>Jenkins：支持任何分支构建</td></tr><tr><td></td><td>🔰<strong>构建任何PR</strong></td><td><strong>20</strong></td><td>Jenkins：支持对任何 Pull Request 在 Merge 之前进行构建</td></tr><tr><td></td><td>🔰上传制品</td><td>10</td><td>Jenkins：构建产物上传到制品仓库保存</td></tr><tr><td></td><td>👍容器化构建</td><td>10</td><td>推荐使用容器化技术实现Pipeline</td></tr><tr><td><strong>质量</strong></td><td>🔰<strong>自动化测试</strong></td><td><strong>20</strong></td><td>Jenkins：支持触发冒烟/单元/回归测试</td></tr><tr><td></td><td>👍性能测试</td><td>10</td><td>Jenkins：支持触发性能测试</td></tr><tr><td></td><td>👍代码覆盖率收集</td><td>10</td><td>Jenkins：支持获得代码覆盖率</td></tr><tr><td><strong>安全</strong></td><td>🔰漏洞扫描</td><td>10</td><td>Jenkins：支持触发漏洞扫描</td></tr><tr><td></td><td>🔰License扫描</td><td>10</td><td>Jenkins：支持触发证书扫描</td></tr><tr><td><strong>分析</strong></td><td>👍Code Lint</td><td>10</td><td>Jenkins：支持对PR进行代码格式检查</td></tr><tr><td></td><td>👍静态代码分析</td><td>10</td><td>Jenkins：支持对PR进行静态代码分析</td></tr><tr><td></td><td>👍动态代码分析</td><td>10</td><td>Jenkins：支持对PR进行动态代码分析</td></tr><tr><td><strong>报告</strong></td><td>🔰Email或Slack通知</td><td>10</td><td>支持通过Email或Slack等方式通知</td></tr></tbody></table><p>注：以Jenkins为例。</p><h2 id="最终的结果"><a href="#最终的结果" class="headerlink" title="最终的结果"></a>最终的结果</h2><table><thead><tr><th>No</th><th>Repository Name</th><th>实现的标准</th><th>徽章</th></tr></thead><tbody><tr><td>1</td><td>project-a</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰Email或Slack通知</td><td>🚩WIP</td></tr><tr><td>2</td><td>project-b</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>✅PASSING</td></tr><tr><td>3</td><td>project-c</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>🥈SILVER</td></tr><tr><td>4</td><td>project-d</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>👍性能测试<br>👍代码覆盖率收集<br>🔰漏洞扫描<br>🔰License扫描<br>👍Code Lint<br>👍静态代码分析<br>👍动态代码分析<br>🔰Email或Slack通知</td><td>🥇GOLD</td></tr></tbody></table><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p>Q: 为什么使用徽章而不是分数？<br>A: 使用徽章能更好的帮助团队朝着目标而不是分数努力</p><p>Q: 建立标准还有哪些帮助？<br>A: 团队之间容易进行技术共享，方便未来纳入新的标准，保持团队之间在统一的高水准</p>]]></content>
       
       
       <categories>
@@ -435,9 +435,9 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> Git </tag>
             
             <tag> AIX </tag>
             
@@ -2563,11 +2563,11 @@
       
         <tags>
             
-            <tag> Git </tag>
-            
             <tag> Jenkins </tag>
             
             <tag> Pipeline </tag>
+            
+            <tag> Git </tag>
             
         </tags>
       
@@ -2754,9 +2754,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> C </tag>
             
             <tag> Coverage </tag>
             

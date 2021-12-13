@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-12-07T14:53:01.860Z</updated>
+  <updated>2021-12-13T13:09:42.177Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何帮助组织建立统一的规则来评估 CI/CD 成熟度</title>
+    <title>如何建立统一的规则来评估 CI/CD 成熟度</title>
     <link href="https://shenxianpeng.github.io/2021/12/cicd-assessment/"/>
     <id>https://shenxianpeng.github.io/2021/12/cicd-assessment/</id>
     <published>2021-12-07T14:02:53.000Z</published>
-    <updated>2021-12-07T14:53:01.860Z</updated>
+    <updated>2021-12-13T13:09:42.177Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;如果你的组织需要对 CI/CD
+          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在一个组织内，不同的团队之间可能会有不同的维度来评估 CI/CD 的成熟度。这使得对衡量每个团队的 CI/CD
         
       
     
@@ -588,9 +588,9 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
