@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-12-13T13:09:42.177Z</updated>
+  <updated>2021-12-20T01:46:34.508Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何建立统一的规则来评估 CI/CD 成熟度</title>
+    <title>组织内如何评估 CI/CD 成熟度</title>
     <link href="https://shenxianpeng.github.io/2021/12/cicd-assessment/"/>
     <id>https://shenxianpeng.github.io/2021/12/cicd-assessment/</id>
     <published>2021-12-07T14:02:53.000Z</published>
-    <updated>2021-12-13T13:09:42.177Z</updated>
+    <updated>2021-12-20T01:46:34.508Z</updated>
     
     <summary type="html">
     
@@ -41,6 +41,10 @@
       <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
     
       <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
+    
+      <category term="BadgeApp" scheme="https://shenxianpeng.github.io/tags/badgeapp/"/>
+    
+      <category term="Badge" scheme="https://shenxianpeng.github.io/tags/badge/"/>
     
   </entry>
   
