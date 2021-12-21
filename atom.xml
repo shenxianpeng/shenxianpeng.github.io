@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2021-12-20T01:46:34.508Z</updated>
+  <updated>2021-12-21T15:04:34.673Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2022年序员如何选择显示器？1080p还是2K? 单屏还是多屏？</title>
+    <link href="https://shenxianpeng.github.io/2021/12/choose-monitor/"/>
+    <id>https://shenxianpeng.github.io/2021/12/choose-monitor/</id>
+    <published>2021-12-21T13:19:26.000Z</published>
+    <updated>2021-12-21T15:04:34.673Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工作十几年用过了不少显示器，从最初的 17寸，到后来的 23寸、27寸、32寸、再到现在的 34 寸，根据我自己的使用体验，来个主观推荐：&lt;/p&gt;
+&lt;p&gt;第一名，一个34寸曲面显示器&lt;br&gt;第二名，一个27寸 + 一个23寸的双屏组合&lt;br&gt;第三名，一个32寸 + 一个23寸的双屏组合&lt;br&gt;第三名，两个 23 寸的双屏组合（并列第三名）&lt;/p&gt;
+&lt;p&gt;以上这些屏幕推荐购买 2K 及以上的分辨率，1080p 的分辨率不推荐。&lt;/p&gt;
+&lt;p&gt;下面我就按照时间轴说说我用过的那些显示器。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+      <category term="Monitor" scheme="https://shenxianpeng.github.io/tags/monitor/"/>
+    
+  </entry>
+  
+  <entry>
     <title>组织内如何评估 CI/CD 成熟度</title>
     <link href="https://shenxianpeng.github.io/2021/12/cicd-assessment/"/>
     <id>https://shenxianpeng.github.io/2021/12/cicd-assessment/</id>
     <published>2021-12-07T14:02:53.000Z</published>
-    <updated>2021-12-20T01:46:34.508Z</updated>
+    <updated>2021-12-21T15:07:21.920Z</updated>
     
     <summary type="html">
     
@@ -41,8 +64,6 @@
       <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
     
       <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
-    
-      <category term="BadgeApp" scheme="https://shenxianpeng.github.io/tags/badgeapp/"/>
     
       <category term="Badge" scheme="https://shenxianpeng.github.io/tags/badge/"/>
     
@@ -479,9 +500,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -687,39 +708,6 @@
     
     
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</title>
-    <link href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/"/>
-    <id>https://shenxianpeng.github.io/2021/06/eslint-jenkins/</id>
-    <published>2021-06-07T04:30:02.000Z</published>
-    <updated>2021-11-22T15:27:26.123Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;I’m just documenting to myself that it was solved by following.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;When I want to integrate the ESlint
-        
-      
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
-    
-      <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
     
   </entry>
   

@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>2022年序员如何选择显示器？1080p还是2K? 单屏还是多屏？</title>
+      <link href="/2021/12/choose-monitor/"/>
+      <url>/2021/12/choose-monitor/</url>
+      
+        <content type="html"><![CDATA[<p>工作十几年用过了不少显示器，从最初的 17寸，到后来的 23寸、27寸、32寸、再到现在的 34 寸，根据我自己的使用体验，来个主观推荐：</p><p>第一名，一个34寸曲面显示器<br>第二名，一个27寸 + 一个23寸的双屏组合<br>第三名，一个32寸 + 一个23寸的双屏组合<br>第三名，两个 23 寸的双屏组合（并列第三名）</p><p>以上这些屏幕推荐购买 2K 及以上的分辨率，1080p 的分辨率不推荐。</p><p>下面我就按照时间轴说说我用过的那些显示器。</p><a id="more"></a><h2 id="我用过的显示器"><a href="#我用过的显示器" class="headerlink" title="我用过的显示器"></a>我用过的显示器</h2><h3 id="双屏-23寸-1080p"><a href="#双屏-23寸-1080p" class="headerlink" title="双屏 23寸 1080p"></a>双屏 23寸 1080p</h3><p>五年前公司配置的是两个 23 寸的 1080p 显示器，还有显示器支架，这在当时是非常好用的组合了，对工作效率的提升确实很有帮助。</p><p>（真不知道那些不肯在显示器上花钱的公司是怎么想的，换个大屏显示器是花最少的钱提高程序员效率的最有效办法了）</p><p>放在现在 1080p 的分辨率已经不推荐了，建议购买 2K 以及以上分辨率的显示屏。</p><h3 id="单屏-27寸-2K"><a href="#单屏-27寸-2K" class="headerlink" title="单屏 27寸 2K"></a>单屏 27寸 2K</h3><p>在家办公和学习苦于家里的办公桌大小有限，放置两个 23 寸显示器没那么多空间，因此我打算购买一个 27 寸显示器。<br>但分辨率是继续选择 1080p 还是 2K 呢？</p><p>当时我看好的 Dell 一款 2K 分辨率的显示器，就是价格有点贵了（两千多），于是我就在网上买了另外一款 1080p 的 27 寸显示器。</p><p>当我拿到这款 1080p 的 27 寸显示器，能明显的看到它的颗粒感，一旦注意到了就没法再忽略它了。最后退而求其次，花了不到 1500 选择了优派的一款 27 寸 2K 显示器。</p><p>这一用就是三年，直到今年搬家了，我有了更大的办公桌，27 寸的 2K 显示器在大小上已经不太能满足我了，我就开始搜罗新的升级目标。</p><h3 id="双屏-27寸-2K"><a href="#双屏-27寸-2K" class="headerlink" title="双屏 27寸 2K"></a>双屏 27寸 2K</h3><p>我开始考虑是购买一个 34 寸显示器还是两个 27 寸 2K 显示器？</p><p>最后处于成本的考虑，我打算在闲鱼上收一台同款的 27 寸 2K 显示器组成双屏。但因为货源确实很少，加上一本不出外地，迟迟没有买到，最后不得不考虑购买两个新的 27 寸 2K 显示器。我再次在购买的两块 27 寸的 2K 显示器，还在闲鱼上买的显示器支架全都到货了，就等快乐的组装了。</p><p>可当我把两个显示器都摆在桌子上，我后悔了，比我想象中的要长，一米六的桌子都快盛不下它们了，另外可能是我支架没调好的原因，这两个显示器摆放在一起的时候中间有一条上宽下窄的缝 … …</p><h3 id="曲面单屏-34寸-2K"><a href="#曲面单屏-34寸-2K" class="headerlink" title="曲面单屏 34寸 2K"></a>曲面单屏 34寸 2K</h3><p>没有尝试过真的不知道到底什么才是适合自己的。现在我终于知道了… 目前最适合我的就是 34寸 显示曲面屏。</p><p>为什么是曲面的呢？</p><p>我目前公司的显示器组合是 32寸2K + 23寸1080p，这个32寸显示器就是直面屏幕的，在看屏幕边缘的内容时没有曲面屏幕来的舒服。</p><p>回到34寸曲面屏，市场中种类繁多，如果不想踩坑（折腾），建议直接买小米34寸曲面显示器。双十一钱购买的好像不足 1900。</p><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>以上就是我用过的显示器的简单分享，比较主流但也比较有限。比如我没用过超过 2K 分辨率以上的显示器，也没用过更大尺寸和三屏以上的组合。</p><p>最后还是希望这个分享对你选购显示器有一点点帮助。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Monitor </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>组织内如何评估 CI/CD 成熟度</title>
       <link href="/2021/12/cicd-assessment/"/>
       <url>/2021/12/cicd-assessment/</url>
       
-        <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在一个组织内，不同的团队之间可能会有不同的维度来评估 CI/CD 的成熟度。这使得对衡量每个团队的 CI/CD 的表现变得困难。</p><p>如何快速评估哪些项目遵循最佳实践？如何更容易地构建高质量的安全软件？组织内需要建立一个由团队成员一起讨论出来的最佳实践来帮助团队建立明确的努力方向。</p><h2 id="如何评估"><a href="#如何评估" class="headerlink" title="如何评估"></a>如何评估</h2><p>这里我参考了开源项目 <a href="https://github.com/coreinfrastructure/best-practices-badge" target="_blank" rel="noopener">CII 最佳实践徽章计划</a>，这是 Linux 基金会 (LF) 发起的一个开源项目。它提供一系列自由/开源软件 (FLOSS) 项目的最佳实践方法。参照这些最佳实践标准的项目可以进行自认证, 以获得核心基础设施促进会(CII)徽章。要做到这点无需任何费用，你的项目可以使用 Web 应用（BadgeApp) 来证明是如何符合这些实践标准的以及其详细状况。</p><p>这些最佳实践标准可以用来：</p><ul><li>鼓励项目遵循最佳实践。</li><li>帮助新的项目找到那些它们要遵循的最佳实践</li><li>帮助用户了解哪些项目遵循了最佳实践（这样用户可以更倾向于选择此类项目）。</li></ul><p>最佳实践包含以下五个标准：基本，变更控制，报告，质量，安全，分析。</p><p><img src="/2021/12/cicd-assessment/cii.png" alt="cii"></p><p>更多关于标准的细分可以参考 <a href="https://hardenedlinux.github.io/2016/08/04/best-practices-criteria-for-floss-part1.html" target="_blank" rel="noopener">CII 中文文档</a> 或 <a href="https://github.com/coreinfrastructure/best-practices-badge/blob/main/doc/criteria.md" target="_blank" rel="noopener">CII 英文文档</a>。</p><p>已经很多知名的项目比如 <a href="https://bestpractices.coreinfrastructure.org/en/projects/569" target="_blank" rel="noopener">Kubernetes</a>, <a href="https://bestpractices.coreinfrastructure.org/en/projects/29" target="_blank" rel="noopener">Node.js</a> 等在使用这个最佳实践徽章计划</p><p><img src="/2021/12/cicd-assessment/badge-owners.png" alt="badge-owners"></p><p>如果你的项目在 GitHub 上或是你可以按照上述的徽章计划进行评估，就可以使用它来评估你项目的最佳实践，并可以在项目主页的 README 上显示徽章结果。</p><p><img src="/2021/12/cicd-assessment/badge-result.png" alt="badge-result"></p><h2 id="定制最佳实践标准"><a href="#定制最佳实践标准" class="headerlink" title="定制最佳实践标准"></a>定制最佳实践标准</h2><p>如果上述项目不能满足你的评估要求，结合我的实践，制定了如下“最佳实践标准”并分配了相应的成熟度徽章，供参考。</p><h3 id="计算规则"><a href="#计算规则" class="headerlink" title="计算规则"></a>计算规则</h3><ol><li>每个最佳实践标准都有分数，通常一般的标准是10分，重要的标准是20分</li><li>带有🔰的最佳实践标准表示“一定要有”</li><li>带有👍的最佳实践标准表示“应当有”</li><li>每个项目的最佳实践标准分数之和落在的区间获得对应的徽章</li></ol><h3 id="徽章分数对照表"><a href="#徽章分数对照表" class="headerlink" title="徽章分数对照表"></a>徽章分数对照表</h3><table><thead><tr><th>徽章</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td>🚩WIP</td><td>&lt; 100</td><td>小于100分获得 🚩Work In Progress 徽章</td></tr><tr><td>✅PASSING</td><td>= 100</td><td>等于100分获得 ✅PASSING 徽章</td></tr><tr><td>🥈SILVER</td><td>&gt; 100 &amp;&amp; &lt;= 150</td><td>大于100，小于等于150分获得🥈银牌徽章</td></tr><tr><td>🥇GOLD</td><td>&gt; 150</td><td>大于等于150分获得🥇金牌徽章</td></tr></tbody></table><p>注：这个分数区间可调整。</p><h3 id="最佳实践标准和分数"><a href="#最佳实践标准和分数" class="headerlink" title="最佳实践标准和分数"></a>最佳实践标准和分数</h3><table><thead><tr><th>类别</th><th>最佳实践标准</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td><strong>基本</strong></td><td>🔰<strong>构建任何分支</strong></td><td><strong>20</strong></td><td>Jenkins：支持任何分支构建</td></tr><tr><td></td><td>🔰<strong>构建任何PR</strong></td><td><strong>20</strong></td><td>Jenkins：支持对任何 Pull Request 在 Merge 之前进行构建</td></tr><tr><td></td><td>🔰上传制品</td><td>10</td><td>Jenkins：构建产物上传到制品仓库保存</td></tr><tr><td></td><td>👍容器化构建</td><td>10</td><td>推荐使用容器化技术实现Pipeline</td></tr><tr><td><strong>质量</strong></td><td>🔰<strong>自动化测试</strong></td><td><strong>20</strong></td><td>Jenkins：支持触发冒烟/单元/回归测试</td></tr><tr><td></td><td>👍性能测试</td><td>10</td><td>Jenkins：支持触发性能测试</td></tr><tr><td></td><td>👍代码覆盖率收集</td><td>10</td><td>Jenkins：支持获得代码覆盖率</td></tr><tr><td><strong>安全</strong></td><td>🔰漏洞扫描</td><td>10</td><td>Jenkins：支持触发漏洞扫描</td></tr><tr><td></td><td>🔰License扫描</td><td>10</td><td>Jenkins：支持触发证书扫描</td></tr><tr><td><strong>分析</strong></td><td>👍Code Lint</td><td>10</td><td>Jenkins：支持对PR进行代码格式检查</td></tr><tr><td></td><td>👍静态代码分析</td><td>10</td><td>Jenkins：支持对PR进行静态代码分析</td></tr><tr><td></td><td>👍动态代码分析</td><td>10</td><td>Jenkins：支持对PR进行动态代码分析</td></tr><tr><td><strong>报告</strong></td><td>🔰Email或Slack通知</td><td>10</td><td>支持通过Email或Slack等方式通知</td></tr></tbody></table><p>注：以Jenkins为例。</p><h2 id="最终的结果"><a href="#最终的结果" class="headerlink" title="最终的结果"></a>最终的结果</h2><table><thead><tr><th>No</th><th>Repository Name</th><th>实现的最佳实践标准</th><th>徽章</th></tr></thead><tbody><tr><td>1</td><td>project-a</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰Email或Slack通知</td><td>🚩WIP</td></tr><tr><td>2</td><td>project-b</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>✅PASSING</td></tr><tr><td>3</td><td>project-c</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>🥈SILVER</td></tr><tr><td>4</td><td>project-d</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>👍性能测试<br>👍代码覆盖率收集<br>🔰漏洞扫描<br>🔰License扫描<br>👍Code Lint<br>👍静态代码分析<br>👍动态代码分析<br>🔰Email或Slack通知</td><td>🥇GOLD</td></tr></tbody></table><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p>Q: 为什么使用徽章而不是分数？<br>A: 使用徽章能更好的帮助团队朝着目标而不是分数努力。</p><p>Q: 建立最佳实践标准还有哪些帮助？<br>A: 团队之间容易进行技术共享，更容易地构建高质量的安全软件，保持团队之间在统一的高水准。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在一个组织内，不同的团队之间可能会有不同的维度来评估 CI/CD 的成熟度。这使得对衡量每个团队的 CI/CD 的表现变得困难。</p><p>如何快速评估哪些项目遵循最佳实践？如何更容易地构建高质量的安全软件？组织内需要建立一个由团队成员一起讨论出来的最佳实践来帮助团队建立明确的努力方向。</p><h2 id="如何评估"><a href="#如何评估" class="headerlink" title="如何评估"></a>如何评估</h2><p>这里我参考了开源项目 <a href="https://github.com/coreinfrastructure/best-practices-badge" target="_blank" rel="noopener">CII 最佳实践徽章计划</a>，这是 Linux 基金会 (LF) 发起的一个开源项目。它提供一系列自由/开源软件 (FLOSS) 项目的最佳实践方法。参照这些最佳实践标准的项目可以进行自认证, 以获得核心基础设施促进会(CII)徽章。要做到这点无需任何费用，你的项目可以使用 Web 应用（BadgeApp) 来证明是如何符合这些实践标准的以及其详细状况。</p><p>这些最佳实践标准可以用来：</p><ul><li>鼓励项目遵循最佳实践。</li><li>帮助新的项目找到那些它们要遵循的最佳实践</li><li>帮助用户了解哪些项目遵循了最佳实践（这样用户可以更倾向于选择此类项目）。</li></ul><p>最佳实践包含以下五个标准：基本，变更控制，报告，质量，安全，分析。</p><p><img src="/2021/12/cicd-assessment/cii.png" alt="cii"></p><p>更多关于标准的细分可以参考 <a href="https://hardenedlinux.github.io/2016/08/04/best-practices-criteria-for-floss-part1.html" target="_blank" rel="noopener">CII 中文文档</a> 或 <a href="https://github.com/coreinfrastructure/best-practices-badge/blob/main/doc/criteria.md" target="_blank" rel="noopener">CII 英文文档</a>。</p><p>已经很多知名的项目比如 <a href="https://bestpractices.coreinfrastructure.org/en/projects/569" target="_blank" rel="noopener">Kubernetes</a>, <a href="https://bestpractices.coreinfrastructure.org/en/projects/29" target="_blank" rel="noopener">Node.js</a> 等在使用这个最佳实践徽章计划</p><p><img src="/2021/12/cicd-assessment/badge-owners.png" alt="badge-owners"></p><p>如果你的项目在 GitHub 上或是你可以按照上述的徽章计划进行评估，就可以使用它来评估你项目的最佳实践，并可以在项目主页的 README 上显示徽章结果。</p><p><img src="/2021/12/cicd-assessment/badge-result.png" alt="badge-result"></p><h2 id="定制最佳实践标准"><a href="#定制最佳实践标准" class="headerlink" title="定制最佳实践标准"></a>定制最佳实践标准</h2><p>如果上述项目不能满足你的评估要求，结合我的实践，制定了如下“最佳实践标准”并分配了相应的成熟度徽章，供参考。</p><h3 id="计算规则"><a href="#计算规则" class="headerlink" title="计算规则"></a>计算规则</h3><ol><li>每个最佳实践标准都有分数，通常一般的标准是10分，重要的标准是20分</li><li>带有🔰的最佳实践标准表示“一定要有”</li><li>带有👍的最佳实践标准表示“应当有”</li><li>每个项目的最佳实践标准分数之和落在的区间获得对应的徽章</li></ol><h3 id="徽章分数对照表"><a href="#徽章分数对照表" class="headerlink" title="徽章分数对照表"></a>徽章分数对照表</h3><table><thead><tr><th>徽章</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td>🚩WIP</td><td>&lt; 100</td><td>小于100分获得 🚩Work In Progress 徽章</td></tr><tr><td>✔️PASSING</td><td>= 100</td><td>等于100分获得 ✔️PASSING 徽章</td></tr><tr><td>🥈SILVER</td><td>&gt; 100 &amp;&amp; &lt;= 150</td><td>大于100，小于等于150分获得🥈银牌徽章</td></tr><tr><td>🥇GOLD</td><td>&gt; 150</td><td>大于等于150分获得🥇金牌徽章</td></tr></tbody></table><p>注：这个分数区间可调整。</p><h3 id="最佳实践标准和分数"><a href="#最佳实践标准和分数" class="headerlink" title="最佳实践标准和分数"></a>最佳实践标准和分数</h3><table><thead><tr><th>类别</th><th>最佳实践标准</th><th>分数</th><th>描述</th></tr></thead><tbody><tr><td><strong>基本</strong></td><td>🔰<strong>构建任何分支</strong></td><td><strong>20</strong></td><td>Jenkins：支持任何分支构建</td></tr><tr><td></td><td>🔰<strong>构建任何PR</strong></td><td><strong>20</strong></td><td>Jenkins：支持对任何 Pull Request 在 Merge 之前进行构建</td></tr><tr><td></td><td>🔰上传制品</td><td>10</td><td>Jenkins：构建产物上传到制品仓库保存</td></tr><tr><td></td><td>👍容器化构建</td><td>10</td><td>推荐使用容器化技术实现Pipeline</td></tr><tr><td><strong>质量</strong></td><td>🔰<strong>自动化测试</strong></td><td><strong>20</strong></td><td>Jenkins：支持触发冒烟/单元/回归测试</td></tr><tr><td></td><td>👍性能测试</td><td>10</td><td>Jenkins：支持触发性能测试</td></tr><tr><td></td><td>👍代码覆盖率收集</td><td>10</td><td>Jenkins：支持获得代码覆盖率</td></tr><tr><td><strong>安全</strong></td><td>🔰漏洞扫描</td><td>10</td><td>Jenkins：支持触发漏洞扫描</td></tr><tr><td></td><td>🔰License扫描</td><td>10</td><td>Jenkins：支持触发证书扫描</td></tr><tr><td><strong>分析</strong></td><td>👍Code Lint</td><td>10</td><td>Jenkins：支持对PR进行代码格式检查</td></tr><tr><td></td><td>👍静态代码分析</td><td>10</td><td>Jenkins：支持对PR进行静态代码分析</td></tr><tr><td></td><td>👍动态代码分析</td><td>10</td><td>Jenkins：支持对PR进行动态代码分析</td></tr><tr><td><strong>报告</strong></td><td>🔰Email或Slack通知</td><td>10</td><td>支持通过Email或Slack等方式通知</td></tr></tbody></table><p>注：以Jenkins为例。</p><h2 id="最终的结果"><a href="#最终的结果" class="headerlink" title="最终的结果"></a>最终的结果</h2><table><thead><tr><th>No</th><th>Repository Name</th><th>实现的最佳实践标准</th><th>徽章</th></tr></thead><tbody><tr><td>1</td><td>project-a</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰Email或Slack通知</td><td>🚩WIP</td></tr><tr><td>2</td><td>project-b</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>✔️PASSING</td></tr><tr><td>3</td><td>project-c</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td><td>🥈SILVER</td></tr><tr><td>4</td><td>project-d</td><td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>👍性能测试<br>👍代码覆盖率收集<br>🔰漏洞扫描<br>🔰License扫描<br>👍Code Lint<br>👍静态代码分析<br>👍动态代码分析<br>🔰Email或Slack通知</td><td>🥇GOLD</td></tr></tbody></table><h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p>Q: 为什么使用徽章而不是分数？<br>A: 使用徽章能更好的帮助团队朝着目标而不是分数努力。</p><p>Q: 建立最佳实践标准还有哪些帮助？<br>A: 团队之间容易进行技术共享，更容易地构建高质量的安全软件，保持团队之间在统一的高水准。</p>]]></content>
       
       
       <categories>
@@ -23,8 +48,6 @@
             <tag> CI </tag>
             
             <tag> CD </tag>
-            
-            <tag> BadgeApp </tag>
             
             <tag> Badge </tag>
             
@@ -331,9 +354,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -686,9 +709,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gradle </tag>
             
@@ -1016,16 +1039,16 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -1050,9 +1073,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Backup </tag>
             
@@ -1081,9 +1104,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1189,9 +1212,9 @@
             
             <tag> Python </tag>
             
-            <tag> Release </tag>
-            
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -1317,7 +1340,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1403,9 +1426,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1430,9 +1453,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1450,7 +1473,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
@@ -1581,7 +1604,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
@@ -2078,16 +2101,16 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -2193,9 +2216,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -2915,7 +2938,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
@@ -2967,7 +2990,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
@@ -2992,7 +3015,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
@@ -3117,7 +3140,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
@@ -3485,7 +3508,7 @@
       
       <categories>
           
-          <category> Nontechnical </category>
+          <category> Others </category>
           
       </categories>
       
