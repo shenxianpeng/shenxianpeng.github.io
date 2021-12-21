@@ -325,9 +325,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gcov </tag>
             
@@ -381,9 +381,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -462,9 +462,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> Git </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> AIX </tag>
             
@@ -491,9 +491,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gcov </tag>
             
@@ -1073,9 +1073,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -1102,9 +1102,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> JaCoCo </tag>
             
@@ -1210,9 +1210,9 @@
       
         <tags>
             
-            <tag> Release </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Release </tag>
             
             <tag> PyPI </tag>
             
@@ -1426,9 +1426,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1453,9 +1453,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2216,9 +2216,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2590,11 +2590,11 @@
       
         <tags>
             
+            <tag> Git </tag>
+            
             <tag> Jenkins </tag>
             
             <tag> Pipeline </tag>
-            
-            <tag> Git </tag>
             
         </tags>
       
@@ -2752,11 +2752,11 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
             
             <tag> SquishCoco </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -2781,11 +2781,11 @@
       
         <tags>
             
-            <tag> Coverage </tag>
+            <tag> DevOps </tag>
             
             <tag> C </tag>
             
-            <tag> DevOps </tag>
+            <tag> Coverage </tag>
             
         </tags>
       
