@@ -74,9 +74,9 @@
       
         <tags>
             
-            <tag> Actions </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Actions </tag>
             
         </tags>
       
@@ -354,9 +354,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -678,9 +678,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gradle </tag>
             
@@ -911,9 +911,9 @@
       
         <tags>
             
-            <tag> OpenSSH </tag>
-            
             <tag> Windows </tag>
+            
+            <tag> OpenSSH </tag>
             
         </tags>
       
@@ -1015,9 +1015,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -1073,9 +1073,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1181,9 +1181,9 @@
             
             <tag> Python </tag>
             
-            <tag> Release </tag>
-            
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -2077,9 +2077,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       

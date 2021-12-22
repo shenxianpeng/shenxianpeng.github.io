@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hello DevOps</title>
+  <title>Peter Shen</title>
   
-  <subtitle>Peter shen&#39;s blog</subtitle>
+  <subtitle>A DevOps engineer&#39;s blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
@@ -93,9 +93,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
-    
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
     
   </entry>
   
@@ -501,9 +501,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
