@@ -353,11 +353,11 @@
   </entry>
   
   <entry>
-    <title>使用 Gcov 和 LCOV 度量 C/C++ 项目的代码覆盖率</title>
+    <title>使用 Gcov 和 LCOV 做 C/C++ 项目的代码覆盖率</title>
     <link href="https://shenxianpeng.github.io/2021/08/gcov-example-cn/"/>
     <id>https://shenxianpeng.github.io/2021/08/gcov-example-cn/</id>
     <published>2021-08-16T16:10:21.000Z</published>
-    <updated>2021-11-22T15:45:52.273Z</updated>
+    <updated>2021-12-22T12:44:47.797Z</updated>
     
     <summary type="html">
     
@@ -365,8 +365,9 @@
       
         
         
-          &lt;p&gt;本篇分享如何使用 Gcov 和 LCOV 对 C/C++ 项目进行代码覆盖率的度量。如果你想了解代码覆盖率工具 Gcov 是如何工作的，或是以后需要做 C/C++ 项目的代码覆盖率，希望本篇对你有所帮助。&lt;/p&gt;
-&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot;
+          &lt;p&gt;本篇分享如何使用 Gcov 和 LCOV 对 C/C++ 项目进行代码覆盖率的度量。&lt;/p&gt;
+&lt;p&gt;如果你想了解代码覆盖率工具 Gcov 是如何工作的，或是以后需要做 C/C++ 项目的代码覆盖率，希望本篇对你有所帮助。&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a
         
       
     
@@ -622,38 +623,6 @@
   </entry>
   
   <entry>
-    <title>Gcov 一个免费开源的 C/C++ 代码覆盖率工具以及生成报告</title>
-    <link href="https://shenxianpeng.github.io/2021/06/gcov/"/>
-    <id>https://shenxianpeng.github.io/2021/06/gcov/</id>
-    <published>2021-06-18T08:28:11.000Z</published>
-    <updated>2021-11-22T14:45:13.678Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;注：这篇文章是边调查边写的，可能存在一些示例、命令输出、以及截图对应不上的情况，因此在调查完成后，我又重新编写了整理的示例代码，并放在 GitHub 上，这是 README: &lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
-    
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
-      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
-    
-      <category term="LCOV" scheme="https://shenxianpeng.github.io/tags/lcov/"/>
-    
-  </entry>
-  
-  <entry>
     <title>通过解除文件资源限制：解决在 AIX 使用 Git 下载大容量仓库失败问题</title>
     <link href="https://shenxianpeng.github.io/2021/06/aix-ulimit/"/>
     <id>https://shenxianpeng.github.io/2021/06/aix-ulimit/</id>
@@ -708,6 +677,39 @@
     
     
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</title>
+    <link href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/"/>
+    <id>https://shenxianpeng.github.io/2021/06/eslint-jenkins/</id>
+    <published>2021-06-07T04:30:02.000Z</published>
+    <updated>2021-11-22T15:27:26.123Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;I’m just documenting to myself that it was solved by following.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;When I want to integrate the ESlint
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
+    
+      <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
     
   </entry>
   
