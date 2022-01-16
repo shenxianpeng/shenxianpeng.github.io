@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-11T16:19:05.865Z</updated>
+  <updated>2022-01-16T06:50:14.039Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,17 +17,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>【必读】Docker 最佳实践</title>
+    <title>你一定要了解这 17 条 Docker 最佳实践！</title>
     <link href="https://shenxianpeng.github.io/2022/01/docker-best-practice/"/>
     <id>https://shenxianpeng.github.io/2022/01/docker-best-practice/</id>
     <published>2022-01-12T04:18:16.000Z</published>
-    <updated>2022-01-11T16:19:05.865Z</updated>
+    <updated>2022-01-16T06:50:14.039Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，但保证看完会很有收获。&lt;/p&gt;
-&lt;p&gt;下面所列举的大多数做法适用于所有的开发人员，不论使用何种编程语言。但有一些做法只适用于 Python 相关的开发程序。&lt;/p&gt;
-&lt;h2 id=&quot;文章目录&quot;&gt;&lt;a href=&quot;#文章目录&quot; class=&quot;headerlink&quot; title=&quot;文章目录&quot;&gt;&lt;/a&gt;文章目录&lt;/h2&gt;&lt;h3 id=&quot;关于-Dockerfiles&quot;&gt;&lt;a href=&quot;#关于-Dockerfiles&quot; class=&quot;headerlink&quot; title=&quot;关于 Dockerfiles&quot;&gt;&lt;/a&gt;关于 Dockerfiles&lt;/h3&gt;&lt;ol&gt;
+      &lt;p&gt;本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，建议先收藏慢慢看，保证看完会很有收获。&lt;/p&gt;
+&lt;h2 id=&quot;文章目录&quot;&gt;&lt;a href=&quot;#文章目录&quot; class=&quot;headerlink&quot; title=&quot;文章目录&quot;&gt;&lt;/a&gt;文章目录&lt;/h2&gt;&lt;p&gt;Dockerfile 最佳实践&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;使用多阶段的构建&lt;/li&gt;
 &lt;li&gt;调整 Dockerfile 命令的顺序&lt;/li&gt;
 &lt;li&gt;使用小型 Docker 基础镜像&lt;/li&gt;
@@ -40,19 +40,17 @@
 &lt;li&gt;理解 &lt;code&gt;ENTRYPOINT&lt;/code&gt; 和 &lt;code&gt;CMD&lt;/code&gt; 之间的区别&lt;/li&gt;
 &lt;li&gt;添加健康检查 &lt;code&gt;HEALTHCHECK&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;关于-Images&quot;&gt;&lt;a href=&quot;#关于-Images&quot; class=&quot;headerlink&quot; title=&quot;关于 Images&quot;&gt;&lt;/a&gt;关于 Images&lt;/h3&gt;&lt;ol&gt;
+&lt;p&gt;Docker 镜像最佳实践&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;Docker 镜像的版本&lt;/li&gt;
-&lt;li&gt;不要在图像中存储密钥&lt;/li&gt;
+&lt;li&gt;不要在镜像中存储密钥&lt;/li&gt;
 &lt;li&gt;使用 &lt;code&gt;.dockerignore&lt;/code&gt; 文件&lt;/li&gt;
 &lt;li&gt;检查和扫描你的 Docker 文件和镜像&lt;/li&gt;
-&lt;li&gt;签署和验证图像&lt;/li&gt;
+&lt;li&gt;签署和验证镜像&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;更多实践&quot;&gt;&lt;a href=&quot;#更多实践&quot; class=&quot;headerlink&quot; title=&quot;更多实践&quot;&gt;&lt;/a&gt;更多实践&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;使用 &lt;code&gt;Python&lt;/code&gt; 虚拟环境&lt;/li&gt;
-&lt;li&gt;设置内存和CPU的限制&lt;/li&gt;
-&lt;li&gt;记录到 stdout 或 stderr&lt;/li&gt;
-&lt;li&gt;为 Gunicorn Heartbeat 使用共享内存挂载&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;Dockerfile-最佳实践&quot;&gt;&lt;a href=&quot;#Dockerfile-最佳实践&quot; class=&quot;headerlink&quot; title=&quot;Dockerfile 最佳实践&quot;&gt;&lt;/a&gt;Dockerfile 最佳实践&lt;/h2&gt;&lt;h3 id=&quot;1-使用多阶段的构建&quot;&gt;&lt;a href=&quot;#1-使用多阶段的构建&quot; class=&quot;headerlink&quot; title=&quot;1. 使用多阶段的构建&quot;&gt;&lt;/a&gt;1. 使用多阶段的构建&lt;/h3&gt;&lt;p&gt;利用多阶段构建的优势来创建更精简、更安全的Docker镜像。多阶段 Docker 构建(&lt;a href=&quot;https://docs.docker.com/develop/develop-images/multistage-build/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;multi-stage builds&lt;/a&gt;)允许你将你的 Dockerfile 分成几个阶段。&lt;/p&gt;
+&lt;p&gt;例如，你可以有一个阶段用于编译和构建你的应用程序，然后可以复制到后续阶段。由于只有最后一个阶段被用来创建镜像，与构建应用程序相关的依赖关系和工具就会被丢弃，因此可以留下一个精简的、模块化的、可用于生产的镜像。&lt;/p&gt;
+&lt;p&gt;Web 开发示例：&lt;/p&gt;
     
     </summary>
     
@@ -499,9 +497,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -612,11 +610,11 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
+      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
+    
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
   </entry>
   
@@ -642,9 +640,9 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="ulimit" scheme="https://shenxianpeng.github.io/tags/ulimit/"/>
     

@@ -109,7 +109,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/docker-best-practice/">【必读】Docker 最佳实践</a>
+      <a class="article-title" href="/2022/01/docker-best-practice/">你一定要了解这 17 条 Docker 最佳实践！</a>
     </h1>
   
 
@@ -117,9 +117,9 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，但保证看完会很有收获。</p>
-<p>下面所列举的大多数做法适用于所有的开发人员，不论使用何种编程语言。但有一些做法只适用于 Python 相关的开发程序。</p>
-<h2 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h2><h3 id="关于-Dockerfiles"><a href="#关于-Dockerfiles" class="headerlink" title="关于 Dockerfiles"></a>关于 Dockerfiles</h3><ol>
+        <p>本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，建议先收藏慢慢看，保证看完会很有收获。</p>
+<h2 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h2><p>Dockerfile 最佳实践</p>
+<ol>
 <li>使用多阶段的构建</li>
 <li>调整 Dockerfile 命令的顺序</li>
 <li>使用小型 Docker 基础镜像</li>
@@ -132,19 +132,17 @@ ga('send', 'pageview');
 <li>理解 <code>ENTRYPOINT</code> 和 <code>CMD</code> 之间的区别</li>
 <li>添加健康检查 <code>HEALTHCHECK</code></li>
 </ol>
-<h3 id="关于-Images"><a href="#关于-Images" class="headerlink" title="关于 Images"></a>关于 Images</h3><ol>
+<p>Docker 镜像最佳实践</p>
+<ol>
 <li>Docker 镜像的版本</li>
-<li>不要在图像中存储密钥</li>
+<li>不要在镜像中存储密钥</li>
 <li>使用 <code>.dockerignore</code> 文件</li>
 <li>检查和扫描你的 Docker 文件和镜像</li>
-<li>签署和验证图像</li>
+<li>签署和验证镜像</li>
 </ol>
-<h3 id="更多实践"><a href="#更多实践" class="headerlink" title="更多实践"></a>更多实践</h3><ol>
-<li>使用 <code>Python</code> 虚拟环境</li>
-<li>设置内存和CPU的限制</li>
-<li>记录到 stdout 或 stderr</li>
-<li>为 Gunicorn Heartbeat 使用共享内存挂载</li>
-</ol>
+<h2 id="Dockerfile-最佳实践"><a href="#Dockerfile-最佳实践" class="headerlink" title="Dockerfile 最佳实践"></a>Dockerfile 最佳实践</h2><h3 id="1-使用多阶段的构建"><a href="#1-使用多阶段的构建" class="headerlink" title="1. 使用多阶段的构建"></a>1. 使用多阶段的构建</h3><p>利用多阶段构建的优势来创建更精简、更安全的Docker镜像。多阶段 Docker 构建(<a href="https://docs.docker.com/develop/develop-images/multistage-build/" target="_blank" rel="noopener">multi-stage builds</a>)允许你将你的 Dockerfile 分成几个阶段。</p>
+<p>例如，你可以有一个阶段用于编译和构建你的应用程序，然后可以复制到后续阶段。由于只有最后一个阶段被用来创建镜像，与构建应用程序相关的依赖关系和工具就会被丢弃，因此可以留下一个精简的、模块化的、可用于生产的镜像。</p>
+<p>Web 开发示例：</p>
         
           <p class="article-more-link">
             <a href="/2022/01/docker-best-practice/#more">Read More</a>
@@ -163,7 +161,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/docker-best-practice/" data-id="ckyabmq6i00lki4fo4aiqgwtb" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/01/docker-best-practice/" data-id="ckygwgnkn00hveofo62dtbqv3" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/01/docker-best-practice/#disqus_thread" class="article-comment-link">Comments</a>
@@ -227,7 +225,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/12/choose-monitor/" data-id="ckyabmq6k00lli4foc8v19oal" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/12/choose-monitor/" data-id="ckygwgnkg00hbeofoe4s3gh7f" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/12/choose-monitor/#disqus_thread" class="article-comment-link">Comments</a>
@@ -461,7 +459,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/12/cicd-assessment/" data-id="ckyabmq6m00lni4fo8hc5fo7z" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/12/cicd-assessment/" data-id="ckygwgnkm00hqeofoh0fy30tl" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/12/cicd-assessment/#disqus_thread" class="article-comment-link">Comments</a>
@@ -530,7 +528,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/11/special-repository/" data-id="ckyabmq3i00cai4fo0lhgfwev" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/11/special-repository/" data-id="ckygwgnkj00hjeofoeg0pcs7f" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/11/special-repository/#disqus_thread" class="article-comment-link">Comments</a>
@@ -604,7 +602,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/11/world-quality-report/" data-id="ckyabmq3l00cii4fo3j8ua61b" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/11/world-quality-report/" data-id="ckygwgnkl00hneofofm3mgah5" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/11/world-quality-report/#disqus_thread" class="article-comment-link">Comments</a>
@@ -720,7 +718,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/10/what-is-polaris/" data-id="ckyabmq3g00c7i4fo23lh12qf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/10/what-is-polaris/" data-id="ckygwgnkf00h8eofo6238696y" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/10/what-is-polaris/#disqus_thread" class="article-comment-link">Comments</a>
@@ -826,7 +824,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/10/git-cheatsheet/" data-id="ckyabmq3f00c4i4fobbhhfkpi" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/10/git-cheatsheet/" data-id="ckygwgnke00h4eofo1500giz6" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/10/git-cheatsheet/#disqus_thread" class="article-comment-link">Comments</a>
@@ -913,7 +911,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/09/sonarqube-integration/" data-id="ckyabmq3d00c0i4fo2q5rbyil" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/09/sonarqube-integration/" data-id="ckygwgnki00hfeofoctli6ek5" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/09/sonarqube-integration/#disqus_thread" class="article-comment-link">Comments</a>
@@ -978,7 +976,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/09/lcov-error/" data-id="ckyabmq3j00cfi4fo9qjrdkd8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/09/lcov-error/" data-id="ckygwgnkb00gxeofo59gs2c0l" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/09/lcov-error/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1131,7 +1129,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/08/gcov-example-cn/" data-id="ckyabmq3b00bti4fo783r6bc6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/08/gcov-example-cn/" data-id="ckygwgnk700gjeofo1ughbq4z" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/08/gcov-example-cn/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1173,7 +1171,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/01/docker-best-practice/">【必读】Docker 最佳实践</a>
+            <a href="/2022/01/docker-best-practice/">你一定要了解这 17 条 Docker 最佳实践！</a>
           </li>
         
           <li>
