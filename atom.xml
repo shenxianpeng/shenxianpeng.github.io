@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-16T06:50:14.039Z</updated>
+  <updated>2022-01-22T16:01:11.190Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>什么是 Go ？Go 有哪些优势，它的现状，初学者如何选择，如何学习 ...</title>
+    <link href="https://shenxianpeng.github.io/2022/01/get-started-with-go/"/>
+    <id>https://shenxianpeng.github.io/2022/01/get-started-with-go/</id>
+    <published>2022-01-18T14:01:31.000Z</published>
+    <updated>2022-01-22T16:01:11.190Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Go-还是-Golang&quot;&gt;&lt;a href=&quot;#Go-还是-Golang&quot; class=&quot;headerlink&quot; title=&quot;Go 还是 Golang&quot;&gt;&lt;/a&gt;Go 还是 Golang&lt;/h2&gt;&lt;p&gt;问你一个问题：谷歌的这门开源编程语言是叫 Golang
+        
+      
+    
+    </summary>
+    
+      <category term="Go" scheme="https://shenxianpeng.github.io/categories/go/"/>
+    
+    
+      <category term="Go" scheme="https://shenxianpeng.github.io/tags/go/"/>
+    
+      <category term="CLI" scheme="https://shenxianpeng.github.io/tags/cli/"/>
+    
+  </entry>
   
   <entry>
     <title>你一定要了解这 17 条 Docker 最佳实践！</title>
@@ -497,9 +525,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
       <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
   </entry>
   
@@ -610,11 +638,11 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
-    
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
   </entry>
   
@@ -640,9 +668,9 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
-    
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
       <category term="ulimit" scheme="https://shenxianpeng.github.io/tags/ulimit/"/>
     
@@ -673,39 +701,6 @@
     
     
       <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Resolved problem that ESlint HTML report is not displayed correctly in Jenkins job</title>
-    <link href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/"/>
-    <id>https://shenxianpeng.github.io/2021/06/eslint-jenkins/</id>
-    <published>2021-06-07T04:30:02.000Z</published>
-    <updated>2021-11-22T15:27:26.123Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;I’m just documenting to myself that it was solved by following.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;When I want to integrate the ESlint
-        
-      
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
-    
-      <category term="ESlint" scheme="https://shenxianpeng.github.io/tags/eslint/"/>
     
   </entry>
   
