@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-23T14:12:37.661Z</updated>
+  <updated>2022-01-23T15:20:43.771Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>什么是 Go ？Go 有哪些优势，Go 的现状，以及初学者如何选择和学习</title>
+    <title>什么是 Go ？Go 的优势和现状。初学者应该学习 Python 还是 Go？</title>
     <link href="https://shenxianpeng.github.io/2022/01/what-is-go/"/>
     <id>https://shenxianpeng.github.io/2022/01/what-is-go/</id>
     <published>2022-01-18T14:01:31.000Z</published>
-    <updated>2022-01-23T14:12:37.661Z</updated>
+    <updated>2022-01-23T15:20:43.771Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Go-还是-Golang&quot;&gt;&lt;a href=&quot;#Go-还是-Golang&quot; class=&quot;headerlink&quot; title=&quot;Go 还是 Golang&quot;&gt;&lt;/a&gt;Go 还是 Golang&lt;/h2&gt;&lt;p&gt;问你一个问题：Google 的这门开源编程语言是叫 Golang 还是 Go？还是两个都行？给你三秒钟想一下 …&lt;/p&gt;
+      &lt;h2 id=&quot;Go-还是-Golang&quot;&gt;&lt;a href=&quot;#Go-还是-Golang&quot; class=&quot;headerlink&quot; title=&quot;Go 还是 Golang&quot;&gt;&lt;/a&gt;Go 还是 Golang&lt;/h2&gt;&lt;p&gt;先问一个大多数人可能会忽略的问题：Google 的这门开源编程语言叫 Go 还是 Golang？还是两个都行？给你三秒钟想一下 …&lt;/p&gt;
 &lt;p&gt;Google 说：它叫 Go。之所以有人称它为 Golang 是由于之前的 Go 语言官网是 golang.org（因为 go.org 已经被别人用了），因此有人将 Golang 和 Go 混用了。&lt;/p&gt;
-&lt;p&gt;现在输入 golang.org 会直接跳转到 go.dev 这个网址，这也算是彻底个自己家孩儿正个名。&lt;/p&gt;
-&lt;h2 id=&quot;Go-语言有那些优势&quot;&gt;&lt;a href=&quot;#Go-语言有那些优势&quot; class=&quot;headerlink&quot; title=&quot;Go 语言有那些优势&quot;&gt;&lt;/a&gt;Go 语言有那些优势&lt;/h2&gt;&lt;p&gt;官网是这样介绍 Go 语言的：&lt;/p&gt;
+&lt;p&gt;现在输入 golang.org 会直接跳转到 go.dev 这个网址，这也算是彻底给自家孩子正个名。&lt;/p&gt;
+&lt;h2 id=&quot;Go-语言有哪些优势&quot;&gt;&lt;a href=&quot;#Go-语言有哪些优势&quot; class=&quot;headerlink&quot; title=&quot;Go 语言有哪些优势&quot;&gt;&lt;/a&gt;Go 语言有哪些优势&lt;/h2&gt;&lt;p&gt;官网是这样介绍 Go 语言的：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Go 适合大规模快速构建，可靠、高效的软件&lt;/li&gt;
 &lt;li&gt;Go 是 Google 在背后支持的一门开源编程语言&lt;/li&gt;
@@ -184,9 +184,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
-    
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
     
   </entry>
   
@@ -654,9 +654,9 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
