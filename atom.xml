@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-23T14:07:36.530Z</updated>
+  <updated>2022-01-23T14:12:37.661Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>什么是 Go ？Go 有哪些优势，Go 的现状，以及初学者如何选择和学习</title>
-    <link href="https://shenxianpeng.github.io/2022/01/get-started-with-go/"/>
-    <id>https://shenxianpeng.github.io/2022/01/get-started-with-go/</id>
+    <link href="https://shenxianpeng.github.io/2022/01/what-is-go/"/>
+    <id>https://shenxianpeng.github.io/2022/01/what-is-go/</id>
     <published>2022-01-18T14:01:31.000Z</published>
-    <updated>2022-01-23T14:07:36.530Z</updated>
+    <updated>2022-01-23T14:12:37.661Z</updated>
     
     <summary type="html">
     
@@ -184,9 +184,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
       <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
@@ -654,9 +654,9 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
