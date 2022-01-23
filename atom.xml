@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-22T16:01:11.190Z</updated>
+  <updated>2022-01-23T14:07:36.530Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,21 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>什么是 Go ？Go 有哪些优势，它的现状，初学者如何选择，如何学习 ...</title>
+    <title>什么是 Go ？Go 有哪些优势，Go 的现状，以及初学者如何选择和学习</title>
     <link href="https://shenxianpeng.github.io/2022/01/get-started-with-go/"/>
     <id>https://shenxianpeng.github.io/2022/01/get-started-with-go/</id>
     <published>2022-01-18T14:01:31.000Z</published>
-    <updated>2022-01-22T16:01:11.190Z</updated>
+    <updated>2022-01-23T14:07:36.530Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Go-还是-Golang&quot;&gt;&lt;a href=&quot;#Go-还是-Golang&quot; class=&quot;headerlink&quot; title=&quot;Go 还是 Golang&quot;&gt;&lt;/a&gt;Go 还是 Golang&lt;/h2&gt;&lt;p&gt;问你一个问题：谷歌的这门开源编程语言是叫 Golang
-        
-      
+      &lt;h2 id=&quot;Go-还是-Golang&quot;&gt;&lt;a href=&quot;#Go-还是-Golang&quot; class=&quot;headerlink&quot; title=&quot;Go 还是 Golang&quot;&gt;&lt;/a&gt;Go 还是 Golang&lt;/h2&gt;&lt;p&gt;问你一个问题：Google 的这门开源编程语言是叫 Golang 还是 Go？还是两个都行？给你三秒钟想一下 …&lt;/p&gt;
+&lt;p&gt;Google 说：它叫 Go。之所以有人称它为 Golang 是由于之前的 Go 语言官网是 golang.org（因为 go.org 已经被别人用了），因此有人将 Golang 和 Go 混用了。&lt;/p&gt;
+&lt;p&gt;现在输入 golang.org 会直接跳转到 go.dev 这个网址，这也算是彻底个自己家孩儿正个名。&lt;/p&gt;
+&lt;h2 id=&quot;Go-语言有那些优势&quot;&gt;&lt;a href=&quot;#Go-语言有那些优势&quot; class=&quot;headerlink&quot; title=&quot;Go 语言有那些优势&quot;&gt;&lt;/a&gt;Go 语言有那些优势&lt;/h2&gt;&lt;p&gt;官网是这样介绍 Go 语言的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go 适合大规模快速构建，可靠、高效的软件&lt;/li&gt;
+&lt;li&gt;Go 是 Google 在背后支持的一门开源编程语言&lt;/li&gt;
+&lt;li&gt;易于学习和入门&lt;/li&gt;
+&lt;li&gt;内置并发和强大的标准库&lt;/li&gt;
+&lt;li&gt;不断发展的合作伙伴、社区和工具生态系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今天，Go 被用于各种应用程序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Go 在基于云或服务器端的应用程序中很受欢迎&lt;/li&gt;
+&lt;li&gt;云基础设施方面。当今最流行的基础设施工具是用 Go 编写的，例如 Kubernetes、Docker 和 Prometheus&lt;/li&gt;
+&lt;li&gt;许多命令行工具都是用 Go 编写的&lt;/li&gt;
+&lt;li&gt;DevOps 和 Web 可靠性自动化也常常用 Go 来写&lt;/li&gt;
+&lt;li&gt;Go 也被用于人工智能和数据科学领域&lt;/li&gt;
+&lt;li&gt;微控制器编程、机器人技术和游戏中使用也会使用 Go&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这也就是为什么 Go 越来越流行。&lt;/p&gt;
+&lt;p&gt;正是因为这些优势以及在工作上的需要写一个 CLI，我就入门 Go 语言了。&lt;/p&gt;
+&lt;h2 id=&quot;Go-语言的排名&quot;&gt;&lt;a href=&quot;#Go-语言的排名&quot; class=&quot;headerlink&quot; title=&quot;Go 语言的排名&quot;&gt;&lt;/a&gt;Go 语言的排名&lt;/h2&gt;&lt;p&gt;Go 语言在国内热度可谓是非常高了，我们来看看 Go 语言目前最新的排名怎么样。&lt;/p&gt;
     
     </summary>
     
