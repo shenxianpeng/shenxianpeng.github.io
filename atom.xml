@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-23T15:27:47.380Z</updated>
+  <updated>2022-01-26T06:19:43.855Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>什么是 Vagrant？Vagrant 和 Docker 该怎么选？</title>
+    <link href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/"/>
+    <id>https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/</id>
+    <published>2022-01-26T14:57:27.000Z</published>
+    <updated>2022-01-26T06:19:43.855Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;Vagrant 是对传统虚拟机的一层封装，能够让你更方便的使用虚拟机，主要解决环境配置的问题。它可以基于 VirtualBox，VMware，Hyper-V，甚至是 Docker 等提供商来构建你的环境。&lt;/p&gt;
+&lt;h2 id=&quot;为什么要用-Vagrant&quot;&gt;&lt;a href=&quot;#为什么要用-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;为什么要用 Vagrant&quot;&gt;&lt;/a&gt;为什么要用 Vagrant&lt;/h2&gt;&lt;p&gt;对比按照传统模式如果我们需要在自己的电脑上安装一台虚拟机时，步骤如下：&lt;/p&gt;
+&lt;p&gt;首先，下载对应的 ISO 文件&lt;br&gt;然后，用 VirtualBox 或 VMware 来加载 ISO&lt;br&gt;最后，通过一步步的配置 CPU、内存、磁盘，网络、用户等设置，等待安装完成安装&lt;/p&gt;
+&lt;p&gt;如果使用 vagrant 来创建一台虚拟机，只需要两条命令&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 初始化 Vagrant，这时会在你当前目录下生成一个 Vagrantfile&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vagrant init hashicorp/bionic64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 启动虚拟机&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vagrant up&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;大概几十秒钟就可以完成了（第一次需要下载镜像，时间会长一点，取决于网速）。&lt;/p&gt;
+&lt;p&gt;Vagrant 之所以可以这么方便，其实是它站在了这些巨人（VirtualBox、VMware、AWS、OpenStack 或其他提供商）的肩膀上，然后通过 Shell 脚本、Ansbile、Chef、Puppet 等工具实现自动在虚拟机上安装和配置软件。&lt;/p&gt;
+&lt;p&gt;好处就是：提供易于配置、可重现和便携的工作环境，提高生产力和灵活性。&lt;/p&gt;
+&lt;p&gt;Vagrant 可以说是创建、管理虚拟化环境的最简单、最快捷的方式！&lt;/p&gt;
+&lt;h2 id=&quot;Vagrant-和-Docker-区别&quot;&gt;&lt;a href=&quot;#Vagrant-和-Docker-区别&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 和 Docker 区别&quot;&gt;&lt;/a&gt;Vagrant 和 Docker 区别&lt;/h2&gt;&lt;p&gt;如果不分场景而直接比对 Vagrant 和 Docker 是不恰当的。在一些简单场景中，它们的作用是重复的，但在更多场景中，它们是无法相互替代的。&lt;/p&gt;
+&lt;p&gt;那么什么情况下应该用 Vagrant，什么情况下用 Docker 呢？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;所以如果你仅仅是想管理虚拟机，那么你应该使用 Vagrant；如果你想快速开发和部署应用，那么应该使用 Docker。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;下面具体来说说为什么。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
+    
+    
+      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    
+      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+      <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
+    
+  </entry>
+  
+  <entry>
     <title>什么是 Go ？Go 的优势和现状。初学者应该学习 Python 还是 Go？</title>
     <link href="https://shenxianpeng.github.io/2022/01/what-is-go/"/>
     <id>https://shenxianpeng.github.io/2022/01/what-is-go/</id>
     <published>2022-01-18T14:01:31.000Z</published>
-    <updated>2022-01-23T15:27:47.380Z</updated>
+    <updated>2022-01-26T06:18:28.645Z</updated>
     
     <summary type="html">
     
@@ -509,9 +546,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
@@ -542,9 +579,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -571,18 +608,18 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
   </entry>
   
   <entry>
-    <title>Use Gcov and LCOV to perform code coverage testing on C/C++ projects</title>
+    <title>2021/07/gcov-example</title>
     <link href="https://shenxianpeng.github.io/2021/07/gcov-example/"/>
     <id>https://shenxianpeng.github.io/2021/07/gcov-example/</id>
-    <published>2021-07-11T16:10:21.000Z</published>
-    <updated>2021-11-22T15:48:58.795Z</updated>
+    <published>2021-07-11T16:10:21.218Z</published>
+    <updated>2022-01-25T07:12:35.296Z</updated>
     
     <summary type="html">
     
@@ -590,20 +627,12 @@
       
         
         
-          &lt;p&gt;This article shares how to use Gcov and LCOV to metrics code coverage for C/C++ projects. If you want to know how Gcov works, or you
+          &lt;h1 id=&quot;Code-coverage-testing-of-C-C-projects-using-Gcov-and-LCOV&quot;&gt;&lt;a href=&quot;#Code-coverage-testing-of-C-C-projects-using-Gcov-and-LCOV&quot;
         
       
     
     </summary>
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
-    
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
-      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
-    
-      <category term="LCOV" scheme="https://shenxianpeng.github.io/tags/lcov/"/>
     
   </entry>
   
@@ -655,9 +684,9 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
@@ -690,34 +719,6 @@
       <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
       <category term="ulimit" scheme="https://shenxianpeng.github.io/tags/ulimit/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 Artifactory 上传制品变得非常缓慢，偶尔失败的问题分享</title>
-    <link href="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/"/>
-    <id>https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/</id>
-    <published>2021-06-16T15:44:59.000Z</published>
-    <updated>2021-11-01T13:48:33.857Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近在我使用 Artifactory Enterprise 遇到了上传制品非常缓慢的问题，在经过与 IT，Artifactory 管理员一起合作终于解决这个问题，在此分享一下这个问题的解决过程。&lt;/p&gt;
-&lt;p&gt;如果你也遇到类似或许有所帮助。&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="Artifactory" scheme="https://shenxianpeng.github.io/categories/artifactory/"/>
-    
-    
-      <category term="Artifactory" scheme="https://shenxianpeng.github.io/tags/artifactory/"/>
     
   </entry>
   
