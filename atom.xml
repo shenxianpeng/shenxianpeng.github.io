@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-28T06:09:15.603Z</updated>
+  <updated>2022-01-28T06:19:35.623Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/</id>
     <published>2022-01-28T14:57:27.000Z</published>
-    <updated>2022-01-28T06:09:15.603Z</updated>
+    <updated>2022-01-28T06:19:35.623Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Vagrant-简介&quot;&gt;&lt;a href=&quot;#Vagrant-简介&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 简介&quot;&gt;&lt;/a&gt;Vagrant 简介&lt;/h2&gt;&lt;p&gt;关于 Vagrant 的简介，可以参看前一篇文章：&lt;a href=&quot;vagrant.md&quot;&gt;Vagrant 介绍&lt;/a&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;Vagrant-简介&quot;&gt;&lt;a href=&quot;#Vagrant-简介&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 简介&quot;&gt;&lt;/a&gt;Vagrant 简介&lt;/h2&gt;&lt;p&gt;关于 Vagrant 的简介，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;Vagrant 介绍&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;Vagrant-和-Docker-区别&quot;&gt;&lt;a href=&quot;#Vagrant-和-Docker-区别&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 和 Docker 区别&quot;&gt;&lt;/a&gt;Vagrant 和 Docker 区别&lt;/h2&gt;&lt;p&gt;关于 Vagrant 被问到问到最多的问题可能就是它和 Docker 之前有什么区别。&lt;/p&gt;
 &lt;p&gt;如果不分场景而直接比对 Vagrant 和 Docker 是不恰当的。在一些简单场景中，它们的作用是重复的，但在更多场景中，它们是无法相互替代的。&lt;/p&gt;
 &lt;p&gt;那么什么情况下应该用 Vagrant，什么情况下用 Docker 呢？&lt;/p&gt;
@@ -94,7 +94,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant/</id>
     <published>2022-01-27T15:00:57.000Z</published>
-    <updated>2022-01-28T06:09:44.700Z</updated>
+    <updated>2022-01-28T06:19:13.724Z</updated>
     
     <summary type="html">
     
