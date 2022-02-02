@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Peter Shen</title>
   
-  <subtitle>A DevOps engineer&#39;s blog</subtitle>
+  <subtitle>Share about CI/CD and DevOps</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>

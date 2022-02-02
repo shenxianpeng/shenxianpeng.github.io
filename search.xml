@@ -1246,9 +1246,9 @@
       
         <tags>
             
-            <tag> Release </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Release </tag>
             
             <tag> PyPI </tag>
             
@@ -2817,9 +2817,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> C </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Coverage </tag>
             
