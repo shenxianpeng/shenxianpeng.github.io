@@ -82,9 +82,9 @@
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
     
     
-      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
-    
       <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    
+      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     
@@ -633,9 +633,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
@@ -666,9 +666,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -695,9 +695,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
   </entry>
   

@@ -20,9 +20,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> VirtualBox </tag>
+            
+            <tag> Docker </tag>
             
             <tag> Vagrant </tag>
             
@@ -408,9 +408,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gcov </tag>
             
@@ -437,9 +437,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -464,9 +464,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -745,9 +745,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gradle </tag>
             
@@ -1138,11 +1138,11 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
             
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1246,11 +1246,11 @@
       
         <tags>
             
-            <tag> Release </tag>
-            
             <tag> Python </tag>
             
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -1383,9 +1383,9 @@
       
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> Work </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
       
@@ -1751,9 +1751,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -2788,9 +2788,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> SquishCoco </tag>
             
@@ -2817,11 +2817,11 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> C </tag>
             
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -2904,9 +2904,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Release </tag>
-            
             <tag> Pipeline </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -3362,9 +3362,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3389,9 +3389,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3470,9 +3470,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3497,9 +3497,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3601,9 +3601,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3628,9 +3628,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3701,9 +3701,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3728,9 +3728,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3755,9 +3755,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3782,9 +3782,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
@@ -3809,9 +3809,9 @@
       
         <tags>
             
-            <tag> Automation </tag>
-            
             <tag> Nightwatch </tag>
+            
+            <tag> Automation </tag>
             
         </tags>
       
