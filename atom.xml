@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-01-28T06:19:35.623Z</updated>
+  <updated>2022-02-13T14:26:15.313Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -20,18 +20,19 @@
     <title>Vagrant 和 Docker 的区别，该如何选？</title>
     <link href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/</id>
-    <published>2022-01-28T14:57:27.000Z</published>
-    <updated>2022-01-28T06:19:35.623Z</updated>
+    <published>2022-02-14T00:30:00.000Z</published>
+    <updated>2022-02-13T14:26:15.313Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Vagrant-简介&quot;&gt;&lt;a href=&quot;#Vagrant-简介&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 简介&quot;&gt;&lt;/a&gt;Vagrant 简介&lt;/h2&gt;&lt;p&gt;关于 Vagrant 的简介，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;Vagrant 介绍&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Vagrant-和-Docker-区别&quot;&gt;&lt;a href=&quot;#Vagrant-和-Docker-区别&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 和 Docker 区别&quot;&gt;&lt;/a&gt;Vagrant 和 Docker 区别&lt;/h2&gt;&lt;p&gt;关于 Vagrant 被问到问到最多的问题可能就是它和 Docker 之前有什么区别。&lt;/p&gt;
-&lt;p&gt;如果不分场景而直接比对 Vagrant 和 Docker 是不恰当的。在一些简单场景中，它们的作用是重复的，但在更多场景中，它们是无法相互替代的。&lt;/p&gt;
+      &lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/p&gt;
+&lt;h2 id=&quot;Vagrant-和-Docker-区别&quot;&gt;&lt;a href=&quot;#Vagrant-和-Docker-区别&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 和 Docker 区别&quot;&gt;&lt;/a&gt;Vagrant 和 Docker 区别&lt;/h2&gt;&lt;p&gt;关于 Vagrant 被问到最多的问题：Vagrant 和 Docker 之间有什么区别。&lt;/p&gt;
+&lt;p&gt;如果不分场景的直接比对 Vagrant 和 Docker 是不恰当的。在一些简单场景中，它们的作用是重复的，但在更多场景中，它们是无法相互替代的。&lt;/p&gt;
 &lt;p&gt;那么什么情况下应该用 Vagrant，什么情况下用 Docker 呢？&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;所以如果你仅仅是想管理虚拟机，那么你应该使用 Vagrant；如果你想快速开发和部署应用，那么应该使用 Docker。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;下面具体来说说为什么。&lt;/p&gt;
-&lt;p&gt;Vagrant 是 VM 的管理工具，或是说编排工具。Docker 是用来构建、运行、管理容器的工具。那么这个问题其实落在了虚拟机（VM）和 容器（Container）的区别。&lt;/p&gt;
+&lt;p&gt;Vagrant 是 VM 的管理工具，或是说编排工具；Docker 是用来构建、运行、管理容器的工具。那么这个问题其实落在了虚拟机（VM）和 容器（Container）的区别。&lt;/p&gt;
 &lt;p&gt;引用网络上一组照片来感受一下物理机（Host），虚拟机（VM）和 容器（Container）之间的区别。&lt;/p&gt;
 &lt;p&gt;物理机（Host）&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2022/01/vagrant-vs-docker/host.jpg&quot; alt=&quot;物理机&quot;&gt;&lt;/p&gt;
@@ -60,8 +61,8 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;系统资源&lt;/td&gt;
-&lt;td&gt;5~15%&lt;/td&gt;
-&lt;td&gt;0~5%&lt;/td&gt;
+&lt;td&gt;5 - 15%&lt;/td&gt;
+&lt;td&gt;0 - 5%&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;启动时间&lt;/td&gt;
@@ -90,11 +91,11 @@
   </entry>
   
   <entry>
-    <title>Vagrant 介绍</title>
+    <title>什么是 Vagrant? Vagrant 和 VirtualBox 的区别</title>
     <link href="https://shenxianpeng.github.io/2022/01/vagrant/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant/</id>
-    <published>2022-01-27T15:00:57.000Z</published>
-    <updated>2022-02-10T14:57:12.232Z</updated>
+    <published>2022-02-11T00:30:00.000Z</published>
+    <updated>2022-02-13T14:25:12.877Z</updated>
     
     <summary type="html">
     
@@ -106,11 +107,11 @@
 &lt;p&gt;Vagrant 的第一个版本于 2010 年 3 月发布。2010 年 10 月，Engine Yard 宣布他们将赞助 Vagrant 项目。&lt;/p&gt;
 &lt;p&gt;Vagrant 的第一个稳定版本 Vagrant 1.0 于 2012 年 3 月发布，正好是原始版本发布两年后。&lt;/p&gt;
 &lt;p&gt;同年 11 月，Mitchell 成立了 HashiCorp 公司，以支持 Vagrant 的全职开发。Vagrant 仍然是开源软件，HashiCorp 公司致力于创建商业版本，并为 Vagrant 提供专业支持和培训。&lt;/p&gt;
-&lt;p&gt;现在 HashiCorp 已经成为世界顶级开源公司，它通过一些列的产品，包括 Vagrant，Packer（打包），Momad（部署），Terraform（配置云环境），Vault（权限管理） 以及 Consul（监控），从端到端重新定义了整个 DevOps。&lt;/p&gt;
+&lt;p&gt;现在 HashiCorp 已经成为世界顶级开源公司，它通过一系列的产品，包括 Vagrant，Packer（打包），Momad（部署），Terraform（配置云环境），Vault（权限管理） 以及 Consul（监控），从端到端重新定义了整个 DevOps。&lt;/p&gt;
 &lt;p&gt;Vagrant 最初支持 VirtualBox，在 1.1 版增加了对其他虚拟化软件（如 VMware 和 KVM）的支持，以及对 Amazon EC2 等服务器环境的支持。从 1.6 版开始，Vagrant 原生支持 Docker 容器，在某些情况下可以替代完全虚拟化的操作系统。&lt;/p&gt;
 &lt;h2 id=&quot;如何使用-Vagrant&quot;&gt;&lt;a href=&quot;#如何使用-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;如何使用 Vagrant&quot;&gt;&lt;/a&gt;如何使用 Vagrant&lt;/h2&gt;&lt;p&gt;使用 Vagrant 的前提条件：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;安装 Vagrant。下载&lt;a href=&quot;https://www.vagrantup.com/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vagrant&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;安装 Vagrant。下载 &lt;a href=&quot;https://www.vagrantup.com/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vagrant&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;安装 &lt;a href=&quot;https://www.virtualbox.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;VirtualBox&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;当以上两个都准备好了，你就可以通过命令行创建并使用你的虚拟机了。&lt;/p&gt;
@@ -308,9 +309,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
-    
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
     
   </entry>
   
@@ -632,9 +633,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
@@ -694,9 +695,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
       <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
