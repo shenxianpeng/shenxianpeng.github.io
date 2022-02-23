@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-02-23T15:29:00.324Z</updated>
+  <updated>2022-02-23T16:03:23.362Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,19 +21,35 @@
     <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
     <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
     <published>2022-02-20T16:15:00.000Z</published>
-    <updated>2022-02-23T15:29:00.324Z</updated>
+    <updated>2022-02-23T16:03:23.362Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
+      &lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
 &lt;p&gt;借此分享一下这些年我的职业线路的变化，以及写博客&amp;amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。&lt;/p&gt;
-&lt;p&gt;注：我称自己的行为“码字”，远远达不到
-        
-      
+&lt;p&gt;注：我称自己的行为“码字”，远远达不到写作。但为了接下来的表达更正式，我将使用“写作”。&lt;/p&gt;
+&lt;h2 id=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;a href=&quot;#从QA到DEV到DEVOPS&quot; class=&quot;headerlink&quot; title=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;/a&gt;从QA到DEV到DEVOPS&lt;/h2&gt;&lt;p&gt;最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;amp;自动化&amp;amp;性能测试工作。&lt;/p&gt;
+&lt;p&gt;从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。&lt;/p&gt;
+&lt;p&gt;当我做了自动化测试工程师，我又发现相对于“发现”问题，“解决”问题更令我愉悦。我开始梦想有机会能去做开发，这样不但可以提高自己的编程能力，另外开发、测试都懂也能为自己今后的职业发展找到更多可能性。&lt;/p&gt;
+&lt;p&gt;最终是因为有这样的机会+自己的主动+编码过得去，我从测试转到了开发。起初的艰难和压力都是我工作近 10 年来前所未有的，白天看代码、晚上看代码、周末看代码… 天天如此。经过了半年多的努力，才终于上岸，可以做 C/C++ 项目的 Bugfix 了。&lt;/p&gt;
+&lt;p&gt;也正是因为有开发、自动化、持续集成的经验，在团队需要一名 Build/Release 工程师的时候，我知道这就是我最适合的岗位，负责产品的自动化构建、发布、基础设施建设、CI/CD 以及提高研发效能的相关开发工作。&lt;/p&gt;
+&lt;p&gt;就这样我从 QA 到 DEV 到 DEVOPS。公众号的更名记录也记录了我的职业路线变化：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”&lt;/li&gt;
+&lt;li&gt;2018年12月29日 “DevQA”改名“软件测试与开发”&lt;/li&gt;
+&lt;li&gt;2018年12月26日 “软件测试QA”改名“DevQA”&lt;/li&gt;
+&lt;li&gt;2017年08月01日 注册“软件测试QA”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;写作五年有哪些收获&quot;&gt;&lt;a href=&quot;#写作五年有哪些收获&quot; class=&quot;headerlink&quot; title=&quot;写作五年有哪些收获&quot;&gt;&lt;/a&gt;写作五年有哪些收获&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;写作是一项长期收益远超短期收益的事情&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;对于绝大多数人在短期内几乎不会有什么实质性的收益，还会花费大量的业余时间，妥妥的是用爱在发电。从金钱角度来衡量这件事，这是一件投入和产出完全不成比例的事情，很难坚持。&lt;/p&gt;
+&lt;p&gt;如果从长期来看，坚持写作一定会带来价值的，我总结有以五个方面的好处：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;好记性不如烂笔头 - 当我们弄明白了一个技术难题，虽然当时明白了，但如果没记录下来，很有可能以后遇到同样的问题又不知道该如何解决。&lt;/li&gt;
+&lt;li&gt;让别人听懂才是真的懂 - 有时候对于一个问题我们认为自己明白了，当分享给别人的时候，才发现其中有的逻辑说不通，因此不得不继续思考并彻底搞清楚。&lt;/li&gt;
+&lt;li&gt;打造学习飞轮 - 当你坚持分享并有人关注到你并与你互动的时候，你就会有动力继续分享，学习新的知识然后再分享，一旦学习的飞轮造好了，坚持下去就变得容易。&lt;/li&gt;
+&lt;li&gt;间接收益 - 单凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。&lt;/li&gt;
+&lt;li&gt;直接收益 - 直接利益包括平台流量和广告收益、以及卖专栏、做咨询等。这要求就很高了，不但需要会自媒体运营，还有要超强的输出功力，这背后就是比别人更多的付出。&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
