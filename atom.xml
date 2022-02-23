@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-02-13T14:26:15.313Z</updated>
+  <updated>2022-02-23T15:29:00.324Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从QA到DEV到DEVOPS，码字五年有哪些收获</title>
+    <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
+    <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
+    <published>2022-02-20T16:15:00.000Z</published>
+    <updated>2022-02-23T15:29:00.324Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
+&lt;p&gt;借此分享一下这些年我的职业线路的变化，以及写博客&amp;amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。&lt;/p&gt;
+&lt;p&gt;注：我称自己的行为“码字”，远远达不到
+        
+      
+    
+    </summary>
+    
+      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
+    
+  </entry>
   
   <entry>
     <title>Vagrant 和 Docker 的区别，该如何选？</title>
@@ -82,9 +110,9 @@
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
     
     
-      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
-    
       <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
     
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     
@@ -666,9 +694,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
       <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
   </entry>
   
@@ -746,36 +774,6 @@
     
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决两个 AIX 上 Git Clone 失败的问题</title>
-    <link href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/"/>
-    <id>https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/</id>
-    <published>2021-06-20T14:53:26.000Z</published>
-    <updated>2021-11-22T15:30:06.387Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本篇记录两个在做 Jenkins 与 AIX 做持续集成得时候遇到的 Git clone
-        
-      
-    
-    </summary>
-    
-      <category term="AIX" scheme="https://shenxianpeng.github.io/categories/aix/"/>
-    
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
-    
-      <category term="AIX" scheme="https://shenxianpeng.github.io/tags/aix/"/>
     
   </entry>
   
