@@ -238,9 +238,9 @@
       
         <tags>
             
-            <tag> Actions </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Actions </tag>
             
         </tags>
       
@@ -491,9 +491,9 @@
       
         <tags>
             
-            <tag> Bitbucket </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -668,9 +668,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> ESlint </tag>
-            
             <tag> Troubleshooting </tag>
+            
+            <tag> ESlint </tag>
             
         </tags>
       
@@ -747,9 +747,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1136,9 +1136,9 @@
       
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
       
@@ -1246,9 +1246,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1302,9 +1302,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -1647,11 +1647,11 @@
       
         <tags>
             
-            <tag> JFrog </tag>
+            <tag> Troubleshooting </tag>
             
             <tag> Artifactory </tag>
             
-            <tag> Troubleshooting </tag>
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -2173,9 +2173,9 @@
       
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
       
@@ -2387,9 +2387,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -2819,9 +2819,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> Coverage </tag>
-            
             <tag> SquishCoco </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -2846,9 +2846,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> C </tag>
             
             <tag> Coverage </tag>
             

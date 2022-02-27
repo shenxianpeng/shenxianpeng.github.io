@@ -389,9 +389,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
-    
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
     
   </entry>
   
@@ -746,9 +746,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
       <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
+    
+      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
   </entry>
   
