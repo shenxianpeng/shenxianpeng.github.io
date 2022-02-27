@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-02-23T16:03:23.362Z</updated>
+  <updated>2022-02-27T14:31:36.806Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,17 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>DevOps 的问答和 2022 年最值得关注的趋势</title>
+    <link href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/"/>
+    <id>https://shenxianpeng.github.io/2022/02/devops-trends-2022/</id>
+    <published>2022-02-24T03:27:18.000Z</published>
+    <updated>2022-02-27T14:31:36.806Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;DevOps 与其说是一种技术，不如说是一种理念，它涵盖了整个 SDLC（软件开发生命周期），从设计到生产。&lt;/p&gt;
+&lt;p&gt;DevOps 专注于寻找解决方案并快速实施，帮助企业更迅速地响应不断变化的市场和客户要求，并更快地适应技术的进步，他们比以往任何时候都更加灵活和快速。&lt;/p&gt;
+&lt;p&gt;DevOps 是 IT 界的一个热门话题，而且它只会越来越热。&lt;/p&gt;
+&lt;p&gt;最近有幸和一位做传播咨询的读者朋友交流了一下关于 2022 年 DevOps 行业的一些问题和回答，以及我汇总行业趋势供参考。&lt;/p&gt;
+&lt;h2 id=&quot;行业问答&quot;&gt;&lt;a href=&quot;#行业问答&quot; class=&quot;headerlink&quot; title=&quot;行业问答&quot;&gt;&lt;/a&gt;行业问答&lt;/h2&gt;&lt;h3 id=&quot;问题一-DevOps-整个目前行业头部本土和国际玩家有哪些（GitLab-？&quot;&gt;&lt;a href=&quot;#问题一-DevOps-整个目前行业头部本土和国际玩家有哪些（GitLab-？&quot; class=&quot;headerlink&quot; title=&quot;问题一: DevOps 整个目前行业头部本土和国际玩家有哪些（GitLab)？&quot;&gt;&lt;/a&gt;问题一: DevOps 整个目前行业头部本土和国际玩家有哪些（GitLab)？&lt;/h3&gt;&lt;p&gt;由于我工作在外企，外企通常是选择国际玩家，以最常用的代码管理和项目管理的工具为例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上了年头的外企大公司通常在使用 Atlassian 家的 Jira 和 Bitbucket。船大难掉头，选择 GitLab，GitHub 这样一站式的 DevOps 迁移成本太高，需要有足够的理由才可能换工具。&lt;/li&gt;
+&lt;li&gt;对于年轻的公司，GitLab 和 GitHub 都是很好的选择。GitLab 在企业内部建立私服居多；GitHub 也提供企业版私服，但对于开源项目而言 GitHub 依然是代码托管的首选。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其他常用的付费级 DevOps 工具还包括 Synopsys (Polaris, Blackduck)，Jfrog (Artifactory)，SonarQube 都非常知名。&lt;/p&gt;
+&lt;h3 id=&quot;问题二-行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？&quot;&gt;&lt;a href=&quot;#问题二-行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？&quot; class=&quot;headerlink&quot; title=&quot;问题二: 行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？&quot;&gt;&lt;/a&gt;问题二: 行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？&lt;/h3&gt;&lt;p&gt;安全领域确实关注度在逐年升高，尤其在外企，很注重安全这块，他们愿意花钱来购买安全扫描工具来扫描代码，甚至还会要求所有的发布的产品代码中不能有高危漏洞。&lt;/p&gt;
+&lt;p&gt;一些常用的工具包括：静态代码扫描，比如 Polaris, Veracode, Snyk, SonarQube, PVS-Studio；代码组成分析，比如 Blackduck，X-Ray 等等。&lt;/p&gt;
+&lt;h3 id=&quot;问题三：企业在选择-DevOps-平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等&quot;&gt;&lt;a href=&quot;#问题三：企业在选择-DevOps-平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等&quot; class=&quot;headerlink&quot; title=&quot;问题三：企业在选择 DevOps 平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等&quot;&gt;&lt;/a&gt;问题三：企业在选择 DevOps 平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等&lt;/h3&gt;&lt;p&gt;主要考虑公司的知名度，其次产品的知名度，如果是开源产品会关注 GitHub 上的 Contributors 数量，其他 Fork 和 Star 数量。&lt;/p&gt;
+&lt;h3 id=&quot;问题四：目前-DevOps-处于哪个阶段-未来的发展机会是在哪里？&quot;&gt;&lt;a href=&quot;#问题四：目前-DevOps-处于哪个阶段-未来的发展机会是在哪里？&quot; class=&quot;headerlink&quot; title=&quot;问题四：目前 DevOps 处于哪个阶段? 未来的发展机会是在哪里？&quot;&gt;&lt;/a&gt;问题四：目前 DevOps 处于哪个阶段? 未来的发展机会是在哪里？&lt;/h3&gt;
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Kubernetes" scheme="https://shenxianpeng.github.io/tags/kubernetes/"/>
+    
+      <category term="DevSecOps" scheme="https://shenxianpeng.github.io/tags/devsecops/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从QA到DEV到DEVOPS，码字五年有哪些收获</title>
     <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
     <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
     <published>2022-02-20T16:15:00.000Z</published>
-    <updated>2022-02-23T16:03:23.362Z</updated>
+    <updated>2022-02-26T06:40:50.402Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
 &lt;p&gt;借此分享一下这些年我的职业线路的变化，以及写博客&amp;amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。&lt;/p&gt;
-&lt;p&gt;注：我称自己的行为“码字”，远远达不到写作。但为了接下来的表达更正式，我将使用“写作”。&lt;/p&gt;
 &lt;h2 id=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;a href=&quot;#从QA到DEV到DEVOPS&quot; class=&quot;headerlink&quot; title=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;/a&gt;从QA到DEV到DEVOPS&lt;/h2&gt;&lt;p&gt;最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;amp;自动化&amp;amp;性能测试工作。&lt;/p&gt;
 &lt;p&gt;从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。&lt;/p&gt;
 &lt;p&gt;当我做了自动化测试工程师，我又发现相对于“发现”问题，“解决”问题更令我愉悦。我开始梦想有机会能去做开发，这样不但可以提高自己的编程能力，另外开发、测试都懂也能为自己今后的职业发展找到更多可能性。&lt;/p&gt;
@@ -47,7 +83,7 @@
 &lt;li&gt;好记性不如烂笔头 - 当我们弄明白了一个技术难题，虽然当时明白了，但如果没记录下来，很有可能以后遇到同样的问题又不知道该如何解决。&lt;/li&gt;
 &lt;li&gt;让别人听懂才是真的懂 - 有时候对于一个问题我们认为自己明白了，当分享给别人的时候，才发现其中有的逻辑说不通，因此不得不继续思考并彻底搞清楚。&lt;/li&gt;
 &lt;li&gt;打造学习飞轮 - 当你坚持分享并有人关注到你并与你互动的时候，你就会有动力继续分享，学习新的知识然后再分享，一旦学习的飞轮造好了，坚持下去就变得容易。&lt;/li&gt;
-&lt;li&gt;间接收益 - 单凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。&lt;/li&gt;
+&lt;li&gt;间接收益 - 但凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。&lt;/li&gt;
 &lt;li&gt;直接收益 - 直接利益包括平台流量和广告收益、以及卖专栏、做咨询等。这要求就很高了，不但需要会自媒体运营，还有要超强的输出功力，这背后就是比别人更多的付出。&lt;/li&gt;
 &lt;/ol&gt;
     
@@ -527,9 +563,9 @@
       <category term="SonarQube" scheme="https://shenxianpeng.github.io/categories/sonarqube/"/>
     
     
-      <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
-    
       <category term="SonarQube" scheme="https://shenxianpeng.github.io/tags/sonarqube/"/>
+    
+      <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
   </entry>
   
@@ -710,9 +746,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -764,32 +800,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>How to make Jenkins job fail after timeout? (Resolved)</title>
-    <link href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/"/>
-    <id>https://shenxianpeng.github.io/2021/06/jenkins-timeout/</id>
-    <published>2021-06-24T03:00:45.000Z</published>
-    <updated>2021-07-15T16:02:04.467Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;I’ve run into some situations when the build fails, perhaps because some processes don’t finish, and even setting a timeout doesn’t make
-        
-      
-    
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
-    
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
   </entry>
   

@@ -4,11 +4,40 @@
   
     
     <entry>
+      <title>DevOps 的问答和 2022 年最值得关注的趋势</title>
+      <link href="/2022/02/devops-trends-2022/"/>
+      <url>/2022/02/devops-trends-2022/</url>
+      
+        <content type="html"><![CDATA[<p>DevOps 与其说是一种技术，不如说是一种理念，它涵盖了整个 SDLC（软件开发生命周期），从设计到生产。</p><p>DevOps 专注于寻找解决方案并快速实施，帮助企业更迅速地响应不断变化的市场和客户要求，并更快地适应技术的进步，他们比以往任何时候都更加灵活和快速。</p><p>DevOps 是 IT 界的一个热门话题，而且它只会越来越热。</p><p>最近有幸和一位做传播咨询的读者朋友交流了一下关于 2022 年 DevOps 行业的一些问题和回答，以及我汇总行业趋势供参考。</p><h2 id="行业问答"><a href="#行业问答" class="headerlink" title="行业问答"></a>行业问答</h2><h3 id="问题一-DevOps-整个目前行业头部本土和国际玩家有哪些（GitLab-？"><a href="#问题一-DevOps-整个目前行业头部本土和国际玩家有哪些（GitLab-？" class="headerlink" title="问题一: DevOps 整个目前行业头部本土和国际玩家有哪些（GitLab)？"></a>问题一: DevOps 整个目前行业头部本土和国际玩家有哪些（GitLab)？</h3><p>由于我工作在外企，外企通常是选择国际玩家，以最常用的代码管理和项目管理的工具为例：</p><ul><li>上了年头的外企大公司通常在使用 Atlassian 家的 Jira 和 Bitbucket。船大难掉头，选择 GitLab，GitHub 这样一站式的 DevOps 迁移成本太高，需要有足够的理由才可能换工具。</li><li>对于年轻的公司，GitLab 和 GitHub 都是很好的选择。GitLab 在企业内部建立私服居多；GitHub 也提供企业版私服，但对于开源项目而言 GitHub 依然是代码托管的首选。</li></ul><p>其他常用的付费级 DevOps 工具还包括 Synopsys (Polaris, Blackduck)，Jfrog (Artifactory)，SonarQube 都非常知名。</p><h3 id="问题二-行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？"><a href="#问题二-行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？" class="headerlink" title="问题二: 行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？"></a>问题二: 行业目前有哪些重点趋势？比如安全这块，是不是目前行业关注度比较高？有哪些工具？</h3><p>安全领域确实关注度在逐年升高，尤其在外企，很注重安全这块，他们愿意花钱来购买安全扫描工具来扫描代码，甚至还会要求所有的发布的产品代码中不能有高危漏洞。</p><p>一些常用的工具包括：静态代码扫描，比如 Polaris, Veracode, Snyk, SonarQube, PVS-Studio；代码组成分析，比如 Blackduck，X-Ray 等等。</p><h3 id="问题三：企业在选择-DevOps-平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等"><a href="#问题三：企业在选择-DevOps-平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等" class="headerlink" title="问题三：企业在选择 DevOps 平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等"></a>问题三：企业在选择 DevOps 平台时主要考虑的因素有哪些？比如数据库安全，公司成熟度，海外知名度，等等</h3><p>主要考虑公司的知名度，其次产品的知名度，如果是开源产品会关注 GitHub 上的 Contributors 数量，其他 Fork 和 Star 数量。</p><h3 id="问题四：目前-DevOps-处于哪个阶段-未来的发展机会是在哪里？"><a href="#问题四：目前-DevOps-处于哪个阶段-未来的发展机会是在哪里？" class="headerlink" title="问题四：目前 DevOps 处于哪个阶段? 未来的发展机会是在哪里？"></a>问题四：目前 DevOps 处于哪个阶段? 未来的发展机会是在哪里？</h3><a id="more"></a><p>DevOps 市场目前处在相对成熟的阶段，每个细分领域都有很多工具可以选择。未来基础设施会更多的向Container 、云原生方向发展。</p><p>具有创新的 DevOps 产品依然会很有市场，像是 GitLab，HashiCorp 等公司的产品，他们在短短十年内成为世界级的软件公司。</p><h3 id="问题五：有哪些主流或平时重点关注的行业媒体号或自媒体公众号？"><a href="#问题五：有哪些主流或平时重点关注的行业媒体号或自媒体公众号？" class="headerlink" title="问题五：有哪些主流或平时重点关注的行业媒体号或自媒体公众号？"></a>问题五：有哪些主流或平时重点关注的行业媒体号或自媒体公众号？</h3><p>平时关注了 YouTube 上一些 DevOps 的个人及公司频道：TechWorld with Nana, DevOps Journey，DevOps Paradox，DevOps Toolkit，CloudBeesTV，CNCF 等。</p><p>还会看国内的 InfoQ，阿里、腾讯、美团、以及一些个人的 DevOps 技术公众号。</p><h3 id="问题六：除了公众号外，你平时会上哪些行业社区？比如说-GitHub-或-CSDN？"><a href="#问题六：除了公众号外，你平时会上哪些行业社区？比如说-GitHub-或-CSDN？" class="headerlink" title="问题六：除了公众号外，你平时会上哪些行业社区？比如说 GitHub 或 CSDN？"></a>问题六：除了公众号外，你平时会上哪些行业社区？比如说 GitHub 或 CSDN？</h3><p>常看的是 GitHub 以及 GitHub Trending 来看最近受关注的项目。</p><p>社区会定期去看 <a href="https://dev.to/" target="_blank" rel="noopener">DEV Community</a>, <a href="https://dzone.com/" target="_blank" rel="noopener">DZone</a>, <a href="https://medium.com" target="_blank" rel="noopener">Medium</a>。</p><p>也会搜索知乎上的一些答案，很少看 CSDN，因为总看到一些同样的回答。</p><h2 id="行业趋势"><a href="#行业趋势" class="headerlink" title="行业趋势"></a>行业趋势</h2><h3 id="趋势一：转向无服务器计算"><a href="#趋势一：转向无服务器计算" class="headerlink" title="趋势一：转向无服务器计算"></a>趋势一：转向无服务器计算</h3><p>无服务器计算是一种新兴趋势，实际上已经存在了十多年。企业购买无服务器框架需要一段时间，主要是因为对行业支持和对投资回报的担忧。</p><p>无服务器具有许多越来越难以忽视的优势，主要的两个最大好处是效率和可靠性。没有基础设施管理的负担，企业可以将资源集中在正重要的事项上。此外，无服务器还降低了传统框架可能出现的潜在维护问题的风险。</p><p>无服务器提供固有的可扩展性和可靠性并自动化开发人员不喜欢的日常操作任务，2022 年无服务器计算会经历下一次发展。</p><h2 id="趋势二：微服务架构增长"><a href="#趋势二：微服务架构增长" class="headerlink" title="趋势二：微服务架构增长"></a>趋势二：微服务架构增长</h2><p>随着无服务器计算在 2022 年的发展，微服务也将如此。</p><p>微服务架构是将单体应用分化为小的独立单元，或服务，从而为大型团队提供了更大的灵活性。它有以下优势：</p><ul><li>为企业提供比单体应用程序更好的可扩展性和敏捷性</li><li>开发人员可以使用他们熟悉的编程语言和工具，消除传统应用程序开发的局限</li><li>开发人员能够在不破坏整个代码库的情况下部署小的特性或功能</li><li>DevOps 团队可以根据业务需求来扩展每个应用部分，而不是一次性扩展整个应用</li><li>出现问题微服务可以轻松控制问题，而不会中断整个应用程序</li></ul><p>当然也必须认识到一个弊端，如果实施不佳可能导致严重问题，包括数据丢失、可靠性差和安全风险。</p><h2 id="趋势三：Kubernetes-成为基础架构"><a href="#趋势三：Kubernetes-成为基础架构" class="headerlink" title="趋势三：Kubernetes 成为基础架构"></a>趋势三：Kubernetes 成为基础架构</h2><p>Kubernetes，也称 K8s，是容器编排开源平台。</p><p>Kubernetes 可自动化容器化应用程序的部署、可扩展性和维护。在容器管理方面，它可以处理从虚拟机集群管理到负载平衡等所有方方面面，提高了生产力，简化了 DevOps 开发、测试和部署流程。</p><p>目前容器正在被广泛的使用，根据 Flexera 的 2021 年云计算状况报告，53% 的组织使用 Docker，21% 的组织计划使用。48% 的企业使用 Kubernetes，另有 25% 的企业计划使用它。</p><h2 id="趋势四：DevSecOps-兴起"><a href="#趋势四：DevSecOps-兴起" class="headerlink" title="趋势四：DevSecOps 兴起"></a>趋势四：DevSecOps 兴起</h2><p>安全性正在成为 DevOps 领域的另一个日益关注的问题。</p><p>为了避免网络攻击，许多大型企业正在将安全性集成并自动化到他们的 DevOps 流程中。从 DevOps 到 DevSecOps 的转变预计在 2022 会有更多公司在软件开发生命周期的早期嵌入安全控制。<br>这使 DevOps 团队能够在开发阶段持续监控和修复安全缺陷，从而提高交付速度和质量。</p><p>这就是为什么 DevSecOps 正在成为许多公司组织结构图的重要组成部分。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>Top DevOps Trends to Watch in 2022 - <a href="https://www.itbusinessedge.com/development/devops-trends-2022/" target="_blank" rel="noopener">https://www.itbusinessedge.com/development/devops-trends-2022/</a><br>DevOps Trends To Look Out for in 2022 - <a href="https://blog.qasource.com/devops-trends-to-look-out-for-in-2022" target="_blank" rel="noopener">https://blog.qasource.com/devops-trends-to-look-out-for-in-2022</a></p><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」</p><p>（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> DevOps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> DevOps </tag>
+            
+            <tag> Kubernetes </tag>
+            
+            <tag> DevSecOps </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>从QA到DEV到DEVOPS，码字五年有哪些收获</title>
       <link href="/2022/02/from-qa-to-dev-to-devops/"/>
       <url>/2022/02/from-qa-to-dev-to-devops/</url>
       
-        <content type="html"><![CDATA[<p>在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。</p><p>借此分享一下这些年我的职业线路的变化，以及写博客&amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。</p><p>注：我称自己的行为“码字”，远远达不到写作。但为了接下来的表达更正式，我将使用“写作”。</p><h2 id="从QA到DEV到DEVOPS"><a href="#从QA到DEV到DEVOPS" class="headerlink" title="从QA到DEV到DEVOPS"></a>从QA到DEV到DEVOPS</h2><p>最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;自动化&amp;性能测试工作。</p><p>从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。</p><p>当我做了自动化测试工程师，我又发现相对于“发现”问题，“解决”问题更令我愉悦。我开始梦想有机会能去做开发，这样不但可以提高自己的编程能力，另外开发、测试都懂也能为自己今后的职业发展找到更多可能性。</p><p>最终是因为有这样的机会+自己的主动+编码过得去，我从测试转到了开发。起初的艰难和压力都是我工作近 10 年来前所未有的，白天看代码、晚上看代码、周末看代码… 天天如此。经过了半年多的努力，才终于上岸，可以做 C/C++ 项目的 Bugfix 了。</p><p>也正是因为有开发、自动化、持续集成的经验，在团队需要一名 Build/Release 工程师的时候，我知道这就是我最适合的岗位，负责产品的自动化构建、发布、基础设施建设、CI/CD 以及提高研发效能的相关开发工作。</p><p>就这样我从 QA 到 DEV 到 DEVOPS。公众号的更名记录也记录了我的职业路线变化：</p><ul><li>2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”</li><li>2018年12月29日 “DevQA”改名“软件测试与开发”</li><li>2018年12月26日 “软件测试QA”改名“DevQA”</li><li>2017年08月01日 注册“软件测试QA”</li></ul><h2 id="写作五年有哪些收获"><a href="#写作五年有哪些收获" class="headerlink" title="写作五年有哪些收获"></a>写作五年有哪些收获</h2><p><strong>写作是一项长期收益远超短期收益的事情</strong>。</p><p>对于绝大多数人在短期内几乎不会有什么实质性的收益，还会花费大量的业余时间，妥妥的是用爱在发电。从金钱角度来衡量这件事，这是一件投入和产出完全不成比例的事情，很难坚持。</p><p>如果从长期来看，坚持写作一定会带来价值的，我总结有以五个方面的好处：</p><ol><li>好记性不如烂笔头 - 当我们弄明白了一个技术难题，虽然当时明白了，但如果没记录下来，很有可能以后遇到同样的问题又不知道该如何解决。</li><li>让别人听懂才是真的懂 - 有时候对于一个问题我们认为自己明白了，当分享给别人的时候，才发现其中有的逻辑说不通，因此不得不继续思考并彻底搞清楚。</li><li>打造学习飞轮 - 当你坚持分享并有人关注到你并与你互动的时候，你就会有动力继续分享，学习新的知识然后再分享，一旦学习的飞轮造好了，坚持下去就变得容易。</li><li>间接收益 - 单凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。</li><li>直接收益 - 直接利益包括平台流量和广告收益、以及卖专栏、做咨询等。这要求就很高了，不但需要会自媒体运营，还有要超强的输出功力，这背后就是比别人更多的付出。</li></ol><a id="more"></a><p>2017 年的时候我没想那么多，只是觉得自己也可以写点东西，就在 2017 年 7 月 6 日通过 GitHub Page 建立了自己的<a href="https://shenxianpeng.github.io">个人博客</a></p><p><img src="/2022/02/from-qa-to-dev-to-devops/blog-first-commit.png" alt="第一次提交"></p><p>内容有了，复制过来也不费电，还能了解下公众号怎么玩的，然后就在同年 8 月开通了微信公众号；后来想看看小程序是怎么玩的，然后在 2020 年五一假期为我的博客创建了微信小程序(DevOps攻城狮)</p><p>对于我来说花了这么多的业余时间来写作，说说有哪些具体的收获。</p><ol><li>知道如何在 GitHub 上建站、发布博客，把 GitHub 变成最常访问的网站之一</li><li>知道 Hexo 博客如何集成 Disqus, Google Analytics, Google Adsense, etc，并做了很多个改进</li><li>知道如何使用和集成 Github Actions、Travis、SonarQube 等工具</li><li>知道如何运营一个公众号；知道如何创建、发布一个微信小程序</li><li>参与开源项目，在开源项目中学习编码、开阔眼界、最佳实践</li><li>有同事说 ta 读到了我的文章，找到并关注了我的微信公众号，这让我很荣幸</li><li>收到过咨询，还有咨询者的感谢红包，能够帮到别人并收到正反馈让我非常开心</li><li>不敢想还能收到大出版社的邀请写一本技术书籍，因工作忙以及还有更重要的知识要学，主动放弃了</li><li>… …</li></ol><p>这些收获中，我觉得最大的收获是<strong>打造学习飞轮，养成分享习惯</strong>。</p><p>日拱一卒，功不唐捐，持续做对的事情，其他的就交给时间吧。</p><p>最好的时间是十年前，其次就是现在。如果你有想做而没做的事，现在开始做一点都不晚，只要身体好还能再做几十年呢，足以成为某个领域的专家。</p><p align="right">—— 2022 年 2 月 20 日，凌晨更新。</p><h2 id="相关推荐阅读"><a href="#相关推荐阅读" class="headerlink" title="相关推荐阅读"></a>相关推荐阅读</h2><blockquote><ul><li><a href="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/">做了9年测试，我为何转开发？</a></li><li><a href="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/">从测试到开发的五个月</a></li></ul></blockquote><hr><p>欢迎扫码关注公众号「DevOps攻城狮」- 专注于DevOps领域知识分享。</p><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p>]]></content>
+        <content type="html"><![CDATA[<p>在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。</p><p>借此分享一下这些年我的职业线路的变化，以及写博客&amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。</p><h2 id="从QA到DEV到DEVOPS"><a href="#从QA到DEV到DEVOPS" class="headerlink" title="从QA到DEV到DEVOPS"></a>从QA到DEV到DEVOPS</h2><p>最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;自动化&amp;性能测试工作。</p><p>从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。</p><p>当我做了自动化测试工程师，我又发现相对于“发现”问题，“解决”问题更令我愉悦。我开始梦想有机会能去做开发，这样不但可以提高自己的编程能力，另外开发、测试都懂也能为自己今后的职业发展找到更多可能性。</p><p>最终是因为有这样的机会+自己的主动+编码过得去，我从测试转到了开发。起初的艰难和压力都是我工作近 10 年来前所未有的，白天看代码、晚上看代码、周末看代码… 天天如此。经过了半年多的努力，才终于上岸，可以做 C/C++ 项目的 Bugfix 了。</p><p>也正是因为有开发、自动化、持续集成的经验，在团队需要一名 Build/Release 工程师的时候，我知道这就是我最适合的岗位，负责产品的自动化构建、发布、基础设施建设、CI/CD 以及提高研发效能的相关开发工作。</p><p>就这样我从 QA 到 DEV 到 DEVOPS。公众号的更名记录也记录了我的职业路线变化：</p><ul><li>2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”</li><li>2018年12月29日 “DevQA”改名“软件测试与开发”</li><li>2018年12月26日 “软件测试QA”改名“DevQA”</li><li>2017年08月01日 注册“软件测试QA”</li></ul><h2 id="写作五年有哪些收获"><a href="#写作五年有哪些收获" class="headerlink" title="写作五年有哪些收获"></a>写作五年有哪些收获</h2><p><strong>写作是一项长期收益远超短期收益的事情</strong>。</p><p>对于绝大多数人在短期内几乎不会有什么实质性的收益，还会花费大量的业余时间，妥妥的是用爱在发电。从金钱角度来衡量这件事，这是一件投入和产出完全不成比例的事情，很难坚持。</p><p>如果从长期来看，坚持写作一定会带来价值的，我总结有以五个方面的好处：</p><ol><li>好记性不如烂笔头 - 当我们弄明白了一个技术难题，虽然当时明白了，但如果没记录下来，很有可能以后遇到同样的问题又不知道该如何解决。</li><li>让别人听懂才是真的懂 - 有时候对于一个问题我们认为自己明白了，当分享给别人的时候，才发现其中有的逻辑说不通，因此不得不继续思考并彻底搞清楚。</li><li>打造学习飞轮 - 当你坚持分享并有人关注到你并与你互动的时候，你就会有动力继续分享，学习新的知识然后再分享，一旦学习的飞轮造好了，坚持下去就变得容易。</li><li>间接收益 - 但凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。</li><li>直接收益 - 直接利益包括平台流量和广告收益、以及卖专栏、做咨询等。这要求就很高了，不但需要会自媒体运营，还有要超强的输出功力，这背后就是比别人更多的付出。</li></ol><a id="more"></a><p>2017 年的时候我没想那么多，只是觉得自己也可以写点东西，就在 2017 年 7 月 6 日通过 GitHub Page 建立了自己的<a href="https://shenxianpeng.github.io">个人博客</a></p><p><img src="/2022/02/from-qa-to-dev-to-devops/blog-first-commit.png" alt="第一次提交"></p><p>内容有了，复制过来也不费电，还能了解下公众号怎么玩的，然后就在同年 8 月开通了微信公众号；后来想看看小程序是怎么玩的，然后在 2020 年五一假期为我的博客创建了微信小程序(DevOps攻城狮)</p><p>对于我来说花了这么多的业余时间来写作，说说有哪些具体的收获。</p><ol><li>知道如何在 GitHub 上建站、发布博客，把 GitHub 变成最常访问的网站之一</li><li>知道 Hexo 博客如何集成 Disqus, Google Analytics, Google Adsense, etc，并做了很多个改进</li><li>知道如何使用和集成 Github Actions、Travis、SonarQube 等工具</li><li>知道如何运营一个公众号；知道如何创建、发布一个微信小程序</li><li>参与开源项目，在开源项目中学习编码、开阔眼界和最佳实践</li><li>有同事说 ta 读到了我的文章，找到并关注了我的微信公众号，这让我很荣幸</li><li>收到过咨询，还有咨询者的感谢红包，能够帮到别人并收到正反馈让我非常开心</li><li>不敢想还能收到大出版社的邀请写一本技术书籍，因工作忙以及还有更重要的知识要学，主动放弃了</li><li>… …</li></ol><p>这些收获中，我觉得最大的收获是<strong>打造学习飞轮，养成分享习惯</strong>。</p><p>最好的时间是十年前，其次是现在。日拱一卒，功不唐捐，持续做对的事情，其他的就交给时间。</p><p align="right">—— 2022 年 2 月 20 日，凌晨更新。</p><h2 id="相关推荐阅读"><a href="#相关推荐阅读" class="headerlink" title="相关推荐阅读"></a>相关推荐阅读</h2><blockquote><ul><li><a href="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/">做了9年测试，我为何转开发？</a></li><li><a href="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/">从测试到开发的五个月</a></li></ul></blockquote><hr><p>欢迎扫码关注公众号「DevOps攻城狮」- 专注于DevOps领域知识分享。</p><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p>]]></content>
       
       
       <categories>
@@ -321,9 +350,9 @@
       
         <tags>
             
-            <tag> Gradle </tag>
-            
             <tag> SonarQube </tag>
+            
+            <tag> Gradle </tag>
             
         </tags>
       
@@ -462,9 +491,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -770,9 +799,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gradle </tag>
             
@@ -1107,9 +1136,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -1134,9 +1163,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Backup </tag>
             
@@ -1165,9 +1194,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1273,9 +1302,9 @@
             
             <tag> Python </tag>
             
-            <tag> Release </tag>
-            
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -1487,9 +1516,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1514,9 +1543,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1751,9 +1780,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Bitbucket </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -2144,9 +2173,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -2225,9 +2254,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -2252,9 +2281,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Jenkins </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -2817,9 +2846,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> C </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Coverage </tag>
             
