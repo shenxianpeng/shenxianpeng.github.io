@@ -389,9 +389,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
       <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
@@ -563,9 +563,9 @@
       <category term="SonarQube" scheme="https://shenxianpeng.github.io/categories/sonarqube/"/>
     
     
-      <category term="SonarQube" scheme="https://shenxianpeng.github.io/tags/sonarqube/"/>
-    
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
+    
+      <category term="SonarQube" scheme="https://shenxianpeng.github.io/tags/sonarqube/"/>
     
   </entry>
   

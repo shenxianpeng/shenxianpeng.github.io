@@ -238,9 +238,9 @@
       
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Actions </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -350,9 +350,9 @@
       
         <tags>
             
-            <tag> SonarQube </tag>
-            
             <tag> Gradle </tag>
+            
+            <tag> SonarQube </tag>
             
         </tags>
       
@@ -668,9 +668,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Troubleshooting </tag>
-            
             <tag> ESlint </tag>
+            
+            <tag> Troubleshooting </tag>
             
         </tags>
       
@@ -747,9 +747,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -799,9 +799,9 @@
       
         <tags>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
             
@@ -1194,9 +1194,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
         </tags>
       
@@ -1246,9 +1246,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -1647,11 +1647,11 @@
       
         <tags>
             
-            <tag> Troubleshooting </tag>
+            <tag> JFrog </tag>
             
             <tag> Artifactory </tag>
             
-            <tag> JFrog </tag>
+            <tag> Troubleshooting </tag>
             
         </tags>
       
@@ -1780,9 +1780,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -2387,9 +2387,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
