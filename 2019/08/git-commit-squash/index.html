@@ -133,7 +133,7 @@ ga('send', 'pageview');
 <p>list your local repository log</p>
 <p><img src="/2019/08/git-commit-squash/example-01.png" alt="list your logs in oneline"></p>
 <p>If you want to combine these 3 commits (add6152, 3650100, 396a652) to 1 commit, execute this command</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~3      <span class="comment"># last three commits</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~3      <span class="comment"># last three commits</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/2019/08/git-commit-squash/example-02.png" alt="list last three commits"></p>
 <p>Select which commit you want to squash (type s or squash are OK)</p>
@@ -146,13 +146,13 @@ ga('send', 'pageview');
 <p><img src="/2019/08/git-commit-squash/example-06.png" alt="comment out some commits message you don&#39;t need"></p>
 <h2 id="If-your-commits-had-pushed-to-remote"><a href="#If-your-commits-had-pushed-to-remote" class="headerlink" title="If your commits had pushed to remote"></a>If your commits had pushed to remote</h2><h3 id="combine-remote-commits-you-could-follow-this-flow"><a href="#combine-remote-commits-you-could-follow-this-flow" class="headerlink" title="combine remote commits, you could follow this flow"></a>combine remote commits, you could follow this flow</h3><p>list your repository logs</p>
 <p><img src="/2019/08/git-commit-squash/example-07.png" alt="list your logs in oneline"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># so you can create another branch from bugfix/UNV-1234 named bugfix/UNV-1234-for-squash</span></span><br><span class="line">xshen@dln<span class="_">-l</span>-xs01 MINGW64 /c/U2GitCode/git-test (bugfix/UNV-1234)</span><br><span class="line">$ git checkout -b bugfix/UNV-1234-for-squash</span><br><span class="line">Switched to a new branch <span class="string">'bugfix/UNV-1234-for-squash'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># combine last 2 commits</span></span><br><span class="line">$ git rebase -i HEAD~2</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># so you can create another branch from bugfix/UNV-1234 named bugfix/UNV-1234-for-squash</span></span><br><span class="line">xshen@dln<span class="_">-l</span>-xs01 MINGW64 /c/U2GitCode/git-test (bugfix/UNV-1234)</span><br><span class="line">$ git checkout -b bugfix/UNV-1234-for-squash</span><br><span class="line">Switched to a new branch <span class="string">'bugfix/UNV-1234-for-squash'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># combine last 2 commits</span></span><br><span class="line">$ git rebase -i HEAD~2</span><br></pre></td></tr></table></figure>
 
 <p>change one commit from pick to squash, see the screenshot below. press ESC, enter :wq! to save and exit.</p>
 <p><img src="/2019/08/git-commit-squash/example-08.png" alt="select a commit you want to squash"></p>
 <p>change commit message, for example “UNV-1234 combine all commit to one commit”, then press ESC, enter :wq! to save and exit.</p>
 <p><img src="/2019/08/git-commit-squash/example-09.png" alt="comment out commit message you don&#39;t want to display"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># push your new create branch to remote.</span></span><br><span class="line">git push -u origin bugfix/UNV-1234-for-squash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># push your new create branch to remote.</span></span><br><span class="line">git push -u origin bugfix/UNV-1234-for-squash</span><br></pre></td></tr></table></figure>
 
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -167,7 +167,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="cl05e80za008kucfocc4xhnf2" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="cl089fu9r005gf8fo2zug11ak" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/git-commit-squash/#disqus_thread" class="article-comment-link">Comments</a>
@@ -229,7 +229,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

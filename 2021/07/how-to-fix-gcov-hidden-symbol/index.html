@@ -6,12 +6,12 @@
   
   <title>How to fix &#34;hidden symbol `__gcov_init&#39; in ../libgcov.a(_gcov.o) is referenced by DSO&#34; | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ProblemWhen we introduced Gocv to build my project for code coverage, I encountered the following error message: error 112345678g++     -m64 -z muldefs -L&#x2F;lib64 -L&#x2F;usr&#x2F;lib64 -lglib-2.0 -m64 -DUV_64POR">
+  <meta name="description" content="ProblemWhen we introduced Gocv to build my project for code coverage, I encountered the following error message: error 1g++     -m64 -z muldefs -L&#x2F;lib64 -L&#x2F;usr&#x2F;lib64 -lglib-2.0 -m64 -DUV_64PORT -DU2_6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to fix &quot;hidden symbol &#96;__gcov_init&#39; in ..&#x2F;libgcov.a(_gcov.o) is referenced by DSO&quot;">
 <meta property="og:url" content="https://shenxianpeng.github.io/2021/07/how-to-fix-gcov-hidden-symbol/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="ProblemWhen we introduced Gocv to build my project for code coverage, I encountered the following error message: error 112345678g++     -m64 -z muldefs -L&#x2F;lib64 -L&#x2F;usr&#x2F;lib64 -lglib-2.0 -m64 -DUV_64POR">
+<meta property="og:description" content="ProblemWhen we introduced Gocv to build my project for code coverage, I encountered the following error message: error 1g++     -m64 -z muldefs -L&#x2F;lib64 -L&#x2F;usr&#x2F;lib64 -lglib-2.0 -m64 -DUV_64PORT -DU2_6">
 <meta property="article:published_time" content="2021-07-27T02:40:21.000Z">
 <meta property="article:modified_time" content="2021-07-27T15:32:44.255Z">
 <meta property="article:author" content="shenxianpeng">
@@ -121,10 +121,10 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>When we introduced Gocv to build my project for code coverage, I encountered the following error message:</p>
-<h3 id="error-1"><a href="#error-1" class="headerlink" title="error 1"></a>error 1</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">g++     -m64 -z muldefs -L/lib64 -L/usr/lib64 -lglib-2.0 -m64 -DUV_64PORT -DU2_64_BUILD -fPIC -g  DU_starter.o</span><br><span class="line">NFA_msghandle.o NFA_svr_exit.o du_err_printf.o  -L/workspace/code/myproject/src/home/x64debug/bin/</span><br><span class="line">-L/workspace/code/myproject/src/home/x64debug/bin/lib/ -lundata -lutcallc_nfasvr</span><br><span class="line">-Wl,-rpath=/workspace/code/myproject/src/home/x64debug/bin/ -Wl,-rpath=/.dulibs28  -Wl,--<span class="built_in">enable</span>-new-dtags</span><br><span class="line">-L/.dulibs28 -lodbc  -lm -lncurses -lrt -lcrypt -lgdbm -ldl -lpam -lpthread  -ldl -lglib-2.0</span><br><span class="line">-lstdc++ -lnsl -lrt -lgcov -o /workspace/code/myproject/src/home/x64debug/objs/du/share/dutsvr</span><br><span class="line">/usr/bin/ld: /workspace/code/myproject/src/home/x64debug/objs/du/share/dutsvr:</span><br><span class="line">hidden symbol `__gcov_init<span class="string">' in /usr/lib/gcc/x86_64-redhat-linux/4.8.5/libgcov.a(_gcov.o) is referenced by DSO</span></span><br></pre></td></tr></table></figure>
+<h3 id="error-1"><a href="#error-1" class="headerlink" title="error 1"></a>error 1</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">g++     -m64 -z muldefs -L/lib64 -L/usr/lib64 -lglib-2.0 -m64 -DUV_64PORT -DU2_64_BUILD -fPIC -g  DU_starter.o</span><br><span class="line">NFA_msghandle.o NFA_svr_exit.o du_err_printf.o  -L/workspace/code/myproject/src/home/x64debug/bin/</span><br><span class="line">-L/workspace/code/myproject/src/home/x64debug/bin/lib/ -lundata -lutcallc_nfasvr</span><br><span class="line">-Wl,-rpath=/workspace/code/myproject/src/home/x64debug/bin/ -Wl,-rpath=/.dulibs28  -Wl,--<span class="built_in">enable</span>-new-dtags</span><br><span class="line">-L/.dulibs28 -lodbc  -lm -lncurses -lrt -lcrypt -lgdbm -ldl -lpam -lpthread  -ldl -lglib-2.0</span><br><span class="line">-lstdc++ -lnsl -lrt -lgcov -o /workspace/code/myproject/src/home/x64debug/objs/du/share/dutsvr</span><br><span class="line">/usr/bin/ld: /workspace/code/myproject/src/home/x64debug/objs/du/share/dutsvr:</span><br><span class="line">hidden symbol `__gcov_init<span class="string">' in /usr/lib/gcc/x86_64-redhat-linux/4.8.5/libgcov.a(_gcov.o) is referenced by DSO</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="error-2"><a href="#error-2" class="headerlink" title="error 2"></a>error 2</h3><p>It may also be such an error</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/home/p7539c/cutest/CuTest.c:379: undefined reference to `__gcov_init<span class="string">'</span></span><br><span class="line"><span class="string">CuTest.o:(.data+0x184): undefined reference to `__gcov_merge_add'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/home/p7539c/cutest/CuTest.c:379: undefined reference to `__gcov_init<span class="string">'</span></span><br><span class="line"><span class="string">CuTest.o:(.data+0x184): undefined reference to `__gcov_merge_add'</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Positioning-problem"><a href="#Positioning-problem" class="headerlink" title="Positioning problem"></a>Positioning problem</h2><p>Let’s take the <strong>error 1</strong>.</p>
 <p>From the error message, I noticed <code>-lundata -lutcallc_nfasvr</code> are all the linked libraries (-l<em>library</em>)</p>
@@ -132,19 +132,19 @@ ga('send', 'pageview');
 <blockquote>
 <p>Use the <code>find</code> command to search the library and the <code>nm</code> command to list symbols in the library.</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-sh-4.2$ find -name *utcallc_nfasvr*</span><br><span class="line">./bin/libutcallc_nfasvr.so</span><br><span class="line">./objs/du/work/libutcallc_nfasvr.so</span><br><span class="line">-sh-4.2$ nm ./bin/libutcallc_nfasvr.so | grep __gcov_init</span><br><span class="line">                 U __gcov_init</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-sh-4.2$ find -name *utcallc_nfasvr*</span><br><span class="line">./bin/libutcallc_nfasvr.so</span><br><span class="line">./objs/du/work/libutcallc_nfasvr.so</span><br><span class="line">-sh-4.2$ nm ./bin/libutcallc_nfasvr.so | grep __gcov_init</span><br><span class="line">                 U __gcov_init</span><br></pre></td></tr></table></figure>
 
 <h2 id="How-to-fix"><a href="#How-to-fix" class="headerlink" title="How to fix"></a>How to fix</h2><p>In my case, I just added the following code <code>LIB_1_LIBS := -lgcov</code> to allow the <code>utcallc_nfasvr</code> library to call gcov.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LIB_1 := utcallc_nfasvr</span><br><span class="line"><span class="comment"># added below code to my makefile</span></span><br><span class="line">LIB_1_LIBS := -lgcov</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">LIB_1 := utcallc_nfasvr</span><br><span class="line"><span class="comment"># added below code to my makefile</span></span><br><span class="line">LIB_1_LIBS := -lgcov</span><br></pre></td></tr></table></figure>
 
 <p>Rebuild, the error is gone, then checked library, it displayed <code>t __gcov_init</code> this time, it means symbol value exists not hidden.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-sh-4.2$ nm ./bin/libutcallc_nfasvr.so | grep __gcov_init</span><br><span class="line">                 t __gcov_init</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-sh-4.2$ nm ./bin/libutcallc_nfasvr.so | grep __gcov_init</span><br><span class="line">                 t __gcov_init</span><br></pre></td></tr></table></figure>
 
 <p>Or in your case may build a shared library like so, similarly, just add the compile parameter <code>-lgcov</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++   -shared -o libMyLib.so src_a.o src_b.o src_c.o -lgcov</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">g++   -shared -o libMyLib.so src_a.o src_b.o src_c.o -lgcov</span><br></pre></td></tr></table></figure>
 
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>I have encountered the following problems many times</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">undefined reference to `__gcov_init<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">undefined reference to `__gcov_merge_add'</span></span><br><span class="line"></span><br><span class="line">`hidden symbol `__gcov_init<span class="string">' in /usr/lib/gcc/x86_64-redhat-linux/4.8.5/libgcov.a(_gcov.o) is referenced by DSO`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">undefined reference to `__gcov_init<span class="string">'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">undefined reference to `__gcov_merge_add'</span></span><br><span class="line"></span><br><span class="line">`hidden symbol `__gcov_init<span class="string">' in /usr/lib/gcc/x86_64-redhat-linux/4.8.5/libgcov.a(_gcov.o) is referenced by DSO`</span></span><br></pre></td></tr></table></figure>
 
 <p>Each time I can fix it by adding <code>-glcov</code> then recompile. the error has gone after rebuild. (you use the <code>nm</code> command to double-check whether the symbol has been added successfully.)</p>
 <p>Hopes it can help you.</p>
@@ -162,7 +162,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/07/how-to-fix-gcov-hidden-symbol/" data-id="cl05e812f00ipucfo9ul1fktr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/07/how-to-fix-gcov-hidden-symbol/" data-id="cl089fuc700cxf8fo8arjd52j" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/07/how-to-fix-gcov-hidden-symbol/#disqus_thread" class="article-comment-link">Comments</a>
@@ -224,7 +224,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

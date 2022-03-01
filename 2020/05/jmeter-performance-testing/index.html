@@ -127,7 +127,7 @@ ga('send', 'pageview');
 <p>You can debug your record scripts in GUI Mode until there are no errors</p>
 </li>
 <li><p>run test scripts in Non-GUI Mode(Command Line mode) recommend</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jmeter -n -t ..\extras\Test.jmx -l Test.jtl</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">jmeter -n -t ..\extras\Test.jmx -l Test.jtl</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
 </li>
@@ -149,13 +149,13 @@ ga('send', 'pageview');
 <li><p>Create a new item-&gt;select Freestyle project</p>
 </li>
 <li><p>Add build step-&gt;Execute Windows batch command</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//access to jenkins <span class="built_in">jobs</span> workspace, empty the last <span class="built_in">test</span> results</span><br><span class="line">cmd</span><br><span class="line"><span class="built_in">cd</span> C:\Users\peter\.jenkins\<span class="built_in">jobs</span>\TEST-122 Upload large data\workspace</span><br><span class="line">del /Q <span class="string">"jtl"</span>\*</span><br><span class="line">del /Q <span class="string">"PerfMon Metrics Collector"</span>\*</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//access to jenkins <span class="built_in">jobs</span> workspace, empty the last <span class="built_in">test</span> results</span><br><span class="line">cmd</span><br><span class="line"><span class="built_in">cd</span> C:\Users\peter\.jenkins\<span class="built_in">jobs</span>\TEST-122 Upload large data\workspace</span><br><span class="line">del /Q <span class="string">"jtl"</span>\*</span><br><span class="line">del /Q <span class="string">"PerfMon Metrics Collector"</span>\*</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Add build step-&gt;Execute Windows batch command</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//add first run jmeter script <span class="built_in">command</span>, <span class="keyword">if</span> you want run others script you can <span class="built_in">continue</span> to add <span class="string">"Execute Windows batch command"</span></span><br><span class="line">jmeter -n -t script/UploadLargeData-1.jmx -l jtl/UploadLargeData-1.jtl</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//add first run jmeter script <span class="built_in">command</span>, <span class="keyword">if</span> you want run others script you can <span class="built_in">continue</span> to add <span class="string">"Execute Windows batch command"</span></span><br><span class="line">jmeter -n -t script/UploadLargeData-1.jmx -l jtl/UploadLargeData-1.jtl</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Configure build email - Configure System</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//Configure System, Extended E-mail Notification</span><br><span class="line">SMTP server: smtp.gmail.com</span><br><span class="line"></span><br><span class="line">//Job Configure, Enable <span class="string">"Editable Email Notification"</span></span><br><span class="line">Project Recipient List: xianpeng.shen@gmail.com</span><br><span class="line">Project Reply-To List: <span class="variable">$DEFAULT_REPLYTO</span></span><br><span class="line">Content Type: HTML (text/html)</span><br><span class="line">Default Subject:<span class="variable">$DEFAULT_SUBJECT</span></span><br><span class="line">Default Content: <span class="variable">$&#123;SCRIPT, template="groovy-html.template"&#125;</span></span><br><span class="line"></span><br><span class="line">//Advance setting</span><br><span class="line">Triggers: Always</span><br><span class="line">          Send to Recipient List</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//Configure System, Extended E-mail Notification</span><br><span class="line">SMTP server: smtp.gmail.com</span><br><span class="line"></span><br><span class="line">//Job Configure, Enable <span class="string">"Editable Email Notification"</span></span><br><span class="line">Project Recipient List: xianpeng.shen@gmail.com</span><br><span class="line">Project Reply-To List: <span class="variable">$DEFAULT_REPLYTO</span></span><br><span class="line">Content Type: HTML (text/html)</span><br><span class="line">Default Subject:<span class="variable">$DEFAULT_SUBJECT</span></span><br><span class="line">Default Content: <span class="variable">$&#123;SCRIPT, template="groovy-html.template"&#125;</span></span><br><span class="line"></span><br><span class="line">//Advance setting</span><br><span class="line">Triggers: Always</span><br><span class="line">          Send to Recipient List</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -281,7 +281,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/" data-id="cl05e80yk005jucfoh3bv3b6n" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/" data-id="cl089fuak007zf8fo7bwy2ywj" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/jmeter-performance-testing/#disqus_thread" class="article-comment-link">Comments</a>
@@ -343,7 +343,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

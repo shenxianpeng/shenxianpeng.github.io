@@ -142,10 +142,10 @@ ga('send', 'pageview');
 <p>切记，当你重写历史记录后，无论你是使用 BFG 还是使用 filter-branch，你都需要删除指向旧的历史记录的 <code>reflog</code> 条目，最后运行垃圾回收器来删除旧的数据。</p>
 <h2 id="使用-BFG-重写历史记录"><a href="#使用-BFG-重写历史记录" class="headerlink" title="使用 BFG 重写历史记录"></a>使用 BFG 重写历史记录</h2><p>BFG 是为将像大文件或者密码这些不想要的数据从 Git 仓库中删除而专门设计的，所以它有一一个简单的标志用来删除那些大的历史文件（不在当前的提交里面）：<code>--strip-blobs-bigger-than</code></p>
 <p>BFG <a href="https://repo1.maven.org/maven2/com/madgag/bfg" target="_blank" rel="noopener">下载地址</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar bfg.jar --strip-blobs-than 100M</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -jar bfg.jar --strip-blobs-than 100M</span><br></pre></td></tr></table></figure>
 
 <p>大小超过 100MB 的任何文件（不包含在你最近的提交中的文件——因为 BFG 默认会保护你的最新提交的内容）将会从你的 Git 仓库的历史记录中删除。如果你想用名字来指明具体的文件，你也可以这样做：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar bfg.jar --delete-files *.mp4</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -jar bfg.jar --delete-files *.mp4</span><br></pre></td></tr></table></figure>
 
 <p>BFG 的速度要比 git filter-branch 快 10-1000 倍，而且通常更容易使用——查看完整的<a href="https://rtyley.github.io/bfg-repo-cleaner/#usage" target="_blank" rel="noopener">使用说明</a>和<a href="https://rtyley.github.io/bfg-repo-cleaner/#examples" target="_blank" rel="noopener">示例</a>获取更多细节。</p>
 <h2 id="或者，使用-git-filter-branch-来重写历史记录"><a href="#或者，使用-git-filter-branch-来重写历史记录" class="headerlink" title="或者，使用 git filter-branch 来重写历史记录"></a>或者，使用 git filter-branch 来重写历史记录</h2><p><code>filter-branch</code> 命令可以对 Git 仓库的历史记录重写，就像 BFG 一样，但是过程更慢和更手动化。如果你不知道这些大文件在哪里，那么你第一步就需要找到它们：</p>
@@ -156,63 +156,63 @@ ga('send', 'pageview');
 <li><p>将它放在一个可以访问你的 Git 仓库的易于找到的位置</p>
 </li>
 <li><p>让脚本成为可执行文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 git_find_big.sh</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chmod 777 git_find_big.sh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>克隆仓库到你本地系统</p>
 </li>
 <li><p>改变当前目录到你的仓库根目录</p>
 </li>
 <li><p>手动运行 Git 垃圾回收器</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git gc --auto</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git gc --auto</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>找出 .git 文件夹的大小</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意文件大小，以便随后参考</span></span><br><span class="line">du -hs .git/objects</span><br><span class="line">45M .git/objects</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 注意文件大小，以便随后参考</span></span><br><span class="line">du -hs .git/objects</span><br><span class="line">45M .git/objects</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>运行 <code>git_find_big.sh</code> 脚本来列出你的仓库中的大文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git_find_big.sh</span><br><span class="line">All sizes are <span class="keyword">in</span> kB<span class="string">'s. The pack column is the size of the object, compressed, inside the pack file.</span></span><br><span class="line"><span class="string">size  pack  SHA                                       location</span></span><br><span class="line"><span class="string">592   580   e3117f48bc305dd1f5ae0df3419a0ce2d9617336  media/img/emojis.jar</span></span><br><span class="line"><span class="string">550   169   b594a7f59ba7ba9daebb20447a87ea4357874f43  media/js/aui/aui-dependencies.jar</span></span><br><span class="line"><span class="string">518   514   22f7f9a84905aaec019dae9ea1279a9450277130  media/images/screenshots/issue-tracker-wiki.jar</span></span><br><span class="line"><span class="string">337   92    1fd8ac97c9fecf74ba6246eacef8288e89b4bff5  media/js/lib/bundle.js</span></span><br><span class="line"><span class="string">240   239   e0c26d9959bd583e5ef32b6206fc8abe5fea8624  media/img/featuretour/heroshot.png</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git_find_big.sh</span><br><span class="line">All sizes are <span class="keyword">in</span> kB<span class="string">'s. The pack column is the size of the object, compressed, inside the pack file.</span></span><br><span class="line"><span class="string">size  pack  SHA                                       location</span></span><br><span class="line"><span class="string">592   580   e3117f48bc305dd1f5ae0df3419a0ce2d9617336  media/img/emojis.jar</span></span><br><span class="line"><span class="string">550   169   b594a7f59ba7ba9daebb20447a87ea4357874f43  media/js/aui/aui-dependencies.jar</span></span><br><span class="line"><span class="string">518   514   22f7f9a84905aaec019dae9ea1279a9450277130  media/images/screenshots/issue-tracker-wiki.jar</span></span><br><span class="line"><span class="string">337   92    1fd8ac97c9fecf74ba6246eacef8288e89b4bff5  media/js/lib/bundle.js</span></span><br><span class="line"><span class="string">240   239   e0c26d9959bd583e5ef32b6206fc8abe5fea8624  media/img/featuretour/heroshot.png</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <p>大文件都是 JAR 文件，包的大小列是最相关的。aui-dependencies.jar 被压缩到 169kb，但是 emojis.jar 只压缩到 500kb。emojis.jar 就是一个待删除的对象。</p>
 <h3 id="运行-filter-branch"><a href="#运行-filter-branch" class="headerlink" title="运行 filter-branch"></a>运行 filter-branch</h3><p>你可以给这个命令传递一个用于重写 Git 索引的过滤器。例如，一个过滤器可以可以将每个检索的提交删除。这个用法如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --index-filter <span class="string">'git rm --cached --ignore-unmatch&amp;nbsp; _pathname_ '</span> commitHASH</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch --index-filter <span class="string">'git rm --cached --ignore-unmatch&amp;nbsp; _pathname_ '</span> commitHASH</span><br></pre></td></tr></table></figure>
 
 <p><code>--index-filter</code> 选项可以修改仓库的索引，<code>--cached</code> 选项从索引中而不是磁盘来删除文件。这样会更快，因为你不需要在运行这个过滤器前检查每个修订版本。<br><code>git rm</code> 中的 <code>ignore-unmatch</code> 选项可以防止在尝试移走不存在的文件 pathname 的时候命令失败。通过指定一个提交 HASH 值，你可以从每个以这个 HASH 值开始的提交中删除 pathname。要从开始处删除，你可以省略这个参数或者指定为 HEAD。</p>
 <p>如果你的大文件在不同的分支，你将需要通过名字来删除每个文件。如果大文件都在一个单独的分支，你可以直接删除这个分支本身。</p>
 <h4 id="选项-1：通过文件名删除文件"><a href="#选项-1：通过文件名删除文件" class="headerlink" title="选项 1：通过文件名删除文件"></a>选项 1：通过文件名删除文件</h4><p>使用下面的步骤来删除大文件：</p>
 <ol>
 <li><p>使用下面的命令来删除你找到的第一个大文件</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --index-filter <span class="string">'git rm --cached --ignore-unmatch filename'</span> HEAD</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git filter-branch --index-filter <span class="string">'git rm --cached --ignore-unmatch filename'</span> HEAD</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重复步骤 1 找到剩下的每个大文件</p>
 </li>
 <li><p>在你的仓库里更新引用。 <code>filter-branch</code> 会为你原先的引用创建一个 <code>refs/original/</code> 下的备份。一旦你确信已经删除了正确的文件，你可以运行下面的命令来删除备份文件，同时可以让垃圾回收器回收大的对象</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">for</span>-each-ref --format=<span class="string">"%(refname)"</span> refs/original/ | xargs -n 1 git update-ref -d</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">for</span>-each-ref --format=<span class="string">"%(refname)"</span> refs/original/ | xargs -n 1 git update-ref -d</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h4 id="选项-2：直接删除分支"><a href="#选项-2：直接删除分支" class="headerlink" title="选项 2：直接删除分支"></a>选项 2：直接删除分支</h4><p>如果你所有的大文件都在一个单独的分支上，你可以直接删除这个分支。删除这个分支会自动删除所有的引用。</p>
 <ol>
 <li><p>删除分支</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D PROJ567bugfix</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch -D PROJ567bugfix</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>从后面的分支中删除所有的 reflog 引用</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog expire --expire=now PROJ567bugfix</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reflog expire --expire=now PROJ567bugfix</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
 <h4 id="对不用的数据垃圾回收"><a href="#对不用的数据垃圾回收" class="headerlink" title="对不用的数据垃圾回收"></a>对不用的数据垃圾回收</h4><ol>
 <li><p>删除从现在到后面的所有 reflog 引用（除非你明确地只在一个分支上操作）</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog expire --expire=now --all</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git reflog expire --expire=now --all</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>通过运行垃圾回收器和删除旧的对象重新打包仓库。</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git gc --prune=now</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git gc --prune=now</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>把你所有的修改推送回仓库</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --all --force</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push --all --force</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>确保你所有的标签也是当前最新的</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --tags --force</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push --tags --force</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
@@ -231,7 +231,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/" data-id="cl05e80ye004wucfobi7s61nl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/" data-id="cl089fuai007qf8foefcsejnt" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/03/maintaining-a-git-gepository/#disqus_thread" class="article-comment-link">Comments</a>
@@ -293,7 +293,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

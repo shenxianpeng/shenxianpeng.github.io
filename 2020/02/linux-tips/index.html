@@ -124,15 +124,15 @@ ga('send', 'pageview');
 <a id="more"></a>
 
 <p>可以组合使用，像这样</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -la</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -la</span><br></pre></td></tr></table></figure>
 
 <h2 id="cp-命令"><a href="#cp-命令" class="headerlink" title="cp 命令"></a>cp 命令</h2><p>将源文件复制到目标。参数：</p>
 <p><code>-i</code> 交互模式意味着等待确认，如果目标上有文件将被覆盖。</p>
 <p><code>-r</code> 递归复制，意味着包含子目录（如果有的话）。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp –ir source_dir target_dir</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp –ir source_dir target_dir</span><br></pre></td></tr></table></figure>
 
 <h2 id="tmp-空间不够怎么办"><a href="#tmp-空间不够怎么办" class="headerlink" title="/tmp 空间不够怎么办"></a>/tmp 空间不够怎么办</h2><p>在 /etc/fstab 文件里增加一行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/fstab</span><br><span class="line"><span class="comment"># 添加如下一行</span></span><br><span class="line">tmpfs                   /tmp                    tmpfs   defaults,size=4G          0 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/fstab</span><br><span class="line"><span class="comment"># 添加如下一行</span></span><br><span class="line">tmpfs                   /tmp                    tmpfs   defaults,size=4G          0 0</span><br></pre></td></tr></table></figure>
 
 <p>重启之后，<code>df -h</code> 查看，/tmp 目录已经就变成 4G 了。</p>
 <p>More, Refer to these links</p>
@@ -154,7 +154,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/02/linux-tips/" data-id="cl05e80yc004rucfo9wt08hs6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/02/linux-tips/" data-id="cl089fuae007ef8fo89p10ip4" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/02/linux-tips/#disqus_thread" class="article-comment-link">Comments</a>
@@ -216,7 +216,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

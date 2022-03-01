@@ -149,7 +149,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="cl05e811v00grucfoe61chdwc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="cl089fubn00b1f8foaxww9w06" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/#disqus_thread" class="article-comment-link">Comments</a>
@@ -222,7 +222,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/" data-id="cl05e811g00g8ucfo0jhb0y5i" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/" data-id="cl089fubh00ahf8fo6f0j3o4d" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/#disqus_thread" class="article-comment-link">Comments</a>
@@ -331,7 +331,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/12/2020-summary/" data-id="cl05e80z70085ucfo5w368qw0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/12/2020-summary/" data-id="cl089fubg00aef8fo9ltv1xmg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/12/2020-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -396,7 +396,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jenkins-backup/" data-id="cl05e80yx0070ucfo4ike5b4b" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jenkins-backup/" data-id="cl089fubf00acf8fo7un55ua9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jenkins-backup/#disqus_thread" class="article-comment-link">Comments</a>
@@ -471,7 +471,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="cl05e80yz0077ucfo1iwu3swt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="cl089fuba00a2f8fo1idmdzax" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jacoco/#disqus_thread" class="article-comment-link">Comments</a>
@@ -527,7 +527,7 @@ ga('send', 'pageview');
 <h3 id="管理多个操作系统"><a href="#管理多个操作系统" class="headerlink" title="管理多个操作系统"></a>管理多个操作系统</h3><p>如果你和我的情况一下，想监控很多个操作操作系统，那么就只能通过 ssh 来登录到每一台机器上去查看，比如执行 <code>uptime</code> 等命令。可以写 shell 脚本来完成这些登录、检测等操作。</p>
 <p>另外就是使用 Ansible 的 Playbook。Playbook 里描述了你要做的操作，这是一个权衡，学习 Ansible 的 Playbook 需要花些时间的。</p>
 <p>如果想了解下 Ansible 那么可以试试 Ansible Playbook。以下是我使用 Ansible 做了一些练习。</p>
-<h4 id="Playbook结构"><a href="#Playbook结构" class="headerlink" title="Playbook结构"></a>Playbook结构</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+- vars</span><br><span class="line">|   +- vars.yml</span><br><span class="line">|   +- ...</span><br><span class="line">+- hosts               <span class="comment"># save all hosts you want to monitor</span></span><br><span class="line">+- run.yml             <span class="comment"># ansible executable file</span></span><br></pre></td></tr></table></figure>
+<h4 id="Playbook结构"><a href="#Playbook结构" class="headerlink" title="Playbook结构"></a>Playbook结构</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">+- vars</span><br><span class="line">|   +- vars.yml</span><br><span class="line">|   +- ...</span><br><span class="line">+- hosts               <span class="comment"># save all hosts you want to monitor</span></span><br><span class="line">+- run.yml             <span class="comment"># ansible executable file</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Playbook具体代码"><a href="#Playbook具体代码" class="headerlink" title="Playbook具体代码"></a>Playbook具体代码</h4>
         
@@ -548,7 +548,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice/" data-id="cl05e80z1007fucfo777h678b" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice/" data-id="cl089fubc00a8f8foe0v77las" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/ansible-practice/#disqus_thread" class="article-comment-link">Comments</a>
@@ -617,7 +617,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="cl05e80z2007iucfo57fy8wg0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="cl089fubb00a5f8fo49lch19m" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/#disqus_thread" class="article-comment-link">Comments</a>
@@ -681,7 +681,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/commit-messages-specification/" data-id="cl05e80yy0073ucfobtnu45lj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/commit-messages-specification/" data-id="cl089fub9009zf8fo6x5rfpnd" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/#disqus_thread" class="article-comment-link">Comments</a>
@@ -732,7 +732,7 @@ ga('send', 'pageview');
 <li><a href="#选择License">License的选择</a></li>
 </ol>
 <h2 id="配置setup-py"><a href="#配置setup-py" class="headerlink" title="配置setup.py"></a>配置setup.py</h2><p>打包和发布一项都是通过准备一个 <code>setup.py</code> 文件来完成的。假设你的项目目录结构如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">demo</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── MANIFEST.in <span class="comment"># 打包时，用来定制化生成 `dist/*.tar.gz` 里的内容</span></span><br><span class="line">├── demo</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── setup.py</span><br><span class="line">├── tests</span><br><span class="line">│   └── __init__.py</span><br><span class="line">│   └── __pycache__/</span><br><span class="line">└── docs</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">demo</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README.md</span><br><span class="line">├── MANIFEST.in <span class="comment"># 打包时，用来定制化生成 `dist/*.tar.gz` 里的内容</span></span><br><span class="line">├── demo</span><br><span class="line">│   └── __init__.py</span><br><span class="line">├── setup.py</span><br><span class="line">├── tests</span><br><span class="line">│   └── __init__.py</span><br><span class="line">│   └── __pycache__/</span><br><span class="line">└── docs</span><br></pre></td></tr></table></figure>
 
 <p>在使用打包命令 <code>python setup.py sdist bdist_wheel</code>，将会生成在 dist 目录下生成两个文件 <code>demo-1.0.0-py3-none-any.whl</code> 和 <code>demo-1.0.0.tar.gz</code></p>
 <ul>
@@ -759,7 +759,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="cl05e80yw006xucfobfjkgh9r" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="cl089fub7009uf8fo263s8sb8" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/#disqus_thread" class="article-comment-link">Comments</a>
@@ -829,7 +829,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="cl05e80yq006bucfo7cpgetuo" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="cl089fub4009of8fo7cr3ea59" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/#disqus_thread" class="article-comment-link">Comments</a>
@@ -871,7 +871,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

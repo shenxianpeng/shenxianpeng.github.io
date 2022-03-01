@@ -131,7 +131,7 @@ ga('send', 'pageview');
 <li><p>新增 BDD describe Interface - 可以同时运行以 BDD 描述和导出接口编写的测试，无需其他配置。</p>
 </li>
 <li><p>新增 <code>assert.not</code> 断言</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原来这么写</span></span><br><span class="line">browser.assert.elementNotPresent()</span><br><span class="line"><span class="comment">// 现在可以这么写</span></span><br><span class="line">browser.assert.not.elementPresent(<span class="string">'.not_present'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 原来这么写</span></span><br><span class="line">browser.assert.elementNotPresent()</span><br><span class="line"><span class="comment">// 现在可以这么写</span></span><br><span class="line">browser.assert.not.elementPresent(<span class="string">'.not_present'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>新增一些 APIs - 比如 <code>getElementProperty</code>, <code>domPropertyContains</code>, <code>domPropertyEquals</code>, <code>.property</code></p>
 </li>
@@ -144,20 +144,20 @@ ga('send', 'pageview');
 </ul>
 <p>如果要从 v1.0 之前的版本升级，参阅如下升级指南。</p>
 <h2 id="升级和启动"><a href="#升级和启动" class="headerlink" title="升级和启动"></a>升级和启动</h2><p>从 NPM 安装 Nightwatch</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nightwatch --save-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install nightwatch --save-dev</span><br></pre></td></tr></table></figure>
 
 <h3 id="安装浏览器驱动程序"><a href="#安装浏览器驱动程序" class="headerlink" title="安装浏览器驱动程序"></a>安装浏览器驱动程序</h3><h4 id="Geckodriver（Firefox）"><a href="#Geckodriver（Firefox）" class="headerlink" title="Geckodriver（Firefox）"></a>Geckodriver（Firefox）</h4><p>Geckodriver 是用于驱动 Mozilla Firefox 浏览器的 WebDriver 服务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install geckodriver --save-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install geckodriver --save-dev</span><br></pre></td></tr></table></figure>
 
 <h4 id="Chromedriver"><a href="#Chromedriver" class="headerlink" title="Chromedriver"></a>Chromedriver</h4><p>Chromedriver 是用于驱动 Google Chrome 浏览器的 WebDriver 服务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install chromedriver --save-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install chromedriver --save-dev</span><br></pre></td></tr></table></figure>
 
 <p>或用一行安装所有内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i nightwatch geckodriver chromedriver --save-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i nightwatch geckodriver chromedriver --save-dev</span><br></pre></td></tr></table></figure>
 
 <h2 id="运行演示测试"><a href="#运行演示测试" class="headerlink" title="运行演示测试"></a>运行演示测试</h2><p>Nightwatch 带有一个 example 文件夹，其中包含一些示例测试。</p>
 <p>下面将运行一个基本测试，该测试打开搜索引擎 Ecosia.org，搜索 “nightwatch” 一词，并验证术语 “第一个结果” 是否是 Nightwatch.js 网站。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/.bin/nightwatch node_modules/nightwatch/examples/tests/ecosia.js</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./node_modules/.bin/nightwatch node_modules/nightwatch/examples/tests/ecosia.js</span><br></pre></td></tr></table></figure>
 
 <p>Windows 用户可能需要运行节点 node node_modules/.bin/nightwatch</p>
 <h2 id="手动下载浏览器驱动程序"><a href="#手动下载浏览器驱动程序" class="headerlink" title="手动下载浏览器驱动程序"></a>手动下载浏览器驱动程序</h2><p>Nightwatch 使用兼容 WebDriver 的服务器来控制浏览器。 WebDriver 是 W3C 规范和行业标准，提供了与浏览器进行交互的平台和 HTTP 协议。</p>
@@ -167,7 +167,7 @@ ga('send', 'pageview');
 <li>下载网址 <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads。" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads。</a></li>
 </ul>
 <p>从版本 75 开始，Chromedriver 默认启用 W3C Webdriver 协议。如果你现在想坚持使用 JSONWire，请调整 chromeOptions：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">desiredCapabilities : &#123;</span><br><span class="line">  browserName : <span class="string">'chrome'</span>,</span><br><span class="line">  chromeOptions: &#123;</span><br><span class="line">    w3c: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">desiredCapabilities : &#123;</span><br><span class="line">  browserName : <span class="string">'chrome'</span>,</span><br><span class="line">  chromeOptions: &#123;</span><br><span class="line">    w3c: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="GeckoDriver"><a href="#GeckoDriver" class="headerlink" title="GeckoDriver"></a>GeckoDriver</h3><p>针对 Mozilla Firefox 浏览器运行测试。下载网址：<a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">https://github.com/mozilla/geckodriver/releases</a>.</p>
 <h3 id="Selenium-Standalone-Server"><a href="#Selenium-Standalone-Server" class="headerlink" title="Selenium Standalone Server"></a>Selenium Standalone Server</h3><ul>
@@ -180,14 +180,14 @@ ga('send', 'pageview');
 <p>你还可以查看 nightwatch-website-tests (<a href="https://github.com/nightwatchjs/nightwatch-website-tests" target="_blank" rel="noopener">https://github.com/nightwatchjs/nightwatch-website-tests</a>) 存储库，例如针对 nightwatchjs.org (<a href="https://nightwatchjs.org/" target="_blank" rel="noopener">https://nightwatchjs.org/</a>) 网站的测试。</p>
 <h2 id="Nightwatch-单元测试"><a href="#Nightwatch-单元测试" class="headerlink" title="Nightwatch 单元测试"></a>Nightwatch 单元测试</h2><p>Nightwatch 的测试是使用 Mocha 编写的。</p>
 <p>1.克隆项目</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nightwatchjs/nightwatch.git</span><br><span class="line"><span class="built_in">cd</span> nightwatch</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nightwatchjs/nightwatch.git</span><br><span class="line"><span class="built_in">cd</span> nightwatch</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
 <p>2.运行测试</p>
 <p>要运行完整的测试套件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 
 <p>要检查测试范围，请运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run mocha-coverage</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run mocha-coverage</span><br></pre></td></tr></table></figure>
 
 <p>然后在浏览器中打开生成的 coverage/index.html 文件。</p>
 <h2 id="Nightwatch-使用示例"><a href="#Nightwatch-使用示例" class="headerlink" title="Nightwatch 使用示例"></a>Nightwatch 使用示例</h2><p>以下是我写的一个使用 NightwatchJS 对 Nightwatch 官网 <a href="https://nightwatchjs.org" target="_blank" rel="noopener">https://nightwatchjs.org</a> 进行测试的一个测试示例（已经升级到 v1.3 版本）以展示在实际项目中使用 Nightwatchjs 如何组织目录结构，区别配置全局和本地环境。</p>
@@ -206,7 +206,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/" data-id="cl05e80yi005cucfobbzdcgif" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/" data-id="cl089fuaj007sf8fo69xbgcn0" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/05/nightwatch-v1-3/#disqus_thread" class="article-comment-link">Comments</a>
@@ -268,7 +268,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

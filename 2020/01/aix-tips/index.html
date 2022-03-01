@@ -121,7 +121,7 @@ ga('send', 'pageview');
         <p>记录在使用 AIX 时所遇到的问题和解决办法，以备以后遇到同样问题不要再因为这些再浪费时间，希望也能帮助到你。</p>
 <a id="more"></a>
 
-<h2 id="在-AIX-上无法解压超一个大约-600-MB-文件"><a href="#在-AIX-上无法解压超一个大约-600-MB-文件" class="headerlink" title="在 AIX 上无法解压超一个大约 600 MB 文件"></a>在 AIX 上无法解压超一个大约 600 MB 文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">bash-4.3$ ls</span><br><span class="line">data_cdrom_debug_AIX_05949fb.tar.Z</span><br><span class="line">bash-4.3$ gzip -d data_cdrom_debug_AIX_05949fb.tar.Z</span><br><span class="line"><span class="comment"># 错误信息</span></span><br><span class="line">gzip: data_cdrom_debug_AIX_05949fb.tar: File too large</span><br><span class="line"><span class="comment"># 解决办法</span></span><br><span class="line">bash-4.3$ sudo vi /etc/security/limits</span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = -1 <span class="comment"># 修改为 -1</span></span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要重启</span></span><br><span class="line">bash-4.3$ sudo reboot</span><br><span class="line"></span><br><span class="line">Rebooting . . .</span><br></pre></td></tr></table></figure>
+<h2 id="在-AIX-上无法解压超一个大约-600-MB-文件"><a href="#在-AIX-上无法解压超一个大约-600-MB-文件" class="headerlink" title="在 AIX 上无法解压超一个大约 600 MB 文件"></a>在 AIX 上无法解压超一个大约 600 MB 文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash-4.3$ ls</span><br><span class="line">data_cdrom_debug_AIX_05949fb.tar.Z</span><br><span class="line">bash-4.3$ gzip -d data_cdrom_debug_AIX_05949fb.tar.Z</span><br><span class="line"><span class="comment"># 错误信息</span></span><br><span class="line">gzip: data_cdrom_debug_AIX_05949fb.tar: File too large</span><br><span class="line"><span class="comment"># 解决办法</span></span><br><span class="line">bash-4.3$ sudo vi /etc/security/limits</span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = -1 <span class="comment"># 修改为 -1</span></span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要重启</span></span><br><span class="line">bash-4.3$ sudo reboot</span><br><span class="line"></span><br><span class="line">Rebooting . . .</span><br></pre></td></tr></table></figure>
 
 <p>修改之后，重启，再解压就没有问题了。</p>
 <h2 id="安装-Java-Standard-Edition-on-AIX"><a href="#安装-Java-Standard-Edition-on-AIX" class="headerlink" title="安装 Java Standard Edition on AIX"></a>安装 Java Standard Edition on AIX</h2><p>下载地址 <a href="https://developer.ibm.com/javasdk/support/aix-download-service/" target="_blank" rel="noopener">https://developer.ibm.com/javasdk/support/aix-download-service/</a></p>
@@ -131,7 +131,7 @@ ga('send', 'pageview');
 <li>tar -xvf Java8_64.sdk.8.0.0.600.tar  and Java8_64.jre.8.0.0.600.tar</li>
 <li>installp -agXYd .  Java8_64.jre Java8_64.sdk 2&gt;&amp;1 | tee installp.log</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install output</span></span><br><span class="line">Installation Summary</span><br><span class="line">--------------------</span><br><span class="line">Name                        Level           Part        Event       Result</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Java8_64.sdk                8.0.0.600       USR         APPLY       SUCCESS</span><br><span class="line">Java8_64.jre                8.0.0.600       USR         APPLY       SUCCESS</span><br><span class="line">Java8_64.jre                8.0.0.600       ROOT        APPLY       SUCCESS</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># install output</span></span><br><span class="line">Installation Summary</span><br><span class="line">--------------------</span><br><span class="line">Name                        Level           Part        Event       Result</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Java8_64.sdk                8.0.0.600       USR         APPLY       SUCCESS</span><br><span class="line">Java8_64.jre                8.0.0.600       USR         APPLY       SUCCESS</span><br><span class="line">Java8_64.jre                8.0.0.600       ROOT        APPLY       SUCCESS</span><br></pre></td></tr></table></figure>
 
 <ol start="5">
 <li>smitty install_all</li>
@@ -139,7 +139,7 @@ ga('send', 'pageview');
 <li>Acceptance Install the Agreement, then start install.</li>
 </ol>
 <p>Troubleshooting</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bash-4.4<span class="comment"># ./java -version</span></span><br><span class="line">Error: Port Library failed to initialize: -70</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash-4.4<span class="comment"># ./java -version</span></span><br><span class="line">Error: Port Library failed to initialize: -70</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will <span class="built_in">exit</span>.</span><br></pre></td></tr></table></figure>
 
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -154,7 +154,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/01/aix-tips/" data-id="cl05e80y3003xucfo9kf1bke2" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/01/aix-tips/" data-id="cl089fuaa0071f8fod2592tup" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/01/aix-tips/#disqus_thread" class="article-comment-link">Comments</a>
@@ -216,7 +216,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

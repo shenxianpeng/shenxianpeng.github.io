@@ -6,12 +6,12 @@
   
   <title>JST automation framework | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This automation framework was design by Java+Selenium+TestNG when I did automation test work, so I called it JST-automation. Directory Structure12345678910111213141516171819202122232425├──JST-automati">
+  <meta name="description" content="This automation framework was design by Java+Selenium+TestNG when I did automation test work, so I called it JST-automation. Directory Structure├──JST-automation|   ├── src|   |   └── main|   |   |">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JST automation framework">
 <meta property="og:url" content="https://shenxianpeng.github.io/2017/07/JST-automation/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="This automation framework was design by Java+Selenium+TestNG when I did automation test work, so I called it JST-automation. Directory Structure12345678910111213141516171819202122232425├──JST-automati">
+<meta property="og:description" content="This automation framework was design by Java+Selenium+TestNG when I did automation test work, so I called it JST-automation. Directory Structure├──JST-automation|   ├── src|   |   └── main|   |   |">
 <meta property="article:published_time" content="2017-07-13T02:07:02.000Z">
 <meta property="article:modified_time" content="2021-07-15T16:20:01.669Z">
 <meta property="article:author" content="shenxianpeng">
@@ -121,7 +121,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>This automation framework was design by Java+Selenium+TestNG when I did automation test work, so I called it JST-automation.</p>
-<h2 id="Directory-Structure"><a href="#Directory-Structure" class="headerlink" title="Directory Structure"></a>Directory Structure</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">├──JST-automation</span><br><span class="line">|   ├── src</span><br><span class="line">|   |   └── main</span><br><span class="line">|   |   |   └── java</span><br><span class="line">|   |   |   |   └── com</span><br><span class="line">|   |   |   |   |   └── action</span><br><span class="line">|   |   |   |   |   |   └── case01</span><br><span class="line">|   |   |   |   |   |   └── case02</span><br><span class="line">|   |   |   |   |   |   └── common</span><br><span class="line">|   |   |   |   |   |   └── .....</span><br><span class="line">|   |   |   |   |   └── config</span><br><span class="line">|   |   |   |   |   |   └── UserConfig</span><br><span class="line">|   |   |   |   |   |   └── DriverConfig</span><br><span class="line">|   |   |   |   |   |   └── UrlConfig</span><br><span class="line">|   |   |   |   |   |   └── ......</span><br><span class="line">|   |   |   |   |   └── page</span><br><span class="line">|   |   |   |   |   |   └── LoginPage</span><br><span class="line">|   |   |   |   |   |   └── HomePage</span><br><span class="line">|   |   |   |   |   |   └── ......</span><br><span class="line">|   |   |   |   |   └── verify</span><br><span class="line">|   |   |   |   |   |   └── case01</span><br><span class="line">|   |   |   |   |   |   └── case02</span><br><span class="line">|   |   |   |   |   |   └── ......</span><br><span class="line">|   └── testng.xml</span><br><span class="line">|   └── pom.xml</span><br></pre></td></tr></table></figure>
+<h2 id="Directory-Structure"><a href="#Directory-Structure" class="headerlink" title="Directory Structure"></a>Directory Structure</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">├──JST-automation</span><br><span class="line">|   ├── src</span><br><span class="line">|   |   └── main</span><br><span class="line">|   |   |   └── java</span><br><span class="line">|   |   |   |   └── com</span><br><span class="line">|   |   |   |   |   └── action</span><br><span class="line">|   |   |   |   |   |   └── case01</span><br><span class="line">|   |   |   |   |   |   └── case02</span><br><span class="line">|   |   |   |   |   |   └── common</span><br><span class="line">|   |   |   |   |   |   └── .....</span><br><span class="line">|   |   |   |   |   └── config</span><br><span class="line">|   |   |   |   |   |   └── UserConfig</span><br><span class="line">|   |   |   |   |   |   └── DriverConfig</span><br><span class="line">|   |   |   |   |   |   └── UrlConfig</span><br><span class="line">|   |   |   |   |   |   └── ......</span><br><span class="line">|   |   |   |   |   └── page</span><br><span class="line">|   |   |   |   |   |   └── LoginPage</span><br><span class="line">|   |   |   |   |   |   └── HomePage</span><br><span class="line">|   |   |   |   |   |   └── ......</span><br><span class="line">|   |   |   |   |   └── verify</span><br><span class="line">|   |   |   |   |   |   └── case01</span><br><span class="line">|   |   |   |   |   |   └── case02</span><br><span class="line">|   |   |   |   |   |   └── ......</span><br><span class="line">|   └── testng.xml</span><br><span class="line">|   └── pom.xml</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li>action: all test function write in this folder</li>
@@ -131,7 +131,7 @@ ga('send', 'pageview');
 <li>testng.xml: test suit file, config all verify test case in this file</li>
 <li>pom.xml: configuration need package files</li>
 </ol>
-<h2 id="Download-Code"><a href="#Download-Code" class="headerlink" title="Download Code"></a>Download Code</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/shenxianpeng/JST-automation.git</span><br></pre></td></tr></table></figure>
+<h2 id="Download-Code"><a href="#Download-Code" class="headerlink" title="Download Code"></a>Download Code</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/shenxianpeng/JST-automation.git</span><br></pre></td></tr></table></figure>
 
 <p>Any suggestion and questions please feel free to create issue <a href="https://github.com/shenxianpeng/JST-automation/issues" target="_blank" rel="noopener">here</a></p>
 
@@ -148,7 +148,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/07/JST-automation/" data-id="cl05e80wr0018ucfo3znm67vj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/07/JST-automation/" data-id="cl089fu7h0018f8foadlr2xqf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2017/07/JST-automation/#disqus_thread" class="article-comment-link">Comments</a>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

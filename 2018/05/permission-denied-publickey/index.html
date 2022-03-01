@@ -6,12 +6,12 @@
   
   <title>Error: Permission denied (publickey) | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如果你想在一台电脑上配置 github 和 bitbucket，如何配置多个 SSH git key？输入以下命令生成 SSH Key，注意在生成过程中最好输入新的名字，比如 id_rsa_github 和 id_rsa_bitbucket 1ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;  然后将生成的 SSH key 文件内容复制到对应网址的个人">
+  <meta name="description" content="如果你想在一台电脑上配置 github 和 bitbucket，如何配置多个 SSH git key？输入以下命令生成 SSH Key，注意在生成过程中最好输入新的名字，比如 id_rsa_github 和 id_rsa_bitbucket ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;  然后将生成的 SSH key 文件内容复制到对应网址的个人用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Error: Permission denied (publickey)">
 <meta property="og:url" content="https://shenxianpeng.github.io/2018/05/permission-denied-publickey/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="如果你想在一台电脑上配置 github 和 bitbucket，如何配置多个 SSH git key？输入以下命令生成 SSH Key，注意在生成过程中最好输入新的名字，比如 id_rsa_github 和 id_rsa_bitbucket 1ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;  然后将生成的 SSH key 文件内容复制到对应网址的个人">
+<meta property="og:description" content="如果你想在一台电脑上配置 github 和 bitbucket，如何配置多个 SSH git key？输入以下命令生成 SSH Key，注意在生成过程中最好输入新的名字，比如 id_rsa_github 和 id_rsa_bitbucket ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;  然后将生成的 SSH key 文件内容复制到对应网址的个人用">
 <meta property="article:published_time" content="2018-05-06T08:15:18.000Z">
 <meta property="article:modified_time" content="2020-07-03T08:50:22.694Z">
 <meta property="article:author" content="shenxianpeng">
@@ -119,15 +119,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>如果你想在一台电脑上配置 github 和 bitbucket，如何配置多个 SSH git key？<br>输入以下命令生成 SSH Key，注意在生成过程中最好输入新的名字，比如 id_rsa_github 和 id_rsa_bitbucket</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@youremail.com"</span></span><br></pre></td></tr></table></figure>
 
 <p>然后将生成的 SSH key 文件内容复制到对应网址的个人用户设置中即可。但是明明按照官方教程做的但是在 git clone 的时候还是遇到以下问题：<br>Error: Permission denied (publickey)<br>困恼了几天的错误终于解决了。</p>
 <p><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="noopener">参看这个文档</a></p>
 <p>由于我用的是macOS Sierra 10.13.3，<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent" target="_blank" rel="noopener">文档这里</a>写着如果是macOS Sierra 10.12.2 及以后的版本需要在<br>~/.ssh 目录下创建一个 config 文件<br>congfig 文件的具体配置如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line"></span><br><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa_bitbucket</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line"></span><br><span class="line">Host *</span><br><span class="line"> AddKeysToAgent yes</span><br><span class="line"> UseKeychain yes</span><br><span class="line"> IdentityFile ~/.ssh/id_rsa_bitbucket</span><br></pre></td></tr></table></figure>
 
 <p>配置了这个文件之后，再次尝试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:shenxianpeng/blog.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:shenxianpeng/blog.git</span><br></pre></td></tr></table></figure>
 
 <p>可以 download 代码了，两个 SSH git 都好用了 : )</p>
 
@@ -144,7 +144,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/05/permission-denied-publickey/" data-id="cl05e80xy003ducfo6jzh6of6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/05/permission-denied-publickey/" data-id="cl089fu92003of8foa6g0hxph" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/05/permission-denied-publickey/#disqus_thread" class="article-comment-link">Comments</a>
@@ -206,7 +206,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

@@ -6,12 +6,12 @@
   
   <title>Jenkins Linux agent configuration | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Prepare Java runtimeCheck if had installed java1234$ java -versionopenjdk version &quot;1.8.0_65&quot;OpenJDK Runtime Environment (build 1.8.0_65-b17)OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)  if n">
+  <meta name="description" content="Prepare Java runtimeCheck if had installed java$ java -versionopenjdk version &quot;1.8.0_65&quot;OpenJDK Runtime Environment (build 1.8.0_65-b17)OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)  if not H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins Linux agent configuration">
 <meta property="og:url" content="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="Prepare Java runtimeCheck if had installed java1234$ java -versionopenjdk version &quot;1.8.0_65&quot;OpenJDK Runtime Environment (build 1.8.0_65-b17)OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)  if n">
+<meta property="og:description" content="Prepare Java runtimeCheck if had installed java$ java -versionopenjdk version &quot;1.8.0_65&quot;OpenJDK Runtime Environment (build 1.8.0_65-b17)OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)  if not H">
 <meta property="article:published_time" content="2019-05-12T11:49:20.000Z">
 <meta property="article:modified_time" content="2021-06-28T16:08:52.937Z">
 <meta property="article:author" content="shenxianpeng">
@@ -118,7 +118,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="Check-if-had-installed-java"><a href="#Check-if-had-installed-java" class="headerlink" title="Check if had installed java"></a>Check if had installed java</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">openjdk version <span class="string">"1.8.0_65"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_65-b17)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)</span><br></pre></td></tr></table></figure>
+        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="Check-if-had-installed-java"><a href="#Check-if-had-installed-java" class="headerlink" title="Check if had installed java"></a>Check if had installed java</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ java -version</span><br><span class="line">openjdk version <span class="string">"1.8.0_65"</span></span><br><span class="line">OpenJDK Runtime Environment (build 1.8.0_65-b17)</span><br><span class="line">OpenJDK 64-Bit Server VM (build 25.65-b01, mixed mode)</span><br></pre></td></tr></table></figure>
 
 <h4 id="if-not-Here-is-an-article-telling-you-how-to-install-it"><a href="#if-not-Here-is-an-article-telling-you-how-to-install-it" class="headerlink" title="if not Here is an article telling you how to install it"></a>if not Here is an <a href="https://www.javahelps.com/2015/03/install-oracle-jdk-in-ubuntu.html" target="_blank" rel="noopener">article</a> telling you how to install it</h4><h2 id="Create-Node"><a href="#Create-Node" class="headerlink" title="Create Node"></a>Create Node</h2><h3 id="1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine"><a href="#1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine" class="headerlink" title="1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine"></a>1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine</h3><h4 id="2-List-Linux-agent-settings"><a href="#2-List-Linux-agent-settings" class="headerlink" title="2. List Linux agent settings"></a>2. List Linux agent settings</h4><table>
 <thead>
@@ -204,7 +204,7 @@ ga('send', 'pageview');
 <td>Linux agent username &amp; password</td>
 </tr>
 </tbody></table>
-<h4 id="4-Save-then-Connect"><a href="#4-Save-then-Connect" class="headerlink" title="4. Save then Connect"></a>4. Save then Connect</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Remoting version: 3.29</span><br><span class="line">This is a Unix agent</span><br><span class="line">Evacuated stdout</span><br><span class="line">Agent successfully connected and online</span><br><span class="line">SSHLauncher&#123;host&#x3D;&#39;192.168.1.112&#39;, port&#x3D;22, credentialsId&#x3D;&#39;d1cbab74-823d-41aa-abb7-8584859503d0&#39;, jvmOptions&#x3D;&#39;&#39;, javaPath&#x3D;&#39;&#x2F;usr&#x2F;bin&#x2F;java&#39;,</span><br><span class="line">prefixStartSlaveCmd&#x3D;&#39;&#39;, suffixStartSlaveCmd&#x3D;&#39;&#39;, launchTimeoutSeconds&#x3D;210, maxNumRetries&#x3D;10, retryWaitTime&#x3D;15,</span><br><span class="line">sshHostKeyVerificationStrategy&#x3D;hudson.plugins.sshslaves.verifiers.ManuallyTrustedKeyVerificationStrategy, tcpNoDelay&#x3D;true, trackCredentials&#x3D;true&#125;</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] Opening SSH connection to 192.168.1.112:22.</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] SSH host key matches key seen previously for this host. Connection will be allowed.</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] Authentication successful.</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] The remote user&#39;s environment is:</span><br></pre></td></tr></table></figure>
+<h4 id="4-Save-then-Connect"><a href="#4-Save-then-Connect" class="headerlink" title="4. Save then Connect"></a>4. Save then Connect</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Remoting version: 3.29</span><br><span class="line">This is a Unix agent</span><br><span class="line">Evacuated stdout</span><br><span class="line">Agent successfully connected and online</span><br><span class="line">SSHLauncher&#123;host&#x3D;&#39;192.168.1.112&#39;, port&#x3D;22, credentialsId&#x3D;&#39;d1cbab74-823d-41aa-abb7-8584859503d0&#39;, jvmOptions&#x3D;&#39;&#39;, javaPath&#x3D;&#39;&#x2F;usr&#x2F;bin&#x2F;java&#39;,</span><br><span class="line">prefixStartSlaveCmd&#x3D;&#39;&#39;, suffixStartSlaveCmd&#x3D;&#39;&#39;, launchTimeoutSeconds&#x3D;210, maxNumRetries&#x3D;10, retryWaitTime&#x3D;15,</span><br><span class="line">sshHostKeyVerificationStrategy&#x3D;hudson.plugins.sshslaves.verifiers.ManuallyTrustedKeyVerificationStrategy, tcpNoDelay&#x3D;true, trackCredentials&#x3D;true&#125;</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] Opening SSH connection to 192.168.1.112:22.</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] SSH host key matches key seen previously for this host. Connection will be allowed.</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] Authentication successful.</span><br><span class="line">[05&#x2F;11&#x2F;19 01:33:37] [SSH] The remote user&#39;s environment is:</span><br></pre></td></tr></table></figure>
 
 <h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><table>
 <thead>
@@ -236,7 +236,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/" data-id="cl05e80z60083ucfo5frybqc1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/" data-id="cl089fu9f004of8foeqkidtdr" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/#disqus_thread" class="article-comment-link">Comments</a>
@@ -298,7 +298,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

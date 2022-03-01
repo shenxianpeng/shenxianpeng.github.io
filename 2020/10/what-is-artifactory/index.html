@@ -148,7 +148,7 @@ ga('send', 'pageview');
 <h4 id="例2：通过属性搜索"><a href="#例2：通过属性搜索" class="headerlink" title="例2：通过属性搜索"></a>例2：通过属性搜索</h4><p>比如要找属性 <code>release.status</code> 为 <code>released</code> 的所有构建那么就可以这样搜索。</p>
 <p><img src="/2020/10/what-is-artifactory/search-by-property.png" alt></p>
 <h4 id="例3：通过-checksum-搜索"><a href="#例3：通过-checksum-搜索" class="headerlink" title="例3：通过 checksum 搜索"></a>例3：通过 checksum 搜索</h4><p>如果只知道文件的 <code>checksum</code>，同样也可以进行搜索。例如通过 <code>sha1sum</code> 计算出文件的 <code>checksum</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sha1sum test.zip</span><br><span class="line">ad62c72fb097fc4aa7723e1fc72b08a6ebcacfd1 *test.zip</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sha1sum test.zip</span><br><span class="line">ad62c72fb097fc4aa7723e1fc72b08a6ebcacfd1 *test.zip</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2020/10/what-is-artifactory/search-by-checksum.png" alt></p>
 <h3 id="优势4：管理制品的生命周期"><a href="#优势4：管理制品的生命周期" class="headerlink" title="优势4：管理制品的生命周期"></a>优势4：管理制品的生命周期</h3><p>通过定义不同成熟度存储库，然后使用 Artifactory <code>Promote</code> 功能可以将制品移动到不同的成熟度存储库，以及通过元数据属性，更好的管理和维护制品的生命周期。</p>
@@ -225,14 +225,14 @@ ga('send', 'pageview');
 <p>为了更好的管理Artifactory目录和制品的生命周期，我建议<strong>规范分支命名</strong>和对不同阶段的制品<strong>添加属性</strong>。</p>
 <h4 id="1-规范分支命名有利于Artifactory的目录清晰"><a href="#1-规范分支命名有利于Artifactory的目录清晰" class="headerlink" title="1. 规范分支命名有利于Artifactory的目录清晰"></a>1. 规范分支命名有利于Artifactory的目录清晰</h4><p>例如，一个产品叫 ART，它的 Git 仓库也叫 ART，它下面有这样一个分支 <code>feature/ART-1234</code>。</p>
 <p>Jenkins Pipeline 里的环境变量设置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">environment &#123;</span><br><span class="line">  INT_REPO_PATH &#x3D; &quot;team1-generic-int-den&#x2F;ART&#x2F;$&#123;BRANCH_NAME&#125;&#x2F;$&#123;BUILD_NUMBER&#125;&#x2F;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">environment &#123;</span><br><span class="line">  INT_REPO_PATH &#x3D; &quot;team1-generic-int-den&#x2F;ART&#x2F;$&#123;BRANCH_NAME&#125;&#x2F;$&#123;BUILD_NUMBER&#125;&#x2F;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>我们来看看这个分支构建是如何流转的。</p>
 <p>这个分支通过 Jenkins 第1构建成功后，它首先会被 <code>team1-generic-int-den</code> 仓库下的 <code>ART/feature/ART-1234/1/</code> 的目录下面，如果进行第2次构建，并成功，那么它的制品目录会是：<br><code>team1-generic-int-den/ART/feature/ART-1234/2/</code> 以此类推。</p>
 <p>为了更好的管理仓库下面的目录，建议团队事先约定分支命名规范，这样同一种类型的分支的所有构建都会出现在一个目录下面。</p>
 <p>关于命名规范可参见这篇文章<a href="https://shenxianpeng.github.io/2020/09/commit-messages-specification/">程序员自我修养之Git提交信息和分支创建规范</a></p>
 <p>对于 Pull Request Build 如果也想放到 Artifactory 上面，建议像下面这样设置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">environment &#123;</span><br><span class="line">  PR_INT_REPO_PATH &#x3D; &quot;team1-generic-int-den&#x2F;ART&#x2F;PRs&#x2F;$&#123;BRANCH_NAME&#125;&#x2F;$&#123;BUILD_NUMBER&#125;&#x2F;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">environment &#123;</span><br><span class="line">  PR_INT_REPO_PATH &#x3D; &quot;team1-generic-int-den&#x2F;ART&#x2F;PRs&#x2F;$&#123;BRANCH_NAME&#125;&#x2F;$&#123;BUILD_NUMBER&#125;&#x2F;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这样所有的 Pull Request Build 构建成功后都会被放到 <code>PRs</code> 这个目录下，方便查找和管理。</p>
 <h4 id="2-不同阶段添加不同的属性"><a href="#2-不同阶段添加不同的属性" class="headerlink" title="2. 不同阶段添加不同的属性"></a>2. 不同阶段添加不同的属性</h4><p>如果以上的构建通过了一些质量关卡，比如通过了单元测试、自动化测试以及 SonaQube 的扫描等等，建议添加不同的属性，例如：</p>
@@ -261,7 +261,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="cl05e80z2007iucfo57fy8wg0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="cl089fubb00a5f8fo49lch19m" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/#disqus_thread" class="article-comment-link">Comments</a>
@@ -323,7 +323,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

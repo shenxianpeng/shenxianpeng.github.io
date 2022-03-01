@@ -128,12 +128,12 @@ ga('send', 'pageview');
 <a id="more"></a>
 
 <p>例如：通过 Shell 命令列出以 <code>fail-list-</code> 开头的文件，如果存在则通知用户，如果不存在则不通知用户。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -a fail-list-*</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -a fail-list-*</span><br></pre></td></tr></table></figure>
 
 <p>默认情况是执行如上命令导致了整个 Job 失败。</p>
 <p><img src="/2020/07/jenkins-tips-3/error.png" alt="失败 log"></p>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>经过一番调查，使用以下代码片段解决了如上问题。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">stage(<span class="string">"Send notification"</span>) &#123;</span><br><span class="line">  steps &#123;</span><br><span class="line">    script &#123;</span><br><span class="line">      def fileExist = sh script: <span class="string">"ls -a fail-list-* &gt; /dev/null 2&gt;&amp;1"</span>, returnStatus: <span class="keyword">true</span></span><br><span class="line">      <span class="keyword">if</span> ( fileExist == <span class="number">0</span> ) &#123;</span><br><span class="line">        <span class="comment">// send email to user</span></span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// if not found fail-list-* file, make build status success.</span></span><br><span class="line">        currentBuild.result = <span class="string">'SUCCESS'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">stage(<span class="string">"Send notification"</span>) &#123;</span><br><span class="line">  steps &#123;</span><br><span class="line">    script &#123;</span><br><span class="line">      def fileExist = sh script: <span class="string">"ls -a fail-list-* &gt; /dev/null 2&gt;&amp;1"</span>, returnStatus: <span class="keyword">true</span></span><br><span class="line">      <span class="keyword">if</span> ( fileExist == <span class="number">0</span> ) &#123;</span><br><span class="line">        <span class="comment">// send email to user</span></span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// if not found fail-list-* file, make build status success.</span></span><br><span class="line">        currentBuild.result = <span class="string">'SUCCESS'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>在执行 Shell 时，添加了 <code>returnStatus: true</code>。这是将状态码返回并保存起来，然后与 0 进行比较。</p>
 <p>如果不等于 0，如果不添加 <code>currentBuild.result = &#39;SUCCESS&#39;</code>，Jenkins 的整个 Job 还是会标记为失败状态。添加后，人为的忽略错误，将 Job 状态置为成功。</p>
@@ -151,7 +151,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="cl05e80yt006oucfo6683bm18" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="cl089fuaw008wf8fo02wr1svr" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/#disqus_thread" class="article-comment-link">Comments</a>
@@ -213,7 +213,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

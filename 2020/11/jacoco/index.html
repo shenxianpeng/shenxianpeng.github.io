@@ -17,8 +17,8 @@
 <meta property="article:modified_time" content="2021-11-22T15:30:52.702Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="DevOps">
-<meta property="article:tag" content="JaCoCo">
 <meta property="article:tag" content="Coverage">
+<meta property="article:tag" content="JaCoCo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2020/11/jacoco/implementation.png">
   
@@ -160,7 +160,7 @@ ga('send', 'pageview');
 <p>插装代码通常依赖于负责收集和存储执行数据的覆盖运行时。JaCoCo 只在生成的插装代码中使用 JRE 类型。</p>
 </blockquote>
 <p>在使用自己的类加载机制的框架中，使运行时库对所有插装类可用可能是一项痛苦或不可能完成的任务。自 Java 1.6 <code>java.lang.instrument.Instrumentation</code>。插装有一个扩展引导带加载器的API。因为我们的最低目标是 Java 1.5，所以 JaCoCo 只通过官方的 JRE API 类型来解耦插装类和覆盖运行时。插装的类通过 <code>Object.equals(Object)</code> 方法与运行时通信。插装类可以使用以下代码检索其探测数组实例。注意，只使用 JRE APIs:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Object access = ...                          <span class="comment">// Retrieve instance</span></span><br><span class="line"></span><br><span class="line">Object[] args = <span class="keyword">new</span> Object[<span class="number">3</span>];</span><br><span class="line">args[<span class="number">0</span>] = Long.valueOf(<span class="number">8060044182221863588</span>); <span class="comment">// class id</span></span><br><span class="line">args[<span class="number">1</span>] = <span class="string">"com/example/MyClass"</span>;             <span class="comment">// class name</span></span><br><span class="line">args[<span class="number">2</span>] = Integer.valueOf(<span class="number">24</span>);               <span class="comment">// probe count</span></span><br><span class="line"></span><br><span class="line">access.equals(args);</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span>[] probes = (<span class="keyword">boolean</span>[]) args[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object access = ...                          <span class="comment">// Retrieve instance</span></span><br><span class="line"></span><br><span class="line">Object[] args = <span class="keyword">new</span> Object[<span class="number">3</span>];</span><br><span class="line">args[<span class="number">0</span>] = Long.valueOf(<span class="number">8060044182221863588</span>); <span class="comment">// class id</span></span><br><span class="line">args[<span class="number">1</span>] = <span class="string">"com/example/MyClass"</span>;             <span class="comment">// class name</span></span><br><span class="line">args[<span class="number">2</span>] = Integer.valueOf(<span class="number">24</span>);               <span class="comment">// probe count</span></span><br><span class="line"></span><br><span class="line">access.equals(args);</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span>[] probes = (<span class="keyword">boolean</span>[]) args[<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
 
 <p>最棘手的部分发生在第 1 行，上面的代码片段中没有显示必须获得通过 equals() 方法提供对覆盖运行时访问的对象实例。到目前为止，已经实施和测试了不同的方法:</p>
 <ul>
@@ -200,7 +200,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="cl05e80yz0077ucfo1iwu3swt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="cl089fuba00a2f8fo1idmdzax" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jacoco/#disqus_thread" class="article-comment-link">Comments</a>
@@ -262,7 +262,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

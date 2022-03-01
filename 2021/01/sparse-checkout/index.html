@@ -121,12 +121,12 @@ ga('send', 'pageview');
         <p>This post just a note to myself and it works on my environment. it has not been widely tested.</p>
 <h2 id="Enable-git-sparse-checkout"><a href="#Enable-git-sparse-checkout" class="headerlink" title="Enable git sparse-checkout"></a>Enable git sparse-checkout</h2><p>Just in my case, I cloned a git repo exists problems on the Windows platform with some folder, in order to work on the Windows platform we get a work around solution as following:</p>
 <p>Case 1: when you not already cloned a repository</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir git-src</span><br><span class="line"><span class="built_in">cd</span> git-src</span><br><span class="line">git init</span><br><span class="line">git config core.sparseCheckout <span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/assets/"</span> &gt;&gt; .git/info/sparse-checkout</span><br><span class="line">git remote add origin git@github.com:shenxianpeng/shenxianpeng.git</span><br><span class="line">git fetch</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir git-src</span><br><span class="line"><span class="built_in">cd</span> git-src</span><br><span class="line">git init</span><br><span class="line">git config core.sparseCheckout <span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/assets/"</span> &gt;&gt; .git/info/sparse-checkout</span><br><span class="line">git remote add origin git@github.com:shenxianpeng/shenxianpeng.git</span><br><span class="line">git fetch</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
 
 <p>Case 2: when you already cloned a repository</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> git-src</span><br><span class="line">git config core.sparseCheckout <span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/assets/"</span> &gt;&gt; .git/info/sparse-checkout</span><br><span class="line">rm -rf &lt;other-file/folder-you-dont-need&gt;</span><br><span class="line">git checkout</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> git-src</span><br><span class="line">git config core.sparseCheckout <span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/assets/"</span> &gt;&gt; .git/info/sparse-checkout</span><br><span class="line">rm -rf &lt;other-file/folder-you-dont-need&gt;</span><br><span class="line">git checkout</span><br></pre></td></tr></table></figure>
 
-<h2 id="Disable-git-sparse-checkout"><a href="#Disable-git-sparse-checkout" class="headerlink" title="Disable git sparse-checkout"></a>Disable git sparse-checkout</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config core.sparseCheckout <span class="literal">false</span></span><br><span class="line">git <span class="built_in">read</span>-tree --empty</span><br><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
+<h2 id="Disable-git-sparse-checkout"><a href="#Disable-git-sparse-checkout" class="headerlink" title="Disable git sparse-checkout"></a>Disable git sparse-checkout</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config core.sparseCheckout <span class="literal">false</span></span><br><span class="line">git <span class="built_in">read</span>-tree --empty</span><br><span class="line">git reset --hard</span><br></pre></td></tr></table></figure>
 
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -141,7 +141,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/sparse-checkout/" data-id="cl05e811x00gyucfohmyv5tot" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/sparse-checkout/" data-id="cl089fubm00axf8foc5hue51k" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/sparse-checkout/#disqus_thread" class="article-comment-link">Comments</a>
@@ -203,7 +203,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>

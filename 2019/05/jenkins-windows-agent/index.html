@@ -6,12 +6,12 @@
   
   <title>Jenkins Windows agent configuration | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Prepare Java runtime1. Download Java2. Configure Java Windows path12JAVA_HOME&#x3D;C:\Program Files\Java\jdk1.8.0_201CLASSPATH&#x3D;.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib  Create Node1. Jenkins home page-&gt;Man">
+  <meta name="description" content="Prepare Java runtime1. Download Java2. Configure Java Windows pathJAVA_HOME&#x3D;C:\Program Files\Java\jdk1.8.0_201CLASSPATH&#x3D;.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib  Create Node1. Jenkins home page-&gt;Manag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins Windows agent configuration">
 <meta property="og:url" content="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="Prepare Java runtime1. Download Java2. Configure Java Windows path12JAVA_HOME&#x3D;C:\Program Files\Java\jdk1.8.0_201CLASSPATH&#x3D;.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib  Create Node1. Jenkins home page-&gt;Man">
+<meta property="og:description" content="Prepare Java runtime1. Download Java2. Configure Java Windows pathJAVA_HOME&#x3D;C:\Program Files\Java\jdk1.8.0_201CLASSPATH&#x3D;.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib  Create Node1. Jenkins home page-&gt;Manag">
 <meta property="article:published_time" content="2019-05-12T10:39:59.000Z">
 <meta property="article:modified_time" content="2021-11-22T15:04:55.343Z">
 <meta property="article:author" content="shenxianpeng">
@@ -118,7 +118,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="1-Download-Java"><a href="#1-Download-Java" class="headerlink" title="1. Download Java"></a>1. <a href="https://www.java.com/en/download/" target="_blank" rel="noopener">Download Java</a></h3><h4 id="2-Configure-Java-Windows-path"><a href="#2-Configure-Java-Windows-path" class="headerlink" title="2. Configure Java Windows path"></a>2. Configure Java Windows path</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=C:\Program Files\Java\jdk1.8.0_201</span><br><span class="line">CLASSPATH=.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</span><br></pre></td></tr></table></figure>
+        <h2 id="Prepare-Java-runtime"><a href="#Prepare-Java-runtime" class="headerlink" title="Prepare Java runtime"></a>Prepare Java runtime</h2><h3 id="1-Download-Java"><a href="#1-Download-Java" class="headerlink" title="1. Download Java"></a>1. <a href="https://www.java.com/en/download/" target="_blank" rel="noopener">Download Java</a></h3><h4 id="2-Configure-Java-Windows-path"><a href="#2-Configure-Java-Windows-path" class="headerlink" title="2. Configure Java Windows path"></a>2. Configure Java Windows path</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">JAVA_HOME=C:\Program Files\Java\jdk1.8.0_201</span><br><span class="line">CLASSPATH=.;%JAVA_HOME%\lib;%JAVA_HOME%\jre\lib</span><br></pre></td></tr></table></figure>
 
 <h2 id="Create-Node"><a href="#Create-Node" class="headerlink" title="Create Node"></a>Create Node</h2><h3 id="1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine"><a href="#1-Jenkins-home-page-gt-Manage-Node-gt-New-Node-such-as-window-build-machine" class="headerlink" title="1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine"></a>1. Jenkins home page-&gt;Manage Node-&gt;New Node, such as window-build-machine</h3><h4 id="2-List-windows-agent-settings"><a href="#2-List-windows-agent-settings" class="headerlink" title="2. List windows agent settings"></a>2. List windows agent settings</h4><table>
 <thead>
@@ -176,7 +176,7 @@ ga('send', 'pageview');
 <td>Keep this agent online as much as paossible</td>
 </tr>
 </tbody></table>
-<h4 id="3-Save-then-Connect"><a href="#3-Save-then-Connect" class="headerlink" title="3. Save then Connect"></a>3. Save then Connect</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[2019-05-11 01:32:50] [windows-slaves] Connecting to 192.168.1.111</span><br><span class="line">Checking <span class="keyword">if</span> Java exists</span><br><span class="line">java -version returned 1.8.0.</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying jenkins-slave.xml</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying slave.jar</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Starting the service</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Waiting <span class="keyword">for</span> the service to become ready</span><br><span class="line">[2019-05-11 01:32:55] [windows-slaves] Connecting to port 52,347</span><br><span class="line">&lt;===[JENKINS REMOTING CAPACITY]===&gt;Remoting version: 3.29</span><br><span class="line">This is a Windows agent</span><br><span class="line">Agent successfully connected and online</span><br></pre></td></tr></table></figure>
+<h4 id="3-Save-then-Connect"><a href="#3-Save-then-Connect" class="headerlink" title="3. Save then Connect"></a>3. Save then Connect</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[2019-05-11 01:32:50] [windows-slaves] Connecting to 192.168.1.111</span><br><span class="line">Checking <span class="keyword">if</span> Java exists</span><br><span class="line">java -version returned 1.8.0.</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying jenkins-slave.xml</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying slave.jar</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Starting the service</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Waiting <span class="keyword">for</span> the service to become ready</span><br><span class="line">[2019-05-11 01:32:55] [windows-slaves] Connecting to port 52,347</span><br><span class="line">&lt;===[JENKINS REMOTING CAPACITY]===&gt;Remoting version: 3.29</span><br><span class="line">This is a Windows agent</span><br><span class="line">Agent successfully connected and online</span><br></pre></td></tr></table></figure>
 
 <h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><table>
 <thead>
@@ -236,7 +236,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/" data-id="cl05e80z4007tucfoh5qr7bqg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/" data-id="cl089fu9d004if8fog1b7gud3" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/#disqus_thread" class="article-comment-link">Comments</a>
@@ -298,7 +298,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/02/devops-trends-2022/">DevOps 的问答和 2022 年最值得关注的趋势</a>
+            <a href="/2022/02/devops-trends-2022/">2022 年最值得关注的 DevOps 趋势和问答</a>
           </li>
         
           <li>
