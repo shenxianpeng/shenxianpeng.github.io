@@ -462,9 +462,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Gcov </tag>
             
@@ -518,9 +518,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> DevOps </tag>
             
         </tags>
       
@@ -1192,9 +1192,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> JaCoCo </tag>
             
@@ -1300,9 +1300,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Release </tag>
+            
+            <tag> Python </tag>
             
             <tag> PyPI </tag>
             
@@ -1780,9 +1780,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Bitbucket </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -1994,9 +1994,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> VirtualBox </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -2817,9 +2817,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> SquishCoco </tag>
             
@@ -2846,11 +2846,11 @@
       
         <tags>
             
-            <tag> DevOps </tag>
+            <tag> Coverage </tag>
             
             <tag> C </tag>
             
-            <tag> Coverage </tag>
+            <tag> DevOps </tag>
             
         </tags>
       
