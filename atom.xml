@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-03-01T15:02:47.133Z</updated>
+  <updated>2022-03-01T15:56:29.634Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/"/>
     <id>https://shenxianpeng.github.io/2022/02/devops-trends-2022/</id>
     <published>2022-02-24T03:27:18.000Z</published>
-    <updated>2022-03-01T15:02:47.133Z</updated>
+    <updated>2022-03-01T15:56:29.634Z</updated>
     
     <summary type="html">
     
@@ -40,9 +40,9 @@
 &lt;li&gt;出现问题微服务可以轻松控制问题，而不会中断整个应用程序&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;当然也必须认识到微服务的一个弊端，如果实施不佳可能导致严重问题，包括数据丢失、可靠性差和安全风险。&lt;/p&gt;
-&lt;h3 id=&quot;趋势三：Kubernetes-成为基础架构&quot;&gt;&lt;a href=&quot;#趋势三：Kubernetes-成为基础架构&quot; class=&quot;headerlink&quot; title=&quot;趋势三：Kubernetes 成为基础架构&quot;&gt;&lt;/a&gt;趋势三：Kubernetes 成为基础架构&lt;/h3&gt;&lt;p&gt;Kubernetes，也称 K8s，是容器编排开源平台，它与容器组交互，能够同时管理更多集群。除了容器管理，还提供安全、网络和存储服务，自我监控，节点和容器的健康状况检查。它可以处理从虚拟机集群管理到负载平衡等所有方方面面，提高生产力，简化 DevOps 开发、测试和部署流程。&lt;/p&gt;
+&lt;h3 id=&quot;趋势三：Kubernetes-成为基础架构&quot;&gt;&lt;a href=&quot;#趋势三：Kubernetes-成为基础架构&quot; class=&quot;headerlink&quot; title=&quot;趋势三：Kubernetes 成为基础架构&quot;&gt;&lt;/a&gt;趋势三：Kubernetes 成为基础架构&lt;/h3&gt;&lt;p&gt;Kubernetes，也称 K8s，是容器编排开源平台，它能够与容器组交互，同时管理更多集群。除了容器管理，还提供安全、网络和存储服务，自我监控，节点和容器的健康状况检查。它可以处理从虚拟机集群管理到负载平衡等所有方方面面，提高生产力，简化 DevOps 开发、测试和部署流程。&lt;/p&gt;
 &lt;p&gt;根据 Flexera 的 2021 年云计算状况报告，48% 的企业使用 Kubernetes，另有 25% 的企业计划使用它。另外 53% 的组织使用 Docker，21% 的组织计划使用。&lt;/p&gt;
-&lt;h3 id=&quot;趋势四：DevSecOps-兴起&quot;&gt;&lt;a href=&quot;#趋势四：DevSecOps-兴起&quot; class=&quot;headerlink&quot; title=&quot;趋势四：DevSecOps 兴起&quot;&gt;&lt;/a&gt;趋势四：DevSecOps 兴起&lt;/h3&gt;&lt;p&gt;安全性正在成为 DevOps 领域的另一个日益关注的问题。&lt;/p&gt;
+&lt;h3 id=&quot;趋势四：DevSecOps-成为重要组成部分&quot;&gt;&lt;a href=&quot;#趋势四：DevSecOps-成为重要组成部分&quot; class=&quot;headerlink&quot; title=&quot;趋势四：DevSecOps 成为重要组成部分&quot;&gt;&lt;/a&gt;趋势四：DevSecOps 成为重要组成部分&lt;/h3&gt;&lt;p&gt;安全性正在成为 DevOps 领域的另一个日益关注的问题。&lt;/p&gt;
 &lt;p&gt;为了避免网络攻击，许多大型企业正在将安全性集成到他们的 DevOps 流程中。从 DevOps 到 DevSecOps 的转变预计在 2022 会有更多公司在软件开发生命周期的早期加入安全控制。&lt;br&gt;这使 DevOps 团队能够在开发阶段持续监控和修复安全缺陷，从而提高交付速度和质量。DevSecOps 正在成为许多公司组织结构图的重要组成部分。&lt;/p&gt;
 &lt;h2 id=&quot;行业问答&quot;&gt;&lt;a href=&quot;#行业问答&quot; class=&quot;headerlink&quot; title=&quot;行业问答&quot;&gt;&lt;/a&gt;行业问答&lt;/h2&gt;
     
