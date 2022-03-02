@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-03-01T15:56:29.634Z</updated>
+  <updated>2022-03-02T14:40:02.766Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Resolved - The Pip Inspector tree parse failed to produce output</title>
+    <link href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/"/>
+    <id>https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/</id>
+    <published>2022-03-02T06:54:11.000Z</published>
+    <updated>2022-03-02T14:40:02.766Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+      <category term="BlackDuck" scheme="https://shenxianpeng.github.io/categories/blackduck/"/>
+    
+    
+      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
+    
+      <category term="BlackDuck" scheme="https://shenxianpeng.github.io/tags/blackduck/"/>
+    
+  </entry>
   
   <entry>
     <title>2022 年最值得关注的 DevOps 趋势和问答</title>
@@ -395,9 +423,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
       <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
@@ -608,7 +636,7 @@
     <link href="https://shenxianpeng.github.io/2021/08/gcov-example-cn/"/>
     <id>https://shenxianpeng.github.io/2021/08/gcov-example-cn/</id>
     <published>2021-08-16T16:10:21.000Z</published>
-    <updated>2021-12-22T12:44:47.797Z</updated>
+    <updated>2022-03-02T14:33:29.841Z</updated>
     
     <summary type="html">
     
@@ -719,9 +747,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
@@ -752,9 +780,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
   </entry>
   
@@ -781,31 +809,9 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
     
     
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
       <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
-  </entry>
-  
-  <entry>
-    <title>2021/07/gcov-example</title>
-    <link href="https://shenxianpeng.github.io/2021/07/gcov-example/"/>
-    <id>https://shenxianpeng.github.io/2021/07/gcov-example/</id>
-    <published>2021-07-11T16:10:21.218Z</published>
-    <updated>2022-01-25T07:12:35.296Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Code-coverage-testing-of-C-C-projects-using-Gcov-and-LCOV&quot;&gt;&lt;a href=&quot;#Code-coverage-testing-of-C-C-projects-using-Gcov-and-LCOV&quot;
-        
-      
-    
-    </summary>
-    
+      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
   </entry>
   

@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Resolved - The Pip Inspector tree parse failed to produce output</title>
+      <link href="/2022/03/blackduck-troubleshooting/"/>
+      <url>/2022/03/blackduck-troubleshooting/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Failure: PIP - Pip Inspector</span><br><span class="line">  The Pip Inspector tree parse failed to produce output.</span><br><span class="line"></span><br><span class="line">Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures <span class="keyword">while</span> extracting dependencies.</span><br></pre></td></tr></table></figure><p>For more output please click to expand.</p><details><summary>👉 Click to see more output 👈</summary><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[main] --- ======== Detect Issues ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- DETECTORS:</span><br><span class="line">[main] --- Detector Issue</span><br><span class="line">[main] --- /workdir/<span class="built_in">test</span></span><br><span class="line">[main] --- Failure: PIP - Pip Inspector</span><br><span class="line">[main] --- The Pip Inspector tree parse failed to produce output.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ======== Detect Result ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Black Duck Project BOM: https://org.blackducksoftware.com/api/projects/246c8952-7cb8-40e9-9987-35f7d4602ae1/versions/e1cb4204-42d0-4445-8675-978df62b150d/components</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ======== Detect Status ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- GIT: SUCCESS</span><br><span class="line">[main] --- PIP: FAILURE</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Signature scan / Snippet scan on /workdir/<span class="built_in">test</span>: SUCCESS</span><br><span class="line">[main] --- Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures <span class="keyword">while</span> extracting dependencies. Check that all projects build and your environment is configured correctly.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- If you need <span class="built_in">help</span> troubleshooting this problem, generate a diagnostic zip file by adding <span class="string">'-d'</span> to the <span class="built_in">command</span> line, and provide it to Synopsys Technical Support. See <span class="string">'Diagnostic Mode'</span> <span class="keyword">in</span> the Detect documentation <span class="keyword">for</span> more information.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ===============================</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Detect duration: 00h 00m 54s 951ms</span><br><span class="line">[main] --- Exiting with code 5 - FAILURE_DETECTOR</span><br></pre></td></tr></table></figure></details><p>ENVIRONMENT:</p><ul><li>Product: synopsys-detect-7.11.1.jar</li><li>Others: OpenJDK 11, Python 3.6 and Python 2.7.5</li></ul><h2 id="Root-cause"><a href="#Root-cause" class="headerlink" title="Root cause"></a>Root cause</h2><p>More output of this run, I see it used <code>python</code> (which is python2) not <code>python3</code>,<br>so run <a href="https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py" target="_blank" rel="noopener">pip-inspector.py</a> failed.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DEBUG [main-Executable_Stream_Thread] --- Python 2.7.5</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[main] --- Running executable &gt;/usr/bin/python /home/****/blackduck/runs/2022-03-01-07-45-05-986/shared/pip/pip-inspector.py --projectname=<span class="built_in">test</span></span><br></pre></td></tr></table></figure><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Link python to python3, for example</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># save python to other name</span></span><br><span class="line">sudo mv /usr/bin/python /usr/bin/python.old</span><br><span class="line"><span class="comment"># link python3 to python</span></span><br><span class="line">sudo ln -s /usr/bin/python3 /usr/bin/python</span><br></pre></td></tr></table></figure><p>Then try to run <code>bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh)</code> again, my test commands:</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/<span class="built_in">test</span> --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING</span><br></pre></td></tr></table></figure><p>It works in my case. hope this help.</p><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> BlackDuck </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Troubleshooting </tag>
+            
+            <tag> BlackDuck </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2022 年最值得关注的 DevOps 趋势和问答</title>
       <link href="/2022/02/devops-trends-2022/"/>
       <url>/2022/02/devops-trends-2022/</url>
@@ -238,9 +265,9 @@
       
         <tags>
             
-            <tag> GitHub </tag>
-            
             <tag> Actions </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -462,9 +489,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gcov </tag>
             
@@ -491,9 +518,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -518,9 +545,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -668,9 +695,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Troubleshooting </tag>
-            
             <tag> ESlint </tag>
+            
+            <tag> Troubleshooting </tag>
             
         </tags>
       
@@ -747,9 +774,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -799,11 +826,11 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1136,9 +1163,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -1192,11 +1219,11 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
             
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1246,9 +1273,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -1300,11 +1327,11 @@
       
         <tags>
             
-            <tag> Release </tag>
-            
             <tag> Python </tag>
             
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -1647,11 +1674,11 @@
       
         <tags>
             
-            <tag> Troubleshooting </tag>
+            <tag> JFrog </tag>
             
             <tag> Artifactory </tag>
             
-            <tag> JFrog </tag>
+            <tag> Troubleshooting </tag>
             
         </tags>
       
@@ -1780,9 +1807,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -1994,9 +2021,9 @@
       
         <tags>
             
-            <tag> VirtualBox </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> VirtualBox </tag>
             
         </tags>
       
@@ -2173,9 +2200,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -2212,15 +2239,15 @@
     
     <entry>
       <title>Black Duck 与 Jenkins 集成</title>
-      <link href="/2019/12/Blackduck-interation-into-Jenkins/"/>
-      <url>/2019/12/Blackduck-interation-into-Jenkins/</url>
+      <link href="/2019/12/blackduck-interate-with-jenkins/"/>
+      <url>/2019/12/blackduck-interate-with-jenkins/</url>
       
-        <content type="html"><![CDATA[<p>最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。</p><h2 id="为什么要做源码扫描"><a href="#为什么要做源码扫描" class="headerlink" title="为什么要做源码扫描"></a>为什么要做源码扫描</h2><a id="more"></a><p>在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。<br><img src="/2019/12/Blackduck-interation-into-Jenkins/open-source.png" alt="开源不等于安全"></p><p>Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog Xray）。能够搜索安全的开源代码，检测产品的开源代码使用情况，以检查外来代码的开源代码使用情况和风险情况。</p><p>如果不能及时的进行代码扫描，在产品发布快要发布才进行扫描，如果发现问题这时候再去解决就会变得非常被动，因此团队需要尽早发现并解决问题，将 CI 工具进行集成，进行每日、每周、每月扫描就变得十分重要。</p><h2 id="Black-Duck-手动执行一般步骤"><a href="#Black-Duck-手动执行一般步骤" class="headerlink" title="Black Duck 手动执行一般步骤"></a>Black Duck 手动执行一般步骤</h2><ol><li>手动下载指定 Git 仓库及分支代码</li><li>去掉不相关的代码（也可以通过 Black Duck 参数去指定要扫描的特定文件或文件夹）</li><li>手动执行 Black Duck 扫描命令​</li><li>扫描成功后，结果传到内部 Black Duck 网站供相关人员进行审查</li></ol><h2 id="Black-Duck-与-Jenkins-的集成目标"><a href="#Black-Duck-与-Jenkins-的集成目标" class="headerlink" title="Black Duck 与 Jenkins 的集成目标"></a>Black Duck 与 Jenkins 的集成目标</h2><ol><li>一个流水线支持定制化仓库的代码下载</li><li>给开发和测试提供简单的、可随时可以执行源码扫描的界面</li><li>支持定期自动扫描，以及与其他 Jenkins 任务联动执行​</li></ol><h2 id="Black-Duck-参数介绍"><a href="#Black-Duck-参数介绍" class="headerlink" title="Black Duck 参数介绍"></a>Black Duck 参数介绍</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--blackduck.url                                       <span class="comment"># 你的 Black Duck 网址</span></span><br><span class="line">--blackduck.username                                  <span class="comment"># 你的登录用户</span></span><br><span class="line">--blackduck.api.token                                 <span class="comment"># 你的登录用户 Token</span></span><br><span class="line">--detect.project.name                                 <span class="comment"># Black Duck 下面的项目</span></span><br><span class="line">--detect.project.version.name                         <span class="comment"># 项目版本号</span></span><br><span class="line">--detect.source.path                                  <span class="comment"># 要扫描的代码目录</span></span><br><span class="line">--logging.level.com.synopsys.integration              <span class="comment"># 扫描日志级别</span></span><br><span class="line">--blackduck.trust.cert=TRUE                           <span class="comment"># 是否信任 socket (SSL)</span></span><br><span class="line">--detect.blackduck.signature.scanner.snippet.matching <span class="comment"># 扫描片段模式</span></span><br></pre></td></tr></table></figure><p>更多其他参数可以参照官方的 CI 集成文档 <a href="https://synopsys.atlassian.net/wiki/spaces/INTDOCS/pages/71106939/Synopsys+Detect+for+Jenkins" target="_blank" rel="noopener">Synopsys Detect for Jenkins</a></p><h2 id="Black-Duck-配置"><a href="#Black-Duck-配置" class="headerlink" title="Black Duck 配置"></a>Black Duck 配置</h2><p>首先，安装 Black Duck 插件 <a href="https://wiki.jenkins.io/display/JENKINS/Synopsys+Detect+Plugin" target="_blank" rel="noopener">Synopsys Detect</a> 到 Jenkins</p><p>然后，配置 Synopsys Detect 插件</p><ul><li>Jenkins -&gt; Confiruration（系统配置）</li><li>Black Duck URL： 公司内部的 Black Duck 网址，例如 <a href="https://yourcompany.blackducksoftware.com" target="_blank" rel="noopener">https://yourcompany.blackducksoftware.com</a></li><li>Black Duck credentials： 注意要选择 credentials 类型为 Secret text, Secret 填写你用户的 Token<br><img src="/2019/12/Blackduck-interation-into-Jenkins/blackduck-credentials.png" alt="Secret text 配置"></li><li>配置完成后点击 Test connections to Black Duck，显示 Connection successful 表示配置成功。<br><img src="/2019/12/Blackduck-interation-into-Jenkins/blackduck-config.png" alt="Connection successful"></li></ul><h2 id="Black-Duck-流水线任务效果"><a href="#Black-Duck-流水线任务效果" class="headerlink" title="Black Duck 流水线任务效果"></a>Black Duck 流水线任务效果</h2><p><img src="/2019/12/Blackduck-interation-into-Jenkins/blackduck-Jenkins-job.png" alt="Build with Parameters"></p><h2 id="Black-Duck-流水线代码"><a href="#Black-Duck-流水线代码" class="headerlink" title="Black Duck 流水线代码"></a>Black Duck 流水线代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pipeline&#123;</span><br><span class="line">  agent &#123;</span><br><span class="line">    node &#123;</span><br><span class="line">      label <span class="string">'black-duck'</span></span><br><span class="line">      customWorkspace <span class="string">"/agent/workspace/blackduck"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  parameters &#123;</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'VERSION'</span>,</span><br><span class="line">      choices: [<span class="string">'MVSURE_v1.1'</span>, <span class="string">'MVSURE_v1.2'</span>, <span class="string">'MVSURE_v2.2'</span>],</span><br><span class="line">      description: <span class="string">'Which version do you want scan on black duck? MVSURE_v1.1, MVSURE_v1.2 or others?'</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'REPO'</span>,</span><br><span class="line">      choices: [<span class="string">'blog-server'</span>, <span class="string">'blog-client'</span>, <span class="string">'blog-docker'</span>],</span><br><span class="line">      description: <span class="string">'Which repository code does above VERSION belong to?'</span>)</span><br><span class="line">    string(</span><br><span class="line">      name: <span class="string">'BRANCH'</span>,</span><br><span class="line">      defaultValue: <span class="string">'develop'</span>,</span><br><span class="line">      description: <span class="string">'Which branch does above VERSION belong to?'</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'SNIPPET-MODES'</span>,</span><br><span class="line">      choices: [<span class="string">'SNIPPET_MATCHING'</span>, <span class="string">'SNIPPET_MATCHING_ONLY'</span>, <span class="string">'FULL_SNIPPET_MATCHING'</span>, <span class="string">'FULL_SNIPPET_MATCHING_ONLY'</span>, <span class="string">'NONE'</span>],</span><br><span class="line">      description: <span class="string">'What snippet scan mode do you want to choose?'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  environment &#123;</span><br><span class="line">    ROBOT                  = credentials(<span class="string">"d1cbab74-823d-41aa-abb7-858485121212"</span>)</span><br><span class="line">    hub_detect             = <span class="string">'https://blackducksoftware.github.io/hub-detect/hub-detect.sh'</span></span><br><span class="line">    blackduck_url          = <span class="string">'https://yourcompany.blackducksoftware.com'</span></span><br><span class="line">    blackduck_user         = <span class="string">'robot@yourcompany.com'</span></span><br><span class="line">    detect_project         = <span class="string">'GITHUB'</span></span><br><span class="line">    detect_project_version = <span class="string">'$&#123;VERSION&#125;'</span></span><br><span class="line">    detect_source_path     = <span class="string">'$&#123;WORKSPACE&#125;/$&#123;REPO&#125;/src'</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 只保留最近十次 Jenkins 执行结果</span></span><br><span class="line">  options &#123;buildDiscarder(logRotator(numToKeepStr:<span class="string">'10'</span>))&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 定时触发可以在这里添加</span></span><br><span class="line"></span><br><span class="line">  stages &#123;</span><br><span class="line">    stage(<span class="string">"git clone"</span>)&#123; <span class="comment"># 参数化 git clone 代码过程</span></span><br><span class="line">      steps&#123;</span><br><span class="line">        sh <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">        if [ -d $&#123;REPO&#125; ]; then</span></span><br><span class="line"><span class="string">            rm -rf $&#123;REPO&#125;</span></span><br><span class="line"><span class="string">        fi</span></span><br><span class="line"><span class="string">        git clone -b $&#123;BRANCH&#125; --depth 1 https://$ROBOT_USR:"$ROBOT_PSW"@git.yourcompany.com/scm/github/$&#123;REPO&#125;.git</span></span><br><span class="line"><span class="string">        '</span><span class="string">''</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">"black duck scan"</span>)&#123; <span class="comment"># 参数化 Black Duck 所用到的参数值</span></span><br><span class="line">      steps &#123;</span><br><span class="line">        withCredentials([string(credentialsId: <span class="string">'robot-black-duck-scan'</span>, variable: <span class="string">'TOKEN'</span>)]) &#123; <span class="comment"># 用 withCredentials 来获得 Token</span></span><br><span class="line">          synopsys_detect <span class="string">'bash &lt;(curl -s $&#123;hub_detect&#125;) --blackduck.url=$&#123;blackduck_url&#125; --blackduck.username=$&#123;blackduck_user&#125; --blackduck.api.token=$&#123;TOKEN&#125; --detect.project.name=$&#123;detect_project&#125; --detect.project.version.name=$&#123;detect_project_version&#125; --detect.source.path=$&#123;detect_source_path&#125; --logging.level.com.synopsys.integration=debug --blackduck.trust.cert=TRUE --detect.blackduck.signature.scanner.snippet.matching=$&#123;SNIPPET-MODES&#125;'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  post &#123;</span><br><span class="line">    <span class="comment"># 不论结果任何都给执行者发送邮件通知</span></span><br><span class="line">    always &#123;</span><br><span class="line">      script &#123;</span><br><span class="line">        def email = load <span class="string">"vars/email.groovy"</span></span><br><span class="line">        wrap([<span class="variable">$class</span>: <span class="string">'BuildUser'</span>]) &#123;</span><br><span class="line">            def user = env.BUILD_USER_ID</span><br><span class="line">            email.build(currentBuild.result, <span class="string">"<span class="variable">$&#123;user&#125;</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    success &#123;</span><br><span class="line">      <span class="built_in">echo</span> <span class="string">"success, cleanup blackduck workspace"</span></span><br><span class="line">      cleanWs()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>最近做了 Black Duck 与 Jenkins 的集成，目标是给测试和开发提供定制化、定时的对各个开发代码仓库的进行源码扫描。</p><h2 id="为什么要做源码扫描"><a href="#为什么要做源码扫描" class="headerlink" title="为什么要做源码扫描"></a>为什么要做源码扫描</h2><a id="more"></a><p>在产品开发中经常需要引入一些开源组件，但这些开源的代码会给产品风险。因此我们在发布自己产品的时候需要对这些开源组件的漏洞和许可信息进行评估。<br><img src="/2019/12/blackduck-interate-with-jenkins/open-source.png" alt="开源不等于安全"></p><p>Black Duck（黑鸭）是一款对源代码进行扫描、审计和代码管理的软件工具（同类型的工具还有 JFrog Xray）。能够搜索安全的开源代码，检测产品的开源代码使用情况，以检查外来代码的开源代码使用情况和风险情况。</p><p>如果不能及时的进行代码扫描，在产品发布快要发布才进行扫描，如果发现问题这时候再去解决就会变得非常被动，因此团队需要尽早发现并解决问题，将 CI 工具进行集成，进行每日、每周、每月扫描就变得十分重要。</p><h2 id="Black-Duck-手动执行一般步骤"><a href="#Black-Duck-手动执行一般步骤" class="headerlink" title="Black Duck 手动执行一般步骤"></a>Black Duck 手动执行一般步骤</h2><ol><li>手动下载指定 Git 仓库及分支代码</li><li>去掉不相关的代码（也可以通过 Black Duck 参数去指定要扫描的特定文件或文件夹）</li><li>手动执行 Black Duck 扫描命令​</li><li>扫描成功后，结果传到内部 Black Duck 网站供相关人员进行审查</li></ol><h2 id="Black-Duck-与-Jenkins-的集成目标"><a href="#Black-Duck-与-Jenkins-的集成目标" class="headerlink" title="Black Duck 与 Jenkins 的集成目标"></a>Black Duck 与 Jenkins 的集成目标</h2><ol><li>一个流水线支持定制化仓库的代码下载</li><li>给开发和测试提供简单的、可随时可以执行源码扫描的界面</li><li>支持定期自动扫描，以及与其他 Jenkins 任务联动执行​</li></ol><h2 id="Black-Duck-参数介绍"><a href="#Black-Duck-参数介绍" class="headerlink" title="Black Duck 参数介绍"></a>Black Duck 参数介绍</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">--blackduck.url                                       <span class="comment"># 你的 Black Duck 网址</span></span><br><span class="line">--blackduck.username                                  <span class="comment"># 你的登录用户</span></span><br><span class="line">--blackduck.api.token                                 <span class="comment"># 你的登录用户 Token</span></span><br><span class="line">--detect.project.name                                 <span class="comment"># Black Duck 下面的项目</span></span><br><span class="line">--detect.project.version.name                         <span class="comment"># 项目版本号</span></span><br><span class="line">--detect.source.path                                  <span class="comment"># 要扫描的代码目录</span></span><br><span class="line">--logging.level.com.synopsys.integration              <span class="comment"># 扫描日志级别</span></span><br><span class="line">--blackduck.trust.cert=TRUE                           <span class="comment"># 是否信任 socket (SSL)</span></span><br><span class="line">--detect.blackduck.signature.scanner.snippet.matching <span class="comment"># 扫描片段模式</span></span><br></pre></td></tr></table></figure><p>更多其他参数可以参照官方的 CI 集成文档 <a href="https://synopsys.atlassian.net/wiki/spaces/INTDOCS/pages/71106939/Synopsys+Detect+for+Jenkins" target="_blank" rel="noopener">Synopsys Detect for Jenkins</a></p><h2 id="Black-Duck-配置"><a href="#Black-Duck-配置" class="headerlink" title="Black Duck 配置"></a>Black Duck 配置</h2><p>首先，安装 Black Duck 插件 <a href="https://wiki.jenkins.io/display/JENKINS/Synopsys+Detect+Plugin" target="_blank" rel="noopener">Synopsys Detect</a> 到 Jenkins</p><p>然后，配置 Synopsys Detect 插件</p><ul><li>Jenkins -&gt; Confiruration（系统配置）</li><li>Black Duck URL： 公司内部的 Black Duck 网址，例如 <a href="https://yourcompany.blackducksoftware.com" target="_blank" rel="noopener">https://yourcompany.blackducksoftware.com</a></li><li>Black Duck credentials： 注意要选择 credentials 类型为 Secret text, Secret 填写你用户的 Token<br><img src="/2019/12/blackduck-interate-with-jenkins/blackduck-credentials.png" alt="Secret text 配置"></li><li>配置完成后点击 Test connections to Black Duck，显示 Connection successful 表示配置成功。<br><img src="/2019/12/blackduck-interate-with-jenkins/blackduck-config.png" alt="Connection successful"></li></ul><h2 id="Black-Duck-流水线任务效果"><a href="#Black-Duck-流水线任务效果" class="headerlink" title="Black Duck 流水线任务效果"></a>Black Duck 流水线任务效果</h2><p><img src="/2019/12/blackduck-interate-with-jenkins/blackduck-Jenkins-job.png" alt="Build with Parameters"></p><h2 id="Black-Duck-流水线代码"><a href="#Black-Duck-流水线代码" class="headerlink" title="Black Duck 流水线代码"></a>Black Duck 流水线代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pipeline&#123;</span><br><span class="line">  agent &#123;</span><br><span class="line">    node &#123;</span><br><span class="line">      label <span class="string">'black-duck'</span></span><br><span class="line">      customWorkspace <span class="string">"/agent/workspace/blackduck"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  parameters &#123;</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'VERSION'</span>,</span><br><span class="line">      choices: [<span class="string">'MVSURE_v1.1'</span>, <span class="string">'MVSURE_v1.2'</span>, <span class="string">'MVSURE_v2.2'</span>],</span><br><span class="line">      description: <span class="string">'Which version do you want scan on black duck? MVSURE_v1.1, MVSURE_v1.2 or others?'</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'REPO'</span>,</span><br><span class="line">      choices: [<span class="string">'blog-server'</span>, <span class="string">'blog-client'</span>, <span class="string">'blog-docker'</span>],</span><br><span class="line">      description: <span class="string">'Which repository code does above VERSION belong to?'</span>)</span><br><span class="line">    string(</span><br><span class="line">      name: <span class="string">'BRANCH'</span>,</span><br><span class="line">      defaultValue: <span class="string">'develop'</span>,</span><br><span class="line">      description: <span class="string">'Which branch does above VERSION belong to?'</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">'SNIPPET-MODES'</span>,</span><br><span class="line">      choices: [<span class="string">'SNIPPET_MATCHING'</span>, <span class="string">'SNIPPET_MATCHING_ONLY'</span>, <span class="string">'FULL_SNIPPET_MATCHING'</span>, <span class="string">'FULL_SNIPPET_MATCHING_ONLY'</span>, <span class="string">'NONE'</span>],</span><br><span class="line">      description: <span class="string">'What snippet scan mode do you want to choose?'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  environment &#123;</span><br><span class="line">    ROBOT                  = credentials(<span class="string">"d1cbab74-823d-41aa-abb7-858485121212"</span>)</span><br><span class="line">    hub_detect             = <span class="string">'https://blackducksoftware.github.io/hub-detect/hub-detect.sh'</span></span><br><span class="line">    blackduck_url          = <span class="string">'https://yourcompany.blackducksoftware.com'</span></span><br><span class="line">    blackduck_user         = <span class="string">'robot@yourcompany.com'</span></span><br><span class="line">    detect_project         = <span class="string">'GITHUB'</span></span><br><span class="line">    detect_project_version = <span class="string">'$&#123;VERSION&#125;'</span></span><br><span class="line">    detect_source_path     = <span class="string">'$&#123;WORKSPACE&#125;/$&#123;REPO&#125;/src'</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 只保留最近十次 Jenkins 执行结果</span></span><br><span class="line">  options &#123;buildDiscarder(logRotator(numToKeepStr:<span class="string">'10'</span>))&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 定时触发可以在这里添加</span></span><br><span class="line"></span><br><span class="line">  stages &#123;</span><br><span class="line">    stage(<span class="string">"git clone"</span>)&#123; <span class="comment"># 参数化 git clone 代码过程</span></span><br><span class="line">      steps&#123;</span><br><span class="line">        sh <span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">        if [ -d $&#123;REPO&#125; ]; then</span></span><br><span class="line"><span class="string">            rm -rf $&#123;REPO&#125;</span></span><br><span class="line"><span class="string">        fi</span></span><br><span class="line"><span class="string">        git clone -b $&#123;BRANCH&#125; --depth 1 https://$ROBOT_USR:"$ROBOT_PSW"@git.yourcompany.com/scm/github/$&#123;REPO&#125;.git</span></span><br><span class="line"><span class="string">        '</span><span class="string">''</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">"black duck scan"</span>)&#123; <span class="comment"># 参数化 Black Duck 所用到的参数值</span></span><br><span class="line">      steps &#123;</span><br><span class="line">        withCredentials([string(credentialsId: <span class="string">'robot-black-duck-scan'</span>, variable: <span class="string">'TOKEN'</span>)]) &#123; <span class="comment"># 用 withCredentials 来获得 Token</span></span><br><span class="line">          synopsys_detect <span class="string">'bash &lt;(curl -s $&#123;hub_detect&#125;) --blackduck.url=$&#123;blackduck_url&#125; --blackduck.username=$&#123;blackduck_user&#125; --blackduck.api.token=$&#123;TOKEN&#125; --detect.project.name=$&#123;detect_project&#125; --detect.project.version.name=$&#123;detect_project_version&#125; --detect.source.path=$&#123;detect_source_path&#125; --logging.level.com.synopsys.integration=debug --blackduck.trust.cert=TRUE --detect.blackduck.signature.scanner.snippet.matching=$&#123;SNIPPET-MODES&#125;'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  post &#123;</span><br><span class="line">    <span class="comment"># 不论结果任何都给执行者发送邮件通知</span></span><br><span class="line">    always &#123;</span><br><span class="line">      script &#123;</span><br><span class="line">        def email = load <span class="string">"vars/email.groovy"</span></span><br><span class="line">        wrap([<span class="variable">$class</span>: <span class="string">'BuildUser'</span>]) &#123;</span><br><span class="line">            def user = env.BUILD_USER_ID</span><br><span class="line">            email.build(currentBuild.result, <span class="string">"<span class="variable">$&#123;user&#125;</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    success &#123;</span><br><span class="line">      <span class="built_in">echo</span> <span class="string">"success, cleanup blackduck workspace"</span></span><br><span class="line">      cleanWs()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
-          <category> Jenkins </category>
+          <category> BlackDuck </category>
           
       </categories>
       
@@ -2387,9 +2414,9 @@
       
         <tags>
             
-            <tag> Artifactory </tag>
-            
             <tag> JFrog </tag>
+            
+            <tag> Artifactory </tag>
             
         </tags>
       
@@ -2817,9 +2844,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> SquishCoco </tag>
             
@@ -2846,11 +2873,11 @@
       
         <tags>
             
-            <tag> Coverage </tag>
+            <tag> DevOps </tag>
             
             <tag> C </tag>
             
-            <tag> DevOps </tag>
+            <tag> Coverage </tag>
             
         </tags>
       
