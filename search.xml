@@ -8,7 +8,7 @@
       <link href="/2022/03/blackduck-troubleshooting/"/>
       <url>/2022/03/blackduck-troubleshooting/</url>
       
-        <content type="html"><![CDATA[<h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Failure: PIP - Pip Inspector</span><br><span class="line">  The Pip Inspector tree parse failed to produce output.</span><br><span class="line"></span><br><span class="line">Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures <span class="keyword">while</span> extracting dependencies.</span><br></pre></td></tr></table></figure><p>For more output please click to expand.</p><details><summary>👉 Click to see more output 👈</summary><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[main] --- ======== Detect Issues ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- DETECTORS:</span><br><span class="line">[main] --- Detector Issue</span><br><span class="line">[main] --- /workdir/<span class="built_in">test</span></span><br><span class="line">[main] --- Failure: PIP - Pip Inspector</span><br><span class="line">[main] --- The Pip Inspector tree parse failed to produce output.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ======== Detect Result ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Black Duck Project BOM: https://org.blackducksoftware.com/api/projects/246c8952-7cb8-40e9-9987-35f7d4602ae1/versions/e1cb4204-42d0-4445-8675-978df62b150d/components</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ======== Detect Status ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- GIT: SUCCESS</span><br><span class="line">[main] --- PIP: FAILURE</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Signature scan / Snippet scan on /workdir/<span class="built_in">test</span>: SUCCESS</span><br><span class="line">[main] --- Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures <span class="keyword">while</span> extracting dependencies. Check that all projects build and your environment is configured correctly.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- If you need <span class="built_in">help</span> troubleshooting this problem, generate a diagnostic zip file by adding <span class="string">'-d'</span> to the <span class="built_in">command</span> line, and provide it to Synopsys Technical Support. See <span class="string">'Diagnostic Mode'</span> <span class="keyword">in</span> the Detect documentation <span class="keyword">for</span> more information.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ===============================</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Detect duration: 00h 00m 54s 951ms</span><br><span class="line">[main] --- Exiting with code 5 - FAILURE_DETECTOR</span><br></pre></td></tr></table></figure></details><p>ENVIRONMENT:</p><ul><li>Product: synopsys-detect-7.11.1.jar</li><li>Others: OpenJDK 11, Python 3.6 and Python 2.7.5</li></ul><h2 id="Root-cause"><a href="#Root-cause" class="headerlink" title="Root cause"></a>Root cause</h2><p>More output of this run, I see it used <code>python</code> (which is python2) not <code>python3</code>,<br>so run <a href="https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py" target="_blank" rel="noopener">pip-inspector.py</a> failed.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DEBUG [main-Executable_Stream_Thread] --- Python 2.7.5</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[main] --- Running executable &gt;/usr/bin/python /home/****/blackduck/runs/2022-03-01-07-45-05-986/shared/pip/pip-inspector.py --projectname=<span class="built_in">test</span></span><br></pre></td></tr></table></figure><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Link python to python3, for example</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># save python to other name</span></span><br><span class="line">sudo mv /usr/bin/python /usr/bin/python.old</span><br><span class="line"><span class="comment"># link python3 to python</span></span><br><span class="line">sudo ln -s /usr/bin/python3 /usr/bin/python</span><br></pre></td></tr></table></figure><p>Then try to run <code>bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh)</code> again, my test commands:</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/<span class="built_in">test</span> --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING</span><br></pre></td></tr></table></figure><p>It works in my case. hope this help.</p><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Failure: PIP - Pip Inspector</span><br><span class="line">  The Pip Inspector tree parse failed to produce output.</span><br><span class="line"></span><br><span class="line">Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures <span class="keyword">while</span> extracting dependencies.</span><br></pre></td></tr></table></figure><p>For more output please click to expand.</p><details><summary>👉 Click to see more output 👈</summary><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[main] --- ======== Detect Issues ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- DETECTORS:</span><br><span class="line">[main] --- Detector Issue</span><br><span class="line">[main] --- /workdir/<span class="built_in">test</span></span><br><span class="line">[main] --- Failure: PIP - Pip Inspector</span><br><span class="line">[main] --- The Pip Inspector tree parse failed to produce output.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ======== Detect Result ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Black Duck Project BOM: https://org.blackducksoftware.com/api/projects/246c8952-7cb8-40e9-9987-35f7d4602ae1/versions/e1cb4204-42d0-4445-8675-978df62b150d/components</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ======== Detect Status ========</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- GIT: SUCCESS</span><br><span class="line">[main] --- PIP: FAILURE</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Signature scan / Snippet scan on /workdir/<span class="built_in">test</span>: SUCCESS</span><br><span class="line">[main] --- Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures <span class="keyword">while</span> extracting dependencies. Check that all projects build and your environment is configured correctly.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- If you need <span class="built_in">help</span> troubleshooting this problem, generate a diagnostic zip file by adding <span class="string">'-d'</span> to the <span class="built_in">command</span> line, and provide it to Synopsys Technical Support. See <span class="string">'Diagnostic Mode'</span> <span class="keyword">in</span> the Detect documentation <span class="keyword">for</span> more information.</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- ===============================</span><br><span class="line">[main] ---</span><br><span class="line">[main] --- Detect duration: 00h 00m 54s 951ms</span><br><span class="line">[main] --- Exiting with code 5 - FAILURE_DETECTOR</span><br></pre></td></tr></table></figure></details><p>ENVIRONMENT:</p><ul><li>Product: synopsys-detect-7.11.1.jar</li><li>Others: OpenJDK 11, Python 3.6 and Python 2.7.5</li></ul><h2 id="Root-cause"><a href="#Root-cause" class="headerlink" title="Root cause"></a>Root cause</h2><p>More output of this run, I see it used <code>python</code> (which is python2) not <code>python3</code>,<br>so run <a href="https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py" target="_blank" rel="noopener">pip-inspector.py</a> failed.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DEBUG [main-Executable_Stream_Thread] --- Python 2.7.5</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[main] --- Running executable &gt;/usr/bin/python /home/****/blackduck/runs/2022-03-01-07-45-05-986/shared/pip/pip-inspector.py --projectname=<span class="built_in">test</span></span><br></pre></td></tr></table></figure><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Link python to python3, it works in my case.</p><p>For example</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># save python to other name</span></span><br><span class="line">sudo mv /usr/bin/python /usr/bin/python.old</span><br><span class="line"><span class="comment"># link python3 to python</span></span><br><span class="line">sudo ln -s /usr/bin/python3 /usr/bin/python</span><br></pre></td></tr></table></figure><p>Then try to run <code>bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh)</code> again, my test commands:</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/<span class="built_in">test</span> --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING</span><br></pre></td></tr></table></figure><p>If you want to use Docker to do Blackduck scan, you can create a Docker image. like this</p><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> openjdk:<span class="number">11</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set DETECT version you need, if it's empty download the latest version.</span></span><br><span class="line"><span class="comment"># https://sig-repo.synopsys.com/artifactory/bds-integrations-release/com/synopsys/integration/synopsys-detect</span></span><br><span class="line"><span class="keyword">ENV</span> DETECT_LATEST_RELEASE_VERSION=<span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get upgrade -y \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get install -y \</span></span><br><span class="line"><span class="bash">        git \</span></span><br><span class="line"><span class="bash">        python \</span></span><br><span class="line"><span class="bash">        pip \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get autoremove \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get clean</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> curl -sSOL https://detect.synopsys.com/detect7.sh &amp;&amp; bash detect7.sh --<span class="built_in">help</span> \</span></span><br><span class="line"><span class="bash">    &amp;&amp; rm -rf /usr/bin/python \</span></span><br><span class="line"><span class="bash">    &amp;&amp; ln -s /usr/bin/python3 /usr/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /src</span></span><br></pre></td></tr></table></figure><p>Hope this help.</p><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
       
       
       <categories>
@@ -265,9 +265,9 @@
       
         <tags>
             
-            <tag> Actions </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Actions </tag>
             
         </tags>
       
@@ -518,9 +518,9 @@
       
         <tags>
             
-            <tag> Bitbucket </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -695,9 +695,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> ESlint </tag>
-            
             <tag> Troubleshooting </tag>
+            
+            <tag> ESlint </tag>
             
         </tags>
       
@@ -774,9 +774,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -826,11 +826,11 @@
       
         <tags>
             
+            <tag> Coverage </tag>
+            
             <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
-            
-            <tag> Coverage </tag>
             
         </tags>
       
@@ -1163,9 +1163,9 @@
       
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
       
@@ -1190,9 +1190,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -1221,9 +1221,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
         </tags>
       
@@ -1273,9 +1273,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1329,9 +1329,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -1543,9 +1543,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1570,9 +1570,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1674,11 +1674,11 @@
       
         <tags>
             
-            <tag> JFrog </tag>
+            <tag> Troubleshooting </tag>
             
             <tag> Artifactory </tag>
             
-            <tag> Troubleshooting </tag>
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -2200,9 +2200,9 @@
       
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
       
@@ -2308,9 +2308,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2414,9 +2414,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       

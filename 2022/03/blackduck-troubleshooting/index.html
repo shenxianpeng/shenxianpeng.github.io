@@ -14,7 +14,7 @@
 <meta property="og:description" content="DetailsFailure: PIP - Pip Inspector  The Pip Inspector tree parse failed to produce output.Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures while extracting dependencies.  F">
 <meta property="og:image" content="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true">
 <meta property="article:published_time" content="2022-03-02T06:54:11.000Z">
-<meta property="article:modified_time" content="2022-03-02T14:40:02.766Z">
+<meta property="article:modified_time" content="2022-03-03T02:37:14.739Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Troubleshooting">
 <meta property="article:tag" content="BlackDuck">
@@ -139,13 +139,17 @@ ga('send', 'pageview');
 <h2 id="Root-cause"><a href="#Root-cause" class="headerlink" title="Root cause"></a>Root cause</h2><p>More output of this run, I see it used <code>python</code> (which is python2) not <code>python3</code>,<br>so run <a href="https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py" target="_blank" rel="noopener">pip-inspector.py</a> failed.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DEBUG [main-Executable_Stream_Thread] --- Python 2.7.5</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[main] --- Running executable &gt;/usr/bin/python /home/****/blackduck/runs/2022-03-01-07-45-05-986/shared/pip/pip-inspector.py --projectname=<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Link python to python3, for example</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Link python to python3, it works in my case.</p>
+<p>For example</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># save python to other name</span></span><br><span class="line">sudo mv /usr/bin/python /usr/bin/python.old</span><br><span class="line"><span class="comment"># link python3 to python</span></span><br><span class="line">sudo ln -s /usr/bin/python3 /usr/bin/python</span><br></pre></td></tr></table></figure>
 
 <p>Then try to run <code>bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh)</code> again, my test commands:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/<span class="built_in">test</span> --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING</span><br></pre></td></tr></table></figure>
 
-<p>It works in my case. hope this help.</p>
+<p>If you want to use Docker to do Blackduck scan, you can create a Docker image. like this</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> openjdk:<span class="number">11</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set DETECT version you need, if it's empty download the latest version.</span></span><br><span class="line"><span class="comment"># https://sig-repo.synopsys.com/artifactory/bds-integrations-release/com/synopsys/integration/synopsys-detect</span></span><br><span class="line"><span class="keyword">ENV</span> DETECT_LATEST_RELEASE_VERSION=<span class="string">""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get update \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get upgrade -y \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get install -y \</span></span><br><span class="line"><span class="bash">        git \</span></span><br><span class="line"><span class="bash">        python \</span></span><br><span class="line"><span class="bash">        pip \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get autoremove \</span></span><br><span class="line"><span class="bash">    &amp;&amp; apt-get clean</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> curl -sSOL https://detect.synopsys.com/detect7.sh &amp;&amp; bash detect7.sh --<span class="built_in">help</span> \</span></span><br><span class="line"><span class="bash">    &amp;&amp; rm -rf /usr/bin/python \</span></span><br><span class="line"><span class="bash">    &amp;&amp; ln -s /usr/bin/python3 /usr/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /src</span></span><br></pre></td></tr></table></figure>
+
+<p>Hope this help.</p>
 <hr>
 <p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p>
 <p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>
@@ -163,7 +167,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="cl09o2xdx00ednwfoenvxfne6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="cl0adoq6c00ejosfo3lxm3pnx" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
