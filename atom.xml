@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-03-03T02:37:14.739Z</updated>
+  <updated>2022-03-06T14:17:06.734Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,21 +17,92 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>用了这么久的 Jenkins 和 Groovy，是时候认识一下 Groovy 了</title>
+    <link href="https://shenxianpeng.github.io/2022/03/groovy/"/>
+    <id>https://shenxianpeng.github.io/2022/03/groovy/</id>
+    <published>2022-03-06T14:19:31.000Z</published>
+    <updated>2022-03-06T14:17:06.734Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用 Jenkins 和 Groovy 越久，我就这样的疑问：&lt;/p&gt;
+&lt;p&gt;Groovy 到底是什么语言？&lt;br&gt;Groovy 有哪些特性？&lt;br&gt;Groovy 和 Java 有什么区别？&lt;br&gt;Groovy 和 Java 如何选择？&lt;br&gt;Groovy 在整个开发语言中占什么位置？要不要学？&lt;/p&gt;
+&lt;p&gt;本篇我的学习结果的分享，希望也能帮助你解答以上的这些问题。&lt;/p&gt;
+&lt;h2 id=&quot;什么是-Groovy&quot;&gt;&lt;a href=&quot;#什么是-Groovy&quot; class=&quot;headerlink&quot; title=&quot;什么是 Groovy&quot;&gt;&lt;/a&gt;什么是 Groovy&lt;/h2&gt;&lt;p&gt;Apache Groovy 是一种强大的、可选类型的动态语言，具有静态类型和静态编译功能，适用于 Java 平台，旨在通过简洁、熟悉且易于学习的语法提高开发人员的工作效率。&lt;br&gt;它与任何 Java 程序顺利集成，并立即为你的应用程序提供强大的功能，包括脚本功能、特定领域语言创作、运行时和编译时元编程和函数式编程。&lt;/p&gt;
+&lt;h2 id=&quot;Groovy-的特性&quot;&gt;&lt;a href=&quot;#Groovy-的特性&quot; class=&quot;headerlink&quot; title=&quot;Groovy 的特性&quot;&gt;&lt;/a&gt;Groovy 的特性&lt;/h2&gt;&lt;p&gt;翻译官方的说法，Groovy 有以下六大特性。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;平坦的学习曲线 - 简洁、易读且富有表现力的语法，Java 开发人员易于学习&lt;/li&gt;
+&lt;li&gt;强大的功能 - 闭包、构建器、运行时和编译时元编程、函数式编程、类型推断和静态编译&lt;/li&gt;
+&lt;li&gt;流畅的 Java 集成 - 与 Java 和任何第三方库无缝、透明地集成和互操作&lt;/li&gt;
+&lt;li&gt;领域特定语言 - 灵活可延展的语法，先进的集成和定制机制，在你的应用程序中集成可读的业务规则&lt;/li&gt;
+&lt;li&gt;充满活力和丰富的生态系统 - Web 开发、响应式应用程序、并发/异步/并行库、测试框架、构建工具、代码分析、GUI 构建&lt;/li&gt;
+&lt;li&gt;脚本和测试胶水 - 非常适合编写简洁和可维护的测试，以及所有构建和自动化任务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Groovy-和-Java-的区别&quot;&gt;&lt;a href=&quot;#Groovy-和-Java-的区别&quot; class=&quot;headerlink&quot; title=&quot;Groovy 和 Java 的区别&quot;&gt;&lt;/a&gt;Groovy 和 Java 的区别&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2022/03/groovy/groovy-vs-java.png&quot; alt=&quot; Groovy vs Java&quot;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Groovy 是一种编程语言，也支持脚本语言；Java 是一种面向对象的编程语言。&lt;/li&gt;
+&lt;li&gt;Groovy 支持多方法，运行方法的选择将在运行时选择；Java 提供多方法的声明，在编译时而不是运行时选择。&lt;/li&gt;
+&lt;li&gt;Groovy 中，自动资源管理机制是不存在的，静态的、匿名的内部类；Java 从 Java7 版本开始就提供了自动资源管理，在内部静态类或匿名类方面占上风。&lt;/li&gt;
+&lt;li&gt;Groovy 中，有一些函数式编程特性，如 Lambda 函数，函数式接口；而 Java 从 JDK 8 版本开始就有 Lambda 函数、函数式接口和许多其他的流和并行操作功能。&lt;/li&gt;
+&lt;li&gt;Groovy 可以用单引号或双引号格式定义和声明字符串和字符字面；Java 只有双引号格式来声明和定义字符串字面或字符字面。&lt;/li&gt;
+&lt;li&gt;Groovy 中所有东西都是一个对象，并且只使用对象。因此，不存在自动装箱或拆箱的概念，也不存在基元的转换；相反，Java 有基元数据类型和 Wrapper 类，可以显式或隐式地进行自动装箱和自动拆箱。&lt;/li&gt;
+&lt;li&gt;Groovy 中，数据类型的自动拓宽和缩小有很多宽广的范围，有很多转换；而Java在数据类型的缩小或拓宽方面有限制。&lt;/li&gt;
+&lt;li&gt;Groovy 对其所有类型的类成员或数据都有一个默认的访问修饰符；而Java的默认访问级别是包级，取决于类成员的类型。&lt;/li&gt;
+&lt;li&gt;Groovy 在其类中自动生成 getters 和 setter 来访问和修改类的成员；而在 Java 中，它们必须在类中明确提到访问修饰符。&lt;/li&gt;
+&lt;li&gt;Groovy 有 Groovy beans；而Java有Java beans。&lt;/li&gt;
+&lt;li&gt;Groovy 也被称为 Java 的超集，因为 Java 程序可以在 Groovy 环境中运行。反过来并不一定。&lt;/li&gt;
+&lt;li&gt;Groovy 在定义类型时有更简单的语法，只需使用 def 来声明一个变量；Java有不同类型的类型名称来声明变量或类的任何方法或成员。&lt;/li&gt;
+&lt;li&gt;Groovy 不要求任何主方法或方法的入口点来运行类或任何程序；而 Java 则要求类中的 main 方法来运行程序。&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Groovy" scheme="https://shenxianpeng.github.io/categories/groovy/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="Java" scheme="https://shenxianpeng.github.io/tags/java/"/>
+    
+      <category term="Groovy" scheme="https://shenxianpeng.github.io/tags/groovy/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Resolved - The Pip Inspector tree parse failed to produce output</title>
     <link href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/</id>
     <published>2022-03-02T06:54:11.000Z</published>
-    <updated>2022-03-03T02:37:14.739Z</updated>
+    <updated>2022-03-06T14:15:23.538Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
-        
-      
+      &lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;For more output please click to expand.&lt;/p&gt;
+&lt;details&gt;
+&lt;summary&gt;👉 Click to see more output 👈&lt;/summary&gt;
+
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Issues ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- DETECTORS:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 	Detector Issue&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 		/workdir/&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 		Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 			The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Result ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Black Duck Project BOM: https://org.blackducksoftware.com/api/projects/246c8952-7cb8-40e9-9987-35f7d4602ae1/versions/e1cb4204-42d0-4445-8675-978df62b150d/components&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Status ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- GIT: SUCCESS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- PIP: FAILURE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Signature scan / Snippet scan on /workdir/&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;: SUCCESS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies. Check that all projects build and your environment is configured correctly.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- If you need &lt;span class=&quot;built_in&quot;&gt;help&lt;/span&gt; troubleshooting this problem, generate a diagnostic zip file by adding &lt;span class=&quot;string&quot;&gt;&#39;-d&#39;&lt;/span&gt; to the &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt; line, and provide it to Synopsys Technical Support. See &lt;span class=&quot;string&quot;&gt;&#39;Diagnostic Mode&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the Detect documentation &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; more information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ===============================&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Detect duration: 00h 00m 54s 951ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Exiting with code 5 - FAILURE_DETECTOR&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/details&gt;
+
+&lt;p&gt;ENVIRONMENT:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Product: synopsys-detect-7.11.1.jar&lt;/li&gt;
+&lt;li&gt;Others: OpenJDK 11, Python 3.6 and Python 2.7.5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Root-cause&quot;&gt;&lt;a href=&quot;#Root-cause&quot; class=&quot;headerlink&quot; title=&quot;Root cause&quot;&gt;&lt;/a&gt;Root cause&lt;/h2&gt;&lt;p&gt;More output of this run, I see it used &lt;code&gt;python&lt;/code&gt; (which is python2) not &lt;code&gt;python3&lt;/code&gt;,&lt;br&gt;so run &lt;a href=&quot;https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pip-inspector.py&lt;/a&gt; failed.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;DEBUG [main-Executable_Stream_Thread] --- Python 2.7.5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Running executable &amp;gt;/usr/bin/python /home/****/blackduck/runs/2022-03-01-07-45-05-986/shared/pip/pip-inspector.py --projectname=&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;Link python to python3, it works in my case.&lt;/p&gt;
+&lt;p&gt;For example&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# save python to other name&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo mv /usr/bin/python /usr/bin/python.old&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# link python3 to python&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo ln -s /usr/bin/python3 /usr/bin/python&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then try to run &lt;code&gt;bash &amp;lt;(curl -s -L https://detect.synopsys.com/detect7.sh)&lt;/code&gt; again, my test commands:&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bash &amp;lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt; --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you want to use Docker to do Blackduck scan, you can create a Docker image. like this&lt;/p&gt;
     
     </summary>
     
@@ -783,35 +854,6 @@
       <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
     
       <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于代码覆盖率 (About Code Coverage)</title>
-    <link href="https://shenxianpeng.github.io/2021/07/code-coverage/"/>
-    <id>https://shenxianpeng.github.io/2021/07/code-coverage/</id>
-    <published>2021-07-14T14:49:39.000Z</published>
-    <updated>2021-11-22T13:44:40.350Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本篇简要介绍：什么是代码覆盖率？为什么要做代码覆盖率？代码覆盖率的指标、工作原理，主流的代码覆盖率工具以及不要高估代码覆盖率指标。&lt;/p&gt;
-&lt;h2 id=&quot;什么是代码覆盖率？&quot;&gt;&lt;a href=&quot;#什么是代码覆盖率？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
-    
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
   </entry>
   
