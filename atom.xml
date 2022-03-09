@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-03-06T14:17:06.734Z</updated>
+  <updated>2022-03-09T16:20:16.186Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>用了这么久的 Jenkins 和 Groovy，是时候认识一下 Groovy 了</title>
+    <title>在不删除和重建 GitHub 仓库的情况下如何跟 Fork 的父仓库分离</title>
+    <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
+    <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
+    <published>2022-03-09T03:16:05.000Z</published>
+    <updated>2022-03-09T16:20:16.186Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;有开发者可能会遇到过以下四个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;最开始 Fork
+        
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Fork" scheme="https://shenxianpeng.github.io/tags/fork/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Jenkins 上用了这么久的 Groovy，是时候认识一下它了</title>
     <link href="https://shenxianpeng.github.io/2022/03/groovy/"/>
     <id>https://shenxianpeng.github.io/2022/03/groovy/</id>
     <published>2022-03-06T14:19:31.000Z</published>
-    <updated>2022-03-06T14:17:06.734Z</updated>
+    <updated>2022-03-07T01:48:26.309Z</updated>
     
     <summary type="html">
     
@@ -823,37 +855,6 @@
       <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
     
       <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Add or update Bitbucket build status with REST API</title>
-    <link href="https://shenxianpeng.github.io/2021/07/update-bitbucket-build-status/"/>
-    <id>https://shenxianpeng.github.io/2021/07/update-bitbucket-build-status/</id>
-    <published>2021-07-25T12:26:02.000Z</published>
-    <updated>2021-07-27T15:24:29.412Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Backgorud&quot;&gt;&lt;a href=&quot;#Backgorud&quot; class=&quot;headerlink&quot; title=&quot;Backgorud&quot;&gt;&lt;/a&gt;Backgorud&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;When you want to &lt;strong&gt;add&lt;/strong&gt; build status to your Bitbucket the specific commit of a branch when you start a build from the branch&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;When the build status is wrong, you want to &lt;strong&gt;update&lt;/strong&gt; it manually. for example, update build status from FAILED to SUCCESSFUL&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You can call Bitbucket REST API to do these.&lt;/p&gt;
-&lt;h2 id=&quot;Code-snippet&quot;&gt;&lt;a href=&quot;#Code-snippet&quot; class=&quot;headerlink&quot; title=&quot;Code snippet&quot;&gt;&lt;/a&gt;Code snippet&lt;/h2&gt;&lt;p&gt;Below is the code snippet to update Bitbucket build status with REST API in the shell script.&lt;/p&gt;
-&lt;p&gt;The code on GitHub Gist: &lt;a href=&quot;https://gist.github.com/shenxianpeng/bd5eddc5fb39e54110afb8e2e7a6c4fb&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://gist.github.com/shenxianpeng/bd5eddc5fb39e54110afb8e2e7a6c4fb&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Click &lt;strong&gt;Read More&lt;/strong&gt; to view the code here.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-      <category term="Shell" scheme="https://shenxianpeng.github.io/tags/shell/"/>
-    
-      <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
     
   </entry>
   
