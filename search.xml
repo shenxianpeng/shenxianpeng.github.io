@@ -8,7 +8,7 @@
       <link href="/2022/03/unfork-github-repo/"/>
       <url>/2022/03/unfork-github-repo/</url>
       
-        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>有开发者可能会遇到过以下四个问题：</p><ol><li>最开始 Fork 了一个仓库，之后做了大量的修改，从功能到开发语言，已经与父仓库分道扬镳了</li><li>由于是 Fork 的仓库，在每次提 Pull Request 的默认目标分支是父仓库，经常会一不注意就会提 PR 到父仓库里去了</li><li>Fork 的仓库中不能显示贡献者以及数量，还有该项目被哪些其他的项目所使用</li></ol><p>因此开发者会考虑与父仓库进行分离，但目前 GitHub 没有直接提供 Unfork/Detach 的功能。</p><p>如果直接删除项目并重建可以达到分离的目的，但这样会丢失一些重要的信息，比如项目中的 Issues，Wikis 以及 Pull Requests 等。</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在经过一番调查和测试，目前最可行的办法就是通过 GitHub Support 来处理。具体操作如下：</p><ol><li>打开这个连接：<a href="https://support.github.com/contact?tags=rr-forks" target="_blank" rel="noopener">https://support.github.com/contact?tags=rr-forks</a></li><li>选择账户或是组织，然后在 Subject 中输入 “unfork”，会自动弹出虚拟助手，点击按钮<br> <img src="/2022/03/unfork-github-repo/type-unfork.png" alt></li><li>然后根据虚拟助手的问题进行答案的选择（如下是部分截图）<br>  <img src="/2022/03/unfork-github-repo/virtual-assistant-1.png" alt></li><li>最后这些对话会自动转换成文字脚本，然后 Send request，之后就等着 Support 处理就可以了。<br> <img src="/2022/03/unfork-github-repo/virtual-assistant-2.png" alt></li></ol><p>注意：如果你的仓库被其他人 Fork 了，你想跟父仓库分离之后继续保留你的子仓库记录，你应该选择 “Bring the child forks with the repository”。</p><p>另外，通过其他方式，比如命令 <code>git clone --bare</code> 和 <code>git push --mirror</code>，这可以保留完成的 Git 历史，但不能保留 Issues，Wikis 以及 Pull Requests 等信息。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://stackoverflow.com/questions/16052477/delete-fork-dependency-of-a-github-repository" target="_blank" rel="noopener">Delete fork dependency of a GitHub repository</a></li><li><a href="https://stackoverflow.com/questions/29326767/unfork-a-github-fork-without-deleting/41486339#41486339" target="_blank" rel="noopener">Unfork a Github fork without deleting</a></li></ul><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>有开发者可能会遇到过以下几个问题：</p><ol><li>最开始 Fork 了一个仓库，之后做了大量的修改，从功能到开发语言，已经与父仓库分道扬镳了</li><li>由于是 Fork 的仓库，在每次提 Pull Request 的默认目标分支是父仓库，经常会一不注意就会提 PR 到父仓库里去了</li><li>Fork 的仓库中不能显示贡献者以及数量，还有该项目被哪些其他的项目所使用</li></ol><p>因此开发者会考虑与父仓库进行分离，但目前 GitHub 没有直接提供 Unfork/Detach 的功能。</p><p>如果直接删除项目并重建可以达到分离的目的，但这样会丢失一些重要的信息，比如项目中的 Issues，Wikis 以及 Pull Requests 等。</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在经过一番调查和测试，目前最可行的办法就是通过 GitHub Support 来处理。具体操作如下：</p><ol><li>打开这个连接：<a href="https://support.github.com/contact?tags=rr-forks" target="_blank" rel="noopener">https://support.github.com/contact?tags=rr-forks</a></li><li>选择账户或是组织，然后在 Subject 中输入 “unfork”，会自动弹出虚拟助手，点击按钮<br> <img src="/2022/03/unfork-github-repo/type-unfork.png" alt></li><li>然后根据虚拟助手的问题进行答案的选择（如下是部分截图）<br>  <img src="/2022/03/unfork-github-repo/virtual-assistant-1.png" alt></li><li>最后这些对话会自动转换成文字脚本，然后 Send request，之后就等着 Support 处理就可以了。<br> <img src="/2022/03/unfork-github-repo/virtual-assistant-2.png" alt></li></ol><p>注意：如果你的仓库被其他人 Fork 了，你想跟父仓库分离之后继续保留你的子仓库记录，你应该选择 “Bring the child forks with the repository”。</p><p>另外，通过其他方式，比如命令 <code>git clone --bare</code> 和 <code>git push --mirror</code>，这可以保留完成的 Git 历史，但不能保留 Issues，Wikis 以及 Pull Requests 等信息。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://stackoverflow.com/questions/16052477/delete-fork-dependency-of-a-github-repository" target="_blank" rel="noopener">Delete fork dependency of a GitHub repository</a></li><li><a href="https://stackoverflow.com/questions/29326767/unfork-a-github-fork-without-deleting/41486339#41486339" target="_blank" rel="noopener">Unfork a Github fork without deleting</a></li></ul><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
       
       
       <categories>
@@ -49,9 +49,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Groovy </tag>
             
@@ -1248,9 +1248,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Backup </tag>
             
@@ -1601,9 +1601,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -1628,9 +1628,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2366,9 +2366,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> Jenkins </tag>
             
         </tags>
       
@@ -2931,9 +2931,9 @@
       
         <tags>
             
-            <tag> C </tag>
-            
             <tag> DevOps </tag>
+            
+            <tag> C </tag>
             
             <tag> Coverage </tag>
             
