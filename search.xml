@@ -4,11 +4,38 @@
   
     
     <entry>
-      <title>最靠谱的办法：在不删除和重建 GitHub 仓库的情况下与父(Fork)仓库分离</title>
+      <title>How to enable, setup and disable Jenkins LDAP</title>
+      <link href="/2022/03/jenkins-ldap-configuration/"/>
+      <url>/2022/03/jenkins-ldap-configuration/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In organizations, using LDAP login very common way for users to log in with their credentials.</p><h2 id="How-to-configure-LDAP"><a href="#How-to-configure-LDAP" class="headerlink" title="How to configure LDAP"></a>How to configure LDAP</h2><p>Preparation: Installed LDAP Jenkins plugin</p><p><img src="/2022/03/jenkins-ldap-configuration/ldap-plugin.png" alt></p><p>About how to configure it, you can refer to Jenkins LDAP Plugin documentation <a href="https://plugins.jenkins.io/ldap/" target="_blank" rel="noopener">https://plugins.jenkins.io/ldap/</a></p><p>This is my LDAP configuration just for testing.</p><p><img src="/2022/03/jenkins-ldap-configuration/ldap-configure1.png" alt></p><p><img src="/2022/03/jenkins-ldap-configuration/ldap-configure2.png" alt></p><h2 id="Can-not-login-with-LDAP"><a href="#Can-not-login-with-LDAP" class="headerlink" title="Can not login with LDAP?"></a>Can not login with LDAP?</h2><p>Sometimes, for some reason, there is a problem with your organization’s LDAP server and you can’t log in to Jenkins using LDAP, but you need to use Jenkins now.</p><p>You can disable LDAP authentication by changing <code>config.xml</code>.</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Login, cd to jenkins server folder</span></span><br><span class="line">$ <span class="built_in">cd</span> /var/lib/jenkins/</span><br><span class="line"></span><br><span class="line"><span class="comment"># Highly rememend you to backup config.xml before making any change !!!</span></span><br><span class="line"><span class="comment"># If you don't backup config.xml, you'll lost your LDAP configration after reboot service.</span></span><br><span class="line">$ cp config.xml config.xml.bak</span><br><span class="line"></span><br><span class="line"><span class="comment"># Modify config.xml from</span></span><br><span class="line">&lt;useSecurity&gt;<span class="literal">true</span>&lt;/useSecurity&gt;</span><br><span class="line"><span class="comment"># To</span></span><br><span class="line">&lt;useSecurity&gt;<span class="literal">false</span>&lt;/useSecurity&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Restart Jenkins server</span></span><br><span class="line">sudo service jenkins restart</span><br></pre></td></tr></table></figure><p>Then you can log into the Jenkins server again.</p><p>Once your organization’s LDAP works again, you can replace <code>config.xml</code> with your backup config.xml file. Then your users can continue to log in via LDAP.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Jenkins </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Jenkins </tag>
+            
+            <tag> LDAP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>靠谱：在不删除和重建 GitHub 仓库的情况下与父(Fork)仓库分离(Unfork)</title>
       <link href="/2022/03/unfork-github-repo/"/>
       <url>/2022/03/unfork-github-repo/</url>
       
-        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>有开发者、甚至公司可能会遇到过以下几个问题：</p><ol><li>最开始 Fork 了一个仓库，之后做了大量的修改，从功能到开发语言，已经与父仓库各自发展了</li><li>由于是 Fork 的仓库，在每次提 Pull Request 的默认目标分支是父仓库，一不注意就会提 PR 到父仓库里去了</li><li>Fork 的仓库有人贡献并使用了，但不能显示贡献者，以及该项目被哪些其他的项目所使用，这不利于项目的发展</li></ol><p>基于这些问题，开发者会考虑与父仓库进行分离，但目前 GitHub 没有提供 Unfork/Detach 的功能。</p><p>如果直接删除项目并重建可以达到分离的目的，但这样会丢失一些重要的信息，比如项目中的 Issues，Wikis 以及 Pull Requests 等。</p><blockquote><p>Unfork 跟字节旗下火山引擎白嫖 Apache SkyWalking 有本质区别，更像是 Hudson 和 Jenkins 的分道扬镳。</p></blockquote><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在经过一番调查和测试，目前最可行的办法就是通过 GitHub Support 来处理，具体操作如下：</p><ol><li>打开这个连接：<a href="https://support.github.com/contact?tags=rr-forks" target="_blank" rel="noopener">https://support.github.com/contact?tags=rr-forks</a></li><li>选择你的账户或是组织，然后在 Subject 中输入 “unfork” 会自动弹出虚拟助手，选择虚拟机助手<br> <img src="/2022/03/unfork-github-repo/type-unfork.png" alt></li><li>然后根据虚拟助手的问题然后选择答案（如下是部分截图）<br>  <img src="/2022/03/unfork-github-repo/virtual-assistant-1.png" alt></li><li>最后这些对话会自动转换成文字脚本，然后 Send request，等着 Support 处理就可以了（不会太久）<br> <img src="/2022/03/unfork-github-repo/virtual-assistant-2.png" alt></li></ol><p>这里要注意一下，如果你的仓库被其他人 Fork 了，你想跟父仓库分离之后继续保留你的子仓库的 Fork 记录，你应该选择 “Bring the child forks with the repository”。</p><p>另外，通过其他方式，比如命令 <code>git clone --bare</code> 和 <code>git push --mirror</code>，可以保留完成的 Git 历史，但不能保留 Issues，Wikis 以及 Pull Requests 等信息。</p><p>希望对你有所帮助。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://stackoverflow.com/questions/16052477/delete-fork-dependency-of-a-github-repository" target="_blank" rel="noopener">Delete fork dependency of a GitHub repository</a></li><li><a href="https://stackoverflow.com/questions/29326767/unfork-a-github-fork-without-deleting/41486339#41486339" target="_blank" rel="noopener">Unfork a Github fork without deleting</a></li></ul><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>有开发者、甚至公司可能会遇到过以下几个问题：</p><ol><li>最开始 Fork 了一个仓库，之后做了大量的修改，从功能到开发语言，已经与父仓库各自发展了</li><li>由于是 Fork 的仓库，在每次提 Pull Request 的默认目标分支是父仓库，一不注意就会提 PR 到父仓库里去了</li><li>Fork 的仓库有人贡献并使用了，但不能显示贡献者，以及该项目被哪些其他的项目所使用，这不利于项目的发展</li></ol><p>基于这些问题，开发者会考虑与父仓库进行分离，但目前 GitHub 没有提供 Unfork/Detach 的功能。</p><p>如果直接删除项目并重建可以达到分离的目的，但这样会丢失一些重要的信息，比如项目中的 Issues，Wikis 以及 Pull Requests 等。</p><blockquote><p>Unfork 跟某节旗下某引擎白嫖 Apache SkyWalking 有本质区别，它更像是 Hudson 和 Jenkins 的分道扬镳。</p></blockquote><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>在经过一番调查和测试，目前最可行的办法就是通过 GitHub Support 来处理，具体操作如下：</p><ol><li>打开这个链接：<a href="https://support.github.com/contact?tags=rr-forks" target="_blank" rel="noopener">https://support.github.com/contact?tags=rr-forks</a></li><li>选择你的账户或是组织，然后在 Subject 中输入 “unfork” 会自动弹出虚拟助手，选择虚拟机助手<br> <img src="/2022/03/unfork-github-repo/type-unfork.png" alt></li><li>然后根据虚拟助手的问题然后选择答案（如下是部分截图）<br>  <img src="/2022/03/unfork-github-repo/virtual-assistant-1.png" alt></li><li>最后这些对话会自动转换成文字脚本，然后 Send request，等着 Support 处理就可以了（不会太久）<br> <img src="/2022/03/unfork-github-repo/virtual-assistant-2.png" alt></li></ol><p>这里要注意一下，如果你的仓库被其他人 Fork 了，你想跟父仓库分离之后继续保留你的子仓库的 Fork 记录，你应该选择 “Bring the child forks with the repository”。</p><p>另外，通过其他方式，比如命令 <code>git clone --bare</code> 和 <code>git push --mirror</code>，可以保留完成的 Git 历史，但不能保留 Issues，Wikis 以及 Pull Requests 等信息。</p><p>希望对有需要的你有所帮助。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://stackoverflow.com/questions/16052477/delete-fork-dependency-of-a-github-repository" target="_blank" rel="noopener">Delete fork dependency of a GitHub repository</a></li><li><a href="https://stackoverflow.com/questions/29326767/unfork-a-github-fork-without-deleting/41486339#41486339" target="_blank" rel="noopener">Unfork a Github fork without deleting</a></li></ul><hr><p><img src="https://github.com/shenxianpeng/shenxianpeng.github.io/blob/master/about/index/qrcode.jpg?raw=true" alt=" "></p><p>关注公众号「DevOps攻城狮」（转载本站文章请注明作者和出处，请勿用于任何商业用途）</p>]]></content>
       
       
       <categories>
@@ -2931,9 +2958,9 @@
       
         <tags>
             
-            <tag> DevOps </tag>
-            
             <tag> C </tag>
+            
+            <tag> DevOps </tag>
             
             <tag> Coverage </tag>
             
@@ -3282,8 +3309,8 @@
     
     <entry>
       <title>我眼中的高级测试工程师</title>
-      <link href="/2018/05/senior-test-engineer-in-my-eyes/"/>
-      <url>/2018/05/senior-test-engineer-in-my-eyes/</url>
+      <link href="/2018/05/senior-test-engineer/"/>
+      <url>/2018/05/senior-test-engineer/</url>
       
         <content type="html"><![CDATA[<p>满足什么样的技术和经验才算高级工程师呢？说说我心中的高级工程师。</p><h3 id="具有丰富的行业测试经验"><a href="#具有丰富的行业测试经验" class="headerlink" title="具有丰富的行业测试经验"></a>具有丰富的行业测试经验</h3><p>最好有传统和互联网大公司工作经验，没有的话至少与这些公司的高级测试工程师有交流，了解他们是如何开展测试的，有助提高自己的眼界。</p><h3 id="有良好的测试基础"><a href="#有良好的测试基础" class="headerlink" title="有良好的测试基础"></a>有良好的测试基础</h3><p>掌握必要的测试理论，熟悉测试流程，需求分析，测试用例设计方法，根据项目实际需要制定测试方案。</p><h3 id="有丰富的业务能力"><a href="#有丰富的业务能力" class="headerlink" title="有丰富的业务能力"></a>有丰富的业务能力</h3><p>做好功能测试的前提是熟悉业务，能更好的站在产品的角度去设计测试用例，才能发现基本功能以外的问题，能给产品提出建设性的需求和意见。</p><h3 id="熟悉相关的测试工具"><a href="#熟悉相关的测试工具" class="headerlink" title="熟悉相关的测试工具"></a>熟悉相关的测试工具</h3><p>软件测试用到的相关工具非常多，了解和使用过这些工具，能更好的结合公司的要求及项目的需求来权衡引入哪些工具，提高工作效率。</p><ol><li>管理工具：比如JIRA，Testlink，Wiki，Confluence</li><li>持续集成：Jenkins，Bamboo，Travis CI等，了解他们之间的区别以及如何实施。</li><li>自动化测试：web和mobile平台之间是如何做自动化才测试的，用到哪些工具。了解Selenium，WebDriver，Appium，Robotium测试框架，以及用哪些语言去开发自动化测试用例，Python？Java？JavaScript？知道如何选择如何实施。</li><li>性能测试：了解Jmeter，LoadRunner这两个主要的性能测试工具，如何开展性能测试。</li></ol><h3 id="有良好的代码能力"><a href="#有良好的代码能力" class="headerlink" title="有良好的代码能力"></a>有良好的代码能力</h3><p>良好的代码能力可以快速掌握自动化测试，甚至可以开发测试平台。另外，当你跳槽到任何一家公司可以让你快速熟悉Java、Python、Javascript等任何语言编写的自动化测试用例。</p><h3 id="语言能力"><a href="#语言能力" class="headerlink" title="语言能力"></a>语言能力</h3><p>包括沟通能力和外语能力。沟通是一个测试人员在工作中必不可少的一项基本技能，良好的沟通会让开发人员了解问题所在，接受你的意见，从产品人员那里更好的了解需求。虽然只有在外企的时候才会用到英语，但是随着测试人员也需要学习很多的技术，开源社区的发展，很多第一手资料都是用英文写的，所以学好英文对于扩展和学习新知识有很大帮助。</p><p>所以说成为一名优秀的高级测试工程师所要求的能力还是很多的，一起努力吧！💪</p>]]></content>
       

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-03-10T14:30:14.407Z</updated>
+  <updated>2022-03-15T06:39:52.528Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>最靠谱的办法：在不删除和重建 GitHub 仓库的情况下与父(Fork)仓库分离</title>
+    <title>How to enable, setup and disable Jenkins LDAP</title>
+    <link href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/"/>
+    <id>https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/</id>
+    <published>2022-03-15T05:54:43.000Z</published>
+    <updated>2022-03-15T06:39:52.528Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In organizations, using LDAP
+        
+      
+    
+    </summary>
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+      <category term="LDAP" scheme="https://shenxianpeng.github.io/tags/ldap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>靠谱：在不删除和重建 GitHub 仓库的情况下与父(Fork)仓库分离(Unfork)</title>
     <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
     <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
     <published>2022-03-09T03:16:05.000Z</published>
-    <updated>2022-03-10T14:30:14.407Z</updated>
+    <updated>2022-03-15T06:41:24.194Z</updated>
     
     <summary type="html">
     
@@ -825,36 +853,6 @@
       <category term="LDAP" scheme="https://shenxianpeng.github.io/tags/ldap/"/>
     
       <category term="PostgreSQL" scheme="https://shenxianpeng.github.io/tags/postgresql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to fix &quot;hidden symbol `__gcov_init&#39; in ../libgcov.a(_gcov.o) is referenced by DSO&quot;</title>
-    <link href="https://shenxianpeng.github.io/2021/07/how-to-fix-gcov-hidden-symbol/"/>
-    <id>https://shenxianpeng.github.io/2021/07/how-to-fix-gcov-hidden-symbol/</id>
-    <published>2021-07-27T02:40:21.000Z</published>
-    <updated>2021-07-27T15:32:44.255Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;When we introduced Gocv to build my project for
-        
-      
-    
-    </summary>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
-    
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
-      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
     
   </entry>
   
