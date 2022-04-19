@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-03-29T16:51:53.710Z</updated>
+  <updated>2022-04-19T16:17:42.840Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WSL + VS Code + Docker Desktop 在 Windows 做开发还能这么爽！</title>
+    <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
+    <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
+    <published>2022-04-19T14:12:31.000Z</published>
+    <updated>2022-04-19T16:17:42.840Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;许久以来，大部分程序员都遇到过在 Windows 做开发那种不便。&lt;/p&gt;
+&lt;p&gt;比如不能像 Linux 和 Mac 那样只需要输入一行命令就能安装 openjdk，python，node 等等。因此有的程序员从此转到了 Mac 上开发，也有的干脆就使用 Linux
+        
+      
+    
+    </summary>
+    
+      <category term="Windows" scheme="https://shenxianpeng.github.io/categories/windows/"/>
+    
+    
+      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+      <category term="WSL" scheme="https://shenxianpeng.github.io/tags/wsl/"/>
+    
+      <category term="VSCode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
+    
+  </entry>
   
   <entry>
     <title>关于 Docker，containerd，CRI，CRI-O，OCI，runc 的解释以及它们是如何工作在一起的</title>
@@ -804,38 +835,6 @@
       <category term="lcov" scheme="https://shenxianpeng.github.io/tags/lcov/"/>
     
       <category term="perl" scheme="https://shenxianpeng.github.io/tags/perl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用 Gcov 和 LCOV 做 C/C++ 项目的代码覆盖率</title>
-    <link href="https://shenxianpeng.github.io/2021/08/gcov-example-cn/"/>
-    <id>https://shenxianpeng.github.io/2021/08/gcov-example-cn/</id>
-    <published>2021-08-16T16:10:21.000Z</published>
-    <updated>2022-03-02T15:27:39.441Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本篇分享如何使用 Gcov 和 LCOV 对 C/C++ 项目进行代码覆盖率的度量。&lt;/p&gt;
-&lt;p&gt;如果你想了解代码覆盖率工具 Gcov 是如何工作的，或是以后需要做 C/C++ 项目的代码覆盖率，希望本篇对你有所帮助。&lt;/p&gt;
-&lt;h2 id=&quot;问题&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
-    
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/tags/coverage/"/>
-    
-      <category term="Gcov" scheme="https://shenxianpeng.github.io/tags/gcov/"/>
-    
-      <category term="LCOV" scheme="https://shenxianpeng.github.io/tags/lcov/"/>
     
   </entry>
   
