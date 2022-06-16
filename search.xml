@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>努力做好一个爸爸</title>
+      <title>严于律己，做一个好爸爸</title>
       <link href="/2022/06/to-be-a-father/"/>
       <url>/2022/06/to-be-a-father/</url>
       
@@ -275,9 +275,9 @@
       
         <tags>
             
-            <tag> Docker </tag>
-            
             <tag> VirtualBox </tag>
+            
+            <tag> Docker </tag>
             
             <tag> Vagrant </tag>
             
@@ -439,9 +439,9 @@
       
         <tags>
             
-            <tag> Actions </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Actions </tag>
             
         </tags>
       
@@ -1014,9 +1014,9 @@
       
         <tags>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
             <tag> Gradle </tag>
             
@@ -1351,9 +1351,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -1409,9 +1409,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> Coverage </tag>
-            
             <tag> JaCoCo </tag>
+            
+            <tag> Coverage </tag>
             
         </tags>
       
@@ -1517,9 +1517,9 @@
             
             <tag> Python </tag>
             
-            <tag> Release </tag>
-            
             <tag> PyPI </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -2388,9 +2388,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       

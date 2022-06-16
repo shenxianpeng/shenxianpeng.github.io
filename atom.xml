@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-06-16T06:59:59.203Z</updated>
+  <updated>2022-06-16T07:12:01.701Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>努力做好一个爸爸</title>
+    <title>严于律己，做一个好爸爸</title>
     <link href="https://shenxianpeng.github.io/2022/06/to-be-a-father/"/>
     <id>https://shenxianpeng.github.io/2022/06/to-be-a-father/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2022-06-16T06:59:59.203Z</updated>
+    <updated>2022-06-16T07:12:01.701Z</updated>
     
     <summary type="html">
     
@@ -429,9 +429,9 @@
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
     
     
-      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
-    
       <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    
+      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     
@@ -656,9 +656,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
-    
       <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+      <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
     
   </entry>
   
