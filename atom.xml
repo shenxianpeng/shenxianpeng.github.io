@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-04-19T16:17:42.840Z</updated>
+  <updated>2022-06-16T06:59:59.203Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>努力做好一个爸爸</title>
+    <link href="https://shenxianpeng.github.io/2022/06/to-be-a-father/"/>
+    <id>https://shenxianpeng.github.io/2022/06/to-be-a-father/</id>
+    <published>2022-06-13T06:57:24.000Z</published>
+    <updated>2022-06-16T06:59:59.203Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;感恩&quot;&gt;&lt;a href=&quot;#感恩&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+      <category term="Father" scheme="https://shenxianpeng.github.io/tags/father/"/>
+    
+  </entry>
   
   <entry>
     <title>WSL + VS Code + Docker Desktop 在 Windows 做开发还能这么爽！</title>
@@ -807,34 +833,6 @@
       <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
     
       <category term="SonarQube" scheme="https://shenxianpeng.github.io/tags/sonarqube/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Run lcov failed &quot;Can&#39;t locate JSON/PP.pm in @INC ...&quot;</title>
-    <link href="https://shenxianpeng.github.io/2021/09/lcov-error/"/>
-    <id>https://shenxianpeng.github.io/2021/09/lcov-error/</id>
-    <published>2021-09-07T02:18:22.000Z</published>
-    <updated>2021-09-18T02:15:59.918Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;When execute command: &lt;code&gt;lcov --capture --directory . --no-external --output-file coverage.info&lt;/code&gt; to generate code coverage
-        
-      
-    
-    </summary>
-    
-      <category term="Coverage" scheme="https://shenxianpeng.github.io/categories/coverage/"/>
-    
-    
-      <category term="lcov" scheme="https://shenxianpeng.github.io/tags/lcov/"/>
-    
-      <category term="perl" scheme="https://shenxianpeng.github.io/tags/perl/"/>
     
   </entry>
   
