@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>严于律己，做一个好爸爸</title>
+      <title>做爸爸了以及未来三个月陪产假期间得学习计划</title>
       <link href="/2022/06/to-be-a-father/"/>
       <url>/2022/06/to-be-a-father/</url>
       
-        <content type="html"><![CDATA[<h2 id="感恩"><a href="#感恩" class="headerlink" title="感恩"></a>感恩</h2><p>已经好一个多月都没有写点东西了，因为我的女儿出生了，整个五月都是在忙碌中度过。</p><p>先是在月子中心远程办公了近一个月，出了会所后开始休陪产假，我们两个人在照顾孩子，对于新手爸妈来说还是非常忙碌的。</p><p>除了忙碌点之外，谢天谢地这一切都挺顺利的。</p><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>在逐渐走上正轨之后我需要找时间来做点自己的事，毕竟很少有机会能一次性休三个月（12周的陪产假），已经快要过去了2周，我要更有计划的来完成一些任务，目前的计划是：</p><ul><li>完成《代码整洁之道》、《重构》以及《动手学习深度学习这三本书》的阅读和豆瓣评论</li><li>为 pre-commit 写一个 clang-format 和 clang-tidy 的 <code>cpp-linter-hooks</code></li><li>完成每个月 15 节英语课以及 3~4 的体育锻炼（游泳和足球）</li></ul><p>从本周（休假的第2周）开始，我会继续在这篇文章的下方更新周报。</p><h2 id="周报"><a href="#周报" class="headerlink" title="周报"></a>周报</h2><p>第 2 周：</p><ul><li>《代码整洁之道》 P26 - P56</li><li>创建了 <code>cpp-linter-hooks</code> 仓库，学习别人的代码</li><li>计划本周末和乔教练去游泳</li></ul><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="感恩"><a href="#感恩" class="headerlink" title="感恩"></a>感恩</h2><p>已经好一个多月都没有写点东西了，因为我的女儿出生了，整个五月都是在忙碌中度过。</p><p>先是在月子中心远程办公了近一个月，出了会所后开始休陪产假，我们两个人在照顾孩子，对于新手爸妈来说还是非常忙碌的。</p><p>除了忙碌点之外，谢天谢地这一切都挺顺利的。</p><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>在逐渐走上正轨之后我需要找时间来做点自己的事，毕竟很少有机会能一次性休三个月（12周的陪产假），已经快要过去了2周，我要更有计划的来完成一些任务，目前的计划是：</p><ul><li>完成《代码整洁之道》、《重构》以及《动手学习深度学习这三本书》的阅读和豆瓣评论</li><li>为 pre-commit 写一个 clang-format 和 clang-tidy 的 <code>cpp-linter-hooks</code></li><li>完成每个月 15 节英语课以及 3~4 的体育锻炼（游泳和足球）</li></ul><p>从本周（休假的第2周）开始，我会继续在这篇文章的下方更新周报。</p><h2 id="周报"><a href="#周报" class="headerlink" title="周报"></a>周报</h2><p>第 2 周：</p><ul><li>《代码整洁之道》 P26 - P56</li><li>创建了 <code>cpp-linter-hooks</code> 仓库，学习别人的代码</li><li>计划本周末和乔教练去游泳</li></ul><p>第 3 - 4 周：</p><ul><li>《代码整洁之道》 P56 - P130</li><li>在实现 <code>cpp-linter-hooks</code> 之前需要实现 install clang-tools with pip, 因此我创建了 <code>clang-tools-pip</code></li><li>去市游泳馆游了一次泳，第二次本已约好但临时有事取消了</li></ul><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
       
       
       <categories>
@@ -275,9 +275,9 @@
       
         <tags>
             
-            <tag> VirtualBox </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> VirtualBox </tag>
             
             <tag> Vagrant </tag>
             
@@ -1014,9 +1014,9 @@
       
         <tags>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
             <tag> Gradle </tag>
             
@@ -1351,9 +1351,9 @@
       
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
       
@@ -1409,9 +1409,9 @@
             
             <tag> DevOps </tag>
             
-            <tag> JaCoCo </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> JaCoCo </tag>
             
         </tags>
       
@@ -1517,9 +1517,9 @@
             
             <tag> Python </tag>
             
-            <tag> PyPI </tag>
-            
             <tag> Release </tag>
+            
+            <tag> PyPI </tag>
             
         </tags>
       
@@ -1995,9 +1995,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Bitbucket </tag>
-            
             <tag> GitHub </tag>
+            
+            <tag> Bitbucket </tag>
             
         </tags>
       
@@ -2388,9 +2388,9 @@
       
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> Thought </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
       
