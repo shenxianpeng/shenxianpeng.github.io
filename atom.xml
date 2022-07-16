@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-07-11T05:27:53.229Z</updated>
+  <updated>2022-07-16T08:55:47.841Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2022/06/to-be-a-father/"/>
     <id>https://shenxianpeng.github.io/2022/06/to-be-a-father/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2022-07-11T05:27:53.229Z</updated>
+    <updated>2022-07-16T08:55:47.841Z</updated>
     
     <summary type="html">
     
@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title>WSL + VS Code + Docker Desktop 在 Windows 做开发还能这么爽！</title>
+    <title>在 Windows 做开发还能这么爽？WSL + VS Code + Docker Desktop 你值得有用</title>
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2022-04-19T16:17:42.840Z</updated>
+    <updated>2022-07-16T08:56:08.587Z</updated>
     
     <summary type="html">
     
@@ -55,8 +55,8 @@
       
         
         
-          &lt;p&gt;许久以来，大部分程序员都遇到过在 Windows 做开发那种不便。&lt;/p&gt;
-&lt;p&gt;比如不能像 Linux 和 Mac 那样只需要输入一行命令就能安装 openjdk，python，node 等等。因此有的程序员从此转到了 Mac 上开发，也有的干脆就使用 Linux
+          &lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
+&lt;p&gt;比如设置开发环境不能像 Linux 和 Mac 那样只需要输入一行命令就能安装各种 command 和 package，因此有的程序员从此转到了 Mac 上开发，也有的干脆就使用 Linux
         
       
     
