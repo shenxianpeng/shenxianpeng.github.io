@@ -8,7 +8,7 @@
       <link href="/2022/06/to-be-a-father/"/>
       <url>/2022/06/to-be-a-father/</url>
       
-        <content type="html"><![CDATA[<h2 id="感恩"><a href="#感恩" class="headerlink" title="感恩"></a>感恩</h2><p>已经好一个多月都没有写点东西了，因为我的女儿出生了，整个五月都是在忙碌中度过。</p><p>先是在月子中心远程办公了近一个月，出了会所后开始休陪产假，我们两个人在照顾孩子，对于新手爸妈来说还是非常忙碌的。</p><p>除了忙碌点之外，谢天谢地这一切都挺顺利的。</p><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>在逐渐走上正轨之后我需要找时间来做点自己的事，毕竟很少有机会能一次性休三个月（12周的陪产假），已经快要过去了2周，我要更有计划的来完成一些任务，目前的计划是：</p><ul><li>完成《代码整洁之道》、《重构》以及《动手学习深度学习这三本书》的阅读和豆瓣评论</li><li>为 pre-commit 写一个 clang-format 和 clang-tidy 的 <code>cpp-linter-hooks</code></li><li>完成每个月 15 节英语课以及 3~4 的体育锻炼（游泳和足球）</li></ul><p>从本周（休假的第2周）开始，我会继续在这篇文章的下方更新周报。</p><h2 id="周报"><a href="#周报" class="headerlink" title="周报"></a>周报</h2><p>第 7 周（7.18 - 7.24）</p><ul><li>发现 Python 真是入门容易学好难… 最近学习 tox，mypy 中</li><li>重构代码，并把 CodeCoverage 争取写到 100 %</li><li>Others</li></ul><p>第 6 周（7.11 - 7.17）</p><ul><li>完成了 <code>cpp-linter-hooks</code> 功能的开发并把它迁移到 cpp-linter org 下面。</li><li>创建了 <code>.github</code> 仓库，对于 org 这是一个很神奇的残酷，玩法很多，还在陆续探索中。</li><li>终于把读 Code Clean 的书评交了，还需继续读完成任务。</li><li>周日没有意外可以去游一次泳了。</li></ul><p>第 5 周（7.4 - 7.10）</p><ul><li>上周主要是抽空写 <code>clang-tools-pip</code> 和 <code>cpp-linter-hooks</code> 这两个功能，目前完成大概 70%，预计本周可以基本结束。</li><li>工作上也花了点时间，修复了之前写的 pipeline 的几个问题</li><li>上周开始读《重构》了，但没多少时间花在读书上，没读几页。一致想更新公号文章，可惜挺花时间的</li><li>上周日游泳也没游，因为脖子坏了，可能是喂奶低头造成的 :(</li></ul><p>第 3 - 4 周：</p><ul><li>《代码整洁之道》 P56 - P130</li><li>在实现 <code>cpp-linter-hooks</code> 之前需要实现 install clang-tools with pip, 因此我创建了 <code>clang-tools-pip</code></li><li>去市游泳馆游了一次泳，第二次本已约好但临时有事取消了</li></ul><p>第 2 周：</p><ul><li>《代码整洁之道》 P26 - P56</li><li>创建了 <code>cpp-linter-hooks</code> 仓库，学习别人的代码</li><li>计划本周末和乔教练去游泳</li></ul><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="感恩"><a href="#感恩" class="headerlink" title="感恩"></a>感恩</h2><p>已经好一个多月都没有写点东西了，因为我的女儿出生了，整个五月都是在忙碌中度过。</p><p>先是在月子中心远程办公了近一个月，出了会所后开始休陪产假，我们两个人在照顾孩子，对于新手爸妈来说还是非常忙碌的。</p><p>除了忙碌点之外，谢天谢地这一切都挺顺利的。</p><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>除了看娃之外，我需要抽空来做点自己的事，毕竟很少有机会能一次性休三个月（12周的陪产假），已经快要过去了2周，我要更有计划的来完成一些任务，目前的计划是：</p><ul><li>完成《代码整洁之道》、《重构》以及《动手学习深度学习这三本书》的阅读和豆瓣评论</li><li>为 pre-commit 写一个 clang-format 和 clang-tidy 的 <code>cpp-linter-hooks</code></li><li>完成每个月 15 节英语课以及 3~4 的体育锻炼（游泳和足球）</li><li>找打一个可以作为长期业余贡献的项目</li></ul><p>从休假的第 2 周开始，我会继续在这篇文章的下方更新周报。</p><h2 id="周报"><a href="#周报" class="headerlink" title="周报"></a>周报</h2><p>第 8 周（7.25 - 7.31）</p><ul><li>希望能找到一个新的项目作为学习和技能精进</li><li>更新一篇关于参与开源的文章 - 野鸡大学毕业生如何 vs 名牌大学的毕业生</li><li>读书和游泳</li></ul><p>第 7 周（7.18 - 7.24）</p><ul><li>发现 Python 真是入门容易学好难… 初步学了一下 tox 和 mypy，会之后的 project 中尝试使用。</li><li>重构了代码，本打算并把 Code Coverage 写到 100 %，但没实现，pytest 还需要继续学。</li><li>在琢磨一个有意思的可以作为长期业余时间来做的项目，目前有个模糊的雏形，先试试看</li><li>《重构》书没怎么读，周六游泳可以继续</li></ul><p>第 6 周（7.11 - 7.17）</p><ul><li>完成了 <code>cpp-linter-hooks</code> 功能的开发并把它迁移到 cpp-linter org 下面。</li><li>创建了 <code>.github</code> 仓库，对于 org 这是一个很神奇的残酷，玩法很多，还在陆续探索中。</li><li>终于把读 Code Clean 的书评交了，还需继续读完成任务。</li><li>周五发了一篇公众号文章，是之前写的，整理终于发出了，这是 3 个月以来的第一次更新。</li><li>周日去游一次泳。</li></ul><p>第 5 周（7.4 - 7.10）</p><ul><li>上周主要是抽空写 <code>clang-tools-pip</code> 和 <code>cpp-linter-hooks</code> 这两个功能，目前完成大概 70%，预计本周可以基本结束。</li><li>工作上也花了点时间，修复了之前写的 pipeline 的几个问题</li><li>上周开始读《重构》了，但没多少时间花在读书上，没读几页。一致想更新公号文章，可惜挺花时间的</li><li>上周日游泳也没游，因为脖子坏了，可能是喂奶低头造成的 :(</li></ul><p>第 3 - 4 周：</p><ul><li>《代码整洁之道》 P56 - P130</li><li>在实现 <code>cpp-linter-hooks</code> 之前需要实现 install clang-tools with pip, 因此我创建了 <code>clang-tools-pip</code></li><li>去市游泳馆游了一次泳，第二次本已约好但临时有事取消了</li></ul><p>第 2 周：</p><ul><li>《代码整洁之道》 P26 - P56</li><li>创建了 <code>cpp-linter-hooks</code> 仓库，学习别人的代码</li><li>计划本周末和乔教练去游泳</li></ul><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
       
       
       <categories>
@@ -1862,11 +1862,11 @@
       
         <tags>
             
+            <tag> Troubleshooting </tag>
+            
             <tag> Artifactory </tag>
             
             <tag> JFrog </tag>
-            
-            <tag> Troubleshooting </tag>
             
         </tags>
       
