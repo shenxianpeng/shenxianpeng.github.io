@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-07-22T07:45:36.924Z</updated>
+  <updated>2022-07-28T07:19:05.256Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How to create GPG keys and add to GitHub</title>
+    <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
+    <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
+    <published>2022-07-28T06:45:04.000Z</published>
+    <updated>2022-07-28T07:19:05.256Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List
+        
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+      <category term="GPG" scheme="https://shenxianpeng.github.io/tags/gpg/"/>
+    
+  </entry>
   
   <entry>
     <title>当爸爸了 &amp; 未来三个月陪产假期间的个人计划和周报</title>
@@ -804,35 +832,6 @@
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="Cheatsheet" scheme="https://shenxianpeng.github.io/tags/cheatsheet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How does SonarQube Community Edition integrate with the project</title>
-    <link href="https://shenxianpeng.github.io/2021/09/sonarqube-integration/"/>
-    <id>https://shenxianpeng.github.io/2021/09/sonarqube-integration/</id>
-    <published>2021-09-18T02:19:51.000Z</published>
-    <updated>2021-11-22T14:33:25.437Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;After you have set up the SonarQube instance, you will need to integrate SonarQube with project.&lt;/p&gt;
-&lt;p&gt;Because I used the community
-        
-      
-    
-    </summary>
-    
-      <category term="SonarQube" scheme="https://shenxianpeng.github.io/categories/sonarqube/"/>
-    
-    
-      <category term="Gradle" scheme="https://shenxianpeng.github.io/tags/gradle/"/>
-    
-      <category term="SonarQube" scheme="https://shenxianpeng.github.io/tags/sonarqube/"/>
     
   </entry>
   
