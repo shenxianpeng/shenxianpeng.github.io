@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-07-28T07:19:05.256Z</updated>
+  <updated>2022-07-29T06:59:49.000Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
     <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
     <published>2022-07-28T06:45:04.000Z</published>
-    <updated>2022-07-28T07:19:05.256Z</updated>
+    <updated>2022-07-29T06:59:49.000Z</updated>
     
     <summary type="html">
     
@@ -35,7 +35,7 @@
     
     </summary>
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
     
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
@@ -49,7 +49,7 @@
     <link href="https://shenxianpeng.github.io/2022/06/to-be-a-father/"/>
     <id>https://shenxianpeng.github.io/2022/06/to-be-a-father/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2022-07-22T07:45:36.924Z</updated>
+    <updated>2022-08-01T07:36:08.302Z</updated>
     
     <summary type="html">
     
@@ -75,7 +75,7 @@
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2022-07-16T08:56:08.587Z</updated>
+    <updated>2022-07-29T06:59:48.997Z</updated>
     
     <summary type="html">
     
@@ -90,8 +90,10 @@
     
     </summary>
     
-      <category term="Windows" scheme="https://shenxianpeng.github.io/categories/windows/"/>
+      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
     
+    
+      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
     
       <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
@@ -115,7 +117,7 @@
 &lt;h2 id=&quot;容器生态系统&quot;&gt;&lt;a href=&quot;#容器生态系统&quot; class=&quot;headerlink&quot; title=&quot;容器生态系统&quot;&gt;&lt;/a&gt;容器生态系统&lt;/h2&gt;&lt;p&gt;容器生态系统是由许多令人兴奋的技术、大量的专业术语和大公司相互争斗组成的。&lt;/p&gt;
 &lt;p&gt;幸运的是，这些公司偶尔会在休战中走到一起合作，商定一些标准，这些标准有助于使这个生态系统在不同的平台和操作系统之间更具互操作性，并减少对单一公司或项目的依赖。&lt;/p&gt;
 &lt;p&gt;这张图显示了 Docker、Kubernetes、CRI、OCI、containerd 和 runc 在这个生态系统中是如何结合的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2022/03/container-ecosystem/container-ecosystem.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2022/03/container-ecosystem/container-ecosystem.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;其工作流程简单来说是这样的：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Docker，Kubernetes 等工具来运行一个容器时会调用容器运行时（CRI）比如 containerd，CRI-O&lt;/li&gt;
@@ -151,7 +153,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/"/>
     <id>https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/</id>
     <published>2022-03-15T05:54:43.000Z</published>
-    <updated>2022-03-15T06:46:01.207Z</updated>
+    <updated>2022-07-29T06:59:48.991Z</updated>
     
     <summary type="html">
     
@@ -165,7 +167,7 @@
     
     </summary>
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
     
     
       <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
@@ -179,7 +181,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
     <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
     <published>2022-03-09T03:16:05.000Z</published>
-    <updated>2022-03-28T16:28:53.729Z</updated>
+    <updated>2022-07-29T06:59:48.994Z</updated>
     
     <summary type="html">
     
@@ -195,7 +197,7 @@
     
     </summary>
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
     
     
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
@@ -225,7 +227,7 @@
 &lt;li&gt;强大的功能 - 闭包、构建器、运行时和编译时元编程、函数式编程、类型推断和静态编译&lt;/li&gt;
 &lt;li&gt;流畅的 Java 集成 - 与 Java 和任何第三方库无缝、透明地集成和互操作&lt;/li&gt;
 &lt;li&gt;领域特定语言 - 灵活可延展的语法，先进的集成和定制机制，在你的应用程序中集成可读的业务规则&lt;/li&gt;
-&lt;li&gt;充满活力和丰富的生态系统 - Web 开发、响应式应用程序、并发/异步/并行库、测试框架、构建工具、代码分析、GUI 构建&lt;/li&gt;
+&lt;li&gt;充满活力和丰富的生态系统 - Web 开发、响应式应用程序、并发&amp;#x2F;异步&amp;#x2F;并行库、测试框架、构建工具、代码分析、GUI 构建&lt;/li&gt;
 &lt;li&gt;脚本和测试胶水 - 非常适合编写简洁和可维护的测试，以及所有构建和自动化任务&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;Groovy-和-Java-的区别&quot;&gt;&lt;a href=&quot;#Groovy-和-Java-的区别&quot; class=&quot;headerlink&quot; title=&quot;Groovy 和 Java 的区别&quot;&gt;&lt;/a&gt;Groovy 和 Java 的区别&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2022/03/groovy/groovy-vs-java.png&quot; alt=&quot; Groovy vs Java&quot;&gt;&lt;/p&gt;
@@ -273,7 +275,7 @@
 &lt;details&gt;
 &lt;summary&gt;👉 Click to see more output 👈&lt;/summary&gt;
 
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Issues ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- DETECTORS:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 	Detector Issue&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 		/workdir/&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 		Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 			The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Result ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Black Duck Project BOM: https://org.blackducksoftware.com/api/projects/246c8952-7cb8-40e9-9987-35f7d4602ae1/versions/e1cb4204-42d0-4445-8675-978df62b150d/components&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Status ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- GIT: SUCCESS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- PIP: FAILURE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Signature scan / Snippet scan on /workdir/&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;: SUCCESS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies. Check that all projects build and your environment is configured correctly.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- If you need &lt;span class=&quot;built_in&quot;&gt;help&lt;/span&gt; troubleshooting this problem, generate a diagnostic zip file by adding &lt;span class=&quot;string&quot;&gt;&#39;-d&#39;&lt;/span&gt; to the &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt; line, and provide it to Synopsys Technical Support. See &lt;span class=&quot;string&quot;&gt;&#39;Diagnostic Mode&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the Detect documentation &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; more information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ===============================&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Detect duration: 00h 00m 54s 951ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Exiting with code 5 - FAILURE_DETECTOR&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Issues ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- DETECTORS:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 	Detector Issue&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 		/workdir/test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 		Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- 			The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Result ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Black Duck Project BOM: https://org.blackducksoftware.com/api/projects/246c8952-7cb8-40e9-9987-35f7d4602ae1/versions/e1cb4204-42d0-4445-8675-978df62b150d/components&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ======== Detect Status ========&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- GIT: SUCCESS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- PIP: FAILURE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Signature scan / Snippet scan on /workdir/test: SUCCESS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies. Check that all projects build and your environment is configured correctly.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- If you need &lt;span class=&quot;built_in&quot;&gt;help&lt;/span&gt; troubleshooting this problem, generate a diagnostic zip file by adding &lt;span class=&quot;string&quot;&gt;&amp;#x27;-d&amp;#x27;&lt;/span&gt; to the &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt; line, and provide it to Synopsys Technical Support. See &lt;span class=&quot;string&quot;&gt;&amp;#x27;Diagnostic Mode&amp;#x27;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the Detect documentation &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; more information.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- ===============================&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] ---&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Detect duration: 00h 00m 54s 951ms&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Exiting with code 5 - FAILURE_DETECTOR&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;/details&gt;
 
@@ -282,15 +284,15 @@
 &lt;li&gt;Product: synopsys-detect-7.11.1.jar&lt;/li&gt;
 &lt;li&gt;Others: OpenJDK 11, Python 3.6 and Python 2.7.5&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;Root-cause&quot;&gt;&lt;a href=&quot;#Root-cause&quot; class=&quot;headerlink&quot; title=&quot;Root cause&quot;&gt;&lt;/a&gt;Root cause&lt;/h2&gt;&lt;p&gt;More output of this run, I see it used &lt;code&gt;python&lt;/code&gt; (which is python2) not &lt;code&gt;python3&lt;/code&gt;,&lt;br&gt;so run &lt;a href=&quot;https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;pip-inspector.py&lt;/a&gt; failed.&lt;/p&gt;
+&lt;h2 id=&quot;Root-cause&quot;&gt;&lt;a href=&quot;#Root-cause&quot; class=&quot;headerlink&quot; title=&quot;Root cause&quot;&gt;&lt;/a&gt;Root cause&lt;/h2&gt;&lt;p&gt;More output of this run, I see it used &lt;code&gt;python&lt;/code&gt; (which is python2) not &lt;code&gt;python3&lt;/code&gt;,&lt;br&gt;so run &lt;a href=&quot;https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py&quot;&gt;pip-inspector.py&lt;/a&gt; failed.&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;DEBUG [main-Executable_Stream_Thread] --- Python 2.7.5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[main] --- Running executable &amp;gt;/usr/bin/python /home/****/blackduck/runs/2022-03-01-07-45-05-986/shared/pip/pip-inspector.py --projectname=&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;h2 id=&quot;Solution&quot;&gt;&lt;a href=&quot;#Solution&quot; class=&quot;headerlink&quot; title=&quot;Solution&quot;&gt;&lt;/a&gt;Solution&lt;/h2&gt;&lt;p&gt;Link python to python3, it works in my case.&lt;/p&gt;
 &lt;p&gt;For example&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# save python to other name&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo mv /usr/bin/python /usr/bin/python.old&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# link python3 to python&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo ln -s /usr/bin/python3 /usr/bin/python&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# save python to other name&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo &lt;span class=&quot;built_in&quot;&gt;mv&lt;/span&gt; /usr/bin/python /usr/bin/python.old&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# link python3 to python&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo &lt;span class=&quot;built_in&quot;&gt;ln&lt;/span&gt; -s /usr/bin/python3 /usr/bin/python&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;Then try to run &lt;code&gt;bash &amp;lt;(curl -s -L https://detect.synopsys.com/detect7.sh)&lt;/code&gt; again, my test commands:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bash &amp;lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/&lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt; --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bash &amp;lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/test --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;If you want to use Docker to do Blackduck scan, you can create a Docker image. like this&lt;/p&gt;
     
@@ -362,8 +364,8 @@
 &lt;h2 id=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;a href=&quot;#从QA到DEV到DEVOPS&quot; class=&quot;headerlink&quot; title=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;/a&gt;从QA到DEV到DEVOPS&lt;/h2&gt;&lt;p&gt;最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;amp;自动化&amp;amp;性能测试工作。&lt;/p&gt;
 &lt;p&gt;从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。&lt;/p&gt;
 &lt;p&gt;当我做了自动化测试工程师，我又发现相对于“发现”问题，“解决”问题更令我愉悦。我开始梦想有机会能去做开发，这样不但可以提高自己的编程能力，另外开发、测试都懂也能为自己今后的职业发展找到更多可能性。&lt;/p&gt;
-&lt;p&gt;最终是因为有这样的机会+自己的主动+编码过得去，我从测试转到了开发。起初的艰难和压力都是我工作近 10 年来前所未有的，白天看代码、晚上看代码、周末看代码… 天天如此。经过了半年多的努力，才终于上岸，可以做 C/C++ 项目的 Bugfix 了。&lt;/p&gt;
-&lt;p&gt;也正是因为有开发、自动化、持续集成的经验，在团队需要一名 Build/Release 工程师的时候，我知道这就是我最适合的岗位，负责产品的自动化构建、发布、基础设施建设、CI/CD 以及提高研发效能的相关开发工作。&lt;/p&gt;
+&lt;p&gt;最终是因为有这样的机会+自己的主动+编码过得去，我从测试转到了开发。起初的艰难和压力都是我工作近 10 年来前所未有的，白天看代码、晚上看代码、周末看代码… 天天如此。经过了半年多的努力，才终于上岸，可以做 C&amp;#x2F;C++ 项目的 Bugfix 了。&lt;/p&gt;
+&lt;p&gt;也正是因为有开发、自动化、持续集成的经验，在团队需要一名 Build&amp;#x2F;Release 工程师的时候，我知道这就是我最适合的岗位，负责产品的自动化构建、发布、基础设施建设、CI&amp;#x2F;CD 以及提高研发效能的相关开发工作。&lt;/p&gt;
 &lt;p&gt;就这样我从 QA 到 DEV 到 DEVOPS。公众号的更名记录也记录了我的职业路线变化：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”&lt;/li&gt;
@@ -474,11 +476,11 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;Vagrant 是一种&lt;a href=&quot;https://github.com/hashicorp/vagrant&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;开源&lt;/a&gt;软件产品，用来方便构建和维护虚拟软件开发环境。&lt;/p&gt;
+      &lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;Vagrant 是一种&lt;a href=&quot;https://github.com/hashicorp/vagrant&quot;&gt;开源&lt;/a&gt;软件产品，用来方便构建和维护虚拟软件开发环境。&lt;/p&gt;
 &lt;p&gt;例如，它可以基于 VirtualBox、VMware、KVM、Hyper-V 和 AWS 甚至是 Docker 等提供商来构建开发环境。它通过简化虚拟化的软件配置管理，来提高开发效率。&lt;/p&gt;
 &lt;p&gt;Vagrant 是用 Ruby 语言开发的，但它的生态系统支持使用其他几种语言进行开发。&lt;/p&gt;
 &lt;p&gt;简单来说 Vagrant 是对传统虚拟机的一层封装，能够让你更方便的使用虚拟开发环境。&lt;/p&gt;
-&lt;h2 id=&quot;Vagrant-的发展史&quot;&gt;&lt;a href=&quot;#Vagrant-的发展史&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 的发展史&quot;&gt;&lt;/a&gt;Vagrant 的发展史&lt;/h2&gt;&lt;p&gt;Vagrant 最初是由 &lt;a href=&quot;https://www.hashicorp.com/about?name=mitchell-hashimoto&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Mitchell Hashimoto&lt;/a&gt; 于 2010 年 1 月作为个人项目启动的。&lt;/p&gt;
+&lt;h2 id=&quot;Vagrant-的发展史&quot;&gt;&lt;a href=&quot;#Vagrant-的发展史&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 的发展史&quot;&gt;&lt;/a&gt;Vagrant 的发展史&lt;/h2&gt;&lt;p&gt;Vagrant 最初是由 &lt;a href=&quot;https://www.hashicorp.com/about?name=mitchell-hashimoto&quot;&gt;Mitchell Hashimoto&lt;/a&gt; 于 2010 年 1 月作为个人项目启动的。&lt;/p&gt;
 &lt;p&gt;Vagrant 的第一个版本于 2010 年 3 月发布。2010 年 10 月，Engine Yard 宣布他们将赞助 Vagrant 项目。&lt;/p&gt;
 &lt;p&gt;Vagrant 的第一个稳定版本 Vagrant 1.0 于 2012 年 3 月发布，正好是原始版本发布两年后。&lt;/p&gt;
 &lt;p&gt;同年 11 月，Mitchell 成立了 HashiCorp 公司，以支持 Vagrant 的全职开发。Vagrant 仍然是开源软件，HashiCorp 公司致力于创建商业版本，并为 Vagrant 提供专业支持和培训。&lt;/p&gt;
@@ -486,11 +488,11 @@
 &lt;p&gt;Vagrant 最初支持 VirtualBox，在 1.1 版增加了对其他虚拟化软件（如 VMware 和 KVM）的支持，以及对 Amazon EC2 等服务器环境的支持。从 1.6 版开始，Vagrant 原生支持 Docker 容器，在某些情况下可以替代完全虚拟化的操作系统。&lt;/p&gt;
 &lt;h2 id=&quot;如何使用-Vagrant&quot;&gt;&lt;a href=&quot;#如何使用-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;如何使用 Vagrant&quot;&gt;&lt;/a&gt;如何使用 Vagrant&lt;/h2&gt;&lt;p&gt;使用 Vagrant 的前提条件：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;安装 Vagrant。下载 &lt;a href=&quot;https://www.vagrantup.com/downloads&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Vagrant&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;安装 &lt;a href=&quot;https://www.virtualbox.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;VirtualBox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;安装 Vagrant。下载 &lt;a href=&quot;https://www.vagrantup.com/downloads&quot;&gt;Vagrant&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;安装 &lt;a href=&quot;https://www.virtualbox.org/&quot;&gt;VirtualBox&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;当以上两个都准备好了，你就可以通过命令行创建并使用你的虚拟机了。&lt;/p&gt;
-&lt;p&gt;比如你需要一个 &lt;a href=&quot;https://app.vagrantup.com/hashicorp/boxes/bionic64&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ubuntu 18.04 LTS 64-bit&lt;/a&gt;的虚拟机。更多其他的虚拟机可以到 &lt;a href=&quot;https://app.vagrantup.com/boxes/search&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Box&lt;/a&gt; 网站上去搜索查找，它类似于 Docker Hub，用户可以在上面下载和上传各种 Vagrant Box。&lt;/p&gt;
+&lt;p&gt;比如你需要一个 &lt;a href=&quot;https://app.vagrantup.com/hashicorp/boxes/bionic64&quot;&gt;Ubuntu 18.04 LTS 64-bit&lt;/a&gt;的虚拟机。更多其他的虚拟机可以到 &lt;a href=&quot;https://app.vagrantup.com/boxes/search&quot;&gt;Box&lt;/a&gt; 网站上去搜索查找，它类似于 Docker Hub，用户可以在上面下载和上传各种 Vagrant Box。&lt;/p&gt;
 &lt;p&gt;你只需执行一些简单的命令就可以完成启动、登录、退出、及销毁。&lt;/p&gt;
 &lt;p&gt;初始化 Vagrant&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vagrant init hashicorp/bionic64&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -592,7 +594,7 @@
 &lt;li&gt;检查和扫描你的 Docker 文件和镜像&lt;/li&gt;
 &lt;li&gt;签署和验证镜像&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;Dockerfile-最佳实践&quot;&gt;&lt;a href=&quot;#Dockerfile-最佳实践&quot; class=&quot;headerlink&quot; title=&quot;Dockerfile 最佳实践&quot;&gt;&lt;/a&gt;Dockerfile 最佳实践&lt;/h2&gt;&lt;h3 id=&quot;1-使用多阶段的构建&quot;&gt;&lt;a href=&quot;#1-使用多阶段的构建&quot; class=&quot;headerlink&quot; title=&quot;1. 使用多阶段的构建&quot;&gt;&lt;/a&gt;1. 使用多阶段的构建&lt;/h3&gt;&lt;p&gt;利用多阶段构建的优势来创建更精简、更安全的Docker镜像。多阶段 Docker 构建(&lt;a href=&quot;https://docs.docker.com/develop/develop-images/multistage-build/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;multi-stage builds&lt;/a&gt;)允许你将你的 Dockerfile 分成几个阶段。&lt;/p&gt;
+&lt;h2 id=&quot;Dockerfile-最佳实践&quot;&gt;&lt;a href=&quot;#Dockerfile-最佳实践&quot; class=&quot;headerlink&quot; title=&quot;Dockerfile 最佳实践&quot;&gt;&lt;/a&gt;Dockerfile 最佳实践&lt;/h2&gt;&lt;h3 id=&quot;1-使用多阶段的构建&quot;&gt;&lt;a href=&quot;#1-使用多阶段的构建&quot; class=&quot;headerlink&quot; title=&quot;1. 使用多阶段的构建&quot;&gt;&lt;/a&gt;1. 使用多阶段的构建&lt;/h3&gt;&lt;p&gt;利用多阶段构建的优势来创建更精简、更安全的Docker镜像。多阶段 Docker 构建(&lt;a href=&quot;https://docs.docker.com/develop/develop-images/multistage-build/&quot;&gt;multi-stage builds&lt;/a&gt;)允许你将你的 Dockerfile 分成几个阶段。&lt;/p&gt;
 &lt;p&gt;例如，你可以有一个阶段用于编译和构建你的应用程序，然后可以复制到后续阶段。由于只有最后一个阶段被用来创建镜像，与构建应用程序相关的依赖关系和工具就会被丢弃，因此可以留下一个精简的、模块化的、可用于生产的镜像。&lt;/p&gt;
 &lt;p&gt;Web 开发示例：&lt;/p&gt;
     
@@ -643,7 +645,7 @@
       
         
         
-          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在一个组织内，不同的团队之间可能会有不同的维度来评估 CI/CD 的成熟度。这使得对衡量每个团队的 CI/CD
+          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在一个组织内，不同的团队之间可能会有不同的维度来评估 CI&amp;#x2F;CD 的成熟度。这使得对衡量每个团队的 CI&amp;#x2F;CD
         
       
     
@@ -671,7 +673,7 @@
     
       &lt;p&gt;最近实现了一个很有意思的 Workflow，就是通过 GitHub Actions 自动将每次最新发布的文章自动同步到我的 GitHub 首页。&lt;/p&gt;
 &lt;p&gt;就像这样在首页显示最近发布的博客文章。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2021/11/special-repository/final.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/11/special-repository/final.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;要实现这样的工作流需要了解以下这几点：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;需要创建一个与 GitHub 同名的个人仓库，这个仓库的 &lt;code&gt;README.md&lt;/code&gt; 信息会显示在首页&lt;/li&gt;
@@ -701,7 +703,7 @@
     
       &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;2021-22 世界质量报告（World Quality Report 简称 WQR）是由 Micro Focus，Capgemini 和 Sogeti 三家公司合作的来分析软件质量和测试趋势在全球范围内唯一的报告。&lt;/p&gt;
 &lt;p&gt;这份报告共采访了 1750 名高管和专业人士。从最高管理层到 QA 测试经理和质量工程师，涵盖了来自全球 32 个国家的 10 个行业。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2021/11/world-quality-report/0.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/11/world-quality-report/0.png&quot;&gt;&lt;/p&gt;
 &lt;p&gt;世界质量报告（WQR）是一项独一无二的全球研究，今年的调查强调了新部署方法中不断变化的受大流行影响的应用程序需求的影响，以及 QA 对敏捷和 DevOps 实践的采用，AI 的持续增长。&lt;/p&gt;
 &lt;p&gt;作为测试关注这类软件质量报告可以帮助我们快速了解软件测试行业的现状和趋势。&lt;/p&gt;
 &lt;h2 id=&quot;五大主题&quot;&gt;&lt;a href=&quot;#五大主题&quot; class=&quot;headerlink&quot; title=&quot;五大主题&quot;&gt;&lt;/a&gt;五大主题&lt;/h2&gt;&lt;p&gt;WQR 的一个关键信息：在新冠疫情依旧的今天，我们看到了数字化转型的融合以及敏捷和 DevOps 实践的实时采用。此外，QA 正在成为采用敏捷和 DevOps 实践的领导者，为团队提供工具和流程以促进整个软件生命周期（SDLC）的质量。&lt;/p&gt;
@@ -738,9 +740,9 @@
 &lt;p&gt;这可能是中文网里介绍Polaris最详细的文章了&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;什么是-Polaris？&quot;&gt;&lt;a href=&quot;#什么是-Polaris？&quot; class=&quot;headerlink&quot; title=&quot;什么是 Polaris？&quot;&gt;&lt;/a&gt;什么是 Polaris？&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Polaris&lt;/strong&gt; - 托管静态应用程序软件测试(SAST)工具的 SaaS 平台，它是用于分类和修复漏洞并运行报告的 Web 站点。&lt;br&gt;&lt;strong&gt;SAST&lt;/strong&gt; - 一种对源代码分析或构建过程中去寻找安全漏洞的工具，是一种在软件开发的生命周期(SDLC)中确保安全的重要步骤。&lt;br&gt;&lt;strong&gt;Coverity&lt;/strong&gt; - Coverity 是 Synopsys 公司提供的原始静态应用软件测试 (SAST) 工具。Polaris 是 Coverity 的 SaaS 版本。&lt;br&gt;&lt;strong&gt;Synopsys&lt;/strong&gt; - 是开发 Polaris 和其他软件扫描工具的公司，比如 BlackDuck 也是他们的产品。&lt;/p&gt;
-&lt;h2 id=&quot;Polaris-支持哪些语言？&quot;&gt;&lt;a href=&quot;#Polaris-支持哪些语言？&quot; class=&quot;headerlink&quot; title=&quot;Polaris 支持哪些语言？&quot;&gt;&lt;/a&gt;Polaris 支持哪些语言？&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;C&amp;#x2F;C++&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;C#&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;JavaScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TypeScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Python&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Fortran&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Swift&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...and more&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Polaris-支持哪些语言？&quot;&gt;&lt;a href=&quot;#Polaris-支持哪些语言？&quot; class=&quot;headerlink&quot; title=&quot;Polaris 支持哪些语言？&quot;&gt;&lt;/a&gt;Polaris 支持哪些语言？&lt;/h2&gt;&lt;figure class=&quot;highlight text&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;C/C++&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;C#&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Java&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;JavaScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;TypeScript&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Python&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Fortran&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Swift&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...and more&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;Polaris-SaaS-平台&quot;&gt;&lt;a href=&quot;#Polaris-SaaS-平台&quot; class=&quot;headerlink&quot; title=&quot;Polaris SaaS 平台&quot;&gt;&lt;/a&gt;Polaris SaaS 平台&lt;/h2&gt;&lt;p&gt;通常如果你的组织引入了 Polaris 的 SaaS 服务，你将会有如下网址可供访问 URL: &lt;a href=&quot;https://organization.polaris.synopsys.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://organization.polaris.synopsys.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Polaris-SaaS-平台&quot;&gt;&lt;a href=&quot;#Polaris-SaaS-平台&quot; class=&quot;headerlink&quot; title=&quot;Polaris SaaS 平台&quot;&gt;&lt;/a&gt;Polaris SaaS 平台&lt;/h2&gt;&lt;p&gt;通常如果你的组织引入了 Polaris 的 SaaS 服务，你将会有如下网址可供访问 URL: &lt;a href=&quot;https://organization.polaris.synopsys.com/&quot;&gt;https://organization.polaris.synopsys.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;然后登录，你就可以给自己的 Git Repository 创建对应的项目了。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;建议：创建的项目名称与 Git Repository 的名称一致。&lt;/p&gt;
@@ -786,8 +788,8 @@
 &lt;td&gt;使用 Filesystem 捕获；如果寻求简单使用 Buildless 捕获&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
-&lt;h4 id=&quot;Analyze-分析&quot;&gt;&lt;a href=&quot;#Analyze-分析&quot; class=&quot;headerlink&quot; title=&quot;Analyze - 分析&quot;&gt;&lt;/a&gt;Analyze - 分析&lt;/h4&gt;&lt;p&gt;如果你正在扫描 C/C++ 代码，则应包括此分析部分以充分利用 Polaris 的扫描功能：&lt;/p&gt;
-&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;analyze:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;mode:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;central&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;coverity:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;cov-analyze:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;[&quot;--security&quot;,&quot;--concurrency&quot;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Analyze-分析&quot;&gt;&lt;a href=&quot;#Analyze-分析&quot; class=&quot;headerlink&quot; title=&quot;Analyze - 分析&quot;&gt;&lt;/a&gt;Analyze - 分析&lt;/h4&gt;&lt;p&gt;如果你正在扫描 C&amp;#x2F;C++ 代码，则应包括此分析部分以充分利用 Polaris 的扫描功能：&lt;/p&gt;
+&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;attr&quot;&gt;analyze:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;mode:&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;central&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;coverity:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attr&quot;&gt;cov-analyze:&lt;/span&gt; [&lt;span class=&quot;string&quot;&gt;&amp;quot;--security&amp;quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&amp;quot;--concurrency&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;Polaris-YAML-示例文件&quot;&gt;&lt;a href=&quot;#Polaris-YAML-示例文件&quot; class=&quot;headerlink&quot; title=&quot;Polaris YAML 示例文件&quot;&gt;&lt;/a&gt;Polaris YAML 示例文件&lt;/h4&gt;
     
