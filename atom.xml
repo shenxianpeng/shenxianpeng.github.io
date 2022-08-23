@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-07-29T06:59:49.000Z</updated>
+  <updated>2022-08-23T07:13:07.243Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>三个月陪产假期间的个人计划和周报</title>
+    <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
+    <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
+    <published>2022-08-23T07:06:01.000Z</published>
+    <updated>2022-08-23T07:13:07.243Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;有幸赶上了公司的政策变化，我会有 12 周的陪产假来照顾家人，但希望抽空假期间也能继续保持进步。&lt;/p&gt;
+&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+      <category term="Report" scheme="https://shenxianpeng.github.io/tags/report/"/>
+    
+  </entry>
   
   <entry>
     <title>How to create GPG keys and add to GitHub</title>
@@ -41,32 +68,6 @@
       <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
       <category term="GPG" scheme="https://shenxianpeng.github.io/tags/gpg/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>当爸爸了 &amp; 未来三个月陪产假期间的个人计划和周报</title>
-    <link href="https://shenxianpeng.github.io/2022/06/to-be-a-father/"/>
-    <id>https://shenxianpeng.github.io/2022/06/to-be-a-father/</id>
-    <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2022-08-01T07:36:08.302Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;感恩&quot;&gt;&lt;a href=&quot;#感恩&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
-    
-    
-      <category term="Father" scheme="https://shenxianpeng.github.io/tags/father/"/>
     
   </entry>
   
@@ -686,9 +687,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
       <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
+    
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
