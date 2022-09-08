@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-07-29T06:59:49.000Z</updated>
+  <updated>2022-09-08T02:10:04.116Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于 C/C++ 代码格式化 &amp; 静态分析的持续集成（CI）实践</title>
+    <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
+    <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
+    <published>2022-08-23T09:27:31.000Z</published>
+    <updated>2022-09-08T02:10:04.116Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;正如标题所说本篇主要介绍对于 C&amp;#x2F;C++ 项目的代码格式化以及静态分析实践分享。&lt;/p&gt;
+&lt;p&gt;目前 C&amp;#x2F;C++ 语言的代码格式化和检查工具使用的最为广泛的是使用 &lt;a href=&quot;https://llvm.org/&quot;&gt;LLVM&lt;/a&gt; 项目中的 &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+      <category term="Clang-Format" scheme="https://shenxianpeng.github.io/tags/clang-format/"/>
+    
+      <category term="Clang-Tidy" scheme="https://shenxianpeng.github.io/tags/clang-tidy/"/>
+    
+      <category term="Clang" scheme="https://shenxianpeng.github.io/tags/clang/"/>
+    
+  </entry>
   
   <entry>
     <title>How to create GPG keys and add to GitHub</title>
@@ -45,11 +76,11 @@
   </entry>
   
   <entry>
-    <title>三个月陪产假期间的个人计划和周报</title>
+    <title>12 周的陪产假我一刻都没闲着</title>
     <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
     <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2022-08-23T07:19:58.208Z</updated>
+    <updated>2022-09-08T02:25:28.640Z</updated>
     
     <summary type="html">
     
@@ -57,8 +88,9 @@
       
         
         
-          &lt;p&gt;有幸赶上了公司的政策变化，我会有 12 周的陪产假来照顾家人，但希望抽空假期间也能继续保持进步。&lt;/p&gt;
-&lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot;
+          &lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
+&lt;p&gt;照顾孩子兼顾学习真不是一件轻松的事情，我尽力兼顾了两者，做了如下的流水账记录。&lt;/p&gt;
+&lt;h2
         
       
     
@@ -462,9 +494,9 @@
     
       <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
     
-      <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
-    
       <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+      <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     
   </entry>
   
@@ -806,35 +838,6 @@
       <category term="Coverity" scheme="https://shenxianpeng.github.io/tags/coverity/"/>
     
       <category term="Security" scheme="https://shenxianpeng.github.io/tags/security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git 常用命令备忘录</title>
-    <link href="https://shenxianpeng.github.io/2021/10/git-cheatsheet/"/>
-    <id>https://shenxianpeng.github.io/2021/10/git-cheatsheet/</id>
-    <published>2021-10-23T11:40:06.000Z</published>
-    <updated>2021-11-22T15:24:03.032Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;不管是对于 Git 的初学者还是经常使用 Git 的码农们，在日常工作中难免会有遇到有的命令一时想不起来。不妨将下面总结的一些 Git 常用命令及技巧收藏或打印出来，以备需要的时候可以很快找到。&lt;/p&gt;
-&lt;h2 id=&quot;git-config&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
-    
-    
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
-    
-      <category term="Cheatsheet" scheme="https://shenxianpeng.github.io/tags/cheatsheet/"/>
     
   </entry>
   

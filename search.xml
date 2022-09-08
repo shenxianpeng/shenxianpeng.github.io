@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>关于 C/C++ 代码格式化 &amp; 静态分析的持续集成（CI）实践</title>
+      <link href="/2022/08/cpp-linter/"/>
+      <url>/2022/08/cpp-linter/</url>
+      
+        <content type="html"><![CDATA[<p>正如标题所说本篇主要介绍对于 C&#x2F;C++ 项目的代码格式化以及静态分析实践分享。</p><p>目前 C&#x2F;C++ 语言的代码格式化和检查工具使用的最为广泛的是使用 <a href="https://llvm.org/">LLVM</a> 项目中的 <a href="https://clang.llvm.org/docs/ClangFormat.html">Clang-Format</a> 和 <a href="https://clang.llvm.org/extra/clang-tidy/">Clang-Tidy</a>。</p><blockquote><p>LLVM 项目是模块化和可重用的编译器和工具链技术的集合。</p></blockquote><p>通常使用 clang-format 和 clang-tidy 可以在 IDE 中安装插件，然后利用 IDE 进行代码的格式化和静态检查。但这样的问题是：</p><ul><li>当有多个开发人员时，他们可能会使用不同的 IDE，这样在不同的 IDE 上安装插件需要比较高的学习成本。</li><li>另外没法保证所有开发人员在提交代码的时候运行了 Clang-Format 或 Clang-Tidy。</li></ul><p>那么怎样确保每次提交代码都执行了 Clang-Format 或 Clang-Tidy 呢？有两个办法：</p><ol><li>通过 CI 在代码合并前做自动检查，如果没有 CI 没有通过无法进行 Merge，这样倒逼开发提交代码之前执行 Clang-Format 和 Clang-Tidy 的操作。</li><li>通过 git hook 让开发提交代码的时候自动执行 Clang-Format 和 Clang-Tidy，如果不符合规范则提示并自动 Format，如果符合规范则提交成功。</li></ol><p>下面分别介绍这两种方法。</p><h2 id="通过-CI-在代码合并前做自动检查"><a href="#通过-CI-在代码合并前做自动检查" class="headerlink" title="通过 CI 在代码合并前做自动检查"></a>通过 CI 在代码合并前做自动检查</h2><p>如果你的代码是放在 GitHub 上，那么非常建议你使用 <a href="https://github.com/cpp-linter/cpp-linter-action">cpp-linter-action</a> 这个 GitHub Action，以下是它的一些重要特性：</p><ol><li>运行结果支持 Annotations 和 Thread Comment 两种方式展示</li><li>支持 GitHub 的 public 和 private 仓库</li><li>支持绝大多数 Clang 版本，从最新版本 <code>v14</code> 到最旧版本 <code>v3</code></li><li>还有很多其他的 <a href="https://github.com/cpp-linter/cpp-linter-action#optional-inputs">optional-inputs</a></li></ol><p>那么如何来使用这个 Action，只需要在 <code>.github/workflows/</code> 下面创建一个 cpp-linter.yml，内容如下：</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">cpp-linter</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">    <span class="attr">types:</span> [<span class="string">opened</span>, <span class="string">reopened</span>]</span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">cpp-linter:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v3</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">cpp-linter/cpp-linter-action@v1</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">linter</span></span><br><span class="line">        <span class="attr">env:</span></span><br><span class="line">          <span class="attr">GITHUB_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">style:</span> <span class="string">file</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Fail</span> <span class="string">fast?!</span></span><br><span class="line">        <span class="attr">if:</span> <span class="string">steps.linter.outputs.checks-failed</span> <span class="string">&gt;</span> <span class="number">0</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          echo &quot;Some files failed the linting checks!&quot;</span></span><br><span class="line"><span class="string">          exit 1</span></span><br></pre></td></tr></table></figure><p>如果发现没有进行格式化的代码或是静态检查问题，这个 workflow 就会失败，并且默认会有如下注释说明，默认是开启的。</p><p><img src="/2022/08/cpp-linter/annotations.png" alt="annotations"></p><p>如果开启了 Thread Comment 选项（即 <code>thread-comments: true</code>）就会将在 Pull Request 中自动添加下面的错误评论。</p><p><img src="/2022/08/cpp-linter/comment.png" alt="comment"></p><p>目前该项目已经受到了很多知名项目所使用，在 GitHub Marketplace 上面搜索它的排名也非常靠前，开发者也在积极维护可以放心使用。</p><p><img src="/2022/08/cpp-linter/search-result.png" alt="Search results"></p><p>如果你使用的不是 GitHub 作为代码管理工具，比如 Bitbucket，GitLab 等，可以直接使用该项目的 core package <a href="https://github.com/cpp-linter/cpp-linter">cpp-linter</a></p><p>注意 annotations 和 comment 这两个功能目前只支持 GitHub，该项目未来考虑支持其他 SCM，像 Bitbucket，GitLab。</p><h2 id="通过-git-hook-在提交代码时自动检查"><a href="#通过-git-hook-在提交代码时自动检查" class="headerlink" title="通过 git hook 在提交代码时自动检查"></a>通过 git hook 在提交代码时自动检查</h2><p>cpp-linter 还提供了另外一种方式：即通过 git hook 在提交代码时自动检查，这种方式不限制使用任何 SCM。</p><p>只需要在项目仓库中添加一个 <code>.pre-commit-config.yaml</code> 配置文件，然后将 <a href="https://github.com/cpp-linter/cpp-linter-hooks">cpp-linter-hooks</a> 这个 hook 添加进去，具体设置如下：</p><blockquote><p><code>.pre-commit-config.yaml</code> 是 <a href="https://pre-commit.com/"><code>pre-commit</code></a> framework 的默认配置文件。</p></blockquote><ol><li><p>安装 <code>pre-commit</code> 。</p> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install pre-commit</span><br></pre></td></tr></table></figure></li><li><p>添加 <code>pre-commit</code> 的配置文件，更多配置可以参考 <a href="https://github.com/cpp-linter/cpp-linter-hooks">README</a></p> <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">repos:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">repo:</span> <span class="string">https://github.com/cpp-linter/cpp-linter-hooks</span></span><br><span class="line">  <span class="attr">rev:</span> <span class="string">v0.2.1</span></span><br><span class="line">  <span class="attr">hooks:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">clang-format</span></span><br><span class="line">      <span class="attr">args:</span> [<span class="string">--style=file</span>]  <span class="comment"># to load .clang-format</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">clang-tidy</span></span><br><span class="line">      <span class="attr">args:</span> [<span class="string">--checks=.clang-tidy</span>] <span class="comment"># path/to/.clang-tidy</span></span><br></pre></td></tr></table></figure><blockquote><p>这里的 file 是指 <code>.clang-format</code>, clang-format 默认支持的编码格式包括 LLVM, GNU, Google, Chromium, Microsoft, Mozilla, WebKit，如果需要特殊设置可以在仓库的根目录下面创建配置文件 <code>.clang-format</code>。同理，如果默认的静态分析设置不满足要求，可以在仓库的根目录下创建 <code>.clang-tidy</code> 配置文件。</p></blockquote></li><li><p>安装 git hook 脚本</p> <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ pre-commit install</span><br><span class="line">pre-commit installed at .git/hooks/pre-commit</span><br></pre></td></tr></table></figure></li><li><p>之后每次提交代码都会自动执行 clang-format 和 chang-tidy。</p><p> 如果检查到没有格式化或有静态分析错误，会提示如下错误信息：</p><p> chang-format 的输出</p> <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang-format.............................................................Failed</span><br><span class="line">- hook <span class="built_in">id</span>: clang-format</span><br><span class="line">- files were modified by this hook</span><br></pre></td></tr></table></figure><p> 并自动帮你进行格式化</p> <figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="comment">--- a/testing/main.c</span></span><br><span class="line"><span class="comment">+++ b/testing/main.c</span></span><br><span class="line"><span class="meta">@@ -1,3 +1,6 @@</span></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"><span class="deletion">-int main() &#123;for (;;) break; printf(&quot;Hello world!\n&quot;);return 0;&#125;</span></span><br><span class="line"><span class="deletion">-</span></span><br><span class="line"><span class="addition">+int main() &#123;</span></span><br><span class="line"><span class="addition">+  for (;;) break;</span></span><br><span class="line"><span class="addition">+  printf(&quot;Hello world!\n&quot;);</span></span><br><span class="line"><span class="addition">+  return 0;</span></span><br><span class="line"><span class="addition">+&#125;</span></span><br></pre></td></tr></table></figure><p> chang-tidy 的输出</p> <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang-tidy...............................................................Failed</span><br><span class="line">- hook <span class="built_in">id</span>: clang-tidy</span><br><span class="line">- <span class="built_in">exit</span> code: 1</span><br><span class="line"></span><br><span class="line">418 warnings and 1 error generated.</span><br><span class="line">Error <span class="keyword">while</span> processing /home/ubuntu/cpp-linter-hooks/testing/main.c.</span><br><span class="line">Suppressed 417 warnings (417 <span class="keyword">in</span> non-user code).</span><br><span class="line">Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.</span><br><span class="line">Found compiler error(s).</span><br><span class="line">/home/ubuntu/cpp-linter-hooks/testing/main.c:3:11: warning: statement should be inside braces [readability-braces-around-statements]</span><br><span class="line">  <span class="keyword">for</span> (;;) <span class="built_in">break</span>;</span><br><span class="line">          ^</span><br><span class="line">          &#123;</span><br><span class="line">/usr/include/stdio.h:33:10: error: <span class="string">&#x27;stddef.h&#x27;</span> file not found [clang-diagnostic-error]</span><br><span class="line"><span class="comment">#include &lt;stddef.h&gt;</span></span><br><span class="line">        ^~~~~~~~~~</span><br></pre></td></tr></table></figure></li></ol><h2 id="选择-CI-还是-git-hook"><a href="#选择-CI-还是-git-hook" class="headerlink" title="选择 CI 还是 git hook"></a>选择 CI 还是 git hook</h2><p>当然也可以两个都选。</p><p>如果你的团队已经在使用 <a href="https://pre-commit.com/"><code>pre-commit</code></a>，那么推荐使用 git hook，只需要添加 <a href="https://github.com/cpp-linter/cpp-linter-hooks">cpp-linter-hooks</a> 即可。</p><p>如果不希望引入 <code>pre-commit</code> 则可以通过添加 CI 来进行检查。</p><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> DevOps </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Clang-Format </tag>
+            
+            <tag> Clang-Tidy </tag>
+            
+            <tag> Clang </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to create GPG keys and add to GitHub</title>
       <link href="/2022/07/create-gpg-keys/"/>
       <url>/2022/07/create-gpg-keys/</url>
@@ -31,11 +60,11 @@
     
     
     <entry>
-      <title>三个月陪产假期间的个人计划和周报</title>
+      <title>12 周的陪产假我一刻都没闲着</title>
       <link href="/2022/06/vacation-weekly-report/"/>
       <url>/2022/06/vacation-weekly-report/</url>
       
-        <content type="html"><![CDATA[<p>有幸赶上了公司的政策变化，我会有 12 周的陪产假来照顾家人，但希望抽空假期间也能继续保持进步。</p><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>除了看娃之外，我需要抽空来做点自己的事，毕竟很少有机会能一次性休三个月（12周的陪产假），已经快要过去了2周，我要更有计划的来完成一些任务，目前的计划是：</p><ul><li>完成《代码整洁之道》、《重构》以及《动手学习深度学习这三本书》的阅读和豆瓣评论</li><li>为 pre-commit 写一个 clang-format 和 clang-tidy 的 <code>cpp-linter-hooks</code></li><li>完成每个月 15 节英语课以及 3~4 的体育锻炼（游泳和足球）</li><li>找打一个可以作为长期业余贡献的项目</li></ul><p>从休假的第 2 周开始，我会继续在这篇文章的下方更新周报。</p><h2 id="周报"><a href="#周报" class="headerlink" title="周报"></a>周报</h2><p>第 11~12 周（8.15 - 8.28）- 最后两周</p><p>时间过得太快了，不知不觉就是假期的组后两周了。</p><ul><li><input disabled type="checkbox"> Validate VMs</li><li><input disabled type="checkbox"> 希望能找到一个新的项目作为长久的学习和技能精进，想参与到 pytest，tox，pypa 组织中。</li><li><input disabled type="checkbox"> 发表关于 <code>setuptools_scm</code> 的使用。</li><li><input disabled type="checkbox"> 在 cpp-linter Org 中做一些项目的修改和代码评审</li></ul><p>第 10 周（8.8 - 8.14）- 最后三周</p><ul><li>Validate VMs</li><li>总结关于 <code>setuptools_scm</code> 的使用。</li></ul><p>第 9 周（8.1 - 8.7）- 时间过得真快，转眼就到了陪产假的最后 4 周了</p><ul><li>Draft 一篇关于参与开源的文章</li><li>做了一些工作，以及 Troubleshooting support；参与开源项目和 Code Review。</li><li>游泳以及完成《重构》书评</li></ul><p>第 8 周（7.25 - 7.31）</p><ul><li>做 <code>cpp-linter</code> 里的一些项目的更新，做 Artifactory 的迁移和测试。</li><li>这周计划做的事情世纪没完成几样，比如写文章和看书。</li><li>游泳</li></ul><p>第 7 周（7.18 - 7.24）</p><ul><li>发现 Python 真是入门容易学好难… 初步学了一下 tox 和 mypy，会之后的 project 中尝试使用。</li><li>重构了代码，本打算并把 Code Coverage 写到 100 %，但没实现，pytest 还需要继续学。</li><li>在琢磨一个有意思的可以作为长期业余时间来做的项目，目前有个模糊的雏形，先试试看</li><li>《重构》书没怎么读，周六游泳可以继续</li></ul><p>第 6 周（7.11 - 7.17）</p><ul><li>完成了 <code>cpp-linter-hooks</code> 功能的开发并把它迁移到 cpp-linter org 下面。</li><li>创建了 <code>.github</code> 仓库，对于 org 这是一个很神奇的残酷，玩法很多，还在陆续探索中。</li><li>终于把读 Code Clean 的书评交了，还需继续读完成任务。</li><li>周五发了一篇公众号文章，是之前写的，整理终于发出了，这是 3 个月以来的第一次更新。</li><li>周日去游一次泳。</li></ul><p>第 5 周（7.4 - 7.10）</p><ul><li>上周主要是抽空写 <code>clang-tools-pip</code> 和 <code>cpp-linter-hooks</code> 这两个功能，目前完成大概 70%，预计本周可以基本结束。</li><li>工作上也花了点时间，修复了之前写的 pipeline 的几个问题</li><li>上周开始读《重构》了，但没多少时间花在读书上，没读几页。一致想更新公号文章，可惜挺花时间的</li><li>上周日游泳也没游，因为脖子坏了，可能是喂奶低头造成的 :(</li></ul><p>第 3 - 4 周：</p><ul><li>《代码整洁之道》 P56 - P130</li><li>在实现 <code>cpp-linter-hooks</code> 之前需要实现 install clang-tools with pip, 因此我创建了 <code>clang-tools-pip</code></li><li>去市游泳馆游了一次泳，第二次本已约好但临时有事取消了</li></ul><p>第 2 周：</p><ul><li>《代码整洁之道》 P26 - P56</li><li>创建了 <code>cpp-linter-hooks</code> 仓库，学习别人的代码</li><li>计划本周末和乔教练去游泳</li></ul><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
+        <content type="html"><![CDATA[<p>有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。</p><p>照顾孩子兼顾学习真不是一件轻松的事情，我尽力兼顾了两者，做了如下的流水账记录。</p><h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>我知道 12 周会很快过去，就在已经快要过去了 2 周时我决定有计划的来完成一些任务，比如：</p><ul><li><input disabled type="checkbox"> 完成《代码整洁之道》、《重构》以及《动手学习深度学习这三本书》的阅读和豆瓣评论</li><li><input disabled type="checkbox"> 为 pre-commit 写一个 clang-format 和 clang-tidy 的 <code>cpp-linter-hooks</code></li><li><input disabled type="checkbox"> 完成每个月 15 节英语课以及 3~4 的体育锻炼（游泳和足球）</li><li><input disabled type="checkbox"> 找一个可以作为长期业余参与的开源项目，例如 pytest，tox，pypa。</li></ul><p>也就是从休假的第 2 周开始，我开始记录每周的完成的小任务。</p><h2 id="周报"><a href="#周报" class="headerlink" title="周报"></a>周报</h2><p>第 11~12 周（8.15 - 8.28）- 最后两周</p><p>时间过得太快了，不知不觉就是假期的最后两周了。</p><ul><li>Validate VMs</li><li>更新关于 <code>setuptools_scm</code> 的使用。</li><li>在 cpp-linter Org 中做一些项目的修改和代码评审</li></ul><p>第 10 周（8.8 - 8.14）- 最后三周</p><ul><li>Validate VMs</li><li>总结关于 <code>setuptools_scm</code> 的使用。</li></ul><p>第 9 周（8.1 - 8.7）- 时间过得真快，转眼就到了陪产假的最后 4 周了</p><ul><li>Draft 一篇关于参与开源的文章</li><li>做了一些工作，以及 Troubleshooting support；参与开源项目和 Code Review。</li><li>游泳以及完成《重构》书评</li></ul><p>第 8 周（7.25 - 7.31）</p><ul><li>做 <code>cpp-linter</code> 里的一些项目的更新，做 Artifactory 的迁移和测试。</li><li>这周计划做的事情世纪没完成几样，比如写文章和看书。</li><li>游泳</li></ul><p>第 7 周（7.18 - 7.24）</p><ul><li>发现 Python 真是入门容易学好难… 初步学了一下 tox 和 mypy，会之后的 project 中尝试使用。</li><li>重构了代码，本打算并把 Code Coverage 写到 100 %，但没实现，pytest 还需要继续学。</li><li>在琢磨一个有意思的可以作为长期业余时间来做的项目，目前有个模糊的雏形，先试试看</li><li>《重构》书没怎么读，周六游泳可以继续</li></ul><p>第 6 周（7.11 - 7.17）</p><ul><li>完成了 <code>cpp-linter-hooks</code> 功能的开发并把它迁移到 cpp-linter org 下面。</li><li>创建了 <code>.github</code> 仓库，对于 org 这是一个很神奇的残酷，玩法很多，还在陆续探索中。</li><li>终于把读 Code Clean 的书评交了，还需继续读完成任务。</li><li>周五发了一篇公众号文章，是之前写的，整理终于发出了，这是 3 个月以来的第一次更新。</li><li>周日去游一次泳。</li></ul><p>第 5 周（7.4 - 7.10）</p><ul><li>上周主要是抽空写 <code>clang-tools-pip</code> 和 <code>cpp-linter-hooks</code> 这两个功能，目前完成大概 70%，预计本周可以基本结束。</li><li>工作上也花了点时间，修复了之前写的 pipeline 的几个问题</li><li>上周开始读《重构》了，但没多少时间花在读书上，没读几页。一致想更新公号文章，可惜挺花时间的</li><li>上周日游泳也没游，因为脖子坏了，可能是喂奶低头造成的 :(</li></ul><p>第 3 - 4 周：</p><ul><li>《代码整洁之道》 P56 - P130</li><li>在实现 <code>cpp-linter-hooks</code> 之前需要实现 install clang-tools with pip, 因此我创建了 <code>clang-tools-pip</code></li><li>去市游泳馆游了一次泳，第二次本已约好但临时有事取消了</li></ul><p>第 2 周：</p><ul><li>《代码整洁之道》 P26 - P56</li><li>创建了 <code>cpp-linter-hooks</code> 仓库，学习别人的代码</li><li>计划本周末和乔教练去游泳</li></ul><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
       
       
       <categories>
@@ -306,9 +335,9 @@
             
             <tag> VirtualBox </tag>
             
-            <tag> Vagrant </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Vagrant </tag>
             
         </tags>
       
@@ -663,9 +692,9 @@
       
         <tags>
             
-            <tag> LDAP </tag>
-            
             <tag> SonarQube </tag>
+            
+            <tag> LDAP </tag>
             
             <tag> PostgreSQL </tag>
             
@@ -991,9 +1020,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1045,9 +1074,9 @@
             
             <tag> JaCoCo </tag>
             
-            <tag> Gradle </tag>
-            
             <tag> Coverage </tag>
+            
+            <tag> Gradle </tag>
             
         </tags>
       
@@ -1380,9 +1409,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -1490,9 +1519,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -1893,9 +1922,9 @@
             
             <tag> Troubleshooting </tag>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
@@ -2024,9 +2053,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> GitHub </tag>
-            
             <tag> Bitbucket </tag>
+            
+            <tag> GitHub </tag>
             
         </tags>
       
@@ -2417,9 +2446,9 @@
       
         <tags>
             
-            <tag> Thought </tag>
-            
             <tag> Summary </tag>
+            
+            <tag> Thought </tag>
             
         </tags>
       
@@ -2631,9 +2660,9 @@
       
         <tags>
             
-            <tag> JFrog </tag>
-            
             <tag> Artifactory </tag>
+            
+            <tag> JFrog </tag>
             
         </tags>
       
