@@ -4,18 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ERROR: Error cloning remote repo &#39;origin&#39; timeout=10 | Peter Shen</title>
+  <title>Jenkins troubleshooting summary | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Jenkins 问题解决记录（一）最近 Jenkins Build 不知为何总是 git clone 失败，报这个错误,  ERROR: Error cloning remote repo ‘origin’。  我首先怀疑是网络原因，我们的 Bitbucket 在 Git clone 时所占带宽很大造成短暂断网情况，怀疑是 IT 更改了 Bitbucket 的设置，但我手动去那台 agent 上执">
+  <meta name="description" content="ERROR: Error cloning remote repo ‘origin’ timeout&#x3D;10Recently, my Jenkins build failed when execute git clone with following this error message: ERROR: Error cloning remote repo ‘origin’.  first I">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ERROR: Error cloning remote repo &#39;origin&#39; timeout&#x3D;10">
+<meta property="og:title" content="Jenkins troubleshooting summary">
 <meta property="og:url" content="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="Jenkins 问题解决记录（一）最近 Jenkins Build 不知为何总是 git clone 失败，报这个错误,  ERROR: Error cloning remote repo ‘origin’。  我首先怀疑是网络原因，我们的 Bitbucket 在 Git clone 时所占带宽很大造成短暂断网情况，怀疑是 IT 更改了 Bitbucket 的设置，但我手动去那台 agent 上执">
+<meta property="og:description" content="ERROR: Error cloning remote repo ‘origin’ timeout&#x3D;10Recently, my Jenkins build failed when execute git clone with following this error message: ERROR: Error cloning remote repo ‘origin’.  first I">
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/advanced-clone-behaviour.png">
 <meta property="article:published_time" content="2019-08-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-16T16:02:27.538Z">
+<meta property="article:modified_time" content="2022-09-09T10:02:32.108Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Troubleshooting">
@@ -114,7 +114,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      ERROR: Error cloning remote repo &#39;origin&#39; timeout=10
+      Jenkins troubleshooting summary
     </h1>
   
 
@@ -123,17 +123,26 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Jenkins-问题解决记录（一）"><a href="#Jenkins-问题解决记录（一）" class="headerlink" title="Jenkins 问题解决记录（一）"></a>Jenkins 问题解决记录（一）</h2><p>最近 Jenkins Build 不知为何总是 git clone 失败，报这个错误,  ERROR: Error cloning remote repo ‘origin’。</p>
+        <h2 id="ERROR-Error-cloning-remote-repo-‘origin’-timeout-x3D-10"><a href="#ERROR-Error-cloning-remote-repo-‘origin’-timeout-x3D-10" class="headerlink" title="ERROR: Error cloning remote repo ‘origin’ timeout&#x3D;10"></a>ERROR: Error cloning remote repo ‘origin’ timeout&#x3D;10</h2><p>Recently, my Jenkins build failed when execute <code>git clone</code> with following this error message: ERROR: Error cloning remote repo ‘origin’.</p>
 <ol>
-<li>我首先怀疑是网络原因，我们的 Bitbucket 在 Git clone 时所占带宽很大造成短暂断网情况，怀疑是 IT 更改了 Bitbucket 的设置，但我手动去那台 agent 上执行却没问题，好像跟 IT 无关</li>
-<li>再看日志这里有一处显示 timeout&#x3D;10，这时候我突然想起来前些日子我删除了非常大的一个文件夹，然后做了一次提交，这会导致我们的仓库增大，在做一次完整的 clone 的时候所需要的时间可能超过 Jenkins 默认 10 分钟。</li>
+<li>first I suspect it is the network reason, maybe because clone from Bitbucket need took up a lot bandwidth during <code>git clone</code> and causing this disconnection. but when I try to git clone on the agent, it works well.</li>
+<li>Then I noticed the there is <code>timeout=10</code> in the Jenkins console log, I suddenly remembered that I deleted a very large folder a few days ago from git repo, and this may cause the repo more bigger, so it may take more time do a complete clone and it exceeds the Jenkins default clone timeout <code>10</code>.</li>
 </ol>
-<p>去 Google 搜索最后找到这个 issue JENKINS-47660，和我的问题一样。</p>
+<p>Googling and finally I found this issue JENKINS-47660 which is the same problem as mine.</p>
 <span id="more"></span>
 
-<h2 id="解决办法-Troubleshooting"><a href="#解决办法-Troubleshooting" class="headerlink" title="解决办法 Troubleshooting"></a>解决办法 Troubleshooting</h2><p>最终我找到 Git clone 有个 Behaviors 属性，找到里面的 Advanced clone behaviours 功能，将 Fetch tags 去掉（因为我暂时不用，去掉也可能减少那么一丁点的时间吧），勾选了 Shallow clone，然后将 Shallow clone depth 设置为 1，（这个设置等同于 –depth 1），Timeout 时间从 10 分钟改为 15 分钟。最终的设置如图：</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Finally I found the the property of Advanced clone behaviors in Git clone in Jenkins, an checked Shallow clone then set Shallow clone depth equals to 1. (This setting is equivalent to –depth 1), and I changed timeout from 10 minutes to 15 minutes.</p>
 <p><img src="/2019/08/jenkins-troubleshooting/advanced-clone-behaviour.png" alt="Advanced clone behaviours"></p>
 <h2 id="Full-Log-below"><a href="#Full-Log-below" class="headerlink" title="Full Log below"></a>Full Log below</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">using credential d1cbab74-823d-41aa-abb7</span><br><span class="line"> Wiping out workspace first.</span><br><span class="line"> Cloning the remote Git repository</span><br><span class="line"> Cloning with configured refspecs honoured and without tags</span><br><span class="line"> Cloning repository https://git.company.com/scm/db/blog.git</span><br><span class="line">  &gt; C:\Program Files\Git\bin\git.exe init C:\agent\workspace\develop # timeout=10</span><br><span class="line"> Fetching upstream changes from https://git.company.com/scm/db/blog.git</span><br><span class="line">  &gt; C:\Program Files\Git\bin\git.exe --version # timeout=10</span><br><span class="line"> using GIT_ASKPASS to set credentials blwmv</span><br><span class="line">  &gt; C:\Program Files\Git\bin\git.exe fetch --no-tags --progress https://git.company.com/scm/db/blog.git +refs/heads/develop:refs/remotes/origin/develop</span><br><span class="line"> ERROR: Error cloning remote repo &#x27;origin&#x27;</span><br><span class="line"> hudson.plugins.git.GitException: Command &quot;C:\Program Files\Git\bin\git.exe fetch --no-tags --progress https://git.company.com/scm/db/blog.git +refs/heads/develop:refs/remotes/origin/develop&quot; returned status code 130:</span><br><span class="line"> stdout:</span><br><span class="line"> stderr: remote: Counting objects: 1</span><br><span class="line">remote: Counting objects: 242690, done.</span><br><span class="line"> remote: Compressing objects:   0% (1/75028)</span><br><span class="line">remote: Compressing objects:   1% (751/75028)</span><br><span class="line">remote: Compressing objects:   2% (1501/75028)</span><br><span class="line">remote: Compressing objects:   3% (2251/75028)</span><br><span class="line">remote: Compressing objects:   4% (3002/75028)</span><br><span class="line">remote: Compressing objects:   5% (3752/75028)</span><br><span class="line">... ...</span><br><span class="line">remote: Compressing objects: 100% (75028/75028), done.</span><br><span class="line"> Receiving objects:   0% (1/242690)</span><br><span class="line">Receiving objects:   1% (2427/242690)</span><br><span class="line">Receiving objects:   1% (4762/242690), 972.00 KiB | 949.00 KiB/s</span><br><span class="line">Receiving objects:   2% (4854/242690), 972.00 KiB | 949.00 KiB/s</span><br><span class="line">Receiving objects:   3% (7281/242690), 1.38 MiB | 919.00 KiB/s</span><br><span class="line">Receiving objects:   3% (8998/242690), 1.82 MiB | 645.00 KiB/s</span><br><span class="line">Receiving objects:   4% (9708/242690), 1.82 MiB | 645.00 KiB/s</span><br><span class="line">Receiving objects:   4% (9778/242690), 1.82 MiB | 645.00 KiB/s</span><br><span class="line">Receiving objects:   5% (12135/242690), 1.82 MiB | 645.00 KiB/s</span><br><span class="line">... ...</span><br><span class="line">Receiving objects:  86% (209321/242690), 1.01 GiB | 2.08 MiB/s</span><br><span class="line"> 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2042)</span><br><span class="line"> 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandWithCredentials(CliGitAPIImpl.java:1761)</span><br><span class="line"> 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.access$400(CliGitAPIImpl.java:72)</span><br><span class="line"> 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$1.execute(CliGitAPIImpl.java:442)</span><br><span class="line"> 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:655)</span><br><span class="line"> 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler$1.call(RemoteGitImpl.java:153)</span><br><span class="line"> 	at org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler$1.call(RemoteGitImpl.java:146)</span><br><span class="line"> 	at hudson.remoting.UserRequest.perform(UserRequest.java:212)</span><br><span class="line"> 	at hudson.remoting.UserRequest.perform(UserRequest.java:54)</span><br><span class="line"> 	at hudson.remoting.Request$2.run(Request.java:369)</span><br><span class="line"> 	at hudson.remoting.InterceptingExecutorService$1.call(InterceptingExecutorService.java:72)</span><br><span class="line"> 	at java.util.concurrent.FutureTask.run(Unknown Source)</span><br><span class="line"> 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)</span><br><span class="line"> 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)</span><br><span class="line"> 	at java.lang.Thread.run(Unknown Source)</span><br><span class="line"> 	Suppressed: hudson.remoting.Channel$CallSiteStackTrace: Remote call to dendevu2uvbw01</span><br><span class="line"> 		at hudson.remoting.Channel.attachCallSiteStackTrace(Channel.java:1743)</span><br><span class="line"> 		at hudson.remoting.UserRequest$ExceptionResponse.retrieve(UserRequest.java:357)</span><br><span class="line"> 		at hudson.remoting.Channel.call(Channel.java:957)</span><br><span class="line"> 		at org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler.execute(RemoteGitImpl.java:146)</span><br><span class="line"> 		at sun.reflect.GeneratedMethodAccessor1074.invoke(Unknown Source)</span><br><span class="line"> 		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line"> 		at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line"> 		at org.jenkinsci.plugins.gitclient.RemoteGitImpl$CommandInvocationHandler.invoke(RemoteGitImpl.java:132)</span><br><span class="line"> 		at com.sun.proxy.$Proxy124.execute(Unknown Source)</span><br><span class="line"> 		at hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1152)</span><br><span class="line"> 		at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1192)</span><br><span class="line"> 		at org.jenkinsci.plugins.workflow.steps.scm.SCMStep.checkout(SCMStep.java:124)</span><br><span class="line"> 		at org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:93)</span><br><span class="line"> 		at org.jenkinsci.plugins.workflow.steps.scm.SCMStep$StepExecutionImpl.run(SCMStep.java:80)</span><br><span class="line"> 		at org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:47)</span><br><span class="line"> 		at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)</span><br><span class="line"> 		at java.util.concurrent.FutureTask.run(FutureTask.java:266)</span><br><span class="line"> 		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)</span><br><span class="line"> 		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)</span><br><span class="line"> 		at java.lang.Thread.run(Thread.java:748)</span><br><span class="line"> [Pipeline] &#125;</span><br><span class="line"> [Pipeline] // ws</span><br><span class="line"> [Pipeline] &#125;</span><br><span class="line"> [Pipeline] // node</span><br><span class="line"> [Pipeline] &#125;</span><br><span class="line"> [Pipeline] // stage</span><br><span class="line"> [Pipeline] &#125;</span><br><span class="line"> Failed in branch Windows build</span><br></pre></td></tr></table></figure>
+
+<h2 id="java-io-IOException-error-x3D-24-Too-many-open-files"><a href="#java-io-IOException-error-x3D-24-Too-many-open-files" class="headerlink" title="java.io.IOException: error&#x3D;24, Too many open files"></a>java.io.IOException: error&#x3D;24, Too many open files</h2><p>I’m using a centos VM as Jenkins server, recently I have this problem “java.io.IOException: error&#x3D;24, Too many open files”, and run any Jenkins job will be failure.</p>
+<ol>
+<li>Run <code>ulimit -n</code> the default value on my machine is <code>1024</code>.</li>
+<li>Run <code>ulimit -n 4096</code> to increase this value to <code>4096</code> solved my problem</li>
+</ol>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/46065008/too-many-open-files-error-cant-open-jenkins-after-installing-many-plugins">https://stackoverflow.com/questions/46065008/too-many-open-files-error-cant-open-jenkins-after-installing-many-plugins</a></p>
+</blockquote>
 
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -148,7 +157,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="cl7sfihq900a8zgfoe69fffau" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="cl7ubh1er00a3lgfo61a55uw6" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>

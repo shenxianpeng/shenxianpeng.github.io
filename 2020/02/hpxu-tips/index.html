@@ -14,7 +14,7 @@
 <meta property="og:description" content="安装 Java8安装包下载链接是 https:&#x2F;&#x2F;h20392.www2.hpe.com&#x2F;portal&#x2F;swdepot&#x2F;displayProductInfo.do?productNumber&#x3D;JDKJRE8018 需要先注册，然后登陆后才能下载，我下载的是 Itanium_JDK_8.0.18_June_2019_Z7550-96733_java8_18018_ia.depot 在线安装文档 ht">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-02-05T02:28:37.000Z">
-<meta property="article:modified_time" content="2021-07-15T16:10:51.571Z">
+<meta property="article:modified_time" content="2022-09-09T10:08:26.079Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="HP-UX">
 <meta name="twitter:card" content="summary">
@@ -138,6 +138,21 @@ ga('send', 'pageview');
 <p>如果你机器上已经有 zip 和 gunzip 了，只需要软连接一下即可，防止出现命令找不到的问题</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/sudo <span class="built_in">ln</span> -s /usr/contrib/bin/gzip /usr/bin/gzip</span><br><span class="line">/usr/bin/sudo <span class="built_in">ln</span> -s /usr/contrib/bin/gunzip /usr/bin/gunzip</span><br></pre></td></tr></table></figure>
 
+<h2 id="Can-not-use-bash-in-HP-UX"><a href="#Can-not-use-bash-in-HP-UX" class="headerlink" title="Can not use bash in HP-UX"></a>Can not use <code>bash</code> in HP-UX</h2><p>For example, when you run <code>bash</code> command, you have the following error:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ bash</span><br><span class="line">/usr/lib/hpux64/dld.so: Unable to find library <span class="string">&#x27;libtermcap.so&#x27;</span>.</span><br></pre></td></tr></table></figure>
+
+<p>Here is the solution：<a target="_blank" rel="noopener" href="https://community.hpe.com/t5/HP-UX-General/Unable-to-use-bash-for-ia-machine-11-23/m-p/3980789#M128592">https://community.hpe.com/t5/HP-UX-General/Unable-to-use-bash-for-ia-machine-11-23/m-p/3980789#M128592</a></p>
+<p>It bcasue the <code>LIBTERMCAP</code> is not installed, you can go <a target="_blank" rel="noopener" href="http://hpux.connect.org.uk/hppd/hpux/Shells/bash-3.2/">here</a> to see <code>bash</code>‘s dependencies include <code>gettext</code> <code>libiconv</code> <code>termcap</code>, etc.</p>
+<p>Here are two very useful commands of install and uninstall.</p>
+<ul>
+<li><p>Download <code>bash</code> to command <code>depothelper</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">depothelper bash</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>If you wang to remove the package on your HP-UX system, you can run the command</p>
+<p> <code>sudo /usr/sbin/swremove [package-name]</code></p>
+</li>
+</ul>
+
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
@@ -151,7 +166,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/02/hpxu-tips/" data-id="cl7sfihn0005kzgfo4xif98wu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/02/hpxu-tips/" data-id="cl7ubh19h003qlgfo1g1c2uuc" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/02/hpxu-tips/#disqus_thread" class="article-comment-link">Comments</a>

@@ -136,7 +136,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/" data-id="cl7sfihqo00atzgfocefc676d" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/" data-id="cl7ubh1f800amlgfo11wlhos7" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/11/Jenkins-privilege-management/#disqus_thread" class="article-comment-link">Comments</a>
@@ -204,7 +204,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/nfs/" data-id="cl7sfihqc00abzgfobau06keo" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/nfs/" data-id="cl7ubh1f000a9lgfoceqo3267" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/nfs/#disqus_thread" class="article-comment-link">Comments</a>
@@ -274,7 +274,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="cl7sfihqf00afzgfofetkd341" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="cl7ubh1et00a6lgfob67l5ez6" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/#disqus_thread" class="article-comment-link">Comments</a>
@@ -359,7 +359,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="cl7sfihpy009uzgfod71t7ovj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/git-commit-squash/" data-id="cl7ubh1ek009ulgfo5dld06ci" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/git-commit-squash/#disqus_thread" class="article-comment-link">Comments</a>
@@ -397,7 +397,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/jenkins-troubleshooting/">ERROR: Error cloning remote repo &#39;origin&#39; timeout=10</a>
+      <a class="article-title" href="/2019/08/jenkins-troubleshooting/">Jenkins troubleshooting summary</a>
     </h1>
   
 
@@ -406,12 +406,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Jenkins-问题解决记录（一）"><a href="#Jenkins-问题解决记录（一）" class="headerlink" title="Jenkins 问题解决记录（一）"></a>Jenkins 问题解决记录（一）</h2><p>最近 Jenkins Build 不知为何总是 git clone 失败，报这个错误,  ERROR: Error cloning remote repo ‘origin’。</p>
+        <h2 id="ERROR-Error-cloning-remote-repo-‘origin’-timeout-x3D-10"><a href="#ERROR-Error-cloning-remote-repo-‘origin’-timeout-x3D-10" class="headerlink" title="ERROR: Error cloning remote repo ‘origin’ timeout&#x3D;10"></a>ERROR: Error cloning remote repo ‘origin’ timeout&#x3D;10</h2><p>Recently, my Jenkins build failed when execute <code>git clone</code> with following this error message: ERROR: Error cloning remote repo ‘origin’.</p>
 <ol>
-<li>我首先怀疑是网络原因，我们的 Bitbucket 在 Git clone 时所占带宽很大造成短暂断网情况，怀疑是 IT 更改了 Bitbucket 的设置，但我手动去那台 agent 上执行却没问题，好像跟 IT 无关</li>
-<li>再看日志这里有一处显示 timeout&#x3D;10，这时候我突然想起来前些日子我删除了非常大的一个文件夹，然后做了一次提交，这会导致我们的仓库增大，在做一次完整的 clone 的时候所需要的时间可能超过 Jenkins 默认 10 分钟。</li>
+<li>first I suspect it is the network reason, maybe because clone from Bitbucket need took up a lot bandwidth during <code>git clone</code> and causing this disconnection. but when I try to git clone on the agent, it works well.</li>
+<li>Then I noticed the there is <code>timeout=10</code> in the Jenkins console log, I suddenly remembered that I deleted a very large folder a few days ago from git repo, and this may cause the repo more bigger, so it may take more time do a complete clone and it exceeds the Jenkins default clone timeout <code>10</code>.</li>
 </ol>
-<p>去 Google 搜索最后找到这个 issue JENKINS-47660，和我的问题一样。</p>
+<p>Googling and finally I found this issue JENKINS-47660 which is the same problem as mine.</p>
         
           <p class="article-more-link">
             <a href="/2019/08/jenkins-troubleshooting/#more">Read More</a>
@@ -430,7 +430,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="cl7sfihq900a8zgfoe69fffau" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/" data-id="cl7ubh1er00a3lgfo61a55uw6" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
@@ -496,7 +496,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/" data-id="cl7sfihq300a1zgfofx53frac" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/" data-id="cl7ubh1em009xlgfoenl75byd" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-lock-resource/#disqus_thread" class="article-comment-link">Comments</a>
@@ -562,7 +562,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/" data-id="cl7sfihq500a5zgfo4pm49b43" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/" data-id="cl7ubh1ep00a1lgfo2cssgl9x" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/08/jenkins-multi-branch-pipeline/#disqus_thread" class="article-comment-link">Comments</a>
@@ -631,7 +631,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/07/git-branching-strategy/" data-id="cl7sfihpt009nzgfodx99133a" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/07/git-branching-strategy/" data-id="cl7ubh1e9009hlgfo2qrw90zh" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/07/git-branching-strategy/#disqus_thread" class="article-comment-link">Comments</a>
@@ -697,7 +697,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/07/git-push-by-Jenkins/" data-id="cl7sfihq1009yzgfo4lz81yys" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/07/git-push-by-Jenkins/" data-id="cl7ubh1eh009qlgfoadvadsty" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/07/git-push-by-Jenkins/#disqus_thread" class="article-comment-link">Comments</a>
@@ -763,7 +763,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/07/execute-sudo-without-password/" data-id="cl7sfihpr009kzgfofmsjbsgh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/07/execute-sudo-without-password/" data-id="cl7ubh1eb009klgfohh5u8ohx" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/07/execute-sudo-without-password/#disqus_thread" class="article-comment-link">Comments</a>
