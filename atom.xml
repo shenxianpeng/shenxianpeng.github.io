@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-09-11T07:10:14.153Z</updated>
+  <updated>2022-09-11T09:23:27.677Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>终于为 C/C++ 代码格式化和静态分析检查找到了一站式 CI 工作流</title>
+    <title>C/C++ 代码格式化和静态分析检查的一站式的解决方案</title>
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2022-09-11T07:10:14.153Z</updated>
+    <updated>2022-09-11T09:23:27.677Z</updated>
     
     <summary type="html">
     
@@ -491,9 +491,9 @@
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
     
     
-      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
-    
       <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    
+      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     

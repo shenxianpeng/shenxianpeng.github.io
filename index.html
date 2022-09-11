@@ -108,7 +108,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/cpp-linter/">终于为 C/C++ 代码格式化和静态分析检查找到了一站式 CI 工作流</a>
+      <a class="article-title" href="/2022/08/cpp-linter/">C/C++ 代码格式化和静态分析检查的一站式的解决方案</a>
     </h1>
   
 
@@ -121,14 +121,14 @@ ga('send', 'pageview');
 <blockquote>
 <p>LLVM 项目是模块化和可重用的编译器和工具链技术的集合。</p>
 </blockquote>
-<p>关于 C&#x2F;C++ 代码格式化和静态分析检查用到是 LLVM 项目中 clang-format 和 clang-tidy，放在一起我们称它为 clang-tools。</p>
-<p>虽然我们有了工具，但<strong>如何把工具更好的集成到我们的工作流中</strong>才是本篇要讨论的。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/cpp-linter">cpp-linter</a> 组织应运而生，它提供了：</p>
+<p>对于 C&#x2F;C++ 代码格式化和静态分析检查用到是 LLVM 项目中 clang-format 和 clang-tidy，放在一起我们称它为 clang-tools。</p>
+<p>虽然我们有了工具，但<strong>如何把工具更好的集成到我们的工作流中</strong>才是本篇重点要讨论的。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cpp-linter">cpp-linter</a> 组织的诞生就是为 C&#x2F;C++ 代码格式化和静态分析检查提供一站式的工作流，主要包括：</p>
 <ol>
-<li>更方便的下载 clang-tools。提供了下载 Docker images 和 binaries；</li>
-<li>更方便的与 CI 工作流进行集成，包括 cpp-linter-action 和 cpp-linter-hooks。</li>
+<li>方便的下载 clang-tools，提供了下载 Docker images 和 binaries；</li>
+<li>方便的与 CI 工作流进行集成，包括 cpp-linter-action 和 cpp-linter-hooks。</li>
 </ol>
-<p>下面我想分别介绍如何使用工具并集成到 CI 工作流中。</p>
+<p>下面分别介绍如何使用 clang-tools 下载工具，以及集成到工作流中。</p>
 <h2 id="下载-clang-tools-Docker-images"><a href="#下载-clang-tools-Docker-images" class="headerlink" title="下载 clang-tools Docker images"></a>下载 clang-tools Docker images</h2><p>如果你想通过 Docker 来使用 clang-format 和 clang-tidy，<a target="_blank" rel="noopener" href="https://github.com/cpp-linter/clang-tools">clang-tools</a> 项目是来提供 Docker 镜像。</p>
 <p>例如：下载 clang-tools 镜像，使用 clang-format 来进行代码格式化</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查 clang-format 版本</span></span><br><span class="line">$ docker run xianpengshen/clang-tools:12 clang-format --version</span><br><span class="line">Ubuntu clang-format version 12.0.0-3ubuntu1~20.04.4</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化代码 (helloworld.c 在仓库的 demo 目录下)</span></span><br><span class="line">$ docker run -v <span class="variable">$PWD</span>:/src xianpengshen/clang-tools:12 clang-format --dry-run -i helloworld.c</span><br></pre></td></tr></table></figure>
@@ -227,7 +227,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="cl7wzz6ux00d8hwfohbi109v8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="cl7x4qln800p58gfo56rlefbj" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/08/cpp-linter/#disqus_thread" class="article-comment-link">Comments</a>
@@ -300,7 +300,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/07/create-gpg-keys/" data-id="cl7wzz6ue00cbhwfo1ly7ce0u" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/07/create-gpg-keys/" data-id="cl7x4qln700p38gfobpnn3q0f" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/#disqus_thread" class="article-comment-link">Comments</a>
@@ -431,7 +431,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/" data-id="cl7wzz6u400bshwfo9jfp2kc5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/" data-id="cl7x4qln500p18gfogb0g4gj7" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/#disqus_thread" class="article-comment-link">Comments</a>
@@ -535,7 +535,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/04/wsl/" data-id="cl7wzz6u600bvhwfo3wh19pdj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/04/wsl/" data-id="cl7x4qlk300fd8gfoa3r26uvy" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/04/wsl/#disqus_thread" class="article-comment-link">Comments</a>
@@ -616,7 +616,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/container-ecosystem/" data-id="cl7wzz6ua00c2hwfobqw90648" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/container-ecosystem/" data-id="cl7x4qlk800fi8gfoglw39yey" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/container-ecosystem/#disqus_thread" class="article-comment-link">Comments</a>
@@ -690,7 +690,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/" data-id="cl7wzz6uc00c8hwfo1ysc30xh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/" data-id="cl7x4qlkf00fq8gfogh5neanf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/#disqus_thread" class="article-comment-link">Comments</a>
@@ -778,7 +778,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/unfork-github-repo/" data-id="cl7wzz6uh00cehwfo2mred458" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/unfork-github-repo/" data-id="cl7x4qln400p08gfo73xcfz8d" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/#disqus_thread" class="article-comment-link">Comments</a>
@@ -872,7 +872,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/groovy/" data-id="cl7wzz6ub00c5hwfo8l496bl9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/groovy/" data-id="cl7x4qlkh00fu8gfog5r7bt2g" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/groovy/#disqus_thread" class="article-comment-link">Comments</a>
@@ -963,7 +963,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="cl7wzz6u700bxhwfo5aamcl63" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="cl7x4qlkd00fn8gfo7z1rc4xl" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1048,7 +1048,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/02/devops-trends-2022/" data-id="cl7wzz6u200blhwfo2ck5dlco" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/02/devops-trends-2022/" data-id="cl7x4qlk200fa8gfoe3kqfhk9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1093,7 +1093,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/08/cpp-linter/">终于为 C/C++ 代码格式化和静态分析检查找到了一站式 CI 工作流</a>
+            <a href="/2022/08/cpp-linter/">C/C++ 代码格式化和静态分析检查的一站式的解决方案</a>
           </li>
         
           <li>
