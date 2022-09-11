@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-09-08T02:10:04.116Z</updated>
+  <updated>2022-09-11T07:10:14.153Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于 C/C++ 代码格式化 &amp; 静态分析的持续集成（CI）实践</title>
+    <title>终于为 C/C++ 代码格式化和静态分析检查找到了一站式 CI 工作流</title>
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2022-09-08T02:10:04.116Z</updated>
+    <updated>2022-09-11T07:10:14.153Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;p&gt;正如标题所说本篇主要介绍对于 C&amp;#x2F;C++ 项目的代码格式化以及静态分析实践分享。&lt;/p&gt;
-&lt;p&gt;目前 C&amp;#x2F;C++ 语言的代码格式化和检查工具使用的最为广泛的是使用 &lt;a href=&quot;https://llvm.org/&quot;&gt;LLVM&lt;/a&gt; 项目中的 &lt;a
+          &lt;p&gt;目前 C&amp;#x2F;C++ 语言的代码格式化和检查工具使用的最为广泛的是使用 &lt;a href=&quot;https://llvm.org/&quot;&gt;LLVM&lt;/a&gt; 项目中的 &lt;a
         
       
     
@@ -492,9 +491,9 @@
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
     
     
-      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
-    
       <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
     
       <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     
