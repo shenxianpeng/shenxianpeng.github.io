@@ -159,7 +159,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/" data-id="cl7x4qlk500fg8gfo5zlvgsq8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/" data-id="cl7x7wk2m00fnl4foc5os7wvi" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/#disqus_thread" class="article-comment-link">Comments</a>
@@ -213,50 +213,6 @@ ga('send', 'pageview');
 <p>那么什么情况下应该用 Vagrant，什么情况下用 Docker 呢？</p>
 <p><strong>所以如果你仅仅是想管理虚拟机，那么你应该使用 Vagrant；如果你想快速开发和部署应用，那么应该使用 Docker。</strong></p>
 <p>下面具体来说说为什么。</p>
-<p>Vagrant 是 VM 的管理工具，或是说编排工具；Docker 是用来构建、运行、管理容器的工具。那么这个问题其实落在了虚拟机（VM）和 容器（Container）的区别。</p>
-<p>引用网络上一组照片来感受一下物理机（Host），虚拟机（VM）和 容器（Container）之间的区别。</p>
-<p>物理机（Host）</p>
-<p><img src="/2022/01/vagrant-vs-docker/host.jpg" alt="物理机"></p>
-<p>虚拟机（VM）</p>
-<p><img src="/2022/01/vagrant-vs-docker/vm.jpg" alt="虚拟机"></p>
-<p>容器（Container）</p>
-<p><img src="/2022/01/vagrant-vs-docker/docker.jpg" alt="Docker"></p>
-<p>从图上我们更容易理解虚拟机（VM）和容器（Container）的这些不同：</p>
-<table>
-<thead>
-<tr>
-<th>特性</th>
-<th>虚拟机</th>
-<th>容器</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>隔离级别</td>
-<td>操作系统级</td>
-<td>进程级别</td>
-</tr>
-<tr>
-<td>隔离策略</td>
-<td>Hypervisor</td>
-<td>CGROUPS</td>
-</tr>
-<tr>
-<td>系统资源</td>
-<td>5 - 15%</td>
-<td>0 - 5%</td>
-</tr>
-<tr>
-<td>启动时间</td>
-<td>分钟级</td>
-<td>秒级</td>
-</tr>
-<tr>
-<td>镜像存储</td>
-<td>GB</td>
-<td>MB</td>
-</tr>
-</tbody></table>
-<p>总结：Vagrant 和 Docker 的使用场景区别</p>
         
           <p class="article-more-link">
             <a href="/2022/01/vagrant-vs-docker/#more">Read More</a>
@@ -275,7 +231,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/" data-id="cl7x4qljx00ez8gfo7kzu73pr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/" data-id="cl7x7wk2c00fbl4fo0ofz5xkj" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/#disqus_thread" class="article-comment-link">Comments</a>
@@ -326,31 +282,7 @@ ga('send', 'pageview');
 <p>例如，它可以基于 VirtualBox、VMware、KVM、Hyper-V 和 AWS 甚至是 Docker 等提供商来构建开发环境。它通过简化虚拟化的软件配置管理，来提高开发效率。</p>
 <p>Vagrant 是用 Ruby 语言开发的，但它的生态系统支持使用其他几种语言进行开发。</p>
 <p>简单来说 Vagrant 是对传统虚拟机的一层封装，能够让你更方便的使用虚拟开发环境。</p>
-<h2 id="Vagrant-的发展史"><a href="#Vagrant-的发展史" class="headerlink" title="Vagrant 的发展史"></a>Vagrant 的发展史</h2><p>Vagrant 最初是由 <a target="_blank" rel="noopener" href="https://www.hashicorp.com/about?name=mitchell-hashimoto">Mitchell Hashimoto</a> 于 2010 年 1 月作为个人项目启动的。</p>
-<p>Vagrant 的第一个版本于 2010 年 3 月发布。2010 年 10 月，Engine Yard 宣布他们将赞助 Vagrant 项目。</p>
-<p>Vagrant 的第一个稳定版本 Vagrant 1.0 于 2012 年 3 月发布，正好是原始版本发布两年后。</p>
-<p>同年 11 月，Mitchell 成立了 HashiCorp 公司，以支持 Vagrant 的全职开发。Vagrant 仍然是开源软件，HashiCorp 公司致力于创建商业版本，并为 Vagrant 提供专业支持和培训。</p>
-<p>现在 HashiCorp 已经成为世界顶级开源公司，它通过一系列的产品，包括 Vagrant，Packer（打包），Momad（部署），Terraform（配置云环境），Vault（权限管理） 以及 Consul（监控），从端到端重新定义了整个 DevOps。</p>
-<p>Vagrant 最初支持 VirtualBox，在 1.1 版增加了对其他虚拟化软件（如 VMware 和 KVM）的支持，以及对 Amazon EC2 等服务器环境的支持。从 1.6 版开始，Vagrant 原生支持 Docker 容器，在某些情况下可以替代完全虚拟化的操作系统。</p>
-<h2 id="如何使用-Vagrant"><a href="#如何使用-Vagrant" class="headerlink" title="如何使用 Vagrant"></a>如何使用 Vagrant</h2><p>使用 Vagrant 的前提条件：</p>
-<ol>
-<li>安装 Vagrant。下载 <a target="_blank" rel="noopener" href="https://www.vagrantup.com/downloads">Vagrant</a></li>
-<li>安装 <a target="_blank" rel="noopener" href="https://www.virtualbox.org/">VirtualBox</a></li>
-</ol>
-<p>当以上两个都准备好了，你就可以通过命令行创建并使用你的虚拟机了。</p>
-<p>比如你需要一个 <a target="_blank" rel="noopener" href="https://app.vagrantup.com/hashicorp/boxes/bionic64">Ubuntu 18.04 LTS 64-bit</a>的虚拟机。更多其他的虚拟机可以到 <a target="_blank" rel="noopener" href="https://app.vagrantup.com/boxes/search">Box</a> 网站上去搜索查找，它类似于 Docker Hub，用户可以在上面下载和上传各种 Vagrant Box。</p>
-<p>你只需执行一些简单的命令就可以完成启动、登录、退出、及销毁。</p>
-<p>初始化 Vagrant</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant init hashicorp/bionic64</span><br></pre></td></tr></table></figure>
-
-<p>启动虚拟机。大概几十秒钟就可以完成了（第一次需要下载镜像，时间会长一点，取决于网速）。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
-
-<p>登录你的虚拟机，然后可以使用你创建的 Ubuntu 虚拟机了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
-
-<p>当你不想用的时候，执行 <code>logout</code> 就可以退出登录了。</p>
-<h2 id="Vagrant-和传统虚拟机软件的区别"><a href="#Vagrant-和传统虚拟机软件的区别" class="headerlink" title="Vagrant 和传统虚拟机软件的区别"></a>Vagrant 和传统虚拟机软件的区别</h2>
+<h2 id="Vagrant-的发展史"><a href="#Vagrant-的发展史" class="headerlink" title="Vagrant 的发展史"></a>Vagrant 的发展史</h2>
         
           <p class="article-more-link">
             <a href="/2022/01/vagrant/#more">Read More</a>
@@ -369,7 +301,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/vagrant/" data-id="cl7x4qljy00f28gfo7aqu2t2p" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/01/vagrant/" data-id="cl7x7wk2a00f8l4fo449c8ynu" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/01/vagrant/#disqus_thread" class="article-comment-link">Comments</a>
@@ -429,17 +361,6 @@ ga('send', 'pageview');
 <li>不断发展的合作伙伴、社区和工具生态系统</li>
 </ul>
 <p>今天，Go 被用于各种应用程序：</p>
-<ul>
-<li>Go 在基于云或服务器端的应用程序中很受欢迎</li>
-<li>云基础设施方面。当今最流行的基础设施工具是用 Go 编写的，例如 Kubernetes、Docker 和 Prometheus</li>
-<li>许多命令行工具都是用 Go 编写的</li>
-<li>DevOps 和 Web 可靠性自动化也常常用 Go 来写</li>
-<li>Go 也被用于人工智能和数据科学领域</li>
-<li>微控制器编程、机器人技术和游戏中使用也会使用 Go</li>
-</ul>
-<p>这也就是为什么 Go 越来越流行。</p>
-<p>正是因为这些优势以及在工作上的需要写一个 CLI，我就入门 Go 语言了。</p>
-<h2 id="Go-语言的排名"><a href="#Go-语言的排名" class="headerlink" title="Go 语言的排名"></a>Go 语言的排名</h2><p>Go 语言在国内热度可谓是非常高了，我们来看看 Go 语言目前最新的排名怎么样。</p>
         
           <p class="article-more-link">
             <a href="/2022/01/what-is-go/#more">Read More</a>
@@ -458,7 +379,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/what-is-go/" data-id="cl7x4qlk100f78gfo099e9s2z" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/01/what-is-go/" data-id="cl7x7wk2900f5l4fo30r32r24" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/01/what-is-go/#disqus_thread" class="article-comment-link">Comments</a>
@@ -549,7 +470,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/docker-best-practice/" data-id="cl7x4qlng00ps8gfo0jcacm8s" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/01/docker-best-practice/" data-id="cl7x7wk7000pwl4fo1n3fc4vo" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/01/docker-best-practice/#disqus_thread" class="article-comment-link">Comments</a>
@@ -618,7 +539,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/12/choose-monitor/" data-id="cl7x4qlju00es8gfohl0o8st6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/12/choose-monitor/" data-id="cl7x7wjy4008dl4foevqf8p4n" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/12/choose-monitor/#disqus_thread" class="article-comment-link">Comments</a>
@@ -857,7 +778,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/12/cicd-assessment/" data-id="cl7x4qljv00ev8gfo90oz685n" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/12/cicd-assessment/" data-id="cl7x7wjy7008jl4foggtjbux6" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/12/cicd-assessment/#disqus_thread" class="article-comment-link">Comments</a>
@@ -931,7 +852,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/11/special-repository/" data-id="cl7x4qljo00ed8gfo0incd6zu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/11/special-repository/" data-id="cl7x7wjxy007zl4foba1v9qlz" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/11/special-repository/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1010,7 +931,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/11/world-quality-report/" data-id="cl7x4qljp00eg8gfo6v132ukp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/11/world-quality-report/" data-id="cl7x7wjxz0082l4foefo7hkd9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/11/world-quality-report/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1131,7 +1052,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/10/what-is-polaris/" data-id="cl7x4qljt00eo8gfoeh40ff72" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/10/what-is-polaris/" data-id="cl7x7wjxv007vl4foe6og5yqc" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/10/what-is-polaris/#disqus_thread" class="article-comment-link">Comments</a>

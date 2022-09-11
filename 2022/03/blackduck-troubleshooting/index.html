@@ -14,7 +14,7 @@
 <meta property="og:description" content="DetailsFailure: PIP - Pip Inspector  The Pip Inspector tree parse failed to produce output.Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures while extracting dependencies.  F">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-02T06:54:11.000Z">
-<meta property="article:modified_time" content="2022-03-28T16:29:16.892Z">
+<meta property="article:modified_time" content="2022-09-11T10:50:21.373Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Troubleshooting">
 <meta property="article:tag" content="BlackDuck">
@@ -136,7 +136,9 @@ ga('send', 'pageview');
 <li>Product: synopsys-detect-7.11.1.jar</li>
 <li>Others: OpenJDK 11, Python 3.6 and Python 2.7.5</li>
 </ul>
-<h2 id="Root-cause"><a href="#Root-cause" class="headerlink" title="Root cause"></a>Root cause</h2><p>More output of this run, I see it used <code>python</code> (which is python2) not <code>python3</code>,<br>so run <a target="_blank" rel="noopener" href="https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py">pip-inspector.py</a> failed.</p>
+<h2 id="Root-cause"><a href="#Root-cause" class="headerlink" title="Root cause"></a>Root cause</h2><span id="more"></span>
+
+<p>More output of this run, I see it used <code>python</code> (which is python2) not <code>python3</code>,<br>so run <a target="_blank" rel="noopener" href="https://github.com/blackducksoftware/synopsys-detect/blob/master/src/main/resources/pip-inspector.py">pip-inspector.py</a> failed.</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">DEBUG [main-Executable_Stream_Thread] --- Python 2.7.5</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[main] --- Running executable &gt;/usr/bin/python /home/****/blackduck/runs/2022-03-01-07-45-05-986/shared/pip/pip-inspector.py --projectname=<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Link python to python3, it works in my case.</p>
@@ -147,7 +149,7 @@ ga('send', 'pageview');
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/test --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING</span><br></pre></td></tr></table></figure>
 
 <p>If you want to use Docker to do Blackduck scan, you can create a Docker image. like this</p>
-<span id="more"></span>
+<!-- more -->
 
 <figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> openjdk:<span class="number">11</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set DETECT version you need, if it&#x27;s empty download the latest version.</span></span><br><span class="line"><span class="comment"># https://sig-repo.synopsys.com/artifactory/bds-integrations-release/com/synopsys/integration/synopsys-detect</span></span><br><span class="line"><span class="keyword">ENV</span> DETECT_LATEST_RELEASE_VERSION=<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt-get upgrade -y \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt-get install -y \</span></span><br><span class="line"><span class="language-bash">        git \</span></span><br><span class="line"><span class="language-bash">        python \</span></span><br><span class="line"><span class="language-bash">        pip \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt-get autoremove \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; apt-get clean</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> curl -sSOL https://detect.synopsys.com/detect7.sh &amp;&amp; bash detect7.sh --<span class="built_in">help</span> \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">rm</span> -rf /usr/bin/python \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; <span class="built_in">ln</span> -s /usr/bin/python3 /usr/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /src</span></span><br></pre></td></tr></table></figure>
 
@@ -168,7 +170,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="cl7x4qlkd00fn8gfo7z1rc4xl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="cl7x7wk2v00fzl4focb6a442k" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>

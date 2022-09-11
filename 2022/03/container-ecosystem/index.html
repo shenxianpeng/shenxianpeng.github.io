@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2022/03/container-ecosystem/docker.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2022/03/container-ecosystem/cri.png">
 <meta property="article:published_time" content="2022-03-29T12:52:42.000Z">
-<meta property="article:modified_time" content="2022-03-29T16:51:53.710Z">
+<meta property="article:modified_time" content="2022-09-11T10:47:59.203Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="containerd">
@@ -134,7 +134,9 @@ ga('send', 'pageview');
 <h2 id="容器生态系统"><a href="#容器生态系统" class="headerlink" title="容器生态系统"></a>容器生态系统</h2><p>容器生态系统是由许多令人兴奋的技术、大量的专业术语和大公司相互争斗组成的。</p>
 <p>幸运的是，这些公司偶尔会在休战中走到一起合作，商定一些标准，这些标准有助于使这个生态系统在不同的平台和操作系统之间更具互操作性，并减少对单一公司或项目的依赖。</p>
 <p>这张图显示了 Docker、Kubernetes、CRI、OCI、containerd 和 runc 在这个生态系统中是如何结合的。</p>
-<p><img src="/2022/03/container-ecosystem/container-ecosystem.png"></p>
+<span id="more"></span>
+
+<p><img src="/2022/03/container-ecosystem/container-ecosystem.png" alt="container ecosystem"></p>
 <p>其工作流程简单来说是这样的：</p>
 <ol>
 <li>Docker，Kubernetes 等工具来运行一个容器时会调用容器运行时（CRI）比如 containerd，CRI-O</li>
@@ -145,8 +147,6 @@ ga('send', 'pageview');
 </li>
 </ol>
 <p>下面就分别介绍图中所提到的术语和规范。</p>
-<span id="more"></span>
-
 <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p>首先我们从大家都很熟悉的 Docker 开始，因为它是管理容器的最流行的工具。对很多人来说”Docker”这个名字本身就是”容器”的代名词。</p>
 <p>Docker 启动了整个容器的革命，它创造了一个很好用的工具来处理容器也叫 Docker，这里最主要的要明白：</p>
 <ul>
@@ -211,7 +211,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/container-ecosystem/" data-id="cl7x4qlk800fi8gfoglw39yey" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/container-ecosystem/" data-id="cl7x7wk6c00orl4fohoaye8gd" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/container-ecosystem/#disqus_thread" class="article-comment-link">Comments</a>
