@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>C/C++ 代码格式化和静态分析检查的一站式的解决方案 | Peter Shen</title>
+  <title>C/C++ 代码格式化和静态分析检查的一站式工作流 Cpp Linter | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="目前 C&#x2F;C++ 语言的代码格式化和检查工具使用的最为广泛的是使用 LLVM 项目中的 Clang-Format 和 Clang-Tidy。  LLVM 项目是模块化和可重用的编译器和工具链技术的集合。  对于 C&#x2F;C++ 代码格式化和静态分析检查用到是 LLVM 项目中 clang-format 和 clang-tidy，放在一起我们称它为 clang-tools。 虽然我们">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C&#x2F;C++ 代码格式化和静态分析检查的一站式的解决方案">
+<meta property="og:title" content="C&#x2F;C++ 代码格式化和静态分析检查的一站式工作流 Cpp Linter">
 <meta property="og:url" content="https://shenxianpeng.github.io/2022/08/cpp-linter/index.html">
 <meta property="og:site_name" content="Peter Shen">
 <meta property="og:description" content="目前 C&#x2F;C++ 语言的代码格式化和检查工具使用的最为广泛的是使用 LLVM 项目中的 Clang-Format 和 Clang-Tidy。  LLVM 项目是模块化和可重用的编译器和工具链技术的集合。  对于 C&#x2F;C++ 代码格式化和静态分析检查用到是 LLVM 项目中 clang-format 和 clang-tidy，放在一起我们称它为 clang-tools。 虽然我们">
@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2022/08/cpp-linter/annotations.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2022/08/cpp-linter/comment.png">
 <meta property="article:published_time" content="2022-08-23T09:27:31.000Z">
-<meta property="article:modified_time" content="2022-09-11T10:46:07.105Z">
+<meta property="article:modified_time" content="2022-09-12T09:53:27.598Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Clang-Format">
 <meta property="article:tag" content="Clang-Tidy">
@@ -116,7 +116,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      C/C++ 代码格式化和静态分析检查的一站式的解决方案
+      C/C++ 代码格式化和静态分析检查的一站式工作流 Cpp Linter
     </h1>
   
 
@@ -133,8 +133,8 @@ ga('send', 'pageview');
 <p>虽然我们有了工具，但<strong>如何把工具更好的集成到我们的工作流中</strong>才是本篇重点要讨论的。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/cpp-linter">cpp-linter</a> 组织的诞生就是为 C&#x2F;C++ 代码格式化和静态分析检查提供一站式的工作流，主要包括：</p>
 <ol>
-<li>方便的下载 clang-tools，提供了下载 Docker images 和 binaries；</li>
-<li>方便的与 CI 工作流进行集成，包括 cpp-linter-action 和 cpp-linter-hooks。</li>
+<li>方便下载 clang-tools，提供了下载 Docker images 和 binaries；</li>
+<li>方便与 CI 工作流进行集成，包括 cpp-linter-action 和 cpp-linter-hooks。</li>
 </ol>
 <p>下面分别介绍如何使用 clang-tools 下载工具，以及集成到工作流中。</p>
 <span id="more"></span>
@@ -146,7 +146,7 @@ ga('send', 'pageview');
 <p>使用 clang-tidy 来进行代码格诊断</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看 clang-tidy 版本</span></span><br><span class="line">$ docker run xianpengshen/clang-tools:12 clang-tidy --version</span><br><span class="line">LLVM (http://llvm.org/):</span><br><span class="line">  LLVM version 12.0.0</span><br><span class="line"></span><br><span class="line">  Optimized build.</span><br><span class="line">  Default target: x86_64-pc-linux-gnu</span><br><span class="line">  Host CPU: cascadelake</span><br><span class="line"><span class="comment"># 诊断代码 (helloworld.c 在仓库的 demo 目录下)</span></span><br><span class="line">$ docker run -v <span class="variable">$PWD</span>:/src xianpengshen/clang-tools:12 clang-tidy helloworld.c \</span><br><span class="line">-checks=boost-*,bugprone-*,performance-*,readability-*,portability-*,modernize-*,clang-analyzer-cplusplus-*,clang-analyzer-*,cppcoreguidelines-*</span><br></pre></td></tr></table></figure>
 
-<h2 id="下载-clang-tools-binaries"><a href="#下载-clang-tools-binaries" class="headerlink" title="下载 clang-tools binaries"></a>下载 clang-tools binaries</h2><p>当如如果你需要下载 clang-tools binaries，以 Windows 为例，通常下载这指定版本 clang-tools 你需要先安装 LLVM 这个大的安装包才能获得 clang-format &amp; clang-tidy 这些工具；在 Linux 上会方便很多可以使用命令来下载，但如果想下载指定版本的 clang-format &amp; clang-tidy 也不是那么容易获得。</p>
+<h2 id="下载-clang-tools-binaries"><a href="#下载-clang-tools-binaries" class="headerlink" title="下载 clang-tools binaries"></a>下载 clang-tools binaries</h2><p>如果你需要下载 clang-tools binaries，以 Windows 为例，通常下载这指定版本 clang-tools 你需要先安装 LLVM 这个大的安装包才能获得 clang-format &amp; clang-tidy 这些工具；在 Linux 上会方便很多可以使用命令来下载，但如果想下载指定版本的 clang-format &amp; clang-tidy 也不是那么容易获得。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/cpp-linter/clang-tools-pip">clang-tools-pip</a> 项目提供了支持在 Windows，Linux，MacOs 上面通过命令行下载任何指定版本的 clang-tools 可执行文件。</p>
 <p>只需要通过 <code>pip</code> 安装 <code>clang-tools</code>，即 <code>pip install clang-tools</code>，然后通过 <code>clang-tools</code> 命令就可以安装任何版本的可执行文件了。</p>
 <p>例如，安装 clang-tools 版本 13：</p>
@@ -186,7 +186,7 @@ ga('send', 'pageview');
 <p><img src="/2022/08/cpp-linter/annotations.png" alt="annotations"></p>
 <p>如果开启了 Thread Comment 选项（即 <code>thread-comments: true</code>）就会将在 Pull Request 中自动添加下面的错误评论。</p>
 <p><img src="/2022/08/cpp-linter/comment.png" alt="comment"></p>
-<p>目前该项目已经受到了很多知名项目所使用，在 GitHub Marketplace 上面搜索它的排名也非常靠前，开发者也在积极维护可以放心使用。</p>
+<p>目前该项目已经有很多知名项目所使用，在 GitHub Marketplace 上面搜索它的排名也非常靠前，开发者也在积极维护可以放心使用。</p>
 <p>如果你使用的不是 GitHub 作为代码管理工具，比如 Bitbucket，GitLab 等，可以直接使用该项目的 core package <a target="_blank" rel="noopener" href="https://github.com/cpp-linter/cpp-linter">cpp-linter</a></p>
 <p>注意 annotations 和 comment 这两个功能目前只支持 GitHub，该项目未来考虑支持其他 SCM，像 Bitbucket，GitLab。</p>
 <h2 id="cpp-linter-hooks-在提交代码时自动检查"><a href="#cpp-linter-hooks-在提交代码时自动检查" class="headerlink" title="cpp-linter-hooks 在提交代码时自动检查"></a>cpp-linter-hooks 在提交代码时自动检查</h2><p><a target="_blank" rel="noopener" href="https://github.com/cpp-linter/cpp-linter-hooks">cpp-linter-hooks</a> 是通过 git hook 在提交代码时做自动检查，这种方式不限制使用任何 SCM。</p>
@@ -219,8 +219,10 @@ ga('send', 'pageview');
 <p> chang-tidy 的输出</p>
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">clang-tidy...............................................................Failed</span><br><span class="line">- hook <span class="built_in">id</span>: clang-tidy</span><br><span class="line">- <span class="built_in">exit</span> code: 1</span><br><span class="line"></span><br><span class="line">418 warnings and 1 error generated.</span><br><span class="line">Error <span class="keyword">while</span> processing /home/ubuntu/cpp-linter-hooks/testing/main.c.</span><br><span class="line">Suppressed 417 warnings (417 <span class="keyword">in</span> non-user code).</span><br><span class="line">Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.</span><br><span class="line">Found compiler error(s).</span><br><span class="line">/home/ubuntu/cpp-linter-hooks/testing/main.c:3:11: warning: statement should be inside braces [readability-braces-around-statements]</span><br><span class="line">  <span class="keyword">for</span> (;;) <span class="built_in">break</span>;</span><br><span class="line">          ^</span><br><span class="line">          &#123;</span><br><span class="line">/usr/include/stdio.h:33:10: error: <span class="string">&#x27;stddef.h&#x27;</span> file not found [clang-diagnostic-error]</span><br><span class="line"><span class="comment">#include &lt;stddef.h&gt;</span></span><br><span class="line">        ^~~~~~~~~~</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="选择-CI-还是-git-hook"><a href="#选择-CI-还是-git-hook" class="headerlink" title="选择 CI 还是 git hook"></a>选择 CI 还是 git hook</h2><p>如果你的团队已经在使用 <a target="_blank" rel="noopener" href="https://pre-commit.com/"><code>pre-commit</code></a>，那么推荐使用 git hook，只需要添加 <a target="_blank" rel="noopener" href="https://github.com/cpp-linter/cpp-linter-hooks">cpp-linter-hooks</a> 即可。如果不希望引入 <code>pre-commit</code> 则可以通过添加 CI 来进行检查。</p>
-<p>当然也可以两个都选。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>选择 CI 还是 git hook？</p>
+<p>如果你的团队已经在使用 pre-commit，那么推荐使用 git hook 这种方式，只需要添加 <a target="_blank" rel="noopener" href="https://github.com/cpp-linter/cpp-linter-hooks">cpp-linter-hooks</a> 即可。如果不希望引入 pre-commit 则可以通过添加 CI 来进行检查。当然也可以两个都选。</p>
+<p>cpp-linter 是我创建的，由 <a target="_blank" rel="noopener" href="https://github.com/2bndy5">Brendan Doherty</a> 和我为主要贡献者共同维护的开源项目，我们都是那种追求代码质量、力求构建最好的软件的人，为此这几乎花掉了我绝大多数的业余时间，但这个过程中也收获了很多。</p>
+<p>目前 cpp-linter 可以说是 GitHub 最好用的 C&#x2F;C++ Linter Action，欢迎大家使用，有什么意见或问题都可以通过 Issue 反馈。</p>
 <hr>
 <p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
 
@@ -237,7 +239,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="cl7x7wk2t00fvl4fodzrpeki2" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="cl7yl8tf400ovbgfo9e0ka250" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/08/cpp-linter/#disqus_thread" class="article-comment-link">Comments</a>
@@ -293,7 +295,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2022/08/cpp-linter/">C/C++ 代码格式化和静态分析检查的一站式的解决方案</a>
+            <a href="/2022/08/cpp-linter/">C/C++ 代码格式化和静态分析检查的一站式工作流 Cpp Linter</a>
           </li>
         
           <li>
