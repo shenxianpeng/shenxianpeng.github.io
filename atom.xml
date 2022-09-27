@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-09-16T02:30:37.057Z</updated>
+  <updated>2022-09-27T02:13:20.048Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,21 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>How to fix &quot;Temporary Failure in name resolution&quot; in WSL</title>
+    <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
+    <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
+    <published>2022-09-27T01:56:50.000Z</published>
+    <updated>2022-09-27T02:13:20.048Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
+&lt;h2 id=&quot;How-to-fix&quot;&gt;&lt;a href=&quot;#How-to-fix&quot; class=&quot;headerlink&quot; title=&quot;How to fix&quot;&gt;&lt;/a&gt;How to fix&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Inside WSL2, create or append file: &lt;code&gt;/etc/wsl.conf&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Put the following lines in the file in order to ensure the your DNS changes do not get blown away&lt;/p&gt;
+ &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo &lt;span class=&quot;built_in&quot;&gt;tee&lt;/span&gt; /etc/wsl.conf &amp;lt;&amp;lt; &lt;span class=&quot;string&quot;&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;[network]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;generateResolvConf = false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="OS" scheme="https://shenxianpeng.github.io/categories/os/"/>
+    
+    
+      <category term="WSL" scheme="https://shenxianpeng.github.io/tags/wsl/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Restrict others from login your important Linux machine</title>
     <link href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/"/>
     <id>https://shenxianpeng.github.io/2022/09/restrict-connect-server/</id>
     <published>2022-09-16T02:13:08.000Z</published>
-    <updated>2022-09-16T02:30:37.057Z</updated>
+    <updated>2022-09-27T02:11:26.130Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access
-        
-      
+      &lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
+&lt;p&gt;Modifying this setting &lt;code&gt;/etc/security/access.conf&lt;/code&gt; on Linux can do it.&lt;/p&gt;
+&lt;h2 id=&quot;How-to-setup&quot;&gt;&lt;a href=&quot;#How-to-setup&quot; class=&quot;headerlink&quot; title=&quot;How to setup&quot;&gt;&lt;/a&gt;How to setup&lt;/h2&gt;&lt;p&gt;I commented out the access settings for TEAM A, and add some user accounts can access.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#+ : (SRV_WW_TEAM_A_CompAdmin) : ALL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ : shenx, map, xiar : ALL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -632,44 +655,9 @@
       <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
-    
       <category term="Actions" scheme="https://shenxianpeng.github.io/tags/actions/"/>
     
-  </entry>
-  
-  <entry>
-    <title>2021-22 世界质量报告（World Quality Report）</title>
-    <link href="https://shenxianpeng.github.io/2021/11/world-quality-report/"/>
-    <id>https://shenxianpeng.github.io/2021/11/world-quality-report/</id>
-    <published>2021-11-06T07:57:10.000Z</published>
-    <updated>2021-11-22T14:45:37.084Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;2021-22 世界质量报告（World Quality Report 简称 WQR）是由 Micro Focus，Capgemini 和 Sogeti 三家公司合作的来分析软件质量和测试趋势在全球范围内唯一的报告。&lt;/p&gt;
-&lt;p&gt;这份报告共采访了 1750 名高管和专业人士。从最高管理层到 QA 测试经理和质量工程师，涵盖了来自全球 32 个国家的 10 个行业。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2021/11/world-quality-report/0.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;世界质量报告（WQR）是一项独一无二的全球研究，今年的调查强调了新部署方法中不断变化的受大流行影响的应用程序需求的影响，以及 QA 对敏捷和 DevOps 实践的采用，AI 的持续增长。&lt;/p&gt;
-&lt;p&gt;作为测试关注这类软件质量报告可以帮助我们快速了解软件测试行业的现状和趋势。&lt;/p&gt;
-&lt;h2 id=&quot;五大主题&quot;&gt;&lt;a href=&quot;#五大主题&quot; class=&quot;headerlink&quot; title=&quot;五大主题&quot;&gt;&lt;/a&gt;五大主题&lt;/h2&gt;&lt;p&gt;WQR 的一个关键信息：在新冠疫情依旧的今天，我们看到了数字化转型的融合以及敏捷和 DevOps 实践的实时采用。此外，QA 正在成为采用敏捷和 DevOps 实践的领导者，为团队提供工具和流程以促进整个软件生命周期（SDLC）的质量。&lt;/p&gt;
-&lt;p&gt;WQR 围绕关键发现和趋势突出了五个特定主题：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;新冠疫情对 QA 组织和软件测试的影响&lt;/li&gt;
-&lt;li&gt;数字化转型与 DevOps 和敏捷采用的实时融合以及 QA 在其中的日益重要的作用&lt;/li&gt;
-&lt;li&gt;地理上分散的团队在跨环境部署应用程序时专注于业务成果&lt;/li&gt;
-&lt;li&gt;人工智能 (AI) 增强了敏捷和 DevOps 在所有团队中培养不断增长的质量责任文化&lt;/li&gt;
-&lt;li&gt;使用 AI 驱动的持续测试和质量管理工具来解决客户体验优先事项和快速变化的受疫情影响的要求&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Quality" scheme="https://shenxianpeng.github.io/categories/quality/"/>
-    
-    
-      <category term="Report" scheme="https://shenxianpeng.github.io/tags/report/"/>
-    
-      <category term="Quality" scheme="https://shenxianpeng.github.io/tags/quality/"/>
+      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
     
   </entry>
   
