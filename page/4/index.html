@@ -42,7 +42,7 @@ ga('send', 'pageview');
 
   <script data-ad-client="ca-pub-3986315287795783" async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
   <div id="container">
@@ -199,7 +199,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/07/code-coverage/" data-id="cl913hi3300dfpsfod72g1msr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/07/code-coverage/" data-id="clb67xydw00dlkfouhcadbdt9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/07/code-coverage/#disqus_thread" class="article-comment-link">Comments</a>
@@ -350,7 +350,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/07/gcov-example/" data-id="cl913hi3600dipsfo1o5a6i2d" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/07/gcov-example/" data-id="clb67xydx00dokfou24yh6fpf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/07/gcov-example/#disqus_thread" class="article-comment-link">Comments</a>
@@ -418,7 +418,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/jenkins-timeout/" data-id="cl913hi2z00dapsfo4i7400ss" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/jenkins-timeout/" data-id="clb67xydv00dhkfouci412wja" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/jenkins-timeout/#disqus_thread" class="article-comment-link">Comments</a>
@@ -522,7 +522,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="cl913hi2x00d7psfoaqx98tyv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="clb67xydt00dfkfou6ebhde9x" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
@@ -569,17 +569,24 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近使用 AIX 7.1 从 Bitucket 下载代码的时候遇到了这个错误 <code>fatal: write error: A file cannot be larger than the value set by ulimit.</code></p>
+        <p>最近使用 AIX 7.1 从 Bitbucket 下载代码的时候遇到了这个错误：</p>
+<p><code>fatal: write error: A file cannot be larger than the value set by ulimit.</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">&#x27;opensrc&#x27;</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">fatal: write error: A file cannot be larger than the value <span class="built_in">set</span> by <span class="built_in">ulimit</span>.</span><br><span class="line">fatal: index-pack failed</span><br></pre></td></tr></table></figure>
 
-<p>这是由于这个仓库里的文件太大，超过了 AIX 对于用户文件资源使用的上限。通过 <code>ulimit -a</code> 可以来查看。更多关于 <code>ulimit</code> 命令的使用 <a target="_blank" rel="noopener" href="https://www.ibm.com/docs/en/aix/7.1?topic=u-ulimit-command">ulimit Command</a></p>
+<p>在 AIX 7.3 我遇到的是这个错误：</p>
+<p><code>fatal: fetch-pack: invalid index-pack output</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">&#x27;opensrc&#x27;</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">fatal: write error: File too large68), 1012.13 MiB | 15.38 MiB/s</span><br><span class="line">fatal: fetch-pack: invalid index-pack output</span><br></pre></td></tr></table></figure>
+
+<p>这是由于这个仓库里的文件太大，超过了 AIX 对于用户文件资源使用的上限。</p>
+<p>通过 <code>ulimit -a</code> 可以来查看。更多关于 <code>ulimit</code> 命令的使用 <a target="_blank" rel="noopener" href="https://www.ibm.com/docs/en/aix/7.1?topic=u-ulimit-command">ulimit Command</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         2097151</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
 
 <p>可以看到 file 有一个上限值 2097151。如果将它也改成 unlimited 应该就好了。</p>
 <p>通过 root 用户可以访问到 limits 文件 <code>/etc/security/limits</code>(普通用户没权限访问)。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以下是这个文件里的部分内容</span></span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">        fsize = 2097151</span><br><span class="line">        core = 2097151</span><br><span class="line">        cpu = -1</span><br><span class="line">        data = -1</span><br><span class="line">        rss = 65536</span><br><span class="line">        stack = 65536</span><br><span class="line">        nofiles = 2000</span><br></pre></td></tr></table></figure>
 
-<p>将上述的值 fsize &#x3D; 2097151 改成 fsize &#x3D; -1 就将解除了文件块大小的限制了。修改完成后，重新登录，再次执行 <code>ulimit -a</code></p>
+<p>将上述的值 fsize &#x3D; 2097151 改成 fsize &#x3D; -1 就将解除了文件块大小的限制了。修改完成后，<strong>重新登录</strong>来让这次修改生效。</p>
+<p>再次执行 <code>ulimit -a</code>，已经生效了。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
 
 <p>此时 file(blocks) 已经变成 unlimited 了。再次尝试 git clone</p>
@@ -600,7 +607,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="cl913hi2n00cvpsfo1yi9501o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="clb67xydp00d3kfou9oephjin" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/aix-ulimit/#disqus_thread" class="article-comment-link">Comments</a>
@@ -677,7 +684,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="cl913hi2r00czpsfofwoi6zwf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/" data-id="clb67xydq00d7kfoufo3o8jk1" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/artifactory-slow-upload/#disqus_thread" class="article-comment-link">Comments</a>
@@ -758,7 +765,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="cl913hi2u00d3psfoflqpdfqo" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/eslint-jenkins/" data-id="clb67xyds00dbkfou3r5a3pid" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/eslint-jenkins/#disqus_thread" class="article-comment-link">Comments</a>
@@ -844,7 +851,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="cl913hi2l00cspsfo9ojralfg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="clb67xydo00d0kfoubaer9ob5" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/git-guidelines/#disqus_thread" class="article-comment-link">Comments</a>
@@ -917,7 +924,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="cl913hi2f00cmpsfoc098gkxu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="clb67xydm00cwkfou95zbcnbm" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/#disqus_thread" class="article-comment-link">Comments</a>
@@ -999,7 +1006,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="cl913hi1y00cfpsfo52393c8u" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="clb67xydl00ctkfougk9v2npg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/#disqus_thread" class="article-comment-link">Comments</a>

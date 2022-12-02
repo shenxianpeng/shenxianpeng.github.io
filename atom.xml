@@ -3,10 +3,10 @@
   <title>Peter Shen</title>
   
   <subtitle>Share about CI/CD and DevOps</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-10-09T08:06:17.869Z</updated>
+  <updated>2022-12-02T08:02:52.592Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -14,35 +14,34 @@
     
   </author>
   
-  <generator uri="http://hexo.io/">Hexo</generator>
+  <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>How to implement [skip ci] for Jenkins multi-branch pipeline</title>
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2022-10-09T08:06:17.869Z</updated>
+    <updated>2022-12-02T08:02:52.592Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;When I want to implement [skip ci] or [ci skip] for Jenkins multi-branch pipeline, the existing plugin seems broken.&lt;/p&gt;
+    <summary type="html">&lt;p&gt;When I want to implement [skip ci] or [ci skip] for Jenkins multi-branch pipeline, the existing plugin seems broken.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a
+&lt;li&gt;&lt;a</summary>
         
       
     
-    </summary>
-    
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
-      <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+    <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
     
   </entry>
   
@@ -51,24 +50,23 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2022-09-27T02:13:20.048Z</updated>
+    <updated>2022-12-02T08:02:52.592Z</updated>
     
-    <summary type="html">
     
-      &lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
 &lt;h2 id=&quot;How-to-fix&quot;&gt;&lt;a href=&quot;#How-to-fix&quot; class=&quot;headerlink&quot; title=&quot;How to fix&quot;&gt;&lt;/a&gt;How to fix&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Inside WSL2, create or append file: &lt;code&gt;/etc/wsl.conf&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Put the following lines in the file in order to ensure the your DNS changes do not get blown away&lt;/p&gt;
  &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo &lt;span class=&quot;built_in&quot;&gt;tee&lt;/span&gt; /etc/wsl.conf &amp;lt;&amp;lt; &lt;span class=&quot;string&quot;&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;[network]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;generateResolvConf = false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="OS" scheme="https://shenxianpeng.github.io/categories/os/"/>
+&lt;/ol&gt;</summary>
     
     
-      <category term="WSL" scheme="https://shenxianpeng.github.io/tags/wsl/"/>
+    
+    <category term="OS" scheme="https://shenxianpeng.github.io/categories/os/"/>
+    
+    
+    <category term="WSL" scheme="https://shenxianpeng.github.io/tags/wsl/"/>
     
   </entry>
   
@@ -77,21 +75,20 @@
     <link href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/"/>
     <id>https://shenxianpeng.github.io/2022/09/restrict-connect-server/</id>
     <published>2022-09-16T02:13:08.000Z</published>
-    <updated>2022-09-27T02:11:26.130Z</updated>
+    <updated>2022-12-02T08:02:52.592Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
+    <summary type="html">&lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
 &lt;p&gt;Modifying this setting &lt;code&gt;/etc/security/access.conf&lt;/code&gt; on Linux can do it.&lt;/p&gt;
 &lt;h2 id=&quot;How-to-setup&quot;&gt;&lt;a href=&quot;#How-to-setup&quot; class=&quot;headerlink&quot; title=&quot;How to setup&quot;&gt;&lt;/a&gt;How to setup&lt;/h2&gt;&lt;p&gt;I commented out the access settings for TEAM A, and add some user accounts can access.&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#+ : (SRV_WW_TEAM_A_CompAdmin) : ALL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ : shenx, map, xiar : ALL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="OS" scheme="https://shenxianpeng.github.io/categories/os/"/>
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#+ : (SRV_WW_TEAM_A_CompAdmin) : ALL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ : shenx, map, xiar : ALL&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
-      <category term="Linux" scheme="https://shenxianpeng.github.io/tags/linux/"/>
+    
+    <category term="OS" scheme="https://shenxianpeng.github.io/categories/os/"/>
+    
+    
+    <category term="Linux" scheme="https://shenxianpeng.github.io/tags/linux/"/>
     
   </entry>
   
@@ -100,11 +97,10 @@
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2022-09-14T01:13:19.160Z</updated>
+    <updated>2022-12-02T08:02:52.592Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;本篇是关于 C&amp;#x2F;C++ 代码格式化和静态分析检查的实践分享。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;本篇是关于 C&amp;#x2F;C++ 代码格式化和静态分析检查的实践分享。&lt;/p&gt;
 &lt;p&gt;目前 C&amp;#x2F;C++ 语言的代码格式化和检查工具使用的最为广泛的是 &lt;a href=&quot;https://llvm.org/&quot;&gt;LLVM&lt;/a&gt; 项目中的 &lt;a href=&quot;https://clang.llvm.org/docs/ClangFormat.html&quot;&gt;Clang-Format&lt;/a&gt; 和 &lt;a href=&quot;https://clang.llvm.org/extra/clang-tidy/&quot;&gt;Clang-Tidy&lt;/a&gt;。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;LLVM 项目是模块化和可重用的编译器和工具链技术的集合。&lt;/p&gt;
@@ -116,18 +112,18 @@
 &lt;li&gt;方便下载 clang-tools，提供了 Docker images 和 binaries 两种使用方式；&lt;/li&gt;
 &lt;li&gt;方便与工作流进行集成，包括与 CI 以及 git hooks 的集成。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;下面介绍如何使用 clang-tools 下载工具，以及集成到工作流中。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+&lt;p&gt;下面介绍如何使用 clang-tools 下载工具，以及集成到工作流中。&lt;/p&gt;</summary>
     
     
-      <category term="Clang-Format" scheme="https://shenxianpeng.github.io/tags/clang-format/"/>
     
-      <category term="Clang-Tidy" scheme="https://shenxianpeng.github.io/tags/clang-tidy/"/>
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
-      <category term="Clang" scheme="https://shenxianpeng.github.io/tags/clang/"/>
+    
+    <category term="Clang-Format" scheme="https://shenxianpeng.github.io/tags/clang-format/"/>
+    
+    <category term="Clang-Tidy" scheme="https://shenxianpeng.github.io/tags/clang-tidy/"/>
+    
+    <category term="Clang" scheme="https://shenxianpeng.github.io/tags/clang/"/>
     
   </entry>
   
@@ -136,22 +132,21 @@
     <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
     <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
     <published>2022-07-28T06:45:04.000Z</published>
-    <updated>2022-09-11T10:46:26.800Z</updated>
+    <updated>2022-12-02T08:02:52.592Z</updated>
     
-    <summary type="html">
     
-      &lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List your GPG key&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# If folders does not exist will create be related automatically&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-keys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: directory &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg/pubring.kbx&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /home/ubuntu/.gnupg/trustdb.gpg: trustdb created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <summary type="html">&lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List your GPG key&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# If folders does not exist will create be related automatically&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-keys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: directory &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg/pubring.kbx&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /home/ubuntu/.gnupg/trustdb.gpg: trustdb created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;Second-generate-GPG-key&quot;&gt;&lt;a href=&quot;#Second-generate-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;Second, generate GPG key&quot;&gt;&lt;/a&gt;Second, generate GPG key&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
+&lt;h3 id=&quot;Second-generate-GPG-key&quot;&gt;&lt;a href=&quot;#Second-generate-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;Second, generate GPG key&quot;&gt;&lt;/a&gt;Second, generate GPG key&lt;/h3&gt;</summary>
     
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="GPG" scheme="https://shenxianpeng.github.io/tags/gpg/"/>
+    <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
+    
+    
+    <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+    <category term="GPG" scheme="https://shenxianpeng.github.io/tags/gpg/"/>
     
   </entry>
   
@@ -160,11 +155,10 @@
     <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
     <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2022-09-11T10:46:38.992Z</updated>
+    <updated>2022-12-02T08:02:52.592Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
 &lt;p&gt;照顾孩子兼顾学习真不是一件轻松的事情，我尽力兼顾了两者，做了如下的流水账记录。&lt;/p&gt;
 &lt;h2 id=&quot;计划&quot;&gt;&lt;a href=&quot;#计划&quot; class=&quot;headerlink&quot; title=&quot;计划&quot;&gt;&lt;/a&gt;计划&lt;/h2&gt;&lt;p&gt;我知道 12 周会很快过去，就在已经快要过去了 2 周时我决定有计划的来完成一些任务，比如：&lt;/p&gt;
 &lt;ul&gt;
@@ -173,14 +167,14 @@
 &lt;li&gt;&lt;input disabled type=&quot;checkbox&quot;&gt; 完成每个月 15 节英语课以及 3~4 的体育锻炼（游泳和足球）&lt;/li&gt;
 &lt;li&gt;&lt;input disabled type=&quot;checkbox&quot;&gt; 找一个可以作为长期业余参与的开源项目，例如 pytest，tox，pypa。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;也就是从休假的第 2 周开始，我开始记录每周的完成的小任务。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+&lt;p&gt;也就是从休假的第 2 周开始，我开始记录每周的完成的小任务。&lt;/p&gt;</summary>
     
     
-      <category term="Report" scheme="https://shenxianpeng.github.io/tags/report/"/>
+    
+    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+    <category term="Report" scheme="https://shenxianpeng.github.io/tags/report/"/>
     
   </entry>
   
@@ -189,11 +183,10 @@
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2022-09-11T10:47:17.647Z</updated>
+    <updated>2022-12-02T08:02:52.592Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
 &lt;p&gt;比如设置开发环境不能像 Linux 和 Mac 那样只需要输入一行命令就能安装各种 command 和 package，因此有的程序员从此转到了 Mac 上开发，也有的干脆就使用 Linux 作为开发机，只有那些不得不使用 Windows 作为开发环境程序员还一直留在了 Windows 上继续凑合中。&lt;/p&gt;
 &lt;p&gt;直到 WSL 的到来，准确来说是 WSL2。&lt;/p&gt;
 &lt;p&gt;WSL + VS Code + Docker Desktop 这三剑客的组合，开始让我觉得在 Windows 上做开发是一件非常爽的事情。&lt;/p&gt;
@@ -203,20 +196,20 @@
 &lt;/blockquote&gt;
 &lt;p&gt;WSL 是专为那些需要使用 Linux 的开发人员所开发的，例如从事网络开发人员、开源项目、以及需要部署到 Linux 服务器环境的开发者。&lt;/p&gt;
 &lt;p&gt;WSL 适用于喜欢使用 Bash、常用 Linux 工具（sed、awk等）和 Linux 优先框架（Ruby、Python 等），同时也喜欢使用 Windows 作为生产力工具的人。&lt;/p&gt;
-&lt;p&gt;下面来看看 WSL 和虚拟机相比有哪些优势。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
+&lt;p&gt;下面来看看 WSL 和虚拟机相比有哪些优势。&lt;/p&gt;</summary>
     
     
-      <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
     
-      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
     
-      <category term="WSL" scheme="https://shenxianpeng.github.io/tags/wsl/"/>
     
-      <category term="VSCode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
+    <category term="Windows" scheme="https://shenxianpeng.github.io/tags/windows/"/>
+    
+    <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+    <category term="WSL" scheme="https://shenxianpeng.github.io/tags/wsl/"/>
+    
+    <category term="VSCode" scheme="https://shenxianpeng.github.io/tags/vscode/"/>
     
   </entry>
   
@@ -225,32 +218,31 @@
     <link href="https://shenxianpeng.github.io/2022/03/container-ecosystem/"/>
     <id>https://shenxianpeng.github.io/2022/03/container-ecosystem/</id>
     <published>2022-03-29T12:52:42.000Z</published>
-    <updated>2022-09-11T10:47:59.203Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。&lt;/p&gt;
 &lt;p&gt;比如 Docker, containerd, CRI, CRI-O, OCI, runc，本篇将介绍这些你听过但并不了解的术语，并解释容器生态系统是如何在一起工作的。&lt;/p&gt;
 &lt;h2 id=&quot;容器生态系统&quot;&gt;&lt;a href=&quot;#容器生态系统&quot; class=&quot;headerlink&quot; title=&quot;容器生态系统&quot;&gt;&lt;/a&gt;容器生态系统&lt;/h2&gt;&lt;p&gt;容器生态系统是由许多令人兴奋的技术、大量的专业术语和大公司相互争斗组成的。&lt;/p&gt;
 &lt;p&gt;幸运的是，这些公司偶尔会在休战中走到一起合作，商定一些标准，这些标准有助于使这个生态系统在不同的平台和操作系统之间更具互操作性，并减少对单一公司或项目的依赖。&lt;/p&gt;
-&lt;p&gt;这张图显示了 Docker、Kubernetes、CRI、OCI、containerd 和 runc 在这个生态系统中是如何结合的。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+&lt;p&gt;这张图显示了 Docker、Kubernetes、CRI、OCI、containerd 和 runc 在这个生态系统中是如何结合的。&lt;/p&gt;</summary>
     
     
-      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
-      <category term="containerd" scheme="https://shenxianpeng.github.io/tags/containerd/"/>
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
-      <category term="CRI" scheme="https://shenxianpeng.github.io/tags/cri/"/>
     
-      <category term="CRI-O" scheme="https://shenxianpeng.github.io/tags/cri-o/"/>
+    <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
-      <category term="OCI" scheme="https://shenxianpeng.github.io/tags/oci/"/>
+    <category term="containerd" scheme="https://shenxianpeng.github.io/tags/containerd/"/>
     
-      <category term="runc" scheme="https://shenxianpeng.github.io/tags/runc/"/>
+    <category term="CRI" scheme="https://shenxianpeng.github.io/tags/cri/"/>
+    
+    <category term="CRI-O" scheme="https://shenxianpeng.github.io/tags/cri-o/"/>
+    
+    <category term="OCI" scheme="https://shenxianpeng.github.io/tags/oci/"/>
+    
+    <category term="runc" scheme="https://shenxianpeng.github.io/tags/runc/"/>
     
   </entry>
   
@@ -259,24 +251,23 @@
     <link href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/"/>
     <id>https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/</id>
     <published>2022-03-15T05:54:43.000Z</published>
-    <updated>2022-09-11T10:49:15.752Z</updated>
+    <updated>2022-12-02T08:02:52.584Z</updated>
     
-    <summary type="html">
     
-      &lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In organizations, using LDAP login very common way for users to log in with their credentials.&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In organizations, using LDAP login very common way for users to log in with their credentials.&lt;/p&gt;
 &lt;h2 id=&quot;How-to-configure-LDAP&quot;&gt;&lt;a href=&quot;#How-to-configure-LDAP&quot; class=&quot;headerlink&quot; title=&quot;How to configure LDAP&quot;&gt;&lt;/a&gt;How to configure LDAP&lt;/h2&gt;&lt;p&gt;Preparation: Installed LDAP Jenkins plugin&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/2022/03/jenkins-ldap-configuration/ldap-plugin.png&quot; alt=&quot;LDAP plugin&quot;&gt;&lt;/p&gt;
 &lt;p&gt;About how to configure it, you can refer to Jenkins LDAP Plugin documentation &lt;a href=&quot;https://plugins.jenkins.io/ldap/&quot;&gt;https://plugins.jenkins.io/ldap/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This is my LDAP configuration just for testing.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
+&lt;p&gt;This is my LDAP configuration just for testing.&lt;/p&gt;</summary>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
-      <category term="LDAP" scheme="https://shenxianpeng.github.io/tags/ldap/"/>
+    <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+    <category term="LDAP" scheme="https://shenxianpeng.github.io/tags/ldap/"/>
     
   </entry>
   
@@ -285,11 +276,10 @@
     <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
     <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
     <published>2022-03-09T03:16:05.000Z</published>
-    <updated>2022-09-11T10:49:28.938Z</updated>
+    <updated>2022-12-02T08:02:52.588Z</updated>
     
-    <summary type="html">
     
-      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;有开发者、甚至公司可能会遇到过以下几个问题：&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;有开发者、甚至公司可能会遇到过以下几个问题：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;最开始 Fork 了一个仓库，之后做了大量的修改，从功能到开发语言，已经与父仓库各自发展了&lt;/li&gt;
 &lt;li&gt;由于是 Fork 的仓库，在每次提 Pull Request 的默认目标分支是父仓库，一不注意就会提 PR 到父仓库里去了&lt;/li&gt;
@@ -300,18 +290,18 @@
 &lt;blockquote&gt;
 &lt;p&gt;Unfork 跟某节旗下某引擎白嫖 Apache SkyWalking 有本质区别，它更像是 Hudson 和 Jenkins 的分道扬镳。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;解决办法&quot;&gt;&lt;a href=&quot;#解决办法&quot; class=&quot;headerlink&quot; title=&quot;解决办法&quot;&gt;&lt;/a&gt;解决办法&lt;/h2&gt;&lt;p&gt;在经过一番调查和测试，目前最可行的办法就是通过 GitHub Support 来处理，具体操作如下：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
+&lt;h2 id=&quot;解决办法&quot;&gt;&lt;a href=&quot;#解决办法&quot; class=&quot;headerlink&quot; title=&quot;解决办法&quot;&gt;&lt;/a&gt;解决办法&lt;/h2&gt;&lt;p&gt;在经过一番调查和测试，目前最可行的办法就是通过 GitHub Support 来处理，具体操作如下：&lt;/p&gt;</summary>
     
     
-      <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
     
-      <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    <category term="HowTo" scheme="https://shenxianpeng.github.io/categories/howto/"/>
     
-      <category term="Fork" scheme="https://shenxianpeng.github.io/tags/fork/"/>
+    
+    <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+    <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+    <category term="Fork" scheme="https://shenxianpeng.github.io/tags/fork/"/>
     
   </entry>
   
@@ -320,11 +310,10 @@
     <link href="https://shenxianpeng.github.io/2022/03/groovy/"/>
     <id>https://shenxianpeng.github.io/2022/03/groovy/</id>
     <published>2022-03-06T14:19:31.000Z</published>
-    <updated>2022-09-11T10:49:42.515Z</updated>
+    <updated>2022-12-02T08:02:52.584Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;在使用 Jenkins 和 Groovy 越久，我就这样的疑问：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;在使用 Jenkins 和 Groovy 越久，我就这样的疑问：&lt;/p&gt;
 &lt;p&gt;Groovy 到底是什么语言？&lt;br&gt;Groovy 有哪些特性？&lt;br&gt;Groovy 和 Java 有什么区别？&lt;br&gt;Groovy 和 Java 如何选择？&lt;br&gt;Groovy 在整个开发语言中占什么位置？要不要学？&lt;/p&gt;
 &lt;p&gt;本篇我的学习结果的分享，希望也能帮助你解答以上的这些问题。&lt;/p&gt;
 &lt;h2 id=&quot;什么是-Groovy&quot;&gt;&lt;a href=&quot;#什么是-Groovy&quot; class=&quot;headerlink&quot; title=&quot;什么是 Groovy&quot;&gt;&lt;/a&gt;什么是 Groovy&lt;/h2&gt;&lt;p&gt;Apache Groovy 是一种强大的、可选类型的动态语言，具有静态类型和静态编译功能，适用于 Java 平台，旨在通过简洁、熟悉且易于学习的语法提高开发人员的工作效率。&lt;br&gt;它与任何 Java 程序顺利集成，并立即为你的应用程序提供强大的功能，包括脚本功能、特定领域语言创作、运行时和编译时元编程和函数式编程。&lt;/p&gt;
@@ -337,18 +326,18 @@
 &lt;li&gt;充满活力和丰富的生态系统 - Web 开发、响应式应用程序、并发&amp;#x2F;异步&amp;#x2F;并行库、测试框架、构建工具、代码分析、GUI 构建&lt;/li&gt;
 &lt;li&gt;脚本和测试胶水 - 非常适合编写简洁和可维护的测试，以及所有构建和自动化任务&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&quot;Groovy-和-Java-的区别&quot;&gt;&lt;a href=&quot;#Groovy-和-Java-的区别&quot; class=&quot;headerlink&quot; title=&quot;Groovy 和 Java 的区别&quot;&gt;&lt;/a&gt;Groovy 和 Java 的区别&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="Groovy" scheme="https://shenxianpeng.github.io/categories/groovy/"/>
+&lt;h2 id=&quot;Groovy-和-Java-的区别&quot;&gt;&lt;a href=&quot;#Groovy-和-Java-的区别&quot; class=&quot;headerlink&quot; title=&quot;Groovy 和 Java 的区别&quot;&gt;&lt;/a&gt;Groovy 和 Java 的区别&lt;/h2&gt;</summary>
     
     
-      <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
-      <category term="Java" scheme="https://shenxianpeng.github.io/tags/java/"/>
+    <category term="Groovy" scheme="https://shenxianpeng.github.io/categories/groovy/"/>
     
-      <category term="Groovy" scheme="https://shenxianpeng.github.io/tags/groovy/"/>
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+    <category term="Java" scheme="https://shenxianpeng.github.io/tags/java/"/>
+    
+    <category term="Groovy" scheme="https://shenxianpeng.github.io/tags/groovy/"/>
     
   </entry>
   
@@ -357,11 +346,10 @@
     <link href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/</id>
     <published>2022-03-02T06:54:11.000Z</published>
-    <updated>2022-09-11T10:50:21.373Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <summary type="html">&lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;For more output please click to expand.&lt;/p&gt;
 &lt;details&gt;
@@ -376,16 +364,16 @@
 &lt;li&gt;Product: synopsys-detect-7.11.1.jar&lt;/li&gt;
 &lt;li&gt;Others: OpenJDK 11, Python 3.6 and Python 2.7.5&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;Root-cause&quot;&gt;&lt;a href=&quot;#Root-cause&quot; class=&quot;headerlink&quot; title=&quot;Root cause&quot;&gt;&lt;/a&gt;Root cause&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="BlackDuck" scheme="https://shenxianpeng.github.io/categories/blackduck/"/>
+&lt;h2 id=&quot;Root-cause&quot;&gt;&lt;a href=&quot;#Root-cause&quot; class=&quot;headerlink&quot; title=&quot;Root cause&quot;&gt;&lt;/a&gt;Root cause&lt;/h2&gt;</summary>
     
     
-      <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
     
-      <category term="BlackDuck" scheme="https://shenxianpeng.github.io/tags/blackduck/"/>
+    <category term="BlackDuck" scheme="https://shenxianpeng.github.io/categories/blackduck/"/>
+    
+    
+    <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
+    
+    <category term="BlackDuck" scheme="https://shenxianpeng.github.io/tags/blackduck/"/>
     
   </entry>
   
@@ -394,11 +382,10 @@
     <link href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/"/>
     <id>https://shenxianpeng.github.io/2022/02/devops-trends-2022/</id>
     <published>2022-02-24T03:27:18.000Z</published>
-    <updated>2022-09-11T10:50:49.175Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;DevOps 是 IT 界最近几年的一个热门话题，而且还会越来越热。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;DevOps 是 IT 界最近几年的一个热门话题，而且还会越来越热。&lt;/p&gt;
 &lt;p&gt;最近有幸和一位做传播咨询的读者朋友交流关于 2022 年最值得关注的 DevOps 趋势以及一些问题和回答，分享给大家。&lt;/p&gt;
 &lt;h2 id=&quot;行业趋势&quot;&gt;&lt;a href=&quot;#行业趋势&quot; class=&quot;headerlink&quot; title=&quot;行业趋势&quot;&gt;&lt;/a&gt;行业趋势&lt;/h2&gt;&lt;h3 id=&quot;趋势一：转向无服务器计算&quot;&gt;&lt;a href=&quot;#趋势一：转向无服务器计算&quot; class=&quot;headerlink&quot; title=&quot;趋势一：转向无服务器计算&quot;&gt;&lt;/a&gt;趋势一：转向无服务器计算&lt;/h3&gt;&lt;p&gt;无服务器计算是一种新兴趋势，实际上已经存在了十多年。企业购买无服务器框架需要一段时间，主要是因为对行业支持和对投资回报的担忧。&lt;/p&gt;
 &lt;p&gt;无服务器具有许多越来越难以忽视的优势，主要的两个最大好处是效率和可靠性。没有基础设施管理的负担，企业可以将资源集中在正重要的事项上。此外，无服务器还降低了传统框架可能出现的潜在维护问题的风险。&lt;/p&gt;
@@ -413,18 +400,18 @@
 &lt;li&gt;出现问题微服务可以轻松控制问题，而不会中断整个应用程序&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;当然也必须认识到微服务的一个弊端，如果实施不佳可能导致严重问题，包括数据丢失、可靠性差和安全风险。&lt;/p&gt;
-&lt;h3 id=&quot;趋势三：Kubernetes-成为基础架构&quot;&gt;&lt;a href=&quot;#趋势三：Kubernetes-成为基础架构&quot; class=&quot;headerlink&quot; title=&quot;趋势三：Kubernetes 成为基础架构&quot;&gt;&lt;/a&gt;趋势三：Kubernetes 成为基础架构&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+&lt;h3 id=&quot;趋势三：Kubernetes-成为基础架构&quot;&gt;&lt;a href=&quot;#趋势三：Kubernetes-成为基础架构&quot; class=&quot;headerlink&quot; title=&quot;趋势三：Kubernetes 成为基础架构&quot;&gt;&lt;/a&gt;趋势三：Kubernetes 成为基础架构&lt;/h3&gt;</summary>
     
     
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
-      <category term="Kubernetes" scheme="https://shenxianpeng.github.io/tags/kubernetes/"/>
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
-      <category term="DevSecOps" scheme="https://shenxianpeng.github.io/tags/devsecops/"/>
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+    <category term="Kubernetes" scheme="https://shenxianpeng.github.io/tags/kubernetes/"/>
+    
+    <category term="DevSecOps" scheme="https://shenxianpeng.github.io/tags/devsecops/"/>
     
   </entry>
   
@@ -433,11 +420,10 @@
     <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
     <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
     <published>2022-02-20T16:15:00.000Z</published>
-    <updated>2022-03-28T16:29:24.452Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
 &lt;p&gt;借此分享一下这些年我的职业线路的变化，以及写博客&amp;amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。&lt;/p&gt;
 &lt;h2 id=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;a href=&quot;#从QA到DEV到DEVOPS&quot; class=&quot;headerlink&quot; title=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;/a&gt;从QA到DEV到DEVOPS&lt;/h2&gt;&lt;p&gt;最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;amp;自动化&amp;amp;性能测试工作。&lt;/p&gt;
 &lt;p&gt;从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。&lt;/p&gt;
@@ -460,14 +446,14 @@
 &lt;li&gt;打造学习飞轮 - 当你坚持分享并有人关注到你并与你互动的时候，你就会有动力继续分享，学习新的知识然后再分享，一旦学习的飞轮造好了，坚持下去就变得容易。&lt;/li&gt;
 &lt;li&gt;间接收益 - 但凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。&lt;/li&gt;
 &lt;li&gt;直接收益 - 直接利益包括平台流量和广告收益、以及卖专栏、做咨询等。这要求就很高了，不但需要会自媒体运营，还有要超强的输出功力，这背后就是比别人更多的付出。&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+&lt;/ol&gt;</summary>
     
     
-      <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
+    
+    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+    <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
     
   </entry>
   
@@ -476,28 +462,27 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/</id>
     <published>2022-02-14T00:30:00.000Z</published>
-    <updated>2022-09-11T10:51:16.402Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/a&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/p&gt;
 &lt;h2 id=&quot;Vagrant-和-Docker-区别&quot;&gt;&lt;a href=&quot;#Vagrant-和-Docker-区别&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 和 Docker 区别&quot;&gt;&lt;/a&gt;Vagrant 和 Docker 区别&lt;/h2&gt;&lt;p&gt;关于 Vagrant 被问到最多的问题：Vagrant 和 Docker 之间有什么区别。&lt;/p&gt;
 &lt;p&gt;如果不分场景的直接比对 Vagrant 和 Docker 是不恰当的。在一些简单场景中，它们的作用是重复的，但在更多场景中，它们是无法相互替代的。&lt;/p&gt;
 &lt;p&gt;那么什么情况下应该用 Vagrant，什么情况下用 Docker 呢？&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;所以如果你仅仅是想管理虚拟机，那么你应该使用 Vagrant；如果你想快速开发和部署应用，那么应该使用 Docker。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;下面具体来说说为什么。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
+&lt;p&gt;下面具体来说说为什么。&lt;/p&gt;</summary>
     
     
-      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
-      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
     
-      <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
+    
+    <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+    <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    
+    <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     
   </entry>
   
@@ -506,24 +491,23 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant/</id>
     <published>2022-02-11T00:30:00.000Z</published>
-    <updated>2022-09-11T10:51:34.186Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;Vagrant 是一种&lt;a href=&quot;https://github.com/hashicorp/vagrant&quot;&gt;开源&lt;/a&gt;软件产品，用来方便构建和维护虚拟软件开发环境。&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;Vagrant 是一种&lt;a href=&quot;https://github.com/hashicorp/vagrant&quot;&gt;开源&lt;/a&gt;软件产品，用来方便构建和维护虚拟软件开发环境。&lt;/p&gt;
 &lt;p&gt;例如，它可以基于 VirtualBox、VMware、KVM、Hyper-V 和 AWS 甚至是 Docker 等提供商来构建开发环境。它通过简化虚拟化的软件配置管理，来提高开发效率。&lt;/p&gt;
 &lt;p&gt;Vagrant 是用 Ruby 语言开发的，但它的生态系统支持使用其他几种语言进行开发。&lt;/p&gt;
 &lt;p&gt;简单来说 Vagrant 是对传统虚拟机的一层封装，能够让你更方便的使用虚拟开发环境。&lt;/p&gt;
-&lt;h2 id=&quot;Vagrant-的发展史&quot;&gt;&lt;a href=&quot;#Vagrant-的发展史&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 的发展史&quot;&gt;&lt;/a&gt;Vagrant 的发展史&lt;/h2&gt;
-    
-    </summary>
-    
-      <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
+&lt;h2 id=&quot;Vagrant-的发展史&quot;&gt;&lt;a href=&quot;#Vagrant-的发展史&quot; class=&quot;headerlink&quot; title=&quot;Vagrant 的发展史&quot;&gt;&lt;/a&gt;Vagrant 的发展史&lt;/h2&gt;</summary>
     
     
-      <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
     
-      <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
+    <category term="Vagrant" scheme="https://shenxianpeng.github.io/categories/vagrant/"/>
+    
+    
+    <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
+    
+    <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
     
   </entry>
   
@@ -532,11 +516,10 @@
     <link href="https://shenxianpeng.github.io/2022/01/what-is-go/"/>
     <id>https://shenxianpeng.github.io/2022/01/what-is-go/</id>
     <published>2022-01-18T14:01:31.000Z</published>
-    <updated>2022-09-11T10:51:48.273Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;Go 是一种开源编程语言，可以轻松构建简单、可靠和高效的软件。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;Go 是一种开源编程语言，可以轻松构建简单、可靠和高效的软件。&lt;/p&gt;
 &lt;h2 id=&quot;Go-还是-Golang&quot;&gt;&lt;a href=&quot;#Go-还是-Golang&quot; class=&quot;headerlink&quot; title=&quot;Go 还是 Golang&quot;&gt;&lt;/a&gt;Go 还是 Golang&lt;/h2&gt;&lt;p&gt;先问一个大多数人可能会忽略的问题：Google 的这门开源编程语言叫 Go 还是 Golang？还是两个都行？给你三秒钟想一下 …&lt;/p&gt;
 &lt;p&gt;Google 说：它叫 Go。之所以有人称它为 Golang 是由于之前的 Go 语言官网是 golang.org（因为 go.org 已经被别人用了），因此有人将 Golang 和 Go 混用了。&lt;/p&gt;
 &lt;p&gt;现在输入 golang.org 会直接跳转到 go.dev 这个网址，这也算是彻底给自家孩子正个名。&lt;/p&gt;
@@ -548,16 +531,16 @@
 &lt;li&gt;内置并发和强大的标准库&lt;/li&gt;
 &lt;li&gt;不断发展的合作伙伴、社区和工具生态系统&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;今天，Go 被用于各种应用程序：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Go" scheme="https://shenxianpeng.github.io/categories/go/"/>
+&lt;p&gt;今天，Go 被用于各种应用程序：&lt;/p&gt;</summary>
     
     
-      <category term="Go" scheme="https://shenxianpeng.github.io/tags/go/"/>
     
-      <category term="CLI" scheme="https://shenxianpeng.github.io/tags/cli/"/>
+    <category term="Go" scheme="https://shenxianpeng.github.io/categories/go/"/>
+    
+    
+    <category term="Go" scheme="https://shenxianpeng.github.io/tags/go/"/>
+    
+    <category term="CLI" scheme="https://shenxianpeng.github.io/tags/cli/"/>
     
   </entry>
   
@@ -566,11 +549,10 @@
     <link href="https://shenxianpeng.github.io/2022/01/docker-best-practice/"/>
     <id>https://shenxianpeng.github.io/2022/01/docker-best-practice/</id>
     <published>2022-01-12T04:18:16.000Z</published>
-    <updated>2022-01-28T06:04:47.751Z</updated>
+    <updated>2022-12-02T08:02:52.580Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，建议先收藏慢慢看，保证看完会很有收获。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，建议先收藏慢慢看，保证看完会很有收获。&lt;/p&gt;
 &lt;h2 id=&quot;文章目录&quot;&gt;&lt;a href=&quot;#文章目录&quot; class=&quot;headerlink&quot; title=&quot;文章目录&quot;&gt;&lt;/a&gt;文章目录&lt;/h2&gt;&lt;p&gt;Dockerfile 最佳实践&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;使用多阶段的构建&lt;/li&gt;
@@ -595,16 +577,16 @@
 &lt;/ol&gt;
 &lt;h2 id=&quot;Dockerfile-最佳实践&quot;&gt;&lt;a href=&quot;#Dockerfile-最佳实践&quot; class=&quot;headerlink&quot; title=&quot;Dockerfile 最佳实践&quot;&gt;&lt;/a&gt;Dockerfile 最佳实践&lt;/h2&gt;&lt;h3 id=&quot;1-使用多阶段的构建&quot;&gt;&lt;a href=&quot;#1-使用多阶段的构建&quot; class=&quot;headerlink&quot; title=&quot;1. 使用多阶段的构建&quot;&gt;&lt;/a&gt;1. 使用多阶段的构建&lt;/h3&gt;&lt;p&gt;利用多阶段构建的优势来创建更精简、更安全的Docker镜像。多阶段 Docker 构建(&lt;a href=&quot;https://docs.docker.com/develop/develop-images/multistage-build/&quot;&gt;multi-stage builds&lt;/a&gt;)允许你将你的 Dockerfile 分成几个阶段。&lt;/p&gt;
 &lt;p&gt;例如，你可以有一个阶段用于编译和构建你的应用程序，然后可以复制到后续阶段。由于只有最后一个阶段被用来创建镜像，与构建应用程序相关的依赖关系和工具就会被丢弃，因此可以留下一个精简的、模块化的、可用于生产的镜像。&lt;/p&gt;
-&lt;p&gt;Web 开发示例：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Docker" scheme="https://shenxianpeng.github.io/categories/docker/"/>
+&lt;p&gt;Web 开发示例：&lt;/p&gt;</summary>
     
     
-      <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
     
-      <category term="Dokerfile" scheme="https://shenxianpeng.github.io/tags/dokerfile/"/>
+    <category term="Docker" scheme="https://shenxianpeng.github.io/categories/docker/"/>
+    
+    
+    <category term="Docker" scheme="https://shenxianpeng.github.io/tags/docker/"/>
+    
+    <category term="Dokerfile" scheme="https://shenxianpeng.github.io/tags/dokerfile/"/>
     
   </entry>
   
@@ -613,21 +595,20 @@
     <link href="https://shenxianpeng.github.io/2021/12/choose-monitor/"/>
     <id>https://shenxianpeng.github.io/2021/12/choose-monitor/</id>
     <published>2021-12-21T13:19:26.000Z</published>
-    <updated>2021-12-21T15:04:34.673Z</updated>
+    <updated>2022-12-02T08:02:52.576Z</updated>
     
-    <summary type="html">
     
-      &lt;p&gt;工作十几年用过了不少显示器，从最初的 17寸，到后来的 23寸、27寸、32寸、再到现在的 34 寸，根据我自己的使用体验，来个主观推荐：&lt;/p&gt;
+    <summary type="html">&lt;p&gt;工作十几年用过了不少显示器，从最初的 17寸，到后来的 23寸、27寸、32寸、再到现在的 34 寸，根据我自己的使用体验，来个主观推荐：&lt;/p&gt;
 &lt;p&gt;第一名，一个34寸曲面显示器&lt;br&gt;第二名，一个27寸 + 一个23寸的双屏组合&lt;br&gt;第三名，一个32寸 + 一个23寸的双屏组合&lt;br&gt;第三名，两个 23 寸的双屏组合（并列第三名）&lt;/p&gt;
 &lt;p&gt;以上这些屏幕推荐购买 2K 及以上的分辨率，1080p 的分辨率不推荐。&lt;/p&gt;
-&lt;p&gt;下面我就按照时间轴说说我用过的那些显示器。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+&lt;p&gt;下面我就按照时间轴说说我用过的那些显示器。&lt;/p&gt;</summary>
     
     
-      <category term="Monitor" scheme="https://shenxianpeng.github.io/tags/monitor/"/>
+    
+    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+    <category term="Monitor" scheme="https://shenxianpeng.github.io/tags/monitor/"/>
     
   </entry>
   
@@ -636,28 +617,27 @@
     <link href="https://shenxianpeng.github.io/2021/12/cicd-assessment/"/>
     <id>https://shenxianpeng.github.io/2021/12/cicd-assessment/</id>
     <published>2021-12-07T14:02:53.000Z</published>
-    <updated>2021-12-21T15:07:21.920Z</updated>
+    <updated>2022-12-02T08:02:52.576Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在一个组织内，不同的团队之间可能会有不同的维度来评估 CI&amp;#x2F;CD 的成熟度。这使得对衡量每个团队的 CI&amp;#x2F;CD
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在一个组织内，不同的团队之间可能会有不同的维度来评估 CI&amp;#x2F;CD 的成熟度。这使得对衡量每个团队的 CI&amp;#x2F;CD</summary>
         
       
     
-    </summary>
-    
-      <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
     
-      <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
     
-      <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
     
-      <category term="Badge" scheme="https://shenxianpeng.github.io/tags/badge/"/>
+    <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
+    
+    <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
+    
+    <category term="Badge" scheme="https://shenxianpeng.github.io/tags/badge/"/>
     
   </entry>
   
