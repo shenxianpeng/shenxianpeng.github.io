@@ -153,7 +153,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="clb67xyco00awkfou0batgf5c" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/" data-id="clc8uf94p00awniojgsyah814" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/09/how-to-release-python-project/#disqus_thread" class="article-comment-link">Comments</a>
@@ -204,24 +204,10 @@ ga('send', 'pageview');
 <p>For example: I have a Python project called <code>demo-pip</code>. and beta release would like <code>1.1.0.xxxx</code>, offical release version is <code>1.1.0</code> to see if could success upgrade when using <code>pip</code> command.</p>
 <p>Base on the below test results, I summarized as follows:</p>
 <ol>
-<li><pre><code>Install a specific version of demo-pip from PyPI, with `--upgrade` option or not, they&#39;ll all both success.
-</code></pre>
-<ol start="2">
-<li><pre><code>Install the latest package version of demo-pip from PyPI that version is large than the locally installed package version, with `--upgrade` option installs successfully. without `--upgrade` option install failed.
-</code></pre>
-<ol start="3">
-<li><pre><code>Install the latest package version of demo-pip from PyPI that version is less than the locally installed package version, with `--upgrade` option or not, install failed.
-</code></pre>
-<ol start="4">
-<li><pre><code>1.1.0.xxxx version naming is OK, but when the beta version is larger than 1.1.0, for example, the beta version is 1.1.0.1000, pip install with `--upgrade` not work when our official release version is 1.1.0.
-</code></pre>
-a.	One option is the official release version start from 1.1.0.1000, beta version starts from 1.1.0.0001, 1.1.0.0002… Or the beta version should be less than 1.1.0, maybe 1.0.0.xxxx<br>b.	Another option is follow up <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0440/">python official versioning</a> that is the best practice, then the beta release version will be 1.1.b1, 1.1.b2, 1.1.bN… (it passed No.5 test below)</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
+<li>   Install a specific version of demo-pip from PyPI, with <code>--upgrade</code> option or not, they’ll all both success.</li>
+<li>   Install the latest package version of demo-pip from PyPI that version is large than the locally installed package version, with <code>--upgrade</code> option installs successfully. without <code>--upgrade</code> option install failed.</li>
+<li>   Install the latest package version of demo-pip from PyPI that version is less than the locally installed package version, with <code>--upgrade</code> option or not, install failed.</li>
+<li>   1.1.0.xxxx version naming is OK, but when the beta version is larger than 1.1.0, for example, the beta version is 1.1.0.1000, pip install with <code>--upgrade</code> not work when our official release version is 1.1.0.<br>a.	One option is the official release version start from 1.1.0.1000, beta version starts from 1.1.0.0001, 1.1.0.0002… Or the beta version should be less than 1.1.0, maybe 1.0.0.xxxx<br>b.	Another option is follow up <a target="_blank" rel="noopener" href="https://www.python.org/dev/peps/pep-0440/">python official versioning</a> that is the best practice, then the beta release version will be 1.1.b1, 1.1.b2, 1.1.bN… (it passed No.5 test below)</li>
 </ol>
 <h2 id="My-Test-Case"><a href="#My-Test-Case" class="headerlink" title="My Test Case"></a>My Test Case</h2>
         
@@ -242,7 +228,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="clb67xyci00aekfou6ix1b8tk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/" data-id="clc8uf94l00aenioj19liejpz" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/about-pip-install-and-versioning/#disqus_thread" class="article-comment-link">Comments</a>
@@ -312,7 +298,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/update-jira-server-account-avatar-with-rest-api/" data-id="clb67xycm00aokfou81c56dth" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/update-jira-server-account-avatar-with-rest-api/" data-id="clc8uf94n00aonioj6w2rcgl1" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/update-jira-server-account-avatar-with-rest-api/#disqus_thread" class="article-comment-link">Comments</a>
@@ -381,7 +367,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="clb67xycl00alkfoub3e04432" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/rdp-problem/" data-id="clc8uf94m00alniojb09e7dsq" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/rdp-problem/#disqus_thread" class="article-comment-link">Comments</a>
@@ -451,7 +437,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="clb67xycj00ahkfouhlc5frc5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/" data-id="clc8uf94l00ahniojb93e1de9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/08/bitbucket-pull-request-event/#disqus_thread" class="article-comment-link">Comments</a>
@@ -543,7 +529,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="clb67xyca009wkfouhirodfd1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/annual-work-summary/" data-id="clc8uf94f009wnioj5m6qeb1b" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/annual-work-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -613,7 +599,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="clb67xycf00a7kfoubc8k88es" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/" data-id="clc8uf94j00a7nioj76fnh5s2" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-tips-3/#disqus_thread" class="article-comment-link">Comments</a>
@@ -679,7 +665,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="clb67xycg00aakfouba2l0bds" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/" data-id="clc8uf94j00aanioj74nq8ovw" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/#disqus_thread" class="article-comment-link">Comments</a>
@@ -748,7 +734,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="clb67xycd00a0kfou312r7ng6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/" data-id="clc8uf94h00a0niojgby56qxx" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice-cn/#disqus_thread" class="article-comment-link">Comments</a>
@@ -818,7 +804,7 @@ a.	One option is the official release version start from 1.1.0.1000, beta versio
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="clb67xyce00a3kfouc84aclba" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/" data-id="clc8uf94h00a3nioja61a6wbg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/07/jenkins-best-practice/#disqus_thread" class="article-comment-link">Comments</a>
