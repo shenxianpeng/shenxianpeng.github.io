@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2022-12-30T08:44:39.386Z</updated>
+  <updated>2023-01-01T13:03:29.521Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2022 年终总结</title>
+    <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
+    <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
+    <published>2022-12-28T12:26:56.000Z</published>
+    <updated>2023-01-01T13:03:29.521Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;时间过得好快，又过完了一年。&lt;/p&gt;
+&lt;p&gt;今年想写一些总结回顾一下过去的一年发生在自己身上的重要事件。&lt;/p&gt;
+&lt;p&gt;由于 2021 年没有写年终总结，2021</summary>
+        
+      
+    
+    
+    
+    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+    <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
+    
+    <category term="Summary" scheme="https://shenxianpeng.github.io/tags/summary/"/>
+    
+  </entry>
+  
+  <entry>
     <title>How to implement [skip ci] for Jenkins multi-branch pipeline</title>
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2022-12-30T08:44:39.386Z</updated>
+    <updated>2023-01-01T13:03:29.521Z</updated>
     
     
       
@@ -50,7 +79,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2022-12-30T08:44:39.386Z</updated>
+    <updated>2023-01-01T13:03:29.521Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
@@ -75,7 +104,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/"/>
     <id>https://shenxianpeng.github.io/2022/09/restrict-connect-server/</id>
     <published>2022-09-16T02:13:08.000Z</published>
-    <updated>2022-12-30T08:44:39.386Z</updated>
+    <updated>2023-01-01T13:03:29.521Z</updated>
     
     
     <summary type="html">&lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
@@ -97,7 +126,7 @@
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2022-12-30T08:44:39.386Z</updated>
+    <updated>2023-01-01T13:03:29.521Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇是关于 C&amp;#x2F;C++ 代码格式化和静态分析检查的实践分享。&lt;/p&gt;
@@ -132,7 +161,7 @@
     <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
     <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
     <published>2022-07-28T06:45:04.000Z</published>
-    <updated>2022-12-30T08:44:39.386Z</updated>
+    <updated>2023-01-01T13:03:29.521Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List your GPG key&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# If folders does not exist will create be related automatically&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-keys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: directory &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg/pubring.kbx&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /home/ubuntu/.gnupg/trustdb.gpg: trustdb created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -155,7 +184,7 @@
     <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
     <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2022-12-30T08:44:39.386Z</updated>
+    <updated>2023-01-01T13:03:29.521Z</updated>
     
     
     <summary type="html">&lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
@@ -183,7 +212,7 @@
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2022-12-30T08:44:39.382Z</updated>
+    <updated>2023-01-01T13:03:29.521Z</updated>
     
     
     <summary type="html">&lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
@@ -218,7 +247,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/container-ecosystem/"/>
     <id>https://shenxianpeng.github.io/2022/03/container-ecosystem/</id>
     <published>2022-03-29T12:52:42.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.513Z</updated>
     
     
     <summary type="html">&lt;p&gt;自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。&lt;/p&gt;
@@ -251,7 +280,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/"/>
     <id>https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/</id>
     <published>2022-03-15T05:54:43.000Z</published>
-    <updated>2022-12-30T08:44:39.378Z</updated>
+    <updated>2023-01-01T13:03:29.513Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In organizations, using LDAP login very common way for users to log in with their credentials.&lt;/p&gt;
@@ -276,7 +305,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
     <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
     <published>2022-03-09T03:16:05.000Z</published>
-    <updated>2022-12-30T08:44:39.382Z</updated>
+    <updated>2023-01-01T13:03:29.517Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;有开发者、甚至公司可能会遇到过以下几个问题：&lt;/p&gt;
@@ -310,7 +339,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/groovy/"/>
     <id>https://shenxianpeng.github.io/2022/03/groovy/</id>
     <published>2022-03-06T14:19:31.000Z</published>
-    <updated>2022-12-30T08:44:39.378Z</updated>
+    <updated>2023-01-01T13:03:29.513Z</updated>
     
     
     <summary type="html">&lt;p&gt;在使用 Jenkins 和 Groovy 越久，我就这样的疑问：&lt;/p&gt;
@@ -346,7 +375,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/</id>
     <published>2022-03-02T06:54:11.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.513Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -382,7 +411,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/"/>
     <id>https://shenxianpeng.github.io/2022/02/devops-trends-2022/</id>
     <published>2022-02-24T03:27:18.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.509Z</updated>
     
     
     <summary type="html">&lt;p&gt;DevOps 是 IT 界最近几年的一个热门话题，而且还会越来越热。&lt;/p&gt;
@@ -420,7 +449,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
     <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
     <published>2022-02-20T16:15:00.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.509Z</updated>
     
     
     <summary type="html">&lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
@@ -462,7 +491,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/</id>
     <published>2022-02-14T00:30:00.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.509Z</updated>
     
     
     <summary type="html">&lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/a&gt;&lt;/p&gt;
@@ -491,7 +520,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant/</id>
     <published>2022-02-11T00:30:00.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.509Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;Vagrant 是一种&lt;a href=&quot;https://github.com/hashicorp/vagrant&quot;&gt;开源&lt;/a&gt;软件产品，用来方便构建和维护虚拟软件开发环境。&lt;/p&gt;
@@ -516,7 +545,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/what-is-go/"/>
     <id>https://shenxianpeng.github.io/2022/01/what-is-go/</id>
     <published>2022-01-18T14:01:31.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.509Z</updated>
     
     
     <summary type="html">&lt;p&gt;Go 是一种开源编程语言，可以轻松构建简单、可靠和高效的软件。&lt;/p&gt;
@@ -549,7 +578,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/docker-best-practice/"/>
     <id>https://shenxianpeng.github.io/2022/01/docker-best-practice/</id>
     <published>2022-01-12T04:18:16.000Z</published>
-    <updated>2022-12-30T08:44:39.374Z</updated>
+    <updated>2023-01-01T13:03:29.509Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，建议先收藏慢慢看，保证看完会很有收获。&lt;/p&gt;
@@ -595,7 +624,7 @@
     <link href="https://shenxianpeng.github.io/2021/12/choose-monitor/"/>
     <id>https://shenxianpeng.github.io/2021/12/choose-monitor/</id>
     <published>2021-12-21T13:19:26.000Z</published>
-    <updated>2022-12-30T08:44:39.370Z</updated>
+    <updated>2023-01-01T13:03:29.505Z</updated>
     
     
     <summary type="html">&lt;p&gt;工作十几年用过了不少显示器，从最初的 17寸，到后来的 23寸、27寸、32寸、再到现在的 34 寸，根据我自己的使用体验，来个主观推荐：&lt;/p&gt;
@@ -609,35 +638,6 @@
     
     
     <category term="Monitor" scheme="https://shenxianpeng.github.io/tags/monitor/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>组织内如何评估 CI/CD 成熟度</title>
-    <link href="https://shenxianpeng.github.io/2021/12/cicd-assessment/"/>
-    <id>https://shenxianpeng.github.io/2021/12/cicd-assessment/</id>
-    <published>2021-12-07T14:02:53.000Z</published>
-    <updated>2022-12-30T08:44:39.370Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在一个组织内，不同的团队之间可能会有不同的维度来评估 CI&amp;#x2F;CD 的成熟度。这使得对衡量每个团队的 CI&amp;#x2F;CD</summary>
-        
-      
-    
-    
-    
-    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-    <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
-    
-    <category term="CD" scheme="https://shenxianpeng.github.io/tags/cd/"/>
-    
-    <category term="Badge" scheme="https://shenxianpeng.github.io/tags/badge/"/>
     
   </entry>
   
