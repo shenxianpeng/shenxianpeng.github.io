@@ -145,7 +145,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/05/GitSCM-clone-code-don-t-display-branch/" data-id="clcddw0hw004ylonih4ej3m2d" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/05/GitSCM-clone-code-don-t-display-branch/" data-id="cldo4tsxe0053lioz479c7c04" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/05/GitSCM-clone-code-don-t-display-branch/#disqus_thread" class="article-comment-link">Comments</a>
@@ -212,7 +212,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/05/upload-to-ftp-parameterization-by-bat/" data-id="clcddw0i4005iloni79la0hy9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/05/upload-to-ftp-parameterization-by-bat/" data-id="cldo4tsxm005mliozgy3m14gf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/05/upload-to-ftp-parameterization-by-bat/#disqus_thread" class="article-comment-link">Comments</a>
@@ -311,7 +311,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/05/auto-bump-build-version/" data-id="clcddw0hy0052loni9zv53m20" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/05/auto-bump-build-version/" data-id="cldo4tsxg0056lioz01gfbu0e" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/05/auto-bump-build-version/#disqus_thread" class="article-comment-link">Comments</a>
@@ -476,7 +476,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/" data-id="clcddw0i10058loni7ywab0lj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/" data-id="cldo4tsxi005bliozavfubb3z" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/05/jenkins-linux-agent/#disqus_thread" class="article-comment-link">Comments</a>
@@ -583,50 +583,44 @@ ga('send', 'pageview');
 </tbody></table>
 <h4 id="3-Save-then-Connect"><a href="#3-Save-then-Connect" class="headerlink" title="3. Save then Connect"></a>3. Save then Connect</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[2019-05-11 01:32:50] [windows-slaves] Connecting to 192.168.1.111</span><br><span class="line">Checking <span class="keyword">if</span> Java exists</span><br><span class="line">java -version returned 1.8.0.</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying jenkins-slave.xml</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Copying slave.jar</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Starting the service</span><br><span class="line">[2019-05-11 01:32:50] [windows-slaves] Waiting <span class="keyword">for</span> the service to become ready</span><br><span class="line">[2019-05-11 01:32:55] [windows-slaves] Connecting to port 52,347</span><br><span class="line">&lt;===[JENKINS REMOTING CAPACITY]===&gt;Remoting version: 3.29</span><br><span class="line">This is a Windows agent</span><br><span class="line">Agent successfully connected and online</span><br></pre></td></tr></table></figure>
 
-<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><table>
-<thead>
-<tr>
-<th>No.</th>
-<th>Problem</th>
-<th>how to fix</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>ERROR: Message not found for errorCode: 0xC00000AC</td>
-<td>need to install JDK, and config JAVA environment variable</td>
-</tr>
-<tr>
-<td>2</td>
-<td>how to fix add windows node as Windows service error</td>
-<td><a target="_blank" rel="noopener" href="https://issues.jenkins-ci.org/browse/JENKINS-16418">JENKINS-16418</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>org.jinterop.dcom.common.JIException: Message not found for errorCode: 0x00000005</td>
-<td>HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID {72C24DD5-D70A-438B-8A42-98424B88AFB8} <br> HKEY_CLASSES_ROOT\CLSID{76A64158-CB41-11D1-8B02-00600806D9B6} <br>Launch ‘regedit’ (as Administrator) <br>Find (Ctrl+F) the following registry key: “{72C24DD5-D70A-438B-8A42-98424B88AFB8}” in HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID\ <br>Right click and select ‘Permissions’, Change owner to administrators group (Advanced…). <br>Change permissions for administrators group. Grant Full Control <br>Change owner back to TrustedInstaller (user is “NT Service\TrustedInstaller” on local machine)<br>Repeat the steps above for HKEY_CLASSES_ROOT\CLSID {76A64158-CB41-11D1-8B02-00600806D9B6} <br>Restart Remote Registry Service (Administrative Tools &#x2F; Services)</td>
-</tr>
-<tr>
-<td>4</td>
-<td>ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</td>
-<td>Login remote machine and open Services find jenkinsslave-C__agent <br>Set startup type: Automatic <br>Log On: select This account, type correct account and password <br>start jenkinsslave-C__agent</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Caused by: org.jinterop.dcom.common.JIRuntimeException: Message not found for errorCode: 0x800703FA</td>
-<td>Slave under domain account <br>If your slave is running under a domain account and you get an error code 0x800703FA, change a group policy: <br>open the group policy editor (gpedit.msc) <br>go to Computer Configuration-&gt;Administrative Templates-&gt;System-&gt; UserProfiles, “Do not forcefully unload the user registry at user logoff” <br>Change the setting from “Not Configured” to “Enabled”, which disables the new User Profile Service feature (‘DisableForceUnload’ is the value added to the registry)</td>
-</tr>
-<tr>
-<td>6</td>
-<td>more connect jenkins agent problem on windows …</td>
-<td>please refer to this link <a target="_blank" rel="noopener" href="https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc">https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc</a></td>
-</tr>
-<tr>
-<td>7</td>
-<td>ERROR: Message not found for errorCode: 0xC0000001 Caused by: jcifs.smb.SmbException: Failed to connect: 0.0.0.0&lt;00&gt;&#x2F;10.xxx.xxx.xxx</td>
-<td>need to enable SMB1 <br>Search in the start menu for ‘Turn Windows features on or off’ and open it. <br>Search for ‘SMB1.0&#x2F;CIFS File Sharing Support’ in the list of optional features that appears, and select the checkbox next to it. <br>Click OK and Windows will add the selected feature. You’ll be asked to restart your computer as part of this process</td>
-</tr>
-</tbody></table>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><p>The following issues I met and how I fixed them.</p>
+<h3 id="1-ERROR-Message-not-found-for-errorCode-0xC00000AC"><a href="#1-ERROR-Message-not-found-for-errorCode-0xC00000AC" class="headerlink" title="1. ERROR: Message not found for errorCode: 0xC00000AC"></a>1. ERROR: Message not found for errorCode: 0xC00000AC</h3><p>You need need to install JDK, and config JAVA environment variable.</p>
+<h3 id="2-How-to-fix-add-windows-node-as-Windows-service-error"><a href="#2-How-to-fix-add-windows-node-as-Windows-service-error" class="headerlink" title="2. How to fix add windows node as Windows service error"></a>2. How to fix add windows node as Windows service error</h3><p>Ref to <a target="_blank" rel="noopener" href="https://issues.jenkins-ci.org/browse/JENKINS-16418">JENKINS-16418</a>.</p>
+<h3 id="3-org-jinterop-dcom-common-JIException-Message-not-found-for-errorCode-0x00000005"><a href="#3-org-jinterop-dcom-common-JIException-Message-not-found-for-errorCode-0x00000005" class="headerlink" title="3. org.jinterop.dcom.common.JIException: Message not found for errorCode: 0x00000005"></a>3. org.jinterop.dcom.common.JIException: Message not found for errorCode: 0x00000005</h3><p>Fixed permission for the following registry keys</p>
+<ol>
+<li>HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID{72C24DD5-D70A-438B-8A42-98424B88AFB8}</li>
+<li>HKEY_CLASSES_ROOT\CLSID{76A64158-CB41-11D1-8B02-00600806D9B6}</li>
+</ol>
+<p>Steps to fix it</p>
+<ul>
+<li>Open ‘regedit’ (as Administrator), Find (Ctrl+F) the registry key: “{72C24DD5-D70A-438B-8A42-98424B88AFB8}” in HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Wow6432Node\CLSID</li>
+<li>Right click and select ‘Permissions’, Change owner to administrators group (Advanced…).</li>
+<li>Change permissions for administrators group. Grant Full Control。</li>
+<li>Change owner back to TrustedInstaller (user is “NT Service\TrustedInstaller” on local machine)</li>
+</ul>
+<p>Repeat the above steps to fix permission for HKEY_CLASSES_ROOT\CLSID{76A64158-CB41-11D1-8B02-00600806D9B6}</p>
+<p>Finally, Restart Remote Registry Service (Administrative Tools &#x2F; Services).</p>
+<h3 id="4-ERROR-Unexpected-error-in-launching-an-agent"><a href="#4-ERROR-Unexpected-error-in-launching-an-agent" class="headerlink" title="4. ERROR: Unexpected error in launching an agent"></a>4. ERROR: Unexpected error in launching an agent</h3><p>This is probably a bug in Jenkins.</p>
+<ol>
+<li>Login remote machine and open Services find <code>jenkinsslave-C__agent</code></li>
+<li>Set startup type: Automatic</li>
+<li>Log On: select This account, type correct account and password</li>
+<li>start jenkinsslave-C__agent</li>
+</ol>
+<h3 id="5-Caused-by-org-jinterop-dcom-common-JIRuntimeException-Message-not-found-for-errorCode-0x800703FA"><a href="#5-Caused-by-org-jinterop-dcom-common-JIRuntimeException-Message-not-found-for-errorCode-0x800703FA" class="headerlink" title="5. Caused by: org.jinterop.dcom.common.JIRuntimeException: Message not found for errorCode: 0x800703FA"></a>5. Caused by: org.jinterop.dcom.common.JIRuntimeException: Message not found for errorCode: 0x800703FA</h3><p>Slave under domain account, If your slave is running under a domain account and you get an error code 0x800703FA, change a group policy:</p>
+<ol>
+<li>open the group policy editor (gpedit.msc)</li>
+<li>go to Computer Configuration-&gt;Administrative Templates-&gt;System-&gt; UserProfiles, “Do not forcefully unload the user registry at user logoff”</li>
+<li>Change the setting from “Not Configured” to “Enabled”, which disables the new User Profile Service feature (‘DisableForceUnload’ is the value added to the registry)</li>
+</ol>
+<h3 id="6-ERROR-Message-not-found-for-errorCode-0xC0000001-Caused-by-jcifs-smb-SmbException-Failed-to-connect-0-0-0-0-lt-00-gt-x2F-10-xxx-xxx-xxx"><a href="#6-ERROR-Message-not-found-for-errorCode-0xC0000001-Caused-by-jcifs-smb-SmbException-Failed-to-connect-0-0-0-0-lt-00-gt-x2F-10-xxx-xxx-xxx" class="headerlink" title="6. ERROR: Message not found for errorCode: 0xC0000001 Caused by: jcifs.smb.SmbException: Failed to connect: 0.0.0.0&lt;00&gt;&#x2F;10.xxx.xxx.xxx"></a>6. ERROR: Message not found for errorCode: 0xC0000001 Caused by: jcifs.smb.SmbException: Failed to connect: 0.0.0.0&lt;00&gt;&#x2F;10.xxx.xxx.xxx</h3><p>Need to enable SMB1</p>
+<ol>
+<li>Search in the start menu for ‘Turn Windows features on or off’ and open it.</li>
+<li>Find ‘SMB1.0&#x2F;CIFS File Sharing Support’ in the list of optional features that appears, and select the checkbox next to it.</li>
+<li>Click OK and Windows will add the selected feature.</li>
+</ol>
+<p>You’ll be asked to restart your computer as part of this process.</p>
+<h3 id="6-more-connect-jenkins-agent-problem-on-windows"><a href="#6-more-connect-jenkins-agent-problem-on-windows" class="headerlink" title="6. more connect jenkins agent problem on windows"></a>6. more connect jenkins agent problem on windows</h3><p>Please refer to this link <a target="_blank" rel="noopener" href="https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc">https://github.com/jenkinsci/windows-slaves-plugin/blob/master/docs/troubleshooting.adoc</a></p>
 
       
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -641,7 +635,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/" data-id="clcddw0i2005bloni0l95ezpv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/" data-id="cldo4tsxk005fliozh6rg7bpr" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/05/jenkins-windows-agent/#disqus_thread" class="article-comment-link">Comments</a>
@@ -715,7 +709,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/" data-id="clcddw0hv004vlonidzk222pw" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/" data-id="cldo4tsxc004zlioz4szlfmim" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/12/from-qa-to-dev/#disqus_thread" class="article-comment-link">Comments</a>
@@ -786,7 +780,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/" data-id="clcddw0ht004rloni3t6d6qr8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/" data-id="cldo4tsxb004wlioz7ns3hwj3" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/09/most-popular-python-automated-testing-framework/#disqus_thread" class="article-comment-link">Comments</a>
@@ -870,7 +864,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/" data-id="clcddw0hs004oloni14m4funj" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/" data-id="cldo4tsx9004slioz9s1mc90d" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/08/how-to-do-functional-testing/#disqus_thread" class="article-comment-link">Comments</a>
@@ -938,7 +932,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/" data-id="clcddw0hr004klonifwt18s80" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/" data-id="cldo4tsx8004pliozgnqzeurk" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/07/why-I-move-to-development/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1004,7 +998,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/07/C-print/" data-id="clcddw0hq004gloni3qumbmuu" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/07/C-print/" data-id="cldo4tsx6004llioz45cvdw3m" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/07/C-print/#disqus_thread" class="article-comment-link">Comments</a>
