@@ -10,7 +10,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - name: Wait website up
         run: |
           i=0
@@ -27,7 +26,7 @@ jobs:
           sleep 10
 
       - name: Trigger workflow
-      - uses: convictional/trigger-workflow-and-wait@v1.6.5
+        uses: convictional/trigger-workflow-and-wait@v1.6.5
         with:
           owner: shenxianpeng
           repo: shenxianpeng
