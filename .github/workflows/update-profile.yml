@@ -8,7 +8,7 @@ on:
 
 jobs:
   main:
-    uses: shenxianpeng/.github/workflows/blog-post-workflow.yml@master
+    uses: shenxianpeng/shenxianpeng/.github/workflows/blog-post-workflow.yml@master
   # build:
   #   runs-on: ubuntu-latest
   #   steps:
