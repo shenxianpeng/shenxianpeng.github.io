@@ -150,7 +150,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clepsv6b800hcl2ol82xp6l2b" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clf96apzv00hcm8oue10fdaz8" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/#disqus_thread" class="article-comment-link">Comments</a>
@@ -188,7 +188,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/pipeline-best-practices/">为什么我的 Jenkins 越来越慢？你可能犯了这些错误</a>
+      <a class="article-title" href="/2023/02/pipeline-best-practices/">为什么我的 Jenkins Controller 越来越慢？可能犯了这些错误...</a>
     </h1>
   
 
@@ -197,12 +197,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>就像标题所说的，为什么你的 Jenkins server 越来越慢，这可能是你没有遵循 Jenkins pipeline 编写的一些最佳实践。</p>
-<p>所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示这些他们过去可能并没有意识到的反模式。</p>
-<p>我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些有助于追踪常见实践的具体示例。</p>
-<h2 id="一般问题"><a href="#一般问题" class="headerlink" title="一般问题"></a>一般问题</h2><h3 id="确保在-pipeline-中使用-Groovy-代码作为胶水"><a href="#确保在-pipeline-中使用-Groovy-代码作为胶水" class="headerlink" title="确保在 pipeline 中使用 Groovy 代码作为胶水"></a>确保在 pipeline 中使用 Groovy 代码作为胶水</h3><p>使用 Groovy 代码连接一组操作而不是作为 pipeline 的主要功能。</p>
+        <p>就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。</p>
+<p>所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示一些他们过去可能并没有意识到的“反模式”。</p>
+<p>我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些实践中常见的具体示例。</p>
+<h2 id="一般问题"><a href="#一般问题" class="headerlink" title="一般问题"></a>一般问题</h2><h3 id="确保在-pipeline-中使用-Groovy-代码作为粘帖剂"><a href="#确保在-pipeline-中使用-Groovy-代码作为粘帖剂" class="headerlink" title="确保在 pipeline 中使用 Groovy 代码作为粘帖剂"></a>确保在 pipeline 中使用 Groovy 代码作为粘帖剂</h3><p>使用 Groovy 代码连接一组操作而不是作为 pipeline 的主要功能。</p>
 <p>换句话说，与其依赖 pipeline 功能（Groovy 或 pipeline 步骤）来推动构建过程向前发展，不如使用单个步骤（例如 <code>sh</code>）来完成构建的多个部分。</p>
-<p> pipeline 随着其复杂性的增加（Groovy 代码量、使用的步骤数等），需要 controller 上的更多资源（CPU、内存、存储）。将 Pipeline 视为完成构建的工具，而不是构建的核心。</p>
+<p>pipeline 随着其复杂性的增加（Groovy 代码量、使用的步骤数等），需要 controller 上的更多资源（CPU、内存、存储）。将 Pipeline 视为完成构建的工具，而不是构建的核心。</p>
 <p>示例：使用单个 Maven 构建步骤通过其构建&#x2F;测试&#x2F;部署过程来驱动构建。</p>
 <h3 id="在-Jenkins-pipeline-中运行-shell-脚本"><a href="#在-Jenkins-pipeline-中运行-shell-脚本" class="headerlink" title="在 Jenkins pipeline 中运行 shell 脚本"></a>在 Jenkins pipeline 中运行 shell 脚本</h3><p>在 Jenkins Pipeline 中使用 shell 脚本可以通过将多个步骤合并到一个阶段来帮助简化构建。shell 脚本还允许用户添加或更新命令，而无需单独修改每个步骤或阶段。</p>
 <p>Jenkins Pipeline 中使用 shell 脚本及其提供的好处：</p>
@@ -224,7 +224,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clepsv6b800hfl2ol0a4pdd4c" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clf96aq1n00ram8oug9ca9c69" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/#disqus_thread" class="article-comment-link">Comments</a>
@@ -313,7 +313,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clepsv6b600h8l2ol42o972rf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clf96apzu00h8m8ouaa1l3jkv" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/12/2022-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -392,7 +392,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clepsv6b500h5l2ol6mqc653u" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clf96apzs00h5m8oubr7z7wkq" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/#disqus_thread" class="article-comment-link">Comments</a>
@@ -464,7 +464,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/" data-id="clepsv6b300gxl2ol7dq3e6n1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/" data-id="clf96apzm00gxm8oucs1x53i1" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/#disqus_thread" class="article-comment-link">Comments</a>
@@ -533,7 +533,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/09/restrict-connect-server/" data-id="clepsv6b400h0l2olcole5thc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/09/restrict-connect-server/" data-id="clf96apzn00h0m8ou2r9q5egn" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/#disqus_thread" class="article-comment-link">Comments</a>
@@ -611,7 +611,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="clepsv6b100gtl2olc13u92j0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="clf96apzl00gtm8ou04gffnx8" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/08/cpp-linter/#disqus_thread" class="article-comment-link">Comments</a>
@@ -679,7 +679,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/07/create-gpg-keys/" data-id="clepsv6b100gql2olca0565ez" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/07/create-gpg-keys/" data-id="clf96apzk00gqm8oug0in74a8" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/#disqus_thread" class="article-comment-link">Comments</a>
@@ -754,7 +754,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/" data-id="clepsv6az00gll2ol93gw3igp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/" data-id="clf96apzj00glm8ou1kupdod7" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/#disqus_thread" class="article-comment-link">Comments</a>
@@ -830,7 +830,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/04/wsl/" data-id="clepsv6av00gil2oldnbt4izm" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/04/wsl/" data-id="clf96apzi00gim8ou1vc4hxlp" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/04/wsl/#disqus_thread" class="article-comment-link">Comments</a>
@@ -879,7 +879,7 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            <a href="/2023/02/pipeline-best-practices/">为什么我的 Jenkins 越来越慢？你可能犯了这些错误</a>
+            <a href="/2023/02/pipeline-best-practices/">为什么我的 Jenkins Controller 越来越慢？可能犯了这些错误...</a>
           </li>
         
           <li>

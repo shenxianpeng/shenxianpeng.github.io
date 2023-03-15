@@ -4,17 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>为什么我的 Jenkins 越来越慢？你可能犯了这些错误 | Peter Shen</title>
+  <title>为什么我的 Jenkins Controller 越来越慢？可能犯了这些错误... | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="就像标题所说的，为什么你的 Jenkins server 越来越慢，这可能是你没有遵循 Jenkins pipeline 编写的一些最佳实践。 所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示这些他们过去可能并没有意识到的反模式。 我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些有助于追踪常见实践的具体示例。 一般问题确">
+  <meta name="description" content="就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。 所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示一些他们过去可能并没有意识到的“反模式”。 我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些实践中常见的具体示例。 一般问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为什么我的 Jenkins 越来越慢？你可能犯了这些错误">
+<meta property="og:title" content="为什么我的 Jenkins Controller 越来越慢？可能犯了这些错误...">
 <meta property="og:url" content="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="就像标题所说的，为什么你的 Jenkins server 越来越慢，这可能是你没有遵循 Jenkins pipeline 编写的一些最佳实践。 所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示这些他们过去可能并没有意识到的反模式。 我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些有助于追踪常见实践的具体示例。 一般问题确">
+<meta property="og:description" content="就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。 所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示一些他们过去可能并没有意识到的“反模式”。 我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些实践中常见的具体示例。 一般问">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-02-06T13:52:12.000Z">
-<meta property="article:modified_time" content="2023-03-01T14:55:22.219Z">
+<meta property="article:modified_time" content="2023-03-15T04:19:01.359Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="pipeline">
@@ -112,7 +112,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      为什么我的 Jenkins 越来越慢？你可能犯了这些错误
+      为什么我的 Jenkins Controller 越来越慢？可能犯了这些错误...
     </h1>
   
 
@@ -121,12 +121,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>就像标题所说的，为什么你的 Jenkins server 越来越慢，这可能是你没有遵循 Jenkins pipeline 编写的一些最佳实践。</p>
-<p>所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示这些他们过去可能并没有意识到的反模式。</p>
-<p>我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些有助于追踪常见实践的具体示例。</p>
-<h2 id="一般问题"><a href="#一般问题" class="headerlink" title="一般问题"></a>一般问题</h2><h3 id="确保在-pipeline-中使用-Groovy-代码作为胶水"><a href="#确保在-pipeline-中使用-Groovy-代码作为胶水" class="headerlink" title="确保在 pipeline 中使用 Groovy 代码作为胶水"></a>确保在 pipeline 中使用 Groovy 代码作为胶水</h3><p>使用 Groovy 代码连接一组操作而不是作为 pipeline 的主要功能。</p>
+        <p>就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。</p>
+<p>所以主要介绍 Jenkins pipeline 的一些最佳实践，目的是为了向 pipeline 作者和维护者展示一些他们过去可能并没有意识到的“反模式”。</p>
+<p>我会尽量列出所有可能的 Pipeline 最佳实践，并提供一些实践中常见的具体示例。</p>
+<h2 id="一般问题"><a href="#一般问题" class="headerlink" title="一般问题"></a>一般问题</h2><h3 id="确保在-pipeline-中使用-Groovy-代码作为粘帖剂"><a href="#确保在-pipeline-中使用-Groovy-代码作为粘帖剂" class="headerlink" title="确保在 pipeline 中使用 Groovy 代码作为粘帖剂"></a>确保在 pipeline 中使用 Groovy 代码作为粘帖剂</h3><p>使用 Groovy 代码连接一组操作而不是作为 pipeline 的主要功能。</p>
 <p>换句话说，与其依赖 pipeline 功能（Groovy 或 pipeline 步骤）来推动构建过程向前发展，不如使用单个步骤（例如 <code>sh</code>）来完成构建的多个部分。</p>
-<p> pipeline 随着其复杂性的增加（Groovy 代码量、使用的步骤数等），需要 controller 上的更多资源（CPU、内存、存储）。将 Pipeline 视为完成构建的工具，而不是构建的核心。</p>
+<p>pipeline 随着其复杂性的增加（Groovy 代码量、使用的步骤数等），需要 controller 上的更多资源（CPU、内存、存储）。将 Pipeline 视为完成构建的工具，而不是构建的核心。</p>
 <p>示例：使用单个 Maven 构建步骤通过其构建&#x2F;测试&#x2F;部署过程来驱动构建。</p>
 <h3 id="在-Jenkins-pipeline-中运行-shell-脚本"><a href="#在-Jenkins-pipeline-中运行-shell-脚本" class="headerlink" title="在 Jenkins pipeline 中运行 shell 脚本"></a>在 Jenkins pipeline 中运行 shell 脚本</h3><p>在 Jenkins Pipeline 中使用 shell 脚本可以通过将多个步骤合并到一个阶段来帮助简化构建。shell 脚本还允许用户添加或更新命令，而无需单独修改每个步骤或阶段。</p>
 <p>Jenkins Pipeline 中使用 shell 脚本及其提供的好处：</p>
@@ -201,7 +201,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clepsv6b800hfl2ol0a4pdd4c" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clf96aq1n00ram8oug9ca9c69" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/#disqus_thread" class="article-comment-link">Comments</a>
@@ -270,7 +270,7 @@ ga('send', 'pageview');
           </li>
         
           <li>
-            <a href="/2023/02/pipeline-best-practices/">为什么我的 Jenkins 越来越慢？你可能犯了这些错误</a>
+            <a href="/2023/02/pipeline-best-practices/">为什么我的 Jenkins Controller 越来越慢？可能犯了这些错误...</a>
           </li>
         
           <li>
