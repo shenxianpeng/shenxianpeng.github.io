@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2023-03-15T04:19:01.359Z</updated>
+  <updated>2023-03-24T06:20:38.321Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,94 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SLSA 框架与软件供应链安全防护</title>
+    <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
+    <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
+    <published>2023-03-23T07:09:39.000Z</published>
+    <updated>2023-03-24T06:20:38.321Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;随着软件供应链攻击发生的次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
+&lt;p&gt;Google 的 SLSA 框架（Supply-chain Levels for Software Artifacts 软件制品的供应链级别）通过识别 CI&amp;#x2F;CD 流水线中的问题并减小影响，为实现更安全的软件开发和部署流程提供建议。&lt;/p&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#%E4%BB%80%E4%B9%88%E6%98%AFSLSA&quot;&gt;什么是SLSA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98&quot;&gt;软件供应链中的问题&lt;/a&gt;&lt;br&gt;2.1 &lt;a href=&quot;#%E4%BE%9B%E5%BA%94%E9%93%BE%E6%94%BB%E5%87%BB%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B&quot;&gt;供应链攻击包括哪些&lt;/a&gt;&lt;br&gt;2.2 &lt;a href=&quot;#%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E4%BE%8B%E5%AD%90&quot;&gt;真实世界的例子&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#SLSA%E7%AD%89%E7%BA%A7&quot;&gt;SLSA等级&lt;/a&gt;&lt;br&gt;3.1 &lt;a href=&quot;#%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A&quot;&gt;详细解释&lt;/a&gt;&lt;br&gt;3.2 &lt;a href=&quot;#%E9%99%90%E5%88%B6&quot;&gt;限制&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#SLSA%E8%90%BD%E5%9C%B0&quot;&gt;SLSA落地&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7&quot;&gt;其他工具&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;什么是SLSA&quot;&gt;&lt;a href=&quot;#什么是SLSA&quot; class=&quot;headerlink&quot; title=&quot;什么是SLSA&quot;&gt;&lt;/a&gt;什么是SLSA&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://slsa.dev/&quot;&gt;SLSA&lt;/a&gt; 全名是 Supply chain Levels for Software Artifacts, or SLSA (发音“salsa”).&lt;/p&gt;
+&lt;p&gt;SLSA 是一个端到端框架，一个标准和控制的清单确保软件构建和部署过程的安全性，防止篡改源代码、构建平台以及构件仓库而产生的威胁。&lt;/p&gt;
+&lt;h2 id=&quot;软件供应链中的问题&quot;&gt;&lt;a href=&quot;#软件供应链中的问题&quot; class=&quot;headerlink&quot; title=&quot;软件供应链中的问题&quot;&gt;&lt;/a&gt;软件供应链中的问题&lt;/h2&gt;&lt;p&gt;任何软件供应链都可能引入漏洞，随着系统变得越来越复杂，检查和最佳实践来保证工件完整性变得至关重要，确保你所依赖的源代码就是你实际使用的代码。&lt;/p&gt;
+&lt;p&gt;如果没有坚实的基础和系统发展计划，就很难集中精力应对明天的下一次黑客攻击、违规或妥协。&lt;/p&gt;
+&lt;h3 id=&quot;供应链攻击包括哪些&quot;&gt;&lt;a href=&quot;#供应链攻击包括哪些&quot; class=&quot;headerlink&quot; title=&quot;供应链攻击包括哪些&quot;&gt;&lt;/a&gt;供应链攻击包括哪些&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2023/03/slsa/supply-chain-threats.svg&quot; alt=&quot;threats&quot;&gt;&lt;/p&gt;
+&lt;p&gt;A 提交未经认证的修改&lt;br&gt;B 泄露源码仓库&lt;br&gt;C 从被修改源代码构建&lt;br&gt;D 泄露构建过程&lt;br&gt;E 使用已泄露的依赖&lt;br&gt;F 上传被修改的包&lt;br&gt;G 泄露了包仓库&lt;br&gt;H 使用已泄露的包&lt;/p&gt;
+&lt;h3 id=&quot;真实世界的例子&quot;&gt;&lt;a href=&quot;#真实世界的例子&quot; class=&quot;headerlink&quot; title=&quot;真实世界的例子&quot;&gt;&lt;/a&gt;真实世界的例子&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;完整性威胁&lt;/th&gt;
+&lt;th&gt;已知例子&lt;/th&gt;
+&lt;th&gt;SLSA 如何提供帮助&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;A 提交未经认证的修改&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://lore.kernel.org/lkml/202105051005.49BFABCE@keescook/&quot;&gt;研究人员&lt;/a&gt;试图通过邮件列表上的&lt;br&gt;补丁程序故意将漏洞引入 Linux 内核。&lt;/td&gt;
+&lt;td&gt;两人审查发现了大部分（但不是全部）漏洞。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B 泄露源码仓库&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://news-web.php.net/php.internals/113838&quot;&gt;PHP&lt;/a&gt;：攻击者破坏了 PHP 的自托管&lt;br&gt; git 服务器并注入了两个恶意提交。&lt;/td&gt;
+&lt;td&gt;一个受到更好保护的源代码平台&lt;br&gt;将成为攻击者更难攻击的目标。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C 从被修改源代码构建&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.webmin.com/exploit.html&quot;&gt;Webmin&lt;/a&gt;：攻击者修改了构建基础设施&lt;br&gt;以使用与源代码控制不匹配的源文件。&lt;/td&gt;
+&lt;td&gt;符合 SLSA 标准的构建服务器会生成出处，&lt;br&gt;以识别实际使用的来源，从而使消费者能够检测到此类篡改。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;D 泄露构建过程&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/&quot;&gt;SolarWinds&lt;/a&gt;：攻击者破坏了构建平台&lt;br&gt;并安装了在每次构建期间注入恶意行为的植入程序。&lt;/td&gt;
+&lt;td&gt;更高的 SLSA 级别需要对构建平台进行更强大的安全控制，&lt;br&gt;这使得妥协和获得持久性变得更加困难。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;E 使用已泄露的依赖&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://web.archive.org/web/20210909051737/https://schneider.dev/blog/event-stream-vulnerability-explained/&quot;&gt;event-stream&lt;/a&gt;：攻击者添加了一个无害的依赖项，然后更新了该依赖项&lt;br&gt;以添加恶意行为。更新与提交到 GitHub 的代码不匹配（即攻击 F）。&lt;/td&gt;
+&lt;td&gt;递归地将 SLSA 应用于所有依赖项会阻止这个特定的向量，因为&lt;br&gt;出处会表明它不是由适当的构建器构建的，或者源不是来自 GitHub。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;F 上传被修改的包&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://about.codecov.io/apr-2021-post-mortem/&quot;&gt;CodeCov&lt;/a&gt;：攻击者使用泄露的凭据将恶意工件上传到&lt;br&gt; Google Cloud Storage(GCS)，用户可以从中直接下载。&lt;/td&gt;
+&lt;td&gt;GCS 中工件的出处表明工件不是以&lt;br&gt;预期的方式从预期的源代码库中构建的。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;G 泄露了包仓库&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://theupdateframework.io/papers/attacks-on-package-managers-ccs2008.pdf&quot;&gt;对包镜像的攻击&lt;/a&gt;：研究人员为几个流行的&lt;br&gt;包存储库运行镜像，这些镜像可能被用来提供恶意包。&lt;/td&gt;
+&lt;td&gt;与上面的 (F) 类似，恶意工件的来源表明它们不是&lt;br&gt;按预期构建的，也不是来自预期的源代码库。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;H 使用已泄露的包&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://blog.sonatype.com/damaging-linux-mac-malware-bundled-within-browserify-npm-brandjack-attempt&quot;&gt;Browserify typosquatting&lt;/a&gt;：攻击者&lt;br&gt;上传了一个与原始名称相似的恶意包。&lt;/td&gt;
+&lt;td&gt;SLSA 不直接解决这种威胁，但将出处链接回源代码控制&lt;br&gt;可以启用和增强其他解决方案。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h2 id=&quot;SLSA等级&quot;&gt;&lt;a href=&quot;#SLSA等级&quot; class=&quot;headerlink&quot; title=&quot;SLSA等级&quot;&gt;&lt;/a&gt;SLSA等级&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="SLSA" scheme="https://shenxianpeng.github.io/tags/slsa/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何在 DevOps 任务中使用 ChatGPT?</title>
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -56,7 +139,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
@@ -85,7 +168,7 @@
     <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
     <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
     <published>2022-12-28T12:26:56.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
       
@@ -114,7 +197,7 @@
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
       
@@ -143,7 +226,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
@@ -168,7 +251,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/"/>
     <id>https://shenxianpeng.github.io/2022/09/restrict-connect-server/</id>
     <published>2022-09-16T02:13:08.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
     <summary type="html">&lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
@@ -190,7 +273,7 @@
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇是关于 C&amp;#x2F;C++ 代码格式化和静态分析检查的实践分享。&lt;/p&gt;
@@ -225,7 +308,7 @@
     <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
     <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
     <published>2022-07-28T06:45:04.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List your GPG key&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# If folders does not exist will create be related automatically&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-keys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: directory &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg/pubring.kbx&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /home/ubuntu/.gnupg/trustdb.gpg: trustdb created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -248,7 +331,7 @@
     <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
     <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.321Z</updated>
     
     
     <summary type="html">&lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
@@ -276,7 +359,7 @@
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2023-03-15T04:19:01.359Z</updated>
+    <updated>2023-03-24T06:20:38.317Z</updated>
     
     
     <summary type="html">&lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
@@ -311,7 +394,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/container-ecosystem/"/>
     <id>https://shenxianpeng.github.io/2022/03/container-ecosystem/</id>
     <published>2022-03-29T12:52:42.000Z</published>
-    <updated>2023-03-15T04:19:01.351Z</updated>
+    <updated>2023-03-24T06:20:38.313Z</updated>
     
     
     <summary type="html">&lt;p&gt;自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。&lt;/p&gt;
@@ -344,7 +427,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/"/>
     <id>https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/</id>
     <published>2022-03-15T05:54:43.000Z</published>
-    <updated>2023-03-15T04:19:01.355Z</updated>
+    <updated>2023-03-24T06:20:38.313Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In organizations, using LDAP login very common way for users to log in with their credentials.&lt;/p&gt;
@@ -369,7 +452,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
     <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
     <published>2022-03-09T03:16:05.000Z</published>
-    <updated>2023-03-15T04:19:01.355Z</updated>
+    <updated>2023-03-24T06:20:38.317Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;有开发者、甚至公司可能会遇到过以下几个问题：&lt;/p&gt;
@@ -403,7 +486,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/groovy/"/>
     <id>https://shenxianpeng.github.io/2022/03/groovy/</id>
     <published>2022-03-06T14:19:31.000Z</published>
-    <updated>2023-03-15T04:19:01.351Z</updated>
+    <updated>2023-03-24T06:20:38.313Z</updated>
     
     
     <summary type="html">&lt;p&gt;在使用 Jenkins 和 Groovy 越久，我就这样的疑问：&lt;/p&gt;
@@ -439,7 +522,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/</id>
     <published>2022-03-02T06:54:11.000Z</published>
-    <updated>2023-03-15T04:19:01.351Z</updated>
+    <updated>2023-03-24T06:20:38.313Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -475,7 +558,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/"/>
     <id>https://shenxianpeng.github.io/2022/02/devops-trends-2022/</id>
     <published>2022-02-24T03:27:18.000Z</published>
-    <updated>2023-03-15T04:19:01.351Z</updated>
+    <updated>2023-03-24T06:20:38.313Z</updated>
     
     
     <summary type="html">&lt;p&gt;DevOps 是 IT 界最近几年的一个热门话题，而且还会越来越热。&lt;/p&gt;
@@ -513,7 +596,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
     <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
     <published>2022-02-20T16:15:00.000Z</published>
-    <updated>2023-03-15T04:19:01.351Z</updated>
+    <updated>2023-03-24T06:20:38.313Z</updated>
     
     
     <summary type="html">&lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
@@ -555,7 +638,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/</id>
     <published>2022-02-14T00:30:00.000Z</published>
-    <updated>2023-03-15T04:19:01.347Z</updated>
+    <updated>2023-03-24T06:20:38.309Z</updated>
     
     
     <summary type="html">&lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/a&gt;&lt;/p&gt;
@@ -584,7 +667,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant/</id>
     <published>2022-02-11T00:30:00.000Z</published>
-    <updated>2023-03-15T04:19:01.347Z</updated>
+    <updated>2023-03-24T06:20:38.309Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;什么是-Vagrant&quot;&gt;&lt;a href=&quot;#什么是-Vagrant&quot; class=&quot;headerlink&quot; title=&quot;什么是 Vagrant&quot;&gt;&lt;/a&gt;什么是 Vagrant&lt;/h2&gt;&lt;p&gt;Vagrant 是一种&lt;a href=&quot;https://github.com/hashicorp/vagrant&quot;&gt;开源&lt;/a&gt;软件产品，用来方便构建和维护虚拟软件开发环境。&lt;/p&gt;
@@ -601,39 +684,6 @@
     <category term="VirtualBox" scheme="https://shenxianpeng.github.io/tags/virtualbox/"/>
     
     <category term="Vagrant" scheme="https://shenxianpeng.github.io/tags/vagrant/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>什么是 Go ？Go 的优势和现状。初学者应该学习 Python 还是 Go？</title>
-    <link href="https://shenxianpeng.github.io/2022/01/what-is-go/"/>
-    <id>https://shenxianpeng.github.io/2022/01/what-is-go/</id>
-    <published>2022-01-18T14:01:31.000Z</published>
-    <updated>2023-03-15T04:19:01.351Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Go 是一种开源编程语言，可以轻松构建简单、可靠和高效的软件。&lt;/p&gt;
-&lt;h2 id=&quot;Go-还是-Golang&quot;&gt;&lt;a href=&quot;#Go-还是-Golang&quot; class=&quot;headerlink&quot; title=&quot;Go 还是 Golang&quot;&gt;&lt;/a&gt;Go 还是 Golang&lt;/h2&gt;&lt;p&gt;先问一个大多数人可能会忽略的问题：Google 的这门开源编程语言叫 Go 还是 Golang？还是两个都行？给你三秒钟想一下 …&lt;/p&gt;
-&lt;p&gt;Google 说：它叫 Go。之所以有人称它为 Golang 是由于之前的 Go 语言官网是 golang.org（因为 go.org 已经被别人用了），因此有人将 Golang 和 Go 混用了。&lt;/p&gt;
-&lt;p&gt;现在输入 golang.org 会直接跳转到 go.dev 这个网址，这也算是彻底给自家孩子正个名。&lt;/p&gt;
-&lt;h2 id=&quot;Go-语言有哪些优势&quot;&gt;&lt;a href=&quot;#Go-语言有哪些优势&quot; class=&quot;headerlink&quot; title=&quot;Go 语言有哪些优势&quot;&gt;&lt;/a&gt;Go 语言有哪些优势&lt;/h2&gt;&lt;p&gt;官网是这样介绍 Go 语言的：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Go 适合大规模快速构建，可靠、高效的软件&lt;/li&gt;
-&lt;li&gt;Go 是 Google 在背后支持的一门开源编程语言&lt;/li&gt;
-&lt;li&gt;易于学习和入门&lt;/li&gt;
-&lt;li&gt;内置并发和强大的标准库&lt;/li&gt;
-&lt;li&gt;不断发展的合作伙伴、社区和工具生态系统&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;今天，Go 被用于各种应用程序：&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Go" scheme="https://shenxianpeng.github.io/categories/go/"/>
-    
-    
-    <category term="Go" scheme="https://shenxianpeng.github.io/tags/go/"/>
-    
-    <category term="CLI" scheme="https://shenxianpeng.github.io/tags/cli/"/>
     
   </entry>
   
