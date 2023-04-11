@@ -14,7 +14,7 @@
 <meta property="og:description" content="前言本篇记录两个在做 Jenkins 与 AIX 做持续集成得时候遇到的 Git clone 代码失败的问题，并已解决，分享出来或许能有所帮助。  Dependent module &#x2F;usr&#x2F;lib&#x2F;libldap.a(libldap-2.4.so.2) could not be loaded. 通过 SSH 进行 git clone 出现 Authenticatio">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-20T14:53:26.000Z">
-<meta property="article:modified_time" content="2023-03-30T10:05:38.353Z">
+<meta property="article:modified_time" content="2023-04-11T03:24:14.166Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Git">
@@ -47,8 +47,15 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-  <script data-ad-client="ca-pub-3986315287795783" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDW3BHJTTW');
+  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
@@ -167,19 +174,17 @@ ga('send', 'pageview');
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Host *</span><br><span class="line">  AllowPKCS12keystoreAutoOpen no</span><br><span class="line"><span class="comment">#   ForwardAgent no</span></span><br><span class="line"><span class="comment">#   ForwardX11 no</span></span><br><span class="line"><span class="comment">#   RhostsRSAAuthentication no</span></span><br><span class="line"><span class="comment">#   RSAAuthentication yes</span></span><br><span class="line"><span class="comment">#   PasswordAuthentication yes</span></span><br><span class="line"><span class="comment">#   HostbasedAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIAuthentication no</span></span><br><span class="line"><span class="comment">#   GSSAPIDelegateCredentials no</span></span><br><span class="line"><span class="comment">#   GSSAPIKeyExchange no</span></span><br><span class="line"><span class="comment">#   GSSAPITrustDNS no</span></span><br><span class="line"><span class="comment">#   ....省略</span></span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="clfuyaag200fukdoh7eiv0kx4" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/" data-id="clgbp89ju00ftmkovg7sr61iz" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
@@ -196,7 +201,14 @@ ga('send', 'pageview');
         </div>
       </section>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
     

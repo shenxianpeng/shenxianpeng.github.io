@@ -14,7 +14,7 @@
 <meta property="og:description" content="最近我在运行 Jenkins Job 时候突然发现 git clone 代码的时候突然报了这个错误： $ git clone ssh:&#x2F;&#x2F;git@git.companyname.com:7999&#x2F;repo&#x2F;opensrc.gitCloning into &amp;#x27;opensrc&amp;#x27;...fatal: Could not read from remote repository.Please">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-09-01T14:22:32.000Z">
-<meta property="article:modified_time" content="2023-03-30T10:05:38.293Z">
+<meta property="article:modified_time" content="2023-04-11T03:24:14.114Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="Troubleshooting">
@@ -46,8 +46,15 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-  <script data-ad-client="ca-pub-3986315287795783" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDW3BHJTTW');
+  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
@@ -154,19 +161,17 @@ ga('send', 'pageview');
 <h2 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h2><p>回到 git clone 失败的那个账号下面的 .profile 文件查看，这里确实添加了一个 &#x2F;usr&#x2F;bin 的环境变量，导致这个账号在执行 git clone 时候用了另外版本的 OpenSSH，我用的是 HP-UX，它对于包之前的依赖以及版本要求都非常高，把这个环境变量去掉之后，保存，重新登录到虚拟机，执行 git clone 恢复正常。</p>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="clfuyaad9007hkdoh08qa89ae" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/" data-id="clgbp89gw007gmkovdcoy2szh" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/09/could-not-read-from-remote-repository/#disqus_thread" class="article-comment-link">Comments</a>
@@ -183,7 +188,14 @@ ga('send', 'pageview');
         </div>
       </section>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
     

@@ -14,7 +14,7 @@
 <meta property="og:description" content="最近在做有关 DevOps Build 的时候，学习了 Jenkins 的 Pipeline 的功能，不得不提到的就是 Jenkinsfile 这个文件。 以下面是我配置的 Jenkinsfile 文件及简单说明，更多有关 Pipeline 请看官方文档。 pipeline &amp;#123;    agent any    stages &amp;#123;        &#x2F;&#x2F; Build 阶段">
 <meta property="og:locale">
 <meta property="article:published_time" content="2018-04-14T05:07:49.000Z">
-<meta property="article:modified_time" content="2023-03-30T10:05:38.285Z">
+<meta property="article:modified_time" content="2023-04-11T03:24:14.102Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Pipeline">
@@ -46,8 +46,15 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-  <script data-ad-client="ca-pub-3986315287795783" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDW3BHJTTW');
+  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
@@ -126,19 +133,17 @@ ga('send', 'pageview');
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        <span class="comment">// Build 阶段</span></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;Build&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">&#x27;Building...&#x27;</span></span><br><span class="line">                bat <span class="string">&#x27;npm run build webcomponent-sample&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 单元测试阶段</span></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;Unit Test&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">&#x27;Unit Testing...&#x27;</span></span><br><span class="line">                bat <span class="string">&#x27;npm test webcomponent-sample&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123;</span><br><span class="line">                <span class="comment">// 执行成功后生产报告</span></span><br><span class="line">                publishHTML <span class="attr">target</span>: [</span><br><span class="line">                    <span class="attr">allowMissing</span>: <span class="literal">false</span>,</span><br><span class="line">                    <span class="attr">alwaysLinkToLastBuild</span>: <span class="literal">false</span>,</span><br><span class="line">                    <span class="attr">keepAll</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">reportDir</span>: <span class="string">&#x27;components/webcomponent-sample/coverage/chrome&#x27;</span>,</span><br><span class="line">                    <span class="attr">reportFiles</span>: <span class="string">&#x27;index.html&#x27;</span>,</span><br><span class="line">                    <span class="attr">reportName</span>: <span class="string">&#x27;RCov Report&#x27;</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// E2E 测试阶段</span></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;E2E Test&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                bat <span class="string">&#x27;node nightwatch e2e/demo/test.js&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;Release&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">&#x27;Release...&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    post &#123;</span><br><span class="line">        <span class="comment">// 执行成功是触发</span></span><br><span class="line">        success &#123;</span><br><span class="line">            mail <span class="attr">bcc</span>: <span class="string">&#x27;email@qq.com&#x27;</span>,</span><br><span class="line">            <span class="attr">body</span>: <span class="string">&quot;&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; &quot;</span>, <span class="attr">cc</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">charset</span>: <span class="string">&#x27;UTF-8&#x27;</span>, <span class="attr">from</span>: <span class="string">&#x27;jenkins@qq.com&#x27;</span>, <span class="attr">mimeType</span>: <span class="string">&#x27;text/html&#x27;</span>, <span class="attr">replyTo</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">subject</span>: <span class="string">&quot;SUCCESS: Project Name -&gt; $&#123;env.JOB_NAME&#125;&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行失败时触发</span></span><br><span class="line">        failure &#123;</span><br><span class="line">            mail <span class="attr">bcc</span>: <span class="string">&#x27;email@qq.com&#x27;</span>,</span><br><span class="line">            <span class="attr">body</span>: <span class="string">&quot;&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; &quot;</span>, <span class="attr">cc</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">charset</span>: <span class="string">&#x27;UTF-8&#x27;</span>, <span class="attr">from</span>: <span class="string">&#x27;jenkins@qq.com&#x27;</span>, <span class="attr">mimeType</span>: <span class="string">&#x27;text/html&#x27;</span>, <span class="attr">replyTo</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">subject</span>: <span class="string">&quot;FAILURE: Project Name -&gt; $&#123;env.JOB_NAME&#125;&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/04/Jenkinsfile-configure/" data-id="clfuyaabx0046kdoh886i1kbw" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/04/Jenkinsfile-configure/" data-id="clgbp89fs0046mkov82yw8kln" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/04/Jenkinsfile-configure/#disqus_thread" class="article-comment-link">Comments</a>
@@ -155,7 +160,14 @@ ga('send', 'pageview');
         </div>
       </section>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
     

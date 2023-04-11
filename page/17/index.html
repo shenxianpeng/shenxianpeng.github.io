@@ -40,8 +40,15 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-  <script data-ad-client="ca-pub-3986315287795783" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDW3BHJTTW');
+  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
@@ -122,19 +129,17 @@ ga('send', 'pageview');
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line">        <span class="comment">// Build 阶段</span></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;Build&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">&#x27;Building...&#x27;</span></span><br><span class="line">                bat <span class="string">&#x27;npm run build webcomponent-sample&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 单元测试阶段</span></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;Unit Test&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">&#x27;Unit Testing...&#x27;</span></span><br><span class="line">                bat <span class="string">&#x27;npm test webcomponent-sample&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            post &#123;</span><br><span class="line">                success &#123;</span><br><span class="line">                <span class="comment">// 执行成功后生产报告</span></span><br><span class="line">                publishHTML <span class="attr">target</span>: [</span><br><span class="line">                    <span class="attr">allowMissing</span>: <span class="literal">false</span>,</span><br><span class="line">                    <span class="attr">alwaysLinkToLastBuild</span>: <span class="literal">false</span>,</span><br><span class="line">                    <span class="attr">keepAll</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">reportDir</span>: <span class="string">&#x27;components/webcomponent-sample/coverage/chrome&#x27;</span>,</span><br><span class="line">                    <span class="attr">reportFiles</span>: <span class="string">&#x27;index.html&#x27;</span>,</span><br><span class="line">                    <span class="attr">reportName</span>: <span class="string">&#x27;RCov Report&#x27;</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// E2E 测试阶段</span></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;E2E Test&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                bat <span class="string">&#x27;node nightwatch e2e/demo/test.js&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="title function_">stage</span>(<span class="params"><span class="string">&#x27;Release&#x27;</span></span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                echo <span class="string">&#x27;Release...&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    post &#123;</span><br><span class="line">        <span class="comment">// 执行成功是触发</span></span><br><span class="line">        success &#123;</span><br><span class="line">            mail <span class="attr">bcc</span>: <span class="string">&#x27;email@qq.com&#x27;</span>,</span><br><span class="line">            <span class="attr">body</span>: <span class="string">&quot;&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; &quot;</span>, <span class="attr">cc</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">charset</span>: <span class="string">&#x27;UTF-8&#x27;</span>, <span class="attr">from</span>: <span class="string">&#x27;jenkins@qq.com&#x27;</span>, <span class="attr">mimeType</span>: <span class="string">&#x27;text/html&#x27;</span>, <span class="attr">replyTo</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">subject</span>: <span class="string">&quot;SUCCESS: Project Name -&gt; $&#123;env.JOB_NAME&#125;&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行失败时触发</span></span><br><span class="line">        failure &#123;</span><br><span class="line">            mail <span class="attr">bcc</span>: <span class="string">&#x27;email@qq.com&#x27;</span>,</span><br><span class="line">            <span class="attr">body</span>: <span class="string">&quot;&lt;b&gt;Project: $&#123;env.JOB_NAME&#125; &lt;br&gt;Build Number: $&#123;env.BUILD_NUMBER&#125; &lt;br&gt;Build URL: $&#123;env.BUILD_URL&#125; &quot;</span>, <span class="attr">cc</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">charset</span>: <span class="string">&#x27;UTF-8&#x27;</span>, <span class="attr">from</span>: <span class="string">&#x27;jenkins@qq.com&#x27;</span>, <span class="attr">mimeType</span>: <span class="string">&#x27;text/html&#x27;</span>, <span class="attr">replyTo</span>: <span class="string">&#x27;&#x27;</span>, <span class="attr">subject</span>: <span class="string">&quot;FAILURE: Project Name -&gt; $&#123;env.JOB_NAME&#125;&quot;</span>, <span class="attr">to</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/04/jenkinsfile-configure/" data-id="clfuyaabz004ekdoh2f037d4f" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/04/jenkinsfile-configure/" data-id="clgbp89fw004imkovcme9fqii" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/04/jenkinsfile-configure/#disqus_thread" class="article-comment-link">Comments</a>
@@ -145,7 +150,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -212,19 +224,17 @@ ga('send', 'pageview');
 </ul>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/04/devops-practice/" data-id="clfuyaaby004akdoh8gjxffgq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/04/devops-practice/" data-id="clgbp89ft004amkov3jraapc9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/04/devops-practice/#disqus_thread" class="article-comment-link">Comments</a>
@@ -235,7 +245,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -288,19 +305,17 @@ ga('send', 'pageview');
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install [name]</span><br><span class="line">cnpm <span class="built_in">sync</span> connect</span><br><span class="line">cnpm info connect</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/git-command-cheat/" data-id="clfuyaabv003zkdoh4e6f10dt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/git-command-cheat/" data-id="clgbp89fp003zmkov3ltnc0ky" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/git-command-cheat/#disqus_thread" class="article-comment-link">Comments</a>
@@ -311,7 +326,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -351,19 +373,17 @@ ga('send', 'pageview');
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 取消远程仓库</span></span><br><span class="line">git remote remove origin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关联远程仓库</span></span><br><span class="line">git remote add origin git@github.com:shenxianpeng/blog.git</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/" data-id="clfuyaabw0043kdohgimb6tou" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/" data-id="clgbp89fr0043mkov9inbcboq" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/remove-and-add-remote-repository/#disqus_thread" class="article-comment-link">Comments</a>
@@ -374,7 +394,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -418,19 +445,17 @@ ga('send', 'pageview');
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Use IntelliSense to learn about possible Node.js debug attributes.</span></span><br><span class="line">    <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">    <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;type&quot;</span>: <span class="string">&quot;node&quot;</span>,</span><br><span class="line">            <span class="string">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;npm test&quot;</span>,</span><br><span class="line">            <span class="string">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceRoot&#125;/node_modules/nightwatch/bin/runner.js&quot;</span>,</span><br><span class="line">            <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">                <span class="string">&quot;tests/DQA/DQA-221/login.js&quot;</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/" data-id="clfuyaabu003wkdoh6jzh3c32" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/" data-id="clgbp89fo003wmkov7m5w1wdk" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/02/debug-nightwatch-in-vs/#disqus_thread" class="article-comment-link">Comments</a>
@@ -441,7 +466,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -489,19 +521,17 @@ ga('send', 'pageview');
 <h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p>当程序执行运行一次时，程序运行正常，一旦遇到异常时，下次执行就回出错。<br>例如：比如邀请账号登录系统的操作。管理员添加一个新用户，然后用这个新用户登录，之后管理员删除这个账户。但如果删除这个账号失败时，下次执行这个程序再邀请这个账号时就会提示这个账号存在的，可能这个时候这个程序就执行不下去了。这个时候就需要考虑这些异常情况处理，保证程序能够良好的执行下去。</p>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/" data-id="clfuyaabp003pkdohhwtz8c1k" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/" data-id="clgbp89fi003pmkov88tsgx3k" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/01/nightwatch-CI-problem/#disqus_thread" class="article-comment-link">Comments</a>
@@ -512,7 +542,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -552,19 +589,17 @@ ga('send', 'pageview');
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url = process.<span class="property">env</span>.<span class="property">BASE_URL</span>, newWindow;</span><br><span class="line"></span><br><span class="line">client.<span class="title function_">execute</span>(<span class="keyword">function</span> (<span class="params">url, newWindow</span>) &#123;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">open</span>(url, newWindow, <span class="string">&#x27;height=768,width=1024&#x27;</span>);</span><br><span class="line">&#125;, [url, newWindow]);</span><br><span class="line"></span><br><span class="line">client.<span class="title function_">window_handles</span>(<span class="keyword">function</span>(<span class="params">result</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">verify</span>.<span class="title function_">equal</span>(result.<span class="property">value</span>.<span class="property">length</span>, <span class="number">2</span>, <span class="string">&#x27;There should be 2 windows open&#x27;</span>);</span><br><span class="line">    newWindow = result.<span class="property">value</span>[<span class="number">1</span>];</span><br><span class="line">    <span class="variable language_">this</span>.<span class="title function_">switchWindow</span>(newWindow);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2018/01/open-multiple-windows/" data-id="clfuyaabs003rkdoh9mjh05se" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2018/01/open-multiple-windows/" data-id="clgbp89fn003rmkovdus41mln" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2018/01/open-multiple-windows/#disqus_thread" class="article-comment-link">Comments</a>
@@ -575,7 +610,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -625,19 +667,17 @@ ga('send', 'pageview');
 <p>原文 <a target="_blank" rel="noopener" href="http://ubuntuhandbook.org/index.php/2014/11/connect-cisco-anyconnect-vpn-ubuntu/">请点击</a> 。</p>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/" data-id="clfuyaabm003mkdoh74yg98dg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/" data-id="clgbp89fg003mmkov22n4a9dg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/use-vpn-on-ubuntu/#disqus_thread" class="article-comment-link">Comments</a>
@@ -648,7 +688,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -690,19 +737,17 @@ ga('send', 'pageview');
 <p>亲测，好用。</p>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/" data-id="clfuyaabi0037kdoh47wo7fi9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/" data-id="clgbp89fc0037mkov5j99h7yy" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/install-VS-Code-on-ubuntu/#disqus_thread" class="article-comment-link">Comments</a>
@@ -713,7 +758,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>
@@ -753,19 +805,17 @@ ga('send', 'pageview');
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;Wait for text&#x27;</span>: <span class="keyword">function</span> <span class="title function_">waitForText</span>(<span class="params">client</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> query = client.<span class="property">page</span>.<span class="title function_">query</span>();</span><br><span class="line">    query.<span class="title function_">navigate</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">        client.<span class="title function_">getText</span>(<span class="string">&#x27;status&#x27;</span>, <span class="keyword">function</span> (<span class="params">result</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (result.<span class="property">value</span>.<span class="title function_">indexOf</span>(<span class="string">&#x27;Available&#x27;</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                client.<span class="title function_">pause</span>(<span class="number">1000</span>);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// TODO something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/" data-id="clfuyaabl003jkdoh70zi0cfp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/" data-id="clgbp89ff003jmkov9bs5duva" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2017/12/nightwatch-wait-for-text/#disqus_thread" class="article-comment-link">Comments</a>
@@ -776,7 +826,14 @@ ga('send', 'pageview');
 
     </footer>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
 </article>

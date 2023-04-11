@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/blackduck-interate-with-jenkins/blackduck-config.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2019/12/blackduck-interate-with-jenkins/blackduck-Jenkins-job.png">
 <meta property="article:published_time" content="2019-12-08T06:48:02.000Z">
-<meta property="article:modified_time" content="2023-03-30T10:05:38.309Z">
+<meta property="article:modified_time" content="2023-04-11T03:24:14.126Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="BlackDuck">
@@ -51,8 +51,15 @@ ga('send', 'pageview');
 <!-- End Google Analytics -->
 
 
-  <script data-ad-client="ca-pub-3986315287795783" async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDW3BHJTTW');
+  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
 <body>
@@ -158,19 +165,17 @@ ga('send', 'pageview');
 <h2 id="Black-Duck-流水线代码"><a href="#Black-Duck-流水线代码" class="headerlink" title="Black Duck 流水线代码"></a>Black Duck 流水线代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pipeline&#123;</span><br><span class="line">  agent &#123;</span><br><span class="line">    node &#123;</span><br><span class="line">      label <span class="string">&#x27;black-duck&#x27;</span></span><br><span class="line">      customWorkspace <span class="string">&quot;/agent/workspace/blackduck&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  parameters &#123;</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">&#x27;VERSION&#x27;</span>,</span><br><span class="line">      choices: [<span class="string">&#x27;MVSURE_v1.1&#x27;</span>, <span class="string">&#x27;MVSURE_v1.2&#x27;</span>, <span class="string">&#x27;MVSURE_v2.2&#x27;</span>],</span><br><span class="line">      description: <span class="string">&#x27;Which version do you want scan on black duck? MVSURE_v1.1, MVSURE_v1.2 or others?&#x27;</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">&#x27;REPO&#x27;</span>,</span><br><span class="line">      choices: [<span class="string">&#x27;blog-server&#x27;</span>, <span class="string">&#x27;blog-client&#x27;</span>, <span class="string">&#x27;blog-docker&#x27;</span>],</span><br><span class="line">      description: <span class="string">&#x27;Which repository code does above VERSION belong to?&#x27;</span>)</span><br><span class="line">    string(</span><br><span class="line">      name: <span class="string">&#x27;BRANCH&#x27;</span>,</span><br><span class="line">      defaultValue: <span class="string">&#x27;develop&#x27;</span>,</span><br><span class="line">      description: <span class="string">&#x27;Which branch does above VERSION belong to?&#x27;</span>)</span><br><span class="line">    choice(</span><br><span class="line">      name: <span class="string">&#x27;SNIPPET-MODES&#x27;</span>,</span><br><span class="line">      choices: [<span class="string">&#x27;SNIPPET_MATCHING&#x27;</span>, <span class="string">&#x27;SNIPPET_MATCHING_ONLY&#x27;</span>, <span class="string">&#x27;FULL_SNIPPET_MATCHING&#x27;</span>, <span class="string">&#x27;FULL_SNIPPET_MATCHING_ONLY&#x27;</span>, <span class="string">&#x27;NONE&#x27;</span>],</span><br><span class="line">      description: <span class="string">&#x27;What snippet scan mode do you want to choose?&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  environment &#123;</span><br><span class="line">    ROBOT                  = credentials(<span class="string">&quot;d1cbab74-823d-41aa-abb7-858485121212&quot;</span>)</span><br><span class="line">    hub_detect             = <span class="string">&#x27;https://blackducksoftware.github.io/hub-detect/hub-detect.sh&#x27;</span></span><br><span class="line">    blackduck_url          = <span class="string">&#x27;https://yourcompany.blackducksoftware.com&#x27;</span></span><br><span class="line">    blackduck_user         = <span class="string">&#x27;robot@yourcompany.com&#x27;</span></span><br><span class="line">    detect_project         = <span class="string">&#x27;GITHUB&#x27;</span></span><br><span class="line">    detect_project_version = <span class="string">&#x27;$&#123;VERSION&#125;&#x27;</span></span><br><span class="line">    detect_source_path     = <span class="string">&#x27;$&#123;WORKSPACE&#125;/$&#123;REPO&#125;/src&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 只保留最近十次 Jenkins 执行结果</span></span><br><span class="line">  options &#123;buildDiscarder(logRotator(numToKeepStr:<span class="string">&#x27;10&#x27;</span>))&#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 定时触发可以在这里添加</span></span><br><span class="line"></span><br><span class="line">  stages &#123;</span><br><span class="line">    stage(<span class="string">&quot;git clone&quot;</span>)&#123; <span class="comment"># 参数化 git clone 代码过程</span></span><br><span class="line">      steps&#123;</span><br><span class="line">        sh <span class="string">&#x27;&#x27;</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">        if [ -d $&#123;REPO&#125; ]; then</span></span><br><span class="line"><span class="string">            rm -rf $&#123;REPO&#125;</span></span><br><span class="line"><span class="string">        fi</span></span><br><span class="line"><span class="string">        git clone -b $&#123;BRANCH&#125; --depth 1 https://$ROBOT_USR:&quot;$ROBOT_PSW&quot;@git.yourcompany.com/scm/github/$&#123;REPO&#125;.git</span></span><br><span class="line"><span class="string">        &#x27;</span><span class="string">&#x27;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">&quot;black duck scan&quot;</span>)&#123; <span class="comment"># 参数化 Black Duck 所用到的参数值</span></span><br><span class="line">      steps &#123;</span><br><span class="line">        withCredentials([string(credentialsId: <span class="string">&#x27;robot-black-duck-scan&#x27;</span>, variable: <span class="string">&#x27;TOKEN&#x27;</span>)]) &#123; <span class="comment"># 用 withCredentials 来获得 Token</span></span><br><span class="line">          synopsys_detect <span class="string">&#x27;bash &lt;(curl -s $&#123;hub_detect&#125;) --blackduck.url=$&#123;blackduck_url&#125; --blackduck.username=$&#123;blackduck_user&#125; --blackduck.api.token=$&#123;TOKEN&#125; --detect.project.name=$&#123;detect_project&#125; --detect.project.version.name=$&#123;detect_project_version&#125; --detect.source.path=$&#123;detect_source_path&#125; --logging.level.com.synopsys.integration=debug --blackduck.trust.cert=TRUE --detect.blackduck.signature.scanner.snippet.matching=$&#123;SNIPPET-MODES&#125;&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  post &#123;</span><br><span class="line">    <span class="comment"># 不论结果任何都给执行者发送邮件通知</span></span><br><span class="line">    always &#123;</span><br><span class="line">      script &#123;</span><br><span class="line">        def email = load <span class="string">&quot;vars/email.groovy&quot;</span></span><br><span class="line">        wrap([<span class="variable">$class</span>: <span class="string">&#x27;BuildUser&#x27;</span>]) &#123;</span><br><span class="line">            def user = env.BUILD_USER_ID</span><br><span class="line">            email.build(currentBuild.result, <span class="string">&quot;<span class="variable">$&#123;user&#125;</span>&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    success &#123;</span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;success, cleanup blackduck workspace&quot;</span></span><br><span class="line">      cleanWs()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <ins class="adsbygoogle"
-          style="display:block; text-align:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-3986315287795783"
-          data-ad-slot="2662771257"></ins>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2019/12/blackduck-interate-with-jenkins/" data-id="clfuyaadp0091kdohegmk3isb" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2019/12/blackduck-interate-with-jenkins/" data-id="clgbp89hc0090mkovcn72bvoq" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2019/12/blackduck-interate-with-jenkins/#disqus_thread" class="article-comment-link">Comments</a>
@@ -187,7 +192,14 @@ ga('send', 'pageview');
         </div>
       </section>
     
-    <script data-ad-client="ca-pub-3986315287795783" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
   </div>
   
     
