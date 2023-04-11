@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Jenkins agent service can not start automatically on Windows even the Startup type is Automatic</title>
+      <link href="/2023/04/jenkins-troubleshooting/"/>
+      <url>/2023/04/jenkins-troubleshooting/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h2><p>My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not<br>start automatically even I have set the startup type to Automatic.</p><p><img src="/2023/04/jenkins-troubleshooting/service-general.png"></p><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>After some research, select “Allow service to interact with desktop” with service properties on Log On tab can fix this problem.</p><p>In service properties -&gt; Log On -&gt; Select “Local System account” and select the checkbox for “Allow service to interact with desktop”<br><img src="/2023/04/jenkins-troubleshooting/service-log-on.png"></p><p>Reference is <a href="https://stackoverflow.com/questions/41210060/even-after-installing-jenkins-as-a-windows-service-i-have-to-start-it-through-c">HERE</a>.</p><h2 id="Semi-automatic-setup-of-Jenkins-Agent-on-Windows"><a href="#Semi-automatic-setup-of-Jenkins-Agent-on-Windows" class="headerlink" title="Semi-automatic setup of Jenkins Agent on Windows"></a>Semi-automatic setup of Jenkins Agent on Windows</h2><p>By the way, if you want to set a jenkins agent as service on Windows more easier, you can use this <a href="https://github.com/shenxianpeng/win-jenkins-agent">project</a> to semi-automatic setup.</p><hr><p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Jenkins </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Pipeline </tag>
+            
+            <tag> Troubleshooting </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SLSA 框架与软件供应链安全防护</title>
       <link href="/2023/03/slsa/"/>
       <url>/2023/03/slsa/</url>
@@ -2439,35 +2466,8 @@
     
     <entry>
       <title>三种方法解决 Jenkins 声明式流水线 Exception Method code too large !</title>
-      <link href="/2020/04/Jenkins-troubleshooting-1/"/>
-      <url>/2020/04/Jenkins-troubleshooting-1/</url>
-      
-        <content type="html"><![CDATA[<p>这是我第二次在使用 Jenkins 声明式流水线的时候遇到了这个问题，第一次遇到这个问题的时候是在一个 Pipeline 里大概写到 600 多行时候遇到如下错误</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:</span><br><span class="line">General error during <span class="keyword">class</span> <span class="title class_">generation</span>: Method code too large!</span><br><span class="line"></span><br><span class="line">java.lang.RuntimeException: Method code too large!</span><br><span class="line">at groovyjarjarasm.asm.MethodWriter.a(Unknown Source)</span><br><span class="line">[...]</span><br></pre></td></tr></table></figure><span id="more"></span><p>当时我也使用了 Jenkins Shared Libraries，但那时候的代码组织的并不是很好，有不少步骤还没来得及单独抽离出来作为单独的方法。为了解决这个问题，经过一番重构，我将原来的 600 多行的 Pipeline 变成了现在的 300 多行，很不巧，随着继续添加功能，最近又遇到了这个问题。</p><p>出现这个问题的原因是 Jenkins 将整个声明性管道放入单个方法中，并且在一定大小下，JVM 因 java.lang .RuntimeException 失败：方法代码太大！看来我还是有什么方法超过了 64k。</p><p>Jenkins JIRA 上已经有了该问题的单子，但目前为止还是尚未解决。针对这个问题目前有三种方案，但他们都有各自的利弊。</p><h2 id="方法1：将步骤放到管道外的方法中"><a href="#方法1：将步骤放到管道外的方法中" class="headerlink" title="方法1：将步骤放到管道外的方法中"></a>方法1：将步骤放到管道外的方法中</h2><p>自2017年中以来，你可以在管道的末尾声明一个方法，然后在声明性管道中调用它即可。 这样，我们可以达到与共享库相同的效果，但是避免了维护开销。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&#x27;Test&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                whateverFunction()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void whateverFunction() &#123;</span><br><span class="line">    sh &#x27;ls /&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><table><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>没有额外的维护费用</td><td>这个解决方案不知道会不会一直有效</td></tr><tr><td>所有的功能都反映在Jenkinsfile中</td><td>有的方法在多个Jenkinsfile里用到时，这种方法还是会写很多重复的代码</td></tr></tbody></table><h2 id="方法2：从声明式迁移到脚本式管道"><a href="#方法2：从声明式迁移到脚本式管道" class="headerlink" title="方法2：从声明式迁移到脚本式管道"></a>方法2：从声明式迁移到脚本式管道</h2><p>最后，我们可以迁移到脚本化的管道。有了它，我们就有了所有的自由。但是也就会失去我们最初决定使用声明式管道的原因。有了专用的DSL，就很容易理解管道是如何工作的</p><table><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>完全没有限制</td><td>需要比较大的重构</td></tr><tr><td></td><td>更容易出错</td></tr><tr><td></td><td>可能需要更多的代码来实现相同的功能</td></tr></tbody></table><h2 id="方法3：使用-Shared-Libraries"><a href="#方法3：使用-Shared-Libraries" class="headerlink" title="方法3：使用 Shared Libraries"></a>方法3：使用 Shared Libraries</h2><p>我当前使用的就是 Jenkins Shared Libraries，有一个共享库来执行一些复杂的步骤。共享库目前看来使用的非常广泛，尤其是在维护一些比较大型的、复杂的项目里用的很多。</p><p>最终我的解决办法是进一步缩减 Pipeline 里的代码，这里我也用到 方法1 的解决方案，将一些步骤提到 Pipeline {} 括号的外面，尤其是那些重复调用的​步骤。​</p><table><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>减少了大量重复的代码</td><td>任何一个修改都会影响到所有的引用，要测试好了再将变更放到引用分支里</td></tr><tr><td>可以分块使用</td><td>不熟悉的话很难理解一个步骤到底是做什么的</td></tr><tr><td>生成的Jenkinsfile将易于阅读</td><td></td></tr></tbody></table><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>方法1：对于单一的 Repository 的集成，可以快速实现，大多数人上手会很快。<br>方法2：脚本化提供了很少的限制，适合熟悉 Java，Groovy 的高级用户和有更复杂需求的人使用。<br>方法3：对于企业级项目，拥有很多 Repositories，需要进行大量集成，并且想了解共享库，推荐使用此方法。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Jenkins </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Pipeline </tag>
-            
-            <tag> Troubleshooting </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>三种方法解决 Jenkins 声明式流水线 Exception Method code too large !</title>
-      <link href="/2020/04/jenkins-troubleshooting-1/"/>
-      <url>/2020/04/jenkins-troubleshooting-1/</url>
+      <link href="/2020/04/jenkins-troubleshooting/"/>
+      <url>/2020/04/jenkins-troubleshooting/</url>
       
         <content type="html"><![CDATA[<p>这是我第二次在使用 Jenkins 声明式流水线的时候遇到了这个问题，第一次遇到这个问题的时候是在一个 Pipeline 里大概写到 600 多行时候遇到如下错误</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:</span><br><span class="line">General error during <span class="keyword">class</span> <span class="title class_">generation</span>: Method code too large!</span><br><span class="line"></span><br><span class="line">java.lang.RuntimeException: Method code too large!</span><br><span class="line">at groovyjarjarasm.asm.MethodWriter.a(Unknown Source)</span><br><span class="line">[...]</span><br></pre></td></tr></table></figure><span id="more"></span><p>当时我也使用了 Jenkins Shared Libraries，但那时候的代码组织的并不是很好，有不少步骤还没来得及单独抽离出来作为单独的方法。为了解决这个问题，经过一番重构，我将原来的 600 多行的 Pipeline 变成了现在的 300 多行，很不巧，随着继续添加功能，最近又遇到了这个问题。</p><p>出现这个问题的原因是 Jenkins 将整个声明性管道放入单个方法中，并且在一定大小下，JVM 因 java.lang .RuntimeException 失败：方法代码太大！看来我还是有什么方法超过了 64k。</p><p>Jenkins JIRA 上已经有了该问题的单子，但目前为止还是尚未解决。针对这个问题目前有三种方案，但他们都有各自的利弊。</p><h2 id="方法1：将步骤放到管道外的方法中"><a href="#方法1：将步骤放到管道外的方法中" class="headerlink" title="方法1：将步骤放到管道外的方法中"></a>方法1：将步骤放到管道外的方法中</h2><p>自2017年中以来，你可以在管道的末尾声明一个方法，然后在声明性管道中调用它即可。 这样，我们可以达到与共享库相同的效果，但是避免了维护开销。</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(&#x27;Test&#x27;) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                whateverFunction()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void whateverFunction() &#123;</span><br><span class="line">    sh &#x27;ls /&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><table><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>没有额外的维护费用</td><td>这个解决方案不知道会不会一直有效</td></tr><tr><td>所有的功能都反映在Jenkinsfile中</td><td>有的方法在多个Jenkinsfile里用到时，这种方法还是会写很多重复的代码</td></tr></tbody></table><h2 id="方法2：从声明式迁移到脚本式管道"><a href="#方法2：从声明式迁移到脚本式管道" class="headerlink" title="方法2：从声明式迁移到脚本式管道"></a>方法2：从声明式迁移到脚本式管道</h2><p>最后，我们可以迁移到脚本化的管道。有了它，我们就有了所有的自由。但是也就会失去我们最初决定使用声明式管道的原因。有了专用的DSL，就很容易理解管道是如何工作的</p><table><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>完全没有限制</td><td>需要比较大的重构</td></tr><tr><td></td><td>更容易出错</td></tr><tr><td></td><td>可能需要更多的代码来实现相同的功能</td></tr></tbody></table><h2 id="方法3：使用-Shared-Libraries"><a href="#方法3：使用-Shared-Libraries" class="headerlink" title="方法3：使用 Shared Libraries"></a>方法3：使用 Shared Libraries</h2><p>我当前使用的就是 Jenkins Shared Libraries，有一个共享库来执行一些复杂的步骤。共享库目前看来使用的非常广泛，尤其是在维护一些比较大型的、复杂的项目里用的很多。</p><p>最终我的解决办法是进一步缩减 Pipeline 里的代码，这里我也用到 方法1 的解决方案，将一些步骤提到 Pipeline {} 括号的外面，尤其是那些重复调用的​步骤。​</p><table><thead><tr><th>优点</th><th>缺点</th></tr></thead><tbody><tr><td>减少了大量重复的代码</td><td>任何一个修改都会影响到所有的引用，要测试好了再将变更放到引用分支里</td></tr><tr><td>可以分块使用</td><td>不熟悉的话很难理解一个步骤到底是做什么的</td></tr><tr><td>生成的Jenkinsfile将易于阅读</td><td></td></tr></tbody></table><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>方法1：对于单一的 Repository 的集成，可以快速实现，大多数人上手会很快。<br>方法2：脚本化提供了很少的限制，适合熟悉 Java，Groovy 的高级用户和有更复杂需求的人使用。<br>方法3：对于企业级项目，拥有很多 Repositories，需要进行大量集成，并且想了解共享库，推荐使用此方法。</p>]]></content>
       
