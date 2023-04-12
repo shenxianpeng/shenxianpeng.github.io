@@ -115,7 +115,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/jenkins-troubleshooting/">Jenkins agent service can not start automatically on Windows even the Startup type is Automatic</a>
+      <a class="article-title" href="/2023/04/jenkins-troubleshooting/">Jenkins agent service can not start automatically on Windows</a>
     </h1>
   
 
@@ -126,12 +126,12 @@ ga('send', 'pageview');
       
         <h2 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h2><p>My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not<br>start automatically even I have set the startup type to Automatic.</p>
 <p><img src="/2023/04/jenkins-troubleshooting/service-general.png"></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>After some research, select “Allow service to interact with desktop” with service properties on Log On tab can fix this problem.</p>
+<h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>After some research, select “Allow service to interact with desktop” with service properties on Log On tab can fix this problem.</p>
 <p>In service properties -&gt; Log On -&gt; Select “Local System account” and select the checkbox for “Allow service to interact with desktop”</p>
 <p><img src="/2023/04/jenkins-troubleshooting/service-log-on.png"></p>
-<p>If above solution still does not work, you can write a restart jenkins agent service batch script.</p>
-<p>Here is a example for reference: <a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/win-jenkins-agent#setup-autostart-jenkins-agent-service-after-windows-reboot">Setup autostart Jenkins agent service after Windows reboot</a></p>
-<h2 id="Semi-automatic-setup-of-Jenkins-Agent-on-Windows"><a href="#Semi-automatic-setup-of-Jenkins-Agent-on-Windows" class="headerlink" title="Semi-automatic setup of Jenkins Agent on Windows"></a>Semi-automatic setup of Jenkins Agent on Windows</h2><p>The above mentioned project <a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/win-jenkins-agent">win-jenkins-agent</a> not only supports auto start Jenkins agent server after Windows reboot, but also supports semi-automatic setup Jenkins agent on Windows.</p>
+<h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><p>If above solution still does not work, you can write a restart jenkins agent service batch script and put it to Startup folder.</p>
+<p>Here is a example: <a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/win-jenkins-agent#setup-autostart-jenkins-agent-service-after-windows-reboot">Setup autostart Jenkins agent service after Windows reboot</a></p>
+<h2 id="Semi-automatic-setup-Jenkins-Agent-on-Windows"><a href="#Semi-automatic-setup-Jenkins-Agent-on-Windows" class="headerlink" title="Semi-automatic setup Jenkins Agent on Windows"></a>Semi-automatic setup Jenkins Agent on Windows</h2><p>The above mentioned project <a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/win-jenkins-agent">win-jenkins-agent</a> not only supports auto start Jenkins agent server after Windows reboot, but also supports semi-automatic setup Jenkins agent on Windows.</p>
 <hr>
 <p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
 
@@ -146,7 +146,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clgdsebpk00jwl2oz8oz4etwg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clgdspbu700jwkjoe1zjpblc2" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
@@ -281,7 +281,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clgdsebpi00jsl2ozc2chg2jn" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clgdspbu500jskjoeg5zfbhfu" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/03/slsa/#disqus_thread" class="article-comment-link">Comments</a>
@@ -366,7 +366,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clgdsebpf00jll2ozey7t8y1p" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clgdspbu200jlkjoeeau44ql2" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/#disqus_thread" class="article-comment-link">Comments</a>
@@ -445,7 +445,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clgdsebph00jpl2ozbceo3jm1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clgdspbu400jpkjoe22dj131u" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/#disqus_thread" class="article-comment-link">Comments</a>
@@ -539,7 +539,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clgdsebpe00jil2oz8utb22rf" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clgdspbu100jikjoe2o8pe1kc" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/12/2022-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -623,7 +623,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clgdsebpc00jel2ozhj4j2kea" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clgdspbtz00jekjoe8yb1gwnf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/#disqus_thread" class="article-comment-link">Comments</a>
@@ -700,7 +700,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/" data-id="clgdsebp900j7l2oz7zg98i7r" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/" data-id="clgdspbtw00j7kjoe4vu87y7r" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/#disqus_thread" class="article-comment-link">Comments</a>
@@ -774,7 +774,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/09/restrict-connect-server/" data-id="clgdsebpb00jal2oz18mc516l" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/09/restrict-connect-server/" data-id="clgdspbty00jakjoe2qqj21ok" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/#disqus_thread" class="article-comment-link">Comments</a>
@@ -857,7 +857,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="clgdsebp800j3l2ozbgs32fjr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/08/cpp-linter/" data-id="clgdspbtv00j3kjoedq3mez20" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/08/cpp-linter/#disqus_thread" class="article-comment-link">Comments</a>
@@ -930,7 +930,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/07/create-gpg-keys/" data-id="clgdsebp600izl2oz119na8z1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/07/create-gpg-keys/" data-id="clgdspbtt00izkjoe6jvp0xr2" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/#disqus_thread" class="article-comment-link">Comments</a>
@@ -982,7 +982,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2023/04/jenkins-troubleshooting/">Jenkins agent service can not start automatically on Windows even the Startup type is Automatic</a>
+            <a href="/2023/04/jenkins-troubleshooting/">Jenkins agent service can not start automatically on Windows</a>
           </li>
         
           <li>
