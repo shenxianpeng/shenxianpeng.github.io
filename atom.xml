@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2023-04-11T14:21:02.634Z</updated>
+  <updated>2023-04-12T14:28:21.415Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2023-04-11T14:21:02.634Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
       
@@ -48,7 +48,7 @@
     <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
     <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
     <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2023-04-11T14:21:02.634Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着软件供应链攻击发生的次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
@@ -131,7 +131,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -166,7 +166,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
@@ -195,7 +195,7 @@
     <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
     <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
     <published>2022-12-28T12:26:56.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
       
@@ -224,7 +224,7 @@
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
       
@@ -253,7 +253,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
@@ -278,7 +278,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/"/>
     <id>https://shenxianpeng.github.io/2022/09/restrict-connect-server/</id>
     <published>2022-09-16T02:13:08.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.415Z</updated>
     
     
     <summary type="html">&lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
@@ -300,7 +300,7 @@
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.411Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇是关于 C&amp;#x2F;C++ 代码格式化和静态分析检查的实践分享。&lt;/p&gt;
@@ -335,7 +335,7 @@
     <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
     <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
     <published>2022-07-28T06:45:04.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.411Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List your GPG key&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# If folders does not exist will create be related automatically&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-keys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: directory &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg/pubring.kbx&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /home/ubuntu/.gnupg/trustdb.gpg: trustdb created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -358,7 +358,7 @@
     <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
     <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.411Z</updated>
     
     
     <summary type="html">&lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
@@ -386,7 +386,7 @@
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2023-04-11T14:21:02.630Z</updated>
+    <updated>2023-04-12T14:28:21.411Z</updated>
     
     
     <summary type="html">&lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
@@ -421,7 +421,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/container-ecosystem/"/>
     <id>https://shenxianpeng.github.io/2022/03/container-ecosystem/</id>
     <published>2022-03-29T12:52:42.000Z</published>
-    <updated>2023-04-11T14:21:02.618Z</updated>
+    <updated>2023-04-12T14:28:21.403Z</updated>
     
     
     <summary type="html">&lt;p&gt;自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。&lt;/p&gt;
@@ -454,7 +454,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/"/>
     <id>https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/</id>
     <published>2022-03-15T05:54:43.000Z</published>
-    <updated>2023-04-11T14:21:02.626Z</updated>
+    <updated>2023-04-12T14:28:21.407Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In organizations, using LDAP login very common way for users to log in with their credentials.&lt;/p&gt;
@@ -479,7 +479,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
     <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
     <published>2022-03-09T03:16:05.000Z</published>
-    <updated>2023-04-11T14:21:02.626Z</updated>
+    <updated>2023-04-12T14:28:21.411Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;有开发者、甚至公司可能会遇到过以下几个问题：&lt;/p&gt;
@@ -513,7 +513,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/groovy/"/>
     <id>https://shenxianpeng.github.io/2022/03/groovy/</id>
     <published>2022-03-06T14:19:31.000Z</published>
-    <updated>2023-04-11T14:21:02.622Z</updated>
+    <updated>2023-04-12T14:28:21.403Z</updated>
     
     
     <summary type="html">&lt;p&gt;在使用 Jenkins 和 Groovy 越久，我就这样的疑问：&lt;/p&gt;
@@ -549,7 +549,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/</id>
     <published>2022-03-02T06:54:11.000Z</published>
-    <updated>2023-04-11T14:21:02.618Z</updated>
+    <updated>2023-04-12T14:28:21.403Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -585,7 +585,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/"/>
     <id>https://shenxianpeng.github.io/2022/02/devops-trends-2022/</id>
     <published>2022-02-24T03:27:18.000Z</published>
-    <updated>2023-04-11T14:21:02.618Z</updated>
+    <updated>2023-04-12T14:28:21.403Z</updated>
     
     
     <summary type="html">&lt;p&gt;DevOps 是 IT 界最近几年的一个热门话题，而且还会越来越热。&lt;/p&gt;
@@ -623,7 +623,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
     <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
     <published>2022-02-20T16:15:00.000Z</published>
-    <updated>2023-04-11T14:21:02.618Z</updated>
+    <updated>2023-04-12T14:28:21.403Z</updated>
     
     
     <summary type="html">&lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
@@ -665,7 +665,7 @@
     <link href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/"/>
     <id>https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/</id>
     <published>2022-02-14T00:30:00.000Z</published>
-    <updated>2023-04-11T14:21:02.614Z</updated>
+    <updated>2023-04-12T14:28:21.399Z</updated>
     
     
     <summary type="html">&lt;p&gt;关于 Vagrant 的介绍，可以参看前一篇文章：&lt;a href=&quot;https://shenxianpeng.github.io/2022/01/vagrant/&quot;&gt;什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/a&gt;&lt;/p&gt;
