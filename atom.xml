@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2023-05-23T04:27:00.707Z</updated>
+  <updated>2023-06-09T14:52:16.567Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>如果你是项目成员，需不需要 Fork 原始仓库还是直接在原始仓库上修改？</title>
+    <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
+    <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
+    <published>2023-06-09T05:47:43.000Z</published>
+    <updated>2023-06-09T14:52:16.567Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;想必你也见到过很多开源项目中的 CONTRIBUTION.md 文档中通常都会让贡献者 Fork 仓库，然后做修改。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;那么如果你是该开源项目中的成员是否需要 Fork</summary>
+        
+      
+    
+    
+    
+    <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+    <category term="Fork" scheme="https://shenxianpeng.github.io/tags/fork/"/>
+    
+  </entry>
+  
+  <entry>
     <title>程序员自我修养之Git提交信息和分支创建规范（工具篇）</title>
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.567Z</updated>
     
     
       
@@ -49,7 +75,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.567Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
@@ -75,7 +101,7 @@
     <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
     <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
     <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着软件供应链攻击发生的次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
@@ -158,7 +184,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -193,7 +219,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
@@ -222,7 +248,7 @@
     <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
     <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
     <published>2022-12-28T12:26:56.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
       
@@ -251,7 +277,7 @@
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
       
@@ -280,7 +306,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
@@ -305,7 +331,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/"/>
     <id>https://shenxianpeng.github.io/2022/09/restrict-connect-server/</id>
     <published>2022-09-16T02:13:08.000Z</published>
-    <updated>2023-05-23T04:27:00.707Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
@@ -327,7 +353,7 @@
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2023-05-23T04:27:00.703Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇是关于 C&amp;#x2F;C++ 代码格式化和静态分析检查的实践分享。&lt;/p&gt;
@@ -362,7 +388,7 @@
     <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
     <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
     <published>2022-07-28T06:45:04.000Z</published>
-    <updated>2023-05-23T04:27:00.703Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List your GPG key&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# If folders does not exist will create be related automatically&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-keys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: directory &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg/pubring.kbx&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /home/ubuntu/.gnupg/trustdb.gpg: trustdb created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -385,7 +411,7 @@
     <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
     <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2023-05-23T04:27:00.703Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
@@ -413,7 +439,7 @@
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2023-05-23T04:27:00.703Z</updated>
+    <updated>2023-06-09T14:52:16.563Z</updated>
     
     
     <summary type="html">&lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
@@ -448,7 +474,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/container-ecosystem/"/>
     <id>https://shenxianpeng.github.io/2022/03/container-ecosystem/</id>
     <published>2022-03-29T12:52:42.000Z</published>
-    <updated>2023-05-23T04:27:00.695Z</updated>
+    <updated>2023-06-09T14:52:16.551Z</updated>
     
     
     <summary type="html">&lt;p&gt;自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。&lt;/p&gt;
@@ -481,7 +507,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/"/>
     <id>https://shenxianpeng.github.io/2022/03/jenkins-ldap-configuration/</id>
     <published>2022-03-15T05:54:43.000Z</published>
-    <updated>2023-05-23T04:27:00.699Z</updated>
+    <updated>2023-06-09T14:52:16.555Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h2&gt;&lt;p&gt;In organizations, using LDAP login very common way for users to log in with their credentials.&lt;/p&gt;
@@ -506,7 +532,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/unfork-github-repo/"/>
     <id>https://shenxianpeng.github.io/2022/03/unfork-github-repo/</id>
     <published>2022-03-09T03:16:05.000Z</published>
-    <updated>2023-05-23T04:27:00.703Z</updated>
+    <updated>2023-06-09T14:52:16.559Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;有开发者、甚至公司可能会遇到过以下几个问题：&lt;/p&gt;
@@ -540,7 +566,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/groovy/"/>
     <id>https://shenxianpeng.github.io/2022/03/groovy/</id>
     <published>2022-03-06T14:19:31.000Z</published>
-    <updated>2023-05-23T04:27:00.695Z</updated>
+    <updated>2023-06-09T14:52:16.555Z</updated>
     
     
     <summary type="html">&lt;p&gt;在使用 Jenkins 和 Groovy 越久，我就这样的疑问：&lt;/p&gt;
@@ -576,7 +602,7 @@
     <link href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/</id>
     <published>2022-03-02T06:54:11.000Z</published>
-    <updated>2023-05-23T04:27:00.695Z</updated>
+    <updated>2023-06-09T14:52:16.551Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Details&quot;&gt;&lt;a href=&quot;#Details&quot; class=&quot;headerlink&quot; title=&quot;Details&quot;&gt;&lt;/a&gt;Details&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Failure: PIP - Pip Inspector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  The Pip Inspector tree parse failed to produce output.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; extracting dependencies.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -612,7 +638,7 @@
     <link href="https://shenxianpeng.github.io/2022/02/devops-trends-2022/"/>
     <id>https://shenxianpeng.github.io/2022/02/devops-trends-2022/</id>
     <published>2022-02-24T03:27:18.000Z</published>
-    <updated>2023-05-23T04:27:00.695Z</updated>
+    <updated>2023-06-09T14:52:16.551Z</updated>
     
     
     <summary type="html">&lt;p&gt;DevOps 是 IT 界最近几年的一个热门话题，而且还会越来越热。&lt;/p&gt;
@@ -642,48 +668,6 @@
     <category term="Kubernetes" scheme="https://shenxianpeng.github.io/tags/kubernetes/"/>
     
     <category term="DevSecOps" scheme="https://shenxianpeng.github.io/tags/devsecops/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从QA到DEV到DEVOPS，码字五年有哪些收获</title>
-    <link href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/"/>
-    <id>https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/</id>
-    <published>2022-02-20T16:15:00.000Z</published>
-    <updated>2023-05-23T04:27:00.695Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。&lt;/p&gt;
-&lt;p&gt;借此分享一下这些年我的职业线路的变化，以及写博客&amp;amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。&lt;/p&gt;
-&lt;h2 id=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;a href=&quot;#从QA到DEV到DEVOPS&quot; class=&quot;headerlink&quot; title=&quot;从QA到DEV到DEVOPS&quot;&gt;&lt;/a&gt;从QA到DEV到DEVOPS&lt;/h2&gt;&lt;p&gt;最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;amp;自动化&amp;amp;性能测试工作。&lt;/p&gt;
-&lt;p&gt;从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。&lt;/p&gt;
-&lt;p&gt;当我做了自动化测试工程师，我又发现相对于“发现”问题，“解决”问题更令我愉悦。我开始梦想有机会能去做开发，这样不但可以提高自己的编程能力，另外开发、测试都懂也能为自己今后的职业发展找到更多可能性。&lt;/p&gt;
-&lt;p&gt;最终是因为有这样的机会+自己的主动+编码过得去，我从测试转到了开发。起初的艰难和压力都是我工作近 10 年来前所未有的，白天看代码、晚上看代码、周末看代码… 天天如此。经过了半年多的努力，才终于上岸，可以做 C&amp;#x2F;C++ 项目的 Bugfix 了。&lt;/p&gt;
-&lt;p&gt;也正是因为有开发、自动化、持续集成的经验，在团队需要一名 Build&amp;#x2F;Release 工程师的时候，我知道这就是我最适合的岗位，负责产品的自动化构建、发布、基础设施建设、CI&amp;#x2F;CD 以及提高研发效能的相关开发工作。&lt;/p&gt;
-&lt;p&gt;就这样我从 QA 到 DEV 到 DEVOPS。公众号的更名记录也记录了我的职业路线变化：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”&lt;/li&gt;
-&lt;li&gt;2018年12月29日 “DevQA”改名“软件测试与开发”&lt;/li&gt;
-&lt;li&gt;2018年12月26日 “软件测试QA”改名“DevQA”&lt;/li&gt;
-&lt;li&gt;2017年08月01日 注册“软件测试QA”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;写作五年有哪些收获&quot;&gt;&lt;a href=&quot;#写作五年有哪些收获&quot; class=&quot;headerlink&quot; title=&quot;写作五年有哪些收获&quot;&gt;&lt;/a&gt;写作五年有哪些收获&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;写作是一项长期收益远超短期收益的事情&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;对于绝大多数人在短期内几乎不会有什么实质性的收益，还会花费大量的业余时间，妥妥的是用爱在发电。从金钱角度来衡量这件事，这是一件投入和产出完全不成比例的事情，很难坚持。&lt;/p&gt;
-&lt;p&gt;如果从长期来看，坚持写作一定会带来价值的，我总结有以五个方面的好处：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;好记性不如烂笔头 - 当我们弄明白了一个技术难题，虽然当时明白了，但如果没记录下来，很有可能以后遇到同样的问题又不知道该如何解决。&lt;/li&gt;
-&lt;li&gt;让别人听懂才是真的懂 - 有时候对于一个问题我们认为自己明白了，当分享给别人的时候，才发现其中有的逻辑说不通，因此不得不继续思考并彻底搞清楚。&lt;/li&gt;
-&lt;li&gt;打造学习飞轮 - 当你坚持分享并有人关注到你并与你互动的时候，你就会有动力继续分享，学习新的知识然后再分享，一旦学习的飞轮造好了，坚持下去就变得容易。&lt;/li&gt;
-&lt;li&gt;间接收益 - 但凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。&lt;/li&gt;
-&lt;li&gt;直接收益 - 直接利益包括平台流量和广告收益、以及卖专栏、做咨询等。这要求就很高了，不但需要会自媒体运营，还有要超强的输出功力，这背后就是比别人更多的付出。&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
-    
-    
-    <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
     
   </entry>
   
