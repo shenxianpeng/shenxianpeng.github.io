@@ -115,7 +115,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/sbom/">一篇文章搞清楚什么是 SBOM（Software Bill of Materials）以及它与 SLSA 等概念的区别</a>
+      <a class="article-title" href="/2023/06/sbom/">一篇文章搞清楚什么是 SBOM（软件材料清单）以及它与 SLSA 等概念的区别</a>
     </h1>
   
 
@@ -124,12 +124,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="什么是-SBOM"><a href="#什么是-SBOM" class="headerlink" title="什么是 SBOM"></a>什么是 SBOM</h2><p>SBOM 是软件构建物料清单（Software Bill of Materials）的缩写。它是一份详细记录软件构建过程中使用的所有组件、库和依赖项的清单。</p>
+        <h2 id="什么是-SBOM"><a href="#什么是-SBOM" class="headerlink" title="什么是 SBOM"></a>什么是 SBOM</h2><p>SBOM 是软件材料清单（Software Bill of Materials）的缩写。它是一份详细记录软件构建过程中使用的所有组件、库和依赖项的清单。</p>
 <p>SBOM 类似于产品的配方清单，它列出了构成软件应用程序的各种元素，包括开源软件组件、第三方库、框架、工具等。每个元素在SBOM中都会有详细的信息，如名称、版本号、许可证信息、依赖关系等。</p>
 <p>SBOM 的目的是增加软件供应链的可见性和透明度，并提供更好的风险管理和安全性。它可以帮助软件开发者、供应商和用户了解其软件中使用的组件和依赖项，以便更好地管理潜在的漏洞、安全风险和合规性问题。通过 SBOM，用户可以识别和跟踪软件中存在的任何潜在漏洞或已知的安全问题，并及时采取相应的补救措施。</p>
 <p>SBOM 还可以用于软件审计、合规性要求和法规遵从性等方面。一些行业标准和法规（如软件供应链安全框架（SSCF）和欧盟网络和信息安全指令（NIS指令））已经要求软件供应商提供 SBOM，以提高软件供应链的安全性和可信度。</p>
 <p>总之，SBOM 是一份记录软件构建过程中使用的所有组件和依赖项的清单，它提供了对软件供应链的可见性，有助于管理风险、提高安全性，并满足合规性要求。</p>
-<h2 id="SBOM-和-SLSA-之间有什么关系，两者的区别是什么"><a href="#SBOM-和-SLSA-之间有什么关系，两者的区别是什么" class="headerlink" title="SBOM 和 SLSA 之间有什么关系，两者的区别是什么"></a>SBOM 和 SLSA 之间有什么关系，两者的区别是什么</h2><p>SBOM（软件构建物料清单）和 SLSA（Supply Chain Levels for Software Artifacts）是两个不同但相关的概念。</p>
+<h2 id="SBOM-和-SLSA-之间有什么关系，两者的区别是什么"><a href="#SBOM-和-SLSA-之间有什么关系，两者的区别是什么" class="headerlink" title="SBOM 和 SLSA 之间有什么关系，两者的区别是什么"></a>SBOM 和 SLSA 之间有什么关系，两者的区别是什么</h2><p>SBOM（软件材料清单）和 SLSA（Supply Chain Levels for Software Artifacts）是两个不同但相关的概念。</p>
 <p>SBOM 是一份详细记录软件构建过程中使用的所有组件、库和依赖项的清单。它提供了对软件供应链的可见性，包括组件的版本、许可证信息、漏洞等。SBOM 旨在帮助组织更好地管理和控制软件供应链，识别和处理潜在的漏洞、合规性问题和安全风险。</p>
 <p>SLSA 是一种供应链安全框架，它定义了不同级别的安全要求和实践，以确保软件供应链的安全性。SLSA 旨在加强软件的可信度和安全性，防止恶意代码、供应链攻击和漏洞的传播。SLSA 关注整个软件供应链的安全，包括组件的来源、验证、构建过程和发布机制。</p>
 <p>关于两者的区别：</p>
@@ -153,7 +153,7 @@ ga('send', 'pageview');
 <li>目的：Black Duck 帮助组织管理和控制软件供应链风险，提供实时的开源组件和第三方库的安全和合规性信息，以支持决策和采取适当的措施。</li>
 </ol>
 <p>综上所述，SBOM 是一种文档或清单，记录软件构建中使用的组件和依赖项，提供对软件供应链的可见性和管理。而 Synopsys Black Duck 是一种供应链风险管理工具，通过扫描和分析软件项目中的开源组件和第三方库，提供许可证合规性、安全漏洞和风险分析等功能。Black Duck 可以用于生成 SBOM，并提供更全面的风险和合规性分析。因此，Black Duck 是一个具体的工具，而 SBOM 是一种记录和管理软件供应链信息的概念。</p>
-<h2 id="SBOM-的最佳实践，以及有哪些工具推荐使用"><a href="#SBOM-的最佳实践，以及有哪些工具推荐使用" class="headerlink" title="SBOM 的最佳实践，以及有哪些工具推荐使用"></a>SBOM 的最佳实践，以及有哪些工具推荐使用</h2><p>以下是 SBOM 的最佳实践和一些推荐使用的工具：</p>
+<h2 id="SBOM-的最佳实践，以及有哪些工具可以生成-SBOM"><a href="#SBOM-的最佳实践，以及有哪些工具可以生成-SBOM" class="headerlink" title="SBOM 的最佳实践，以及有哪些工具可以生成 SBOM"></a>SBOM 的最佳实践，以及有哪些工具可以生成 SBOM</h2><p>以下是 SBOM 的最佳实践和一些可以生成 SBOM 的工具：</p>
 <p>SBOM 的最佳实践：</p>
 <ol>
 <li>自动化生成：使用自动化工具生成SBOM，避免手动创建和维护，确保准确性和一致性。</li>
@@ -173,6 +173,11 @@ ga('send', 'pageview');
 <li>JFrog Xray：JFrog Xray 是一种软件供应链分析工具，可以扫描和分析构建物料清单，提供漏洞警报、许可证合规性和安全性分析。</li>
 </ol>
 <p>这些工具提供了 SBOM 生成、管理和分析的功能，可以根据具体需求选择适合的工具来实施SBOM的最佳实践。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于企业，通过 SBOM 无论是自主开发的代码还是组织外部引入的软件组件，企业将拥有统一的数据来识别风险，从而主动识别软件许可证和安全风险，确保不会破坏企业软件或危及企业在软件供应链中的角色。</p>
+<blockquote>
+<p>Read more</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.csoonline.com/article/3658916/7-top-software-supply-chain-security-tools.html">https://www.csoonline.com/article/3658916/7-top-software-supply-chain-security-tools.html</a><br><a target="_blank" rel="noopener" href="https://www.chainguard.dev/unchained/auto-sboms-with-ko">https://www.chainguard.dev/unchained/auto-sboms-with-ko</a><br><a target="_blank" rel="noopener" href="https://github.com/microsoft/sbom-tool">https://github.com/microsoft/sbom-tool</a><br><a target="_blank" rel="noopener" href="https://github.com/awesomeSBOM/awesome-sbom">https://github.com/awesomeSBOM/awesome-sbom</a></p>
 
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
@@ -185,7 +190,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clirfdnd400s4kkoscx269lib" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clirgptpz00hemeof41klcb8n" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/06/sbom/#disqus_thread" class="article-comment-link">Comments</a>
@@ -265,7 +270,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/06/fork-or-unfork/" data-id="clirfdnd300s3kkosa9fw6ktv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/06/fork-or-unfork/" data-id="clirgptpy00hbmeofcg34c7k9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/#disqus_thread" class="article-comment-link">Comments</a>
@@ -367,7 +372,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/05/commit-check/" data-id="clirfdnb300h8kkos5hfee9vv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/05/commit-check/" data-id="clirgptpx00h8meof5dvy5t0h" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/05/commit-check/#disqus_thread" class="article-comment-link">Comments</a>
@@ -443,7 +448,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clirfdnb200h4kkos4xgffdpq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clirgptpw00h4meof7mji63be" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
@@ -577,7 +582,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clirfdnb100h1kkoseqvb6cl1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clirgptpv00h1meof8wm3hmen" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/03/slsa/#disqus_thread" class="article-comment-link">Comments</a>
@@ -662,7 +667,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clirfdnaz00gwkkosae9bhjoh" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clirgptpt00gwmeofe4uy5ocb" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/#disqus_thread" class="article-comment-link">Comments</a>
@@ -741,7 +746,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clirfdnb000gykkos07c62tqb" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clirgptpu00gymeofamma1sft" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/#disqus_thread" class="article-comment-link">Comments</a>
@@ -835,7 +840,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clirfdnay00gskkos3n5y18wr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clirgptps00gsmeof69w368w7" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/12/2022-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -919,7 +924,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clirfdnax00gpkkos9ucyduj7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clirgptpr00gpmeofhqdg0txl" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/#disqus_thread" class="article-comment-link">Comments</a>
@@ -996,7 +1001,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/" data-id="clirfdnav00ghkkoshmv0c48h" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/" data-id="clirgptph00ghmeofbe6can3c" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1048,7 +1053,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2023/06/sbom/">一篇文章搞清楚什么是 SBOM（Software Bill of Materials）以及它与 SLSA 等概念的区别</a>
+            <a href="/2023/06/sbom/">一篇文章搞清楚什么是 SBOM（软件材料清单）以及它与 SLSA 等概念的区别</a>
           </li>
         
           <li>
