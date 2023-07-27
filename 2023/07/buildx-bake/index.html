@@ -6,15 +6,15 @@
   
   <title>Docker Buildx Bake：加速构建和管理多平台镜像的利器 | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="随着容器化技术的普及和应用场景的增多，构建和管理多平台镜像变得越来越重要。Docker Buildx 是一个强大的工具，提供了诸多功能来简化和优化镜像构建流程。其中，Docker Buildx Bake 是 Buildx 的一个子命令，它进一步增强了构建流程的自动化和效率。本文将介绍 Docker Buildx Bake 的概念、使用场景以及如何使用该功能来加速构建和管理多平台镜像。 标题：深入了">
+  <meta name="description" content="随着容器化技术的普及和应用场景的增多，构建和管理多平台镜像变得越来越重要。Docker Buildx 是 Docker 官方对于 Docker CLI 的一个扩展，为 Docker 用户提供了更强大和灵活的构建功能。包括：  多平台构建：Docker Buildx 允许用户在一个构建命令中为多个不同的平台构建容器镜像。这样，你可以一次性构建适用于多种 CPU 架构的镜像，比如 x86、ARM 等，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker Buildx Bake：加速构建和管理多平台镜像的利器">
 <meta property="og:url" content="https://shenxianpeng.github.io/2023/07/buildx-bake/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="随着容器化技术的普及和应用场景的增多，构建和管理多平台镜像变得越来越重要。Docker Buildx 是一个强大的工具，提供了诸多功能来简化和优化镜像构建流程。其中，Docker Buildx Bake 是 Buildx 的一个子命令，它进一步增强了构建流程的自动化和效率。本文将介绍 Docker Buildx Bake 的概念、使用场景以及如何使用该功能来加速构建和管理多平台镜像。 标题：深入了">
+<meta property="og:description" content="随着容器化技术的普及和应用场景的增多，构建和管理多平台镜像变得越来越重要。Docker Buildx 是 Docker 官方对于 Docker CLI 的一个扩展，为 Docker 用户提供了更强大和灵活的构建功能。包括：  多平台构建：Docker Buildx 允许用户在一个构建命令中为多个不同的平台构建容器镜像。这样，你可以一次性构建适用于多种 CPU 架构的镜像，比如 x86、ARM 等，">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-07-17T14:43:37.000Z">
-<meta property="article:modified_time" content="2023-07-25T15:10:05.800Z">
+<meta property="article:modified_time" content="2023-07-27T15:33:34.464Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Buildx">
 <meta property="article:tag" content="Bake">
@@ -129,25 +129,42 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>随着容器化技术的普及和应用场景的增多，构建和管理多平台镜像变得越来越重要。Docker Buildx 是一个强大的工具，提供了诸多功能来简化和优化镜像构建流程。其中，Docker Buildx Bake 是 Buildx 的一个子命令，它进一步增强了构建流程的自动化和效率。本文将介绍 Docker Buildx Bake 的概念、使用场景以及如何使用该功能来加速构建和管理多平台镜像。</p>
-<p>标题：深入了解 Docker Buildx Bake：加速构建过程的利器</p>
-<p>简介：<br>Docker Buildx 是一个功能强大的多架构镜像构建工具，而 Docker Buildx Bake 则是它的一个重要特性。本文将介绍 Docker Buildx Bake 的概念和优势，并提供一些使用 Bake 进行高效构建的实用技巧。</p>
+        <p>随着容器化技术的普及和应用场景的增多，构建和管理多平台镜像变得越来越重要。<a target="_blank" rel="noopener" href="https://github.com/docker/buildx">Docker Buildx</a> 是 Docker 官方对于 Docker CLI 的一个扩展，为 Docker 用户提供了更强大和灵活的构建功能。包括：</p>
+<ol>
+<li>多平台构建：Docker Buildx 允许用户在一个构建命令中为多个不同的平台构建容器镜像。这样，你可以一次性构建适用于多种 CPU 架构的镜像，比如 x86、ARM 等，从而在不同的硬件设备上运行相同的镜像。</li>
+<li>构建缓存优化：Docker Buildx 改进了构建过程中的缓存机制，通过自动识别 Dockerfile 中哪些部分是可缓存的，从而减少重复构建和加快构建速度。</li>
+<li>并行构建：Buildx 允许并行构建多个镜像，提高了构建的效率。</li>
+<li>多种输出格式：Buildx 支持不同的输出格式，包括 Docker 镜像、OCI 镜像、以及 rootfs 等。</li>
+<li>构建策略：通过支持多种构建策略，用户可以更好地控制构建过程，例如，可以在多个节点上构建、使用远程构建等。</li>
+</ol>
+<blockquote>
+<p>使用 <code>docker buildx</code> 需要再 Docker engine 版本 19.03 以及以上。</p>
+</blockquote>
+<p>其中，Docker Buildx Bake 是 Buildx 的一个子命令，也是本篇文章要重点介绍的特性，包含概念和优势、使用场景以及如何使用该功能来加速构建和管理多平台镜像。</p>
 <h2 id="什么是-Docker-Buildx-Bake？"><a href="#什么是-Docker-Buildx-Bake？" class="headerlink" title="什么是 Docker Buildx Bake？"></a>什么是 Docker Buildx Bake？</h2><p>Docker Buildx Bake 是 Docker Buildx 的一项功能，它旨在简化和加速镜像构建过程。Bake 是一种声明式的构建定义方式，通过定义一个或多个构建上下文和相关的构建选项，可以自动化构建和测试多个镜像。</p>
-<p>Bake 可以看作是一个批量构建和测试的工具，它允许您在一个命令中定义多个构建配置和目标平台。这使得同时构建多个镜像和目标架构成为可能，并且非常适用于构建和发布跨平台应用程序。</p>
-<h2 id="为什么使用-Docker-Buildx-Bake？"><a href="#为什么使用-Docker-Buildx-Bake？" class="headerlink" title="为什么使用 Docker Buildx Bake？"></a>为什么使用 Docker Buildx Bake？</h2><h3 id="1-提高构建效率"><a href="#1-提高构建效率" class="headerlink" title="1. 提高构建效率"></a>1. 提高构建效率</h3><p>Bake 通过并行构建和缓存机制来提高构建效率。使用 Bake，您可以一次性定义和构建多个镜像，而无需为每个镜像分别执行构建过程。这样可以大大节省构建时间，并提高开发人员的工作效率。</p>
-<h3 id="2-支持多个平台和架构"><a href="#2-支持多个平台和架构" class="headerlink" title="2. 支持多个平台和架构"></a>2. 支持多个平台和架构</h3><p>Docker Buildx Bake 的另一个优势是它能够构建多个平台和架构的镜像。通过在 Bake 配置中指定不同的平台参数，您可以轻松构建适用于不同操作系统和架构的镜像。这对于跨平台应用程序的开发和部署非常有用。</p>
-<h3 id="3-一致的构建环境"><a href="#3-一致的构建环境" class="headerlink" title="3. 一致的构建环境"></a>3. 一致的构建环境</h3><p>Bake 提供了一个一致的构建环境，确保在不同的构建配置和目标平台之间具有相同的构建过程和结果。这种一致性有助于减少构建过程中的错误，并使构建配置更易于维护和管理。</p>
-<h2 id="如何使用-Docker-Buildx-Bake？"><a href="#如何使用-Docker-Buildx-Bake？" class="headerlink" title="如何使用 Docker Buildx Bake？"></a>如何使用 Docker Buildx Bake？</h2><p>以下是使用 Docker Buildx Bake 进行高效构建的基本步骤：</p>
-<h3 id="步骤-1：安装-Docker-Buildx"><a href="#步骤-1：安装-Docker-Buildx" class="headerlink" title="步骤 1：安装 Docker Buildx"></a>步骤 1：安装 Docker Buildx</h3><p>确保您已经安装了 Docker Engine 和 Docker CLI。然后，您可以使用以下命令安装 Docker Buildx 插件：</p>
-<p><code>$ docker buildx install</code></p>
-<h3 id="步骤-2：创建-Bake-配置文件"><a href="#步骤-2：创建-Bake-配置文件" class="headerlink" title="步骤 2：创建 Bake 配置文件"></a>步骤 2：创建 Bake 配置文件</h3><p>创建一个名为 <code>docker-bake.hcl</code> 的 Bake 配置文件，并在其中定义构建上下文、目标平台和其他构建选项。以下是一个简单的示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">group &quot;myapp&quot; &#123;targets = [&quot;linux/amd64&quot;, &quot;linux/arm64&quot;]</span><br><span class="line">  context &quot;path/to/context&quot; &#123;dockerfile = &quot;Dockerfile&quot;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Bake 可以看作是一个批量构建和测试的工具，它允许用户在一个命令中定义多个构建配置和目标平台，这使得同时构建多个镜像和目标架构成为可能，并且非常适用于构建和发布跨平台应用程序。</p>
+<blockquote>
+<p>请注意，bake 命令仍处于相对早期阶段，因此它被视为实验性命令。</p>
+</blockquote>
+<h2 id="为什么使用-Docker-Buildx-Bake？"><a href="#为什么使用-Docker-Buildx-Bake？" class="headerlink" title="为什么使用 Docker Buildx Bake？"></a>为什么使用 Docker Buildx Bake？</h2><h3 id="1-提高构建效率"><a href="#1-提高构建效率" class="headerlink" title="1. 提高构建效率"></a>1. 提高构建效率</h3><p>Bake 通过并行构建和缓存机制来提高构建效率。使用 Bake 可以一次性定义和构建多个镜像，而无需为每个镜像分别执行构建过程，这样可以大大节省构建时间，提高工作效率。</p>
+<h3 id="2-支持多个平台和架构"><a href="#2-支持多个平台和架构" class="headerlink" title="2. 支持多个平台和架构"></a>2. 支持多个平台和架构</h3><p>Docker Buildx Bake 的另一个优势是它能够构建多个平台和架构的镜像。通过在 Bake 配置中指定不同的平台参数就可以轻松构建适用于不同操作系统和架构的镜像。这对于跨平台应用程序的开发和部署非常有用。</p>
+<h3 id="3-一致的构建环境"><a href="#3-一致的构建环境" class="headerlink" title="3. 一致的构建环境"></a>3. 一致的构建环境</h3><p>通过 docker-bake.hcl （除了 HCL 配置文件之外还可以是 JSON 或是 YAML 文件）文件描述构建过程确保一致的构建环境，使不同的构建配置和目标平台之间具有相同的构建过程和结果。这种一致性有助于减少构建过程中的错误，而且构建配置更易于维护和管理。</p>
+<h2 id="如何使用-Docker-Buildx-Bake？"><a href="#如何使用-Docker-Buildx-Bake？" class="headerlink" title="如何使用 Docker Buildx Bake？"></a>如何使用 Docker Buildx Bake？</h2><p>以下是使用 Docker Buildx Bake 进行高效构建的基本步骤，首先确保你已经安装了 Docker Engine 或 Docker Desktop 版本 19.03 以及以上。</p>
+<p>然后你的 docker 命令将变成这样 <code>docker buildx bake</code>。以下 <code>docker buildx bake --help</code> 的输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker buildx bake --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">Usage:  docker buildx bake [OPTIONS] [TARGET...]</span><br><span class="line"></span><br><span class="line">Build from a file</span><br><span class="line"></span><br><span class="line">Aliases:</span><br><span class="line">  docker buildx bake, docker buildx f</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">      --builder string         Override the configured builder instance</span><br><span class="line">  -f, --file stringArray       Build definition file</span><br><span class="line">      --load                   Shorthand <span class="keyword">for</span> <span class="string">&quot;--set=*.output=type=docker&quot;</span></span><br><span class="line">      --metadata-file string   Write build result metadata to the file</span><br><span class="line">      --no-cache               Do not use cache when building the image</span><br><span class="line">      --<span class="built_in">print</span>                  Print the options without building</span><br><span class="line">      --progress string        Set <span class="built_in">type</span> of progress output (<span class="string">&quot;auto&quot;</span>, <span class="string">&quot;plain&quot;</span>, <span class="string">&quot;tty&quot;</span>). Use plain to show container output (default <span class="string">&quot;auto&quot;</span>)</span><br><span class="line">      --provenance string      Shorthand <span class="keyword">for</span> <span class="string">&quot;--set=*.attest=type=provenance&quot;</span></span><br><span class="line">      --pull                   Always attempt to pull all referenced images</span><br><span class="line">      --push                   Shorthand <span class="keyword">for</span> <span class="string">&quot;--set=*.output=type=registry&quot;</span></span><br><span class="line">      --sbom string            Shorthand <span class="keyword">for</span> <span class="string">&quot;--set=*.attest=type=sbom&quot;</span></span><br><span class="line">      --<span class="built_in">set</span> stringArray        Override target value (e.g., <span class="string">&quot;targetpattern.key=value&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="步骤-3：运行-Bake-构建"><a href="#步骤-3：运行-Bake-构建" class="headerlink" title="步骤 3：运行 Bake 构建"></a>步骤 3：运行 Bake 构建</h3><p>运行以下命令开始使用 Bake 构建镜像：</p>
-<p><code>$ docker buildx bake -f docker-bake.hcl</code></p>
-<h3 id="步骤-4：查看构建结果"><a href="#步骤-4：查看构建结果" class="headerlink" title="步骤 4：查看构建结果"></a>步骤 4：查看构建结果</h3><p>Bake 将同时构建和测试定义的所有镜像，并在构建完成后输出构建结果。您可以通过检查构建日志或查看输出来了解每个镜像的构建状态和结果。</p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Docker Buildx Bake 是一个功能强大的构建工具，它提供了一种简化和加速构建过程的方法。通过使用 Bake，您可以高效地构建和测试多个镜像，并且可以跨多个平台和架构进行构建。这使得 Bake 成为开发人员和构建工程师的重要利器，有助于提高开发和部署的效率。</p>
-<p>快速掌握 Docker Buildx Bake 的使用方法，将帮助您更好地应对多镜像构建的挑战，并加快应用程序的交付速度。开始使用 Bake，享受高效构建的乐趣吧！</p>
+<p>接下来尝试一下如何使用  <code>docker buildx bake</code></p>
+<h3 id="1-创建-Bake-配置文件"><a href="#1-创建-Bake-配置文件" class="headerlink" title="1. 创建 Bake 配置文件"></a>1. 创建 Bake 配置文件</h3><p>比如创建一个名为 <code>docker-bake.dev.hcl</code> 的 Bake 配置文件，并在其中定义构建上下文、目标平台和其他构建选项。以下是一个简单的示例：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># docker-bake.dev.hcl</span><br><span class="line">group <span class="string">&quot;default&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  targets = <span class="punctuation">[</span><span class="string">&quot;db&quot;</span><span class="punctuation">,</span> <span class="string">&quot;webapp-dev&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;db&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  dockerfile = <span class="string">&quot;Dockerfile.db&quot;</span></span><br><span class="line">  tags = <span class="punctuation">[</span><span class="string">&quot;docker.io/username/db&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;webapp-dev&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  dockerfile = <span class="string">&quot;Dockerfile.webapp&quot;</span></span><br><span class="line">  tags = <span class="punctuation">[</span><span class="string">&quot;docker.io/username/webapp&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;webapp-release&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  inherits = <span class="punctuation">[</span><span class="string">&quot;webapp-dev&quot;</span><span class="punctuation">]</span></span><br><span class="line">  platforms = <span class="punctuation">[</span><span class="string">&quot;linux/amd64&quot;</span><span class="punctuation">,</span> <span class="string">&quot;linux/arm64&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-运行-Bake-构建"><a href="#2-运行-Bake-构建" class="headerlink" title="2. 运行 Bake 构建"></a>2. 运行 Bake 构建</h3><p>运行以下命令开始使用 Bake 构建镜像：</p>
+<p><code>$ docker buildx bake -f docker-bake.dev.hcl db webapp-release</code></p>
+<h3 id="3-打印构建选项"><a href="#3-打印构建选项" class="headerlink" title="3. 打印构建选项"></a>3. 打印构建选项</h3><p>你还可以无需构建打印构建选项，我通常会用 <code>--print</code> 来查看某个目标构建是否符合预期。例如：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">$ docker buildx bake -f docker-bake.dev.hcl --print db</span><br><span class="line"><span class="punctuation">[</span>+<span class="punctuation">]</span> Building <span class="number">0.0</span>s (<span class="number">0</span>/<span class="number">0</span>)                                                                                                                              </span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;default&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;targets&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;db&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;target&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;db&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;context&quot;</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;dockerfile&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Dockerfile.db&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tags&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;docker.io/username/db&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-发布构建镜像"><a href="#4-发布构建镜像" class="headerlink" title="4. 发布构建镜像"></a>4. 发布构建镜像</h3><p>通过添加 <code>--push</code> 项目可以将构建完成的镜像一键发布的镜像仓库，例如 <code>$ docker buildx bake -f docker-bake.dev.hcl --push db webapp-release</code></p>
+<p>上述示例中的 demo 放在这里了：<a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/docker-buildx-bake-demo">https://github.com/shenxianpeng/docker-buildx-bake-demo</a></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>Docker Buildx Bake 是一个功能强大的构建工具，它提供了一种简化和加速构建过程的方法。通过使用 Bake 你可以高效地构建和测试多个镜像，并且可以跨多个平台和架构进行构建。所以说 Bake 是开发人员和构建工程师的重要利器，掌握 Docker Buildx Bake 的使用方法将帮助你更好地应对多镜像构建的带来的挑战、加快应用程序的交付速度。</p>
 
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
@@ -160,7 +177,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clkifp47r00hjozndan7x2v37" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clklbednu00hjn5pqbpcn0yn0" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/07/buildx-bake/#disqus_thread" class="article-comment-link">Comments</a>
