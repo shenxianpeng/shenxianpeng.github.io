@@ -150,12 +150,12 @@ ga('send', 'pageview');
 
 <p>接下来尝试一下如何使用  <code>docker buildx bake</code></p>
 <h3 id="1-创建-Bake-配置文件"><a href="#1-创建-Bake-配置文件" class="headerlink" title="1. 创建 Bake 配置文件"></a>1. 创建 Bake 配置文件</h3><p>比如创建一个名为 <code>docker-bake.dev.hcl</code> 的 Bake 配置文件，并在其中定义构建上下文、目标平台和其他构建选项。以下是一个简单的示例：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"># docker-bake.dev.hcl</span><br><span class="line">group <span class="string">&quot;default&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  targets = <span class="punctuation">[</span><span class="string">&quot;db&quot;</span><span class="punctuation">,</span> <span class="string">&quot;webapp-dev&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;db&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  dockerfile = <span class="string">&quot;Dockerfile.db&quot;</span></span><br><span class="line">  tags = <span class="punctuation">[</span><span class="string">&quot;docker.io/username/db&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;webapp-dev&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  dockerfile = <span class="string">&quot;Dockerfile.webapp&quot;</span></span><br><span class="line">  tags = <span class="punctuation">[</span><span class="string">&quot;docker.io/username/webapp&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;webapp-release&quot;</span> <span class="punctuation">&#123;</span></span><br><span class="line">  inherits = <span class="punctuation">[</span><span class="string">&quot;webapp-dev&quot;</span><span class="punctuation">]</span></span><br><span class="line">  platforms = <span class="punctuation">[</span><span class="string">&quot;linux/amd64&quot;</span><span class="punctuation">,</span> <span class="string">&quot;linux/arm64&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># docker-bake.dev.hcl</span></span><br><span class="line">group <span class="string">&quot;default&quot;</span> &#123;</span><br><span class="line">  targets = [<span class="string">&quot;db&quot;</span>, <span class="string">&quot;webapp-dev&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;db&quot;</span> &#123;</span><br><span class="line">  dockerfile = <span class="string">&quot;Dockerfile.db&quot;</span></span><br><span class="line">  tags = [<span class="string">&quot;xianpengshen/docker-buildx-bake-demo:db&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;webapp-dev&quot;</span> &#123;</span><br><span class="line">  dockerfile = <span class="string">&quot;Dockerfile.webapp&quot;</span></span><br><span class="line">  tags = [<span class="string">&quot;xianpengshen/docker-buildx-bake-demo:webapp&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">target <span class="string">&quot;webapp-release&quot;</span> &#123;</span><br><span class="line">  inherits = [<span class="string">&quot;webapp-dev&quot;</span>]</span><br><span class="line">  platforms = [<span class="string">&quot;linux/amd64&quot;</span>, <span class="string">&quot;linux/arm64&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-运行-Bake-构建"><a href="#2-运行-Bake-构建" class="headerlink" title="2. 运行 Bake 构建"></a>2. 运行 Bake 构建</h3><p>运行以下命令开始使用 Bake 构建镜像：</p>
 <p><code>$ docker buildx bake -f docker-bake.dev.hcl db webapp-release</code></p>
 <h3 id="3-打印构建选项"><a href="#3-打印构建选项" class="headerlink" title="3. 打印构建选项"></a>3. 打印构建选项</h3><p>你还可以无需构建打印构建选项，我通常会用 <code>--print</code> 来查看某个目标构建是否符合预期。例如：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">$ docker buildx bake -f docker-bake.dev.hcl --print db</span><br><span class="line"><span class="punctuation">[</span>+<span class="punctuation">]</span> Building <span class="number">0.0</span>s (<span class="number">0</span>/<span class="number">0</span>)                                                                                                                              </span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;default&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;targets&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;db&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;target&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;db&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;context&quot;</span><span class="punctuation">:</span> <span class="string">&quot;.&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;dockerfile&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Dockerfile.db&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tags&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;docker.io/username/db&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker buildx bake -f docker-bake.dev.hcl --<span class="built_in">print</span> db</span><br><span class="line">[+] Building 0.0s (0/0)                                                                                                                                                                                                   </span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;group&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;default&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;targets&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;db&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;target&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;db&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;context&quot;</span>: <span class="string">&quot;.&quot;</span>,</span><br><span class="line">      <span class="string">&quot;dockerfile&quot;</span>: <span class="string">&quot;Dockerfile.db&quot;</span>,</span><br><span class="line">      <span class="string">&quot;tags&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;xianpengshen/docker-buildx-bake-demo:db&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-发布构建镜像"><a href="#4-发布构建镜像" class="headerlink" title="4. 发布构建镜像"></a>4. 发布构建镜像</h3><p>通过添加 <code>--push</code> 项目可以将构建完成的镜像一键发布的镜像仓库，例如 <code>$ docker buildx bake -f docker-bake.dev.hcl --push db webapp-release</code></p>
 <p>上述示例中的 demo 放在这里了：<a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/docker-buildx-bake-demo">https://github.com/shenxianpeng/docker-buildx-bake-demo</a></p>
@@ -172,7 +172,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clklbednu00hjn5pqbpcn0yn0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clklbigjl00hjnsorh5ht8nbb" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/07/buildx-bake/#disqus_thread" class="article-comment-link">Comments</a>
@@ -289,7 +289,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clklbedns00hgn5pq4p0752oc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clklbigjj00hgnsorbjt112p8" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/06/sbom/#disqus_thread" class="article-comment-link">Comments</a>
@@ -369,7 +369,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/06/fork-or-unfork/" data-id="clklbednr00hen5pq3avl0ult" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/06/fork-or-unfork/" data-id="clklbigji00hensor382ig0g2" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/#disqus_thread" class="article-comment-link">Comments</a>
@@ -471,7 +471,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/05/commit-check/" data-id="clklbednq00hbn5pqbgigdi7f" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/05/commit-check/" data-id="clklbigja00hbnsorddqbfbzr" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/05/commit-check/#disqus_thread" class="article-comment-link">Comments</a>
@@ -547,7 +547,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clklbednp00h8n5pqhphd6gfy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clklbigj900h8nsor2yxo6xaz" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
@@ -681,7 +681,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clklbedno00h4n5pqcoqu16l1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clklbigj700h4nsorhtjv6f95" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/03/slsa/#disqus_thread" class="article-comment-link">Comments</a>
@@ -766,7 +766,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clklbednm00gyn5pq9jqua8mx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clklbigj500gynsor4q0v3ni3" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/#disqus_thread" class="article-comment-link">Comments</a>
@@ -845,7 +845,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clklbednn00h1n5pqenqqfwta" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clklbigj600h1nsor2z9taj83" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/#disqus_thread" class="article-comment-link">Comments</a>
@@ -939,7 +939,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clklbednl00gvn5pqb9l3beke" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clklbigj300gvnsor86oc6sl8" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/12/2022-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1023,7 +1023,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clklbednk00grn5pq83pzfea2" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clklbigj200grnsor770wa1b3" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/#disqus_thread" class="article-comment-link">Comments</a>
