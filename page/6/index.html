@@ -133,7 +133,7 @@ ga('send', 'pageview');
 
 <p>对于，我还推荐你设置头像，这样方便同事间的快速识别。</p>
 <p>当你不设置头像的时候，只有把鼠标放到头像上才知道 Pull Request 的 Reviewers 是谁（来自于Bitubkcet）。</p>
-<p><img src="/2021/05/git-guidelines/avatar.png"></p>
+<p><img src="/2021/05/git-guidelines/avatar.png" alt="Bitbucket头像"></p>
 <h2 id="2-设置-core-autocrlf-false"><a href="#2-设置-core-autocrlf-false" class="headerlink" title="2. 设置 core.autocrlf&#x3D;false"></a>2. 设置 core.autocrlf&#x3D;false</h2><p>为了防止 CRLF(windows) 和 LF(UNIX&#x2F;Linux&#x2F;Mac) 的转换问题。为了避免在使用 Git 提交代码时出现历史被掩盖的问题，强烈建议每个使用 Git 的人执行以下命令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line"><span class="comment"># 检查并查看是否输出 &quot;core.autocrlf=false&quot;，这意味着命令设置成功。</span></span><br><span class="line">$ git config --list</span><br></pre></td></tr></table></figure>
 
@@ -163,7 +163,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="clmgg69wr00d8lrndhovqd72e" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/git-guidelines/" data-id="clmggmyn300d8mep438kncwb6" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/git-guidelines/#disqus_thread" class="article-comment-link">Comments</a>
@@ -243,7 +243,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="clmgg69wq00d5lrndfzzx106v" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/branch-naming-convention/" data-id="clmggmyn300d5mep4amztc28p" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/branch-naming-convention/#disqus_thread" class="article-comment-link">Comments</a>
@@ -316,7 +316,7 @@ ga('send', 'pageview');
 <p>Then you just use this as: <code>sh download.sh $&#123;USERNAME&#125; $&#123;PASSWORD&#125; $&#123;REPO_PATH&#125; $&#123;N_DAY_AGO&#125;</code></p>
 <h3 id="2-Get-all-artifacts-matching-the-given-Ant-path-pattern"><a href="#2-Get-all-artifacts-matching-the-given-Ant-path-pattern" class="headerlink" title="2. Get all artifacts matching the given Ant path pattern"></a>2. Get all artifacts matching the given Ant path pattern</h3><p>More about this API see: <a target="_blank" rel="noopener" href="https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-PatternSearch">Pattern Search</a></p>
 <p>Take an example screenshot of pattern search:</p>
-<p><img src="/2021/05/artifactory-api-search/pattern-search.png"></p>
+<p><img src="/2021/05/artifactory-api-search/pattern-search.png" alt="通过模式来搜索"></p>
 <p>Then you can use Shell, Python language to get the file path from the response, then use <code>curl -u $USERNAME:$PASSWORD -O $PATH_TO_FILE</code> command to download the file one by one.</p>
 <p>If you have better solutions, suggestions, or questions, you can leave a comment.</p>
 
@@ -332,7 +332,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="clmgg69wp00d1lrndc1q8hixz" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/05/artifactory-api-search/" data-id="clmggmyn100d1mep4hgqhgavt" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/05/artifactory-api-search/#disqus_thread" class="article-comment-link">Comments</a>
@@ -388,7 +388,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="What’s-the-problem"><a href="#What’s-the-problem" class="headerlink" title="What’s the problem?"></a>What’s the problem?</h2><p>Today I am having a problem where the Windows installer I created is not installing, and the following Windows installer box pops up.</p>
-<p><img src="/2021/04/why-windows-installer-pop-up/windows-installer.png"></p>
+<p><img src="/2021/04/why-windows-installer-pop-up/windows-installer.png" alt="Windows Installer"></p>
 <p>But it works well in the previous build, and I didn’t make any code changes. It is strange, actually fix this problem is very easy but not easy to find.</p>
 <h2 id="How-to-fix-it"><a href="#How-to-fix-it" class="headerlink" title="How to fix it?"></a>How to fix it?</h2><p>In my case, I just remove the space from my build folder naming. I have made follow mistakes:</p>
 <p>My previous build name is <code>v2.2.2.3500-da121sa-Developer</code>, but for this build, I named it to <code>v2.2.2.3500-32jkjdk - Developer</code></p>
@@ -409,7 +409,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="clmgg69wo00cylrnd4hjf4ejk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="clmggmyn100cymep47z3odlrg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/#disqus_thread" class="article-comment-link">Comments</a>
@@ -491,7 +491,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/jacoco-imp/" data-id="clmgg69wl00culrnd1rwhf80h" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/jacoco-imp/" data-id="clmggmymz00cumep46mnyar7w" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/jacoco-imp/#disqus_thread" class="article-comment-link">Comments</a>
@@ -589,7 +589,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="clmgg69wl00crlrnd5czz0315" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/pythonic/" data-id="clmggmymy00crmep4b6q1c05v" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/pythonic/#disqus_thread" class="article-comment-link">Comments</a>
@@ -663,7 +663,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="clmgg69wk00cnlrndanr54g0e" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="clmggmymx00cnmep405yrfgn1" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/#disqus_thread" class="article-comment-link">Comments</a>
@@ -797,7 +797,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="clmgg69wj00cklrndbgvmg6ra" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="clmggmymw00ckmep4ck4z4sd4" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/03/code-review/#disqus_thread" class="article-comment-link">Comments</a>
@@ -893,7 +893,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="clmgg69wi00cglrnde7uk9k7e" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="clmggmymv00cgmep40rj05f8u" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1056,7 +1056,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="clmgg69wc00bslrndec83a5ro" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="clmggmymm00bsmep416u1fh34" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/#disqus_thread" class="article-comment-link">Comments</a>

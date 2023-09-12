@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/10/what-is-artifactory/artifactory-home.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/10/what-is-artifactory/artifactory-artifacts.png">
 <meta property="article:published_time" content="2020-10-04T12:43:46.000Z">
-<meta property="article:modified_time" content="2023-09-12T15:07:35.131Z">
+<meta property="article:modified_time" content="2023-09-12T15:20:35.578Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Artifactory">
 <meta property="article:tag" content="JFrog">
@@ -149,18 +149,18 @@ ga('send', 'pageview');
 <span id="more"></span>
 
 <h3 id="优势2：跟-CI-工具更好的集成"><a href="#优势2：跟-CI-工具更好的集成" class="headerlink" title="优势2：跟 CI 工具更好的集成"></a>优势2：跟 CI 工具更好的集成</h3><p>它支持所有主流 CI 工具（如下图所示），并在部署期间能捕获详尽的构建环境信息，以实现可完全复制的构建</p>
-<p><img src="/2020/10/what-is-artifactory/ci-tools.png"></p>
+<p><img src="/2020/10/what-is-artifactory/ci-tools.png" alt="支持的 CI 工具"></p>
 <p>另外通过提供的丰富的 REST API，因此 GUI 页面上的任何操作都可以通过代码以编程方式完成，方便实现 CI&#x2F;CD。</p>
 <h3 id="优势3：提供强大的搜索功能"><a href="#优势3：提供强大的搜索功能" class="headerlink" title="优势3：提供强大的搜索功能"></a>优势3：提供强大的搜索功能</h3><p>如果你的构建是存储在 FTP 上，想从大量的制品中找到你要找的那一个，如果不知道它的名字，那么真的很难找到它。</p>
 <p>Artifactory 提供了强大的搜索功能，可以通过带有正则表达的名字进行搜索；还可以通过文件的 checksum；以及通过属性（Properties）等方式进行快速搜索，如下示例</p>
 <h4 id="例1：通过名字搜索"><a href="#例1：通过名字搜索" class="headerlink" title="例1：通过名字搜索"></a>例1：通过名字搜索</h4><p>你想找某一个提交点的构建制品，比如那个提交点的 commit hash 是 <code>a422912</code>，那么你就可以直接输入 <code>*a422912*</code> 回车，就能快速的从众多的制品中找到，例如 Demo_Linux_bin_a422912.zip</p>
-<p><img src="/2020/10/what-is-artifactory/search-by-name.png"></p>
+<p><img src="/2020/10/what-is-artifactory/search-by-name.png" alt="通过名字来搜索"></p>
 <h4 id="例2：通过属性搜索"><a href="#例2：通过属性搜索" class="headerlink" title="例2：通过属性搜索"></a>例2：通过属性搜索</h4><p>比如要找属性 <code>release.status</code> 为 <code>released</code> 的所有构建那么就可以这样搜索。</p>
-<p><img src="/2020/10/what-is-artifactory/search-by-property.png"></p>
+<p><img src="/2020/10/what-is-artifactory/search-by-property.png" alt="通过属性来搜索"></p>
 <h4 id="例3：通过-checksum-搜索"><a href="#例3：通过-checksum-搜索" class="headerlink" title="例3：通过 checksum 搜索"></a>例3：通过 checksum 搜索</h4><p>如果只知道文件的 <code>checksum</code>，同样也可以进行搜索。例如通过 <code>sha1sum</code> 计算出文件的 <code>checksum</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">sha1sum</span> test.zip</span><br><span class="line">ad62c72fb097fc4aa7723e1fc72b08a6ebcacfd1 *test.zip</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/10/what-is-artifactory/search-by-checksum.png"></p>
+<p><img src="/2020/10/what-is-artifactory/search-by-checksum.png" alt="通过 Checksum 来搜索"></p>
 <h3 id="优势4：管理制品的生命周期"><a href="#优势4：管理制品的生命周期" class="headerlink" title="优势4：管理制品的生命周期"></a>优势4：管理制品的生命周期</h3><p>通过定义不同成熟度存储库，然后使用 Artifactory <code>Promote</code> 功能可以将制品移动到不同的成熟度存储库，以及通过元数据属性，更好的管理和维护制品的生命周期。</p>
 <p>除了这些优势之外，Artifactory 还有更多的特点，我就不一一介绍了。</p>
 <blockquote>
@@ -270,7 +270,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="clmgg69w700bclrnd1rp7gjnk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/10/what-is-artifactory/" data-id="clmggmymi00bcmep4ghbb7bz6" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/10/what-is-artifactory/#disqus_thread" class="article-comment-link">Comments</a>

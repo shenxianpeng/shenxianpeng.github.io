@@ -15,7 +15,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/windows-installer.png">
 <meta property="article:published_time" content="2021-04-22T05:33:01.000Z">
-<meta property="article:modified_time" content="2023-09-12T15:07:35.139Z">
+<meta property="article:modified_time" content="2023-09-12T15:20:35.582Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary">
@@ -131,7 +131,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="What’s-the-problem"><a href="#What’s-the-problem" class="headerlink" title="What’s the problem?"></a>What’s the problem?</h2><p>Today I am having a problem where the Windows installer I created is not installing, and the following Windows installer box pops up.</p>
-<p><img src="/2021/04/why-windows-installer-pop-up/windows-installer.png"></p>
+<p><img src="/2021/04/why-windows-installer-pop-up/windows-installer.png" alt="Windows Installer"></p>
 <p>But it works well in the previous build, and I didn’t make any code changes. It is strange, actually fix this problem is very easy but not easy to find.</p>
 <h2 id="How-to-fix-it"><a href="#How-to-fix-it" class="headerlink" title="How to fix it?"></a>How to fix it?</h2><p>In my case, I just remove the space from my build folder naming. I have made follow mistakes:</p>
 <p>My previous build name is <code>v2.2.2.3500-da121sa-Developer</code>, but for this build, I named it to <code>v2.2.2.3500-32jkjdk - Developer</code></p>
@@ -152,7 +152,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="clmgg69wo00cylrnd4hjf4ejk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/" data-id="clmggmyn100cymep47z3odlrg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/04/why-windows-installer-pop-up/#disqus_thread" class="article-comment-link">Comments</a>

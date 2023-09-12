@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2021/11/special-repository/profile.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2021/11/special-repository/secrets.png">
 <meta property="article:published_time" content="2021-11-09T14:02:15.000Z">
-<meta property="article:modified_time" content="2023-09-12T15:07:35.143Z">
+<meta property="article:modified_time" content="2023-09-12T15:20:35.590Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="GitHub">
 <meta property="article:tag" content="Actions">
@@ -135,7 +135,7 @@ ga('send', 'pageview');
       
         <p>最近实现了一个很有意思的 Workflow，就是通过 GitHub Actions 自动将每次最新发布的文章自动同步到我的 GitHub 首页。</p>
 <p>就像这样在首页显示最近发布的博客文章。</p>
-<p><img src="/2021/11/special-repository/final.png"></p>
+<p><img src="/2021/11/special-repository/final.png" alt="最终效果"></p>
 <p>要实现这样的工作流需要了解以下这几点：</p>
 <ol>
 <li>需要创建一个与 GitHub 同名的个人仓库，这个仓库的 <code>README.md</code> 信息会显示在首页</li>
@@ -169,7 +169,7 @@ ga('send', 'pageview');
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Tigger</span> <span class="string">special</span> <span class="string">repository</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="comment"># 当 master 分支有变更的时候触发 workflow</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Send</span> <span class="string">repository</span> <span class="string">dispatch</span> <span class="string">event</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          curl -XPOST -u &quot;$&#123;&#123; secrets.PAT_USERNAME&#125;&#125;:$&#123;&#123;secrets.PAT_TOKEN&#125;&#125;&quot; \</span></span><br><span class="line"><span class="string">          -H &quot;Accept: application/vnd.github.everest-preview+json&quot; \</span></span><br><span class="line"><span class="string">          -H &quot;Content-Type: application/json&quot; https://api.github.com/repos/shenxianpeng/shenxianpeng/dispatches \</span></span><br><span class="line"><span class="string">          --data &#x27;&#123;&quot;event_type&quot;: &quot;special_repository&quot;&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>注：<code>PAT_USERNAME</code> 和 <code>PAT_TOKEN</code> 需要在当前的仓库【设置 -&gt; Secrets】里进行添加，这里就不具体介绍了，需要可以自行搜索。</p>
-<p><img src="/2021/11/special-repository/secrets.png"></p>
+<p><img src="/2021/11/special-repository/secrets.png" alt="设置 PAT"></p>
 <p>以上就是通过 GitHub Actions 实现当博客有新发布的文章后自动更新 GitHub 首页的所有内容了。</p>
 <p>如果还有什么有意思的玩法欢迎评论区里分享一下吧。</p>
 
@@ -185,7 +185,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/11/special-repository/" data-id="clmgg69xd00eplrnd7jach7vy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/11/special-repository/" data-id="clmggmyno00epmep41gfg2onm" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2021/11/special-repository/#disqus_thread" class="article-comment-link">Comments</a>
