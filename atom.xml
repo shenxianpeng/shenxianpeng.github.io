@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2023-09-11T14:00:02.389Z</updated>
+  <updated>2023-09-12T15:07:35.167Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/"/>
     <id>https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/</id>
     <published>2023-09-11T10:53:26.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -51,7 +51,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/</id>
     <published>2023-09-07T10:53:26.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -81,7 +81,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/</id>
     <published>2023-08-28T22:36:46.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -108,7 +108,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/nuget/"/>
     <id>https://shenxianpeng.github.io/2023/08/nuget/</id>
     <published>2023-08-24T22:36:46.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -134,7 +134,7 @@
     <link href="https://shenxianpeng.github.io/2023/07/buildx-bake/"/>
     <id>https://shenxianpeng.github.io/2023/07/buildx-bake/</id>
     <published>2023-07-17T14:43:37.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -163,7 +163,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/sbom/"/>
     <id>https://shenxianpeng.github.io/2023/06/sbom/</id>
     <published>2023-06-10T14:43:37.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -188,7 +188,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
     <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
     <published>2023-06-09T05:47:43.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -214,7 +214,7 @@
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
       
@@ -242,14 +242,14 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.167Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2023/04/jenkins-troubleshooting/service-general.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2023/04/jenkins-troubleshooting/service-general.png&quot; alt=&quot;Windows Service Config 2&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;Solution-1&quot;&gt;&lt;a href=&quot;#Solution-1&quot; class=&quot;headerlink&quot; title=&quot;Solution 1&quot;&gt;&lt;/a&gt;Solution 1&lt;/h2&gt;&lt;p&gt;After some research, select “Allow service to interact with desktop” with service properties on Log On tab can fix this problem.&lt;/p&gt;
 &lt;p&gt;In service properties -&amp;gt; Log On -&amp;gt; Select “Local System account” and select the checkbox for “Allow service to interact with desktop”. &lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2023/04/jenkins-troubleshooting/service-log-on.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2023/04/jenkins-troubleshooting/service-log-on.png&quot; alt=&quot;Windows Service Config 2&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;Solution-2&quot;&gt;&lt;a href=&quot;#Solution-2&quot; class=&quot;headerlink&quot; title=&quot;Solution 2&quot;&gt;&lt;/a&gt;Solution 2&lt;/h2&gt;</summary>
     
     
@@ -268,7 +268,7 @@
     <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
     <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
     <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着近些年针对软件供应链发起的攻击次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
@@ -283,7 +283,7 @@
 &lt;h2 id=&quot;什么是SLSA&quot;&gt;&lt;a href=&quot;#什么是SLSA&quot; class=&quot;headerlink&quot; title=&quot;什么是SLSA&quot;&gt;&lt;/a&gt;什么是SLSA&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://slsa.dev/&quot;&gt;SLSA&lt;/a&gt; 全名是 Supply chain Levels for Software Artifacts, or SLSA (发音“salsa”).&lt;/p&gt;
 &lt;p&gt;SLSA 是一个端到端框架，一个标准和控制的清单确保软件构建和部署过程的安全性，防止篡改源代码、构建平台以及构件仓库而产生的威胁。&lt;/p&gt;
 &lt;h2 id=&quot;软件供应链中的问题&quot;&gt;&lt;a href=&quot;#软件供应链中的问题&quot; class=&quot;headerlink&quot; title=&quot;软件供应链中的问题&quot;&gt;&lt;/a&gt;软件供应链中的问题&lt;/h2&gt;&lt;p&gt;任何软件供应链都可能引入漏洞，随着系统变得越来越复杂，做好最佳实践从而保证交付工件的完整性变得非常重要。如果没有一定的规范和系统发展计划，就很难应对下一次黑客攻击。&lt;/p&gt;
-&lt;h3 id=&quot;供应链攻击包括哪些&quot;&gt;&lt;a href=&quot;#供应链攻击包括哪些&quot; class=&quot;headerlink&quot; title=&quot;供应链攻击包括哪些&quot;&gt;&lt;/a&gt;供应链攻击包括哪些&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2023/03/slsa/supply-chain-threats.png&quot; alt=&quot;threats&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;供应链攻击包括哪些&quot;&gt;&lt;a href=&quot;#供应链攻击包括哪些&quot; class=&quot;headerlink&quot; title=&quot;供应链攻击包括哪些&quot;&gt;&lt;/a&gt;供应链攻击包括哪些&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2023/03/slsa/supply-chain-threats.png&quot; alt=&quot;Supply Chain Threats&quot;&gt;&lt;/p&gt;
 &lt;p&gt;A 提交未经认证的修改&lt;br&gt;B 泄露源码仓库&lt;br&gt;C 从被修改源代码构建&lt;br&gt;D 泄露构建过程&lt;br&gt;E 使用已泄露的依赖&lt;br&gt;F 上传被修改的包&lt;br&gt;G 泄露了包仓库&lt;br&gt;H 使用已泄露的包&lt;/p&gt;
 &lt;h3 id=&quot;真实世界的例子&quot;&gt;&lt;a href=&quot;#真实世界的例子&quot; class=&quot;headerlink&quot; title=&quot;真实世界的例子&quot;&gt;&lt;/a&gt;真实世界的例子&lt;/h3&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -350,7 +350,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -385,7 +385,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
@@ -414,7 +414,7 @@
     <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
     <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
     <published>2022-12-28T12:26:56.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
       
@@ -443,7 +443,7 @@
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
       
@@ -472,7 +472,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
@@ -497,7 +497,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/restrict-connect-server/"/>
     <id>https://shenxianpeng.github.io/2022/09/restrict-connect-server/</id>
     <published>2022-09-16T02:13:08.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;p&gt;If you have a critical machine like your team’s CI server that runs on Linux, so you don’t want every members in your group to access it.&lt;/p&gt;
@@ -519,7 +519,7 @@
     <link href="https://shenxianpeng.github.io/2022/08/cpp-linter/"/>
     <id>https://shenxianpeng.github.io/2022/08/cpp-linter/</id>
     <published>2022-08-23T09:27:31.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇是关于 C&amp;#x2F;C++ 代码格式化和静态分析检查的实践分享。&lt;/p&gt;
@@ -554,7 +554,7 @@
     <link href="https://shenxianpeng.github.io/2022/07/create-gpg-keys/"/>
     <id>https://shenxianpeng.github.io/2022/07/create-gpg-keys/</id>
     <published>2022-07-28T06:45:04.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;First-List-your-GPG-key&quot;&gt;&lt;a href=&quot;#First-List-your-GPG-key&quot; class=&quot;headerlink&quot; title=&quot;First, List your GPG key&quot;&gt;&lt;/a&gt;First, List your GPG key&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# If folders does not exist will create be related automatically&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-keys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: directory &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: keybox &lt;span class=&quot;string&quot;&gt;&amp;#x27;/home/ubuntu/.gnupg/pubring.kbx&amp;#x27;&lt;/span&gt; created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpg: /home/ubuntu/.gnupg/trustdb.gpg: trustdb created&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ gpg --list-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -577,7 +577,7 @@
     <link href="https://shenxianpeng.github.io/2022/06/vacation-weekly-report/"/>
     <id>https://shenxianpeng.github.io/2022/06/vacation-weekly-report/</id>
     <published>2022-06-13T06:57:24.000Z</published>
-    <updated>2023-09-11T14:00:02.389Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;p&gt;有幸赶上了公司的政策变化，我有 12 周的陪产假来做全职奶爸，照顾家人的同时希望挤出时间来学习，毕竟在职期间很有有机会能有近 3 个月的假期。&lt;/p&gt;
@@ -605,7 +605,7 @@
     <link href="https://shenxianpeng.github.io/2022/04/wsl/"/>
     <id>https://shenxianpeng.github.io/2022/04/wsl/</id>
     <published>2022-04-19T14:12:31.000Z</published>
-    <updated>2023-09-11T14:00:02.385Z</updated>
+    <updated>2023-09-12T15:07:35.163Z</updated>
     
     
     <summary type="html">&lt;p&gt;很久以来很多程序员都遇到过在 Windows 做开发的各种不便：&lt;/p&gt;
