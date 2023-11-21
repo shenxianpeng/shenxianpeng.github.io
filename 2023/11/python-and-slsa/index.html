@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python 和 SLSA 💃 | Peter Shen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="软件工件的供应链层 (SLSA) 是一个用于生成和验证软件工件来源的工具框架。在 Python 生态系统中，有两种主要类型的软件工件：轮子（wheels）和源代码分发（distributions）。 我们如何使用 SLSA 框架来生成和验证 Python 工件的来源呢？  本篇文章是由我翻译、并根据我的实践和理解而形成的。英文原文在这里：https:&#x2F;&#x2F;sethmlarson.dev&#x2F;python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 和 SLSA 💃">
+<meta property="og:url" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/index.html">
+<meta property="og:site_name" content="Peter Shen">
+<meta property="og:description" content="软件工件的供应链层 (SLSA) 是一个用于生成和验证软件工件来源的工具框架。在 Python 生态系统中，有两种主要类型的软件工件：轮子（wheels）和源代码分发（distributions）。 我们如何使用 SLSA 框架来生成和验证 Python 工件的来源呢？  本篇文章是由我翻译、并根据我的实践和理解而形成的。英文原文在这里：https:&#x2F;&#x2F;sethmlarson.dev&#x2F;python">
+<meta property="og:locale">
+<meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/workflows.svg">
+<meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/publish.svg">
+<meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/install.svg">
+<meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/cibuildwheel.svg">
+<meta property="article:published_time" content="2023-11-15T06:25:39.000Z">
+<meta property="article:modified_time" content="2023-11-21T10:45:44.756Z">
+<meta property="article:author" content="shenxianpeng">
+<meta property="article:tag" content="SLSA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/workflows.svg">
+  
+  <link rel="alternate" href="/atom.xml" title="Peter Shen" type="application/atom+xml">
+  
+  
+  <link rel="icon" href="/favicon.png">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-168820225-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDW3BHJTTW');
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Peter Shen</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/daily/">Daily</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <!-- <a id="nav-linkedin-btn" class="nav-icon" href=https://www.linkedin.com/in/xianpeng-shen/ target="_blank" title="LinkedIn"></a> -->
+        <a id="nav-github-btn" class="nav-icon" href=https://github.com/shenxianpeng target="_blank" title="GitHub"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2023/11/python-and-slsa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/11/python-and-slsa/" class="article-date">
+  <time datetime="2023-11-15T06:25:39.000Z" itemprop="datePublished">2023-11-15</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python 和 SLSA 💃
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>软件工件的供应链层 (SLSA) 是一个用于生成和验证软件工件来源的工具框架。在 Python 生态系统中，有两种主要类型的软件工件：轮子（wheels）和源代码分发（distributions）。</p>
+<p>我们如何使用 SLSA 框架来生成和验证 Python 工件的来源呢？</p>
+<blockquote>
+<p>本篇文章是由我翻译、并根据我的实践和理解而形成的。英文原文在这里：<a target="_blank" rel="noopener" href="https://sethmlarson.dev/python-and-slsa">https://sethmlarson.dev/python-and-slsa</a> </p>
+</blockquote>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ol>
+<li><a href="#%E6%9E%84%E5%BB%BA%E7%BA%AF%E5%87%80%E7%9A%84Python%E5%8C%85">构建纯净的Python包</a></li>
+<li><a href="#%E7%94%9F%E6%88%90%E5%87%BA%E5%A4%84%E8%AF%81%E6%98%8E">生成出处证明</a></li>
+<li><a href="#%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI">上传到PyPI</a></li>
+<li><a href="#%E9%AA%8C%E8%AF%81Python%E5%8C%85%E7%9A%84%E6%9D%A5%E6%BA%90">验证Python包的来源</a></li>
+<li><a href="#%E4%BA%8C%E8%BF%9B%E5%88%B6Python%E5%8C%85">二进制Python包</a></li>
+<li><a href="#%E6%96%87%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E9%A1%B9%E7%9B%AE">文中用到的项目</a></li>
+</ol>
+<p>注意：本文主要介绍<strong>托管在 GitHub 上的 Python 项目</strong>。SLSA 框架可通过 GitHub Actions 来实现开箱即用，只需最少的配置即可完成。</p>
+<p>如果你对 Python 打包的术语或流程感到好奇，<a target="_blank" rel="noopener" href="https://packaging.python.org/en/latest/overview/#packaging-python-libraries-and-tools">Python 打包用户指南</a> 是了解更多信息的最佳场所。</p>
+<p>下面是维护人员和用户的端到端工作流程，从构建 distributions、生成出处证明、验证出处、发布到 PyPI，以及在验证其出处后安装 wheel。让我们一起完成每一步！</p>
+<p><img src="/2023/11/python-and-slsa/workflows.svg" alt="端到端流程"></p>
+<h2 id="构建纯净的Python包"><a href="#构建纯净的Python包" class="headerlink" title="构建纯净的Python包"></a>构建纯净的Python包</h2><p>纯 Python 包通常只有两个工件：源代码 distribution 和纯 Python wheel。纯 Python 包可以使用名为 <a target="_blank" rel="noopener" href="https://pypi.org/project/build/">build</a> 的包从源代码构建。</p>
+<p>下面是 GitHub Actions job 定义，它构建纯 Python Wheel Package 和源代码 distribution，并为每个工件创建 SHA-256 哈希值：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@...</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/setup-python@...</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">python-version:</span> <span class="number">3.</span><span class="string">x</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          # 安装 build，创建 sdist 和 wheel</span></span><br><span class="line"><span class="string">          python -m pip install build</span></span><br><span class="line"><span class="string">          python -m build</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">          <span class="comment"># 收集所有文件的哈希值</span></span><br><span class="line">          <span class="string">cd</span> <span class="string">dist</span> <span class="string">&amp;&amp;</span> <span class="string">echo</span> <span class="string">&quot;hashes=$(sha256sum * | base64 -w0)&quot;</span> <span class="string">&gt;&gt;</span> <span class="string">$GITHUB_OUTPUT</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/upload-artifacts@...</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">./dist</span></span><br></pre></td></tr></table></figure>
+
+<p>这里将 build 完的 wheel package 上传到 GitHub Artifacts 存起来，用作后续在 “上传到PyPI” job 中使用。另外还将 <code>dist</code> 下的所有文件的哈希值存储在 <code>hashes</code> 用作后续 job <code>provenance</code> 的输入。</p>
+<blockquote>
+<p>注意： SLSA 使用 <code>sha265sum</code> 的输出作为出处证明中 <code>subject-base64</code> 字段的输入。<code>sha256sum</code> 的输出是一个或多个对散列 + 名称。</p>
+</blockquote>
+<h2 id="生成出处证明"><a href="#生成出处证明" class="headerlink" title="生成出处证明"></a>生成出处证明</h2><p>现在我们已经构建了 sdist 和 wheel，我们可以从文件哈希生成来源证明。</p>
+<p>因为我们需要将 Build 阶段的的输出作为这里生成出处的输入，因此这里使用了 <a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds">needs</a> 选项来作为 job <code>provenance</code> 执行的前提条件。可以看到上面生成的哈希值在这里被 <code>subject-base64</code> 所使用。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">provenance:</span></span><br><span class="line">    <span class="attr">needs:</span> [<span class="string">build</span>]</span><br><span class="line">    <span class="attr">uses:</span> <span class="string">slsa-framework/slsa-github-builder/.github/workflows/generator_generic_slsa3.yml@v1.9.0</span></span><br><span class="line">    <span class="attr">permissions:</span></span><br><span class="line">      <span class="comment"># 需要检测 GitHub 操作环境</span></span><br><span class="line">      <span class="attr">actions:</span> <span class="string">read</span></span><br><span class="line">      <span class="comment"># 需要通过 GitHub OIDC 创建出处</span></span><br><span class="line">      <span class="attr">id-token:</span> <span class="string">write</span></span><br><span class="line">      <span class="comment"># 需要创建并上传到 GitHub Releases</span></span><br><span class="line">      <span class="attr">contents:</span> <span class="string">write</span></span><br><span class="line">    <span class="attr">with:</span></span><br><span class="line">      <span class="comment"># 生成的 package SHA-256 哈希值</span></span><br><span class="line">      <span class="attr">subject-base64:</span> <span class="string">$&#123;&#123;</span> <span class="string">provenance.needs.build.output.hashes</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="comment"># 将出处文件上传到 GitHub Release</span></span><br><span class="line">      <span class="attr">upload-assets:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>你会注意到，这并没有像 GitHub 工作流那样定义任何单独的步骤。相反 SLSA builders 使用<a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/reusing-workflows">可重用工作流</a>功能来证明给定的 builders 行为不能被用户或其他进程修改。</p>
+<p>出处证明文件是 <a target="_blank" rel="noopener" href="https://jsonlines.org/">JSON lines</a>，以 <code>.intoto.jsonl</code> 结尾。<code>*.intoto.jsonl</code> 文件可以包含多个工件的证明，也可以在同一文件中包含多个出处证明。该 <code>.jsonl</code> 格式意味着该文件是一个 “JSON lines” 文件，即每行一个 JSON 文档。</p>
+<blockquote>
+<p>注意：这里有一点令人困惑的是 GitHub job 中的 <code>id-token</code> 需要 <code>write</code> 权限才能读取 GitHub OIDC 令牌。<code>read</code> 不允许你读取 OIDC…🤷。有关 <code>id-token</code> 权限的更多信息，请参阅 <a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#adding-permissions-settings">GitHub 文档</a>。</p>
+</blockquote>
+<h2 id="上传到PyPI"><a href="#上传到PyPI" class="headerlink" title="上传到PyPI"></a>上传到PyPI</h2><p>我们使用官方 <a target="_blank" rel="noopener" href="https://github.com/pypa/gh-action-pypi-publish">pypa&#x2F;gh-action-pypi-publish</a> GitHub Action 将 wheel 包上传到 PyPI。</p>
+<p>请注意，这个 <code>publish</code> job 需要在 <code>build</code> 和 <code>provenance</code> 都完成后开始执行，这意味着我们可以假设  <code>provenance</code> job 已经为我们起草了 GitHub Release（因为 <code>upload-assets: true</code> 的设置），并且我们可以假设该 job 已成功。如果不先创建来 provenance 文件，我们不想将这些 wheel 包上传到 PyPI，因此我们最后上传到 PyPI。</p>
+<p><img src="/2023/11/python-and-slsa/publish.svg" alt="发布"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">publish:</span></span><br><span class="line">  <span class="attr">needs:</span> [<span class="string">&quot;build&quot;</span>, <span class="string">&quot;provenance&quot;</span>]</span><br><span class="line">  <span class="attr">permissions:</span></span><br><span class="line">    <span class="attr">contents:</span> <span class="string">write</span></span><br><span class="line">  <span class="attr">runs-on:</span> <span class="string">&quot;ubuntu-latest&quot;</span></span><br><span class="line">  <span class="attr">steps:</span></span><br><span class="line">  <span class="comment"># 下载已构建的 distributions</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">&quot;actions/download-artifact@...&quot;</span></span><br><span class="line">    <span class="attr">with:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">&quot;dist&quot;</span></span><br><span class="line">      <span class="attr">path:</span> <span class="string">&quot;dist/&quot;</span></span><br><span class="line">  <span class="comment"># 上传 distributions 到 GitHub Release</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">env:</span></span><br><span class="line">      <span class="attr">GITHUB_TOKEN:</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;</span>&quot;</span></span><br><span class="line">    <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      gh release upload $&#123;&#123; github.ref_name &#125;&#125; \</span></span><br><span class="line"><span class="string">        dist/* --repo $&#123;&#123; github.repository &#125;&#125;</span></span><br><span class="line"><span class="string"></span>  <span class="comment"># 发布 distributions 到 PyPI</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">&quot;pypa/gh-action-pypi-publish@...&quot;</span></span><br><span class="line">    <span class="attr">with:</span></span><br><span class="line">      <span class="attr">user:</span> <span class="string">__token__</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.PYPI_TOKEN</span> <span class="string">&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>请注意，该 <code>publish</code> job 需要在开始之前完成 <code>build</code> 和作业。<code>provenance</code> 这意味着我们可以假设出处作业已经为我们创建了 GitHub 发布草案（感谢该 <code>upload-assets: true</code> 设置），并且我们可以假设该作业已成功。如果不先创建来源文件，我们不想将这些发行版上传到 PyPI，因此我们最后上传到 PyPI。</p>
+<h2 id="验证Python包的来源"><a href="#验证Python包的来源" class="headerlink" title="验证Python包的来源"></a>验证Python包的来源</h2><p>让我们使用一个真正的 Python 项目来验证它的出处。以 urllib3 项目为例，它在 GitHub Releases 发布了版本中包含出处证明，这里演示的是使用它的最新版本 <a target="_blank" rel="noopener" href="https://github.com/urllib3/urllib3/releases/tag/2.1.0"><code>2.1.0</code></a> 。</p>
+<p>首先我们需要下载 <a target="_blank" rel="noopener" href="https://github.com/slsa-framework/slsa-verifier/releases">slsa-verifier</a> 用来验证出处。下载完该 <code>slsa-verifier</code> 工具后，让我们从 PyPI 获取 urllib3 wheel 包，而不使用 <a target="_blank" rel="noopener" href="https://pip.pypa.io/en/stable/cli/pip_download/">pip download</a>. 我们使用该 <a target="_blank" rel="noopener" href="https://pip.pypa.io/en/stable/cli/pip_install/#cmdoption-only-binary"><code>--only-binary</code></a> 选项强制 pip 下载 wheel。</p>
+<p><img src="/2023/11/python-and-slsa/install.svg" alt="安装"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip download --only-binary=:all: urllib3</span><br><span class="line">Collecting urllib3</span><br><span class="line">  Downloading urllib3-2.1.0-py3-none-any.whl.metadata (6.4 kB)</span><br><span class="line">Downloading urllib3-2.1.0-py3-none-any.whl (104 kB)</span><br><span class="line">   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.6/104.6 kB 761.0 kB/s eta 0:00:00</span><br><span class="line">Saved ./urllib3-2.1.0-py3-none-any.whl</span><br><span class="line">Successfully downloaded urllib3</span><br></pre></td></tr></table></figure>
+
+<p>下载软件包后，我们需要从 GitHub 版本下载出处证明。我们需要使用与包版本相同的 GitHub Release 来确保获得正确的出处证明，因此 tag 也是 2.1.0。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl --location -O https://github.com/urllib3/urllib3/releases/download/2.1.0/multiple.intoto.jsonl</span><br></pre></td></tr></table></figure>
+
+<p>该出处文件的名称为 <code>multiple.intoto.jsonl</code>，这是一个包含多个工件证明的出处证明的标准名称。对于 Python 项目来说几乎总是如此，因为几乎总是有一个源代码 distribution 和至少一个 wheel。</p>
+<p>此时，我们当前的工作目录中应该有两个文件：wheel 和出处证明，<code>ls</code> 浏览一下确保已经准备好了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span></span><br><span class="line">multiple.intoto.jsonl  urllib3-2.1.0-py3-none-any.whl</span><br></pre></td></tr></table></figure>
+
+<p>从这里我们可以使用 <code>slsa-verifier</code> 来验证出处。我们可以验证最重要的事情，即哪个 GitHub 仓库实际构建了 wheel，以及其他信息，例如 git 标签、分支和建造者 ID：</p>
+<p>源存储库 (<code>--source-uri</code>)<br>建造者 ID (<code>--builder-id</code>)<br>Git 分支 (<code>--source-branch</code>)<br>git 标签 (<code>--source-tag</code>)</p>
+<p>因此，如果我们想验证轮子的源存储库，我们可以使用 <code>--source-uri</code>。当然还可以验证 <code>--builder-id</code>，<code>--source-branch</code> 和 <code>--source-tag</code>。具体我的测试目前 <code>--builder-id</code>，<code>--source-branch</code> 似乎有问题。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这里仅验证 GitHub 仓库</span></span><br><span class="line">slsa-verifier verify-artifact --provenance-path multiple.intoto.jsonl --source-uri github.com/urllib3/urllib3 urllib3-2.1.0-py3-none-any.whl </span><br><span class="line">Verified signature against tlog entry index 49513169 at URL: https://rekor.sigstore.dev/api/v1/log/entries/24296fb24b8ad77a08c2f012d69948ed5d12e8e020852bb7936ea9208d684688e5108cca859a3302</span><br><span class="line">Verified build using builder <span class="string">&quot;https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v1.9.0&quot;</span> at commit 69be2992f8a25a1f27e49f339e4d5b98dec07462</span><br><span class="line">Verifying artifact urllib3-2.1.0-py3-none-any.whl: PASSED</span><br><span class="line"></span><br><span class="line">PASSED: Verified SLSA provenance</span><br></pre></td></tr></table></figure>
+
+<p><strong>成功了</strong>！🥳 我们已经验证了这个 wheel 的出处，所以现在我们可以放心的安装它，因为我们知道它是按照我们的预期构建的：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install urllib3-2.1.0-py3-none-any.whl </span><br><span class="line">Defaulting to user installation because normal site-packages is not writeable</span><br><span class="line">Processing ./urllib3-2.1.0-py3-none-any.whl</span><br><span class="line">Installing collected packages: urllib3</span><br><span class="line">  Attempting uninstall: urllib3</span><br><span class="line">    Found existing installation: urllib3 2.0.5</span><br><span class="line">    Uninstalling urllib3-2.0.5:</span><br><span class="line">      Successfully uninstalled urllib3-2.0.5</span><br><span class="line">Successfully installed urllib3-2.1.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="二进制Python包"><a href="#二进制Python包" class="headerlink" title="二进制Python包"></a>二进制Python包</h2><p>Python wheel 并不全是纯 Python！Python 的最大优势之一是作为 C、C++、Fortran、Rust、Go（等）的粘合语言，与其他一些编程语言相比，Python 的打包和起源故事变得更加复杂。</p>
+<p>需要为多个平台、架构构建二进制 wheel，如果项目无法使用稳定的 <a target="_blank" rel="noopener" href="https://docs.python.org/3/c-api/stable.html#stable-application-binary-interface">ABI</a> ，则需要为每个新的 Python 版本编译新的 wheel。要了解在这种情况下项目需要多少个 wheel，你可以查看 MarkupSafe，它在 <a target="_blank" rel="noopener" href="https://pypi.org/project/MarkupSafe/#files">v2.1.3 中提供了近 60 个wheel</a>。当新的 Python 版本发布时，至少还会有 10 个版本来覆盖 Python 3.12 的所有平台。</p>
+<p>不幸的是，这意味着我们需要在初始版本发布后的某个时间创建新的工件，而 SLSA 中没有一个简单的办法。这个问题有两种解决方案：</p>
+<ul>
+<li>为包创建一个新版本，而不仅仅是新 wheels。</li>
+<li>构建新的 wheels 并创建新的出处证明。</li>
+</ul>
+<h3 id="创建新版本"><a href="#创建新版本" class="headerlink" title="创建新版本"></a>创建新版本</h3><p>最简单的方法是在将 <code>cibuildwheel</code> GitHub Action 更新到最新版本后为包创建一个新版本以支持所有新的 Wheel 目标。这将创建一个新的来源证明、sdist 和 wheel。然而，如果项目的源代码没有任何改变，这感觉像是一个不幸的结果。</p>
+<p><img src="/2023/11/python-and-slsa/cibuildwheel.svg" alt="cibuildwheel"></p>
+<p>与新轮子相比，新版本会引起更多的流失：</p>
+<ul>
+<li>维护人员的额外工作</li>
+<li>存储和计算资源（PyTorch 的每个版本<a target="_blank" rel="noopener" href="https://pypi.org/project/torch/#files">大约有 6GB 的 wheels</a>）</li>
+<li>依赖者需要更新锁定文件（依赖机器人疲劳，有人吗？）</li>
+<li>下游重新打包和分发</li>
+</ul>
+<h3 id="发布后wheels的出处"><a href="#发布后wheels的出处" class="headerlink" title="发布后wheels的出处"></a>发布后wheels的出处</h3><p>那么，如果我们不想仅仅为了新轮子的出处而创建新版本，该怎么办呢？</p>
+<p>Markupsafe 的解决方案是添加一个手动 <a target="_blank" rel="noopener" href="https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow">workflow_dispatch</a> 触发器来运行典型的 wheel 构建工作流程，但配置为仅为给定的 Python 版本（即 <code>cp312</code> CPython 3.12）构建新的 wheels。然后这些 wheels 会像平常一样通过 SLSA 进行证明并上传到 PyPI，但新的出处证明文件会添加到现有的 GitHub 发布工件中。</p>
+<p>这是有效的，因为 PyPI 上的所有工件都有出处证明。有一些缺点：</p>
+<ul>
+<li>新的出处证明位于 GitHub Release 的单独工件中，而不是现有的出处证明中。这意味着想要验证新车轮来源的用户可能需要一些手动发现和步骤来下载正确的来源证明文件。</li>
+<li>通常新的架构或平台需要新版本的 <code>cibuildwheel</code>。由于需要更新源代码才能升级正在 <code>cibuildwheel</code> 使用的版本，因此过去版本的 git 标签将与构建新轮子所需的确切 git 提交不匹配。这意味着出处证明不会包含有关 git 标签的信息，因此使用该 <code>--source-tag</code> 选项进行验证将无法按预期进行。</li>
+</ul>
+<p>上述第一点的另一个潜在解决方案是创建一个全新的来源证明，其中包含新旧工件的哈希值。</p>
+<h2 id="文中用到的项目"><a href="#文中用到的项目" class="headerlink" title="文中用到的项目"></a>文中用到的项目</h2><p>以下这些是本文使用的所有项目和工具：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/slsa-framework/slsa-github-generator/blob/main/internal/builders/generic/README.md">SLSA GitHub Builder</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/slsa-framework/slsa-verifier">slsa-framework&#x2F;slsa-verifier</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pypa/gh-action-pypi-publish">pypa&#x2F;gha-action-pypi-publish</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pypa/build">pypa&#x2F;build</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pypa/cibuildwheel">pypa&#x2F;cibuildwheel</a></li>
+</ul>
+<p>以下项目是用来展示如何在 GitHub Actions 中针对 Python 项目配置 SLSA：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/urllib3/urllib3/blob/main/.github/workflows/publish.yml">urllib3&#x2F;urllib3</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pallets/markupsafe/blob/main/.github/workflows/publish.yaml">pallets&#x2F;markupsafe</a></li>
+</ul>
+<hr>
+<p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
+
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clp87n02r00hvoxp611e3c02v" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2023/11/python-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a></li></ul>
+
+
+    </footer>
+    
+      <section id="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/10/upgrade-xlc-10-to-xlc-17.1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Problems and solutions when upgrading XLC from 10.1 to IBM Open XL C/C++ for AIX 17.1.0</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/aix/">AIX</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/artifactory/">Artifactory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blackduck/">BlackDuck</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coverage/">Coverage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/groovy/">Groovy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/howto/">HowTo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">37</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">Language</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/os/">OS</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">Others</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/polaris/">Polaris</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/quality/">Quality</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/release/">Release</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonarqube/">SonarQube</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vagrant/">Vagrant</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">Windows</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/11/python-and-slsa/">Python 和 SLSA 💃</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/upgrade-xlc-10-to-xlc-17.1/">Problems and solutions when upgrading XLC from 10.1 to IBM Open XL C/C++ for AIX 17.1.0</a>
+          </li>
+        
+          <li>
+            <a href="/2023/10/world-quality-report/">2022-23 世界质量报告（World Quality Report）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/unable-to-find-valid-certification-path/">解决通过 Jenkins Artifactory plugin 上传 artifacts 失败的问题 “unable to find valid certification path to requested target”</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/git-clone-failed-on-aix/">解决在 AIX 通过 Jenkins agent git clone 失败的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/upload-artifacts-failed-on-aix/">Upload artifacts failed to Artifactory from AIX</a>
+          </li>
+        
+          <li>
+            <a href="/2023/08/nuget/">创建 NuGet Organization 的遇到的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/buildx-bake/">Docker Buildx Bake：加速构建和管理多平台镜像的利器</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/sbom/">详解SBOM：定义、关系、区别、最佳实践和生成工具</a>
+          </li>
+        
+          <li>
+            <a href="/2023/06/fork-or-unfork/">如果你是项目成员，是 Fork 原始仓库还是直接原始仓库中修改代码？</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/commit-check/">程序员自我修养之Git提交信息和分支创建规范（工具篇）</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/jenkins-troubleshooting/">Jenkins agent service can not start automatically on Windows</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/slsa/">SLSA 框架与软件供应链安全防护</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/chatgpt-for-devops/">如何在 DevOps 任务中使用 ChatGPT?</a>
+          </li>
+        
+          <li>
+            <a href="/2023/02/pipeline-best-practices/">为什么我的 Jenkins Controller 越来越慢？可能犯了这些错误...</a>
+          </li>
+        
+          <li>
+            <a href="/2022/12/2022-summary/">2022 年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/jenkins-skip-ci/">How to implement [skip ci] for Jenkins multi-branch pipeline</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/fix-wsl-networking-issue/">How to fix &#34;Temporary Failure in name resolution&#34; in WSL</a>
+          </li>
+        
+          <li>
+            <a href="/2022/09/restrict-connect-server/">Restrict others from login your important Linux machine</a>
+          </li>
+        
+          <li>
+            <a href="/2022/08/cpp-linter/">C/C++ 代码格式化和静态分析检查的一站式工作流 Cpp Linter</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/create-gpg-keys/">How to create GPG keys and add to GitHub</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/vacation-weekly-report/">12 周的陪产假我一刻都没闲着</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/wsl/">在 Windows 做开发还能这么爽？WSL + VS Code + Docker Desktop 你值得有用</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/container-ecosystem/">关于 Docker，containerd，CRI，CRI-O，OCI，runc 的解释以及它们是如何工作在一起的</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/jenkins-ldap-configuration/">How to enable, configure and disable Jenkins LDAP</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aix/" rel="tag">AIX</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automation/" rel="tag">Automation</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backup/" rel="tag">Backup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badge/" rel="tag">Badge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bake/" rel="tag">Bake</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blackduck/" rel="tag">BlackDuck</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/branch/" rel="tag">Branch</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/buildx/" rel="tag">Buildx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">C</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cd/" rel="tag">CD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ci/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cicd/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cli/" rel="tag">CLI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri/" rel="tag">CRI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri-o/" rel="tag">CRI-O</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">ChatGPT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/" rel="tag">Cheatsheet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/" rel="tag">Clang</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-format/" rel="tag">Clang-Format</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-tidy/" rel="tag">Clang-Tidy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cppcheck/" rel="tag">Cppcheck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devsecops/" rel="tag">DevSecOps</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/" rel="tag">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fork/" rel="tag">Fork</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functiontest/" rel="tag">FunctionTest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gpg/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">Git</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">Go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/groovy/" rel="tag">Groovy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hp-ux/" rel="tag">HP-UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ibm/" rel="tag">IBM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jmeter/" rel="tag">JMeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">45</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kubernetes/" rel="tag">Kubernetes</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ldap/" rel="tag">LDAP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">Monitor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/" rel="tag">NFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuget/" rel="tag">NuGet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oci/" rel="tag">OCI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">Pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/" rel="tag">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quality/" rel="tag">Quality</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rdp/" rel="tag">RDP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/release/" rel="tag">Release</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/report/" rel="tag">Report</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sbom/" rel="tag">SBOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">Selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">Shell</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solaris/" rel="tag">Solaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonarqube/" rel="tag">SonarQube</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squash/" rel="tag">Squash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squishcoco/" rel="tag">SquishCoco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">Static</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stats/" rel="tag">Stats</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/" rel="tag">Summary</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testng/" rel="tag">TestNG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thought/" rel="tag">Thought</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VScode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/" rel="tag">Vagrant</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">WSL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webhook/" rel="tag">Webhook</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">Windows</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">Work</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/writing/" rel="tag">Writing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlc/" rel="tag">XLC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/containerd/" rel="tag">containerd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">lcov</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/" rel="tag">perl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runc/" rel="tag">runc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/aix/" style="font-size: 13.08px;">AIX</a> <a href="/tags/actions/" style="font-size: 10px;">Actions</a> <a href="/tags/ansible/" style="font-size: 10px;">Ansible</a> <a href="/tags/artifactory/" style="font-size: 15.38px;">Artifactory</a> <a href="/tags/automation/" style="font-size: 16.92px;">Automation</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/badge/" style="font-size: 10px;">Badge</a> <a href="/tags/bake/" style="font-size: 10px;">Bake</a> <a href="/tags/bitbucket/" style="font-size: 13.85px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10.77px;">BlackDuck</a> <a href="/tags/blog/" style="font-size: 10.77px;">Blog</a> <a href="/tags/branch/" style="font-size: 12.31px;">Branch</a> <a href="/tags/buildx/" style="font-size: 10px;">Buildx</a> <a href="/tags/c/" style="font-size: 13.08px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10.77px;">CI</a> <a href="/tags/cicd/" style="font-size: 10px;">CICD</a> <a href="/tags/cli/" style="font-size: 10px;">CLI</a> <a href="/tags/cri/" style="font-size: 10px;">CRI</a> <a href="/tags/cri-o/" style="font-size: 10px;">CRI-O</a> <a href="/tags/chatgpt/" style="font-size: 10px;">ChatGPT</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">Cheatsheet</a> <a href="/tags/clang/" style="font-size: 10.77px;">Clang</a> <a href="/tags/clang-format/" style="font-size: 10px;">Clang-Format</a> <a href="/tags/clang-tidy/" style="font-size: 10px;">Clang-Tidy</a> <a href="/tags/codereview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/coverage/" style="font-size: 14.62px;">Coverage</a> <a href="/tags/coverity/" style="font-size: 10px;">Coverity</a> <a href="/tags/cppcheck/" style="font-size: 10px;">Cppcheck</a> <a href="/tags/devops/" style="font-size: 18.46px;">DevOps</a> <a href="/tags/devsecops/" style="font-size: 10px;">DevSecOps</a> <a href="/tags/disqus/" style="font-size: 10px;">Disqus</a> <a href="/tags/docker/" style="font-size: 15.38px;">Docker</a> <a href="/tags/dokerfile/" style="font-size: 10px;">Dokerfile</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/ftp/" style="font-size: 10px;">FTP</a> <a href="/tags/fork/" style="font-size: 10.77px;">Fork</a> <a href="/tags/functiontest/" style="font-size: 10px;">FunctionTest</a> <a href="/tags/gpg/" style="font-size: 10px;">GPG</a> <a href="/tags/gcov/" style="font-size: 11.54px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.23px;">Git</a> <a href="/tags/github/" style="font-size: 11.54px;">GitHub</a> <a href="/tags/go/" style="font-size: 10px;">Go</a> <a href="/tags/gradle/" style="font-size: 10.77px;">Gradle</a> <a href="/tags/groovy/" style="font-size: 10px;">Groovy</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 13.08px;">Hexo</a> <a href="/tags/ibm/" style="font-size: 10px;">IBM</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.31px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.77px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 11.54px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.54px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/lcov/" style="font-size: 10.77px;">LCOV</a> <a href="/tags/ldap/" style="font-size: 10.77px;">LDAP</a> <a href="/tags/linux/" style="font-size: 11.54px;">Linux</a> <a href="/tags/monitor/" style="font-size: 10px;">Monitor</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 17.69px;">Nightwatch</a> <a href="/tags/nuget/" style="font-size: 10px;">NuGet</a> <a href="/tags/oci/" style="font-size: 10px;">OCI</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pip/" style="font-size: 10px;">Pip</a> <a href="/tags/pipeline/" style="font-size: 16.15px;">Pipeline</a> <a href="/tags/polaris/" style="font-size: 10px;">Polaris</a> <a href="/tags/postgresql/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 12.31px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/quality/" style="font-size: 10.77px;">Quality</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/release/" style="font-size: 10.77px;">Release</a> <a href="/tags/report/" style="font-size: 11.54px;">Report</a> <a href="/tags/sbom/" style="font-size: 10px;">SBOM</a> <a href="/tags/slsa/" style="font-size: 10.77px;">SLSA</a> <a href="/tags/security/" style="font-size: 10px;">Security</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 13.08px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/sonarqube/" style="font-size: 10.77px;">SonarQube</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">SquishCoco</a> <a href="/tags/static/" style="font-size: 10px;">Static</a> <a href="/tags/stats/" style="font-size: 10.77px;">Stats</a> <a href="/tags/summary/" style="font-size: 12.31px;">Summary</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 12.31px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/troubleshooting/" style="font-size: 16.15px;">Troubleshooting</a> <a href="/tags/ubuntu/" style="font-size: 10.77px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/vscode/" style="font-size: 10px;">VSCode</a> <a href="/tags/vscode/" style="font-size: 10px;">VScode</a> <a href="/tags/vagrant/" style="font-size: 10.77px;">Vagrant</a> <a href="/tags/virtualbox/" style="font-size: 11.54px;">VirtualBox</a> <a href="/tags/wsl/" style="font-size: 10.77px;">WSL</a> <a href="/tags/webhook/" style="font-size: 11.54px;">Webhook</a> <a href="/tags/windows/" style="font-size: 12.31px;">Windows</a> <a href="/tags/work/" style="font-size: 13.08px;">Work</a> <a href="/tags/writing/" style="font-size: 10px;">Writing</a> <a href="/tags/xlc/" style="font-size: 10px;">XLC</a> <a href="/tags/containerd/" style="font-size: 10px;">containerd</a> <a href="/tags/lcov/" style="font-size: 10px;">lcov</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/runc/" style="font-size: 10px;">runc</a> <a href="/tags/ulimit/" style="font-size: 10px;">ulimit</a>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/README.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 - 2023 shenxianpeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/daily/" class="mobile-nav-link">Daily</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/2023/11/python-and-slsa/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
