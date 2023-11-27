@@ -13,12 +13,14 @@
       
       <categories>
           
-          <category> DevOps </category>
+          <category> DevSecOps </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> Python </tag>
             
             <tag> SLSA </tag>
             
@@ -103,9 +105,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Artifactory </tag>
             
@@ -339,7 +341,7 @@
       
       <categories>
           
-          <category> DevOps </category>
+          <category> DevSecOps </category>
           
       </categories>
       
@@ -610,9 +612,9 @@
       
         <tags>
             
-            <tag> Windows </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> Windows </tag>
             
             <tag> WSL </tag>
             
@@ -732,9 +734,9 @@
       
         <tags>
             
-            <tag> Jenkins </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Jenkins </tag>
             
             <tag> Groovy </tag>
             
@@ -3470,9 +3472,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Shell </tag>
-            
             <tag> Pipeline </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -3686,9 +3688,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Automation </tag>
+            
+            <tag> Shell </tag>
             
             <tag> FTP </tag>
             
@@ -3717,9 +3719,9 @@
             
             <tag> Jenkins </tag>
             
-            <tag> Release </tag>
-            
             <tag> Pipeline </tag>
+            
+            <tag> Release </tag>
             
         </tags>
       
@@ -3819,9 +3821,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Automation </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
