@@ -95,6 +95,99 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2023/11/witness-and-slsa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/11/witness-and-slsa/" class="article-date">
+  <time datetime="2023-11-30T06:25:39.000Z" itemprop="datePublished">2023-11-30</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devsecops/">DevSecOps</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/11/witness-and-slsa/">Witness 和 SLSA 💃</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Witness 是一个可插拔的软件供应链风险管理框架，它能自动、规范和验证软件工件出处。</p>
+<p>它是 in-toto 是 <a target="_blank" rel="noopener" href="https://www.cncf.io/projects/in-toto/">CNCF</a> 下的项目之一。它的最初作者是 Testifysec，后来捐赠给了 <a target="_blank" rel="noopener" href="https://in-toto.io/">in-toto</a>。因此你会发现 Witness 的相关代码同时存在于 in-toto 和 Testifysec。</p>
+<h2 id="什么是-Witness"><a href="#什么是-Witness" class="headerlink" title="什么是 Witness"></a>什么是 Witness</h2><p>Witness 是一个可插拔的供应链安全框架，可创建整个软件开发生命周期（SDLC）的证据（Provenance）跟踪，确保软件从源代码到目标的完整性。它支持大多数主要的 CI 和基础架构提供商，并使用安全的 PKI 分发系统来增强安全性，减少软件供应链攻击向量。</p>
+<p>Witness 的工作原理是封装在持续集成流程中执行的命令，为软件开发生命周期（SDLC）中的每个操作提供证据跟踪。这样就可以详细、可验证地记录软件是如何构建的、由谁构建以及使用了哪些工具。</p>
+<p>这些证据可用于评估政策合规性，检测任何潜在的篡改或恶意活动，并确保只有授权用户或机器才能完成流程中的某一步骤。</p>
+<p>此外，Witness 的证明系统是可插拔的，可支持大多数主要的 CI 和基础设施提供商，是确保软件供应链安全的多功能、灵活的解决方案。安全 PKI (Public Key Infrastructure) 分发系统的使用和验证 Witness 元数据的能力进一步增强了流程的安全性，并有助于减少许多软件供应链攻击向量。</p>
+<p>注：验证器代码已被拆分为 <a target="_blank" rel="noopener" href="https://github.com/in-toto/go-witness">https://github.com/in-toto/go-witness</a></p>
+<p>总结 - Witness 可以做什么</p>
+<ul>
+<li>验证软件由谁构建、如何构建以及使用了哪些工具</li>
+<li>检测任何潜在的篡改或恶意活动</li>
+<li>确保只有经授权的用户或机器才能完成流程的每一步</li>
+<li>分发证明（attestations）和策略（policy）</li>
+</ul>
+<h2 id="如何使用-Witness"><a href="#如何使用-Witness" class="headerlink" title="如何使用 Witness"></a>如何使用 Witness</h2><p>主要分三步：</p>
+<ol>
+<li><code>witness run</code> - 运行提供的命令并记录有关执行的证明。</li>
+<li><code>witness sign</code> - 使用提供的密钥签署提供的文件。</li>
+<li><code>witness verify</code> - 验证 witness 策略。</li>
+</ol>
+<h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p>这是我创建的 <a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/witness-demo">demo 仓库</a>用于演示 witness 的工作流程，具体可以根据如下步骤进行。</p>
+        
+          <p class="article-more-link">
+            <a href="/2023/11/witness-and-slsa/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2023/11/witness-and-slsa/" data-id="clpkz4rii00rvqvnoel6qf4l2" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/witness/" rel="tag">Witness</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
     <article id="post-2023/11/python-and-slsa" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/11/python-and-slsa/" class="article-date">
@@ -160,106 +253,13 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clpksgvsh00ruqxne8mf5bn33" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clpkz4rih00rsqvno8k31674m" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/11/python-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a></li></ul>
-
-
-    </footer>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LDW3BHJTTW');
-    </script>
-  </div>
-  
-</article>
-
-  
-    <article id="post-2023/11/witness-and-slsa" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/11/witness-and-slsa/" class="article-date">
-  <time datetime="2023-11-15T06:25:39.000Z" itemprop="datePublished">2023-11-15</time>
-</a>
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/devsecops/">DevSecOps</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/witness-and-slsa/">Witness 和 SLSA 💃</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Witness 是一个可插拔的软件供应链风险管理框架，它能自动、规范和验证软件工件出处。</p>
-<p>它是 in-toto 是 <a target="_blank" rel="noopener" href="https://www.cncf.io/projects/in-toto/">CNCF</a> 下的项目之一。它的最初作者是 Testifysec，后来捐赠给了 <a target="_blank" rel="noopener" href="https://in-toto.io/">in-toto</a>。因此你会发现 Witness 的相关代码同时存在于 in-toto 和 Testifysec。</p>
-<h2 id="什么是-Witness"><a href="#什么是-Witness" class="headerlink" title="什么是 Witness"></a>什么是 Witness</h2><p>Witness 是一个可插拔的供应链安全框架，可创建整个软件开发生命周期（SDLC）的证据（Provenance）跟踪，确保软件从源代码到目标的完整性。它支持大多数主要的 CI 和基础架构提供商，并使用安全的 PKI 分发系统来增强安全性，减少软件供应链攻击向量。</p>
-<p>Witness 的工作原理是封装在持续集成流程中执行的命令，为软件开发生命周期（SDLC）中的每个操作提供证据跟踪。这样就可以详细、可验证地记录软件是如何构建的、由谁构建以及使用了哪些工具。</p>
-<p>这些证据可用于评估政策合规性，检测任何潜在的篡改或恶意活动，并确保只有授权用户或机器才能完成流程中的某一步骤。</p>
-<p>此外，Witness 的证明系统是可插拔的，可支持大多数主要的 CI 和基础设施提供商，是确保软件供应链安全的多功能、灵活的解决方案。安全 PKI (Public Key Infrastructure) 分发系统的使用和验证 Witness 元数据的能力进一步增强了流程的安全性，并有助于减少许多软件供应链攻击向量。</p>
-<p>注：验证器代码已被拆分为 <a target="_blank" rel="noopener" href="https://github.com/in-toto/go-witness">https://github.com/in-toto/go-witness</a></p>
-<p>总结 - Witness 可以做什么</p>
-<ul>
-<li>验证软件由谁构建、如何构建以及使用了哪些工具</li>
-<li>检测任何潜在的篡改或恶意活动</li>
-<li>确保只有经授权的用户或机器才能完成流程的每一步</li>
-<li>分发证明（attestations）和策略（policy）</li>
-</ul>
-<h2 id="如何使用-Witness"><a href="#如何使用-Witness" class="headerlink" title="如何使用 Witness"></a>如何使用 Witness</h2><p>主要分三步：</p>
-<ol>
-<li><code>witness run</code> - 运行提供的命令并记录有关执行的证明。</li>
-<li><code>witness sign</code> - 使用提供的密钥签署提供的文件。</li>
-<li><code>witness verify</code> - 验证 witness 策略。</li>
-</ol>
-<h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p>这是我创建的 <a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/witness-demo">demo 仓库</a>用于演示 witness 的工作流程，具体可以根据如下步骤进行。</p>
-        
-          <p class="article-more-link">
-            <a href="/2023/11/witness-and-slsa/#more">Read More</a>
-          </p>
-        
-      
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LDW3BHJTTW');
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/11/witness-and-slsa/" data-id="clpksgvsh00rwqxneb5622mzb" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
-      
-        <a href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/witness/" rel="tag">Witness</a></li></ul>
 
 
     </footer>
@@ -351,7 +351,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/" data-id="clpksgvqg00g5qxne861p7sf5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/" data-id="clpkz4rgg00gaqvno3rtc2urx" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/#disqus_thread" class="article-comment-link">Comments</a>
@@ -434,7 +434,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/10/world-quality-report/" data-id="clpksgvsg00rtqxne2th6ex7s" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/10/world-quality-report/" data-id="clpkz4rih00rtqvnocdi86c7u" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/10/world-quality-report/#disqus_thread" class="article-comment-link">Comments</a>
@@ -522,7 +522,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/" data-id="clpksgvqi00gbqxneflwe66fr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/" data-id="clpkz4rgg00g8qvno1m11cv71" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/#disqus_thread" class="article-comment-link">Comments</a>
@@ -627,7 +627,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/" data-id="clpksgvqh00g9qxneebeo71gt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/" data-id="clpkz4rgf00g4qvnocrmf56wn" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
@@ -717,7 +717,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/" data-id="clpksgvqf00g1qxnefci57txo" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/" data-id="clpkz4rge00g0qvno66kh487p" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>
@@ -794,7 +794,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/08/nuget/" data-id="clpksgvqd00fxqxne8zarh33n" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/08/nuget/" data-id="clpkz4rgd00fwqvno27bo2qos" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/08/nuget/#disqus_thread" class="article-comment-link">Comments</a>
@@ -897,7 +897,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clpksgvqd00fuqxneg7qjasrd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clpkz4rgc00ftqvno8maj1zub" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/07/buildx-bake/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1016,7 +1016,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clpksgvqb00fqqxne67vo0mc1" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clpkz4rgb00fpqvno0jxm4am9" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/06/sbom/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1069,11 +1069,11 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2023/11/python-and-slsa/">Python 和 SLSA 💃</a>
+            <a href="/2023/11/witness-and-slsa/">Witness 和 SLSA 💃</a>
           </li>
         
           <li>
-            <a href="/2023/11/witness-and-slsa/">Witness 和 SLSA 💃</a>
+            <a href="/2023/11/python-and-slsa/">Python 和 SLSA 💃</a>
           </li>
         
           <li>
@@ -1214,7 +1214,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'shenxianpeng';
     
-    var disqus_url = 'https://shenxianpeng.github.io/README.html';
+    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
     
     (function(){
       var dsq = document.createElement('script');
