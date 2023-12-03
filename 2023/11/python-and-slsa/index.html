@@ -6,18 +6,18 @@
   
   <title>Python 和 SLSA 💃 | Peter Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="软件工件的供应链层 (SLSA) 是一个用于生成和验证软件工件来源的工具框架。在 Python 生态系统中，有两种主要类型的软件工件：轮子（wheels）和源代码分发（distributions）。 我们如何使用 SLSA 框架来生成和验证 Python 工件的来源呢？ 内容 构建纯净的Python包 生成出处证明 上传到PyPI 验证Python包的来源 文中用到的项目  注意：本文介绍的是针对">
+  <meta name="description" content="本篇将介绍在 Python 生态系统中，我们如何使用 SLSA 框架来生成和验证 Python 工件的来源。 内容 构建纯净的Python包 生成出处证明 上传到PyPI 验证Python包的来源 文中用到的项目  注意：本文介绍的是针对托管在 GitHub 上的 Python 项目。SLSA 框架可通过 GitHub Actions 来实现开箱即用，只需较少的配置即可完成。 对于托管在非 Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 和 SLSA 💃">
 <meta property="og:url" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/index.html">
 <meta property="og:site_name" content="Peter Shen">
-<meta property="og:description" content="软件工件的供应链层 (SLSA) 是一个用于生成和验证软件工件来源的工具框架。在 Python 生态系统中，有两种主要类型的软件工件：轮子（wheels）和源代码分发（distributions）。 我们如何使用 SLSA 框架来生成和验证 Python 工件的来源呢？ 内容 构建纯净的Python包 生成出处证明 上传到PyPI 验证Python包的来源 文中用到的项目  注意：本文介绍的是针对">
+<meta property="og:description" content="本篇将介绍在 Python 生态系统中，我们如何使用 SLSA 框架来生成和验证 Python 工件的来源。 内容 构建纯净的Python包 生成出处证明 上传到PyPI 验证Python包的来源 文中用到的项目  注意：本文介绍的是针对托管在 GitHub 上的 Python 项目。SLSA 框架可通过 GitHub Actions 来实现开箱即用，只需较少的配置即可完成。 对于托管在非 Git">
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/workflows.svg">
 <meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/publish.svg">
 <meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/install.svg">
 <meta property="article:published_time" content="2023-11-15T06:25:39.000Z">
-<meta property="article:modified_time" content="2023-12-03T11:24:41.104Z">
+<meta property="article:modified_time" content="2023-12-03T12:40:57.629Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="SLSA">
@@ -133,8 +133,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>软件工件的供应链层 (SLSA) 是一个用于生成和验证软件工件来源的工具框架。在 Python 生态系统中，有两种主要类型的软件工件：轮子（wheels）和源代码分发（distributions）。</p>
-<p>我们如何使用 SLSA 框架来生成和验证 Python 工件的来源呢？</p>
+        <p>本篇将介绍在 Python 生态系统中，我们如何使用 SLSA 框架来生成和验证 Python 工件的来源。</p>
 <h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ol>
 <li><a href="#%E6%9E%84%E5%BB%BA%E7%BA%AF%E5%87%80%E7%9A%84Python%E5%8C%85">构建纯净的Python包</a></li>
 <li><a href="#%E7%94%9F%E6%88%90%E5%87%BA%E5%A4%84%E8%AF%81%E6%98%8E">生成出处证明</a></li>
@@ -216,7 +215,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clppeb6su00gdpkps7m0eh0th" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clpph1bgt00rxp6oncqyu5m0j" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/11/python-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>
