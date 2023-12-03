@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2023-12-03T08:15:14.831Z</updated>
+  <updated>2023-12-03T11:24:41.104Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2023-12-03T08:15:14.831Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
       
@@ -48,7 +48,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
     <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2023-12-03T08:15:14.831Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
     <summary type="html">&lt;p&gt;Witness 是一个可插拔的软件供应链风险管理框架，它能自动、规范和验证软件工件出处。&lt;/p&gt;
@@ -89,7 +89,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/python-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/python-and-slsa/</id>
     <published>2023-11-15T06:25:39.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
     <summary type="html">&lt;p&gt;软件工件的供应链层 (SLSA) 是一个用于生成和验证软件工件来源的工具框架。在 Python 生态系统中，有两种主要类型的软件工件：轮子（wheels）和源代码分发（distributions）。&lt;/p&gt;
@@ -99,7 +99,6 @@
 &lt;li&gt;&lt;a href=&quot;#%E7%94%9F%E6%88%90%E5%87%BA%E5%A4%84%E8%AF%81%E6%98%8E&quot;&gt;生成出处证明&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI&quot;&gt;上传到PyPI&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E9%AA%8C%E8%AF%81Python%E5%8C%85%E7%9A%84%E6%9D%A5%E6%BA%90&quot;&gt;验证Python包的来源&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E4%BA%8C%E8%BF%9B%E5%88%B6Python%E5%8C%85&quot;&gt;二进制Python包&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#%E6%96%87%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E9%A1%B9%E7%9B%AE&quot;&gt;文中用到的项目&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;注意：本文介绍的是针对&lt;strong&gt;托管在 GitHub 上的 Python 项目&lt;/strong&gt;。SLSA 框架可通过 GitHub Actions 来实现开箱即用，只需较少的配置即可完成。&lt;/p&gt;
@@ -124,7 +123,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/"/>
     <id>https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/</id>
     <published>2023-10-08T10:53:26.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
       
@@ -155,7 +154,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2023/10/world-quality-report/</id>
     <published>2023-10-08T06:25:39.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
     <summary type="html">&lt;p&gt;2202-23 世界质量报告（World Quality Report 简称 WQR）是一项全球研究，不论是作为软件测试、开发工程师，关注这类软件质量报告可以帮助我们快速了解软件行业的现状和趋势。&lt;/p&gt;
@@ -186,7 +185,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/"/>
     <id>https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/</id>
     <published>2023-09-11T10:53:26.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
       
@@ -216,7 +215,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/</id>
     <published>2023-09-07T10:53:26.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
       
@@ -246,7 +245,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/</id>
     <published>2023-08-28T22:36:46.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.104Z</updated>
     
     
       
@@ -273,7 +272,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/nuget/"/>
     <id>https://shenxianpeng.github.io/2023/08/nuget/</id>
     <published>2023-08-24T22:36:46.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
       
@@ -299,7 +298,7 @@
     <link href="https://shenxianpeng.github.io/2023/07/buildx-bake/"/>
     <id>https://shenxianpeng.github.io/2023/07/buildx-bake/</id>
     <published>2023-07-17T14:43:37.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
       
@@ -328,7 +327,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/sbom/"/>
     <id>https://shenxianpeng.github.io/2023/06/sbom/</id>
     <published>2023-06-10T14:43:37.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
       
@@ -353,7 +352,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
     <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
     <published>2023-06-09T05:47:43.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
       
@@ -379,7 +378,7 @@
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
       
@@ -407,7 +406,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2023-12-03T08:15:14.827Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
@@ -433,7 +432,7 @@
     <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
     <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
     <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2023-12-03T08:15:14.823Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着近些年针对软件供应链发起的攻击次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
@@ -515,7 +514,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2023-12-03T08:15:14.823Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -550,7 +549,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2023-12-03T08:15:14.823Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
@@ -579,7 +578,7 @@
     <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
     <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
     <published>2022-12-28T12:26:56.000Z</published>
-    <updated>2023-12-03T08:15:14.823Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
       
@@ -608,7 +607,7 @@
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2023-12-03T08:15:14.823Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
       
@@ -637,7 +636,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2023-12-03T08:15:14.823Z</updated>
+    <updated>2023-12-03T11:24:41.100Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
