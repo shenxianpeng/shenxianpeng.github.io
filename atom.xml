@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2023-12-04T04:14:14.333Z</updated>
+  <updated>2023-12-04T14:28:35.464Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2023-12-04T04:14:14.333Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
       
@@ -48,30 +48,30 @@
     <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
     <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2023-12-04T04:14:14.333Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
-    <summary type="html">&lt;p&gt;Witness 是一个可插拔的软件供应链风险管理框架，它能自动、规范和验证软件工件出处。&lt;/p&gt;
-&lt;p&gt;它是 in-toto 是 &lt;a href=&quot;https://www.cncf.io/projects/in-toto/&quot;&gt;CNCF&lt;/a&gt; 下的项目之一。它的最初作者是 Testifysec，后来捐赠给了 &lt;a href=&quot;https://in-toto.io/&quot;&gt;in-toto&lt;/a&gt;。因此你会发现 Witness 的相关代码同时存在于 in-toto 和 Testifysec。&lt;/p&gt;
-&lt;h2 id=&quot;什么是-Witness&quot;&gt;&lt;a href=&quot;#什么是-Witness&quot; class=&quot;headerlink&quot; title=&quot;什么是 Witness&quot;&gt;&lt;/a&gt;什么是 Witness&lt;/h2&gt;&lt;p&gt;Witness 是一个可插拔的供应链安全框架，可创建整个软件开发生命周期（SDLC）的证据（Provenance）跟踪，确保软件从源代码到目标的完整性。它支持大多数主要的 CI 和基础架构提供商，并使用安全的 PKI 分发系统来增强安全性，减少软件供应链攻击向量。&lt;/p&gt;
-&lt;p&gt;Witness 的工作原理是封装在持续集成流程中执行的命令，为软件开发生命周期（SDLC）中的每个操作提供证据跟踪。这样就可以详细、可验证地记录软件是如何构建的、由谁构建以及使用了哪些工具。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，因此 Google 在 2021 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
+&lt;p&gt;本篇将介绍在&lt;strong&gt;非 GitHub&lt;/strong&gt; 生态系统中，我们如何生成和验证软件工件的来源，从而提高你的项目的 SLSA Level。&lt;/p&gt;
+&lt;p&gt;Witness 是一个可插拔的软件供应链风险管理框架，它能自动、规范和验证软件工件出处。它是 in-toto 是 &lt;a href=&quot;https://www.cncf.io/projects/in-toto/&quot;&gt;CNCF&lt;/a&gt; 下的项目之一。它的最初作者是 Testifysec，后来捐赠给了 &lt;a href=&quot;https://in-toto.io/&quot;&gt;in-toto&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;什么是-Witness&quot;&gt;&lt;a href=&quot;#什么是-Witness&quot; class=&quot;headerlink&quot; title=&quot;什么是 Witness&quot;&gt;&lt;/a&gt;什么是 Witness&lt;/h2&gt;&lt;p&gt;Witness 是一个可插拔的供应链安全框架，可创建整个软件开发生命周期（SDLC）的证据（Provenance）跟踪，确保软件从源代码到目标的完整性。它支持大多数主要的 CI 和基础架构提供商，是确保软件供应链安全的多功能、灵活的解决方案。&lt;/p&gt;
+&lt;p&gt;安全 PKI (Public Key Infrastructure - 公钥基础设施)分发系统的使用和验证 Witness 元数据的能力进一步增强了流程的安全性，并有助于减少许多软件供应链攻击向量。&lt;/p&gt;
+&lt;p&gt;Witness 的工作原理是封装在持续集成流程中执行的命令，为软件开发生命周期（SDLC）中的每个操作提供证据跟踪，这样就可以详细、可验证地记录软件是如何构建的、由谁构建以及使用了哪些工具。&lt;/p&gt;
 &lt;p&gt;这些证据可用于评估政策合规性，检测任何潜在的篡改或恶意活动，并确保只有授权用户或机器才能完成流程中的某一步骤。&lt;/p&gt;
-&lt;p&gt;此外，Witness 的证明系统是可插拔的，可支持大多数主要的 CI 和基础设施提供商，是确保软件供应链安全的多功能、灵活的解决方案。安全 PKI (Public Key Infrastructure) 分发系统的使用和验证 Witness 元数据的能力进一步增强了流程的安全性，并有助于减少许多软件供应链攻击向量。&lt;/p&gt;
-&lt;p&gt;注：验证器代码已被拆分为 &lt;a href=&quot;https://github.com/in-toto/go-witness&quot;&gt;https://github.com/in-toto/go-witness&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;总结 - Witness 可以做什么&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;验证软件由谁构建、如何构建以及使用了哪些工具&lt;/li&gt;
 &lt;li&gt;检测任何潜在的篡改或恶意活动&lt;/li&gt;
 &lt;li&gt;确保只有经授权的用户或机器才能完成流程的每一步&lt;/li&gt;
-&lt;li&gt;分发证明（attestations）和策略（policy）&lt;/li&gt;
+&lt;li&gt;分发证词（Attestations）和策略（Policy）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;如何使用-Witness&quot;&gt;&lt;a href=&quot;#如何使用-Witness&quot; class=&quot;headerlink&quot; title=&quot;如何使用 Witness&quot;&gt;&lt;/a&gt;如何使用 Witness&lt;/h2&gt;&lt;p&gt;主要分三步：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;witness run&lt;/code&gt; - 运行提供的命令并记录有关执行的证明。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;witness run&lt;/code&gt; - 运行提供的命令并记录有关执行的证词。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;witness sign&lt;/code&gt; - 使用提供的密钥签署提供的文件。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;witness verify&lt;/code&gt; - 验证 witness 策略。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&quot;快速开始&quot;&gt;&lt;a href=&quot;#快速开始&quot; class=&quot;headerlink&quot; title=&quot;快速开始&quot;&gt;&lt;/a&gt;快速开始&lt;/h3&gt;&lt;p&gt;这是我创建的 &lt;a href=&quot;https://github.com/shenxianpeng/witness-demo&quot;&gt;demo 仓库&lt;/a&gt;用于演示 witness 的工作流程，具体可以根据如下步骤进行。&lt;/p&gt;</summary>
+&lt;h3 id=&quot;快速开始&quot;&gt;&lt;a href=&quot;#快速开始&quot; class=&quot;headerlink&quot; title=&quot;快速开始&quot;&gt;&lt;/a&gt;快速开始&lt;/h3&gt;&lt;p&gt;这是我创建的 &lt;a href=&quot;https://github.com/shenxianpeng/witness-demo&quot;&gt;Witness Demo 仓库&lt;/a&gt;用于演示 witness 的工作流程，具体可以根据如下步骤进行。&lt;/p&gt;</summary>
     
     
     
@@ -89,7 +89,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/python-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/python-and-slsa/</id>
     <published>2023-11-15T06:25:39.000Z</published>
-    <updated>2023-12-04T04:14:14.333Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，据 SonaType 的统计从 2019 年到 2022 年针对开源软件的攻击增长了 742%，因此 2021 年 Google 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -124,7 +124,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/"/>
     <id>https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/</id>
     <published>2023-10-08T10:53:26.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
       
@@ -155,7 +155,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2023/10/world-quality-report/</id>
     <published>2023-10-08T06:25:39.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
     <summary type="html">&lt;p&gt;2202-23 世界质量报告（World Quality Report 简称 WQR）是一项全球研究，不论是作为软件测试、开发工程师，关注这类软件质量报告可以帮助我们快速了解软件行业的现状和趋势。&lt;/p&gt;
@@ -186,7 +186,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/"/>
     <id>https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/</id>
     <published>2023-09-11T10:53:26.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
       
@@ -216,7 +216,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/</id>
     <published>2023-09-07T10:53:26.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
       
@@ -246,7 +246,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/</id>
     <published>2023-08-28T22:36:46.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.464Z</updated>
     
     
       
@@ -273,7 +273,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/nuget/"/>
     <id>https://shenxianpeng.github.io/2023/08/nuget/</id>
     <published>2023-08-24T22:36:46.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
       
@@ -299,7 +299,7 @@
     <link href="https://shenxianpeng.github.io/2023/07/buildx-bake/"/>
     <id>https://shenxianpeng.github.io/2023/07/buildx-bake/</id>
     <published>2023-07-17T14:43:37.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
       
@@ -328,7 +328,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/sbom/"/>
     <id>https://shenxianpeng.github.io/2023/06/sbom/</id>
     <published>2023-06-10T14:43:37.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
       
@@ -353,7 +353,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
     <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
     <published>2023-06-09T05:47:43.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
       
@@ -379,7 +379,7 @@
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
       
@@ -407,7 +407,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
@@ -433,7 +433,7 @@
     <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
     <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
     <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着近些年针对软件供应链发起的攻击次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
@@ -515,7 +515,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2023-12-04T04:14:14.325Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -550,7 +550,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2023-12-04T04:14:14.329Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
@@ -579,7 +579,7 @@
     <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
     <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
     <published>2022-12-28T12:26:56.000Z</published>
-    <updated>2023-12-04T04:14:14.325Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
       
@@ -608,7 +608,7 @@
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2023-12-04T04:14:14.325Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
       
@@ -637,7 +637,7 @@
     <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
     <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
     <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2023-12-04T04:14:14.325Z</updated>
+    <updated>2023-12-04T14:28:35.460Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
