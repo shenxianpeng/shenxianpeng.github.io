@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2023-12-04T14:28:35.464Z</updated>
+  <updated>2023-12-15T09:25:17.015Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>How to make Jenkins pipeline not fail if a specific error occurs</title>
+    <link href="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/"/>
+    <id>https://shenxianpeng.github.io/2023/12/jenkins-catch-error/</id>
+    <published>2023-12-15T10:25:39.000Z</published>
+    <updated>2023-12-15T09:25:17.015Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Sometimes you don’t want Jenkins pipeline failed for a specific error occurs. so you can use &lt;code&gt;catchError&lt;/code&gt; to catch error and</summary>
+        
+      
+    
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
     <title>How to adopt Supply Chain Security for GitHub and Non-GitHub projects</title>
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.015Z</updated>
     
     
       
@@ -48,7 +73,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
     <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，因此 Google 在 2021 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -89,7 +114,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/python-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/python-and-slsa/</id>
     <published>2023-11-15T06:25:39.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.015Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，据 SonaType 的统计从 2019 年到 2022 年针对开源软件的攻击增长了 742%，因此 2021 年 Google 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -124,7 +149,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/"/>
     <id>https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/</id>
     <published>2023-10-08T10:53:26.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -155,7 +180,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2023/10/world-quality-report/</id>
     <published>2023-10-08T06:25:39.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
     <summary type="html">&lt;p&gt;2202-23 世界质量报告（World Quality Report 简称 WQR）是一项全球研究，不论是作为软件测试、开发工程师，关注这类软件质量报告可以帮助我们快速了解软件行业的现状和趋势。&lt;/p&gt;
@@ -186,7 +211,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/"/>
     <id>https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/</id>
     <published>2023-09-11T10:53:26.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -216,7 +241,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/</id>
     <published>2023-09-07T10:53:26.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -246,7 +271,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/</id>
     <published>2023-08-28T22:36:46.000Z</published>
-    <updated>2023-12-04T14:28:35.464Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -273,7 +298,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/nuget/"/>
     <id>https://shenxianpeng.github.io/2023/08/nuget/</id>
     <published>2023-08-24T22:36:46.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -299,7 +324,7 @@
     <link href="https://shenxianpeng.github.io/2023/07/buildx-bake/"/>
     <id>https://shenxianpeng.github.io/2023/07/buildx-bake/</id>
     <published>2023-07-17T14:43:37.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -328,7 +353,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/sbom/"/>
     <id>https://shenxianpeng.github.io/2023/06/sbom/</id>
     <published>2023-06-10T14:43:37.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -353,7 +378,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
     <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
     <published>2023-06-09T05:47:43.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -379,7 +404,7 @@
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -407,7 +432,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
@@ -433,7 +458,7 @@
     <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
     <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
     <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着近些年针对软件供应链发起的攻击次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
@@ -515,7 +540,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -550,7 +575,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
@@ -579,7 +604,7 @@
     <link href="https://shenxianpeng.github.io/2022/12/2022-summary/"/>
     <id>https://shenxianpeng.github.io/2022/12/2022-summary/</id>
     <published>2022-12-28T12:26:56.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -608,7 +633,7 @@
     <link href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/"/>
     <id>https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/</id>
     <published>2022-10-09T07:33:41.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
+    <updated>2023-12-15T09:25:17.011Z</updated>
     
     
       
@@ -629,31 +654,6 @@
     <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
     
     <category term="CI" scheme="https://shenxianpeng.github.io/tags/ci/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to fix &quot;Temporary Failure in name resolution&quot; in WSL</title>
-    <link href="https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/"/>
-    <id>https://shenxianpeng.github.io/2022/09/fix-wsl-networking-issue/</id>
-    <published>2022-09-27T01:56:50.000Z</published>
-    <updated>2023-12-04T14:28:35.460Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Problem&quot;&gt;&lt;a href=&quot;#Problem&quot; class=&quot;headerlink&quot; title=&quot;Problem&quot;&gt;&lt;/a&gt;Problem&lt;/h2&gt;&lt;p&gt;I have encountered a problem when I ping google.com failed and return some error like “Temporary failure in name resolution”&lt;/p&gt;
-&lt;h2 id=&quot;How-to-fix&quot;&gt;&lt;a href=&quot;#How-to-fix&quot; class=&quot;headerlink&quot; title=&quot;How to fix&quot;&gt;&lt;/a&gt;How to fix&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Inside WSL2, create or append file: &lt;code&gt;/etc/wsl.conf&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Put the following lines in the file in order to ensure the your DNS changes do not get blown away&lt;/p&gt;
- &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo &lt;span class=&quot;built_in&quot;&gt;tee&lt;/span&gt; /etc/wsl.conf &amp;lt;&amp;lt; &lt;span class=&quot;string&quot;&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;[network]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;generateResolvConf = false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;EOF&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="OS" scheme="https://shenxianpeng.github.io/categories/os/"/>
-    
-    
-    <category term="WSL" scheme="https://shenxianpeng.github.io/tags/wsl/"/>
     
   </entry>
   
