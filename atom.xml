@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2024-01-03T09:36:09.082Z</updated>
+  <updated>2024-01-04T03:42:04.036Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="https://shenxianpeng.github.io/2023/12/2023-summary/"/>
     <id>https://shenxianpeng.github.io/2023/12/2023-summary/</id>
     <published>2023-12-31T15:59:59.000Z</published>
-    <updated>2024-01-03T09:36:09.082Z</updated>
+    <updated>2024-01-04T03:42:04.036Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;时间过得好快，2023 年转瞬即逝。如果不写下自己在这一年里发生的事情，一年过后就几乎难在岁月里留下一个坐标点了。&lt;/p&gt;
-&lt;p&gt;因此老样子，还是要回顾 2023 年发生在自己以及身边的值得记录的事情，然后展望 2024 年。&lt;/p&gt;
-&lt;h2</summary>
+    <summary type="html">&lt;p&gt;时间过得好快，2023 年转瞬即逝。如果不写下自己在这一年里发生的事情，过不了多久就很难找到一个锚点让我回想起来这一年都发生过什么。&lt;/p&gt;
+&lt;p&gt;因此按照惯例还是要先回顾 2023 年，然后展望 2024 年。&lt;/p&gt;
+&lt;h2 id=&quot;回顾-2023&quot;&gt;&lt;a</summary>
         
       
     
@@ -50,7 +50,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/"/>
     <id>https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/</id>
     <published>2023-12-27T10:25:39.000Z</published>
-    <updated>2024-01-03T09:36:09.082Z</updated>
+    <updated>2024-01-04T03:42:04.036Z</updated>
     
     
       
@@ -77,7 +77,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/"/>
     <id>https://shenxianpeng.github.io/2023/12/jenkins-catch-error/</id>
     <published>2023-12-15T10:25:39.000Z</published>
-    <updated>2024-01-03T09:36:09.082Z</updated>
+    <updated>2024-01-04T03:42:04.036Z</updated>
     
     
       
@@ -102,7 +102,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2024-01-03T09:36:09.082Z</updated>
+    <updated>2024-01-04T03:42:04.036Z</updated>
     
     
       
@@ -129,7 +129,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
     <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2024-01-03T09:36:09.082Z</updated>
+    <updated>2024-01-04T03:42:04.036Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，因此 Google 在 2021 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -170,7 +170,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/python-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/python-and-slsa/</id>
     <published>2023-11-15T06:25:39.000Z</published>
-    <updated>2024-01-03T09:36:09.082Z</updated>
+    <updated>2024-01-04T03:42:04.036Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，据 SonaType 的统计从 2019 年到 2022 年针对开源软件的攻击增长了 742%，因此 2021 年 Google 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -205,7 +205,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/"/>
     <id>https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/</id>
     <published>2023-10-08T10:53:26.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -236,7 +236,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2023/10/world-quality-report/</id>
     <published>2023-10-08T06:25:39.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
     <summary type="html">&lt;p&gt;2202-23 世界质量报告（World Quality Report 简称 WQR）是一项全球研究，不论是作为软件测试、开发工程师，关注这类软件质量报告可以帮助我们快速了解软件行业的现状和趋势。&lt;/p&gt;
@@ -267,7 +267,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/"/>
     <id>https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/</id>
     <published>2023-09-11T10:53:26.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -297,7 +297,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/</id>
     <published>2023-09-07T10:53:26.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -327,7 +327,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/</id>
     <published>2023-08-28T22:36:46.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -354,7 +354,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/nuget/"/>
     <id>https://shenxianpeng.github.io/2023/08/nuget/</id>
     <published>2023-08-24T22:36:46.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -380,7 +380,7 @@
     <link href="https://shenxianpeng.github.io/2023/07/buildx-bake/"/>
     <id>https://shenxianpeng.github.io/2023/07/buildx-bake/</id>
     <published>2023-07-17T14:43:37.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -409,7 +409,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/sbom/"/>
     <id>https://shenxianpeng.github.io/2023/06/sbom/</id>
     <published>2023-06-10T14:43:37.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -434,7 +434,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
     <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
     <published>2023-06-09T05:47:43.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -460,7 +460,7 @@
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
       
@@ -488,7 +488,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
@@ -514,7 +514,7 @@
     <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
     <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
     <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着近些年针对软件供应链发起的攻击次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
@@ -596,7 +596,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/"/>
     <id>https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/</id>
     <published>2023-02-26T13:21:25.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
     <summary type="html">&lt;p&gt;随着 DevOps 的流行，越来越多的开发团队正在寻找一些工具来帮助他们更好地完成任务。ChatGPT 是一款基于人工智能的自然语言处理工具，它可以用来帮助开发团队在 DevOps 任务中更加高效地工作。&lt;/p&gt;
@@ -631,7 +631,7 @@
     <link href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/"/>
     <id>https://shenxianpeng.github.io/2023/02/pipeline-best-practices/</id>
     <published>2023-02-06T13:52:12.000Z</published>
-    <updated>2024-01-03T09:36:09.078Z</updated>
+    <updated>2024-01-04T03:42:04.032Z</updated>
     
     
     <summary type="html">&lt;p&gt;就像标题所说的，为什么我的 Jenkins Controller 越来越慢，可能是因为没有遵循 Jenkins pipeline 编写的一些最佳实践。&lt;/p&gt;
