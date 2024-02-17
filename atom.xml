@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2024-02-16T10:03:26.385Z</updated>
+  <updated>2024-02-17T15:57:35.184Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>cpp-linter-action 从 v2.9.0 版本开始支持 Pull Request Review 功能了 👏</title>
+    <link href="https://shenxianpeng.github.io/2024/02/cpp-linter-action/"/>
+    <id>https://shenxianpeng.github.io/2024/02/cpp-linter-action/</id>
+    <published>2024-02-17T03:34:18.000Z</published>
+    <updated>2024-02-17T15:57:35.184Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我作为 &lt;a href=&quot;https://github.com/cpp-linter&quot;&gt;cpp-linter&lt;/a&gt; 的创建者和贡献者，很高兴的宣布 ———— cpp-linter-action 从 v2.9.0 版本开始支持 Pull Request Review</summary>
+        
+      
+    
+    
+    
+    <category term="cpp-linter" scheme="https://shenxianpeng.github.io/categories/cpp-linter/"/>
+    
+    
+    <category term="clang-format" scheme="https://shenxianpeng.github.io/tags/clang-format/"/>
+    
+    <category term="clang-tidy" scheme="https://shenxianpeng.github.io/tags/clang-tidy/"/>
+    
+    <category term="clang" scheme="https://shenxianpeng.github.io/tags/clang/"/>
+    
+    <category term="cpp-linter" scheme="https://shenxianpeng.github.io/tags/cpp-linter/"/>
+    
+  </entry>
+  
+  <entry>
     <title>看看顶级的开源组织都在用哪些服务和工具</title>
     <link href="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/"/>
     <id>https://shenxianpeng.github.io/2024/01/apache-services-and-tools/</id>
     <published>2024-01-21T03:27:18.000Z</published>
-    <updated>2024-02-16T10:03:26.385Z</updated>
+    <updated>2024-02-17T15:57:35.184Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇介绍的是大名鼎鼎的开源软件基金会 Apache 所使用的服务(Services)和工具(Tools)，这或许能帮助你打开视野，在选择工具的时候提供参考。如果你是一名 DevOps、SRE 或是 Infra 工程师，通过本篇文章内容结果帮助你更好的展示团队所提供的服务有哪些，以及窥探到 Apache Infra 是怎样组织和管理他们的。&lt;/p&gt;
@@ -87,7 +118,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/2023-summary/"/>
     <id>https://shenxianpeng.github.io/2023/12/2023-summary/</id>
     <published>2023-12-31T15:59:59.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.184Z</updated>
     
     
       
@@ -116,7 +147,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/"/>
     <id>https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/</id>
     <published>2023-12-27T10:25:39.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.184Z</updated>
     
     
       
@@ -143,7 +174,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/"/>
     <id>https://shenxianpeng.github.io/2023/12/jenkins-catch-error/</id>
     <published>2023-12-15T10:25:39.000Z</published>
-    <updated>2024-02-16T10:03:26.385Z</updated>
+    <updated>2024-02-17T15:57:35.184Z</updated>
     
     
       
@@ -168,7 +199,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2024-02-16T10:03:26.385Z</updated>
+    <updated>2024-02-17T15:57:35.184Z</updated>
     
     
       
@@ -195,7 +226,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
     <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，因此 Google 在 2021 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -236,7 +267,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/python-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/python-and-slsa/</id>
     <published>2023-11-15T06:25:39.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，据 SonaType 的统计从 2019 年到 2022 年针对开源软件的攻击增长了 742%，因此 2021 年 Google 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -271,7 +302,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/"/>
     <id>https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/</id>
     <published>2023-10-08T10:53:26.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -302,7 +333,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2023/10/world-quality-report/</id>
     <published>2023-10-08T06:25:39.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
     <summary type="html">&lt;p&gt;2202-23 世界质量报告（World Quality Report 简称 WQR）是一项全球研究，不论是作为软件测试、开发工程师，关注这类软件质量报告可以帮助我们快速了解软件行业的现状和趋势。&lt;/p&gt;
@@ -333,7 +364,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/"/>
     <id>https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/</id>
     <published>2023-09-11T10:53:26.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -363,7 +394,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/</id>
     <published>2023-09-07T10:53:26.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -393,7 +424,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/devops-trends-2023/"/>
     <id>https://shenxianpeng.github.io/2023/09/devops-trends-2023/</id>
     <published>2023-09-01T03:27:18.000Z</published>
-    <updated>2024-02-16T10:03:26.381Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -423,7 +454,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/</id>
     <published>2023-08-28T22:36:46.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -450,7 +481,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/nuget/"/>
     <id>https://shenxianpeng.github.io/2023/08/nuget/</id>
     <published>2023-08-24T22:36:46.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -476,7 +507,7 @@
     <link href="https://shenxianpeng.github.io/2023/07/buildx-bake/"/>
     <id>https://shenxianpeng.github.io/2023/07/buildx-bake/</id>
     <published>2023-07-17T14:43:37.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -505,7 +536,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/sbom/"/>
     <id>https://shenxianpeng.github.io/2023/06/sbom/</id>
     <published>2023-06-10T14:43:37.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -530,7 +561,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
     <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
     <published>2023-06-09T05:47:43.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -556,7 +587,7 @@
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
+    <updated>2024-02-17T15:57:35.180Z</updated>
     
     
       
@@ -584,7 +615,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
+    <updated>2024-02-17T15:57:35.176Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
@@ -602,88 +633,6 @@
     <category term="Pipeline" scheme="https://shenxianpeng.github.io/tags/pipeline/"/>
     
     <category term="Troubleshooting" scheme="https://shenxianpeng.github.io/tags/troubleshooting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SLSA 框架与软件供应链安全防护</title>
-    <link href="https://shenxianpeng.github.io/2023/03/slsa/"/>
-    <id>https://shenxianpeng.github.io/2023/03/slsa/</id>
-    <published>2023-03-23T07:09:39.000Z</published>
-    <updated>2024-02-16T10:03:26.377Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;随着近些年针对软件供应链发起的攻击次数越来越多，Google 发布了一系列指南来确保软件包的完整性，目的是为了防止未经授权的代码修改影响软件供应链。&lt;/p&gt;
-&lt;p&gt;Google 的 SLSA 框架（Supply-chain Levels for Software Artifacts 软件制品的供应链级别）是通过识别 CI&amp;#x2F;CD 流水线中的问题并减小影响，为实现更安全的软件开发和部署流程提供建议。&lt;/p&gt;
-&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;#%E4%BB%80%E4%B9%88%E6%98%AFSLSA&quot;&gt;什么是SLSA&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E8%BD%AF%E4%BB%B6%E4%BE%9B%E5%BA%94%E9%93%BE%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98&quot;&gt;软件供应链中的问题&lt;/a&gt;&lt;br&gt;2.1 &lt;a href=&quot;#%E4%BE%9B%E5%BA%94%E9%93%BE%E6%94%BB%E5%87%BB%E5%8C%85%E6%8B%AC%E5%93%AA%E4%BA%9B&quot;&gt;供应链攻击包括哪些&lt;/a&gt;&lt;br&gt;2.2 &lt;a href=&quot;#%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E4%BE%8B%E5%AD%90&quot;&gt;真实世界的例子&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#SLSA%E7%AD%89%E7%BA%A7&quot;&gt;SLSA等级&lt;/a&gt;&lt;br&gt;3.1 &lt;a href=&quot;#%E8%AF%A6%E7%BB%86%E8%A7%A3%E9%87%8A&quot;&gt;详细解释&lt;/a&gt;&lt;br&gt;3.2 &lt;a href=&quot;#%E9%99%90%E5%88%B6&quot;&gt;限制&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#SLSA%E8%90%BD%E5%9C%B0&quot;&gt;SLSA落地&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7&quot;&gt;其他工具&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;什么是SLSA&quot;&gt;&lt;a href=&quot;#什么是SLSA&quot; class=&quot;headerlink&quot; title=&quot;什么是SLSA&quot;&gt;&lt;/a&gt;什么是SLSA&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://slsa.dev/&quot;&gt;SLSA&lt;/a&gt; 全名是 Supply chain Levels for Software Artifacts, or SLSA (发音“salsa”).&lt;/p&gt;
-&lt;p&gt;SLSA 是一个端到端框架，一个标准和控制的清单确保软件构建和部署过程的安全性，防止篡改源代码、构建平台以及构件仓库而产生的威胁。&lt;/p&gt;
-&lt;h2 id=&quot;软件供应链中的问题&quot;&gt;&lt;a href=&quot;#软件供应链中的问题&quot; class=&quot;headerlink&quot; title=&quot;软件供应链中的问题&quot;&gt;&lt;/a&gt;软件供应链中的问题&lt;/h2&gt;&lt;p&gt;任何软件供应链都可能引入漏洞，随着系统变得越来越复杂，做好最佳实践从而保证交付工件的完整性变得非常重要。如果没有一定的规范和系统发展计划，就很难应对下一次黑客攻击。&lt;/p&gt;
-&lt;h3 id=&quot;供应链攻击包括哪些&quot;&gt;&lt;a href=&quot;#供应链攻击包括哪些&quot; class=&quot;headerlink&quot; title=&quot;供应链攻击包括哪些&quot;&gt;&lt;/a&gt;供应链攻击包括哪些&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/2023/03/slsa/supply-chain-threats.png&quot; alt=&quot;Supply Chain Threats&quot;&gt;&lt;/p&gt;
-&lt;p&gt;A 提交未经认证的修改&lt;br&gt;B 泄露源码仓库&lt;br&gt;C 从被修改源代码构建&lt;br&gt;D 泄露构建过程&lt;br&gt;E 使用已泄露的依赖&lt;br&gt;F 上传被修改的包&lt;br&gt;G 泄露了包仓库&lt;br&gt;H 使用已泄露的包&lt;/p&gt;
-&lt;h3 id=&quot;真实世界的例子&quot;&gt;&lt;a href=&quot;#真实世界的例子&quot; class=&quot;headerlink&quot; title=&quot;真实世界的例子&quot;&gt;&lt;/a&gt;真实世界的例子&lt;/h3&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;完整性威胁&lt;/th&gt;
-&lt;th&gt;已知例子&lt;/th&gt;
-&lt;th&gt;SLSA 如何提供帮助&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;A 提交未经认证的修改&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://lore.kernel.org/lkml/202105051005.49BFABCE@keescook/&quot;&gt;研究人员&lt;/a&gt;试图通过邮件列表上的&lt;br&gt;补丁程序故意将漏洞引入 Linux 内核。&lt;/td&gt;
-&lt;td&gt;两人审查发现了大部分（但不是全部）漏洞。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;B 泄露源码仓库&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://news-web.php.net/php.internals/113838&quot;&gt;PHP&lt;/a&gt;：攻击者破坏了 PHP 的自托管&lt;br&gt; git 服务器并注入了两个恶意提交。&lt;/td&gt;
-&lt;td&gt;一个受到更好保护的源代码平台&lt;br&gt;将成为攻击者更难攻击的目标。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;C 从被修改源代码构建&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.webmin.com/exploit.html&quot;&gt;Webmin&lt;/a&gt;：攻击者修改了构建基础设施&lt;br&gt;以使用与源代码控制不匹配的源文件。&lt;/td&gt;
-&lt;td&gt;符合 SLSA 标准的构建服务器会生成出处，&lt;br&gt;以识别实际使用的来源，从而使消费者能够检测到此类篡改。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;D 泄露构建过程&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.crowdstrike.com/blog/sunspot-malware-technical-analysis/&quot;&gt;SolarWinds&lt;/a&gt;：攻击者破坏了构建平台&lt;br&gt;并安装了在每次构建期间注入恶意行为的植入程序。&lt;/td&gt;
-&lt;td&gt;更高的 SLSA 级别需要对构建平台进行更强大的安全控制，&lt;br&gt;这使得妥协和获得持久性变得更加困难。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;E 使用已泄露的依赖&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://web.archive.org/web/20210909051737/https://schneider.dev/blog/event-stream-vulnerability-explained/&quot;&gt;event-stream&lt;/a&gt;：攻击者添加了一个无害的依赖项，然后更新了该依赖项&lt;br&gt;以添加恶意行为。更新与提交到 GitHub 的代码不匹配（即攻击 F）。&lt;/td&gt;
-&lt;td&gt;递归地将 SLSA 应用于所有依赖项会阻止这个特定的向量，因为&lt;br&gt;出处会表明它不是由适当的构建器构建的，或者源不是来自 GitHub。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;F 上传被修改的包&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://about.codecov.io/apr-2021-post-mortem/&quot;&gt;CodeCov&lt;/a&gt;：攻击者使用泄露的凭据将恶意工件上传到&lt;br&gt; Google Cloud Storage(GCS)，用户可以从中直接下载。&lt;/td&gt;
-&lt;td&gt;GCS 中工件的出处表明工件不是以&lt;br&gt;预期的方式从预期的源代码库中构建的。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;G 泄露了包仓库&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://theupdateframework.io/papers/attacks-on-package-managers-ccs2008.pdf&quot;&gt;对包镜像的攻击&lt;/a&gt;：研究人员为几个流行的&lt;br&gt;包存储库运行镜像，这些镜像可能被用来提供恶意包。&lt;/td&gt;
-&lt;td&gt;与上面的 (F) 类似，恶意工件的来源表明它们不是&lt;br&gt;按预期构建的，也不是来自预期的源代码库。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;H 使用已泄露的包&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://blog.sonatype.com/damaging-linux-mac-malware-bundled-within-browserify-npm-brandjack-attempt&quot;&gt;Browserify typosquatting&lt;/a&gt;：攻击者&lt;br&gt;上传了一个与原始名称相似的恶意包。&lt;/td&gt;
-&lt;td&gt;SLSA 不直接解决这种威胁，但将出处链接回源代码控制&lt;br&gt;可以启用和增强其他解决方案。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;h2 id=&quot;SLSA等级&quot;&gt;&lt;a href=&quot;#SLSA等级&quot; class=&quot;headerlink&quot; title=&quot;SLSA等级&quot;&gt;&lt;/a&gt;SLSA等级&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="DevSecOps" scheme="https://shenxianpeng.github.io/categories/devsecops/"/>
-    
-    
-    <category term="SLSA" scheme="https://shenxianpeng.github.io/tags/slsa/"/>
     
   </entry>
   
