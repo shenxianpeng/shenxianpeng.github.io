@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2024-02-18T07:59:34.727Z</updated>
+  <updated>2024-02-18T16:18:34.136Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>cpp-linter-action 从 v2.9.0 版本开始支持 Pull Request Review 功能了 👏</title>
+    <title>cpp-linter-action 最新版支持 Pull Request Review 功能了 👏</title>
     <link href="https://shenxianpeng.github.io/2024/02/cpp-linter-action/"/>
     <id>https://shenxianpeng.github.io/2024/02/cpp-linter-action/</id>
     <published>2024-02-17T03:34:18.000Z</published>
-    <updated>2024-02-18T07:59:34.727Z</updated>
+    <updated>2024-02-18T16:18:34.136Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;作为 &lt;a href=&quot;https://github.com/cpp-linter&quot;&gt;cpp-linter&lt;/a&gt; 的创建者和贡献者，我很高兴的宣布 —— cpp-linter-action 从 v2.9.0 版本开始支持 Pull Request Review 功能了</summary>
+    <summary type="html">&lt;p&gt;作为 &lt;a href=&quot;https://github.com/cpp-linter&quot;&gt;cpp-linter&lt;/a&gt; 的创建者和贡献者，我很高兴地宣布 —— cpp-linter-action 从 v2.9.0 版本开始支持 Pull Request Review 功能了</summary>
         
       
     
@@ -52,7 +52,7 @@
     <link href="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/"/>
     <id>https://shenxianpeng.github.io/2024/01/apache-services-and-tools/</id>
     <published>2024-01-21T03:27:18.000Z</published>
-    <updated>2024-02-18T07:59:34.727Z</updated>
+    <updated>2024-02-18T16:18:34.136Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇介绍的是大名鼎鼎的开源软件基金会 Apache 所使用的服务(Services)和工具(Tools)，这或许能帮助你打开视野，在选择工具的时候提供参考。如果你是一名 DevOps、SRE 或是 Infra 工程师，通过本篇文章内容结果帮助你更好的展示团队所提供的服务有哪些，以及窥探到 Apache Infra 是怎样组织和管理他们的。&lt;/p&gt;
@@ -118,7 +118,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/2023-summary/"/>
     <id>https://shenxianpeng.github.io/2023/12/2023-summary/</id>
     <published>2023-12-31T15:59:59.000Z</published>
-    <updated>2024-02-18T07:59:34.723Z</updated>
+    <updated>2024-02-18T16:18:34.136Z</updated>
     
     
       
@@ -147,7 +147,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/"/>
     <id>https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/</id>
     <published>2023-12-27T10:25:39.000Z</published>
-    <updated>2024-02-18T07:59:34.723Z</updated>
+    <updated>2024-02-18T16:18:34.136Z</updated>
     
     
       
@@ -174,7 +174,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/"/>
     <id>https://shenxianpeng.github.io/2023/12/jenkins-catch-error/</id>
     <published>2023-12-15T10:25:39.000Z</published>
-    <updated>2024-02-18T07:59:34.723Z</updated>
+    <updated>2024-02-18T16:18:34.136Z</updated>
     
     
       
@@ -199,7 +199,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2024-02-18T07:59:34.723Z</updated>
+    <updated>2024-02-18T16:18:34.136Z</updated>
     
     
       
@@ -226,7 +226,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
     <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2024-02-18T07:59:34.723Z</updated>
+    <updated>2024-02-18T16:18:34.136Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，因此 Google 在 2021 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -267,7 +267,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/python-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/python-and-slsa/</id>
     <published>2023-11-15T06:25:39.000Z</published>
-    <updated>2024-02-18T07:59:34.723Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，据 SonaType 的统计从 2019 年到 2022 年针对开源软件的攻击增长了 742%，因此 2021 年 Google 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -302,7 +302,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/"/>
     <id>https://shenxianpeng.github.io/2023/10/upgrade-xlc-10-to-xlc-17.1/</id>
     <published>2023-10-08T10:53:26.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -333,7 +333,7 @@
     <link href="https://shenxianpeng.github.io/2023/10/world-quality-report/"/>
     <id>https://shenxianpeng.github.io/2023/10/world-quality-report/</id>
     <published>2023-10-08T06:25:39.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
     <summary type="html">&lt;p&gt;2202-23 世界质量报告（World Quality Report 简称 WQR）是一项全球研究，不论是作为软件测试、开发工程师，关注这类软件质量报告可以帮助我们快速了解软件行业的现状和趋势。&lt;/p&gt;
@@ -364,7 +364,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/"/>
     <id>https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/</id>
     <published>2023-09-11T10:53:26.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -394,7 +394,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/</id>
     <published>2023-09-07T10:53:26.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -424,7 +424,7 @@
     <link href="https://shenxianpeng.github.io/2023/09/devops-trends-2023/"/>
     <id>https://shenxianpeng.github.io/2023/09/devops-trends-2023/</id>
     <published>2023-09-01T03:27:18.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -454,7 +454,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/"/>
     <id>https://shenxianpeng.github.io/2023/08/upload-artifacts-failed-on-aix/</id>
     <published>2023-08-28T22:36:46.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -481,7 +481,7 @@
     <link href="https://shenxianpeng.github.io/2023/08/nuget/"/>
     <id>https://shenxianpeng.github.io/2023/08/nuget/</id>
     <published>2023-08-24T22:36:46.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -507,7 +507,7 @@
     <link href="https://shenxianpeng.github.io/2023/07/buildx-bake/"/>
     <id>https://shenxianpeng.github.io/2023/07/buildx-bake/</id>
     <published>2023-07-17T14:43:37.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -536,7 +536,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/sbom/"/>
     <id>https://shenxianpeng.github.io/2023/06/sbom/</id>
     <published>2023-06-10T14:43:37.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.132Z</updated>
     
     
       
@@ -561,7 +561,7 @@
     <link href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/"/>
     <id>https://shenxianpeng.github.io/2023/06/fork-or-unfork/</id>
     <published>2023-06-09T05:47:43.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.128Z</updated>
     
     
       
@@ -587,7 +587,7 @@
     <link href="https://shenxianpeng.github.io/2023/05/commit-check/"/>
     <id>https://shenxianpeng.github.io/2023/05/commit-check/</id>
     <published>2023-05-09T11:00:00.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.128Z</updated>
     
     
       
@@ -615,7 +615,7 @@
     <link href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/"/>
     <id>https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/</id>
     <published>2023-04-10T19:49:13.000Z</published>
-    <updated>2024-02-18T07:59:34.719Z</updated>
+    <updated>2024-02-18T16:18:34.128Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;What’s-the-issue&quot;&gt;&lt;a href=&quot;#What’s-the-issue&quot; class=&quot;headerlink&quot; title=&quot;What’s the issue&quot;&gt;&lt;/a&gt;What’s the issue&lt;/h2&gt;&lt;p&gt;My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not&lt;br&gt;start automatically even I have set the startup type to Automatic.&lt;/p&gt;
