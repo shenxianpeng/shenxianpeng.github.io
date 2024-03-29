@@ -178,6 +178,9 @@ ga('send', 'pageview');
 <p>然后，在你的其他仓库中的 <code>.github/workflows</code> 目录下你可以创建一个 workflow <code>build.yml</code> 指向该文件，例如：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">  <span class="attr">pull_request:</span></span><br><span class="line">  <span class="attr">workflow_dispatch:</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">call-build:</span></span><br><span class="line">    <span class="attr">uses:</span> <span class="string">shenxianpeng/reuse-workflows-demo/.github/workflows/build.yml@main</span></span><br><span class="line">    <span class="attr">with:</span></span><br><span class="line">      <span class="attr">target:</span> <span class="string">stage</span></span><br></pre></td></tr></table></figure>
 
+<p>更多关于 Reusable Workflows 的实际项目示例可以参考 <a target="_blank" rel="noopener" href="https://github.com/cpp-linter">cpp-linter 组织</a>下的 <a target="_blank" rel="noopener" href="https://github.com/cpp-linter/.github">.github</a> 仓库。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># cpp-linter/.github/.github/workflows</span></span><br><span class="line">.</span><br><span class="line">├── codeql.yml</span><br><span class="line">├── main.yml</span><br><span class="line">├── mkdocs.yml</span><br><span class="line">├── pre-commit.yml</span><br><span class="line">├── py-coverage.yml</span><br><span class="line">├── py-publish.yml</span><br><span class="line">├── release-drafter.yml</span><br><span class="line">├── snyk-container.yml</span><br><span class="line">├── sphinx.yml</span><br><span class="line">└── stale.yml</span><br></pre></td></tr></table></figure>
+
 <h3 id="GitHub-Reusable-Workflows-的-7-点最佳实践："><a href="#GitHub-Reusable-Workflows-的-7-点最佳实践：" class="headerlink" title="GitHub Reusable Workflows 的 7 点最佳实践："></a>GitHub Reusable Workflows 的 7 点最佳实践：</h3><ol>
 <li><strong>模块化设计</strong>：将工作流程分解为小的、可重用的模块，每个模块专注于执行特定的任务。这样可以提高工作流程的灵活性和可维护性，并使其更容易被重用和组合。</li>
 <li><strong>参数化配置</strong>：使工作流程能够接受参数，以便在每次使用时进行配置。这样可以使工作流程更通用，适应不同项目和环境的需求。</li>
@@ -218,7 +221,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/03/reusable-workflows/" data-id="clu9zfwtp00hlp7oib1dwg46h" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/03/reusable-workflows/" data-id="clucbu6vd00t9rnp1350b4rqo" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/03/reusable-workflows/#disqus_thread" class="article-comment-link">Comments</a>
@@ -629,7 +632,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/02/open-source-state/" data-id="clu9zfwtn00hip7oi1ggiayq5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/02/open-source-state/" data-id="clucbu6vc00t7rnp19dxmbu43" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/02/open-source-state/#disqus_thread" class="article-comment-link">Comments</a>
@@ -731,7 +734,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/02/cpp-linter-action/" data-id="clu9zfwtm00hfp7oi5qii4qlz" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/02/cpp-linter-action/" data-id="clucbu6vb00t6rnp12m2semmg" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/02/cpp-linter-action/#disqus_thread" class="article-comment-link">Comments</a>
@@ -849,7 +852,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/" data-id="clu9zfwtl00hbp7oi9xjf5ajk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/" data-id="clucbu6t600h7rnp1bvdr67cs" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/#disqus_thread" class="article-comment-link">Comments</a>
@@ -965,7 +968,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/12/2023-summary/" data-id="clu9zfwtg00gyp7oif0bd4yio" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/12/2023-summary/" data-id="clucbu6t300gurnp1gb5u8xvr" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/12/2023-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1067,7 +1070,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/" data-id="clu9zfwti00h1p7oi9vxxd4pv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/" data-id="clucbu6t500h0rnp1768c5eye" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1144,7 +1147,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/" data-id="clu9zfwtj00h4p7oibafabgfy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/" data-id="clucbu6t400gxrnp1an9v0m8e" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1232,7 +1235,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/12/supply-chain-security/" data-id="clu9zfwtk00h8p7oi99z8g0l3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/12/supply-chain-security/" data-id="clucbu6t600h4rnp1ewsn1scm" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/12/supply-chain-security/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1325,7 +1328,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/11/witness-and-slsa/" data-id="clu9zfwtg00gvp7oiahmecawl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/11/witness-and-slsa/" data-id="clucbu6t300grrnp1169xc51v" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1412,7 +1415,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clu9zfwte00grp7oi03qd9psr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clucbu6t200gnrnp1ae9484od" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/11/python-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>
