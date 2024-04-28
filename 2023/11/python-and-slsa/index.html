@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/publish.svg">
 <meta property="og:image" content="https://shenxianpeng.github.io/2023/11/python-and-slsa/install.svg">
 <meta property="article:published_time" content="2023-11-15T06:25:39.000Z">
-<meta property="article:modified_time" content="2024-04-28T15:16:53.710Z">
+<meta property="article:modified_time" content="2024-04-28T15:41:32.670Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="SLSA">
@@ -189,10 +189,10 @@ ga('send', 'pageview');
 
 <p>从这里我们可以使用 <code>slsa-verifier</code> 来验证出处。我们可以验证最重要的事情，即哪个 GitHub 仓库实际构建了 wheel，以及其他信息，例如 git 标签、分支和建造者 ID：</p>
 <p>源存储库 (<code>--source-uri</code>)<br>建造者 ID (<code>--builder-id</code>)<br>Git 分支 (<code>--source-branch</code>)<br>git 标签 (<code>--source-tag</code>)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这里仅验证 wheel package 的 GitHub 仓库</span></span><br><span class="line">slsa-verifier verify-artifact --provenance-path multiple.intoto.jsonl --source-uri github.com/urllib3/urllib3 urllib3-2.1.0-py3-none-any.whl </span><br><span class="line">Verified signature against tlog entry index 49513169 at URL: https://rekor.sigstore.dev/api/v1/log/entries/24296fb24b8ad77a08c2f012d69948ed5d12e8e020852bb7936ea9208d684688e5108cca859a3302</span><br><span class="line">Verified build using builder <span class="string">&quot;https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v1.9.0&quot;</span> at commit 69be2992f8a25a1f27e49f339e4d5b98dec07462</span><br><span class="line">Verifying artifact urllib3-2.1.0-py3-none-any.whl: PASSED</span><br><span class="line"></span><br><span class="line">PASSED: Verified SLSA provenance</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这里仅验证 wheel package 的 GitHub 仓库</span></span><br><span class="line">slsa-verifier verify-artifact --provenance-path multiple.intoto.jsonl --source-uri github.com/urllib3/urllib3 urllib3-2.1.0-py3-none-any.whl</span><br><span class="line">Verified signature against tlog entry index 49513169 at URL: https://rekor.sigstore.dev/api/v1/log/entries/24296fb24b8ad77a08c2f012d69948ed5d12e8e020852bb7936ea9208d684688e5108cca859a3302</span><br><span class="line">Verified build using builder <span class="string">&quot;https://github.com/slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@refs/tags/v1.9.0&quot;</span> at commit 69be2992f8a25a1f27e49f339e4d5b98dec07462</span><br><span class="line">Verifying artifact urllib3-2.1.0-py3-none-any.whl: PASSED</span><br><span class="line"></span><br><span class="line">PASSED: Verified SLSA provenance</span><br></pre></td></tr></table></figure>
 
 <p><strong>成功了</strong>！🥳 我们已经验证了这个 wheel 的出处，所以现在我们可以放心的安装它，因为我们知道它是按照我们的预期构建的：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install urllib3-2.1.0-py3-none-any.whl </span><br><span class="line">Defaulting to user installation because normal site-packages is not writeable</span><br><span class="line">Processing ./urllib3-2.1.0-py3-none-any.whl</span><br><span class="line">Installing collected packages: urllib3</span><br><span class="line">  Attempting uninstall: urllib3</span><br><span class="line">    Found existing installation: urllib3 2.0.5</span><br><span class="line">    Uninstalling urllib3-2.0.5:</span><br><span class="line">      Successfully uninstalled urllib3-2.0.5</span><br><span class="line">Successfully installed urllib3-2.1.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pip install urllib3-2.1.0-py3-none-any.whl</span><br><span class="line">Defaulting to user installation because normal site-packages is not writeable</span><br><span class="line">Processing ./urllib3-2.1.0-py3-none-any.whl</span><br><span class="line">Installing collected packages: urllib3</span><br><span class="line">  Attempting uninstall: urllib3</span><br><span class="line">    Found existing installation: urllib3 2.0.5</span><br><span class="line">    Uninstalling urllib3-2.0.5:</span><br><span class="line">      Successfully uninstalled urllib3-2.0.5</span><br><span class="line">Successfully installed urllib3-2.1.0</span><br></pre></td></tr></table></figure>
 
 <h2 id="文中用到的项目"><a href="#文中用到的项目" class="headerlink" title="文中用到的项目"></a>文中用到的项目</h2><p>以下这些是本文使用的所有项目和工具：</p>
 <ul>
@@ -203,7 +203,7 @@ ga('send', 'pageview');
 <li><a target="_blank" rel="noopener" href="https://github.com/urllib3/urllib3/blob/main/.github/workflows/publish.yml">urllib3&#x2F;urllib3</a></li>
 </ul>
 <blockquote>
-<p>英文原文：<a target="_blank" rel="noopener" href="https://sethmlarson.dev/python-and-slsa">https://sethmlarson.dev/python-and-slsa</a> </p>
+<p>英文原文：<a target="_blank" rel="noopener" href="https://sethmlarson.dev/python-and-slsa">https://sethmlarson.dev/python-and-slsa</a></p>
 </blockquote>
 <hr>
 <p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
@@ -220,7 +220,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clvjoc2r200gppaqd1p6cckwt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/11/python-and-slsa/" data-id="clvjp7rqg00gor0om9nuy4myw" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/11/python-and-slsa/#disqus_thread" class="article-comment-link">Comments</a>

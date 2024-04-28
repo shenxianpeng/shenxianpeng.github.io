@@ -154,7 +154,7 @@ ga('send', 'pageview');
 <h3 id="2-运行-Bake-构建"><a href="#2-运行-Bake-构建" class="headerlink" title="2. 运行 Bake 构建"></a>2. 运行 Bake 构建</h3><p>运行以下命令开始使用 Bake 构建镜像：</p>
 <p><code>$ docker buildx bake -f docker-bake.dev.hcl db webapp-release</code></p>
 <h3 id="3-打印构建选项"><a href="#3-打印构建选项" class="headerlink" title="3. 打印构建选项"></a>3. 打印构建选项</h3><p>你还可以无需构建打印构建选项，使用用 <code>--print</code> 来查看某个目标构建是否符合预期。例如：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker buildx bake -f docker-bake.dev.hcl --<span class="built_in">print</span> db</span><br><span class="line">[+] Building 0.0s (0/0)         </span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;group&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;default&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;targets&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;db&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;target&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;db&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;context&quot;</span>: <span class="string">&quot;.&quot;</span>,</span><br><span class="line">      <span class="string">&quot;dockerfile&quot;</span>: <span class="string">&quot;Dockerfile.db&quot;</span>,</span><br><span class="line">      <span class="string">&quot;tags&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;xianpengshen/docker-buildx-bake-demo:db&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ docker buildx bake -f docker-bake.dev.hcl --<span class="built_in">print</span> db</span><br><span class="line">[+] Building 0.0s (0/0)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;group&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;default&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;targets&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;db&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;target&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;db&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;context&quot;</span>: <span class="string">&quot;.&quot;</span>,</span><br><span class="line">      <span class="string">&quot;dockerfile&quot;</span>: <span class="string">&quot;Dockerfile.db&quot;</span>,</span><br><span class="line">      <span class="string">&quot;tags&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;xianpengshen/docker-buildx-bake-demo:db&quot;</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-发布构建镜像"><a href="#4-发布构建镜像" class="headerlink" title="4. 发布构建镜像"></a>4. 发布构建镜像</h3><p>通过添加 <code>--push</code> 选项可以将构建完成的镜像一键发布的镜像仓库，例如 <code>$ docker buildx bake -f docker-bake.dev.hcl --push db webapp-release</code></p>
 <p>以上示例中的 demo 放在这里了：<a target="_blank" rel="noopener" href="https://github.com/shenxianpeng/docker-buildx-bake-demo">https://github.com/shenxianpeng/docker-buildx-bake-demo</a></p>
@@ -175,7 +175,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clvjoc2qt00fxpaqd8kwo01bi" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/07/buildx-bake/" data-id="clvjp7rqb00fyr0omd8lla4ge" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/07/buildx-bake/#disqus_thread" class="article-comment-link">Comments</a>
@@ -294,7 +294,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clvjoc2qs00fupaqdh7tzd3l7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/06/sbom/" data-id="clvjp7rqa00fur0om5iu57sxp" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/06/sbom/#disqus_thread" class="article-comment-link">Comments</a>
@@ -376,7 +376,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/06/fork-or-unfork/" data-id="clvjoc2qr00fqpaqddx3w2dwp" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/06/fork-or-unfork/" data-id="clvjp7rq900frr0om4jdvcfmx" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/06/fork-or-unfork/#disqus_thread" class="article-comment-link">Comments</a>
@@ -480,7 +480,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/05/commit-check/" data-id="clvjoc2qq00fopaqd960s6zud" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/05/commit-check/" data-id="clvjp7rq800fnr0om8gos4o5t" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/05/commit-check/#disqus_thread" class="article-comment-link">Comments</a>
@@ -538,7 +538,7 @@ ga('send', 'pageview');
         <h2 id="What’s-the-issue"><a href="#What’s-the-issue" class="headerlink" title="What’s the issue"></a>What’s the issue</h2><p>My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not<br>start automatically even I have set the startup type to Automatic.</p>
 <p><img src="/2023/04/jenkins-troubleshooting/service-general.png" alt="Windows Service Config 2"></p>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>After some research, select “Allow service to interact with desktop” with service properties on Log On tab can fix this problem.</p>
-<p>In service properties -&gt; Log On -&gt; Select “Local System account” and select the checkbox for “Allow service to interact with desktop”. </p>
+<p>In service properties -&gt; Log On -&gt; Select “Local System account” and select the checkbox for “Allow service to interact with desktop”.</p>
 <p><img src="/2023/04/jenkins-troubleshooting/service-log-on.png" alt="Windows Service Config 2"></p>
 <h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2>
         
@@ -558,7 +558,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clvjoc2qp00fkpaqdd216dh6l" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clvjp7rq700fjr0omazlyc6zi" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
@@ -694,7 +694,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clvjoc2qo00fhpaqdgdif8dah" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/03/slsa/" data-id="clvjp7rq700fgr0ombdjv7auw" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/03/slsa/#disqus_thread" class="article-comment-link">Comments</a>
@@ -781,7 +781,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clvjoc2ql00fapaqd1f0a8nr4" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/" data-id="clvjp7rq500f9r0om3s3b5nwf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/chatgpt-for-devops/#disqus_thread" class="article-comment-link">Comments</a>
@@ -862,7 +862,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clvjoc2qn00fdpaqd5s6wgli8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/" data-id="clvjp7rq600fdr0om8duoeaua" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/02/pipeline-best-practices/#disqus_thread" class="article-comment-link">Comments</a>
@@ -958,7 +958,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clvjoc2qk00f5paqd8ss1b8qk" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/12/2022-summary/" data-id="clvjp7rq300f6r0om34c3hmct" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/12/2022-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1044,7 +1044,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clvjoc2qi00f2paqd9416dnin" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/" data-id="clvjp7rq100f3r0om60im871z" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/10/jenkins-skip-ci/#disqus_thread" class="article-comment-link">Comments</a>

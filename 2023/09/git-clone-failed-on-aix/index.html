@@ -14,7 +14,7 @@
 <meta property="og:description" content="最近又遇到了在 AIX 上通过 Jenkins agent 无法下载代码的情况，报了如下错误： 16:42:47  Caused by: hudson.plugins.git.GitException: Command &quot;git init &#x2F;disk1&#x2F;agent&#x2F;workspace&#x2F;e_feature-aix-ci-build&quot; returned status code 25">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-09-07T10:53:26.000Z">
-<meta property="article:modified_time" content="2024-04-28T15:16:53.710Z">
+<meta property="article:modified_time" content="2024-04-28T15:41:32.666Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="Jenkins">
@@ -133,7 +133,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近又遇到了在 AIX 上通过 Jenkins agent 无法下载代码的情况，报了如下错误：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">16:42:47  Caused by: hudson.plugins.git.GitException: Command <span class="string">&quot;git init /disk1/agent/workspace/e_feature-aix-ci-build&quot;</span> returned status code 255:</span><br><span class="line">16:42:47  stdout: </span><br><span class="line">16:42:47  stderr: <span class="built_in">exec</span>(): 0509-036 Cannot load program git because of the following errors:</span><br><span class="line">16:42:47  	0509-150   Dependent module /usr/lib/libiconv.a(libiconv.so.2) could not be loaded.</span><br><span class="line">16:42:47  	0509-152   Member libiconv.so.2 is not found <span class="keyword">in</span> archive </span><br><span class="line">16:42:47  </span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2734)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2660)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2656)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommand(CliGitAPIImpl.java:1981)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$5</span>.execute(CliGitAPIImpl.java:1047)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">16:42:47  Caused by: hudson.plugins.git.GitException: Command <span class="string">&quot;git init /disk1/agent/workspace/e_feature-aix-ci-build&quot;</span> returned status code 255:</span><br><span class="line">16:42:47  stdout:</span><br><span class="line">16:42:47  stderr: <span class="built_in">exec</span>(): 0509-036 Cannot load program git because of the following errors:</span><br><span class="line">16:42:47  	0509-150   Dependent module /usr/lib/libiconv.a(libiconv.so.2) could not be loaded.</span><br><span class="line">16:42:47  	0509-152   Member libiconv.so.2 is not found <span class="keyword">in</span> archive</span><br><span class="line">16:42:47</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2734)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2660)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2656)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommand(CliGitAPIImpl.java:1981)</span><br><span class="line">16:42:47  	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl<span class="variable">$5</span>.execute(CliGitAPIImpl.java:1047)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>上次遇到在 AIX 遇到的 git clone 问题总结在这里 <a href="https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/">https://shenxianpeng.github.io/2021/06/git-clone-failed-on-aix/</a></p>
@@ -145,10 +145,10 @@ ga('send', 'pageview');
 <p>但 Jenkins agent 在执行的时候有默认的 <code>LIBPATH</code>，查看这个变量可以通过 Jenkins Agent 上的 Script Console 执行如下命令打印出来</p>
 <figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">println System.getenv(<span class="string">&quot;LIBPATH&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 返回的结果 </span></span><br><span class="line">/usr/java8_64/jre/lib/ppc64/j9vm:/usr/java8_64/jre/lib/ppc64:/usr/java8_64/jre/../lib/ppc64:/usr/java8_64/jre/lib/icc:/usr/lib</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 返回的结果</span></span><br><span class="line">/usr/java8_64/jre/lib/ppc64/j9vm:/usr/java8_64/jre/lib/ppc64:/usr/java8_64/jre/../lib/ppc64:/usr/java8_64/jre/lib/icc:/usr/lib</span><br></pre></td></tr></table></figure>
 
 <p>其中果然有 <code>/usr/lib</code>，这导致了 git 是去找 <code>/usr/lib/libiconv.a</code> 而不是 <code>/opt/freeware/lib/libiconv.a</code>。</p>
-<p>我尝试过很多种办法但最终还是无法在 Jenkins agent 在 git clone 的时候 <code>unset LIBPATH</code>，包括: </p>
+<p>我尝试过很多种办法但最终还是无法在 Jenkins agent 在 git clone 的时候 <code>unset LIBPATH</code>，包括:</p>
 <ol>
 <li>重新 link，将 <code>/usr/lib/libiconv.a</code> 链接到 <code>/opt/freeware/lib/libiconv.a</code></li>
 </ol>
@@ -182,7 +182,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/" data-id="clvjoc2qx00gcpaqdc94q3zek" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/" data-id="clvjp7rqd00gbr0om388h3o29" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/09/git-clone-failed-on-aix/#disqus_thread" class="article-comment-link">Comments</a>

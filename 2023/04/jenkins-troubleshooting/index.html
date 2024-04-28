@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/service-general.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/service-log-on.png">
 <meta property="article:published_time" content="2023-04-10T19:49:13.000Z">
-<meta property="article:modified_time" content="2024-04-28T15:16:53.706Z">
+<meta property="article:modified_time" content="2024-04-28T15:41:32.666Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Pipeline">
 <meta property="article:tag" content="Troubleshooting">
@@ -137,7 +137,7 @@ ga('send', 'pageview');
         <h2 id="What’s-the-issue"><a href="#What’s-the-issue" class="headerlink" title="What’s the issue"></a>What’s the issue</h2><p>My Windows build machine is regular reboot after Windows updates, but my Jenkins agent service on this Windows can not<br>start automatically even I have set the startup type to Automatic.</p>
 <p><img src="/2023/04/jenkins-troubleshooting/service-general.png" alt="Windows Service Config 2"></p>
 <h2 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution 1"></a>Solution 1</h2><p>After some research, select “Allow service to interact with desktop” with service properties on Log On tab can fix this problem.</p>
-<p>In service properties -&gt; Log On -&gt; Select “Local System account” and select the checkbox for “Allow service to interact with desktop”. </p>
+<p>In service properties -&gt; Log On -&gt; Select “Local System account” and select the checkbox for “Allow service to interact with desktop”.</p>
 <p><img src="/2023/04/jenkins-troubleshooting/service-log-on.png" alt="Windows Service Config 2"></p>
 <h2 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution 2"></a>Solution 2</h2><span id="more"></span>
 
@@ -159,7 +159,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clvjoc2qp00fkpaqdd216dh6l" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/" data-id="clvjp7rq700fjr0omazlyc6zi" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/04/jenkins-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>
