@@ -4,18 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JaCoCo 实现原理 (JaCoCo Implementation Design) | Peter Shen</title>
+  <title>JaCoCo 实现原理 (JaCoCo Implementation Design) | Xianpeng Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="想要对 Java 项目进行代码覆盖率的测试，很容易就找到 JaCoCo 这个开源代码覆盖率分析工具是众多工具中最后欢迎的哪一个。 本篇仅仅是在学习 JaCoCo 时对其实现设计文档 https:&#x2F;&#x2F;www.jacoco.org&#x2F;jacoco&#x2F;trunk&#x2F;doc&#x2F;implementation.html 的粗略翻译。 实现设计(Implementation Design)这是实现设计决策的一个无序列表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JaCoCo 实现原理 (JaCoCo Implementation Design)">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/11/jacoco/index.html">
-<meta property="og:site_name" content="Peter Shen">
+<meta property="og:site_name" content="Xianpeng Shen">
 <meta property="og:description" content="想要对 Java 项目进行代码覆盖率的测试，很容易就找到 JaCoCo 这个开源代码覆盖率分析工具是众多工具中最后欢迎的哪一个。 本篇仅仅是在学习 JaCoCo 时对其实现设计文档 https:&#x2F;&#x2F;www.jacoco.org&#x2F;jacoco&#x2F;trunk&#x2F;doc&#x2F;implementation.html 的粗略翻译。 实现设计(Implementation Design)这是实现设计决策的一个无序列表">
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/11/jacoco/implementation.png">
 <meta property="article:published_time" content="2020-11-17T10:26:14.000Z">
-<meta property="article:modified_time" content="2024-06-28T02:26:38.079Z">
+<meta property="article:modified_time" content="2024-07-26T11:40:01.711Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="DevOps">
 <meta property="article:tag" content="Coverage">
@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2020/11/jacoco/implementation.png">
   
-  <link rel="alternate" href="/atom.xml" title="Peter Shen" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Xianpeng Shen" type="application/atom+xml">
   
   
   <link rel="icon" href="/favicon.png">
@@ -59,7 +59,7 @@ ga('send', 'pageview');
 
     gtag('config', 'G-LDW3BHJTTW');
   </script>
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="container">
@@ -69,7 +69,7 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Peter Shen</a>
+        <a href="/" id="logo">Xianpeng Shen</a>
       </h1>
       
     </div>
@@ -211,7 +211,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="clxy2ofws009sozp5f0029yi0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="clz2mrzvr009usdovc3xb4z3r" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/11/jacoco/#disqus_thread" class="article-comment-link">Comments</a>

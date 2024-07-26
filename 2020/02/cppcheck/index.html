@@ -4,27 +4,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成 | Peter Shen</title>
+  <title>一款免费的 C/C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成 | Xianpeng Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="由于历史遗留原因，我们当前产品的代码仓库里遗留很多 Warning，这些 Warning 不是一时半会可以解决掉的。只有通过不断的丰富自动化测试用例，来保障最后的质量关卡，才敢有条不紊的进行 Warining 的修复，在次之前，如何有效杜绝继续引入更多的 Warining 是当下应该做的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一款免费的 C&#x2F;C++ 静态代码分析工具 Cppcheck 与 Jenkins 集成">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/02/cppcheck/index.html">
-<meta property="og:site_name" content="Peter Shen">
+<meta property="og:site_name" content="Xianpeng Shen">
 <meta property="og:description" content="由于历史遗留原因，我们当前产品的代码仓库里遗留很多 Warning，这些 Warning 不是一时半会可以解决掉的。只有通过不断的丰富自动化测试用例，来保障最后的质量关卡，才敢有条不紊的进行 Warining 的修复，在次之前，如何有效杜绝继续引入更多的 Warining 是当下应该做的。">
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/02/cppcheck/cppcheck-icon.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/02/cppcheck/cppcheck-view.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/02/cppcheck/cppcheck-code.png">
 <meta property="article:published_time" content="2020-02-16T13:14:12.000Z">
-<meta property="article:modified_time" content="2024-06-28T02:26:38.059Z">
+<meta property="article:modified_time" content="2024-07-26T11:40:01.695Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Cppcheck">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2020/02/cppcheck/cppcheck-icon.png">
   
-  <link rel="alternate" href="/atom.xml" title="Peter Shen" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Xianpeng Shen" type="application/atom+xml">
   
   
   <link rel="icon" href="/favicon.png">
@@ -60,7 +60,7 @@ ga('send', 'pageview');
 
     gtag('config', 'G-LDW3BHJTTW');
   </script>
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="container">
@@ -70,7 +70,7 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Peter Shen</a>
+        <a href="/" id="logo">Xianpeng Shen</a>
       </h1>
       
     </div>
@@ -147,11 +147,11 @@ ga('send', 'pageview');
 </ol>
 <p>本文记录我调查和使用的经验，如果您也相关的需求，提供一点参考。</p>
 <h2 id="安装-Cppcheck"><a href="#安装-Cppcheck" class="headerlink" title="安装 Cppcheck"></a>安装 Cppcheck</h2><p>安装到 Linux</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum install cppcheck.x86_64</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install cppcheck.x86_64</span><br></pre></td></tr></table></figure>
 
 <p>其他平台安装请参考 cppcheck <a target="_blank" rel="noopener" href="http://cppcheck.sourceforge.net/">官网</a></p>
 <p>如果你在 Linux 无法通过命令一键安装，也可通过下载源代码构建 cppcheck。以下是从代码手动构建一个 cppcheck 可执行文件的步骤</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> opt &amp;&amp; <span class="built_in">mkdir</span> cppcheck &amp;&amp; <span class="built_in">cd</span> cppcheck</span><br><span class="line"><span class="comment"># 下载代码</span></span><br><span class="line">wget https://github.com/danmar/cppcheck/archive/1.90.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xvf 1.90.tar.gz</span><br><span class="line"><span class="comment"># make build</span></span><br><span class="line"><span class="built_in">cd</span> cppcheck-1.90</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">cmake --build .</span><br><span class="line"><span class="comment"># link</span></span><br><span class="line">sudo <span class="built_in">ln</span> -s /opt/cppcheck/cppcheck-1.90/cppcheck /usr/bin/cppcheck</span><br><span class="line"><span class="comment"># 检查是否安装成功</span></span><br><span class="line"><span class="built_in">which</span> cppcheck</span><br><span class="line">/usr/bin/cppcheck</span><br><span class="line">cppcheck --version</span><br><span class="line">Cppcheck 1.90</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> opt &amp;&amp; <span class="built_in">mkdir</span> cppcheck &amp;&amp; <span class="built_in">cd</span> cppcheck</span><br><span class="line"><span class="comment"># 下载代码</span></span><br><span class="line">wget https://github.com/danmar/cppcheck/archive/1.90.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xvf 1.90.tar.gz</span><br><span class="line"><span class="comment"># make build</span></span><br><span class="line"><span class="built_in">cd</span> cppcheck-1.90</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">cmake --build .</span><br><span class="line"><span class="comment"># link</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /opt/cppcheck/cppcheck-1.90/cppcheck /usr/bin/cppcheck</span><br><span class="line"><span class="comment"># 检查是否安装成功</span></span><br><span class="line"><span class="built_in">which</span> cppcheck</span><br><span class="line">/usr/bin/cppcheck</span><br><span class="line">cppcheck --version</span><br><span class="line">Cppcheck 1.90</span><br></pre></td></tr></table></figure>
 
 <h2 id="使用-cppcheck-静态代码扫描"><a href="#使用-cppcheck-静态代码扫描" class="headerlink" title="使用 cppcheck 静态代码扫描"></a>使用 cppcheck 静态代码扫描</h2><p>在与 Jenkins 集成之前，先看看这个工具怎么用。通过查阅<a target="_blank" rel="noopener" href="http://cppcheck.sourceforge.net/manual.pdf">Cppcheck 官方文档</a>，一般的使用如下：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 例如扫描 src 下 public 和 themes 两个目录下的代码将结果输出到 cppcheck.xml</span></span><br><span class="line">cppcheck src/public src/themes --xml 2&gt; cppcheck.xml</span><br></pre></td></tr></table></figure>
@@ -201,7 +201,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/02/cppcheck/" data-id="clxy2ofw5006sozp5cx0wh26y" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/02/cppcheck/" data-id="clz2mrzv3006rsdov0y8wb095" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/02/cppcheck/#disqus_thread" class="article-comment-link">Comments</a>

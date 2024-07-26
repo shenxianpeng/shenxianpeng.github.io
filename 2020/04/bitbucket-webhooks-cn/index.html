@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Jenkins 与 Bitbucket Webhooks 的配置和使用 | Peter Shen</title>
+  <title>Jenkins 与 Bitbucket Webhooks 的配置和使用 | Xianpeng Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="问题Jenkins 的 multi-branch pipeline 想必很多人已经在用了，使用这种类型的 Jenkins Job 最显著的作用就是可以对 Git 仓库里的任何分支和任何 Pull Request（以下简写为 PR）进行构建。 在做 Jenkins 与 Bitbucket 的集成时，需要安装插件：Bitbucket Branch Source，可以通过该插件在 Jenkins 里进行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins 与 Bitbucket Webhooks 的配置和使用">
 <meta property="og:url" content="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/index.html">
-<meta property="og:site_name" content="Peter Shen">
+<meta property="og:site_name" content="Xianpeng Shen">
 <meta property="og:description" content="问题Jenkins 的 multi-branch pipeline 想必很多人已经在用了，使用这种类型的 Jenkins Job 最显著的作用就是可以对 Git 仓库里的任何分支和任何 Pull Request（以下简写为 PR）进行构建。 在做 Jenkins 与 Bitbucket 的集成时，需要安装插件：Bitbucket Branch Source，可以通过该插件在 Jenkins 里进行">
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/scan-multibranch.png">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/multi-branch.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/multi-pr.png">
 <meta property="article:published_time" content="2020-04-28T14:40:21.000Z">
-<meta property="article:modified_time" content="2024-06-28T02:26:38.063Z">
+<meta property="article:modified_time" content="2024-07-26T11:40:01.695Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Bitbucket">
@@ -27,7 +27,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/scan-multibranch.png">
   
-  <link rel="alternate" href="/atom.xml" title="Peter Shen" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Xianpeng Shen" type="application/atom+xml">
   
   
   <link rel="icon" href="/favicon.png">
@@ -63,7 +63,7 @@ ga('send', 'pageview');
 
     gtag('config', 'G-LDW3BHJTTW');
   </script>
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="container">
@@ -73,7 +73,7 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Peter Shen</a>
+        <a href="/" id="logo">Xianpeng Shen</a>
       </h1>
       
     </div>
@@ -196,7 +196,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/" data-id="clxy2ofwa007dozp52mb36b3y" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/" data-id="clz2mrzv8007csdov6vpseu7j" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2020/04/bitbucket-webhooks-cn/#disqus_thread" class="article-comment-link">Comments</a>

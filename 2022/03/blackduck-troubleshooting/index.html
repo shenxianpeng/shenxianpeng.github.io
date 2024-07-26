@@ -4,23 +4,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Resolved - The Pip Inspector tree parse failed to produce output | Peter Shen</title>
+  <title>Resolved - The Pip Inspector tree parse failed to produce output | Xianpeng Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="DetailsFailure: PIP - Pip Inspector  The Pip Inspector tree parse failed to produce output.Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures while extracting dependencies.  F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Resolved - The Pip Inspector tree parse failed to produce output">
 <meta property="og:url" content="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/index.html">
-<meta property="og:site_name" content="Peter Shen">
+<meta property="og:site_name" content="Xianpeng Shen">
 <meta property="og:description" content="DetailsFailure: PIP - Pip Inspector  The Pip Inspector tree parse failed to produce output.Overall Status: FAILURE_DETECTOR - Detect had one or more detector failures while extracting dependencies.  F">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-03-02T06:54:11.000Z">
-<meta property="article:modified_time" content="2024-06-28T02:26:38.095Z">
+<meta property="article:modified_time" content="2024-07-26T11:40:01.731Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Troubleshooting">
 <meta property="article:tag" content="BlackDuck">
 <meta name="twitter:card" content="summary">
   
-  <link rel="alternate" href="/atom.xml" title="Peter Shen" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Xianpeng Shen" type="application/atom+xml">
   
   
   <link rel="icon" href="/favicon.png">
@@ -56,7 +56,7 @@ ga('send', 'pageview');
 
     gtag('config', 'G-LDW3BHJTTW');
   </script>
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="container">
@@ -66,7 +66,7 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Peter Shen</a>
+        <a href="/" id="logo">Xianpeng Shen</a>
       </h1>
       
     </div>
@@ -153,7 +153,7 @@ ga('send', 'pageview');
 
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Link python to python3, it works in my case.</p>
 <p>For example</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># save python to other name</span></span><br><span class="line">sudo <span class="built_in">mv</span> /usr/bin/python /usr/bin/python.old</span><br><span class="line"><span class="comment"># link python3 to python</span></span><br><span class="line">sudo <span class="built_in">ln</span> -s /usr/bin/python3 /usr/bin/python</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># save python to other name</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> /usr/bin/python /usr/bin/python.old</span><br><span class="line"><span class="comment"># link python3 to python</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /usr/bin/python3 /usr/bin/python</span><br></pre></td></tr></table></figure>
 
 <p>Then try to run <code>bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh)</code> again, my test commands:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -s -L https://detect.synopsys.com/detect7.sh) --blackduck.url=https://org.blackducksoftware.com --blackduck.api.token=MmMwMjdlOTctMT --detect.project.name=HUB --detect.project.version.name=TEST_v1.1.1 --detect.source.path=/workdir/test --logging.level.com.synopsys.integration=DEBUG --blackduck.trust.cert=TRUE --detect.tools.excluded=POLARIS --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING</span><br></pre></td></tr></table></figure>
@@ -179,7 +179,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="clxy2ofy000e0ozp53eld5cam" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/" data-id="clz2mrzx100e4sdovg90of99f" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/blackduck-troubleshooting/#disqus_thread" class="article-comment-link">Comments</a>

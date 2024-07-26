@@ -4,24 +4,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>解决通过 Jenkins Artifactory plugin 上传 artifacts 失败的问题 “unable to find valid certification path to requested target” | Peter Shen</title>
+  <title>解决通过 Jenkins Artifactory plugin 上传 artifacts 失败的问题 “unable to find valid certification path to requested target” | Xianpeng Shen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近遇到了通过 Jenkins agent 无法上传 artifacts 到 Artifactory 的情况，具体错误如下： [2023-09-11T08:21:53.385Z] Executing command: &#x2F;bin&#x2F;sh -c git log --pretty&#x3D;format:%s -1[2023-09-11T08:21:54.250Z] [consumer_0] Deploying a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决通过 Jenkins Artifactory plugin 上传 artifacts 失败的问题 “unable to find valid certification path to requested target”">
 <meta property="og:url" content="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/index.html">
-<meta property="og:site_name" content="Peter Shen">
+<meta property="og:site_name" content="Xianpeng Shen">
 <meta property="og:description" content="最近遇到了通过 Jenkins agent 无法上传 artifacts 到 Artifactory 的情况，具体错误如下： [2023-09-11T08:21:53.385Z] Executing command: &#x2F;bin&#x2F;sh -c git log --pretty&#x3D;format:%s -1[2023-09-11T08:21:54.250Z] [consumer_0] Deploying a">
 <meta property="og:locale">
 <meta property="article:published_time" content="2023-09-11T10:53:26.000Z">
-<meta property="article:modified_time" content="2024-06-28T02:26:38.107Z">
+<meta property="article:modified_time" content="2024-07-26T11:40:01.739Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="Artifactory">
 <meta name="twitter:card" content="summary">
   
-  <link rel="alternate" href="/atom.xml" title="Peter Shen" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="Xianpeng Shen" type="application/atom+xml">
   
   
   <link rel="icon" href="/favicon.png">
@@ -57,7 +57,7 @@ ga('send', 'pageview');
 
     gtag('config', 'G-LDW3BHJTTW');
   </script>
-<meta name="generator" content="Hexo 7.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
   <div id="container">
@@ -67,7 +67,7 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Peter Shen</a>
+        <a href="/" id="logo">Xianpeng Shen</a>
       </h1>
       
     </div>
@@ -144,7 +144,7 @@ ga('send', 'pageview');
 </ol>
 <p>比如我生成的安全认证文件的名字叫：<code>artifactory.mycompany.der</code>（名字可以任意起，只要后缀名不变即可）</p>
 <h2 id="通过命令行导入安全认证"><a href="#通过命令行导入安全认证" class="headerlink" title="通过命令行导入安全认证"></a>通过命令行导入安全认证</h2><p>登录到那台有问题的 Solaris agent，上传 <code>artifactory.mycompany.der</code> 到指定目录下，然后找到 cacerts 的路径，执行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@mysolaris:/<span class="comment"># keytool -import -alias example -keystore /usr/java/jre/lib/security/cacerts -file /tmp/artifactory.mycompany.der</span></span><br><span class="line"><span class="comment"># 然后选择 yes</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@mysolaris:/# keytool -import -<span class="built_in">alias</span> example -keystore /usr/java/jre/lib/security/cacerts -file /tmp/artifactory.mycompany.der</span><br><span class="line"><span class="comment"># 然后选择 yes</span></span><br></pre></td></tr></table></figure>
 
 <p>这时候会提示你输入密码，默认密码为 <code>changeit</code>，输入即可。然后重启你的 JVM 或是 VM。等再次通过该 Agent 上传 artifacts，一切恢复正常。</p>
 <blockquote>
@@ -165,7 +165,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/" data-id="clxy2ofyq00gcozp51n6xelux" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/" data-id="clz2mrzxl00ggsdovgosdbnrv" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2023/09/unable-to-find-valid-certification-path/#disqus_thread" class="article-comment-link">Comments</a>
