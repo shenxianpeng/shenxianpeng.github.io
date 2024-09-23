@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2024-09-22T05:54:12.976Z</updated>
+  <updated>2024-09-23T22:22:37.965Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,18 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>约定式分支规范正式发布 Conventional Branch Specification Released!</title>
+    <title>约定式分支规范中文版正式发布！</title>
+    <link href="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/"/>
+    <id>https://shenxianpeng.github.io/2024/09/conventional-branch-zh/</id>
+    <published>2024-09-23T16:00:00.000Z</published>
+    <updated>2024-09-23T22:22:37.965Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;上周正式发布《约定式分支规范》后，受到了广泛关注，不少人询问何时推出中文版。&lt;/p&gt;
+&lt;p&gt;经过一周末的努力，中文版已正式上线，详情请访问：**&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Conventional Branch Specification Released!</title>
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch/</id>
     <published>2024-09-17T16:00:00.000Z</published>
-    <updated>2024-09-22T05:54:12.976Z</updated>
+    <updated>2024-09-23T22:22:37.965Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;好消息！《约定式分支规范》开源项目正式上线！诚邀广大开发者共同参与，为项目贡献力量。更多详情请访问：&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h2&gt;&lt;p&gt;Conventional Branch refers to a structured and</summary>
         
       
     
@@ -46,7 +72,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/pypa/"/>
     <id>https://shenxianpeng.github.io/2024/09/pypa/</id>
     <published>2024-09-04T16:00:00.000Z</published>
-    <updated>2024-09-22T05:54:12.976Z</updated>
+    <updated>2024-09-23T22:22:37.965Z</updated>
     
     
       
@@ -71,7 +97,7 @@
     <link href="https://shenxianpeng.github.io/2024/07/remember/"/>
     <id>https://shenxianpeng.github.io/2024/07/remember/</id>
     <published>2024-07-08T16:00:00.000Z</published>
-    <updated>2024-09-22T05:54:12.976Z</updated>
+    <updated>2024-09-23T22:22:37.964Z</updated>
     
     
       
@@ -100,7 +126,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/farewell/"/>
     <id>https://shenxianpeng.github.io/2024/06/farewell/</id>
     <published>2024-06-27T16:00:00.000Z</published>
-    <updated>2024-09-22T05:54:12.975Z</updated>
+    <updated>2024-09-23T22:22:37.964Z</updated>
     
     
       
@@ -128,7 +154,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/"/>
     <id>https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/</id>
     <published>2024-06-13T15:27:18.000Z</published>
-    <updated>2024-09-22T05:54:12.976Z</updated>
+    <updated>2024-09-23T22:22:37.964Z</updated>
     
     
       
@@ -156,7 +182,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/garasign/"/>
     <id>https://shenxianpeng.github.io/2024/06/garasign/</id>
     <published>2024-06-10T03:27:18.000Z</published>
-    <updated>2024-09-22T05:54:12.975Z</updated>
+    <updated>2024-09-23T22:22:37.964Z</updated>
     
     
       
@@ -184,7 +210,7 @@
     <link href="https://shenxianpeng.github.io/2024/05/psf-infra/"/>
     <id>https://shenxianpeng.github.io/2024/05/psf-infra/</id>
     <published>2024-05-28T03:27:18.000Z</published>
-    <updated>2024-09-22T05:54:12.975Z</updated>
+    <updated>2024-09-23T22:22:37.963Z</updated>
     
     
       
@@ -212,7 +238,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/code-signing/"/>
     <id>https://shenxianpeng.github.io/2024/04/code-signing/</id>
     <published>2024-04-29T12:34:18.000Z</published>
-    <updated>2024-09-22T05:54:12.974Z</updated>
+    <updated>2024-09-23T22:22:37.963Z</updated>
     
     
       
@@ -240,7 +266,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/jenkins-contributors/"/>
     <id>https://shenxianpeng.github.io/2024/04/jenkins-contributors/</id>
     <published>2024-04-21T12:34:18.000Z</published>
-    <updated>2024-09-22T05:54:12.975Z</updated>
+    <updated>2024-09-23T22:22:37.963Z</updated>
     
     
       
@@ -268,7 +294,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/devops-skills-2024/"/>
     <id>https://shenxianpeng.github.io/2024/04/devops-skills-2024/</id>
     <published>2024-04-08T12:34:18.000Z</published>
-    <updated>2024-09-22T05:54:12.974Z</updated>
+    <updated>2024-09-23T22:22:37.963Z</updated>
     
     
       
@@ -296,7 +322,7 @@
     <link href="https://shenxianpeng.github.io/2024/03/reusable-workflows/"/>
     <id>https://shenxianpeng.github.io/2024/03/reusable-workflows/</id>
     <published>2024-03-25T10:34:18.000Z</published>
-    <updated>2024-09-22T05:54:12.974Z</updated>
+    <updated>2024-09-23T22:22:37.963Z</updated>
     
     
       
@@ -323,7 +349,7 @@
     <link href="https://shenxianpeng.github.io/2024/02/open-source-state/"/>
     <id>https://shenxianpeng.github.io/2024/02/open-source-state/</id>
     <published>2024-02-22T10:34:18.000Z</published>
-    <updated>2024-09-22T05:54:12.972Z</updated>
+    <updated>2024-09-23T22:22:37.961Z</updated>
     
     
       
@@ -356,7 +382,7 @@
     <link href="https://shenxianpeng.github.io/2024/02/cpp-linter-action/"/>
     <id>https://shenxianpeng.github.io/2024/02/cpp-linter-action/</id>
     <published>2024-02-17T03:34:18.000Z</published>
-    <updated>2024-09-22T05:54:12.970Z</updated>
+    <updated>2024-09-23T22:22:37.959Z</updated>
     
     
       
@@ -387,7 +413,7 @@
     <link href="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/"/>
     <id>https://shenxianpeng.github.io/2024/01/apache-services-and-tools/</id>
     <published>2024-01-21T03:27:18.000Z</published>
-    <updated>2024-09-22T05:54:12.970Z</updated>
+    <updated>2024-09-23T22:22:37.959Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇介绍的是大名鼎鼎的开源软件基金会 Apache 所使用的服务(Services)和工具(Tools)，这或许能帮助你打开视野，在选择工具的时候提供参考。如果你是一名 DevOps、SRE 或是 Infra 工程师，通过本篇文章内容结果帮助你更好的展示团队所提供的服务有哪些，以及窥探到 Apache Infra 是怎样组织和管理他们的。&lt;/p&gt;
@@ -453,7 +479,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/2023-summary/"/>
     <id>https://shenxianpeng.github.io/2023/12/2023-summary/</id>
     <published>2023-12-31T15:59:59.000Z</published>
-    <updated>2024-09-22T05:54:12.968Z</updated>
+    <updated>2024-09-23T22:22:37.957Z</updated>
     
     
       
@@ -482,7 +508,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/"/>
     <id>https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/</id>
     <published>2023-12-27T10:25:39.000Z</published>
-    <updated>2024-09-22T05:54:12.968Z</updated>
+    <updated>2024-09-23T22:22:37.957Z</updated>
     
     
       
@@ -509,7 +535,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/"/>
     <id>https://shenxianpeng.github.io/2023/12/jenkins-catch-error/</id>
     <published>2023-12-15T10:25:39.000Z</published>
-    <updated>2024-09-22T05:54:12.969Z</updated>
+    <updated>2024-09-23T22:22:37.958Z</updated>
     
     
       
@@ -534,7 +560,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2024-09-22T05:54:12.969Z</updated>
+    <updated>2024-09-23T22:22:37.958Z</updated>
     
     
       
@@ -561,7 +587,7 @@
     <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
     <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
     <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2024-09-22T05:54:12.968Z</updated>
+    <updated>2024-09-23T22:22:37.957Z</updated>
     
     
     <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，因此 Google 在 2021 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
@@ -594,41 +620,6 @@
     <category term="SLSA" scheme="https://shenxianpeng.github.io/tags/slsa/"/>
     
     <category term="Witness" scheme="https://shenxianpeng.github.io/tags/witness/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python 和 SLSA 💃</title>
-    <link href="https://shenxianpeng.github.io/2023/11/python-and-slsa/"/>
-    <id>https://shenxianpeng.github.io/2023/11/python-and-slsa/</id>
-    <published>2023-11-15T06:25:39.000Z</published>
-    <updated>2024-09-22T05:54:12.967Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，据 SonaType 的统计从 2019 年到 2022 年针对开源软件的攻击增长了 742%，因此 2021 年 Google 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2023/11/python-and-slsa/attacks.png&quot; alt=&quot;Software supply chain attacks&quot;&gt;&lt;/p&gt;
-&lt;p&gt;本篇将介绍在 Python 生态系统中，我们如何使用 SLSA 框架来生成和验证 Python 工件的来源，从而让你的 SLSA Level 从 L0&amp;#x2F;L1 到 L3。&lt;/p&gt;
-&lt;p&gt;注意：本文介绍的是针对&lt;strong&gt;托管在 GitHub 上的 Python 项目&lt;/strong&gt;。SLSA 框架可通过 GitHub Actions 来实现开箱即用，只需较少的配置即可完成。&lt;/p&gt;
-&lt;p&gt;对于托管在非 GitHub 上的项目（例如 Bitbucket）可以尝试 &lt;a href=&quot;https://witness.dev/&quot;&gt;Witness&lt;/a&gt;，下一篇我将更新关于如何使用 Witness。&lt;/p&gt;
-&lt;h2 id=&quot;内容&quot;&gt;&lt;a href=&quot;#内容&quot; class=&quot;headerlink&quot; title=&quot;内容&quot;&gt;&lt;/a&gt;内容&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;#%E6%9E%84%E5%BB%BA%E7%BA%AF%E5%87%80%E7%9A%84Python%E5%8C%85&quot;&gt;构建纯净的Python包&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E7%94%9F%E6%88%90%E5%87%BA%E5%A4%84%E8%AF%81%E6%98%8E&quot;&gt;生成出处证明&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI&quot;&gt;上传到PyPI&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E9%AA%8C%E8%AF%81Python%E5%8C%85%E7%9A%84%E6%9D%A5%E6%BA%90&quot;&gt;验证Python包的来源&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#%E6%96%87%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E9%A1%B9%E7%9B%AE&quot;&gt;文中用到的项目&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;下面是从维护人员到用户的端到端工作流程：从构建 Wheel package -&amp;gt; 生成出处 -&amp;gt; 验证出处 -&amp;gt; 发布到 PyPI -&amp;gt; 以及用户验证出处 -&amp;gt; 安装 wheel。接下来让我们一起来完成这其中的每一步。&lt;/p&gt;
-&lt;p&gt;如果你想了解 Python 打包的流程或是术语可以参见&lt;a href=&quot;https://packaging.python.org/en/latest/overview/#packaging-python-libraries-and-tools&quot;&gt;Python 打包用户指南&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/2023/11/python-and-slsa/workflows.svg&quot; alt=&quot;端到端流程&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="DevSecOps" scheme="https://shenxianpeng.github.io/categories/devsecops/"/>
-    
-    
-    <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
-    
-    <category term="SLSA" scheme="https://shenxianpeng.github.io/tags/slsa/"/>
     
   </entry>
   
