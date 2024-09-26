@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2024-09-23T22:22:37.965Z</updated>
+  <updated>2024-09-26T14:53:28.022Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>首席 DevOps 工程师的职责是什么？</title>
+    <link href="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/"/>
+    <id>https://shenxianpeng.github.io/2024/09/principal-devops-engineer/</id>
+    <published>2024-09-25T16:00:00.000Z</published>
+    <updated>2024-09-26T14:53:28.022Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;想必我的文章读者可能已经是 DevOps 初级、中级甚至是高级工程师… 你知道首席 DevOps 工程师的职责是什么？&lt;/p&gt;
+&lt;p&gt;最近我也正好也想了解一下更高 Level 的 DevOps</summary>
+        
+      
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
     <title>约定式分支规范中文版正式发布！</title>
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch-zh/</id>
     <published>2024-09-23T16:00:00.000Z</published>
-    <updated>2024-09-23T22:22:37.965Z</updated>
+    <updated>2024-09-26T14:53:28.022Z</updated>
     
     
       
@@ -47,7 +73,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch/</id>
     <published>2024-09-17T16:00:00.000Z</published>
-    <updated>2024-09-23T22:22:37.965Z</updated>
+    <updated>2024-09-26T14:53:28.022Z</updated>
     
     
       
@@ -72,7 +98,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/pypa/"/>
     <id>https://shenxianpeng.github.io/2024/09/pypa/</id>
     <published>2024-09-04T16:00:00.000Z</published>
-    <updated>2024-09-23T22:22:37.965Z</updated>
+    <updated>2024-09-26T14:53:28.022Z</updated>
     
     
       
@@ -97,7 +123,7 @@
     <link href="https://shenxianpeng.github.io/2024/07/remember/"/>
     <id>https://shenxianpeng.github.io/2024/07/remember/</id>
     <published>2024-07-08T16:00:00.000Z</published>
-    <updated>2024-09-23T22:22:37.964Z</updated>
+    <updated>2024-09-26T14:53:28.022Z</updated>
     
     
       
@@ -126,7 +152,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/farewell/"/>
     <id>https://shenxianpeng.github.io/2024/06/farewell/</id>
     <published>2024-06-27T16:00:00.000Z</published>
-    <updated>2024-09-23T22:22:37.964Z</updated>
+    <updated>2024-09-26T14:53:28.021Z</updated>
     
     
       
@@ -154,7 +180,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/"/>
     <id>https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/</id>
     <published>2024-06-13T15:27:18.000Z</published>
-    <updated>2024-09-23T22:22:37.964Z</updated>
+    <updated>2024-09-26T14:53:28.022Z</updated>
     
     
       
@@ -182,7 +208,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/garasign/"/>
     <id>https://shenxianpeng.github.io/2024/06/garasign/</id>
     <published>2024-06-10T03:27:18.000Z</published>
-    <updated>2024-09-23T22:22:37.964Z</updated>
+    <updated>2024-09-26T14:53:28.021Z</updated>
     
     
       
@@ -210,7 +236,7 @@
     <link href="https://shenxianpeng.github.io/2024/05/psf-infra/"/>
     <id>https://shenxianpeng.github.io/2024/05/psf-infra/</id>
     <published>2024-05-28T03:27:18.000Z</published>
-    <updated>2024-09-23T22:22:37.963Z</updated>
+    <updated>2024-09-26T14:53:28.021Z</updated>
     
     
       
@@ -238,7 +264,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/code-signing/"/>
     <id>https://shenxianpeng.github.io/2024/04/code-signing/</id>
     <published>2024-04-29T12:34:18.000Z</published>
-    <updated>2024-09-23T22:22:37.963Z</updated>
+    <updated>2024-09-26T14:53:28.021Z</updated>
     
     
       
@@ -266,7 +292,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/jenkins-contributors/"/>
     <id>https://shenxianpeng.github.io/2024/04/jenkins-contributors/</id>
     <published>2024-04-21T12:34:18.000Z</published>
-    <updated>2024-09-23T22:22:37.963Z</updated>
+    <updated>2024-09-26T14:53:28.021Z</updated>
     
     
       
@@ -294,7 +320,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/devops-skills-2024/"/>
     <id>https://shenxianpeng.github.io/2024/04/devops-skills-2024/</id>
     <published>2024-04-08T12:34:18.000Z</published>
-    <updated>2024-09-23T22:22:37.963Z</updated>
+    <updated>2024-09-26T14:53:28.021Z</updated>
     
     
       
@@ -322,7 +348,7 @@
     <link href="https://shenxianpeng.github.io/2024/03/reusable-workflows/"/>
     <id>https://shenxianpeng.github.io/2024/03/reusable-workflows/</id>
     <published>2024-03-25T10:34:18.000Z</published>
-    <updated>2024-09-23T22:22:37.963Z</updated>
+    <updated>2024-09-26T14:53:28.020Z</updated>
     
     
       
@@ -349,7 +375,7 @@
     <link href="https://shenxianpeng.github.io/2024/02/open-source-state/"/>
     <id>https://shenxianpeng.github.io/2024/02/open-source-state/</id>
     <published>2024-02-22T10:34:18.000Z</published>
-    <updated>2024-09-23T22:22:37.961Z</updated>
+    <updated>2024-09-26T14:53:28.018Z</updated>
     
     
       
@@ -382,7 +408,7 @@
     <link href="https://shenxianpeng.github.io/2024/02/cpp-linter-action/"/>
     <id>https://shenxianpeng.github.io/2024/02/cpp-linter-action/</id>
     <published>2024-02-17T03:34:18.000Z</published>
-    <updated>2024-09-23T22:22:37.959Z</updated>
+    <updated>2024-09-26T14:53:28.017Z</updated>
     
     
       
@@ -413,7 +439,7 @@
     <link href="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/"/>
     <id>https://shenxianpeng.github.io/2024/01/apache-services-and-tools/</id>
     <published>2024-01-21T03:27:18.000Z</published>
-    <updated>2024-09-23T22:22:37.959Z</updated>
+    <updated>2024-09-26T14:53:28.016Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇介绍的是大名鼎鼎的开源软件基金会 Apache 所使用的服务(Services)和工具(Tools)，这或许能帮助你打开视野，在选择工具的时候提供参考。如果你是一名 DevOps、SRE 或是 Infra 工程师，通过本篇文章内容结果帮助你更好的展示团队所提供的服务有哪些，以及窥探到 Apache Infra 是怎样组织和管理他们的。&lt;/p&gt;
@@ -479,7 +505,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/2023-summary/"/>
     <id>https://shenxianpeng.github.io/2023/12/2023-summary/</id>
     <published>2023-12-31T15:59:59.000Z</published>
-    <updated>2024-09-23T22:22:37.957Z</updated>
+    <updated>2024-09-26T14:53:28.014Z</updated>
     
     
       
@@ -508,7 +534,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/"/>
     <id>https://shenxianpeng.github.io/2023/12/automatic-categorize-release-notes/</id>
     <published>2023-12-27T10:25:39.000Z</published>
-    <updated>2024-09-23T22:22:37.957Z</updated>
+    <updated>2024-09-26T14:53:28.014Z</updated>
     
     
       
@@ -535,7 +561,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/jenkins-catch-error/"/>
     <id>https://shenxianpeng.github.io/2023/12/jenkins-catch-error/</id>
     <published>2023-12-15T10:25:39.000Z</published>
-    <updated>2024-09-23T22:22:37.958Z</updated>
+    <updated>2024-09-26T14:53:28.015Z</updated>
     
     
       
@@ -560,7 +586,7 @@
     <link href="https://shenxianpeng.github.io/2023/12/supply-chain-security/"/>
     <id>https://shenxianpeng.github.io/2023/12/supply-chain-security/</id>
     <published>2023-12-02T06:25:39.000Z</published>
-    <updated>2024-09-23T22:22:37.958Z</updated>
+    <updated>2024-09-26T14:53:28.015Z</updated>
     
     
       
@@ -570,47 +596,6 @@
     <summary type="html">&lt;h2 id=&quot;Why-Software-Supply-Chain-Security-is-important&quot;&gt;&lt;a href=&quot;#Why-Software-Supply-Chain-Security-is-important&quot; class=&quot;headerlink&quot;</summary>
         
       
-    
-    
-    
-    <category term="DevSecOps" scheme="https://shenxianpeng.github.io/categories/devsecops/"/>
-    
-    
-    <category term="SLSA" scheme="https://shenxianpeng.github.io/tags/slsa/"/>
-    
-    <category term="Witness" scheme="https://shenxianpeng.github.io/tags/witness/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Witness 和 SLSA 💃</title>
-    <link href="https://shenxianpeng.github.io/2023/11/witness-and-slsa/"/>
-    <id>https://shenxianpeng.github.io/2023/11/witness-and-slsa/</id>
-    <published>2023-11-30T06:25:39.000Z</published>
-    <updated>2024-09-23T22:22:37.957Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;由于近些年针对软件的供应链的攻击越来越频繁，因此 Google 在 2021 提出的解决方案是软件工件供应链级别（Supply chain Levels for Software Artifacts，”SLSA”）&lt;/p&gt;
-&lt;p&gt;本篇将介绍在&lt;strong&gt;非 GitHub&lt;/strong&gt; 生态系统中，我们如何生成和验证软件工件的来源，从而提高你的项目的 SLSA Level。&lt;/p&gt;
-&lt;p&gt;Witness 是一个可插拔的软件供应链风险管理框架，它能自动、规范和验证软件工件出处。它是 in-toto 是 &lt;a href=&quot;https://www.cncf.io/projects/in-toto/&quot;&gt;CNCF&lt;/a&gt; 下的项目之一。它的最初作者是 Testifysec，后来捐赠给了 &lt;a href=&quot;https://in-toto.io/&quot;&gt;in-toto&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;什么是-Witness&quot;&gt;&lt;a href=&quot;#什么是-Witness&quot; class=&quot;headerlink&quot; title=&quot;什么是 Witness&quot;&gt;&lt;/a&gt;什么是 Witness&lt;/h2&gt;&lt;p&gt;Witness 是一个可插拔的供应链安全框架，可创建整个软件开发生命周期（SDLC）的证据（Provenance）跟踪，确保软件从源代码到目标的完整性。它支持大多数主要的 CI 和基础架构提供商，是确保软件供应链安全的多功能、灵活的解决方案。&lt;/p&gt;
-&lt;p&gt;安全 PKI (Public Key Infrastructure - 公钥基础设施)分发系统的使用和验证 Witness 元数据的能力进一步增强了流程的安全性，并有助于减少许多软件供应链攻击向量。&lt;/p&gt;
-&lt;p&gt;Witness 的工作原理是封装在持续集成流程中执行的命令，为软件开发生命周期（SDLC）中的每个操作提供证据跟踪，这样就可以详细、可验证地记录软件是如何构建的、由谁构建以及使用了哪些工具。&lt;/p&gt;
-&lt;p&gt;这些证据可用于评估政策合规性，检测任何潜在的篡改或恶意活动，并确保只有授权用户或机器才能完成流程中的某一步骤。&lt;/p&gt;
-&lt;p&gt;总结 - Witness 可以做什么&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;验证软件由谁构建、如何构建以及使用了哪些工具&lt;/li&gt;
-&lt;li&gt;检测任何潜在的篡改或恶意活动&lt;/li&gt;
-&lt;li&gt;确保只有经授权的用户或机器才能完成流程的每一步&lt;/li&gt;
-&lt;li&gt;分发证词（Attestations）和策略（Policy）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;如何使用-Witness&quot;&gt;&lt;a href=&quot;#如何使用-Witness&quot; class=&quot;headerlink&quot; title=&quot;如何使用 Witness&quot;&gt;&lt;/a&gt;如何使用 Witness&lt;/h2&gt;&lt;p&gt;主要分三步：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;witness run&lt;/code&gt; - 运行提供的命令并记录有关执行的证词。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;witness sign&lt;/code&gt; - 使用提供的密钥签署提供的文件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;witness verify&lt;/code&gt; - 验证 witness 策略。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;快速开始&quot;&gt;&lt;a href=&quot;#快速开始&quot; class=&quot;headerlink&quot; title=&quot;快速开始&quot;&gt;&lt;/a&gt;快速开始&lt;/h3&gt;&lt;p&gt;这是我创建的 &lt;a href=&quot;https://github.com/shenxianpeng/witness-demo&quot;&gt;Witness Demo 仓库&lt;/a&gt;用于演示 witness 的工作流程，具体可以根据如下步骤进行。&lt;/p&gt;</summary>
     
     
     
