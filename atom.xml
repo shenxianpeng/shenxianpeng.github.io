@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2024-10-25T19:33:43.273Z</updated>
+  <updated>2024-10-26T18:01:02.840Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>我的 DevOps 一天：从日常事务到团队支持的全流程</title>
+    <link href="https://shenxianpeng.github.io/2024/10/devops-everyday/"/>
+    <id>https://shenxianpeng.github.io/2024/10/devops-everyday/</id>
+    <published>2024-10-26T16:00:00.000Z</published>
+    <updated>2024-10-26T18:01:02.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;很多人可能会好奇，作为一名 DevOps 工程师，你看着挺忙活的，每天究竟在忙些什么呢？&lt;/p&gt;
+&lt;p&gt;今天就通过这篇文章来介绍一下，我作为一个兼顾 DevOps&amp;#x2F;Build&amp;#x2F;Release 工程师的日常。&lt;/p&gt;
+&lt;h2 id=&quot;工作准备&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
     <title>What Optimizations I Made During the Jenkins Upgrade</title>
     <link href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/"/>
     <id>https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/</id>
     <published>2024-10-24T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.273Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -48,7 +75,7 @@
     <link href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/"/>
     <id>https://shenxianpeng.github.io/2024/10/jenkins-upgrade/</id>
     <published>2024-10-23T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.273Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -75,7 +102,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/power-of-choice/"/>
     <id>https://shenxianpeng.github.io/2024/09/power-of-choice/</id>
     <published>2024-09-26T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.273Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -104,7 +131,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/"/>
     <id>https://shenxianpeng.github.io/2024/09/principal-devops-engineer/</id>
     <published>2024-09-25T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.273Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -130,7 +157,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch-zh/</id>
     <published>2024-09-23T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -156,7 +183,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch/</id>
     <published>2024-09-17T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -181,7 +208,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/pypa/"/>
     <id>https://shenxianpeng.github.io/2024/09/pypa/</id>
     <published>2024-09-04T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.273Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -206,7 +233,7 @@
     <link href="https://shenxianpeng.github.io/2024/07/remember/"/>
     <id>https://shenxianpeng.github.io/2024/07/remember/</id>
     <published>2024-07-08T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -235,7 +262,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/farewell/"/>
     <id>https://shenxianpeng.github.io/2024/06/farewell/</id>
     <published>2024-06-27T16:00:00.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -263,7 +290,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/"/>
     <id>https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/</id>
     <published>2024-06-13T15:27:18.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.840Z</updated>
     
     
       
@@ -291,7 +318,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/garasign/"/>
     <id>https://shenxianpeng.github.io/2024/06/garasign/</id>
     <published>2024-06-10T03:27:18.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -319,7 +346,7 @@
     <link href="https://shenxianpeng.github.io/2024/05/psf-infra/"/>
     <id>https://shenxianpeng.github.io/2024/05/psf-infra/</id>
     <published>2024-05-28T03:27:18.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -347,7 +374,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/code-signing/"/>
     <id>https://shenxianpeng.github.io/2024/04/code-signing/</id>
     <published>2024-04-29T12:34:18.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -375,7 +402,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/jenkins-contributors/"/>
     <id>https://shenxianpeng.github.io/2024/04/jenkins-contributors/</id>
     <published>2024-04-21T12:34:18.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -403,7 +430,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/devops-skills-2024/"/>
     <id>https://shenxianpeng.github.io/2024/04/devops-skills-2024/</id>
     <published>2024-04-08T12:34:18.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -431,7 +458,7 @@
     <link href="https://shenxianpeng.github.io/2024/03/reusable-workflows/"/>
     <id>https://shenxianpeng.github.io/2024/03/reusable-workflows/</id>
     <published>2024-03-25T10:34:18.000Z</published>
-    <updated>2024-10-25T19:33:43.269Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -458,7 +485,7 @@
     <link href="https://shenxianpeng.github.io/2024/02/open-source-state/"/>
     <id>https://shenxianpeng.github.io/2024/02/open-source-state/</id>
     <published>2024-02-22T10:34:18.000Z</published>
-    <updated>2024-10-25T19:33:43.265Z</updated>
+    <updated>2024-10-26T18:01:02.836Z</updated>
     
     
       
@@ -491,7 +518,7 @@
     <link href="https://shenxianpeng.github.io/2024/02/cpp-linter-action/"/>
     <id>https://shenxianpeng.github.io/2024/02/cpp-linter-action/</id>
     <published>2024-02-17T03:34:18.000Z</published>
-    <updated>2024-10-25T19:33:43.265Z</updated>
+    <updated>2024-10-26T18:01:02.832Z</updated>
     
     
       
@@ -522,7 +549,7 @@
     <link href="https://shenxianpeng.github.io/2024/01/apache-services-and-tools/"/>
     <id>https://shenxianpeng.github.io/2024/01/apache-services-and-tools/</id>
     <published>2024-01-21T03:27:18.000Z</published>
-    <updated>2024-10-25T19:33:43.265Z</updated>
+    <updated>2024-10-26T18:01:02.832Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇介绍的是大名鼎鼎的开源软件基金会 Apache 所使用的服务(Services)和工具(Tools)，这或许能帮助你打开视野，在选择工具的时候提供参考。如果你是一名 DevOps、SRE 或是 Infra 工程师，通过本篇文章内容结果帮助你更好的展示团队所提供的服务有哪些，以及窥探到 Apache Infra 是怎样组织和管理他们的。&lt;/p&gt;
@@ -580,35 +607,6 @@
     <category term="Apache" scheme="https://shenxianpeng.github.io/tags/apache/"/>
     
     <category term="Infrastructure" scheme="https://shenxianpeng.github.io/tags/infrastructure/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023 年终总结</title>
-    <link href="https://shenxianpeng.github.io/2023/12/2023-summary/"/>
-    <id>https://shenxianpeng.github.io/2023/12/2023-summary/</id>
-    <published>2023-12-31T15:59:59.000Z</published>
-    <updated>2024-10-25T19:33:43.261Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;时间过得很快，2023 年转瞬即逝。如果不记录下自己在这一年里发生的事情，过不了多久就很难回想起来这一年都发生过什么。&lt;/p&gt;
-&lt;p&gt;因此按照惯例还是要先回顾 2023 年，然后展望 2024 年。&lt;/p&gt;
-&lt;h2 id=&quot;回顾-2023&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
-    
-    
-    <category term="Thought" scheme="https://shenxianpeng.github.io/tags/thought/"/>
-    
-    <category term="Summary" scheme="https://shenxianpeng.github.io/tags/summary/"/>
     
   </entry>
   
