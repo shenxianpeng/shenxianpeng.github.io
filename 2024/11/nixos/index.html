@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>用于 DevOps 的 Nix 和 NixOS | Xianpeng Shen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当 CI 或更糟的是生产发生灾难性故障时，“在我的计算机上工作”一直是毫无帮助的答案。除其他外，Nix 是一种通过提供可重复、声明性和可靠的系统来解决此问题的方法。这使得它成为通常称为 DevOps 的两个方面的绝佳工具：操作系统的开发和流程。这篇文章将通过一个实际示例展示这两个方面，但首先，让我们从鸟瞰的角度看看这些承诺到底意味着什么。 可重复Nix 的灵感来自一种函数式编程语言，它将软件包和配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用于 DevOps 的 Nix 和 NixOS">
+<meta property="og:url" content="https://shenxianpeng.github.io/2024/11/nixos/index.html">
+<meta property="og:site_name" content="Xianpeng Shen">
+<meta property="og:description" content="当 CI 或更糟的是生产发生灾难性故障时，“在我的计算机上工作”一直是毫无帮助的答案。除其他外，Nix 是一种通过提供可重复、声明性和可靠的系统来解决此问题的方法。这使得它成为通常称为 DevOps 的两个方面的绝佳工具：操作系统的开发和流程。这篇文章将通过一个实际示例展示这两个方面，但首先，让我们从鸟瞰的角度看看这些承诺到底意味着什么。 可重复Nix 的灵感来自一种函数式编程语言，它将软件包和配">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-11-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-25T23:21:43.819Z">
+<meta property="article:author" content="shenxianpeng">
+<meta property="article:tag" content="Nix">
+<meta property="article:tag" content="NixOS">
+<meta name="twitter:card" content="summary">
+  
+  <link rel="alternate" href="/atom.xml" title="Xianpeng Shen" type="application/atom+xml">
+  
+  
+  <link rel="icon" href="/favicon.png">
+  
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-168820225-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LDW3BHJTTW');
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Xianpeng Shen</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/daily/">Daily</a>
+        
+          <a class="main-nav-link" href="/contribution/">Contribution</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <!-- <a id="nav-linkedin-btn" class="nav-icon" href=https://www.linkedin.com/in/xianpeng-shen/ target="_blank" title="LinkedIn"></a> -->
+        <a id="nav-github-btn" class="nav-icon" href=https://github.com/shenxianpeng target="_blank" title="GitHub"></a>
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shenxianpeng.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2024/11/nixos" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2024/11/nixos/" class="article-date">
+  <time datetime="2024-11-25T16:00:00.000Z" itemprop="datePublished">2024-11-26</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/nix/">Nix</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      用于 DevOps 的 Nix 和 NixOS
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当 CI 或更糟的是生产发生灾难性故障时，“在我的计算机上工作”一直是毫无帮助的答案。除其他外，Nix 是一种通过提供可重复、声明性和可靠的系统来解决此问题的方法。这使得它成为通常称为 DevOps 的两个方面的绝佳工具：操作系统的开发和流程。这篇文章将通过一个实际示例展示这两个方面，但首先，让我们从鸟瞰的角度看看这些承诺到底意味着什么。</p>
+<h2 id="可重复"><a href="#可重复" class="headerlink" title="可重复"></a>可重复</h2><p>Nix 的灵感来自一种函数式编程语言，它将软件包和配置本身的构建过程建模为“纯”函数。相同的输入应该始终产生相同的输出。虽然这听起来相当抽象，但在实践中，这意味着如果它在您的笔记本电脑上运行，它将在生产服务器、CI 或您的同事的机器上运行完全相同。Nix 严格禁止您使用未声明的依赖项，所有内容都由加密哈希固定，并且软件包的评估和构建彼此独立。</p>
+<h2 id="声明式"><a href="#声明式" class="headerlink" title="声明式"></a>声明式</h2><p>虽然简单的脚本或其他更复杂的工具（如 Ansible）会告诉你的机器“该做什么”才能达到某种状态，但在编写 Nix 代码时，你将“定义某物是什么”。对于任何做过函数式编程的人来说，这不是一个新概念。但是，虽然差异很小，但影响却很大。声明式配置是上面讨论的可重复性和部署过程的幂等性的重要组成部分。Nix 不仅允许共享配置和构建说明，还允许共享项目本身的开发和构建环境。只需几行代码，你就可以添加一个开发环境，其中包含团队中每个开发人员在项目上工作所需的所有工具、编程语言和固定版本。</p>
+<h2 id="可靠的"><a href="#可靠的" class="headerlink" title="可靠的"></a>可靠的</h2><p>安装软件包时绝不会破坏其他软件包。同一软件的不同版本之间的升级也是如此。Nix 不仅提供原子升级，还确保一个软件包永远不会破坏其他软件包。您甚至可以（并且通常会）在同一系统上愉快地共存同一软件包的多个版本或配置。甚至更好的是，您可以根据需要回滚或在所谓的代之间切换。在升级过程中，永远不会出现不一致的状态，想象一下在旧版本旁边安装和配置新版本的软件包，并在一切准备就绪后切换到新版本。</p>
+<h2 id="好的，它是如何工作的？"><a href="#好的，它是如何工作的？" class="headerlink" title="好的，它是如何工作的？"></a>好的，它是如何工作的？</h2><p>首先，为了避免混淆，先介绍一些术语。Nix 指两件事：</p>
+<ul>
+<li>声明式包管理器</li>
+<li>用于定义包和配置的编程语言</li>
+</ul>
+<p>另一方面，NixOS 是一个围绕 Nix 包管理器构建的 Linux 发行版，它使用其功能来定义整个系统配置。</p>
+<p>Nix 打破了众所周知的 Linux 文件系统层次结构。如果你曾经使用过它，你会偶然发现下面有一个相当大的目录&#x2F;nix&#x2F;store，里面有很多神秘的路径。这就是所谓的 Nix 存储，Nix 将所有软件包存储在其自己独特的子目录中，例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/nix/store/b6gvzjyb2pg0kjfwrjmg1vfhh54ad73z-firefox-33.1/</span><br></pre></td></tr></table></figure>
+
+<p>将所有内容放入一个大目录中可能听起来违反直觉，但这实际上是实现 Nix 大部分魔力的概念。每个存储路径都具有相同的结构：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/nix/store/&lt;<span class="built_in">hash</span>&gt;-&lt;name&gt;-&lt;version&gt;</span><br></pre></td></tr></table></figure>
+
+<p>其中哈希是根据包的所有依赖项计算得出的唯一标识符（准确地说：包的构建依赖关系图的加密哈希）。</p>
+<p><strong>但为什么？</strong></p>
+<p>这种非常简单的结构允许很多理想的特性。首先，相同的路径将具有完全相同的内容。这是我们确保可重复性的第一步。它还确保文件不会在您不知情的情况下被篡改，因为哈希会以数学方式验证内容。</p>
+<p>现在，您可以同时拥有同一软件包的多个版本。它们将具有不同的哈希值，因此位于存储中的不同路径中。不再存在软件包之间的依赖版本冲突（即“DLL-hell”），每个软件包都可以引用和使用自己所需的版本。</p>
+<p>一个重要的结果是，升级或卸载应用程序等操作不会破坏其他应用程序，因为这些操作永远不会“破坏性地”更新或删除其他软件包使用的文件。这使我们能够实现所谓的原子升级和回滚。</p>
+<p><code>/usr/lib</code> 像在传统 Linux 系统上一样摆脱全局位置可确保不存在未在包中指定的隐藏依赖项。如果它在一个系统上构建，它将在另一个系统上构建，无论安装了什么其他软件。</p>
+<p>实际上，软件包是根据 Nix（语言）表达式构建的。从这里开始，Nix 计算出派生。这最好被描述为“构建操作”，即构建特定软件包所需的所有依赖项、工具、环境变量、源和步骤的完整规范。派生与编程语言无关，并且具有确定性。</p>
+<p>通过哈希严格标识系统的每个包和部分还可以实现强大的缓存。当指示构建</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/nix/store/b6gvzjyb2pg0...-firefox-33.1</span><br></pre></td></tr></table></figure>
+
+<p>从源头开始，Nix 会首先检查它是否已存在于商店或任何已配置的缓存中，如果已存在，则从那里提取。实际上，从源头构建只是常用软件包的后备方法</p>
+<h2 id="Flakes"><a href="#Flakes" class="headerlink" title="Flakes"></a>Flakes</h2><p>Flakes 是 Nix 的一个新功能，最好被描述为“将 Nix 表达式打包成可组合实体的机制”。实际上，flake 是一个文件系统树（通常从 Git 存储库或 tarball 中获取），其中包含根目录中名为 flake.nix 的文件。</p>
+<p>它们是一种标准化接口，用于拆分和分发 Nix 代码，并使重用和组合变得容易。我们将在以下部分中使用此格式，并flake.nix逐步构建您的文件，并在过程中进一步解释。</p>
+<h2 id="一个实际的例子"><a href="#一个实际的例子" class="headerlink" title="一个实际的例子"></a>一个实际的例子</h2><p>说完这些，让我们看看 Nix 在实践中是如何使用的。以下示例将演示使用 Nix 在任何可能的地方构建（DevOps 中的“Dev”）和部署（DevOps 中的“Ops”）示例 Go 应用程序的 DevOps 流程。</p>
+<h3 id="开发（Dev）"><a href="#开发（Dev）" class="headerlink" title="开发（Dev）"></a>开发（Dev）</h3><p>对于“开发”部分，我们首先介绍一下我们的示例应用程序。一个用 Go 编写的非常简单的 Web 服务器。假设我们使用 Go 模块，即运行 <code>go mod init</code> 并为我们的应用程序 <code>go mod tidy</code> 创建一个 <code>go.mod</code> 和 <code>go.sum</code> 文件。<code>package main</code></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">&quot;fmt&quot;</span></span><br><span class="line">  <span class="string">&quot;net/http&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span><span class="params">(w http.ResponseWriter, req *http.Request)</span></span> &#123;</span><br><span class="line">  fmt.Fprintf(w, <span class="string">&quot;Hello World!\n&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  http.HandleFunc(<span class="string">&quot;/&quot;</span>, hello)</span><br><span class="line">  http.ListenAndServe(<span class="string">&quot;:8080&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最简单的形式是，flake 是定义属性的outputs和 （可选）inputs和 的属性集description。输入是 flake 中使用的源或依赖项，在大多数情况下是 git 存储库或要从中获取的纯 URL。输出通常是要在其他 flakes 中使用的包、部署说明、配置或 Nix 代码（函数）。虽然输出属性集可以采用您想要的任何形式，但常见输出有标准化名称。</p>
+<p>为了“nixify”我们的项目，让我们首先在flake.nix 存储库的根目录中添加一个名为的文件，其中包含一个非常基本的薄片：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">description</span> = <span class="string">&quot;A very basic flake&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attr">inputs</span> = &#123;</span><br><span class="line">    nixpkgs.<span class="attr">url</span> = <span class="string">&quot;github:nixos/nixpkgs&quot;</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="attr">outputs</span> = &#123; self, nixpkgs &#125;: &#123; &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">description</span> = <span class="string">&quot;A very basic flake&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="attr">inputs</span> = &#123;</span><br><span class="line">    nixpkgs.<span class="attr">url</span> = <span class="string">&quot;github:nixos/nixpkgs&quot;</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="attr">outputs</span> = &#123; self, nixpkgs &#125;: &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们的 flake 定义github.com&#x2F;nixos&#x2F;nixpkgs为输入，目前没有输出。虽然它目前还不是很有用，但它是有用的。我们可以用它nix flake metadata 来显示一些关于它的信息。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">❯ nix flake metadata</span><br><span class="line">Resolved URL: git+file:///home/pinpox/code/example_app</span><br><span class="line">Locked URL: git+file:///home/pinpox/code/example_app</span><br><span class="line">Description: A very basic flake</span><br><span class="line">Path: /nix/store/c4vxaphd27qjl253m5lmqrb3isg9rc5h-<span class="built_in">source</span></span><br><span class="line">Last modified: 2022-05-30 12:09:33</span><br><span class="line">Inputs:</span><br><span class="line">└───nixpkgs: github:nixos/nixpkgs/0907dc851fa2e56db75ae260a8ecc9880dc7b49</span><br></pre></td></tr></table></figure>
+
+<p>如果尚不存在，这还将 <code>flake.lock </code> 为我们创建一个文件，将我们所有的输入固定到特定版本，并通过输入的哈希值进行验证。</p>
+<h2 id="添加包"><a href="#添加包" class="headerlink" title="添加包"></a>添加包</h2><p>完成基本样板后，我们可以添加第一个输出：应用程序的包。</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">packages.<span class="attr">x86_64-linux</span> = &#123;</span><br><span class="line">  <span class="attr">default</span> = pkgs.buildGoModule &#123;</span><br><span class="line">    <span class="attr">pname</span> = <span class="string">&quot;example_app&quot;</span>;</span><br><span class="line">    <span class="attr">version</span> = <span class="string">&quot;1.0.0&quot;</span>;</span><br><span class="line">    <span class="attr">src</span> = ./.;</span><br><span class="line">    <span class="attr">vendorSha256</span> = <span class="string">&quot;sha256-aCFVUq58hpK7O9DoYJ/7Sr4ICSUzz/JHNrse40um1n4=&quot;</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面指定了如何在具有系统架构的 Linux 系统上构建我们的应用程序x64_64。我们可以使用通用mkDerivation函数来定义我们的包（派生），但 Nix 包含大多数常见编程语言和框架的辅助函数。这里buildGoModule用于定义我们的 Golang 项目的包，指定源为当前目录.&#x2F;.、名称、版本以及我们文件中指定的依赖项的哈希值go.mod，因为所有版本都必须用哈希值固定。</p>
+<p>我们现在可以使用来构建我们的应用程序。这将构建我们的应用程序并在 nix 存储中nix build创建指向它的符号链接。result</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">❯ <span class="built_in">ls</span> -l</span><br><span class="line">lrwxrwxrwx 61 pinpox 7 Jun 16:17 result -&gt; /nix/store/0yasl97rl4drf9rgmbaqbcbii0rsizsi-example_app-1.0.0</span><br><span class="line">.rwxr-xr-x 6,2M pinpox 7 Jun 16:06 example_app</span><br><span class="line">.rw-r--r-- 534 pinpox 7 Jun 15:44 flake.lock</span><br><span class="line">.rw-r--r-- 571 pinpox 7 Jun 16:08 flake.nix</span><br><span class="line">.rw-r--r-- 80 pinpox 7 Jun 15:20 go.mod</span><br><span class="line">.rw-r--r-- 189 pinpox 7 Jun 15:20 go.sum</span><br><span class="line">.rw-r--r-- 415 pinpox 7 Jun 15:22 main.go</span><br></pre></td></tr></table></figure>
+
+<p>好吧，但我们本可以省去麻烦，直接go build买同样的东西，对吧？嗯，不完全是。</p>
+<p>Nix 和 flakes 承诺为我们提供密封评估，这意味着构建应用程序所需的一切都固定在特定版本并使用校验和进行验证。这包括应用程序本身的代码，也包括使用的编译器、任何其他依赖项、工具和软件包以及系统架构本身。这不仅确保我们的应用程序不会因外部因素而中断，而且还可以在任何机器上构建。无论是同事的笔记本、CI 还是生产，都不再有“（仅）在我的计算机上工作”的情况。由于 Nix 与语言无关且不特定于 Go，因此我们还拥有一个用于以任何语言构建软件的通用接口。构建和运行（nix run）nixified go 应用程序的过程保持不变。</p>
+<p>需要明确指出的是，在使用 Nix 构建或运行应用程序之前，系统上不需要安装任何先决条件，例如 go 编译器或任何其他工具（Nix 本身除外）。Nix 将创建 flake 指定的完整环境。第一次运行时将获取输入，然后从那里开始使用哈希进行检查，以确保确定性构建，同时尽可能多地缓存。</p>
+<h2 id="添加-shell（临时环境）"><a href="#添加-shell（临时环境）" class="headerlink" title="添加 shell（临时环境）"></a>添加 shell（临时环境）</h2><p>虽然包定义已经允许我们构建和运行我们的应用程序，但它并不真正适合开发。通过在输出中添加 Nix shell，我们可以创建一个开发环境，其中包含所有开发人员都可以使用的特定版本的所有工具。我们不必让每个开发人员浪费时间为新项目设置技术堆栈，而是可以传递一个 shell，其中包含在其指定版本中可用的所有工具。</p>
+<p>由于我们项目的要求都已打包在 nixpkgs 中，因此我们可以在输出中添加一个简单的 shell，其中包含以下几行：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">devShell.<span class="attr">x86_64-linux</span> = pkgs.mkShell &#123;</span><br><span class="line">  <span class="attr">buildInputs</span> = <span class="keyword">with</span> pkgs; [</span><br><span class="line">    go</span><br><span class="line">    gopls</span><br><span class="line">    gotools</span><br><span class="line">    go-tools</span><br><span class="line">  ];</span><br><span class="line"></span><br><span class="line">  <span class="attr">shellHook</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="string">    GOPATH=$HOME/go</span></span><br><span class="line"><span class="string">  &#x27;&#x27;</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>现在，<code>nix flake show</code> 将向我们展示两个输出：我们之前指定的包和新添加的shell。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">❯ nix flake show</span><br><span class="line">git+file:///home/pinpox/code/example_app</span><br><span class="line">├───devShell</span><br><span class="line">│ └───x86_64-linux: development environment <span class="string">&#x27;nix-shell&#x27;</span></span><br><span class="line">└───packages</span><br><span class="line">└───x86_64-linux</span><br><span class="line">└───default: package <span class="string">&#x27;example_app-1.0.0&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过运行进入 shell nix develop，然后会进入一个<br>包含我们需要的所有工具的 shell。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">❯ nix develop</span><br><span class="line">[pinpox@ahorn:~/code/example_app]$ go version</span><br><span class="line">go version go1.17.10 linux/amd64</span><br></pre></td></tr></table></figure>
+
+<p>在此示例中，我们仅使用了 中预先打包的工具和依赖项nixpkgs。当然，也可以指定 之外的工具nixpkgs或覆盖特定版本的软件包。这可以通过添加您自己的软件包定义或使用overrides和覆盖) 来动态修改现有软件包来实现。在我们的 shell 中指定的工具buildInputs当然也固定到某个版本，因为我们的nixpkgs输入在 flake.lock 文件中固定到特定的 git 提交。</p>
+<h2 id="行动-Ops"><a href="#行动-Ops" class="headerlink" title="行动 (Ops)"></a>行动 (Ops)</h2><p>到目前为止，我们只使用了 Nix，即包管理器，正如开头所述，它是一个单独的工具。对于操作部分，让我们以 Linux 发行版 NixOS 为例，它采用了 Nix 原则并将其应用于完整的系统配置。核心思想很简单，只是我们已经看到的 Nix 的自然延伸：就像我们的包存储在商店中的隔离路径中一样，我们也将其应用于配置。例如，SSH 服务器的配置可以用 Nix 语言定义，并在评估后&#x2F;nix&#x2F;store&#x2F;5rnfzla9kcx4mj5zdc7nlnv8na1najvg-firefox-3.5.4&#x2F;存储在路径中。&#x2F;nix&#x2F;store&#x2F;s2sjbl85xnrc18rl4fhn56irkxqxyk4p-sshd_config</p>
+<p>这使得整个操作系统利用了我们在软件包中看到的优势：它是独立的，可以回滚，并且不会在没有通知的情况下发生变化，因为所有内容都再次通过哈希进行验证。</p>
+<p>该nixos-rebuild工具用于执行这些操作。要切换到新配置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nixos-rebuild switch</span><br></pre></td></tr></table></figure>
+
+<p>每次构建配置后，您都会获得所谓的代数。这是您可以切换或回滚到的点。同样，如果出现问题或无法按预期工作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nixos-rebuild switch --rollback</span><br></pre></td></tr></table></figure>
+
+<p>将带您回到上一代。在启动时，您可以选择任何已保存的一代。</p>
+<p>为了澄清这一点，NixOS 完全围绕 Nix 包管理器构建。它用于以纯函数式语言构建内核、应用程序、系统包和配置文件。这可以实现原子系统升级和回滚整个系统等功能。此外，该系统完全可复制，这使得重新安装或复制变得容易。另一个例子：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ nixos-rebuild build-vm</span><br><span class="line">$ ./result/bin/run-*-vm</span><br></pre></td></tr></table></figure>
+
+<p>将在虚拟机内构建您的系统配置并启动它。虚拟机将具有与您的主机系统本身相同的配置，允许您根据需要进行测试、实验和“预览”，而不会冒破坏主机的风险。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>系统配置通常在名为 <code>configuration.nix</code></p>
+<p>一个非常简单的例子如下</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    boot.loader.grub.<span class="attr">device</span> = <span class="string">&quot;/dev/sda&quot;</span>;</span><br><span class="line">    fileSystems.<span class="string">&quot;/&quot;</span>.<span class="attr">device</span> = <span class="string">&quot;/dev/sda1&quot;</span>;</span><br><span class="line">    services.sshd.<span class="attr">enable</span> = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个最小配置足以构建一个运行 SSH 守护进程的机器。使用 flake 时，我们还将flake.nix在输出下将配置添加到我们的 flake中nixosConfiguration 。</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">outputs</span> = &#123; self, nixpkgs &#125;: &#123;</span><br><span class="line">    <span class="comment"># replace &#x27;my-hostname&#x27; with your hostname here.</span></span><br><span class="line">    nixosConfigurations.<span class="attr">my-hostname</span> = nixpkgs.lib.nixosSystem &#123;</span><br><span class="line">      <span class="attr">system</span> = <span class="string">&quot;x86_64-linux&quot;</span>;</span><br><span class="line">      <span class="attr">modules</span> = [ ./configuration.nix ];</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后将薄片传递给nixos-rebuild命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nixos-rebuild switch --flake <span class="string">&#x27;/path/to/flake#my-hostname&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>您可以在系统配置中设置的所有选项都来自模块，这些模块是包含 NixOS 表达式的文件。该configuration.nix文件也是一个模块。大多数其他模块位于nixpkgs 存储库中。模块是随后由 NixOS 组合以生成完整系统配置的文件。</p>
+<p>完整解释模块系统超出了本文的范围，因此我们重点介绍上述应用程序的一个实际示例。我们将向您的flake.nix文件添加一个模块，以便任何人都可以导入它，从而生成应用程序的运行实例。</p>
+<p>该模块只有一个名为“enable”的选项，设置为 true 时会将下面的部分添加config&#x3D;到系统配置中。这是保存在 中的完整模块module.nix：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">7</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">11</span></span><br><span class="line"><span class="number">12</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="number">14</span></span><br><span class="line"><span class="number">15</span></span><br><span class="line"><span class="number">16</span></span><br><span class="line"><span class="number">17</span></span><br><span class="line">&#123; lib, pkgs, config, ... &#125;:</span><br><span class="line"><span class="keyword">with</span> lib;</span><br><span class="line"><span class="keyword">let</span></span><br><span class="line">  <span class="attr">cfg</span> = config.services.hello;</span><br><span class="line"><span class="keyword">in</span></span><br><span class="line">&#123;</span><br><span class="line">  options.services.<span class="attr">hello</span> = &#123;</span><br><span class="line">    <span class="attr">enable</span> = mkEnableOption <span class="string">&quot;hello service&quot;</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="attr">config</span> = mkIf cfg.enable &#123;</span><br><span class="line">    systemd.services.<span class="attr">hello</span> = &#123;</span><br><span class="line">      <span class="attr">wantedBy</span> = [ <span class="string">&quot;multi-user.target&quot;</span> ];</span><br><span class="line">      serviceConfig.<span class="attr">ExecStart</span> = <span class="string">&quot;<span class="subst">$&#123;pkgs.hello&#125;</span>/bin/hello -g&#x27;Hello, <span class="subst">$&#123;escapeShellArg cfg.greeter&#125;</span>!&#x27;&quot;</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要导入它，只需nixosConfigurations按照添加文件的方式将其添加到输出中configuration.nix：</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="attr">modules</span> = [ ./configuration.nix ./module.nix ];</span><br></pre></td></tr></table></figure>
+
+<p>该模块创建一个运行我们应用程序的 systemd 单元。通常，您还会在此处添加反向代理的配置，以及环境变量、其他依赖应用程序和设置、用户、组以及我们的应用程序运行时应存在的其他属性。</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>假设我们有一个正在运行的 NixOS 主机，并且具有 SSH 访问权限，我们可以部署你的配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nixos-rebuild build --flake <span class="string">&#x27;.#my-hostname&#x27;</span> --target-host root@our.host.tld</span><br></pre></td></tr></table></figure>
+
+<p>瞧，我们的应用程序正在运行！</p>
+<h2 id="关于-Docker-的说明"><a href="#关于-Docker-的说明" class="headerlink" title="关于 Docker 的说明"></a>关于 Docker 的说明</h2><p>在介绍 nix 时，一个反复出现的问题是：“那么 docker 呢？”虽然 Nix 和 Docker 本质上是用于不同事物的工具，但毫无疑问人们会滥用两者来解决重叠的问题。</p>
+<h2 id="Docker-缺少可重复性"><a href="#Docker-缺少可重复性" class="headerlink" title="Docker 缺少可重复性"></a>Docker 缺少可重复性</h2><p>对于可重现的环境，Docker镜像可用于存档类似内容。请注意，这里特指构建镜像，因为 Dockerfile 或容器定义不可重现。这可以通过多次构建镜像并比较其校验和来轻松确认</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">docker save $(docker build --no-cache -q .) -o img1.tar</span><br><span class="line">docker save $(docker build --no-cache -q .) -o img2.tar</span><br><span class="line"></span><br><span class="line"><span class="built_in">sha256sum</span> img1.tar</span><br><span class="line">b830edb19a8653ef6ef5846a115b7ab90fdd8ce828a072c3698b21f13429e8c7 img1.tar</span><br><span class="line"></span><br><span class="line"><span class="built_in">sha256sum</span> img2.tar</span><br><span class="line">c07301820e59aefad9b36feeca4c0da911e88b56b56a083fdea8d1763bd0c5f3 img2.tar</span><br></pre></td></tr></table></figure>
+
+<p>这可以归因于多种因素，例如 Dockerfile 命令</p>
+<p>这个表达式中的“latest”是什么意思？</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br></pre></td></tr></table></figure>
+
+<p>运行此代码时将安装哪个版本的 Python？</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install python -y</span></span><br></pre></td></tr></table></figure>
+
+<p>在可能的多个条目中哪一个$PATH将会运行？</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [ <span class="string">&quot;somebin&quot;</span> ]</span></span><br></pre></td></tr></table></figure>
+
+<p>对于其中一些问题，有一些解决方法，但是 Docker（或者更具体地说是 Dockerfile）首先不是为可重现而构建的，并且今天有许多现实世界的映像构建示例，但几个月后就不会了。</p>
+<h2 id="Nix-Docker"><a href="#Nix-Docker" class="headerlink" title="Nix + Docker"></a>Nix + Docker</h2><p>但问题并不一定非此即彼。事实上，Nix 和 Docker 一起使用，可以完美地互补。</p>
+<h2 id="Nix-构建-Docker-镜像"><a href="#Nix-构建-Docker-镜像" class="headerlink" title="Nix 构建 Docker 镜像"></a>Nix 构建 Docker 镜像</h2><p>Nix 可用于构建 docker 镜像。Nix 提供了多个实用函数，例如pkgs.dockerTools.buildImage和，pkgs.dockerTools.buildLayeredImage它们可用于将 docker 镜像构建为 flake 输出，就像任何其他包一样。Matthew Croughan 最近在 MCH2022 上发表了关于其使用的简短演讲。</p>
+<p>它还可以用于对 Docker 层缓存进行更细粒度的优化，正如Graham Christensen 所详述的那样。</p>
+<h2 id="NixOS-部署容器"><a href="#NixOS-部署容器" class="headerlink" title="NixOS 部署容器"></a>NixOS 部署容器</h2><p>NixOS 提供了一种非常优雅的运行容器的方式。这是配置 NixOS 以运行容器的示例</p>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">virtualisation.oci-containers.<span class="attr">containers</span> = &#123;</span><br><span class="line">  <span class="attr">bitwardenrs</span> = &#123;</span><br><span class="line">    <span class="attr">autoStart</span> = <span class="literal">true</span>;</span><br><span class="line">    <span class="attr">image</span> = <span class="string">&quot;bitwardenrs/server:latest&quot;</span>;</span><br><span class="line">    <span class="attr">environment</span> = &#123;</span><br><span class="line">      <span class="attr">ADMIN_TOKEN</span> = <span class="string">&quot;myAdminTokenString&quot;</span>;</span><br><span class="line">      <span class="attr">DOMAIN</span> = <span class="string">&quot;https://pw.mydomain.com&quot;</span>;</span><br><span class="line">      <span class="attr">INVITATIONS_ALLOWED</span> = <span class="string">&quot;true&quot;</span>;</span><br><span class="line">      <span class="attr">SIGNUPS_ALLOWED</span> = <span class="string">&quot;true&quot;</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="attr">ports</span> = [</span><br><span class="line">      <span class="string">&quot;80:80&quot;</span></span><br><span class="line">    ];</span><br><span class="line">    <span class="attr">volumes</span> = [</span><br><span class="line">      <span class="string">&quot;/var/docker/bitwarden/:/data/&quot;</span></span><br><span class="line">    ];</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>它将设置运行容器所需的一切，并生成匹配的 systemd 单元来启动、停止和管理容器。全部由哈希固定。</p>
+<p>将 Nix 和 NixOS 与容器运行时结合使用是一个过于广泛的主题，无法在此完全涵盖，并且上述示例只能触及可能性的表面。</p>
+<h2 id="进一步阅读"><a href="#进一步阅读" class="headerlink" title="进一步阅读"></a>进一步阅读</h2><p>这只是 Nix 和 NixOS 的冰山一角。上面和下面有多层抽象，还有简化使用和配置的工具。部署工具用于管理大量主机，如nixOps或lollypops，机密管理，如sops-nix或agenix ，以及 CI 系统，如Hydra 。Nix 与容器配合得很好，其生态系统不断发展和演变，仅上个月就有 534 人合并了 2,981 个 Pull 请求。</p>
+<hr>
+<p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
+
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2024/11/nixos/" data-id="cm3xnka5800wcokqacxy20m8j" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2024/11/nixos/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nixos/" rel="tag">NixOS</a></li></ul>
+
+
+    </footer>
+    
+      <section id="comments">
+        <div id="disqus_thread">
+          <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+      </section>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/11/pip-vs-pipx/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">pip vs pipx 的区别</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/aix/">AIX</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/artifactory/">Artifactory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blackduck/">BlackDuck</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coverage/">Coverage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">34</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devsecops/">DevSecOps</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">GitHub</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/groovy/">Groovy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/howto/">HowTo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">Language</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/">Nix</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/os/">OS</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/oss/">OSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">Others</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/polaris/">Polaris</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/quality/">Quality</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/release/">Release</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonarqube/">SonarQube</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vagrant/">Vagrant</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">Windows</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp-linter/">cpp-linter</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/11/nixos/">用于 DevOps 的 Nix 和 NixOS</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/pip-vs-pipx/">pip vs pipx 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/commit-check-updates/">Commit Check 更新：新增两个实用功能提升代码质量保障</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/devops-everyday/">从早到晚，我的 DevOps 一天</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/jenkins-upgrade-en/">What Optimizations I Made During the Jenkins Upgrade</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/jenkins-upgrade/">从 Jenkins 升级，我做了哪些优化</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/power-of-choice/">选择往往比努力更重要</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/principal-devops-engineer/">DevOps进阶：揭秘首席DevOps工程师的职责与技能</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/conventional-branch-zh/">约定式分支规范中文版正式发布！</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/conventional-branch/">Conventional Branch Specification Released!</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/pypa/">初步了解 PyPA（Python Packaging Authority）下的知名项目和关系</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/remember/">我记得</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/farewell/">告别Rocket中国，回连十年再启程</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/where-does-your-software-come-from/">你的软件究竟从哪里来？</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/garasign/">代码签名（Code Signing） - GaraSign</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/psf-infra/">Python 软件基金会 (PFS) 基础设施概览</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/code-signing/">代码签名（Code Signing）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/jenkins-contributors/">【分享】通过 Jenkins-X 社区最终进入到 Jenkins 基础设施团队成为 SRE 的经历</a>
+          </li>
+        
+          <li>
+            <a href="/2024/04/devops-skills-2024/">2024年如何保持竞争力：DevOps工程师的关键技能</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/reusable-workflows/">你一定要了解的 GitHub Action 特性：可重用工作流（Reusable Workflows）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/open-source-state/">2023 年开源状况和人工智能的崛起（GitHub）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/02/cpp-linter-action/">cpp-linter-action 最新版支持 Pull Request Review 功能了 👏</a>
+          </li>
+        
+          <li>
+            <a href="/2024/01/apache-services-and-tools/">看看顶级的开源组织都在用哪些服务和工具</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/2023-summary/">2023 年终总结</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/automatic-categorize-release-notes/">如何把 GitHub Release Notes 按照 New features、Bug Fixes ... 进行自动分类</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aix/" rel="tag">AIX</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">Apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automation/" rel="tag">Automation</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backup/" rel="tag">Backup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badge/" rel="tag">Badge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bake/" rel="tag">Bake</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blackduck/" rel="tag">BlackDuck</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/branch/" rel="tag">Branch</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/buildx/" rel="tag">Buildx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">C</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cd/" rel="tag">CD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ci/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cicd/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cli/" rel="tag">CLI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri/" rel="tag">CRI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri-o/" rel="tag">CRI-O</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">ChatGPT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/" rel="tag">Cheatsheet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/" rel="tag">Clang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/contributor/" rel="tag">Contributor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cppcheck/" rel="tag">Cppcheck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devsecops/" rel="tag">DevSecOps</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/" rel="tag">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fork/" rel="tag">Fork</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functiontest/" rel="tag">FunctionTest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gpg/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">Git</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">Go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/groovy/" rel="tag">Groovy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hp-ux/" rel="tag">HP-UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ibm/" rel="tag">IBM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/infrastructure/" rel="tag">Infrastructure</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jmeter/" rel="tag">JMeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">50</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kubernetes/" rel="tag">Kubernetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ldap/" rel="tag">LDAP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">Life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">Monitor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/" rel="tag">NFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">Nix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nixos/" rel="tag">NixOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuget/" rel="tag">NuGet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oci/" rel="tag">OCI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">OSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">Pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/" rel="tag">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quality/" rel="tag">Quality</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rdp/" rel="tag">RDP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/release/" rel="tag">Release</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/report/" rel="tag">Report</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sbom/" rel="tag">SBOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">Selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">Shell</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solaris/" rel="tag">Solaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonarqube/" rel="tag">SonarQube</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squash/" rel="tag">Squash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squishcoco/" rel="tag">SquishCoco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">Static</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stats/" rel="tag">Stats</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/" rel="tag">Summary</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testng/" rel="tag">TestNG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thought/" rel="tag">Thought</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VScode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/" rel="tag">Vagrant</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">WSL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webhook/" rel="tag">Webhook</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">Windows</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/witness/" rel="tag">Witness</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">Work</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/writing/" rel="tag">Writing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlc/" rel="tag">XLC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/" rel="tag">clang</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-format/" rel="tag">clang-format</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-tidy/" rel="tag">clang-tidy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commit-check/" rel="tag">commit-check</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/containerd/" rel="tag">containerd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-linter/" rel="tag">cpp-linter</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">lcov</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/" rel="tag">perl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipx/" rel="tag">pipx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runc/" rel="tag">runc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ai/" style="font-size: 10px;">AI</a> <a href="/tags/aix/" style="font-size: 13.08px;">AIX</a> <a href="/tags/actions/" style="font-size: 10px;">Actions</a> <a href="/tags/ansible/" style="font-size: 10px;">Ansible</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/artifactory/" style="font-size: 15.38px;">Artifactory</a> <a href="/tags/automation/" style="font-size: 16.92px;">Automation</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/badge/" style="font-size: 10px;">Badge</a> <a href="/tags/bake/" style="font-size: 10px;">Bake</a> <a href="/tags/bitbucket/" style="font-size: 13.85px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10.77px;">BlackDuck</a> <a href="/tags/blog/" style="font-size: 10.77px;">Blog</a> <a href="/tags/branch/" style="font-size: 12.31px;">Branch</a> <a href="/tags/buildx/" style="font-size: 10px;">Buildx</a> <a href="/tags/c/" style="font-size: 13.08px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10.77px;">CI</a> <a href="/tags/cicd/" style="font-size: 10px;">CICD</a> <a href="/tags/cli/" style="font-size: 10px;">CLI</a> <a href="/tags/cri/" style="font-size: 10px;">CRI</a> <a href="/tags/cri-o/" style="font-size: 10px;">CRI-O</a> <a href="/tags/chatgpt/" style="font-size: 10px;">ChatGPT</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">Cheatsheet</a> <a href="/tags/clang/" style="font-size: 10px;">Clang</a> <a href="/tags/codereview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/contributor/" style="font-size: 10px;">Contributor</a> <a href="/tags/coverage/" style="font-size: 14.62px;">Coverage</a> <a href="/tags/coverity/" style="font-size: 10px;">Coverity</a> <a href="/tags/cppcheck/" style="font-size: 10px;">Cppcheck</a> <a href="/tags/devops/" style="font-size: 18.46px;">DevOps</a> <a href="/tags/devsecops/" style="font-size: 13.85px;">DevSecOps</a> <a href="/tags/disqus/" style="font-size: 10px;">Disqus</a> <a href="/tags/docker/" style="font-size: 15.38px;">Docker</a> <a href="/tags/dokerfile/" style="font-size: 10px;">Dokerfile</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/ftp/" style="font-size: 10px;">FTP</a> <a href="/tags/fork/" style="font-size: 10.77px;">Fork</a> <a href="/tags/functiontest/" style="font-size: 10px;">FunctionTest</a> <a href="/tags/gpg/" style="font-size: 10px;">GPG</a> <a href="/tags/gcov/" style="font-size: 11.54px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.23px;">Git</a> <a href="/tags/github/" style="font-size: 13.85px;">GitHub</a> <a href="/tags/go/" style="font-size: 10px;">Go</a> <a href="/tags/gradle/" style="font-size: 10.77px;">Gradle</a> <a href="/tags/groovy/" style="font-size: 10px;">Groovy</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 13.08px;">Hexo</a> <a href="/tags/ibm/" style="font-size: 10px;">IBM</a> <a href="/tags/infrastructure/" style="font-size: 10.77px;">Infrastructure</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.31px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.77px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 11.54px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.54px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/kubernetes/" style="font-size: 10.77px;">Kubernetes</a> <a href="/tags/lcov/" style="font-size: 10.77px;">LCOV</a> <a href="/tags/ldap/" style="font-size: 10.77px;">LDAP</a> <a href="/tags/life/" style="font-size: 10.77px;">Life</a> <a href="/tags/linux/" style="font-size: 11.54px;">Linux</a> <a href="/tags/monitor/" style="font-size: 10px;">Monitor</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 17.69px;">Nightwatch</a> <a href="/tags/nix/" style="font-size: 10px;">Nix</a> <a href="/tags/nixos/" style="font-size: 10px;">NixOS</a> <a href="/tags/nuget/" style="font-size: 10px;">NuGet</a> <a href="/tags/oci/" style="font-size: 10px;">OCI</a> <a href="/tags/oss/" style="font-size: 10px;">OSS</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pip/" style="font-size: 10px;">Pip</a> <a href="/tags/pipeline/" style="font-size: 16.15px;">Pipeline</a> <a href="/tags/polaris/" style="font-size: 10px;">Polaris</a> <a href="/tags/postgresql/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 14.62px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/quality/" style="font-size: 10.77px;">Quality</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/release/" style="font-size: 10.77px;">Release</a> <a href="/tags/report/" style="font-size: 11.54px;">Report</a> <a href="/tags/sbom/" style="font-size: 10px;">SBOM</a> <a href="/tags/slsa/" style="font-size: 15.38px;">SLSA</a> <a href="/tags/security/" style="font-size: 10px;">Security</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 13.08px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/sonarqube/" style="font-size: 10.77px;">SonarQube</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">SquishCoco</a> <a href="/tags/static/" style="font-size: 10px;">Static</a> <a href="/tags/stats/" style="font-size: 10.77px;">Stats</a> <a href="/tags/summary/" style="font-size: 14.62px;">Summary</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 14.62px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/troubleshooting/" style="font-size: 16.15px;">Troubleshooting</a> <a href="/tags/ubuntu/" style="font-size: 10.77px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/vscode/" style="font-size: 10px;">VSCode</a> <a href="/tags/vscode/" style="font-size: 10px;">VScode</a> <a href="/tags/vagrant/" style="font-size: 10.77px;">Vagrant</a> <a href="/tags/virtualbox/" style="font-size: 11.54px;">VirtualBox</a> <a href="/tags/wsl/" style="font-size: 10.77px;">WSL</a> <a href="/tags/webhook/" style="font-size: 11.54px;">Webhook</a> <a href="/tags/windows/" style="font-size: 12.31px;">Windows</a> <a href="/tags/witness/" style="font-size: 10.77px;">Witness</a> <a href="/tags/work/" style="font-size: 13.85px;">Work</a> <a href="/tags/writing/" style="font-size: 10px;">Writing</a> <a href="/tags/xlc/" style="font-size: 10px;">XLC</a> <a href="/tags/clang/" style="font-size: 10.77px;">clang</a> <a href="/tags/clang-format/" style="font-size: 10.77px;">clang-format</a> <a href="/tags/clang-tidy/" style="font-size: 10.77px;">clang-tidy</a> <a href="/tags/commit-check/" style="font-size: 10px;">commit-check</a> <a href="/tags/containerd/" style="font-size: 10px;">containerd</a> <a href="/tags/cpp-linter/" style="font-size: 10.77px;">cpp-linter</a> <a href="/tags/lcov/" style="font-size: 10px;">lcov</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/pipx/" style="font-size: 10px;">pipx</a> <a href="/tags/runc/" style="font-size: 10px;">runc</a> <a href="/tags/ulimit/" style="font-size: 10px;">ulimit</a>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+
+        
+      </div>
+      
+
+<!-- 
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/README.html';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+ -->
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 - 2024 shenxianpeng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+<div id="disqus_thread"></div>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/daily/" class="mobile-nav-link">Daily</a>
+  
+    <a href="/contribution/" class="mobile-nav-link">Contribution</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+
+    
+  <script>
+    var disqus_shortname = 'shenxianpeng';
+    
+    var disqus_url = 'https://shenxianpeng.github.io/2024/11/nixos/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
