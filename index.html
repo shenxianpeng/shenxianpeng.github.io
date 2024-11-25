@@ -97,6 +97,159 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-2024/11/pip-vs-pipx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2024/11/pip-vs-pipx/" class="article-date">
+  <time datetime="2024-11-25T17:21:00.000Z" itemprop="datePublished">2024-11-26</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">Python</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/11/pip-vs-pipx/">pip vs pipx 的区别</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="pip-vs-pipx-的区别"><a href="#pip-vs-pipx-的区别" class="headerlink" title="pip vs pipx 的区别"></a><strong>pip vs pipx 的区别</strong></h3><p>在 Python 的生态中，<strong>pip</strong> 和 <strong>pipx</strong> 都是用于管理包的软件工具，但它们有不同的设计目标和使用场景。有些同学可能会疑惑，两者到底有什么区别？该如何选择？</p>
+<hr>
+<h4 id="1-pip-通用的-Python-包管理工具"><a href="#1-pip-通用的-Python-包管理工具" class="headerlink" title="1. pip: 通用的 Python 包管理工具"></a><strong>1. pip: 通用的 Python 包管理工具</strong></h4><p><strong>pip</strong> 是 Python 官方推荐的包管理工具，用于安装和管理 Python 包（libraries）。</p>
+<p><strong>主要特点</strong>：</p>
+<ul>
+<li><p><strong>适用于任何 Python 包</strong>：可以安装库和命令行工具。</p>
+</li>
+<li><p><strong>安装在全局或虚拟环境</strong>：包默认安装到全局 Python 环境，或者虚拟环境（如 <code>venv</code>、<code>virtualenv</code>）中。</p>
+</li>
+<li><p><strong>命令简单</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install package-name</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>安装开发所需的依赖（如 <code>requests</code>、<code>flask</code>）。</li>
+<li>创建项目特定的环境（通常结合虚拟环境使用）。</li>
+</ul>
+<p><strong>局限性</strong>：</p>
+<ul>
+<li>如果直接安装到全局环境，容易导致版本冲突。</li>
+<li>对于命令行工具（CLI）工具的安装和管理较繁琐，因为它们共享相同的环境。</li>
+</ul>
+<hr>
+<h4 id="2-pipx-专注于隔离安装命令行工具"><a href="#2-pipx-专注于隔离安装命令行工具" class="headerlink" title="2. pipx: 专注于隔离安装命令行工具"></a><strong>2. pipx: 专注于隔离安装命令行工具</strong></h4><p><strong>pipx</strong> 是一个专门为 Python 命令行工具（CLI）设计的工具，提供隔离的安装环境。</p>
+<p><strong>主要特点</strong>：</p>
+<ul>
+<li><strong>为每个工具创建独立环境</strong>：每个 CLI 工具都在自己的虚拟环境中运行，避免冲突。</li>
+<li><strong>自动管理依赖</strong>：安装工具时，它会自动处理依赖的版本管理。</li>
+<li><strong>简化使用体验</strong>：CLI 工具直接可用，无需额外配置路径。</li>
+<li><strong>命令简单</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pipx install package-name</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>安装和管理 Python CLI 工具（如 <code>black</code>、<code>httpie</code>、<code>commit-check</code>）。</li>
+<li>避免工具之间的依赖冲突。</li>
+<li>对开发工具或脚本运行环境要求高的用户。</li>
+</ul>
+<p><strong>局限性</strong>：</p>
+<ul>
+<li>仅适用于 CLI 工具，不适合安装普通的 Python 库。</li>
+<li>需要先安装 <code>pipx</code> 工具：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m pip install pipx</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h4 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a><strong>对比总结</strong></h4><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>pip</th>
+<th>pipx</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>用途</strong></td>
+<td>安装和管理所有 Python 包</td>
+<td>安装和管理 CLI 工具</td>
+</tr>
+<tr>
+<td><strong>安装范围</strong></td>
+<td>全局环境或虚拟环境</td>
+<td>每个工具独立的虚拟环境</td>
+</tr>
+<tr>
+<td><strong>依赖隔离</strong></td>
+<td>需要手动管理（结合虚拟环境更好）</td>
+<td>自动隔离，工具互不影响</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>开发项目的依赖管理</td>
+<td>CLI 工具的独立安装和使用</td>
+</tr>
+<tr>
+<td><strong>示例</strong></td>
+<td><code>pip install flask</code></td>
+<td><code>pipx install black</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="如何选择？"><a href="#如何选择？" class="headerlink" title="如何选择？"></a><strong>如何选择？</strong></h4><ul>
+<li>如果你正在构建一个 Python 项目，需要安装项目依赖，<strong>使用 pip</strong>。</li>
+<li>如果你需要安装 Python CLI 工具，如 <code>pytest</code> 或 <code>pre-commit</code>，建议用 <strong>pipx</strong>，以确保独立性和稳定性。</li>
+</ul>
+<p>简单来说：<strong>pip 是通用工具，pipx 是针对 CLI 工具的专用解决方案</strong>。</p>
+<hr>
+<p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
+
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/" data-id="cm3xnl4kw00wfp2n5c64r45hp" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pip/" rel="tag">pip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pipx/" rel="tag">pipx</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
     <article id="post-2024/11/nixos" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2024/11/nixos/" class="article-date">
@@ -264,166 +417,13 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/nixos/" data-id="cm3xnka5800wcokqacxy20m8j" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/nixos/" data-id="cm3xnl4im00jbp2n59w3z8fzt" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/11/nixos/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nix/" rel="tag">Nix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nixos/" rel="tag">NixOS</a></li></ul>
-
-
-    </footer>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LDW3BHJTTW');
-    </script>
-  </div>
-  
-</article>
-
-  
-    <article id="post-2024/11/pip-vs-pipx" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2024/11/pip-vs-pipx/" class="article-date">
-  <time datetime="2024-11-23T16:00:00.000Z" itemprop="datePublished">2024-11-24</time>
-</a>
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">Python</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2024/11/pip-vs-pipx/">pip vs pipx 的区别</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="pip-vs-pipx-的区别"><a href="#pip-vs-pipx-的区别" class="headerlink" title="pip vs pipx 的区别"></a><strong>pip vs pipx 的区别</strong></h3><p>在 Python 的生态中，<strong>pip</strong> 和 <strong>pipx</strong> 都是用于管理包的软件工具，但它们有不同的设计目标和使用场景。有些同学可能会疑惑，两者到底有什么区别？该如何选择？</p>
-<hr>
-<h4 id="1-pip-通用的-Python-包管理工具"><a href="#1-pip-通用的-Python-包管理工具" class="headerlink" title="1. pip: 通用的 Python 包管理工具"></a><strong>1. pip: 通用的 Python 包管理工具</strong></h4><p><strong>pip</strong> 是 Python 官方推荐的包管理工具，用于安装和管理 Python 包（libraries）。</p>
-<p><strong>主要特点</strong>：</p>
-<ul>
-<li><p><strong>适用于任何 Python 包</strong>：可以安装库和命令行工具。</p>
-</li>
-<li><p><strong>安装在全局或虚拟环境</strong>：包默认安装到全局 Python 环境，或者虚拟环境（如 <code>venv</code>、<code>virtualenv</code>）中。</p>
-</li>
-<li><p><strong>命令简单</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install package-name</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>适用场景</strong>：</p>
-<ul>
-<li>安装开发所需的依赖（如 <code>requests</code>、<code>flask</code>）。</li>
-<li>创建项目特定的环境（通常结合虚拟环境使用）。</li>
-</ul>
-<p><strong>局限性</strong>：</p>
-<ul>
-<li>如果直接安装到全局环境，容易导致版本冲突。</li>
-<li>对于命令行工具（CLI）工具的安装和管理较繁琐，因为它们共享相同的环境。</li>
-</ul>
-<hr>
-<h4 id="2-pipx-专注于隔离安装命令行工具"><a href="#2-pipx-专注于隔离安装命令行工具" class="headerlink" title="2. pipx: 专注于隔离安装命令行工具"></a><strong>2. pipx: 专注于隔离安装命令行工具</strong></h4><p><strong>pipx</strong> 是一个专门为 Python 命令行工具（CLI）设计的工具，提供隔离的安装环境。</p>
-<p><strong>主要特点</strong>：</p>
-<ul>
-<li><strong>为每个工具创建独立环境</strong>：每个 CLI 工具都在自己的虚拟环境中运行，避免冲突。</li>
-<li><strong>自动管理依赖</strong>：安装工具时，它会自动处理依赖的版本管理。</li>
-<li><strong>简化使用体验</strong>：CLI 工具直接可用，无需额外配置路径。</li>
-<li><strong>命令简单</strong>：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pipx install package-name</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><strong>适用场景</strong>：</p>
-<ul>
-<li>安装和管理 Python CLI 工具（如 <code>black</code>、<code>httpie</code>、<code>commit-check</code>）。</li>
-<li>避免工具之间的依赖冲突。</li>
-<li>对开发工具或脚本运行环境要求高的用户。</li>
-</ul>
-<p><strong>局限性</strong>：</p>
-<ul>
-<li>仅适用于 CLI 工具，不适合安装普通的 Python 库。</li>
-<li>需要先安装 <code>pipx</code> 工具：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python -m pip install pipx</span><br></pre></td></tr></table></figure></li>
-</ul>
-<hr>
-<h4 id="对比总结"><a href="#对比总结" class="headerlink" title="对比总结"></a><strong>对比总结</strong></h4><table>
-<thead>
-<tr>
-<th>特性</th>
-<th>pip</th>
-<th>pipx</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>用途</strong></td>
-<td>安装和管理所有 Python 包</td>
-<td>安装和管理 CLI 工具</td>
-</tr>
-<tr>
-<td><strong>安装范围</strong></td>
-<td>全局环境或虚拟环境</td>
-<td>每个工具独立的虚拟环境</td>
-</tr>
-<tr>
-<td><strong>依赖隔离</strong></td>
-<td>需要手动管理（结合虚拟环境更好）</td>
-<td>自动隔离，工具互不影响</td>
-</tr>
-<tr>
-<td><strong>适用场景</strong></td>
-<td>开发项目的依赖管理</td>
-<td>CLI 工具的独立安装和使用</td>
-</tr>
-<tr>
-<td><strong>示例</strong></td>
-<td><code>pip install flask</code></td>
-<td><code>pipx install black</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h4 id="如何选择？"><a href="#如何选择？" class="headerlink" title="如何选择？"></a><strong>如何选择？</strong></h4><ul>
-<li>如果你正在构建一个 Python 项目，需要安装项目依赖，<strong>使用 pip</strong>。</li>
-<li>如果你需要安装 Python CLI 工具，如 <code>pytest</code> 或 <code>pre-commit</code>，建议用 <strong>pipx</strong>，以确保独立性和稳定性。</li>
-</ul>
-<p>简单来说：<strong>pip 是通用工具，pipx 是针对 CLI 工具的专用解决方案</strong>。</p>
-<hr>
-<p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
-
-      
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LDW3BHJTTW');
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/" data-id="cm3xnka5800wdokqa3zfd82xo" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
-      
-        <a href="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pip/" rel="tag">pip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pipx/" rel="tag">pipx</a></li></ul>
 
 
     </footer>
@@ -526,7 +526,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/commit-check-updates/" data-id="cm3xnka5900wgokqa0kb27q6w" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/commit-check-updates/" data-id="cm3xnl4ik00j8p2n5c3npayt1" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/11/commit-check-updates/#disqus_thread" class="article-comment-link">Comments</a>
@@ -614,7 +614,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/devops-everyday/" data-id="cm3xnka2x00iuokqadpxgexix" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/devops-everyday/" data-id="cm3xnl4ii00ixp2n520gidzbz" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/10/devops-everyday/#disqus_thread" class="article-comment-link">Comments</a>
@@ -717,7 +717,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/" data-id="cm3xnka2x00iyokqa8bv2hwa8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/" data-id="cm3xnl4ij00j1p2n5gurv64kd" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/#disqus_thread" class="article-comment-link">Comments</a>
@@ -822,7 +822,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/" data-id="cm3xnka2y00j2okqa7y84cxa4" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/" data-id="cm3xnl4ij00j4p2n5asuj4hj2" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/#disqus_thread" class="article-comment-link">Comments</a>
@@ -940,7 +940,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/09/power-of-choice/" data-id="cm3xnka2u00ijokqa4x3c1v0o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/09/power-of-choice/" data-id="cm3xnl4ig00imp2n506qx3xcf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/09/power-of-choice/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1032,7 +1032,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/" data-id="cm3xnka2v00inokqa260rhjbl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/" data-id="cm3xnl4ih00iqp2n5dfuoc2je" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1141,7 +1141,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/" data-id="cm3xnka2t00idokqa09swaca7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/" data-id="cm3xnl4if00igp2n5bqvcd61n" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1245,7 +1245,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/09/conventional-branch/" data-id="cm3xnka2u00igokqa8seg160a" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/09/conventional-branch/" data-id="cm3xnl4if00ijp2n59azra4eu" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/09/conventional-branch/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1298,11 +1298,11 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2024/11/nixos/">用于 DevOps 的 Nix 和 NixOS</a>
+            <a href="/2024/11/pip-vs-pipx/">pip vs pipx 的区别</a>
           </li>
         
           <li>
-            <a href="/2024/11/pip-vs-pipx/">pip vs pipx 的区别</a>
+            <a href="/2024/11/nixos/">用于 DevOps 的 Nix 和 NixOS</a>
           </li>
         
           <li>
