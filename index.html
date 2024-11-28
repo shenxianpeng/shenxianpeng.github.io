@@ -100,7 +100,7 @@ ga('send', 'pageview');
     <article id="post-2024/11/gitstats" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2024/11/gitstats/" class="article-date">
-  <time datetime="2024-11-27T14:21:00.000Z" itemprop="datePublished">2024-11-27</time>
+  <time datetime="2024-11-27T18:28:00.000Z" itemprop="datePublished">2024-11-28</time>
 </a>
 
     
@@ -118,7 +118,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2024/11/gitstats/">复活了一个年久失修的项目 gitstats</a>
+      <a class="article-title" href="/2024/11/gitstats/">GitStats 重生：让 Git 历史分析焕发新活力</a>
     </h1>
   
 
@@ -127,39 +127,45 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​最近闲暇时间，我正在做一件事：复活已经沉寂多年的 GitStats 项目。</p>
+        <p>最近的晚上的时间（一般要等到孩子睡了）我正在做一件事：复活已经沉寂多年的 GitStats 项目。</p>
 <p>此前，我曾写过两篇关于 GitStats 的文章，如果感兴趣，可以查阅了解。</p>
-<h2 id="什么是-gitstats"><a href="#什么是-gitstats" class="headerlink" title="什么是 gitstats"></a>什么是 gitstats</h2><p>gitstats 是一个用 Python 写的用来分析 git 仓库历史记录的工具，然后生成 HTML 报告。</p>
-<p>但是它只支持 Python2，且作者已经停止维护了（最后一次提交还停留在9年前）。</p>
-<p>在当前开发环境中，兼容性和使用便捷性都受到很大限制，但不可否认它的价值依旧存在。</p>
-<p>因此我决定对这个项目进行现代化改造。</p>
+<ul>
+<li><a href="https://shenxianpeng.github.io/2019/12/git-stats/">Git 历史统计信息生成器 GitStats</a></li>
+<li><a href="https://shenxianpeng.github.io/2020/01/git-stats-jenkins/">通过 Jenkins 定期自动给老板提供 Git 仓库的多维度代码分析报告</a></li>
+</ul>
+<h2 id="什么是-GitStats"><a href="#什么是-GitStats" class="headerlink" title="什么是 GitStats"></a>什么是 GitStats</h2><p>GitStats 是一个用 Python 写的工具，用来分析 Git 仓库的历史记录，并生成 HTML 报告。</p>
+<p>然而，它只支持 Python 2，且作者已经停止维护（最后一次提交还停留在 9 年前）。</p>
+<p>在当前开发环境中，兼容性和使用便捷性都受到很大限制，但不可否认，它的价值依旧存在。</p>
+<p>因此，我决定对这个项目进行现代化改造。</p>
 <h2 id="我已经完成的工作"><a href="#我已经完成的工作" class="headerlink" title="我已经完成的工作"></a>我已经完成的工作</h2><ol>
-<li>迁移到Python 3.9+：重构代码以支持 Python3 版本。✅</li>
-<li>创建各种流水线和其他现代化的更新。✅</li>
-<li>发布到PyPI：用户现在可以通过 pip install 安装。✅</li>
-<li>提供 Docker 镜像：无需自行处理复杂依赖，运行更加便捷。✅</li>
-<li>提供在线预览：创建一个展示页面，让用户直观了解 GitStats 的功能。✅</li>
+<li>**迁移到 Python 3.9+**：重构代码以支持 Python 3 版本。✅</li>
+<li><strong>创建现代化流水线</strong>：增加 CI&#x2F;CD 等工具，便于持续开发和发布。✅</li>
+<li><strong>发布到 PyPI</strong>：用户现在可以通过 pip install gitstats 来安装。✅</li>
+<li><strong>提供 Docker 镜像</strong>：用户无需自行处理依赖，运行 gitstats 更加便捷。✅</li>
+<li><strong>提供在线预览</strong>：创建一个展示页面，让用户直观了解 GitStats 的功能。✅</li>
 </ol>
-<h2 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h2><p>在这里我要特别感谢 Sumin Byeon（@suminb），看了他的介绍，他应该是一个生活在韩国的程序员。</p>
-<p>原本 gitstats 在 PyPI 上的 Owner 是他，我是无法继续使用这个名字的，但我尝试了 git-stats，gitstory 等，但都因为 PyPI 提示这些名字与其他项目的名字相近而无法使用。</p>
-<p>看他的项目也已经有五年没有维护了，因此我抱着试试看的态度尝试给 Sumin Byeon 发了一封邮件，问他是否愿意将 gitstats 的名字交给我。因为我现在正在重振另外一个 gitstats 项目。</p>
-<p>没想到得到了他的回复，并最终答应将 gitstats 的名字交给我，但唯一一个条件就是如果将来我不在维护 gitstats 其他人需要这个名字的时候，我也能做同样的事情，但他不希望我能一直维护这个项目。</p>
-<p>我答应他，我会的这样做的，并且我打算长期维护 gitstats。（我希望我能做到）</p>
+<h2 id="特别感谢"><a href="#特别感谢" class="headerlink" title="特别感谢"></a>特别感谢</h2><p>在这里我要特别感谢 Sumin Byeon（@suminb）。从他的介绍来看，他应该是一位生活在韩国的程序员。</p>
+<p>原本 GitStats 在 PyPI 上的 Owner 是他，因此我无法直接使用这个名字。我尝试过其他名字，例如 git-stats 和 gitstory，但都因与其他项目的名字相近而被 PyPI 拒绝。</p>
+<p>看到他的项目已经有五年没有维护了，我抱着试一试的心态给他发了一封邮件，问他是否愿意将 GitStats 的名字转让给我，因为我正在重振这个项目。</p>
+<p>没想到，他很快回复了，并最终同意将 GitStats 的名字交给我。他唯一的条件是，如果将来我停止维护 GitStats，而其他人需要这个名字时，我也能像他一样将名字交给对方。</p>
+<p><img src="/2024/11/gitstats/thank-you.png" alt="THANK YOU"></p>
+<p>我答应了他，也承诺将长期维护 GitStats。（希望我能够做到）</p>
 <h2 id="未来计划"><a href="#未来计划" class="headerlink" title="未来计划"></a>未来计划</h2><ol>
-<li>解决有价值的 Issue：梳理原仓库的未解决问题，选择具有价值的进行修复。</li>
-<li>审查现有 Pull Requests：评估原仓库的 PR，视情况合并到当前项目中。</li>
-<li>优化代码：优化代码，使其更加简洁、易于维护和扩展。</li>
-<li>进行文档更新：更新文档，使其更加清晰、易于理解和使用。</li>
-<li>添加新的功能：添加新的功能，使其更加强大和有用。</li>
-<li>优化 UI：优化 UI，使其更加美观、易于导航和使用。</li>
+<li><strong>解决有价值的 Issue</strong>：梳理原仓库中未解决的问题，挑选具有价值的进行修复。</li>
+<li><strong>审查现有 Pull Requests</strong>：评估原仓库的 PR，视情况合并到当前项目中。</li>
+<li><strong>更新文档</strong>：完善文档，使其更清晰易懂。</li>
+<li><strong>添加新功能</strong>：增加功能，使项目更强大、更有用。</li>
+<li><strong>优化 UI</strong>：提升界面美观性，改善用户体验。</li>
 </ol>
-<h2 id="如何参与"><a href="#如何参与" class="headerlink" title="如何参与"></a>如何参与</h2><p>如果你对 GitStats 的改进有兴趣，欢迎参与到这个项目中。你可以：</p>
+<h2 id="如何参与"><a href="#如何参与" class="headerlink" title="如何参与"></a>如何参与</h2><p>如果你对 GitStats 的改进有兴趣，欢迎参与这个项目！你可以：</p>
 <ol>
-<li>建议功能：在项目中提出想法或功能请求，帮助项目更贴近用户需求。</li>
-<li>贡献代码：修复 Bug 或添加功能，直接为项目改进出力。</li>
-<li>分享推广：将 GitStats 推荐给可能感兴趣的朋友或社区。</li>
+<li><strong>建议功能</strong>：提出想法或功能请求，帮助项目更贴近用户需求。</li>
+<li><strong>贡献代码</strong>: 修复 Bug 或添加功能，为项目直接出力。</li>
+<li><strong>分享推广</strong>：将 GitStats 推荐给可能感兴趣的朋友或社区。</li>
 </ol>
 <p>最后，让我们携手合作，让 GitStats 再次焕发活力！</p>
+<pre><code>                _写于 2024 年 11 月 28 日凌晨 2:50_
+</code></pre>
 <hr>
 <p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
 
@@ -175,7 +181,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/gitstats/" data-id="cm407atkv00j9qook4shp8xt0" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/gitstats/" data-id="cm40mbjou00j9siooamyf8usi" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/11/gitstats/#disqus_thread" class="article-comment-link">Comments</a>
@@ -328,7 +334,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/" data-id="cm407atn500wdqook36ql7dz8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/" data-id="cm40mbjr000wdsiooffundwpa" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/#disqus_thread" class="article-comment-link">Comments</a>
@@ -520,7 +526,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/nixos/" data-id="cm407atn400wcqook8z07acj6" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/nixos/" data-id="cm40mbjr000wcsioo3qkfe8jj" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/11/nixos/#disqus_thread" class="article-comment-link">Comments</a>
@@ -629,7 +635,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/commit-check-updates/" data-id="cm407atkt00j6qook8rda0yjt" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/commit-check-updates/" data-id="cm40mbjot00j6siooeyq46g22" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/11/commit-check-updates/#disqus_thread" class="article-comment-link">Comments</a>
@@ -717,7 +723,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/devops-everyday/" data-id="cm407atkq00ivqook7vcu93zv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/devops-everyday/" data-id="cm40mbjoq00ivsioofyrehgqc" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/10/devops-everyday/#disqus_thread" class="article-comment-link">Comments</a>
@@ -820,7 +826,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/" data-id="cm407atks00izqookaqkt2h9v" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/" data-id="cm40mbjor00izsiooaxi7fujz" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/#disqus_thread" class="article-comment-link">Comments</a>
@@ -925,7 +931,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/" data-id="cm407atks00j2qookg9xv0yv9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/" data-id="cm40mbjor00j2sioo2nv0f7uq" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1043,7 +1049,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/09/power-of-choice/" data-id="cm407atko00ikqook67dxd4cx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/09/power-of-choice/" data-id="cm40mbjoo00iksioobf8ffkdr" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/09/power-of-choice/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1135,7 +1141,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/" data-id="cm407atkp00ioqook4l6m5c8p" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/" data-id="cm40mbjop00iosioo3ivzenmo" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1244,7 +1250,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/" data-id="cm407atkn00ihqookebxz0mdy" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/" data-id="cm40mbjom00ibsioo31hb3ci7" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1297,7 +1303,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2024/11/gitstats/">复活了一个年久失修的项目 gitstats</a>
+            <a href="/2024/11/gitstats/">GitStats 重生：让 Git 历史分析焕发新活力</a>
           </li>
         
           <li>
