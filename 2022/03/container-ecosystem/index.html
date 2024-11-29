@@ -4,20 +4,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于 Docker，containerd，CRI，CRI-O，OCI，runc 的解释以及它们是如何工作在一起的 | Xianpeng Shen</title>
+  <title>关于 Docker，containerd，CRI，CRI-O，OCI，runc 的解释以及它们是如何工作在一起的 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。 比如 Docker, containerd, CRI, CRI-O, OCI, runc，本篇将介绍这些你听过但并不了解的术语，并解释容器生态系统是如何在一起工作的。 容器生态系统容器生态系统是由许多令人兴奋的技术、大量的专业术语和大公司相互争斗组成的。 幸">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 Docker，containerd，CRI，CRI-O，OCI，runc 的解释以及它们是如何工作在一起的">
 <meta property="og:url" content="https://shenxianpeng.github.io/2022/03/container-ecosystem/index.html">
-<meta property="og:site_name" content="Xianpeng Shen">
+<meta property="og:site_name">
 <meta property="og:description" content="自 Docker 开启了使用容器的爆发式增长，有越来越多的工具和标准来帮助管理和使用这项容器化技术，与此同时也造成了有很多术语让人感到困惑。 比如 Docker, containerd, CRI, CRI-O, OCI, runc，本篇将介绍这些你听过但并不了解的术语，并解释容器生态系统是如何在一起工作的。 容器生态系统容器生态系统是由许多令人兴奋的技术、大量的专业术语和大公司相互争斗组成的。 幸">
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2022/03/container-ecosystem/container-ecosystem.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2022/03/container-ecosystem/docker.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2022/03/container-ecosystem/cri.png">
 <meta property="article:published_time" content="2022-03-29T12:52:42.000Z">
-<meta property="article:modified_time" content="2024-11-29T18:23:21.933Z">
+<meta property="article:modified_time" content="2024-11-29T20:27:28.947Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="containerd">
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenxianpeng.github.io/2022/03/container-ecosystem/container-ecosystem.png">
   
-  <link rel="alternate" href="/atom.xml" title="Xianpeng Shen" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="" type="application/atom+xml">
   
   
   <link rel="icon" href="/favicon.png">
@@ -74,7 +74,7 @@ ga('send', 'pageview');
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Xianpeng Shen</a>
+        <a href="/" id="logo"></a>
       </h1>
       
     </div>
@@ -220,7 +220,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/03/container-ecosystem/" data-id="cm432o04100e7pboo2ruf9gmv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2022/03/container-ecosystem/" data-id="cm4373m2j00e5pcow5ava3d6y" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
         <a href="https://shenxianpeng.github.io/2022/03/container-ecosystem/#disqus_thread" class="article-comment-link">Comments</a>
