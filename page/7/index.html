@@ -74,7 +74,7 @@ ga('send', 'pageview');
         
           <a class="main-nav-link" href="/daily/">Daily</a>
         
-          <a class="main-nav-link" href="/contribution/">Contribution</a>
+          <a class="main-nav-link" href="/contributions/">Contributions</a>
         
           <a class="main-nav-link" href="/about">About</a>
         
@@ -97,15 +97,15 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-2022/02/from-qa-to-dev-to-devops" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2021/03/jenkins-dynamic-default-parameters" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/02/from-qa-to-dev-to-devops/" class="article-date">
-  <time datetime="2022-02-20T16:15:00.000Z" itemprop="datePublished">2022-02-21</time>
+    <a href="/2021/03/jenkins-dynamic-default-parameters/" class="article-date">
+  <time datetime="2021-03-24T02:50:53.000Z" itemprop="datePublished">2021-03-24</time>
 </a>
 
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/others/">Others</a>
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
   </div>
 
 
@@ -118,7 +118,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/from-qa-to-dev-to-devops/">从QA到DEV到DEVOPS，码字五年有哪些收获</a>
+      <a class="article-title" href="/2021/03/jenkins-dynamic-default-parameters/">Different branches have different default parameters in Jenkins</a>
     </h1>
   
 
@@ -127,33 +127,13 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在写博客和公众号这件事上，不知不觉已经是我的第五个年头了，没想过能这么久。</p>
-<p>借此分享一下这些年我的职业线路的变化，以及写博客&amp;公众号有什么收获，算是自己过去的一个总结，如果能有点共鸣和帮助就更好了。</p>
-<h2 id="从QA到DEV到DEVOPS"><a href="#从QA到DEV到DEVOPS" class="headerlink" title="从QA到DEV到DEVOPS"></a>从QA到DEV到DEVOPS</h2><p>最早关注我公众号读者朋友大概都是因为软件测试而结缘的。是的，我做了近 10 的软件测试工作，先后在 SIMcom、东软、京东商城、外企从事过功能&amp;自动化&amp;性能测试工作。</p>
-<p>从功能测试入行开始，我慢慢地感受到编程不是开发的独门武功，它也是测试工程师的必备技能，只有具备良好的编码能力，才能去做自动化、Unittest、以及测试开发等工作。</p>
-<p>当我做了自动化测试工程师，我又发现相对于“发现”问题，“解决”问题更令我愉悦。我开始梦想有机会能去做开发，这样不但可以提高自己的编程能力，另外开发、测试都懂也能为自己今后的职业发展找到更多可能性。</p>
-<p>最终是因为有这样的机会+自己的主动+编码过得去，我从测试转到了开发。起初的艰难和压力都是我工作近 10 年来前所未有的，白天看代码、晚上看代码、周末看代码… 天天如此。经过了半年多的努力，才终于上岸，可以做 C&#x2F;C++ 项目的 Bugfix 了。</p>
-<p>也正是因为有开发、自动化、持续集成的经验，在团队需要一名 Build&#x2F;Release 工程师的时候，我知道这就是我最适合的岗位，负责产品的自动化构建、发布、基础设施建设、CI&#x2F;CD 以及提高研发效能的相关开发工作。</p>
-<p>就这样我从 QA 到 DEV 到 DEVOPS。公众号的更名记录也记录了我的职业路线变化：</p>
-<ul>
-<li>2019年07月28日 “软件测试与开发”改名“DevOps攻城狮”</li>
-<li>2018年12月29日 “DevQA”改名“软件测试与开发”</li>
-<li>2018年12月26日 “软件测试QA”改名“DevQA”</li>
-<li>2017年08月01日 注册“软件测试QA”</li>
-</ul>
-<h2 id="写作五年有哪些收获"><a href="#写作五年有哪些收获" class="headerlink" title="写作五年有哪些收获"></a>写作五年有哪些收获</h2><p><strong>写作是一项长期收益远超短期收益的事情</strong>。</p>
-<p>对于绝大多数人在短期内几乎不会有什么实质性的收益，还会花费大量的业余时间，妥妥的是用爱在发电。从金钱角度来衡量这件事，这是一件投入和产出完全不成比例的事情，很难坚持。</p>
-<p>如果从长期来看，坚持写作一定会带来价值的，我总结有以五个方面的好处：</p>
-<ol>
-<li>好记性不如烂笔头 - 当我们弄明白了一个技术难题，虽然当时明白了，但如果没记录下来，很有可能以后遇到同样的问题又不知道该如何解决。</li>
-<li>让别人听懂才是真的懂 - 有时候对于一个问题我们认为自己明白了，当分享给别人的时候，才发现其中有的逻辑说不通，因此不得不继续思考并彻底搞清楚。</li>
-<li>打造学习飞轮 - 当你坚持分享并有人关注到你并与你互动的时候，你就会有动力继续分享，学习新的知识然后再分享，一旦学习的飞轮造好了，坚持下去就变得容易。</li>
-<li>间接收益 - 但凡坚持写点东西，对于以后找工作都或多或少会有些帮助，至少说明你是一个爱学习的人。如果你的分享让同行、未来你的面试官觉得很不错，很可能会给你带来一次新的工作机会。</li>
-<li>直接收益 - 直接利益包括平台流量和广告收益、以及卖专栏、做咨询等。这要求就很高了，不但需要会自媒体运营，还有要超强的输出功力，这背后就是比别人更多的付出。</li>
-</ol>
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>When you use Jenkins multibranch pipeline, you may want to have different default parameters settings for defferent branches build.</p>
+<p>For example:</p>
+<p>For develop&#x2F;hotfix&#x2F;release branches, except regular build, you also want to do some code analyzes, like code scanning, etc.<br>For other branches, like feature&#x2F;bugfix or Pull Request that you just want to do a regular build.</p>
+<p>So you need to have dynamic parameter settings for your multibranch pipeline job.</p>
         
           <p class="article-more-link">
-            <a href="/2022/02/from-qa-to-dev-to-devops/#more">Read More</a>
+            <a href="/2021/03/jenkins-dynamic-default-parameters/#more">Read More</a>
           </p>
         
       
@@ -168,13 +148,13 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/" data-id="cm437pfmn00e8ovq4dhfg8fbd" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/" data-id="cm4oase0l00azh4q018xeemym" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
-        <a href="https://shenxianpeng.github.io/2022/02/from-qa-to-dev-to-devops/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://shenxianpeng.github.io/2021/03/jenkins-dynamic-default-parameters/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thought/" rel="tag">Thought</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
 
 
     </footer>
@@ -193,425 +173,10 @@ ga('send', 'pageview');
 </article>
 
   
-    <article id="post-2022/01/vagrant-vs-docker" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2021/03/code-review" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/01/vagrant-vs-docker/" class="article-date">
-  <time datetime="2022-02-14T00:30:00.000Z" itemprop="datePublished">2022-02-14</time>
-</a>
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vagrant/">Vagrant</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/vagrant-vs-docker/">Vagrant 和 Docker 的区别，该如何选？</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>关于 Vagrant 的介绍，可以参看前一篇文章：<a href="https://shenxianpeng.github.io/2022/01/vagrant/">什么是 Vagrant? Vagrant 和 VirtualBox 的区别</a></p>
-<h2 id="什么是-Vagrant"><a href="#什么是-Vagrant" class="headerlink" title="什么是 Vagrant"></a>什么是 Vagrant</h2><p>关于 Vagrant 的介绍，可以参看前一篇文章：什么是 Vagrant? Vagrant 和 VirtualBox 的区别</p>
-<h2 id="Vagrant-和-Docker-区别"><a href="#Vagrant-和-Docker-区别" class="headerlink" title="Vagrant 和 Docker 区别"></a>Vagrant 和 Docker 区别</h2><p>关于 Vagrant 被问到最多的问题：Vagrant 和 Docker 之间有什么区别。</p>
-<p>如果不分场景的直接比对 Vagrant 和 Docker 是不恰当的。在一些简单场景中，它们的作用是重复的，但在更多场景中，它们是无法相互替代的。</p>
-<p>那么什么情况下应该用 Vagrant，什么情况下用 Docker 呢？</p>
-<p><strong>所以如果你仅仅是想管理虚拟机，那么你应该使用 Vagrant；如果你想快速开发和部署应用，那么应该使用 Docker。</strong></p>
-<p>下面具体来说说为什么。</p>
-        
-          <p class="article-more-link">
-            <a href="/2022/01/vagrant-vs-docker/#more">Read More</a>
-          </p>
-        
-      
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LDW3BHJTTW');
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/" data-id="cm437pfmk00duovq40plm403h" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
-      
-        <a href="https://shenxianpeng.github.io/2022/01/vagrant-vs-docker/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/" rel="tag">Vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a></li></ul>
-
-
-    </footer>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LDW3BHJTTW');
-    </script>
-  </div>
-  
-</article>
-
-  
-    <article id="post-2022/01/vagrant" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/vagrant/" class="article-date">
-  <time datetime="2022-02-11T00:30:00.000Z" itemprop="datePublished">2022-02-11</time>
-</a>
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/vagrant/">Vagrant</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/vagrant/">什么是 Vagrant? Vagrant 和 VirtualBox 的区别</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是-Vagrant"><a href="#什么是-Vagrant" class="headerlink" title="什么是 Vagrant"></a>什么是 Vagrant</h2><p>Vagrant 是一种<a target="_blank" rel="noopener" href="https://github.com/hashicorp/vagrant">开源</a>软件产品，用来方便构建和维护虚拟软件开发环境。</p>
-<p>例如，它可以基于 VirtualBox、VMware、KVM、Hyper-V 和 AWS 甚至是 Docker 等提供商来构建开发环境。它通过简化虚拟化的软件配置管理，来提高开发效率。</p>
-<p>Vagrant 是用 Ruby 语言开发的，但它的生态系统支持使用其他几种语言进行开发。</p>
-<p>简单来说 Vagrant 是对传统虚拟机的一层封装，能够让你更方便的使用虚拟开发环境。</p>
-<h2 id="Vagrant-的发展史"><a href="#Vagrant-的发展史" class="headerlink" title="Vagrant 的发展史"></a>Vagrant 的发展史</h2>
-        
-          <p class="article-more-link">
-            <a href="/2022/01/vagrant/#more">Read More</a>
-          </p>
-        
-      
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LDW3BHJTTW');
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/vagrant/" data-id="cm437pfml00dxovq48wcdgbly" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
-      
-        <a href="https://shenxianpeng.github.io/2022/01/vagrant/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vagrant/" rel="tag">Vagrant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a></li></ul>
-
-
-    </footer>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LDW3BHJTTW');
-    </script>
-  </div>
-  
-</article>
-
-  
-    <article id="post-2022/01/what-is-go" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/what-is-go/" class="article-date">
-  <time datetime="2022-01-18T14:01:31.000Z" itemprop="datePublished">2022-01-18</time>
-</a>
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/go/">Go</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/what-is-go/">什么是 Go ？Go 的优势和现状。初学者应该学习 Python 还是 Go？</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Go 是一种开源编程语言，可以轻松构建简单、可靠和高效的软件。</p>
-<h2 id="Go-还是-Golang"><a href="#Go-还是-Golang" class="headerlink" title="Go 还是 Golang"></a>Go 还是 Golang</h2><p>先问一个大多数人可能会忽略的问题：Google 的这门开源编程语言叫 Go 还是 Golang？还是两个都行？给你三秒钟想一下 …</p>
-<p>Google 说：它叫 Go。之所以有人称它为 Golang 是由于之前的 Go 语言官网是 golang.org（因为 go.org 已经被别人用了），因此有人将 Golang 和 Go 混用了。</p>
-<p>现在输入 golang.org 会直接跳转到 go.dev 这个网址，这也算是彻底给自家孩子正个名。</p>
-<h2 id="Go-语言有哪些优势"><a href="#Go-语言有哪些优势" class="headerlink" title="Go 语言有哪些优势"></a>Go 语言有哪些优势</h2><p>官网是这样介绍 Go 语言的：</p>
-<ul>
-<li>Go 适合大规模快速构建，可靠、高效的软件</li>
-<li>Go 是 Google 在背后支持的一门开源编程语言</li>
-<li>易于学习和入门</li>
-<li>内置并发和强大的标准库</li>
-<li>不断发展的合作伙伴、社区和工具生态系统</li>
-</ul>
-<p>今天，Go 被用于各种应用程序：</p>
-        
-          <p class="article-more-link">
-            <a href="/2022/01/what-is-go/#more">Read More</a>
-          </p>
-        
-      
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LDW3BHJTTW');
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/what-is-go/" data-id="cm437pfmm00e1ovq4f96y9gdd" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
-      
-        <a href="https://shenxianpeng.github.io/2022/01/what-is-go/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cli/" rel="tag">CLI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">Go</a></li></ul>
-
-
-    </footer>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LDW3BHJTTW');
-    </script>
-  </div>
-  
-</article>
-
-  
-    <article id="post-2022/01/docker-best-practice" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/docker-best-practice/" class="article-date">
-  <time datetime="2022-01-12T04:18:16.000Z" itemprop="datePublished">2022-01-12</time>
-</a>
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/docker/">Docker</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/docker-best-practice/">你一定要了解这 17 条 Docker 最佳实践！</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本篇分享在编写 Dockerfiles 和使用 Docker 时应遵循的一些最佳实践。篇幅较长，建议先收藏慢慢看，保证看完会很有收获。</p>
-<h2 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h2><p>Dockerfile 最佳实践</p>
-<ol>
-<li>使用多阶段的构建</li>
-<li>调整 Dockerfile 命令的顺序</li>
-<li>使用小型 Docker 基础镜像</li>
-<li>尽量减少层的数量</li>
-<li>使用无特权的容器</li>
-<li>优先选择 <code>COPY</code> 而不是 <code>ADD</code></li>
-<li>将 <code>Python</code> 包缓存到 Docker 主机上</li>
-<li>每个容器只运行一个进程</li>
-<li>优先选择数组而不是字符串语法</li>
-<li>理解 <code>ENTRYPOINT</code> 和 <code>CMD</code> 之间的区别</li>
-<li>添加健康检查 <code>HEALTHCHECK</code></li>
-</ol>
-<p>Docker 镜像最佳实践</p>
-<ol>
-<li>Docker 镜像的版本</li>
-<li>不要在镜像中存储密钥</li>
-<li>使用 <code>.dockerignore</code> 文件</li>
-<li>检查和扫描你的 Docker 文件和镜像</li>
-<li>签署和验证镜像</li>
-</ol>
-<h2 id="Dockerfile-最佳实践"><a href="#Dockerfile-最佳实践" class="headerlink" title="Dockerfile 最佳实践"></a>Dockerfile 最佳实践</h2><h3 id="1-使用多阶段的构建"><a href="#1-使用多阶段的构建" class="headerlink" title="1. 使用多阶段的构建"></a>1. 使用多阶段的构建</h3><p>利用多阶段构建的优势来创建更精简、更安全的Docker镜像。多阶段 Docker 构建(<a target="_blank" rel="noopener" href="https://docs.docker.com/develop/develop-images/multistage-build/">multi-stage builds</a>)允许你将你的 Dockerfile 分成几个阶段。</p>
-<p>例如，你可以有一个阶段用于编译和构建你的应用程序，然后可以复制到后续阶段。由于只有最后一个阶段被用来创建镜像，与构建应用程序相关的依赖关系和工具就会被丢弃，因此可以留下一个精简的、模块化的、可用于生产的镜像。</p>
-<p>Web 开发示例：</p>
-        
-          <p class="article-more-link">
-            <a href="/2022/01/docker-best-practice/#more">Read More</a>
-          </p>
-        
-      
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LDW3BHJTTW');
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2022/01/docker-best-practice/" data-id="cm437pfmj00dpovq49gh0bu93" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
-      
-        <a href="https://shenxianpeng.github.io/2022/01/docker-best-practice/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a></li></ul>
-
-
-    </footer>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LDW3BHJTTW');
-    </script>
-  </div>
-  
-</article>
-
-  
-    <article id="post-2021/12/choose-monitor" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/12/choose-monitor/" class="article-date">
-  <time datetime="2021-12-21T13:19:26.000Z" itemprop="datePublished">2021-12-21</time>
-</a>
-
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/others/">Others</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-    
-
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/choose-monitor/">2022年序员如何选择显示器？1080p还是2K? 单屏还是多屏？</a>
-    </h1>
-  
-
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>工作十几年用过了不少显示器，从最初的 17寸，到后来的 23寸、27寸、32寸、再到现在的 34 寸，根据我自己的使用体验，来个主观推荐：</p>
-<p>第一名，一个34寸曲面显示器<br>第二名，一个27寸 + 一个23寸的双屏组合<br>第三名，一个32寸 + 一个23寸的双屏组合<br>第三名，两个 23 寸的双屏组合（并列第三名）</p>
-<p>以上这些屏幕推荐购买 2K 及以上的分辨率，1080p 的分辨率不推荐。</p>
-<p>下面我就按照时间轴说说我用过的那些显示器。</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/12/choose-monitor/#more">Read More</a>
-          </p>
-        
-      
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-LDW3BHJTTW');
-      </script>
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/12/choose-monitor/" data-id="cm437pfmf00diovq480elb7u9" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
-      
-        <a href="https://shenxianpeng.github.io/2021/12/choose-monitor/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/monitor/" rel="tag">Monitor</a></li></ul>
-
-
-    </footer>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LDW3BHJTTW');
-    </script>
-  </div>
-  
-</article>
-
-  
-    <article id="post-2021/12/cicd-assessment" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2021/12/cicd-assessment/" class="article-date">
-  <time datetime="2021-12-07T14:02:53.000Z" itemprop="datePublished">2021-12-07</time>
+    <a href="/2021/03/code-review/" class="article-date">
+  <time datetime="2021-03-20T09:10:14.000Z" itemprop="datePublished">2021-03-20</time>
 </a>
 
     
@@ -629,7 +194,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/12/cicd-assessment/">组织内如何评估 CI/CD 成熟度</a>
+      <a class="article-title" href="/2021/03/code-review/">基于谷歌代码审查（Code Review）法则的思考与实践</a>
     </h1>
   
 
@@ -638,185 +203,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在一个组织内，不同的团队之间可能会有不同的维度来评估 CI&#x2F;CD 的成熟度。这使得对衡量每个团队的 CI&#x2F;CD 的表现变得困难。</p>
-<p>如何快速评估哪些项目遵循最佳实践？如何更容易地构建高质量的安全软件？组织内需要建立一个由团队成员一起讨论出来的最佳实践来帮助团队建立明确的努力方向。</p>
-<h2 id="如何评估"><a href="#如何评估" class="headerlink" title="如何评估"></a>如何评估</h2><p>这里我参考了开源项目 <a target="_blank" rel="noopener" href="https://github.com/coreinfrastructure/best-practices-badge">CII 最佳实践徽章计划</a>，这是 Linux 基金会 (LF) 发起的一个开源项目。它提供一系列自由&#x2F;开源软件 (FLOSS) 项目的最佳实践方法。参照这些最佳实践标准的项目可以进行自认证, 以获得核心基础设施促进会(CII)徽章。要做到这点无需任何费用，你的项目可以使用 Web 应用（BadgeApp) 来证明是如何符合这些实践标准的以及其详细状况。</p>
-<p>这些最佳实践标准可以用来：</p>
-<ul>
-<li>鼓励项目遵循最佳实践。</li>
-<li>帮助新的项目找到那些它们要遵循的最佳实践</li>
-<li>帮助用户了解哪些项目遵循了最佳实践（这样用户可以更倾向于选择此类项目）。</li>
-</ul>
-<p>最佳实践包含以下五个标准：基本，变更控制，报告，质量，安全，分析。</p>
-<p><img src="/2021/12/cicd-assessment/cii.png" alt="cii"></p>
-<p>更多关于标准的细分可以参考 <a target="_blank" rel="noopener" href="https://hardenedlinux.github.io/2016/08/04/best-practices-criteria-for-floss-part1.html">CII 中文文档</a> 或 <a target="_blank" rel="noopener" href="https://github.com/coreinfrastructure/best-practices-badge/blob/main/doc/criteria.md">CII 英文文档</a>。</p>
-<p>已经很多知名的项目比如 <a target="_blank" rel="noopener" href="https://bestpractices.coreinfrastructure.org/en/projects/569">Kubernetes</a>, <a target="_blank" rel="noopener" href="https://bestpractices.coreinfrastructure.org/en/projects/29">Node.js</a> 等在使用这个最佳实践徽章计划</p>
-<p><img src="/2021/12/cicd-assessment/badge-owners.png" alt="badge-owners"></p>
-<p>如果你的项目在 GitHub 上或是你可以按照上述的徽章计划进行评估，就可以使用它来评估你项目的最佳实践，并可以在项目主页的 README 上显示徽章结果。</p>
-<p><img src="/2021/12/cicd-assessment/badge-result.png" alt="badge-result"></p>
-<h2 id="定制最佳实践标准"><a href="#定制最佳实践标准" class="headerlink" title="定制最佳实践标准"></a>定制最佳实践标准</h2><p>如果上述项目不能满足你的评估要求，结合我的实践，制定了如下“最佳实践标准”并分配了相应的成熟度徽章，供参考。</p>
-<h3 id="计算规则"><a href="#计算规则" class="headerlink" title="计算规则"></a>计算规则</h3><ol>
-<li>每个最佳实践标准都有分数，通常一般的标准是10分，重要的标准是20分</li>
-<li>带有🔰的最佳实践标准表示“一定要有”</li>
-<li>带有👍的最佳实践标准表示“应当有”</li>
-<li>每个项目的最佳实践标准分数之和落在的区间获得对应的徽章</li>
-</ol>
-<h3 id="徽章分数对照表"><a href="#徽章分数对照表" class="headerlink" title="徽章分数对照表"></a>徽章分数对照表</h3><table>
-<thead>
-<tr>
-<th>徽章</th>
-<th>分数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>🚩WIP</td>
-<td>&lt; 100</td>
-<td>小于100分获得 🚩Work In Progress 徽章</td>
-</tr>
-<tr>
-<td>✔️PASSING</td>
-<td>&#x3D; 100</td>
-<td>等于100分获得 ✔️PASSING 徽章</td>
-</tr>
-<tr>
-<td>🥈SILVER</td>
-<td>&gt; 100 &amp;&amp; &lt;&#x3D; 150</td>
-<td>大于100，小于等于150分获得🥈银牌徽章</td>
-</tr>
-<tr>
-<td>🥇GOLD</td>
-<td>&gt; 150</td>
-<td>大于等于150分获得🥇金牌徽章</td>
-</tr>
-</tbody></table>
-<p>注：这个分数区间可调整。</p>
-<h3 id="最佳实践标准和分数"><a href="#最佳实践标准和分数" class="headerlink" title="最佳实践标准和分数"></a>最佳实践标准和分数</h3><table>
-<thead>
-<tr>
-<th>类别</th>
-<th>最佳实践标准</th>
-<th>分数</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>基本</strong></td>
-<td>🔰<strong>构建任何分支</strong></td>
-<td><strong>20</strong></td>
-<td>Jenkins：支持任何分支构建</td>
-</tr>
-<tr>
-<td></td>
-<td>🔰<strong>构建任何PR</strong></td>
-<td><strong>20</strong></td>
-<td>Jenkins：支持对任何 Pull Request 在 Merge 之前进行构建</td>
-</tr>
-<tr>
-<td></td>
-<td>🔰上传制品</td>
-<td>10</td>
-<td>Jenkins：构建产物上传到制品仓库保存</td>
-</tr>
-<tr>
-<td></td>
-<td>👍容器化构建</td>
-<td>10</td>
-<td>推荐使用容器化技术实现Pipeline</td>
-</tr>
-<tr>
-<td><strong>质量</strong></td>
-<td>🔰<strong>自动化测试</strong></td>
-<td><strong>20</strong></td>
-<td>Jenkins：支持触发冒烟&#x2F;单元&#x2F;回归测试</td>
-</tr>
-<tr>
-<td></td>
-<td>👍性能测试</td>
-<td>10</td>
-<td>Jenkins：支持触发性能测试</td>
-</tr>
-<tr>
-<td></td>
-<td>👍代码覆盖率收集</td>
-<td>10</td>
-<td>Jenkins：支持获得代码覆盖率</td>
-</tr>
-<tr>
-<td><strong>安全</strong></td>
-<td>🔰漏洞扫描</td>
-<td>10</td>
-<td>Jenkins：支持触发漏洞扫描</td>
-</tr>
-<tr>
-<td></td>
-<td>🔰License扫描</td>
-<td>10</td>
-<td>Jenkins：支持触发证书扫描</td>
-</tr>
-<tr>
-<td><strong>分析</strong></td>
-<td>👍Code Lint</td>
-<td>10</td>
-<td>Jenkins：支持对PR进行代码格式检查</td>
-</tr>
-<tr>
-<td></td>
-<td>👍静态代码分析</td>
-<td>10</td>
-<td>Jenkins：支持对PR进行静态代码分析</td>
-</tr>
-<tr>
-<td></td>
-<td>👍动态代码分析</td>
-<td>10</td>
-<td>Jenkins：支持对PR进行动态代码分析</td>
-</tr>
-<tr>
-<td><strong>报告</strong></td>
-<td>🔰Email或Slack通知</td>
-<td>10</td>
-<td>支持通过Email或Slack等方式通知</td>
-</tr>
-</tbody></table>
-<p>注：以Jenkins为例。</p>
-<h2 id="最终的结果"><a href="#最终的结果" class="headerlink" title="最终的结果"></a>最终的结果</h2><table>
-<thead>
-<tr>
-<th>No</th>
-<th>Repository Name</th>
-<th>实现的最佳实践标准</th>
-<th>徽章</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>project-a</td>
-<td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰Email或Slack通知</td>
-<td>🚩WIP</td>
-</tr>
-<tr>
-<td>2</td>
-<td>project-b</td>
-<td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td>
-<td>✔️PASSING</td>
-</tr>
-<tr>
-<td>3</td>
-<td>project-c</td>
-<td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>🔰漏洞扫描<br>🔰License扫描<br>🔰Email或Slack通知</td>
-<td>🥈SILVER</td>
-</tr>
-<tr>
-<td>4</td>
-<td>project-d</td>
-<td>🔰<strong>构建任何分支</strong><br>🔰<strong>构建任何PR</strong><br>🔰上传制品<br>👍容器化构建<br>🔰<strong>自动化测试</strong><br>👍性能测试<br>👍代码覆盖率收集<br>🔰漏洞扫描<br>🔰License扫描<br>👍Code Lint<br>👍静态代码分析<br>👍动态代码分析<br>🔰Email或Slack通知</td>
-<td>🥇GOLD</td>
-</tr>
-</tbody></table>
-<h2 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p>Q: 为什么使用徽章而不是分数？<br>A: 使用徽章能更好的帮助团队朝着目标而不是分数努力。</p>
-<p>Q: 建立最佳实践标准还有哪些帮助？<br>A: 团队之间容易进行技术共享，更容易地构建高质量的安全软件，保持团队之间在统一的高水准。</p>
-
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>代码审查（Code Review），就是让别人来审查你的代码，其目的就是确保代码库的整体代码运行状况随着时间推移而不断改善。</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/03/code-review/#more">Read More</a>
+          </p>
+        
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
@@ -829,13 +221,13 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/12/cicd-assessment/" data-id="cm437pfmj00dmovq45djkd0d5" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/03/code-review/" data-id="cm4oase0k00awh4q0e5g3borf" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
-        <a href="https://shenxianpeng.github.io/2021/12/cicd-assessment/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://shenxianpeng.github.io/2021/03/code-review/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/badge/" rel="tag">Badge</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cd/" rel="tag">CD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ci/" rel="tag">CI</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a></li></ul>
 
 
     </footer>
@@ -854,10 +246,106 @@ ga('send', 'pageview');
 </article>
 
   
-    <article id="post-2021/11/special-repository" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2021/02/jenkins-windows-agent-cannot-start" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/11/special-repository/" class="article-date">
-  <time datetime="2021-11-09T14:02:15.000Z" itemprop="datePublished">2021-11-09</time>
+    <a href="/2021/02/jenkins-windows-agent-cannot-start/" class="article-date">
+  <time datetime="2021-02-11T08:09:06.000Z" itemprop="datePublished">2021-02-11</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/jenkins-windows-agent-cannot-start/">Jenkins upgrade issue &#34;Windows agents won&#39;t start&#34; workaround</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Today, when I tried to upgrade my team’s Jenkins server from Jenkins 2.235.1 to Jenkins 2.263.3, I met a problem that can not launch the Windows agent.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2021-01-29 23:50:40] [windows-agents] Connecting to xxx.xxx.xxx.xxx</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">Checking if Java exists</span><br><span class="line">java -version returned 11.0.2.</span><br><span class="line">[2021-01-29 23:50:40] [windows-agents] Installing the Jenkins agent service</span><br><span class="line">[2021-01-29 23:50:40] [windows-agents] Copying jenkins-agent.exe</span><br><span class="line">ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</span><br><span class="line">Also: java.lang.Throwable: launched here</span><br><span class="line">at hudson.slaves.SlaveComputer._connect(SlaveComputer.java:286)</span><br><span class="line">at hudson.model.Computer.connect(Computer.java:435)</span><br><span class="line">at hudson.slaves.SlaveComputer.doLaunchSlaveAgent(SlaveComputer.java:790)</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">at java.lang.Thread.run(Thread.java:748)</span><br><span class="line">java.lang.NullPointerException</span><br><span class="line">at hudson.os.windows.ManagedWindowsServiceLauncher.launch(ManagedWindowsServiceLauncher.java:298)</span><br></pre></td></tr></table></figure>
+
+<p>This issue had been raised in the Jenkins Jira project: <a target="_blank" rel="noopener" href="https://issues.jenkins.io/browse/JENKINS-63198">JENKINS-63198</a> and <a target="_blank" rel="noopener" href="https://issues.jenkins.io/browse/JENKINS-63198">JENKINS-63198</a></p>
+<p>There is also a Windows Support Updates guide <a target="_blank" rel="noopener" href="https://www.jenkins.io/blog/2020/07/23/windows-support-updates/">here</a> that mentioned this problem.</p>
+<p>Finally, I fixed this problem by the following steps:</p>
+<ol>
+<li>Update <a target="_blank" rel="noopener" href="https://github.com/jenkinsci/windows-slaves-plugin">windows-slaves-plugin</a> to the lastest version 1.7 (fixes for Jenkins 2.248+)</li>
+</ol>
+<p>Then the error should be like this</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[2021-01-30 23:53:40] [windows-agents] Connecting to xxx.xxx.xxx.xxx</span><br><span class="line">Checking if Java exists</span><br><span class="line">java -version returned 11.0.2.</span><br><span class="line">[2021-01-30 23:53:47] [windows-agents] Copying jenkins-agent.xml</span><br><span class="line">[2021-01-30 23:53:48] [windows-agents] Copying agent.jar</span><br><span class="line">[2021-01-30 23:53:48] [windows-agents] Starting the service</span><br><span class="line">ERROR: Unexpected error in launching an agent. This is probably a bug in Jenkins</span><br><span class="line">org.jinterop.dcom.common.JIException: Unknown Failure</span><br><span class="line">	at org.jvnet.hudson.wmi.Win32Service$Implementation.start(Win32Service.java:149)</span><br><span class="line">Caused: java.lang.reflect.InvocationTargetException</span><br><span class="line">	at sun.reflect.GeneratedMethodAccessor219.invoke(Unknown Source)</span><br><span class="line">	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)</span><br><span class="line">	at java.lang.reflect.Method.invoke(Method.java:498)</span><br><span class="line">	at org.kohsuke.jinterop.JInteropInvocationHandler.invoke(JInteropInvocationHandler.java:140)</span><br><span class="line">Also:   java.lang.Throwable: launched here</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Then change <code>jenkins-agent.exe.config</code> file. remove or comment out this line <code>&lt;supportedRuntime version=&quot;v2.0.50727&quot; /&gt;</code> as below</li>
+</ol>
+<blockquote>
+<p>also do this for <code>jenkins-slave.exe.config</code> in case it also exists.</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">runtime</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- see http://support.microsoft.com/kb/936707 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">generatePublisherEvidence</span> <span class="attr">enabled</span>=<span class="string">&quot;false&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">runtime</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">startup</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- this can be hosted either on .NET 2.0 or 4.0 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- &lt;supportedRuntime version=&quot;v2.0.50727&quot; /&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">supportedRuntime</span> <span class="attr">version</span>=<span class="string">&quot;v4.0&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Then try to Launch agent.</li>
+</ol>
+<p>If it still does not work and has this error message “.NET Framework 2.0 or later is required on this computer to run a Jenkins agent as a Windows service”, you need to upgrade your .NET Framework.</p>
+<blockquote>
+<p>Here is a <a href="https://shenxianpeng.github.io/2020/07/jenkins-windows-agent-connect-problem/">link</a> for update .NET Framework.</p>
+</blockquote>
+<p>Hopefully, this could help you to fix connect the issue of the Windows agent. Let me know in case of any questions.</p>
+
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/" data-id="cm4oase0i00ash4q0dr8l7p9o" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/02/jenkins-windows-agent-cannot-start/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/devops-roadmap-2021" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/devops-roadmap-2021/" class="article-date">
+  <time datetime="2021-01-21T15:29:25.000Z" itemprop="datePublished">2021-01-21</time>
 </a>
 
     
@@ -875,7 +363,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/special-repository/">GitHub Actions 还能这么玩？自动将发布的博客文章更新到 GitHub 个人主页</a>
+      <a class="article-title" href="/2021/01/devops-roadmap-2021/">2021年DevOps工程师的学习路线</a>
     </h1>
   
 
@@ -884,18 +372,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近实现了一个很有意思的 Workflow，就是通过 GitHub Actions 自动将每次最新发布的文章自动同步到我的 GitHub 首页。</p>
-<p>就像这样在首页显示最近发布的博客文章。</p>
-<p><img src="/2021/11/special-repository/final.png" alt="最终效果"></p>
-<p>要实现这样的工作流需要了解以下这几点：</p>
-<ol>
-<li>需要创建一个与 GitHub 同名的个人仓库，这个仓库的 <code>README.md</code> 信息会显示在首页</li>
-<li>通过 GitHub Actions 自动获取博客的最新文章并更新 <code>README.md</code></li>
-<li>只有当有新的文章发布的时候才触发自动获取、更新文章 GitHub Action</li>
-</ol>
+        <p>DevOps 实际上是什么意思？🤔</p>
+<p>DevOps 是一种软件开发方法，涉及持续开发，持续测试，持续集成，部署和监视。这一系列过程跨越了传统上孤立的开发和运营团队，DevOps 试图消除它们之间的障碍。</p>
+<p>因此，DevOps 工程师基本上与 Development 和 Operations 团队合作。它是这两个主要部分之间的链接。</p>
         
           <p class="article-more-link">
-            <a href="/2021/11/special-repository/#more">Read More</a>
+            <a href="/2021/01/devops-roadmap-2021/#more">Read More</a>
           </p>
         
       
@@ -910,13 +392,13 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/11/special-repository/" data-id="cm437pfmd00dcovq4997cgu77" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/" data-id="cm4oase0a00a4h4q005hm486x" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
-        <a href="https://shenxianpeng.github.io/2021/11/special-repository/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://shenxianpeng.github.io/2021/01/devops-roadmap-2021/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/actions/" rel="tag">Actions</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/" rel="tag">GitHub</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li></ul>
 
 
     </footer>
@@ -935,15 +417,15 @@ ga('send', 'pageview');
 </article>
 
   
-    <article id="post-2021/11/world-quality-report" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2021/01/devops-trends-in-2021" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/11/world-quality-report/" class="article-date">
-  <time datetime="2021-11-06T07:57:10.000Z" itemprop="datePublished">2021-11-06</time>
+    <a href="/2021/01/devops-trends-in-2021/" class="article-date">
+  <time datetime="2021-01-21T14:12:32.000Z" itemprop="datePublished">2021-01-21</time>
 </a>
 
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/quality/">Quality</a>
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
   </div>
 
 
@@ -956,7 +438,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/11/world-quality-report/">2021-22 世界质量报告（World Quality Report）</a>
+      <a class="article-title" href="/2021/01/devops-trends-in-2021/">预测 2021 年的 DevOps 趋势</a>
     </h1>
   
 
@@ -965,23 +447,11 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2021-22 世界质量报告（World Quality Report 简称 WQR）是由 Micro Focus，Capgemini 和 Sogeti 三家公司合作的来分析软件质量和测试趋势在全球范围内唯一的报告。</p>
-<p>这份报告共采访了 1750 名高管和专业人士。从最高管理层到 QA 测试经理和质量工程师，涵盖了来自全球 32 个国家的 10 个行业。</p>
-<p><img src="/2021/11/world-quality-report/0.png" alt="图片 0"></p>
-<p>世界质量报告（WQR）是一项独一无二的全球研究，今年的调查强调了新部署方法中不断变化的受大流行影响的应用程序需求的影响，以及 QA 对敏捷和 DevOps 实践的采用，AI 的持续增长。</p>
-<p>作为测试关注这类软件质量报告可以帮助我们快速了解软件测试行业的现状和趋势。</p>
-<h2 id="五大主题"><a href="#五大主题" class="headerlink" title="五大主题"></a>五大主题</h2><p>WQR 的一个关键信息：在新冠疫情依旧的今天，我们看到了数字化转型的融合以及敏捷和 DevOps 实践的实时采用。此外，QA 正在成为采用敏捷和 DevOps 实践的领导者，为团队提供工具和流程以促进整个软件生命周期（SDLC）的质量。</p>
-<p>WQR 围绕关键发现和趋势突出了五个特定主题：</p>
-<ol>
-<li>新冠疫情对 QA 组织和软件测试的影响</li>
-<li>数字化转型与 DevOps 和敏捷采用的实时融合以及 QA 在其中的日益重要的作用</li>
-<li>地理上分散的团队在跨环境部署应用程序时专注于业务成果</li>
-<li>人工智能 (AI) 增强了敏捷和 DevOps 在所有团队中培养不断增长的质量责任文化</li>
-<li>使用 AI 驱动的持续测试和质量管理工具来解决客户体验优先事项和快速变化的受疫情影响的要求</li>
-</ol>
+        <p>DevOps 已经走了很长一段路，毫无疑问，它将在今年继续发光。由于许多公司都在寻求有关数字化转型的最佳实践，因此重要的是要了解领导者认为行业发展的方向。从这个意义上讲，以下文章是 DevOps 领导者对 DevOps 趋势的回应的集合，需要在 2021 年关注。</p>
+<p>让我们看看他们每个人对来年的 DevOps 有何评价。</p>
         
           <p class="article-more-link">
-            <a href="/2021/11/world-quality-report/#more">Read More</a>
+            <a href="/2021/01/devops-trends-in-2021/#more">Read More</a>
           </p>
         
       
@@ -996,13 +466,13 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/11/world-quality-report/" data-id="cm437pfme00dgovq4df0edflv" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/" data-id="cm4oase0b00a8h4q08e4bccls" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
-        <a href="https://shenxianpeng.github.io/2021/11/world-quality-report/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://shenxianpeng.github.io/2021/01/devops-trends-in-2021/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/quality/" rel="tag">Quality</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/report/" rel="tag">Report</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li></ul>
 
 
     </footer>
@@ -1021,15 +491,15 @@ ga('send', 'pageview');
 </article>
 
   
-    <article id="post-2021/10/what-is-polaris" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2021/01/result-vs-currentresult" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/10/what-is-polaris/" class="article-date">
-  <time datetime="2021-10-24T13:33:53.000Z" itemprop="datePublished">2021-10-24</time>
+    <a href="/2021/01/result-vs-currentresult/" class="article-date">
+  <time datetime="2021-01-14T02:48:18.000Z" itemprop="datePublished">2021-01-14</time>
 </a>
 
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/polaris/">Polaris</a>
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
   </div>
 
 
@@ -1042,7 +512,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/what-is-polaris/">Polaris - 静态代码分析</a>
+      <a class="article-title" href="/2021/01/result-vs-currentresult/">What&#39;s the difference between result and currentResult in Jenkins?</a>
     </h1>
   
 
@@ -1052,64 +522,12 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>这可能是中文网里介绍Polaris最详细的文章了</p>
+<p>This is just a note to myself about the difference between Jenkins <code>result</code> and <code>currentResult</code>.</p>
 </blockquote>
-<h2 id="什么是-Polaris？"><a href="#什么是-Polaris？" class="headerlink" title="什么是 Polaris？"></a>什么是 Polaris？</h2><p><strong>Polaris</strong> - 托管静态应用程序软件测试(SAST)工具的 SaaS 平台，它是用于分类和修复漏洞并运行报告的 Web 站点。<br><strong>SAST</strong> - 一种对源代码分析或构建过程中去寻找安全漏洞的工具，是一种在软件开发的生命周期(SDLC)中确保安全的重要步骤。<br><strong>Coverity</strong> - Coverity 是 Synopsys 公司提供的原始静态应用软件测试 (SAST) 工具。Polaris 是 Coverity 的 SaaS 版本。<br><strong>Synopsys</strong> - 是开发 Polaris 和其他软件扫描工具的公司，比如 BlackDuck 也是他们的产品。</p>
-<h2 id="Polaris-支持哪些语言？"><a href="#Polaris-支持哪些语言？" class="headerlink" title="Polaris 支持哪些语言？"></a>Polaris 支持哪些语言？</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">C/C++</span><br><span class="line">C#</span><br><span class="line">Java</span><br><span class="line">JavaScript</span><br><span class="line">TypeScript</span><br><span class="line">PHP</span><br><span class="line">Python</span><br><span class="line">Fortran</span><br><span class="line">Swift</span><br><span class="line">...and more</span><br></pre></td></tr></table></figure>
-
-<h2 id="Polaris-SaaS-平台"><a href="#Polaris-SaaS-平台" class="headerlink" title="Polaris SaaS 平台"></a>Polaris SaaS 平台</h2><p>通常如果你的组织引入了 Polaris 的 SaaS 服务，你将会有如下网址可供访问 URL: <a target="_blank" rel="noopener" href="https://organization.polaris.synopsys.com/">https://organization.polaris.synopsys.com</a></p>
-<p>然后登录，你就可以给自己的 Git Repository 创建对应的项目了。</p>
-<blockquote>
-<p>建议：创建的项目名称与 Git Repository 的名称一致。</p>
-</blockquote>
-<h2 id="Polaris-如何进行漏洞扫描？"><a href="#Polaris-如何进行漏洞扫描？" class="headerlink" title="Polaris 如何进行漏洞扫描？"></a>Polaris 如何进行漏洞扫描？</h2><h3 id="Polaris-安装"><a href="#Polaris-安装" class="headerlink" title="Polaris 安装"></a>Polaris 安装</h3><p>在进行 Polaris 扫描之前，你需要先下载并安装 polaris。</p>
-<p>如果你的 Polaris server URL 为：<code>POLARIS_SERVER_URL=https://organization.polaris.synopsys.com</code></p>
-<p>下载连接为：<code>$POLARIS_SERVER_URL/api/tools/polaris_cli-linux64.zip</code></p>
-<p>然后将下载到本地的 <code>polaris_cli-linux64.zip</code> 进行解压，将其 bin 目录添加到 PATH 中。</p>
-<h3 id="Polaris-YAML-文件配置"><a href="#Polaris-YAML-文件配置" class="headerlink" title="Polaris YAML 文件配置"></a>Polaris YAML 文件配置</h3><p>在进行扫描之前，你需要为你的项目创建 YAML 文件。默认配置文件名为 <code>polaris.yml</code>，位于项目根目录。如果你希望指定不同的配置文件名，你可以在 <code>polaris</code> 命令中使用 <code>-c</code> 选项。</p>
-<p>在项目根目录运行 <code>polaris setup</code> 以生成通用的 <code>polaris.yml</code> 文件。</p>
-<p>运行 <code>polaris configure</code> 以确认你的文件在语法上是正确的并且 <code>polaris</code> 没有任何问题。</p>
-<h4 id="Capture-捕获"><a href="#Capture-捕获" class="headerlink" title="Capture - 捕获"></a>Capture - 捕获</h4><p>YAML 配置文件可以包含三种类型的 Capture：</p>
-<ul>
-<li>Build(构建) - 运行构建命令，然后分析结果</li>
-<li>Filesystem(文件系统) - 对于解释型语言，提供项目类型和要分析的扩展列表</li>
-<li>Buildless - 对于一些可以使用依赖管理器的语言，比如 maven</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>Languages</th>
-<th>Build Options</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>C, C++, ObjectiveC, Objective C++,Go, Scala, Swift</td>
-<td>使用 Build 捕获</td>
-</tr>
-<tr>
-<td>PHP, Python, Ruby</td>
-<td>使用 Buildless 或 Filesystem 捕获</td>
-</tr>
-<tr>
-<td>C#, Visual Basic.</td>
-<td>如果想获得更准确的结果使用 Build 捕获；如果寻求简单使用 Buildless 捕获</td>
-</tr>
-<tr>
-<td>Java</td>
-<td>如果想获得更准确的结果使用 Build 捕获；如果寻求简单使用 Buildless 捕获</td>
-</tr>
-<tr>
-<td>JavaScript,TypeScript</td>
-<td>使用 Filesystem 捕获；如果寻求简单使用 Buildless 捕获</td>
-</tr>
-</tbody></table>
-<h4 id="Analyze-分析"><a href="#Analyze-分析" class="headerlink" title="Analyze - 分析"></a>Analyze - 分析</h4><p>如果你正在扫描 C&#x2F;C++ 代码，则应包括此分析部分以充分利用 Polaris 的扫描功能：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">analyze:</span></span><br><span class="line">  <span class="attr">mode:</span> <span class="string">central</span></span><br><span class="line">  <span class="attr">coverity:</span></span><br><span class="line">    <span class="attr">cov-analyze:</span> [<span class="string">&quot;--security&quot;</span>,<span class="string">&quot;--concurrency&quot;</span>]</span><br></pre></td></tr></table></figure>
-
-<h4 id="Polaris-YAML-示例文件"><a href="#Polaris-YAML-示例文件" class="headerlink" title="Polaris YAML 示例文件"></a>Polaris YAML 示例文件</h4>
+<h2 id="Declarative-Pipeline"><a href="#Declarative-Pipeline" class="headerlink" title="Declarative Pipeline"></a>Declarative Pipeline</h2>
         
           <p class="article-more-link">
-            <a href="/2021/10/what-is-polaris/#more">Read More</a>
+            <a href="/2021/01/result-vs-currentresult/#more">Read More</a>
           </p>
         
       
@@ -1124,13 +542,733 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/10/what-is-polaris/" data-id="cm437pfmd00d9ovq49i7r42ye" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/" data-id="cm4oase0e00aih4q03s66a6ow" class="article-share-link">Share</a>
       <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
       
-        <a href="https://shenxianpeng.github.io/2021/10/what-is-polaris/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://shenxianpeng.github.io/2021/01/result-vs-currentresult/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">Security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/static/" rel="tag">Static</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/git-repository-settings" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/git-repository-settings/" class="article-date">
+  <time datetime="2021-01-12T09:35:19.000Z" itemprop="datePublished">2021-01-12</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/git-repository-settings/">These settings in Bitbucket/GitHub recommends enable</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>As I have management our team’s git repositories for more than two years, and as my daily work using Bitbucket, so I’ll take it as an example.</p>
+<p>Here are some settings recommend you to enable.</p>
+<ol>
+<li>Set Reject Force Push</li>
+<li>Set Branch Prevent deletion</li>
+<li>Set tags for each hotfix&#x2F;GA releases</li>
+<li>Merge Check -&gt; Minimum approvals (1)</li>
+<li>Yet Another Commit Checker</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2021/01/git-repository-settings/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/01/git-repository-settings/" data-id="cm4oase0d00abh4q08u0s7t3c" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/01/git-repository-settings/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/open-port-22" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/open-port-22/" class="article-date">
+  <time datetime="2021-01-12T03:13:18.000Z" itemprop="datePublished">2021-01-12</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/windows/">Windows</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/open-port-22/">How to open port 22 and make it listening on Windows</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Recently our Bamboo server has an error when connecting to the Windows build system.</p>
+<p>Some errors like: Can not connect to the host XXXX 22 port.</p>
+<p>I log into the build machine find port 22 with the below command</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -aon|findstr <span class="string">&quot;22&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>but not found port 22 is inbound.</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/01/open-port-22/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/01/open-port-22/" data-id="cm4oase0d00aeh4q0ggvr0021" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/01/open-port-22/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">Windows</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/sparse-checkout" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/sparse-checkout/" class="article-date">
+  <time datetime="2021-01-11T07:03:45.000Z" itemprop="datePublished">2021-01-11</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">Git</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/sparse-checkout/">git sparse-checkout enable and disable</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This post just a note to myself and it works on my environment. it has not been widely tested.</p>
+<h2 id="Enable-git-sparse-checkout"><a href="#Enable-git-sparse-checkout" class="headerlink" title="Enable git sparse-checkout"></a>Enable git sparse-checkout</h2>
+        
+          <p class="article-more-link">
+            <a href="/2021/01/sparse-checkout/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/01/sparse-checkout/" data-id="cm4oase0f00alh4q0hrv2aku8" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/01/sparse-checkout/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">Git</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/verisign-server-not-working" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/verisign-server-not-working/" class="article-date">
+  <time datetime="2021-01-06T01:35:41.000Z" itemprop="datePublished">2021-01-06</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/verisign-server-not-working/">解决 Code Sign 默认时间戳服务器 http://timestamp.verisign.com/scripts/timstamp.dll 不可用</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相信许多程序员在新年开始在做 code sign (数字签名)的时候可能遇到 Verisign Timestamp 服务器不好用了 <a target="_blank" rel="noopener" href="http://timestamp.verisign.com/scripts/timstamp.dll">http://timestamp.verisign.com/scripts/timstamp.dll</a> 的情况。出现了如下错误：</p>
+<p><img src="/2021/01/verisign-server-not-working/failed.png" alt="Code Sign 失败了"></p>
+        
+          <p class="article-more-link">
+            <a href="/2021/01/verisign-server-not-working/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/" data-id="cm4oase0h00aph4q0539p4pk6" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/01/verisign-server-not-working/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2021/01/2021-devops-job-requirement" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/01/2021-devops-job-requirement/" class="article-date">
+  <time datetime="2021-01-03T03:22:38.000Z" itemprop="datePublished">2021-01-03</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/2021-devops-job-requirement/">2021 年国外 IT 公司对于 DevOps 工程师的要求有哪些？</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自 2020 年因疫情开始，越来越多的 IT 公司都因不得不在家办公从而彻底转为 WFH（Work From Home） 公司，因此对于 IT 从业者来说，工作机会今后将会是全球性的。</p>
+<p>如果你有意想进入一个跨国公司工作，想与世界各地的人在一起工作，那么就不能仅仅的关注国内的这些大厂，要将眼光放眼到全世界，看看这些耳熟能详的公司对于工程师的职位要求有哪些。</p>
+<p>今天就先来看看 DevOps 岗位的需求是什么样的，了解这些，一来可以帮助我们在2021 年树立学习方向，而来如果你有意向去这些公司，了解并提早做准备才能有机会获取你想要的岗位。</p>
+<p>由于这些职位的介绍和要求会很长，因此我就先说结论。</p>
+<h2 id="主要技能"><a href="#主要技能" class="headerlink" title="主要技能"></a>主要技能</h2><ul>
+<li>国外很多公司他们使用的云服务商主要是 AWS，因此熟悉和使用 AWS</li>
+<li>熟练使用 DevOps 工具，如 Jenkins, Ansible（Chef）, Git 等</li>
+<li>Docker 和 Kubernetes 是每个想从事 DevOps 需要掌握的</li>
+<li>熟悉操作系统，至少要 Linux</li>
+<li>大多数都是要求 Python 很熟练，高级一些的岗位会要求熟悉 Go, Java 语言</li>
+<li>最后，乐于学习，积极主动，具有创造性思维是每个 DevOps 最重要的特质，因此新的技术和工具层出不穷，我们需要保持和新进同行</li>
+</ul>
+<p>具体的职位要求细节，请看后面的职位介绍吧 …</p>
+        
+          <p class="article-more-link">
+            <a href="/2021/01/2021-devops-job-requirement/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/" data-id="cm4oase0a00a1h4q0b50f3dlh" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2021/01/2021-devops-job-requirement/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2020/12/2020-summary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/2020-summary/" class="article-date">
+  <time datetime="2020-12-31T07:00:00.000Z" itemprop="datePublished">2020-12-31</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/others/">Others</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/2020-summary/">2020 年终总结</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>时间飞快，马上就迎来了 2021 年，又到了总结自己这一年来的所有的经历和收获的时候了。</p>
+<p>2020 是非比寻常的一年，对于每个人不论是生活还是工作，都因为新冠病毒被影响着。</p>
+<p>但生活总归要继续。刷微博、抖音各种社交媒体是一天；工作学习也是一天。我是那种一段时间感觉没进步就特别恐慌的人，做完后者总会让我感觉更安心一些。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/12/2020-summary/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2020/12/2020-summary/" data-id="cm4oase09009yh4q06xrgcr9k" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2020/12/2020-summary/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/summary/" rel="tag">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/thought/" rel="tag">Thought</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2020/11/jenkins-backup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/jenkins-backup/" class="article-date">
+  <time datetime="2020-11-24T04:13:18.000Z" itemprop="datePublished">2020-11-24</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jenkins/">Jenkins</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/jenkins-backup/">How to backup Jenkins</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I believe most of you have used the Jenkins configuration as code principle, so you build&#x2F;test&#x2F;release process will be described in code.</p>
+<p>It looks like all is good, but not all of the configuration is in code, same of the Jenkins system configuration is store in the Jenkins service, so we also need to backup Jenkins in case of any disaster.</p>
+<p>There are two ways to backup Jenkins, one used Jenkins plugin, the other is create shell scripts.</p>
+<h2 id="Using-plug-in-backup"><a href="#Using-plug-in-backup" class="headerlink" title="Using plug-in backup"></a>Using plug-in backup</h2><p>I used the <code>ThinBackup</code> plugin, here is my thinBackup configuration.</p>
+<p><img src="/2020/11/jenkins-backup/thinBackup-Configuration.png" alt="ThinBackup Configuration"></p>
+        
+          <p class="article-more-link">
+            <a href="/2020/11/jenkins-backup/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2020/11/jenkins-backup/" data-id="cm4oase08009vh4q0csyf13hu" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2020/11/jenkins-backup/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backup/" rel="tag">Backup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2020/11/jacoco" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/jacoco/" class="article-date">
+  <time datetime="2020-11-17T10:26:14.000Z" itemprop="datePublished">2020-11-17</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/coverage/">Coverage</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/jacoco/">JaCoCo 实现原理 (JaCoCo Implementation Design)</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>想要对 Java 项目进行代码覆盖率的测试，很容易就找到 JaCoCo 这个开源代码覆盖率分析工具是众多工具中最后欢迎的哪一个。</p>
+<p>本篇仅仅是在学习 JaCoCo 时对其实现设计文档 <a target="_blank" rel="noopener" href="https://www.jacoco.org/jacoco/trunk/doc/implementation.html">https://www.jacoco.org/jacoco/trunk/doc/implementation.html</a> 的粗略翻译。</p>
+<h2 id="实现设计-Implementation-Design"><a href="#实现设计-Implementation-Design" class="headerlink" title="实现设计(Implementation Design)"></a>实现设计(Implementation Design)</h2><p>这是实现设计决策的一个无序列表，每个主题都试图遵循这样的结构:</p>
+<ul>
+<li>问题陈述</li>
+<li>建议的解决方案</li>
+<li>选择和讨论</li>
+</ul>
+<h3 id="覆盖率分析机制-Coverage-Analysis-Mechanism"><a href="#覆盖率分析机制-Coverage-Analysis-Mechanism" class="headerlink" title="覆盖率分析机制(Coverage Analysis Mechanism)"></a>覆盖率分析机制(Coverage Analysis Mechanism)</h3><blockquote>
+<p>覆盖率信息必须在运行时收集。为此，JaCoCo 创建原始类定义的插装版本，插装过程发生在加载类期间使用一个叫做 Java agents 动态地完成。</p>
+</blockquote>
+<p>有几种收集覆盖率信息的不同方法。每种方法都有不同的实现技术。下面的图表给出了 JaCoCo 使用的技术的概述:</p>
+<p><img src="/2020/11/jacoco/implementation.png" alt="实现"></p>
+<p>字节码插装非常快，可以用纯 Java 实现，并且可以与每个 Java VM 一起工作。可以将带有 Java 代理钩子的动态插装添加到 JVM 中，而无需对目标应用程序进行任何修改。</p>
+<p>Java 代理钩子至少需要 1.5 个 JVMs。用调试信息(行号)编译的类文件允许突出显示源代码。不幸的是，一些 Java 语言结构被编译成字节代码，从而产生意外的突出显示结果，特别是在使用隐式生成的代码时（如缺省构造函数或 finally 语句的控制结构）。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/11/jacoco/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2020/11/jacoco/" data-id="cm4oase08009rh4q0bdlx6z8y" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2020/11/jacoco/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/" rel="tag">DevOps</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a></li></ul>
+
+
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LDW3BHJTTW');
+    </script>
+  </div>
+  
+</article>
+
+  
+    <article id="post-2020/10/ansible-practice" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/ansible-practice/" class="article-date">
+  <time datetime="2020-10-28T02:09:41.000Z" itemprop="datePublished">2020-10-28</time>
+</a>
+
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/devops/">DevOps</a>
+  </div>
+
+
+  </div>
+  <div class="article-inner">
+    
+
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/ansible-practice/">Ansible 实践</a>
+    </h1>
+  
+
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在思考如何将团队里的所有的虚拟机都很好的管理并监控起来，但是由于我们的虚拟机的操作系统繁多，包括 Windows, Linux, AIX, HP-UX, Solaris SPARC 和 Solaris x86. 到底选择哪种方式来管理比较好呢？这需要结合具体场景来考虑。</p>
+<h2 id="Ansible-和其他工具的对比"><a href="#Ansible-和其他工具的对比" class="headerlink" title="Ansible 和其他工具的对比"></a>Ansible 和其他工具的对比</h2><p>这里有一个关于 Chef，Puppet，Ansible 和 Saltstack 的对比文章</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/">https://www.edureka.co/blog/chef-vs-puppet-vs-ansible-vs-saltstack/</a></p>
+</blockquote>
+<h2 id="选择合适的工具"><a href="#选择合适的工具" class="headerlink" title="选择合适的工具"></a>选择合适的工具</h2><h3 id="仅管理-Windows-和-Linux"><a href="#仅管理-Windows-和-Linux" class="headerlink" title="仅管理 Windows 和 Linux"></a>仅管理 Windows 和 Linux</h3><p>如果你的虚拟机没有这么多平台，只是 Windows 和 Linux，假如你已经有了 VMware vSphere 来管理了，那么可以通过 VMware vSphere API 来查看这些机器的状态。</p>
+<p>这里是 VMware 官方的 API Library 供使用：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/vmware/pyvmomi">VMware vSphere API Python Bindings</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/vmware/govmomi">Go library for the VMware vSphere API</a></li>
+</ul>
+<h3 id="管理多个操作系统"><a href="#管理多个操作系统" class="headerlink" title="管理多个操作系统"></a>管理多个操作系统</h3><p>如果你和我的情况一下，想监控很多个操作操作系统，那么就只能通过 ssh 来登录到每一台机器上去查看，比如执行 <code>uptime</code> 等命令。可以写 shell 脚本来完成这些登录、检测等操作。</p>
+<p>另外就是使用 Ansible 的 Playbook。Playbook 里描述了你要做的操作，这是一个权衡，学习 Ansible 的 Playbook 需要花些时间的。</p>
+<p>如果想了解下 Ansible 那么可以试试 Ansible Playbook。以下是我使用 Ansible 做了一些练习。</p>
+<h4 id="Playbook结构"><a href="#Playbook结构" class="headerlink" title="Playbook结构"></a>Playbook结构</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">+- vars</span><br><span class="line">|   +- vars.yml</span><br><span class="line">|   +- ...</span><br><span class="line">+- hosts               <span class="comment"># save all hosts you want to monitor</span></span><br><span class="line">+- run.yml             <span class="comment"># ansible executable file</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Playbook具体代码"><a href="#Playbook具体代码" class="headerlink" title="Playbook具体代码"></a>Playbook具体代码</h4>
+        
+          <p class="article-more-link">
+            <a href="/2020/10/ansible-practice/#more">Read More</a>
+          </p>
+        
+      
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LDW3BHJTTW');
+      </script>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenxianpeng.github.io/2020/10/ansible-practice/" data-id="cm4oase06009kh4q01b582lnu" class="article-share-link">Share</a>
+      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      
+        <a href="https://shenxianpeng.github.io/2020/10/ansible-practice/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a></li></ul>
 
 
     </footer>
@@ -1152,7 +1290,7 @@ ga('send', 'pageview');
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/6/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/8/">next</a>
+    <a class="extend prev" rel="prev" href="/page/6/">prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/">next</a>
   </nav>
 
 
@@ -1162,9 +1300,9 @@ ga('send', 'pageview');
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/aix/">AIX</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/artifactory/">Artifactory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blackduck/">BlackDuck</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coverage/">Coverage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devsecops/">DevSecOps</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">GitHub</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/groovy/">Groovy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/howto/">HowTo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">Language</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/">Nix</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/os/">OS</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/oss/">OSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">Others</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/polaris/">Polaris</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/quality/">Quality</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/release/">Release</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonarqube/">SonarQube</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vagrant/">Vagrant</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">Windows</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp-linter/">cpp-linter</a><span class="category-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -1284,29 +1422,19 @@ ga('send', 'pageview');
   
     
   <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/aix/">AIX</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/artifactory/">Artifactory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/automation/">Automation</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blackduck/">BlackDuck</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/coverage/">Coverage</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">DevOps</a><span class="category-list-count">36</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devsecops/">DevSecOps</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">Docker</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">Git</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github/">GitHub</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">Go</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/groovy/">Groovy</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/howto/">HowTo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jfrog/">JFrog</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jenkins/">Jenkins</a><span class="category-list-count">40</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">Language</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nix/">Nix</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/os/">OS</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/oss/">OSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">Others</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/polaris/">Polaris</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/quality/">Quality</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/release/">Release</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/sonarqube/">SonarQube</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vagrant/">Vagrant</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/windows/">Windows</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cpp-linter/">cpp-linter</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aix/" rel="tag">AIX</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">Apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automation/" rel="tag">Automation</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backup/" rel="tag">Backup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badge/" rel="tag">Badge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bake/" rel="tag">Bake</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blackduck/" rel="tag">BlackDuck</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/branch/" rel="tag">Branch</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/buildx/" rel="tag">Buildx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">C</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cd/" rel="tag">CD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ci/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cicd/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cli/" rel="tag">CLI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri/" rel="tag">CRI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri-o/" rel="tag">CRI-O</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">ChatGPT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cheatsheet/" rel="tag">Cheatsheet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/" rel="tag">Clang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/contributor/" rel="tag">Contributor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cppcheck/" rel="tag">Cppcheck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devsecops/" rel="tag">DevSecOps</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/" rel="tag">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fork/" rel="tag">Fork</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functiontest/" rel="tag">FunctionTest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gpg/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">Git</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">Go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/groovy/" rel="tag">Groovy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hp-ux/" rel="tag">HP-UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ibm/" rel="tag">IBM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/infrastructure/" rel="tag">Infrastructure</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jmeter/" rel="tag">JMeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">50</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kubernetes/" rel="tag">Kubernetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ldap/" rel="tag">LDAP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">Life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">Monitor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/" rel="tag">NFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">Nix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nixos/" rel="tag">NixOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuget/" rel="tag">NuGet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oci/" rel="tag">OCI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">OSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">Pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/" rel="tag">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quality/" rel="tag">Quality</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rdp/" rel="tag">RDP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/release/" rel="tag">Release</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/report/" rel="tag">Report</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sbom/" rel="tag">SBOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">Selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">Shell</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solaris/" rel="tag">Solaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonarqube/" rel="tag">SonarQube</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squash/" rel="tag">Squash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squishcoco/" rel="tag">SquishCoco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">Static</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stats/" rel="tag">Stats</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/" rel="tag">Summary</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testng/" rel="tag">TestNG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thought/" rel="tag">Thought</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VScode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/" rel="tag">Vagrant</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">WSL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webhook/" rel="tag">Webhook</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">Windows</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/witness/" rel="tag">Witness</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">Work</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/writing/" rel="tag">Writing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlc/" rel="tag">XLC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">ansible</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible-playbook/" rel="tag">ansible-playbook</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/" rel="tag">clang</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-format/" rel="tag">clang-format</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-tidy/" rel="tag">clang-tidy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commit-check/" rel="tag">commit-check</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/containerd/" rel="tag">containerd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-linter/" rel="tag">cpp-linter</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitstats/" rel="tag">gitstats</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">lcov</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/" rel="tag">perl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pip/" rel="tag">pip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">pipeline</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipx/" rel="tag">pipx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runc/" rel="tag">runc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/ai/" style="font-size: 10px;">AI</a> <a href="/tags/aix/" style="font-size: 13.08px;">AIX</a> <a href="/tags/actions/" style="font-size: 10px;">Actions</a> <a href="/tags/ansible/" style="font-size: 10px;">Ansible</a> <a href="/tags/apache/" style="font-size: 10px;">Apache</a> <a href="/tags/artifactory/" style="font-size: 15.38px;">Artifactory</a> <a href="/tags/automation/" style="font-size: 16.92px;">Automation</a> <a href="/tags/backup/" style="font-size: 10px;">Backup</a> <a href="/tags/badge/" style="font-size: 10px;">Badge</a> <a href="/tags/bake/" style="font-size: 10px;">Bake</a> <a href="/tags/bitbucket/" style="font-size: 13.85px;">Bitbucket</a> <a href="/tags/blackduck/" style="font-size: 10.77px;">BlackDuck</a> <a href="/tags/blog/" style="font-size: 10.77px;">Blog</a> <a href="/tags/branch/" style="font-size: 12.31px;">Branch</a> <a href="/tags/buildx/" style="font-size: 10px;">Buildx</a> <a href="/tags/c/" style="font-size: 13.08px;">C</a> <a href="/tags/cd/" style="font-size: 10px;">CD</a> <a href="/tags/ci/" style="font-size: 10.77px;">CI</a> <a href="/tags/cicd/" style="font-size: 10px;">CICD</a> <a href="/tags/cli/" style="font-size: 10px;">CLI</a> <a href="/tags/cri/" style="font-size: 10px;">CRI</a> <a href="/tags/cri-o/" style="font-size: 10px;">CRI-O</a> <a href="/tags/chatgpt/" style="font-size: 10px;">ChatGPT</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">Cheatsheet</a> <a href="/tags/clang/" style="font-size: 10px;">Clang</a> <a href="/tags/codereview/" style="font-size: 10px;">CodeReview</a> <a href="/tags/codesign/" style="font-size: 10px;">CodeSign</a> <a href="/tags/contributor/" style="font-size: 10px;">Contributor</a> <a href="/tags/coverage/" style="font-size: 14.62px;">Coverage</a> <a href="/tags/coverity/" style="font-size: 10px;">Coverity</a> <a href="/tags/cppcheck/" style="font-size: 10px;">Cppcheck</a> <a href="/tags/devops/" style="font-size: 18.46px;">DevOps</a> <a href="/tags/devsecops/" style="font-size: 13.85px;">DevSecOps</a> <a href="/tags/disqus/" style="font-size: 10px;">Disqus</a> <a href="/tags/docker/" style="font-size: 15.38px;">Docker</a> <a href="/tags/dokerfile/" style="font-size: 10px;">Dokerfile</a> <a href="/tags/eslint/" style="font-size: 10px;">ESlint</a> <a href="/tags/ftp/" style="font-size: 10px;">FTP</a> <a href="/tags/fork/" style="font-size: 10.77px;">Fork</a> <a href="/tags/functiontest/" style="font-size: 10px;">FunctionTest</a> <a href="/tags/gpg/" style="font-size: 10px;">GPG</a> <a href="/tags/gcov/" style="font-size: 11.54px;">Gcov</a> <a href="/tags/git/" style="font-size: 19.23px;">Git</a> <a href="/tags/github/" style="font-size: 13.85px;">GitHub</a> <a href="/tags/go/" style="font-size: 10px;">Go</a> <a href="/tags/gradle/" style="font-size: 10.77px;">Gradle</a> <a href="/tags/groovy/" style="font-size: 10px;">Groovy</a> <a href="/tags/hp-ux/" style="font-size: 10px;">HP-UX</a> <a href="/tags/hexo/" style="font-size: 13.08px;">Hexo</a> <a href="/tags/ibm/" style="font-size: 10px;">IBM</a> <a href="/tags/infrastructure/" style="font-size: 10.77px;">Infrastructure</a> <a href="/tags/interview/" style="font-size: 10px;">Interview</a> <a href="/tags/jfrog/" style="font-size: 12.31px;">JFrog</a> <a href="/tags/jmeter/" style="font-size: 10px;">JMeter</a> <a href="/tags/jacoco/" style="font-size: 10.77px;">JaCoCo</a> <a href="/tags/java/" style="font-size: 11.54px;">Java</a> <a href="/tags/javascript/" style="font-size: 11.54px;">Javascript</a> <a href="/tags/jenkins/" style="font-size: 20px;">Jenkins</a> <a href="/tags/jira/" style="font-size: 10px;">Jira</a> <a href="/tags/kubernetes/" style="font-size: 10.77px;">Kubernetes</a> <a href="/tags/lcov/" style="font-size: 10.77px;">LCOV</a> <a href="/tags/ldap/" style="font-size: 10.77px;">LDAP</a> <a href="/tags/life/" style="font-size: 10.77px;">Life</a> <a href="/tags/linux/" style="font-size: 11.54px;">Linux</a> <a href="/tags/monitor/" style="font-size: 10px;">Monitor</a> <a href="/tags/nfs/" style="font-size: 10px;">NFS</a> <a href="/tags/nightwatch/" style="font-size: 17.69px;">Nightwatch</a> <a href="/tags/nix/" style="font-size: 10px;">Nix</a> <a href="/tags/nixos/" style="font-size: 10px;">NixOS</a> <a href="/tags/nuget/" style="font-size: 10px;">NuGet</a> <a href="/tags/oci/" style="font-size: 10px;">OCI</a> <a href="/tags/oss/" style="font-size: 10px;">OSS</a> <a href="/tags/openssh/" style="font-size: 10px;">OpenSSH</a> <a href="/tags/pip/" style="font-size: 10px;">Pip</a> <a href="/tags/pipeline/" style="font-size: 16.15px;">Pipeline</a> <a href="/tags/polaris/" style="font-size: 10px;">Polaris</a> <a href="/tags/postgresql/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/pypi/" style="font-size: 10px;">PyPI</a> <a href="/tags/python/" style="font-size: 14.62px;">Python</a> <a href="/tags/pythonic/" style="font-size: 10px;">Pythonic</a> <a href="/tags/quality/" style="font-size: 10.77px;">Quality</a> <a href="/tags/rdp/" style="font-size: 10px;">RDP</a> <a href="/tags/release/" style="font-size: 10.77px;">Release</a> <a href="/tags/report/" style="font-size: 11.54px;">Report</a> <a href="/tags/sbom/" style="font-size: 10px;">SBOM</a> <a href="/tags/slsa/" style="font-size: 15.38px;">SLSA</a> <a href="/tags/security/" style="font-size: 10px;">Security</a> <a href="/tags/selenium/" style="font-size: 10px;">Selenium</a> <a href="/tags/shell/" style="font-size: 13.08px;">Shell</a> <a href="/tags/solaris/" style="font-size: 10px;">Solaris</a> <a href="/tags/sonarqube/" style="font-size: 10.77px;">SonarQube</a> <a href="/tags/squash/" style="font-size: 10px;">Squash</a> <a href="/tags/squishcoco/" style="font-size: 10px;">SquishCoco</a> <a href="/tags/static/" style="font-size: 10px;">Static</a> <a href="/tags/stats/" style="font-size: 10.77px;">Stats</a> <a href="/tags/summary/" style="font-size: 14.62px;">Summary</a> <a href="/tags/testng/" style="font-size: 10px;">TestNG</a> <a href="/tags/thought/" style="font-size: 14.62px;">Thought</a> <a href="/tags/timestamp/" style="font-size: 10px;">Timestamp</a> <a href="/tags/troubleshooting/" style="font-size: 16.15px;">Troubleshooting</a> <a href="/tags/ubuntu/" style="font-size: 10.77px;">Ubuntu</a> <a href="/tags/vpn/" style="font-size: 10px;">VPN</a> <a href="/tags/vscode/" style="font-size: 10px;">VSCode</a> <a href="/tags/vscode/" style="font-size: 10px;">VScode</a> <a href="/tags/vagrant/" style="font-size: 10.77px;">Vagrant</a> <a href="/tags/virtualbox/" style="font-size: 11.54px;">VirtualBox</a> <a href="/tags/wsl/" style="font-size: 10.77px;">WSL</a> <a href="/tags/webhook/" style="font-size: 11.54px;">Webhook</a> <a href="/tags/windows/" style="font-size: 12.31px;">Windows</a> <a href="/tags/witness/" style="font-size: 10.77px;">Witness</a> <a href="/tags/work/" style="font-size: 13.85px;">Work</a> <a href="/tags/writing/" style="font-size: 10px;">Writing</a> <a href="/tags/xlc/" style="font-size: 10px;">XLC</a> <a href="/tags/ansible/" style="font-size: 10px;">ansible</a> <a href="/tags/ansible-playbook/" style="font-size: 10px;">ansible-playbook</a> <a href="/tags/clang/" style="font-size: 10.77px;">clang</a> <a href="/tags/clang-format/" style="font-size: 10.77px;">clang-format</a> <a href="/tags/clang-tidy/" style="font-size: 10.77px;">clang-tidy</a> <a href="/tags/commit-check/" style="font-size: 10px;">commit-check</a> <a href="/tags/containerd/" style="font-size: 10px;">containerd</a> <a href="/tags/cpp-linter/" style="font-size: 10.77px;">cpp-linter</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/gitstats/" style="font-size: 10px;">gitstats</a> <a href="/tags/lcov/" style="font-size: 10px;">lcov</a> <a href="/tags/perl/" style="font-size: 10px;">perl</a> <a href="/tags/pip/" style="font-size: 10px;">pip</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/pipx/" style="font-size: 10px;">pipx</a> <a href="/tags/runc/" style="font-size: 10px;">runc</a> <a href="/tags/ulimit/" style="font-size: 10px;">ulimit</a>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">October 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aix/" rel="tag">AIX</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/actions/" rel="tag">Actions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ansible/" rel="tag">Ansible</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apache/" rel="tag">Apache</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/artifactory/" rel="tag">Artifactory</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/automation/" rel="tag">Automation</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/backup/" rel="tag">Backup</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badge/" rel="tag">Badge</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bitbucket/" rel="tag">Bitbucket</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blackduck/" rel="tag">BlackDuck</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">C</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cd/" rel="tag">CD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ci/" rel="tag">CI</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cicd/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri/" rel="tag">CRI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cri-o/" rel="tag">CRI-O</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">ChatGPT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/" rel="tag">Clang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codereview/" rel="tag">CodeReview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/codesign/" rel="tag">CodeSign</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/contributor/" rel="tag">Contributor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverage/" rel="tag">Coverage</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/coverity/" rel="tag">Coverity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cppcheck/" rel="tag">Cppcheck</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">DevOps</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devsecops/" rel="tag">DevSecOps</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/disqus/" rel="tag">Disqus</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">Docker</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dokerfile/" rel="tag">Dokerfile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eslint/" rel="tag">ESlint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/" rel="tag">FTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fork/" rel="tag">Fork</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/functiontest/" rel="tag">FunctionTest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gpg/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcov/" rel="tag">Gcov</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">Git</a><span class="tag-list-count">27</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">GitHub</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">Go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/" rel="tag">Gradle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/groovy/" rel="tag">Groovy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hp-ux/" rel="tag">HP-UX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">Hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/infrastructure/" rel="tag">Infrastructure</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfrog/" rel="tag">JFrog</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jmeter/" rel="tag">JMeter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jacoco/" rel="tag">JaCoCo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">Javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">Jenkins</a><span class="tag-list-count">50</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jira/" rel="tag">Jira</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kubernetes/" rel="tag">Kubernetes</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">LCOV</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ldap/" rel="tag">LDAP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/" rel="tag">Life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/monitor/" rel="tag">Monitor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nfs/" rel="tag">NFS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nightwatch/" rel="tag">Nightwatch</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nix/" rel="tag">Nix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nixos/" rel="tag">NixOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuget/" rel="tag">NuGet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oci/" rel="tag">OCI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">OSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openssh/" rel="tag">OpenSSH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/others/" rel="tag">Others</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pipeline/" rel="tag">Pipeline</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/polaris/" rel="tag">Polaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postgresql/" rel="tag">PostgreSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pypi/" rel="tag">PyPI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">Python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pythonic/" rel="tag">Pythonic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/quality/" rel="tag">Quality</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/release/" rel="tag">Release</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/report/" rel="tag">Report</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sbom/" rel="tag">SBOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/slsa/" rel="tag">SLSA</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/" rel="tag">Security</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">Selenium</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/" rel="tag">Shell</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/solaris/" rel="tag">Solaris</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sonarqube/" rel="tag">SonarQube</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squash/" rel="tag">Squash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/squishcoco/" rel="tag">SquishCoco</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/static/" rel="tag">Static</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stats/" rel="tag">Stats</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/summary/" rel="tag">Summary</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/testng/" rel="tag">TestNG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thought/" rel="tag">Thought</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/timestamp/" rel="tag">Timestamp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/troubleshooting/" rel="tag">Troubleshooting</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">Ubuntu</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/" rel="tag">VPN</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VSCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vscode/" rel="tag">VScode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vagrant/" rel="tag">Vagrant</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualbox/" rel="tag">VirtualBox</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">WSL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webhook/" rel="tag">Webhook</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">Windows</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/witness/" rel="tag">Witness</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">Work</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xlc/" rel="tag">XLC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang/" rel="tag">clang</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-format/" rel="tag">clang-format</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/clang-tidy/" rel="tag">clang-tidy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commit-check/" rel="tag">commit-check</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/containerd/" rel="tag">containerd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cpp-linter/" rel="tag">cpp-linter</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lcov/" rel="tag">lcov</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/perl/" rel="tag">perl</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/runc/" rel="tag">runc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ulimit/" rel="tag">ulimit</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1354,7 +1482,7 @@ ga('send', 'pageview');
   
     <a href="/daily/" class="mobile-nav-link">Daily</a>
   
-    <a href="/contribution/" class="mobile-nav-link">Contribution</a>
+    <a href="/contributions/" class="mobile-nav-link">Contributions</a>
   
     <a href="/about" class="mobile-nav-link">About</a>
   
