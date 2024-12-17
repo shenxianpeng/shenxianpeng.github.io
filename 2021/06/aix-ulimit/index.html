@@ -14,7 +14,7 @@
 <meta property="og:description" content="最近使用 AIX 7.1 从 Bitbucket 下载代码的时候遇到了这个错误：">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-06-17T05:52:44.000Z">
-<meta property="article:modified_time" content="2024-12-14T14:53:53.149Z">
+<meta property="article:modified_time" content="2024-12-17T19:46:42.004Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Git">
 <meta property="article:tag" content="AIX">
@@ -88,7 +88,6 @@ ga('send', 'pageview');
       </nav>
       <nav id="sub-nav">
         <!-- <a id="nav-linkedin-btn" class="nav-icon" href=https://www.linkedin.com/in/xianpeng-shen/ target="_blank" title="LinkedIn"></a> -->
-        <a id="nav-github-btn" class="nav-icon" href=https://github.com/shenxianpeng target="_blank" title="GitHub"></a>
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
@@ -143,7 +142,7 @@ ga('send', 'pageview');
 
 <p>这是由于这个仓库里的文件太大，超过了 AIX 对于用户文件资源使用的上限。</p>
 <p>通过 <code>ulimit -a</code> 可以来查看。更多关于 <code>ulimit</code> 命令的使用 <a target="_blank" rel="noopener" href="https://www.ibm.com/docs/en/aix/7.1?topic=u-ulimit-command">ulimit Command</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         2097151</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line"><span class="keyword">time</span>(seconds)        unlimited</span><br><span class="line">file(blocks)         2097151</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
 
 <p>可以看到 file 有一个上限值 2097151。如果将它也改成 unlimited 应该就好了。</p>
 <p>通过 root 用户可以访问到 limits 文件 <code>/etc/security/limits</code>(普通用户没权限访问)。</p>
@@ -151,7 +150,7 @@ ga('send', 'pageview');
 
 <p>将上述的值 fsize &#x3D; 2097151 改成 fsize &#x3D; -1 就将解除了文件块大小的限制了。修改完成后，<strong>重新登录</strong>来让这次修改生效。</p>
 <p>再次执行 <code>ulimit -a</code>，已经生效了。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line">time(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">ulimit</span> -a</span><br><span class="line"><span class="keyword">time</span>(seconds)        unlimited</span><br><span class="line">file(blocks)         unlimited</span><br><span class="line">data(kbytes)         unlimited</span><br><span class="line">stack(kbytes)        32768</span><br><span class="line">memory(kbytes)       32768</span><br><span class="line">coredump(blocks)     2097151</span><br><span class="line">nofiles(descriptors) 2000</span><br><span class="line">threads(per process) unlimited</span><br><span class="line">processes(per user)  unlimited</span><br></pre></td></tr></table></figure>
 
 <p>此时 file(blocks) 已经变成 unlimited 了。再次尝试 git clone</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b dev https://&lt;username&gt;:&lt;password&gt;@git.company.com/scm/vmcc/opensrc.git --depth 1</span><br><span class="line">Cloning into <span class="string">&#x27;opensrc&#x27;</span>...</span><br><span class="line">remote: Counting objects: 2390, <span class="keyword">done</span>.</span><br><span class="line">remote: Compressing objects: 100% (1546/1546), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 2390 (delta 763), reused 2369 (delta 763)</span><br><span class="line">Receiving objects: 100% (2390/2390), 3.80 GiB | 3.92 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Resolving deltas: 100% (763/763), <span class="keyword">done</span>.</span><br><span class="line">Checking out files: 100% (3065/3065), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
@@ -170,8 +169,8 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="cm4oase0u00bmh4q0715419v2" class="article-share-link">Share</a>
-      <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a>
+      <a data-url="https://shenxianpeng.github.io/2021/06/aix-ulimit/" data-id="cm4svkj0a00bojeooeqypfwkd" class="article-share-link">Share</a>
+      <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2021/06/aix-ulimit/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -393,7 +392,11 @@ ga('send', 'pageview');
 <footer id="footer">
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 - 2024 shenxianpeng<br>
+      <nav id="sub-nav">
+        <a id="nav-linkedin-btn" class="nav-icon" href=https://www.linkedin.com/in/xianpeng-shen/ target="_blank" title="LinkedIn"></a>
+        <a id="nav-github-btn" class="nav-icon" href=https://github.com/shenxianpeng target="_blank" title="GitHub"></a>
+      </nav>
+      &copy; Copyright 2017 - 2024 Xianpeng Shen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
