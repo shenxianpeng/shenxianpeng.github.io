@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2024-12-17T19:46:42.040Z</updated>
+  <updated>2024-12-23T05:29:00.065Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/gitstats/"/>
     <id>https://shenxianpeng.github.io/2024/11/gitstats/</id>
     <published>2024-11-27T18:28:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近的晚上的时间（一般要等到孩子睡了）我正在做一件事：复活已经沉寂多年的 GitStats 项目。&lt;/p&gt;
@@ -45,7 +45,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/"/>
     <id>https://shenxianpeng.github.io/2024/11/pip-vs-pipx/</id>
     <published>2024-11-25T17:21:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;pip-vs-pipx-的区别&quot;&gt;&lt;a href=&quot;#pip-vs-pipx-的区别&quot; class=&quot;headerlink&quot; title=&quot;pip vs pipx 的区别&quot;&gt;&lt;/a&gt;&lt;strong&gt;pip vs pipx 的区别&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;在 Python 的生态中，&lt;strong&gt;pip&lt;/strong&gt; 和 &lt;strong&gt;pipx&lt;/strong&gt; 都是用于管理包的软件工具，但它们有不同的设计目标和使用场景。有些同学可能会疑惑，两者到底有什么区别？该如何选择？&lt;/p&gt;
@@ -65,7 +65,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/"/>
     <id>https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/</id>
     <published>2024-11-17T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;Recently, while setting up a new Windows Server 2022, I encountered an issue where my Ansible playbook, which previously worked without problems, failed to execute.&lt;/p&gt;
@@ -85,7 +85,7 @@
     <link href="https://shenxianpeng.github.io/2024/10/devops-everyday/"/>
     <id>https://shenxianpeng.github.io/2024/10/devops-everyday/</id>
     <published>2024-10-26T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;很多人可能会好奇，作为一名 DevOps 工程师，每天究竟忙些什么呢？今天就来简单聊聊，作为 DevOps&amp;#x2F;Build&amp;#x2F;Release 工程师，我的日常工作节奏是怎样的。&lt;/p&gt;
@@ -105,7 +105,7 @@
     <link href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/"/>
     <id>https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/</id>
     <published>2024-10-24T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;Recently, I’ve been working on migrating and upgrading Jenkins. The main motivation is the vulnerability &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2024-23897&quot;&gt;CVE-2024-23897&lt;/a&gt;.&lt;/p&gt;
@@ -119,9 +119,9 @@
     <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
     <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -130,7 +130,7 @@
     <link href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/"/>
     <id>https://shenxianpeng.github.io/2024/10/jenkins-upgrade/</id>
     <published>2024-10-23T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;我最近在做的一件事情是迁移并升级 Jenkins。主要动机是因为这个漏洞 &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2024-23897&quot;&gt;CVE-2024-23897&lt;/a&gt;&lt;/p&gt;
@@ -144,9 +144,9 @@
     <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
     
     
-    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
-    
     <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
@@ -155,7 +155,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/power-of-choice/"/>
     <id>https://shenxianpeng.github.io/2024/09/power-of-choice/</id>
     <published>2024-09-26T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;偶尔深夜躺下时，我常常在想，我是怎么就走到这了？这都是源于毕业后的一系列选择吧！&lt;/p&gt;
@@ -177,7 +177,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/"/>
     <id>https://shenxianpeng.github.io/2024/09/principal-devops-engineer/</id>
     <published>2024-09-25T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;想象一下，你是一名 DevOps 工程师，不论初级、中级还是高级，老板总有一天拍拍你的肩膀说：“加油干，兄弟，未来你就是我们的首席 DevOps 工程师了！”你可能会心想：“啥是首席 DevOps？这是个什么新饼？”&lt;/p&gt;
@@ -198,7 +198,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch-zh/</id>
     <published>2024-09-23T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;上周正式发布《约定式分支规范》后，受到了广泛关注，不少人询问何时推出中文版。&lt;/p&gt;
@@ -219,7 +219,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch/</id>
     <published>2024-09-17T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h2&gt;&lt;p&gt;Conventional Branch refers to a structured and standardized naming convention for Git branches which aims to make branch more readable and actionable. We’ve suggested some branch prefixes you might want to use but you can also specify your own naming convention. A consistent naming convention makes it easier to identify branches by type.&lt;/p&gt;</summary>
@@ -238,7 +238,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/pypa/"/>
     <id>https://shenxianpeng.github.io/2024/09/pypa/</id>
     <published>2024-09-04T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyPA（Python Packaging Authority）是管理和维护 Python 包相关工具的一个社区组织。PyPA 管理的知名项目包括 pip、packaging、setuptools、wheel、twine、build 等等。了解这些项目的关于有助于我们更好的了解 Python 的生态系统。&lt;/p&gt;
@@ -258,7 +258,7 @@
     <link href="https://shenxianpeng.github.io/2024/07/remember/"/>
     <id>https://shenxianpeng.github.io/2024/07/remember/</id>
     <published>2024-07-08T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近开车的时候我总爱听赵雷的歌，尤其是那首《我记得》。&lt;/p&gt;
@@ -280,7 +280,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/farewell/"/>
     <id>https://shenxianpeng.github.io/2024/06/farewell/</id>
     <published>2024-06-27T16:00:00.000Z</published>
-    <updated>2024-12-17T19:46:42.036Z</updated>
+    <updated>2024-12-23T05:29:00.061Z</updated>
     
     
     <summary type="html">&lt;p&gt;​今天（6月28日）是我在Rocket中国分公司的最后一天，也是效力的第十个年头。这是我职业生涯中效力过最长的一家公司，想借此机会写下一些文字，为这十年画上一个句号。&lt;/p&gt;
@@ -302,7 +302,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/"/>
     <id>https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/</id>
     <published>2024-06-13T15:27:18.000Z</published>
-    <updated>2024-12-17T19:46:42.040Z</updated>
+    <updated>2024-12-23T05:29:00.065Z</updated>
     
     
     <summary type="html">&lt;p&gt;软件真是个有趣又深奥的东西，它由看似神奇的代码片段组成，这些代码运行在最终的终端上，本身却并非生命体，但拥有自己的生命周期。&lt;/p&gt;
@@ -329,7 +329,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/garasign/"/>
     <id>https://shenxianpeng.github.io/2024/06/garasign/</id>
     <published>2024-06-10T03:27:18.000Z</published>
-    <updated>2024-12-17T19:46:42.036Z</updated>
+    <updated>2024-12-23T05:29:00.061Z</updated>
     
     
     <summary type="html">&lt;p&gt;上次我在 &lt;a href=&quot;2024/04/code-signing/&quot;&gt;代码签名（Code Signing）&lt;/a&gt;的文章中时候提到了 GaraSign，这是我在工作中使用到的另一个代码签名工具。&lt;/p&gt;
@@ -351,7 +351,7 @@
     <link href="https://shenxianpeng.github.io/2024/05/psf-infra/"/>
     <id>https://shenxianpeng.github.io/2024/05/psf-infra/</id>
     <published>2024-05-28T03:27:18.000Z</published>
-    <updated>2024-12-17T19:46:42.036Z</updated>
+    <updated>2024-12-23T05:29:00.061Z</updated>
     
     
     <summary type="html">&lt;p&gt;Python 软件基金会 (PFS) 或许大家比较熟知，它是开源 Python 编程语言背后的组织，致力于为 Python 和 Python 社区的发展壮大创造条件。&lt;/p&gt;
@@ -373,7 +373,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/code-signing/"/>
     <id>https://shenxianpeng.github.io/2024/04/code-signing/</id>
     <published>2024-04-29T12:34:18.000Z</published>
-    <updated>2024-12-17T19:46:42.036Z</updated>
+    <updated>2024-12-23T05:29:00.061Z</updated>
     
     
     <summary type="html">&lt;p&gt;当谈到软件开发和安全性时，Code Signing（代码签名）是一个至关重要的概念。在这篇文章中，我们将探讨什么是代码签名，为什么它重要，以及两个代码签名工具的对比。&lt;/p&gt;
@@ -401,7 +401,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/jenkins-contributors/"/>
     <id>https://shenxianpeng.github.io/2024/04/jenkins-contributors/</id>
     <published>2024-04-21T12:34:18.000Z</published>
-    <updated>2024-12-17T19:46:42.036Z</updated>
+    <updated>2024-12-23T05:29:00.061Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天翻译一篇我在 &lt;a href=&quot;https://contributors.jenkins.io/&quot;&gt;Jenkins Contributors&lt;/a&gt; 页面上看到的一篇文章。&lt;/p&gt;
@@ -429,7 +429,7 @@
     <link href="https://shenxianpeng.github.io/2024/04/devops-skills-2024/"/>
     <id>https://shenxianpeng.github.io/2024/04/devops-skills-2024/</id>
     <published>2024-04-08T12:34:18.000Z</published>
-    <updated>2024-12-17T19:46:42.036Z</updated>
+    <updated>2024-12-23T05:29:00.061Z</updated>
     
     
     <summary type="html">&lt;p&gt;相信大家最近都总会看到这样或那样的新闻：哪个科技巨头又裁员了。裁员潮似乎成为了这个时代的常态，让许多打工人感到焦虑和不安。&lt;/p&gt;
@@ -451,7 +451,7 @@
     <link href="https://shenxianpeng.github.io/2024/03/reusable-workflows/"/>
     <id>https://shenxianpeng.github.io/2024/03/reusable-workflows/</id>
     <published>2024-03-25T10:34:18.000Z</published>
-    <updated>2024-12-17T19:46:42.036Z</updated>
+    <updated>2024-12-23T05:29:00.061Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;什么是-Reusable-Workflows&quot;&gt;&lt;a href=&quot;#什么是-Reusable-Workflows&quot; class=&quot;headerlink&quot; title=&quot;什么是 Reusable Workflows&quot;&gt;&lt;/a&gt;什么是 Reusable Workflows&lt;/h2&gt;&lt;p&gt;如果你使用过 GitHub Actions，那么你一定要了解 Reusable Workflows 这个特性，它允许你定义工作流并在多个仓库中重复使用它们。&lt;/p&gt;
