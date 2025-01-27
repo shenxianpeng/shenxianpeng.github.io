@@ -4,17 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Why use Jenkins Docker Cloud | </title>
+  <title>How to use Jenkins Docker Cloud | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Recently, I am working on Jenkins instance migration, this time I started to use Jenkins Docker Cloud insead of use docker &#123; ... &#125; in Jenkinsfile. Jenkins cloud pluginFirst you need to insta">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Why use Jenkins Docker Cloud">
+<meta property="og:title" content="How to use Jenkins Docker Cloud">
 <meta property="og:url" content="https://shenxianpeng.github.io/2025/jenkins-docker-cloud/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="Recently, I am working on Jenkins instance migration, this time I started to use Jenkins Docker Cloud insead of use docker &#123; ... &#125; in Jenkinsfile. Jenkins cloud pluginFirst you need to insta">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-01-25T07:26:59.000Z">
-<meta property="article:modified_time" content="2025-01-25T14:17:18.630Z">
+<meta property="article:modified_time" content="2025-01-27T18:47:32.491Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Cloud">
 <meta property="article:tag" content="Docker">
@@ -121,7 +121,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Why use Jenkins Docker Cloud
+      How to use Jenkins Docker Cloud
     </h1>
   
 
@@ -160,7 +160,6 @@ ga('send', 'pageview');
 <figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Jenkinsfile (Declarative Pipeline)</span></span><br><span class="line">pipeline &#123;</span><br><span class="line">    agent &#123;</span><br><span class="line">        docker &#123; image <span class="string">&#x27;node:22.13.1-alpine3.21&#x27;</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    stages &#123;</span><br><span class="line">        stage(<span class="string">&#x27;Test&#x27;</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">&#x27;node --eval &quot;console.log(process.platform,process.env.CI)&quot;&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Here is more details about using Docker with pipeline: <a target="_blank" rel="noopener" href="https://www.jenkins.io/doc/book/pipeline/docker/">https://www.jenkins.io/doc/book/pipeline/docker/</a></p>
-<h2 id="Last-but-not-least"><a href="#Last-but-not-least" class="headerlink" title="Last but not least"></a>Last but not least</h2><p>I don’t like to use <code>docker &#123; ... &#125;</code> too much, becuase it need to work well with you host environment. otherwise, you may have permission issues when you clean workspace at your <code>post</code> stage. then you have to use root permissions to clean workspace to avoid your host disk is full.</p>
 <p>Feel free to comment if you have any questions.</p>
 <hr>
 <p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
@@ -177,7 +176,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/jenkins-docker-cloud/" data-id="cm6c9z5z7000rjcq73oltcs51" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/jenkins-docker-cloud/" data-id="cm6feig4i000rj7pz7etrdke0" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/jenkins-docker-cloud/#disqus_thread" class="article-comment-link">Comments</a>
@@ -241,7 +240,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2025/jenkins-docker-cloud/">Why use Jenkins Docker Cloud</a>
+            <a href="/2025/jenkins-docker-cloud/">How to use Jenkins Docker Cloud</a>
           </li>
         
           <li>
