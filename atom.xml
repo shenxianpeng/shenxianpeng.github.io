@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2025-02-05T16:07:32.729Z</updated>
+  <updated>2025-02-14T15:17:09.745Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>为什么我选择参与 EuroPython 2025 评审？</title>
+    <link href="https://shenxianpeng.github.io/2025/02/euro-python-review/"/>
+    <id>https://shenxianpeng.github.io/2025/02/euro-python-review/</id>
+    <published>2025-02-14T07:26:59.000Z</published>
+    <updated>2025-02-14T15:17:09.745Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;如果我想去做一件事情，我首先会问下面这三个问题：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对我的简历有没有帮助或能否写进我的简历里；&lt;/li&gt;
+&lt;li&gt;对我个人有没有锻炼或成长的机会；&lt;/li&gt;
+&lt;li&gt;能不能认识什么人。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上面这三个问题，其中前两个的回答是肯</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
+    
+    
+    <category term="EuroPython" scheme="https://shenxianpeng.github.io/tags/europython/"/>
+    
+    <category term="Reviewer" scheme="https://shenxianpeng.github.io/tags/reviewer/"/>
+    
+  </entry>
+  
+  <entry>
     <title>🚀 gitstats 升级来袭：支持 JSON 输出、多平台兼容、代码重构！</title>
     <link href="https://shenxianpeng.github.io/2025/02/gitstats-update/"/>
     <id>https://shenxianpeng.github.io/2025/02/gitstats-update/</id>
     <published>2025-02-05T07:26:59.000Z</published>
-    <updated>2025-02-05T16:07:32.729Z</updated>
+    <updated>2025-02-14T15:17:09.745Z</updated>
     
     
     <summary type="html">&lt;p&gt;大家好！自从上次发文&lt;a href=&quot;https://shenxianpeng.github.io/2024/11/gitstats/&quot;&gt;宣布开始维护 &lt;strong&gt;gitstats&lt;/strong&gt;&lt;/a&gt; 以来，我一直在不断地改进这个项目，下面是这两个月的主要更新内容：&lt;/p&gt;
@@ -43,7 +76,7 @@
     <link href="https://shenxianpeng.github.io/2025/01/jenkins-docker-cloud/"/>
     <id>https://shenxianpeng.github.io/2025/01/jenkins-docker-cloud/</id>
     <published>2025-01-25T07:26:59.000Z</published>
-    <updated>2025-02-05T16:07:32.729Z</updated>
+    <updated>2025-02-14T15:17:09.745Z</updated>
     
     
     <summary type="html">&lt;p&gt;Recently, I am working on Jenkins instance migration, this time I started to use Jenkins Docker Cloud insead of use &lt;code&gt;docker &amp;#123; ... &amp;#125;&lt;/code&gt; in Jenkinsfile.&lt;/p&gt;
@@ -67,7 +100,7 @@
     <link href="https://shenxianpeng.github.io/2025/01/copyright/"/>
     <id>https://shenxianpeng.github.io/2025/01/copyright/</id>
     <published>2025-01-19T19:26:59.000Z</published>
-    <updated>2025-02-05T16:07:32.729Z</updated>
+    <updated>2025-02-14T15:17:09.745Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近逛 CPython 的仓库发现了这个 Issue &lt;a href=&quot;https://github.com/python/cpython/issues/126133&quot;&gt;gh-126133&lt;/a&gt;:&lt;/p&gt;
@@ -91,7 +124,7 @@
     <link href="https://shenxianpeng.github.io/2024/12/2024-summary/"/>
     <id>https://shenxianpeng.github.io/2024/12/2024-summary/</id>
     <published>2024-12-27T19:26:59.000Z</published>
-    <updated>2025-02-05T16:07:32.729Z</updated>
+    <updated>2025-02-14T15:17:09.745Z</updated>
     
     
     <summary type="html">&lt;p&gt;时间过得很快，2024 年即将过去。如果不记录下在这一年里发生的事情，过不了多久就很难回想起这一年都发生了什么。按照惯例，这篇年终总结如期而至。&lt;/p&gt;
@@ -113,7 +146,7 @@
     <link href="https://shenxianpeng.github.io/2024/12/my-daughter/"/>
     <id>https://shenxianpeng.github.io/2024/12/my-daughter/</id>
     <published>2024-12-27T18:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.729Z</updated>
+    <updated>2025-02-14T15:17:09.745Z</updated>
     
     
     <summary type="html">&lt;p&gt;女儿已经两岁七个月了，我还没有单独写过一篇关于她的文章。&lt;/p&gt;
@@ -134,7 +167,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/gitstats/"/>
     <id>https://shenxianpeng.github.io/2024/11/gitstats/</id>
     <published>2024-11-27T18:28:00.000Z</published>
-    <updated>2025-02-05T16:07:32.728Z</updated>
+    <updated>2025-02-14T15:17:09.744Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近的晚上的时间（一般要等到孩子睡了）我正在做一件事：复活已经沉寂多年的 GitStats 项目。&lt;/p&gt;
@@ -158,7 +191,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/"/>
     <id>https://shenxianpeng.github.io/2024/11/pip-vs-pipx/</id>
     <published>2024-11-25T17:21:00.000Z</published>
-    <updated>2025-02-05T16:07:32.729Z</updated>
+    <updated>2025-02-14T15:17:09.745Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;pip-vs-pipx-的区别&quot;&gt;&lt;a href=&quot;#pip-vs-pipx-的区别&quot; class=&quot;headerlink&quot; title=&quot;pip vs pipx 的区别&quot;&gt;&lt;/a&gt;&lt;strong&gt;pip vs pipx 的区别&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;在 Python 的生态中，&lt;strong&gt;pip&lt;/strong&gt; 和 &lt;strong&gt;pipx&lt;/strong&gt; 都是用于管理包的软件工具，但它们有不同的设计目标和使用场景。有些同学可能会疑惑，两者到底有什么区别？该如何选择？&lt;/p&gt;
@@ -178,7 +211,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/"/>
     <id>https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/</id>
     <published>2024-11-17T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;p&gt;Recently, while setting up a new Windows Server 2022, I encountered an issue where my Ansible playbook, which previously worked without problems, failed to execute.&lt;/p&gt;
@@ -198,7 +231,7 @@
     <link href="https://shenxianpeng.github.io/2024/10/devops-everyday/"/>
     <id>https://shenxianpeng.github.io/2024/10/devops-everyday/</id>
     <published>2024-10-26T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;p&gt;很多人可能会好奇，作为一名 DevOps 工程师，每天究竟忙些什么呢？今天就来简单聊聊，作为 DevOps&amp;#x2F;Build&amp;#x2F;Release 工程师，我的日常工作节奏是怎样的。&lt;/p&gt;
@@ -218,7 +251,7 @@
     <link href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/"/>
     <id>https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/</id>
     <published>2024-10-24T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;Recently, I’ve been working on migrating and upgrading Jenkins. The main motivation is the vulnerability &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2024-23897&quot;&gt;CVE-2024-23897&lt;/a&gt;.&lt;/p&gt;
@@ -243,7 +276,7 @@
     <link href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade/"/>
     <id>https://shenxianpeng.github.io/2024/10/jenkins-upgrade/</id>
     <published>2024-10-23T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;我最近在做的一件事情是迁移并升级 Jenkins。主要动机是因为这个漏洞 &lt;a href=&quot;https://nvd.nist.gov/vuln/detail/CVE-2024-23897&quot;&gt;CVE-2024-23897&lt;/a&gt;&lt;/p&gt;
@@ -268,7 +301,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/power-of-choice/"/>
     <id>https://shenxianpeng.github.io/2024/09/power-of-choice/</id>
     <published>2024-09-26T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;p&gt;偶尔深夜躺下时，我常常在想，我是怎么就走到这了？这都是源于毕业后的一系列选择吧！&lt;/p&gt;
@@ -290,7 +323,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/principal-devops-engineer/"/>
     <id>https://shenxianpeng.github.io/2024/09/principal-devops-engineer/</id>
     <published>2024-09-25T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;p&gt;想象一下，你是一名 DevOps 工程师，不论初级、中级还是高级，老板总有一天拍拍你的肩膀说：“加油干，兄弟，未来你就是我们的首席 DevOps 工程师了！”你可能会心想：“啥是首席 DevOps？这是个什么新饼？”&lt;/p&gt;
@@ -311,7 +344,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch-zh/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch-zh/</id>
     <published>2024-09-23T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.742Z</updated>
     
     
     <summary type="html">&lt;p&gt;上周正式发布《约定式分支规范》后，受到了广泛关注，不少人询问何时推出中文版。&lt;/p&gt;
@@ -332,7 +365,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/conventional-branch/"/>
     <id>https://shenxianpeng.github.io/2024/09/conventional-branch/</id>
     <published>2024-09-17T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h2&gt;&lt;p&gt;Conventional Branch refers to a structured and standardized naming convention for Git branches which aims to make branch more readable and actionable. We’ve suggested some branch prefixes you might want to use but you can also specify your own naming convention. A consistent naming convention makes it easier to identify branches by type.&lt;/p&gt;</summary>
@@ -351,7 +384,7 @@
     <link href="https://shenxianpeng.github.io/2024/09/pypa/"/>
     <id>https://shenxianpeng.github.io/2024/09/pypa/</id>
     <published>2024-09-04T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.743Z</updated>
     
     
     <summary type="html">&lt;p&gt;PyPA（Python Packaging Authority）是管理和维护 Python 包相关工具的一个社区组织。PyPA 管理的知名项目包括 pip、packaging、setuptools、wheel、twine、build 等等。了解这些项目的关于有助于我们更好的了解 Python 的生态系统。&lt;/p&gt;
@@ -371,7 +404,7 @@
     <link href="https://shenxianpeng.github.io/2024/07/remember/"/>
     <id>https://shenxianpeng.github.io/2024/07/remember/</id>
     <published>2024-07-08T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.742Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近开车的时候我总爱听赵雷的歌，尤其是那首《我记得》。&lt;/p&gt;
@@ -393,7 +426,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/farewell/"/>
     <id>https://shenxianpeng.github.io/2024/06/farewell/</id>
     <published>2024-06-27T16:00:00.000Z</published>
-    <updated>2025-02-05T16:07:32.726Z</updated>
+    <updated>2025-02-14T15:17:09.741Z</updated>
     
     
     <summary type="html">&lt;p&gt;​今天（6月28日）是我在Rocket中国分公司的最后一天，也是效力的第十个年头。这是我职业生涯中效力过最长的一家公司，想借此机会写下一些文字，为这十年画上一个句号。&lt;/p&gt;
@@ -415,7 +448,7 @@
     <link href="https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/"/>
     <id>https://shenxianpeng.github.io/2024/06/where-does-your-software-come-from/</id>
     <published>2024-06-13T15:27:18.000Z</published>
-    <updated>2025-02-05T16:07:32.727Z</updated>
+    <updated>2025-02-14T15:17:09.742Z</updated>
     
     
     <summary type="html">&lt;p&gt;软件真是个有趣又深奥的东西，它由看似神奇的代码片段组成，这些代码运行在最终的终端上，本身却并非生命体，但拥有自己的生命周期。&lt;/p&gt;
@@ -429,28 +462,6 @@
     
     
     <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-    <category term="DevSecOps" scheme="https://shenxianpeng.github.io/tags/devsecops/"/>
-    
-    <category term="SLSA" scheme="https://shenxianpeng.github.io/tags/slsa/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>代码签名（Code Signing） - GaraSign</title>
-    <link href="https://shenxianpeng.github.io/2024/06/garasign/"/>
-    <id>https://shenxianpeng.github.io/2024/06/garasign/</id>
-    <published>2024-06-10T03:27:18.000Z</published>
-    <updated>2025-02-05T16:07:32.726Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;上次我在 &lt;a href=&quot;2024/04/code-signing/&quot;&gt;代码签名（Code Signing）&lt;/a&gt;的文章中时候提到了 GaraSign，这是我在工作中使用到的另一个代码签名工具。&lt;/p&gt;
-&lt;p&gt;鉴于关于 GaraSign 的使用并没有多少中文资料，本篇我将介绍关于 GaraSign 的一些实线，希望对你有帮助。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="DevSecOps" scheme="https://shenxianpeng.github.io/categories/devsecops/"/>
     
     
     <category term="DevSecOps" scheme="https://shenxianpeng.github.io/tags/devsecops/"/>
