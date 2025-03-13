@@ -135,170 +135,12 @@ ga('send', 'pageview');
 <li>砍掉了一些非核心产品和合作计划，让部分企业和合作伙伴感到不安。</li>
 </ul>
 <p>这些变化导致很多企业开始寻找替代方案，以降低成本并减少对 VMware 生态的依赖。</p>
-<h2 id="替代方案"><a href="#替代方案" class="headerlink" title="替代方案"></a>替代方案</h2><p>今天就分享一个对于企业用户的潜在替换方案 —— Nutanix。</p>
-<p>它是一个超融合基础设施（HCI）（替代 VMware vSAN &#x2F; vSphere），适用于需要整合计算、存储、网络资源的企业，希望减少对 VMware vSAN 或 vSphere 的依赖。</p>
-<ul>
-<li>Nutanix 是 VMware vSphere 的主要竞争对手，支持 KVM，提供企业级 HCI 解决方案。</li>
-<li>提供简洁的管理界面，与 VMware vSAN 类似，但成本更低。</li>
-<li>适用于希望从 VMware 迁移，但仍然想要企业支持的公司。</li>
-</ul>
-<h2 id="Nutanix-有哪些优势"><a href="#Nutanix-有哪些优势" class="headerlink" title="Nutanix 有哪些优势"></a>Nutanix 有哪些优势</h2><p>Nutanix 相比 VMware 在<strong>架构、管理、可扩展性、性价比</strong>等方面具有一些优势，具体如下：</p>
-<hr>
-<h2 id="1-统一的超融合架构（HCI）"><a href="#1-统一的超融合架构（HCI）" class="headerlink" title="1. 统一的超融合架构（HCI）"></a><strong>1. 统一的超融合架构（HCI）</strong></h2><h3 id="🔹VMware："><a href="#🔹VMware：" class="headerlink" title="🔹VMware："></a><strong>🔹VMware</strong>：</h3><ul>
-<li>传统上采用 <strong>vSphere + vSAN + NSX</strong> 组合，需要多个组件协同工作。</li>
-<li>需要单独配置 vSAN 存储，与计算和网络资源分离，管理复杂度较高。</li>
-</ul>
-<h3 id="🔹Nutanix："><a href="#🔹Nutanix：" class="headerlink" title="🔹Nutanix："></a><strong>🔹Nutanix</strong>：</h3><ul>
-<li>采用 <strong>超融合架构（HCI, Hyper-Converged Infrastructure）</strong>，计算、存储、网络融合在一起。</li>
-<li>通过 <strong>Nutanix AHV（Acropolis Hypervisor）</strong> 取代 VMware ESXi，无需额外的 Hypervisor 许可费用。</li>
-<li><strong>存储即服务（Distributed Storage Fabric，DSF）</strong>，存储性能随集群扩展线性增长。</li>
-</ul>
-<p>✅ <strong>优势</strong>：</p>
-<ul>
-<li><strong>简化管理</strong>，不需要额外的 SAN&#x2F;NAS 存储设备，存储和计算资源统一管理。</li>
-<li><strong>更好的横向扩展（Scale-out）</strong>，可以通过增加节点来提升计算和存储能力。</li>
-<li><strong>降低软件授权成本</strong>（VMware vSphere&#x2F;vSAN 费用较高，而 Nutanix AHV 免费）。</li>
-</ul>
-<hr>
-<h2 id="2-更灵活的超融合存储"><a href="#2-更灵活的超融合存储" class="headerlink" title="2. 更灵活的超融合存储"></a><strong>2. 更灵活的超融合存储</strong></h2><h3 id="🔹VMware：-1"><a href="#🔹VMware：-1" class="headerlink" title="🔹VMware："></a><strong>🔹VMware</strong>：</h3><ul>
-<li>依赖 vSAN 提供存储，扩展时需要与 vSphere 结合进行配置。</li>
-<li>vSAN 需要额外授权，且对硬件有较严格的兼容性要求。</li>
-</ul>
-<h3 id="🔹Nutanix：-1"><a href="#🔹Nutanix：-1" class="headerlink" title="🔹Nutanix："></a><strong>🔹Nutanix</strong>：</h3><ul>
-<li>内置 <strong>Nutanix AOS</strong>（Acropolis Operating System），提供分布式存储（Nutanix Files, Volumes, Objects）。</li>
-<li><strong>存储弹性更高</strong>，支持 <strong>混合云存储（AWS&#x2F;Azure&#x2F;Nutanix 自有云）</strong>。</li>
-<li>支持 <strong>本地 NVMe SSD、HDD 组合</strong>，根据数据冷热程度自动分层存储。</li>
-</ul>
-<p>✅ <strong>优势</strong>：</p>
-<ul>
-<li><strong>无需额外存储授权费用</strong>，相比 vSAN 成本更低。</li>
-<li><strong>自动数据优化</strong>，存储性能随集群扩展而提高。</li>
-<li><strong>支持外部云存储</strong>，适合混合云部署。</li>
-</ul>
-<hr>
-<h2 id="3-内置免费-Hypervisor（AHV），降低授权成本"><a href="#3-内置免费-Hypervisor（AHV），降低授权成本" class="headerlink" title="3. 内置免费 Hypervisor（AHV），降低授权成本"></a><strong>3. 内置免费 Hypervisor（AHV），降低授权成本</strong></h2><h3 id="🔹VMware：-2"><a href="#🔹VMware：-2" class="headerlink" title="🔹VMware："></a><strong>🔹VMware</strong>：</h3><ul>
-<li>需要付费使用 <strong>ESXi</strong>，并通过 <strong>vCenter</strong> 进行管理。</li>
-<li>许多企业在使用 VMware 时需要额外购买 <strong>vSphere Enterprise Plus</strong> 或 <strong>vSAN</strong> 许可证，成本较高。</li>
-</ul>
-<h3 id="🔹Nutanix：-2"><a href="#🔹Nutanix：-2" class="headerlink" title="🔹Nutanix："></a><strong>🔹Nutanix</strong>：</h3><ul>
-<li>提供 <strong>Nutanix AHV（Acropolis Hypervisor）</strong>，基于 KVM，<strong>免费</strong> 使用。</li>
-<li>直接通过 <strong>Prism Central</strong> 进行管理，无需 vCenter。</li>
-<li><strong>兼容 VMware VM</strong>，支持直接迁移 VMware 现有 VM 到 Nutanix AHV。</li>
-</ul>
-<p>✅ <strong>优势</strong>：</p>
-<ul>
-<li><strong>免费 Hypervisor，节省 VMware vSphere&#x2F;ESXi 许可费用</strong>。</li>
-<li><strong>无需 vCenter，管理更简单</strong>。</li>
-<li><strong>兼容 VMware VM，迁移更容易</strong>。</li>
-</ul>
-<hr>
-<h2 id="4-更高的自动化和可扩展性"><a href="#4-更高的自动化和可扩展性" class="headerlink" title="4. 更高的自动化和可扩展性"></a><strong>4. 更高的自动化和可扩展性</strong></h2><h3 id="🔹VMware：-3"><a href="#🔹VMware：-3" class="headerlink" title="🔹VMware："></a><strong>🔹VMware</strong>：</h3><ul>
-<li>依赖 vSphere 和 vSAN 进行 VM 资源管理。</li>
-<li>需要 <strong>vRealize Automation（vRA）</strong> 进行自动化操作，授权费用较高。</li>
-</ul>
-<h3 id="🔹Nutanix：-3"><a href="#🔹Nutanix：-3" class="headerlink" title="🔹Nutanix："></a><strong>🔹Nutanix</strong>：</h3><ul>
-<li>提供 <strong>Prism Central</strong> 统一管理 VM、存储、网络，<strong>操作更简洁</strong>。</li>
-<li>提供 <strong>Calm</strong>（自动化编排工具），支持一键部署应用（K8s, Jenkins, DevOps 相关工具）。</li>
-<li><strong>支持 API 直接调用</strong>，可通过 Nutanix Prism API 实现自动化。</li>
-</ul>
-<p>✅ <strong>优势</strong>：</p>
-<ul>
-<li><strong>自动化程度更高</strong>，适合 DevOps 场景。</li>
-<li><strong>管理界面更简洁，易用性更好</strong>。</li>
-<li><strong>API 支持更强，适合 CI&#x2F;CD 自动化集成</strong>。</li>
-</ul>
-<hr>
-<h2 id="5-更强的混合云支持"><a href="#5-更强的混合云支持" class="headerlink" title="5. 更强的混合云支持"></a><strong>5. 更强的混合云支持</strong></h2><h3 id="🔹VMware：-4"><a href="#🔹VMware：-4" class="headerlink" title="🔹VMware："></a><strong>🔹VMware</strong>：</h3><ul>
-<li>需要额外购买 <strong>VMware Cloud on AWS、Azure VMware Solution</strong> 才能扩展到公有云。</li>
-<li>VMware vSAN 和 NSX 在公有云环境的支持需要额外授权。</li>
-</ul>
-<h3 id="🔹Nutanix：-4"><a href="#🔹Nutanix：-4" class="headerlink" title="🔹Nutanix："></a><strong>🔹Nutanix</strong>：</h3><ul>
-<li>内置 <strong>Nutanix Clusters</strong>，支持混合云部署（AWS、Azure、本地数据中心）。</li>
-<li><strong>自动数据同步</strong>，允许本地 Nutanix 与云端 Nutanix 互相迁移数据。</li>
-<li>提供 <strong>Nutanix Xi</strong> 作为 SaaS 解决方案，支持跨云管理。</li>
-</ul>
-<p>✅ <strong>优势</strong>：</p>
-<ul>
-<li><strong>无需额外许可即可支持混合云</strong>，相比 VMware 成本更低。</li>
-<li><strong>数据迁移更简单</strong>，支持自动同步本地与云端数据。</li>
-<li><strong>公有云和私有云统一管理</strong>，减少运维复杂度。</li>
-</ul>
-<hr>
-<h2 id="6-成本优势"><a href="#6-成本优势" class="headerlink" title="6. 成本优势"></a><strong>6. 成本优势</strong></h2><h3 id="🔹VMware：-5"><a href="#🔹VMware：-5" class="headerlink" title="🔹VMware："></a><strong>🔹VMware</strong>：</h3><ul>
-<li>需要 <strong>vSphere + vSAN + NSX</strong> 组合，整体授权费用较高。</li>
-<li>VMware 采用 <strong>CPU 核心计费</strong>，而且 2024 年 VMware 可能进一步提高授权成本（受 Broadcom 收购影响）。</li>
-</ul>
-<h3 id="🔹Nutanix：-5"><a href="#🔹Nutanix：-5" class="headerlink" title="🔹Nutanix："></a><strong>🔹Nutanix</strong>：</h3><ul>
-<li>提供 <strong>免费 AHV Hypervisor</strong>，相比 VMware <strong>vSphere 省去授权费用</strong>。</li>
-<li><strong>按实际使用付费</strong>，不像 VMware 需要捆绑多个产品。</li>
-<li><strong>存储、计算、网络一体化</strong>，不需要额外购买 vSAN 或 NSX。</li>
-</ul>
-<p>✅ <strong>优势</strong>：</p>
-<ul>
-<li><strong>整体 TCO（总拥有成本）更低</strong>，相比 VMware 可节省 30%-50% 成本。</li>
-<li><strong>降低 Hypervisor 许可费用</strong>，免费 AHV 替代 vSphere。</li>
-<li><strong>更少的组件，提高管理效率</strong>。</li>
-</ul>
-<hr>
-<h2 id="总结：Nutanix-vs-VMware"><a href="#总结：Nutanix-vs-VMware" class="headerlink" title="总结：Nutanix vs VMware"></a><strong>总结：Nutanix vs VMware</strong></h2><table>
-<thead>
-<tr>
-<th><strong>特性</strong></th>
-<th><strong>VMware</strong></th>
-<th><strong>Nutanix</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Hypervisor</strong></td>
-<td>ESXi（付费）</td>
-<td>AHV（免费）</td>
-</tr>
-<tr>
-<td><strong>管理工具</strong></td>
-<td>vCenter（额外收费）</td>
-<td>Prism Central（免费）</td>
-</tr>
-<tr>
-<td><strong>存储</strong></td>
-<td>vSAN（额外收费）</td>
-<td>Nutanix Files&#x2F;Volumes（内置）</td>
-</tr>
-<tr>
-<td><strong>自动化</strong></td>
-<td>vRealize Automation（付费）</td>
-<td>Calm（内置）</td>
-</tr>
-<tr>
-<td><strong>混合云</strong></td>
-<td>需要 VMware Cloud 方案</td>
-<td>Nutanix Clusters（内置支持）</td>
-</tr>
-<tr>
-<td><strong>成本</strong></td>
-<td>vSphere + vSAN + NSX 费用高</td>
-<td>省去 ESXi&#x2F;vSAN 费用</td>
-</tr>
-<tr>
-<td><strong>扩展性</strong></td>
-<td>需要手动扩展 vSphere&#x2F;vSAN</td>
-<td>HCI 模式，存储计算统一扩展</td>
-</tr>
-</tbody></table>
-<h3 id="什么时候选择-Nutanix？"><a href="#什么时候选择-Nutanix？" class="headerlink" title="什么时候选择 Nutanix？"></a><strong>什么时候选择 Nutanix？</strong></h3><ul>
-<li>你希望 <strong>减少 VMware 许可费用</strong>（省去 vSphere&#x2F;vSAN&#x2F;NSX 费用）。</li>
-<li>你需要 <strong>更简单的管理</strong>，不想配置 vCenter、vSAN、NSX。</li>
-<li>你计划 <strong>使用混合云</strong>，希望本地与云端无缝迁移。</li>
-<li>你希望 <strong>自动化能力更强</strong>，适合 DevOps 场景。</li>
-</ul>
-<h3 id="什么时候选择-VMware？"><a href="#什么时候选择-VMware？" class="headerlink" title="什么时候选择 VMware？"></a><strong>什么时候选择 VMware？</strong></h3><ul>
-<li>你已经有 <strong>大量 VMware 生态（vSphere, NSX, vSAN）</strong>，不想切换架构。</li>
-<li>你的企业应用 <strong>依赖 VMware 生态</strong>，如 Horizon（桌面虚拟化）。</li>
-<li>你不介意 <strong>额外的授权费用</strong>，并且已有成熟的 VMware 运营团队。</li>
-</ul>
-<p>如果你主要关注<strong>降低成本、管理简化、混合云能力</strong>，对于企业用户 Nutanix 或许是更好的选择！</p>
-<hr>
-<p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
-
+<h2 id="替代方案"><a href="#替代方案" class="headerlink" title="替代方案"></a>替代方案</h2>
+        
+          <p class="article-more-link">
+            <a href="/2025/03/nutanix/#more">Read More</a>
+          </p>
+        
       
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-LDW3BHJTTW"></script>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3986315287795783" crossorigin="anonymous"></script>
@@ -311,7 +153,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/03/nutanix/" data-id="cm876vypx00wwj6pr5iivcj1m" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/03/nutanix/" data-id="cm878dj8d00wujhq3ayd18c1x" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/03/nutanix/#disqus_thread" class="article-comment-link">Comments</a>
@@ -396,7 +238,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/02/my-first-pr-to-cpython/" data-id="cm876vypw00wvj6prd2r68oop" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/02/my-first-pr-to-cpython/" data-id="cm878dj6d00kcjhq3giqi01dq" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/02/my-first-pr-to-cpython/#disqus_thread" class="article-comment-link">Comments</a>
@@ -472,7 +314,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/02/euro-python-review/" data-id="cm876vyo400k6j6pr7k6efnvi" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/02/euro-python-review/" data-id="cm878dj6b00k5jhq30tlq2az5" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/02/euro-python-review/#disqus_thread" class="article-comment-link">Comments</a>
@@ -546,7 +388,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/02/gitstats-update/" data-id="cm876vyo400k9j6pr7pn692ft" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/02/gitstats-update/" data-id="cm878dj6c00k8jhq3bwmf0a6a" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/02/gitstats-update/#disqus_thread" class="article-comment-link">Comments</a>
@@ -622,7 +464,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/01/jenkins-docker-cloud/" data-id="cm876vyo300k2j6pr9duh8gem" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/01/jenkins-docker-cloud/" data-id="cm878dj6b00k1jhq31e53gzfs" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/01/jenkins-docker-cloud/#disqus_thread" class="article-comment-link">Comments</a>
@@ -698,7 +540,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/01/copyright/" data-id="cm876vyo200jzj6pran6zd7d7" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/01/copyright/" data-id="cm878dj6a00jyjhq321fd87ub" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/01/copyright/#disqus_thread" class="article-comment-link">Comments</a>
@@ -772,7 +614,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/12/2024-summary/" data-id="cm876vyo100jsj6pr3yz5gxyl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/12/2024-summary/" data-id="cm878dj6800jmjhq3ettz85ez" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/12/2024-summary/#disqus_thread" class="article-comment-link">Comments</a>
@@ -847,7 +689,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/12/my-daughter/" data-id="cm876vyo200jvj6pr6r107g6z" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/12/my-daughter/" data-id="cm878dj6900jujhq322hd3h7j" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/12/my-daughter/#disqus_thread" class="article-comment-link">Comments</a>
@@ -925,7 +767,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/gitstats/" data-id="cm876vynz00jgj6prbrtmb6hx" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/gitstats/" data-id="cm878dj6600jfjhq3ahfnfsl1" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/11/gitstats/#disqus_thread" class="article-comment-link">Comments</a>
@@ -999,7 +841,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/" data-id="cm876vyo000jnj6pr9ugufnw9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/" data-id="cm878dj6800jrjhq3fr5leb3t" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1072,7 +914,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/nixos/" data-id="cm876vyo000jkj6pr5gya9qsl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/nixos/" data-id="cm878dj6700jjjhq3c172cmqm" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/11/nixos/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1147,7 +989,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/commit-check-updates/" data-id="cm876vyny00jdj6pr1ev7bsj9" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/commit-check-updates/" data-id="cm878dj6600jcjhq3eq6y8l2e" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/11/commit-check-updates/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1221,7 +1063,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/" data-id="cm876vyny00j9j6pr59706nyr" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/" data-id="cm878dj6500j8jhq32sup8kkw" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1295,7 +1137,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/devops-everyday/" data-id="cm876vynv00iyj6prfimw0xbl" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/devops-everyday/" data-id="cm878dj6300ixjhq391392a18" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/10/devops-everyday/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1372,7 +1214,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/" data-id="cm876vynw00j2j6pr82oy0k5a" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/" data-id="cm878dj6300j1jhq33et59ck1" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2024/10/jenkins-upgrade-en/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1560,7 +1402,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'shenxianpeng';
     
-    var disqus_url = 'https://shenxianpeng.github.io/about/index.html';
+    var disqus_url = 'https://shenxianpeng.github.io/README.html';
     
     (function(){
       var dsq = document.createElement('script');
