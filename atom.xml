@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2025-04-25T07:04:37.290Z</updated>
+  <updated>2025-04-28T22:42:28.941Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>全程记录｜PyCon LT 2025 第三天：AI 要来了吗？</title>
+    <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d3/"/>
+    <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d3/</id>
+    <published>2025-04-28T17:41:00.000Z</published>
+    <updated>2025-04-28T22:42:28.941Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天是我参加 PyCon LT 2025 的第三天：AI and ML Day，主题是 LLM 和 Neural Networks。&lt;/p&gt;
+&lt;p&gt;全部日程可以在这里查看：&lt;a href=&quot;https://pretalx.com/pycon-lithuania-2025/schedule/&quot;&gt;PyCon LT 2025&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;AI 的发展确实很快，我也想借这次大会的机会，听一听关于 AI 的相关讨论。虽然因为下午有工作需要回公司处理，只听了上午的议程，但依然有收获。&lt;/p&gt;
+&lt;p&gt;主要的收获是：AI 已经成为每个人都不能不学习和应用的技术了。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/categories/pycon/"/>
+    
+    
+    <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/tags/pycon/"/>
+    
+    <category term="Lithuania" scheme="https://shenxianpeng.github.io/tags/lithuania/"/>
+    
+  </entry>
+  
+  <entry>
     <title>全程记录｜PyCon LT 2025 第二天：被几位女性开发者圈粉了</title>
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d2/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d2/</id>
     <published>2025-04-24T13:10:00.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.941Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天是我参加 PyCon LT 2025 的第二天：Data Day，主题是 Dataframes、Databases、Orchestration。&lt;/p&gt;
@@ -46,7 +72,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d1/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d1/</id>
     <published>2025-04-23T15:10:00.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.941Z</updated>
     
     
     <summary type="html">&lt;p&gt;第一次参加了 Python 的大会，没想到是在国外。&lt;/p&gt;
@@ -77,7 +103,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/one-night-in-beijing/"/>
     <id>https://shenxianpeng.github.io/2025/04/one-night-in-beijing/</id>
     <published>2025-04-15T19:43:00.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.941Z</updated>
     
     
     <summary type="html">&lt;p&gt;上个月回国休假，结束之后从北京转机飞欧洲。因为我们三口之家行李比较多，就订了首都机场附近的酒店，方便第二天出发。趁着在北京停留的这个晚上，就约了几位大学同学小聚一下。&lt;/p&gt;
@@ -98,7 +124,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/"/>
     <id>https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/</id>
     <published>2025-04-15T04:49:00.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.941Z</updated>
     
     
       
@@ -131,7 +157,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/visit-github/"/>
     <id>https://shenxianpeng.github.io/2025/04/visit-github/</id>
     <published>2025-04-13T15:43:00.000Z</published>
-    <updated>2025-04-25T07:04:37.291Z</updated>
+    <updated>2025-04-28T22:42:28.942Z</updated>
     
     
       
@@ -158,7 +184,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/"/>
     <id>https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/</id>
     <published>2025-04-12T15:00:00.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.941Z</updated>
     
     
     <summary type="html">&lt;p&gt;在日常的开源项目或团队协作中，我们经常会需要一个易于维护、可自动部署的文档系统。&lt;/p&gt;
@@ -188,7 +214,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/md-vs-rst/"/>
     <id>https://shenxianpeng.github.io/2025/04/md-vs-rst/</id>
     <published>2025-04-10T17:00:00.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.941Z</updated>
     
     
     <summary type="html">&lt;p&gt;在日常工作中，无论是写 README、写博客，还是写项目文档，我们总要选择一种标记语言来排版内容。&lt;/p&gt;
@@ -212,7 +238,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/remember/"/>
     <id>https://shenxianpeng.github.io/2025/04/remember/</id>
     <published>2025-04-04T17:00:00.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.941Z</updated>
     
     
     <summary type="html">&lt;p&gt;回国两个月来，我一直想写一篇文章，来记录一下这两个月来的生活。&lt;/p&gt;
@@ -235,7 +261,7 @@
     <link href="https://shenxianpeng.github.io/2025/03/nutanix/"/>
     <id>https://shenxianpeng.github.io/2025/03/nutanix/</id>
     <published>2025-03-12T07:26:59.000Z</published>
-    <updated>2025-04-25T07:04:37.290Z</updated>
+    <updated>2025-04-28T22:42:28.940Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;如果你是 VMware 的企业用户，或许你正在考虑脱离 VMware。目前，许多企业用户正在积极寻找替代方案，以降低成本和减少对 VMware 生态的依赖。&lt;/p&gt;
@@ -265,7 +291,7 @@
     <link href="https://shenxianpeng.github.io/2025/02/my-first-pr-to-cpython/"/>
     <id>https://shenxianpeng.github.io/2025/02/my-first-pr-to-cpython/</id>
     <published>2025-02-27T14:26:59.000Z</published>
-    <updated>2025-04-25T07:04:37.288Z</updated>
+    <updated>2025-04-28T22:42:28.939Z</updated>
     
     
       
@@ -293,7 +319,7 @@
     <link href="https://shenxianpeng.github.io/2025/02/euro-python-review/"/>
     <id>https://shenxianpeng.github.io/2025/02/euro-python-review/</id>
     <published>2025-02-14T07:26:59.000Z</published>
-    <updated>2025-04-25T07:04:37.288Z</updated>
+    <updated>2025-04-28T22:42:28.938Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近工作之余没怎么贡献代码，主要把时间都用在了评审 EuroPython 2025 （欧洲 Python 2025 大会）的提案上了。&lt;/p&gt;
@@ -317,7 +343,7 @@
     <link href="https://shenxianpeng.github.io/2025/02/gitstats-update/"/>
     <id>https://shenxianpeng.github.io/2025/02/gitstats-update/</id>
     <published>2025-02-05T07:26:59.000Z</published>
-    <updated>2025-04-25T07:04:37.288Z</updated>
+    <updated>2025-04-28T22:42:28.939Z</updated>
     
     
     <summary type="html">&lt;p&gt;大家好！自从上次发文&lt;a href=&quot;https://shenxianpeng.github.io/2024/11/gitstats/&quot;&gt;宣布开始维护 &lt;strong&gt;gitstats&lt;/strong&gt;&lt;/a&gt; 以来，我一直在不断地改进这个项目，下面是这两个月的主要更新内容：&lt;/p&gt;
@@ -339,7 +365,7 @@
     <link href="https://shenxianpeng.github.io/2025/01/jenkins-docker-cloud/"/>
     <id>https://shenxianpeng.github.io/2025/01/jenkins-docker-cloud/</id>
     <published>2025-01-25T07:26:59.000Z</published>
-    <updated>2025-04-25T07:04:37.288Z</updated>
+    <updated>2025-04-28T22:42:28.938Z</updated>
     
     
     <summary type="html">&lt;p&gt;Recently, I am working on Jenkins instance migration, this time I started to use Jenkins Docker Cloud insead of use &lt;code&gt;docker &amp;#123; ... &amp;#125;&lt;/code&gt; in Jenkinsfile.&lt;/p&gt;
@@ -363,7 +389,7 @@
     <link href="https://shenxianpeng.github.io/2025/01/copyright/"/>
     <id>https://shenxianpeng.github.io/2025/01/copyright/</id>
     <published>2025-01-19T19:26:59.000Z</published>
-    <updated>2025-04-25T07:04:37.287Z</updated>
+    <updated>2025-04-28T22:42:28.938Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近逛 CPython 的仓库发现了这个 Issue &lt;a href=&quot;https://github.com/python/cpython/issues/126133&quot;&gt;gh-126133&lt;/a&gt;:&lt;/p&gt;
@@ -387,7 +413,7 @@
     <link href="https://shenxianpeng.github.io/2024/12/2024-summary/"/>
     <id>https://shenxianpeng.github.io/2024/12/2024-summary/</id>
     <published>2024-12-27T19:26:59.000Z</published>
-    <updated>2025-04-25T07:04:37.287Z</updated>
+    <updated>2025-04-28T22:42:28.938Z</updated>
     
     
     <summary type="html">&lt;p&gt;时间过得很快，2024 年即将过去。如果不记录下在这一年里发生的事情，过不了多久就很难回想起这一年都发生了什么。按照惯例，这篇年终总结如期而至。&lt;/p&gt;
@@ -409,7 +435,7 @@
     <link href="https://shenxianpeng.github.io/2024/12/my-daughter/"/>
     <id>https://shenxianpeng.github.io/2024/12/my-daughter/</id>
     <published>2024-12-27T18:00:00.000Z</published>
-    <updated>2025-04-25T07:04:37.287Z</updated>
+    <updated>2025-04-28T22:42:28.938Z</updated>
     
     
     <summary type="html">&lt;p&gt;女儿已经两岁七个月了，我还没有单独写过一篇关于她的文章。&lt;/p&gt;
@@ -430,7 +456,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/gitstats/"/>
     <id>https://shenxianpeng.github.io/2024/11/gitstats/</id>
     <published>2024-11-27T18:28:00.000Z</published>
-    <updated>2025-04-25T07:04:37.287Z</updated>
+    <updated>2025-04-28T22:42:28.937Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近的晚上的时间（一般要等到孩子睡了）我正在做一件事：复活已经沉寂多年的 GitStats 项目。&lt;/p&gt;
@@ -454,7 +480,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/pip-vs-pipx/"/>
     <id>https://shenxianpeng.github.io/2024/11/pip-vs-pipx/</id>
     <published>2024-11-25T17:21:00.000Z</published>
-    <updated>2025-04-25T07:04:37.287Z</updated>
+    <updated>2025-04-28T22:42:28.938Z</updated>
     
     
     <summary type="html">&lt;h3 id=&quot;pip-vs-pipx-的区别&quot;&gt;&lt;a href=&quot;#pip-vs-pipx-的区别&quot; class=&quot;headerlink&quot; title=&quot;pip vs pipx 的区别&quot;&gt;&lt;/a&gt;&lt;strong&gt;pip vs pipx 的区别&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;在 Python 的生态中，&lt;strong&gt;pip&lt;/strong&gt; 和 &lt;strong&gt;pipx&lt;/strong&gt; 都是用于管理包的软件工具，但它们有不同的设计目标和使用场景。有些同学可能会疑惑，两者到底有什么区别？该如何选择？&lt;/p&gt;
@@ -474,7 +500,7 @@
     <link href="https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/"/>
     <id>https://shenxianpeng.github.io/2024/11/ansbile-playbook-issue/</id>
     <published>2024-11-17T16:00:00.000Z</published>
-    <updated>2025-04-25T07:04:37.285Z</updated>
+    <updated>2025-04-28T22:42:28.936Z</updated>
     
     
     <summary type="html">&lt;p&gt;Recently, while setting up a new Windows Server 2022, I encountered an issue where my Ansible playbook, which previously worked without problems, failed to execute.&lt;/p&gt;
@@ -486,26 +512,6 @@
     
     
     <category term="Ansible" scheme="https://shenxianpeng.github.io/tags/ansible/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从早到晚，我的 DevOps 一天</title>
-    <link href="https://shenxianpeng.github.io/2024/10/devops-everyday/"/>
-    <id>https://shenxianpeng.github.io/2024/10/devops-everyday/</id>
-    <published>2024-10-26T16:00:00.000Z</published>
-    <updated>2025-04-25T07:04:37.285Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;很多人可能会好奇，作为一名 DevOps 工程师，每天究竟忙些什么呢？今天就来简单聊聊，作为 DevOps&amp;#x2F;Build&amp;#x2F;Release 工程师，我的日常工作节奏是怎样的。&lt;/p&gt;
-&lt;h2 id=&quot;工作准备&quot;&gt;&lt;a href=&quot;#工作准备&quot; class=&quot;headerlink&quot; title=&quot;工作准备&quot;&gt;&lt;/a&gt;工作准备&lt;/h2&gt;&lt;p&gt;每天早上九点半到公司，第一件事就是打开 Slack 和邮箱，优先处理那些紧急或容易回复的消息。遇到比较复杂的内容，就会设置提醒，以防漏掉。之后，会把当天的任务列入 To-Do List，再检查 Jenkins 上是否有失败的任务需要关注。这一系列动作大概会花半小时左右。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
-    
-    
-    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
     
   </entry>
   
