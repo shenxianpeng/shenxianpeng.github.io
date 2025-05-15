@@ -9,12 +9,12 @@
   <meta name="description" content="不知道你是否也在企业中使用过 Confluence，或者其他类似的 Wiki 工具。刚接触它时，我觉得这玩意儿真不错：功能强大、支持各种排版样式、可以插入图片、视频、图标，还能查看历史版本，使用体验比 Git 轻松太多了。 但慢慢地，我也发现了它的一个巨大问题：每个人都可以创建并维护自己的 Wiki 页面。 一开始，这种自由看起来是优势。但时间一长，问题就来了 —— 同一个主题的内容，往往被不同的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="还在用 Confluence&#x2F;Wiki？你可能在生产垃圾">
-<meta property="og:url" content="https://shenxianpeng.github.io/2025/05/confluence/index.html">
+<meta property="og:url" content="https://shenxianpeng.github.io/2025/05/docs-and-code/index.html">
 <meta property="og:site_name">
 <meta property="og:description" content="不知道你是否也在企业中使用过 Confluence，或者其他类似的 Wiki 工具。刚接触它时，我觉得这玩意儿真不错：功能强大、支持各种排版样式、可以插入图片、视频、图标，还能查看历史版本，使用体验比 Git 轻松太多了。 但慢慢地，我也发现了它的一个巨大问题：每个人都可以创建并维护自己的 Wiki 页面。 一开始，这种自由看起来是优势。但时间一长，问题就来了 —— 同一个主题的内容，往往被不同的">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-05-14T13:41:00.000Z">
-<meta property="article:modified_time" content="2025-05-14T13:18:56.600Z">
+<meta property="article:modified_time" content="2025-05-15T20:29:49.476Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Wiki">
 <meta property="article:tag" content="Confluence">
@@ -100,9 +100,9 @@ ga('send', 'pageview');
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-2025/05/confluence" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-2025/05/docs-and-code" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2025/05/confluence/" class="article-date">
+    <a href="/2025/05/docs-and-code/" class="article-date">
   <time datetime="2025-05-14T13:41:00.000Z" itemprop="datePublished">2025-05-14</time>
 </a>
 
@@ -140,8 +140,8 @@ ga('send', 'pageview');
 
 <p>以 Python 社区为例：</p>
 <ul>
-<li>Python 官网（<a target="_blank" rel="noopener" href="http://www.python.org)的内容,是通过/">www.python.org）的内容，是通过</a> GitHub 上的 <a target="_blank" rel="noopener" href="https://github.com/python/pythondotorg">python&#x2F;pythondotorg</a> 仓库维护的；</li>
-<li>开发者指南（<a target="_blank" rel="noopener" href="https://devguide.python.org/%EF%BC%89%E4%B9%9F%E6%89%98%E7%AE%A1%E5%9C%A8">https://devguide.python.org/）也托管在</a> <a target="_blank" rel="noopener" href="https://github.com/python/devguide">python&#x2F;devguide</a> 仓库。</li>
+<li>Python 官网 <a target="_blank" rel="noopener" href="https://www.python.org/">https://www.python.org</a> 的内容，是通过 GitHub 上的 <a target="_blank" rel="noopener" href="https://github.com/python/pythondotorg">python&#x2F;pythondotorg</a> 仓库维护的；</li>
+<li>开发者指南 <a target="_blank" rel="noopener" href="https://devguide.python.org/">https://devguide.python.org</a> 的内容，托管在 GitHub 上的 <a target="_blank" rel="noopener" href="https://github.com/python/devguide">python&#x2F;devguide</a> 仓库。</li>
 </ul>
 <p>不管是谁，只要对这些文档有修改建议，都必须通过 PR 提交，经过审查后才能合并。而且因为是开源项目，社区用户也会主动参与反馈和改进，这也帮助文档长期保持高质量。</p>
 <p>但反观企业内部，就完全不同了：</p>
@@ -152,7 +152,9 @@ ga('send', 'pageview');
 </ul>
 <p>还有一点可能更真实也更残酷：<strong>在企业内部，员工缺乏维护文档的动力</strong>。因为一个写得面面俱到、毫无遗漏的“满分文档”，可能在某天就意味着你可以被无缝替换。相比之下，把关键细节掌握在自己脑子里，才更有“工作安全感”。</p>
 <p>所以文档治理这件事，本质上和工具无关，关键在人。<strong>在没有文化和流程支撑的前提下，再先进的工具也可能变成信息垃圾的堆放地。</strong></p>
-<p>你所在的公司又是怎么做文档管理的呢？欢迎在评论区分享交流。</p>
+<p>文档和代码其实不分家。在开源社区的经历让我深有感触：真正优秀的人，往往能独立撑起一个团队的质量与节奏。他们热爱技术、主动负责、乐于分享，是推动项目健康发展的核心力量。</p>
+<p>反观一些企业项目，问题往往出在相反的方向。当团队缺乏主人翁意识，人员流动频繁，或者有些人能力一般却意见最多，最终只会在本就技术债累累的代码上继续堆，越堆越多。</p>
+<p>你所在的公司又是如何管理内部文档和代码的呢？欢迎在评论区留言交流。</p>
 <hr>
 <p>转载本站文章请注明作者和出处，请勿用于任何商业用途。欢迎关注公众号「DevOps攻城狮」</p>
 
@@ -168,10 +170,10 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/05/confluence/" data-id="cmanyvy2k00ypn4pybm4ean8u" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/05/docs-and-code/" data-id="cmaptpuuw00ltmap991rbbfkg" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
-        <a href="https://shenxianpeng.github.io/2025/05/confluence/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="https://shenxianpeng.github.io/2025/05/docs-and-code/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/confluence/" rel="tag">Confluence</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wiki/" rel="tag">Wiki</a></li></ul>
@@ -232,7 +234,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2025/05/confluence/">还在用 Confluence/Wiki？你可能在生产垃圾</a>
+            <a href="/2025/05/docs-and-code/">还在用 Confluence/Wiki？你可能在生产垃圾</a>
           </li>
         
           <li>
@@ -417,7 +419,7 @@ ga('send', 'pageview');
   <script>
     var disqus_shortname = 'shenxianpeng';
     
-    var disqus_url = 'https://shenxianpeng.github.io/2025/05/confluence/';
+    var disqus_url = 'https://shenxianpeng.github.io/2025/05/docs-and-code/';
     
     (function(){
       var dsq = document.createElement('script');
