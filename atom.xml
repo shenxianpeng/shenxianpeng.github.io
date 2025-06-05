@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2025-06-05T02:03:35.664Z</updated>
+  <updated>2025-06-05T02:35:32.648Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Jenkins 构建策略的既要又要还要，一段代码搞定</title>
+    <title>如何优雅地控制 Jenkins 构建是否中断？只看这篇</title>
     <link href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/"/>
     <id>https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/</id>
     <published>2025-06-04T20:41:00.000Z</published>
-    <updated>2025-06-05T02:03:35.664Z</updated>
+    <updated>2025-06-05T02:35:32.648Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;背景介绍&quot;&gt;&lt;a href=&quot;#背景介绍&quot; class=&quot;headerlink&quot; title=&quot;背景介绍&quot;&gt;&lt;/a&gt;背景介绍&lt;/h2&gt;&lt;p&gt;在我们 Jenkins 流水线中经常会遇到这样一个情况：同一个分支或PR，如果有一个构建任务正在运行，当有新的</summary>
+    <summary type="html">&lt;h2 id=&quot;背景介绍&quot;&gt;&lt;a href=&quot;#背景介绍&quot; class=&quot;headerlink&quot; title=&quot;背景介绍&quot;&gt;&lt;/a&gt;背景介绍&lt;/h2&gt;&lt;p&gt;在我们的 Jenkins 流水线中，经常会遇到这样一种情况：当同一个分支或 PR</summary>
         
       
     
@@ -48,7 +48,7 @@
     <link href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/"/>
     <id>https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/</id>
     <published>2025-06-04T15:41:00.000Z</published>
-    <updated>2025-06-05T02:03:35.665Z</updated>
+    <updated>2025-06-05T02:35:32.649Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;Background&quot;&gt;&lt;a href=&quot;#Background&quot; class=&quot;headerlink&quot; title=&quot;Background&quot;&gt;&lt;/a&gt;Background&lt;/h2&gt;&lt;p&gt;In our Jenkins pipeline, we use the following configuration to manage resource consumption, especially for builds that typically take more than 30 minutes to complete:&lt;/p&gt;
@@ -77,7 +77,7 @@
     <link href="https://shenxianpeng.github.io/2025/06/code-refactor/"/>
     <id>https://shenxianpeng.github.io/2025/06/code-refactor/</id>
     <published>2025-06-02T15:41:00.000Z</published>
-    <updated>2025-06-05T02:03:35.663Z</updated>
+    <updated>2025-06-05T02:35:32.648Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天这篇文章，起因是我看到前同事发的一条朋友圈。&lt;/p&gt;
@@ -108,7 +108,7 @@
     <link href="https://shenxianpeng.github.io/2025/05/asdf-clang-tools/"/>
     <id>https://shenxianpeng.github.io/2025/05/asdf-clang-tools/</id>
     <published>2025-05-29T13:41:00.000Z</published>
-    <updated>2025-06-05T02:03:35.663Z</updated>
+    <updated>2025-06-05T02:35:32.647Z</updated>
     
     
       
@@ -135,7 +135,7 @@
     <link href="https://shenxianpeng.github.io/2025/05/run-or-not/"/>
     <id>https://shenxianpeng.github.io/2025/05/run-or-not/</id>
     <published>2025-05-28T14:32:00.000Z</published>
-    <updated>2025-06-05T02:03:35.663Z</updated>
+    <updated>2025-06-05T02:35:32.647Z</updated>
     
     
     <summary type="html">&lt;p&gt;这几年，随着国内就业形势日趋严峻，大家找工作也开始放眼全球。&lt;/p&gt;
@@ -166,7 +166,7 @@
     <link href="https://shenxianpeng.github.io/2025/05/ai/"/>
     <id>https://shenxianpeng.github.io/2025/05/ai/</id>
     <published>2025-05-26T15:32:00.000Z</published>
-    <updated>2025-06-05T02:03:35.663Z</updated>
+    <updated>2025-06-05T02:35:32.647Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;分享两个最近的体会&quot;&gt;&lt;a href=&quot;#分享两个最近的体会&quot; class=&quot;headerlink&quot; title=&quot;分享两个最近的体会&quot;&gt;&lt;/a&gt;分享两个最近的体会&lt;/h2&gt;&lt;h3 id=&quot;AI-让人感到“虚”&quot;&gt;&lt;a href=&quot;#AI-让人感到“虚”&quot; class=&quot;headerlink&quot; title=&quot;AI 让人感到“虚”&quot;&gt;&lt;/a&gt;AI 让人感到“虚”&lt;/h3&gt;&lt;p&gt;老同事来欧洲出差，和他聊了很多 —— 从工作到生活，从技术到 AI。&lt;/p&gt;
@@ -188,7 +188,7 @@
     <link href="https://shenxianpeng.github.io/2025/05/docs-and-code/"/>
     <id>https://shenxianpeng.github.io/2025/05/docs-and-code/</id>
     <published>2025-05-14T13:41:00.000Z</published>
-    <updated>2025-06-05T02:03:35.663Z</updated>
+    <updated>2025-06-05T02:35:32.647Z</updated>
     
     
     <summary type="html">&lt;p&gt;不知道你是否也在企业中使用过 Confluence，或者其他类似的 Wiki 工具。刚接触它时，我觉得这玩意儿真不错：功能强大、支持各种排版样式、可以插入图片、视频、图标，还能查看历史版本，使用体验比 Git 轻松太多了。&lt;/p&gt;
@@ -216,7 +216,7 @@
     <link href="https://shenxianpeng.github.io/2025/05/uv/"/>
     <id>https://shenxianpeng.github.io/2025/05/uv/</id>
     <published>2025-05-05T13:41:00.000Z</published>
-    <updated>2025-06-05T02:03:35.663Z</updated>
+    <updated>2025-06-05T02:35:32.647Z</updated>
     
     
     <summary type="html">&lt;p&gt;如果你已经习惯了 &lt;code&gt;pip install&lt;/code&gt;、手动创建虚拟环境、自己管理 requirements.txt，那你可能会对 &lt;a href=&quot;https://docs.astral.sh/uv/&quot;&gt;uv&lt;/a&gt; 有些惊喜。&lt;/p&gt;
@@ -239,7 +239,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d3/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d3/</id>
     <published>2025-04-28T17:41:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天是我参加 PyCon LT 2025 的第三天：AI and ML Day，主题是 LLM 和 Neural Networks。&lt;/p&gt;
@@ -265,7 +265,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d2/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d2/</id>
     <published>2025-04-24T13:10:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天是我参加 PyCon LT 2025 的第二天：Data Day，主题是 Dataframes、Databases、Orchestration。&lt;/p&gt;
@@ -290,7 +290,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d1/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d1/</id>
     <published>2025-04-23T15:10:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;第一次参加了 Python 的大会，没想到是在国外。&lt;/p&gt;
@@ -321,7 +321,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/one-night-in-beijing/"/>
     <id>https://shenxianpeng.github.io/2025/04/one-night-in-beijing/</id>
     <published>2025-04-15T19:43:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;上个月回国休假，结束之后从北京转机飞欧洲。因为我们三口之家行李比较多，就订了首都机场附近的酒店，方便第二天出发。趁着在北京停留的这个晚上，就约了几位大学同学小聚一下。&lt;/p&gt;
@@ -342,7 +342,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/"/>
     <id>https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/</id>
     <published>2025-04-15T04:49:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
       
@@ -375,7 +375,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/visit-github/"/>
     <id>https://shenxianpeng.github.io/2025/04/visit-github/</id>
     <published>2025-04-13T15:43:00.000Z</published>
-    <updated>2025-06-05T02:03:35.663Z</updated>
+    <updated>2025-06-05T02:35:32.647Z</updated>
     
     
       
@@ -402,7 +402,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/"/>
     <id>https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/</id>
     <published>2025-04-12T15:00:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;在日常的开源项目或团队协作中，我们经常会需要一个易于维护、可自动部署的文档系统。&lt;/p&gt;
@@ -432,7 +432,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/md-vs-rst/"/>
     <id>https://shenxianpeng.github.io/2025/04/md-vs-rst/</id>
     <published>2025-04-10T17:00:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;在日常工作中，无论是写 README、写博客，还是写项目文档，我们总要选择一种标记语言来排版内容。&lt;/p&gt;
@@ -456,7 +456,7 @@
     <link href="https://shenxianpeng.github.io/2025/04/remember/"/>
     <id>https://shenxianpeng.github.io/2025/04/remember/</id>
     <published>2025-04-04T17:00:00.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;p&gt;回国两个月来，我一直想写一篇文章，来记录一下这两个月来的生活。&lt;/p&gt;
@@ -479,7 +479,7 @@
     <link href="https://shenxianpeng.github.io/2025/03/nutanix/"/>
     <id>https://shenxianpeng.github.io/2025/03/nutanix/</id>
     <published>2025-03-12T07:26:59.000Z</published>
-    <updated>2025-06-05T02:03:35.662Z</updated>
+    <updated>2025-06-05T02:35:32.646Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;如果你是 VMware 的企业用户，或许你正在考虑脱离 VMware。目前，许多企业用户正在积极寻找替代方案，以降低成本和减少对 VMware 生态的依赖。&lt;/p&gt;
@@ -509,7 +509,7 @@
     <link href="https://shenxianpeng.github.io/2025/02/my-first-pr-to-cpython/"/>
     <id>https://shenxianpeng.github.io/2025/02/my-first-pr-to-cpython/</id>
     <published>2025-02-27T14:26:59.000Z</published>
-    <updated>2025-06-05T02:03:35.660Z</updated>
+    <updated>2025-06-05T02:35:32.645Z</updated>
     
     
       
@@ -537,7 +537,7 @@
     <link href="https://shenxianpeng.github.io/2025/02/euro-python-review/"/>
     <id>https://shenxianpeng.github.io/2025/02/euro-python-review/</id>
     <published>2025-02-14T07:26:59.000Z</published>
-    <updated>2025-06-05T02:03:35.660Z</updated>
+    <updated>2025-06-05T02:35:32.644Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近工作之余没怎么贡献代码，主要把时间都用在了评审 EuroPython 2025 （欧洲 Python 2025 大会）的提案上了。&lt;/p&gt;
