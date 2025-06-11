@@ -99,7 +99,7 @@ ga('send', 'pageview');
     <article id="post-2025/06/commit-message-template" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2025/06/commit-message-template/" class="article-date">
-  <time datetime="2025-06-11T14:41:00.000Z" itemprop="datePublished">2025-06-11</time>
+  <time datetime="2025-06-12T04:32:00.000Z" itemprop="datePublished">2025-06-12</time>
 </a>
 
     
@@ -117,7 +117,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2025/06/commit-message-template/">Bitbucket 提交信息模板实践：让 Git 记录 PR 的全部价值</a>
+      <a class="article-title" href="/2025/06/commit-message-template/">提升代码可追溯性：一招把 PR 描述写入 Git commit</a>
     </h1>
   
 
@@ -156,7 +156,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/06/commit-message-template/" data-id="cmbrxg4k200m4m2onfh1y69ze" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/06/commit-message-template/" data-id="cmbsgwyvt00zolaq29lgffu1s" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/06/commit-message-template/#disqus_thread" class="article-comment-link">Comments</a>
@@ -217,12 +217,6 @@ ga('send', 'pageview');
 <figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 禁止并发构建，允许中断前一个任务</span></span><br><span class="line">disableConcurrentBuilds <span class="attr">abortPrevious:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>这段代码你可能在不少 Jenkinsfile 中看到，就算是 Jenkins 团队他们自己的 CI 也是这样设置的。</p>
-<p><img src="/2025/06/jenkins-concurrent-build-cn/2.png" alt="Jenkins buildPlugin.groovy"></p>
-<p>这样做的好处是显而易见的，但在某些情况时也带来了一个新的问题，比如：</p>
-<blockquote>
-<p>当一个 release 分支正在运行的构建任务，会被新的合并触发的构建中断。尤其是当它即将完成时，却因为新的合并代码触发了新的构建任务，导致前一个任务被中断。</p>
-</blockquote>
-<p>这让 QA 同事很抓狂：一个马上就要交付测试的 Build，结果因为新的合并被中断了，还得重新等待……</p>
         
           <p class="article-more-link">
             <a href="/2025/06/jenkins-concurrent-build-cn/#more">Read More</a>
@@ -240,7 +234,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/" data-id="cmbrxg4k300m8m2on2a2igcoc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/" data-id="cmbsgwyvu00zplaq2d41y6zmn" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/#disqus_thread" class="article-comment-link">Comments</a>
@@ -321,7 +315,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/" data-id="cmbrxg4k400mcm2on4wmucp19" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/" data-id="cmbsgwyvv00zrlaq2auxf67mt" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/#disqus_thread" class="article-comment-link">Comments</a>
@@ -404,7 +398,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/06/code-refactor/" data-id="cmbrxg4k100m1m2on6ral55z8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/06/code-refactor/" data-id="cmbsgwytm00m0laq22rqm7twh" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/06/code-refactor/#disqus_thread" class="article-comment-link">Comments</a>
@@ -508,7 +502,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/05/asdf-clang-tools/" data-id="cmbrxg4jy00llm2oncmvwa2p8" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/05/asdf-clang-tools/" data-id="cmbsgwyti00lklaq27rsofslt" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/05/asdf-clang-tools/#disqus_thread" class="article-comment-link">Comments</a>
@@ -593,7 +587,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/05/run-or-not/" data-id="cmbrxg4k000ltm2on9et143y3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/05/run-or-not/" data-id="cmbsgwytk00lslaq21zxu26di" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/05/run-or-not/#disqus_thread" class="article-comment-link">Comments</a>
@@ -669,7 +663,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/05/ai/" data-id="cmbrxg4jx00lhm2ongvmj6kam" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/05/ai/" data-id="cmbsgwyth00lglaq25ym69th4" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/05/ai/#disqus_thread" class="article-comment-link">Comments</a>
@@ -747,7 +741,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/05/docs-and-code/" data-id="cmbrxg4jz00lpm2onfnzy81br" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/05/docs-and-code/" data-id="cmbsgwytj00lolaq287hnbwix" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/05/docs-and-code/#disqus_thread" class="article-comment-link">Comments</a>
@@ -822,7 +816,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/05/uv/" data-id="cmbrxg4k000lxm2ondezj0e4n" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/05/uv/" data-id="cmbsgwytl00lwlaq2c8sr0qc0" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/05/uv/#disqus_thread" class="article-comment-link">Comments</a>
@@ -898,7 +892,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/04/pycon-lt-d3/" data-id="cmbrxg4ju00l2m2onb6a8g0yq" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/04/pycon-lt-d3/" data-id="cmbsgwytf00l1laq22eut4fn8" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/04/pycon-lt-d3/#disqus_thread" class="article-comment-link">Comments</a>
@@ -973,7 +967,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/04/pycon-lt-d2/" data-id="cmbrxg4jt00kxm2on59nhdudw" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/04/pycon-lt-d2/" data-id="cmbsgwyte00kwlaq271vt4rg8" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/04/pycon-lt-d2/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1054,7 +1048,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/04/pycon-lt-d1/" data-id="cmbrxg4js00kum2onasbd5rvg" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/04/pycon-lt-d1/" data-id="cmbsgwytd00ktlaq2gx60e1uw" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/04/pycon-lt-d1/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1129,7 +1123,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/04/one-night-in-beijing/" data-id="cmbrxg4jo00kqm2onbybwaypa" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/04/one-night-in-beijing/" data-id="cmbsgwytc00kplaq22qnghc7i" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/04/one-night-in-beijing/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1227,7 +1221,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/" data-id="cmbrxg4jm00kjm2on2ztk491o" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/" data-id="cmbsgwytb00kilaq2f4k41c0k" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1308,7 +1302,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/04/visit-github/" data-id="cmbrxg4jw00ldm2onho7d3l88" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/04/visit-github/" data-id="cmbsgwyth00lclaq2h8m40r0c" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/04/visit-github/#disqus_thread" class="article-comment-link">Comments</a>
@@ -1361,7 +1355,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2025/06/commit-message-template/">Bitbucket 提交信息模板实践：让 Git 记录 PR 的全部价值</a>
+            <a href="/2025/06/commit-message-template/">提升代码可追溯性：一招把 PR 描述写入 Git commit</a>
           </li>
         
           <li>

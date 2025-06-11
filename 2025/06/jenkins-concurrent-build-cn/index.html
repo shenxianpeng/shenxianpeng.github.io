@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/2.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/1.png">
 <meta property="article:published_time" content="2025-06-04T20:41:00.000Z">
-<meta property="article:modified_time" content="2025-06-11T12:29:23.698Z">
+<meta property="article:modified_time" content="2025-06-11T21:34:26.195Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="DevOps">
 <meta property="article:tag" content="Jenkins">
@@ -139,14 +139,14 @@ ga('send', 'pageview');
 <figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 禁止并发构建，允许中断前一个任务</span></span><br><span class="line">disableConcurrentBuilds <span class="attr">abortPrevious:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>这段代码你可能在不少 Jenkinsfile 中看到，就算是 Jenkins 团队他们自己的 CI 也是这样设置的。</p>
+<span id="more"></span>
+
 <p><img src="/2025/06/jenkins-concurrent-build-cn/2.png" alt="Jenkins buildPlugin.groovy"></p>
 <p>这样做的好处是显而易见的，但在某些情况时也带来了一个新的问题，比如：</p>
 <blockquote>
 <p>当一个 release 分支正在运行的构建任务，会被新的合并触发的构建中断。尤其是当它即将完成时，却因为新的合并代码触发了新的构建任务，导致前一个任务被中断。</p>
 </blockquote>
 <p>这让 QA 同事很抓狂：一个马上就要交付测试的 Build，结果因为新的合并被中断了，还得重新等待……</p>
-<span id="more"></span>
-
 <p>于是他们提出了一个需求：</p>
 <blockquote>
 <p>PR 构建可以中断来节省资源没问题，但像 <code>devel</code> 或 <code>release</code> 分支上的构建，如果已经在运行，就不应该被中断。新的合并触发的构建应该排队等待，直到前一个任务完成后再运行。</p>
@@ -189,7 +189,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/" data-id="cmbrxg4k300m8m2on2a2igcoc" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/" data-id="cmbsgwyvu00zplaq2d41y6zmn" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/#disqus_thread" class="article-comment-link">Comments</a>
@@ -224,7 +224,7 @@ ga('send', 'pageview');
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Bitbucket 提交信息模板实践：让 Git 记录 PR 的全部价值
+          提升代码可追溯性：一招把 PR 描述写入 Git commit
         
       </div>
     </a>
@@ -262,7 +262,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2025/06/commit-message-template/">Bitbucket 提交信息模板实践：让 Git 记录 PR 的全部价值</a>
+            <a href="/2025/06/commit-message-template/">提升代码可追溯性：一招把 PR 描述写入 Git commit</a>
           </li>
         
           <li>
