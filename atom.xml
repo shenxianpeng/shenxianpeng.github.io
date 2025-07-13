@@ -6,7 +6,7 @@
   <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
   
   <link href="https://shenxianpeng.github.io/"/>
-  <updated>2025-07-13T18:17:00.124Z</updated>
+  <updated>2025-07-13T18:21:20.870Z</updated>
   <id>https://shenxianpeng.github.io/</id>
   
   <author>
@@ -17,15 +17,14 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>来欧洲发展，真的适合你吗？—— 以程序员家庭为例</title>
+    <title>出国一年，我看清了：不是所有人都适合来欧洲</title>
     <link href="https://shenxianpeng.github.io/2025/05/run-or-not/"/>
     <id>https://shenxianpeng.github.io/2025/05/run-or-not/</id>
     <published>2025-07-13T14:32:00.000Z</published>
-    <updated>2025-07-13T18:17:00.124Z</updated>
+    <updated>2025-07-13T18:21:20.870Z</updated>
     
     
-    <summary type="html">在全球化的今天，越来越多的人考虑出国工作和生活。本文从程序员和孩子爸爸的双重视角，分析了哪些人适合来欧洲发展，哪些人可能会感到不适。
-</summary>
+    <summary type="html">哪些人适合来欧洲发展，哪些人可能会感到不适？从程序员和孩子爸爸的双重视角，聊聊出国生活的真实体验。</summary>
     
     
     
@@ -41,7 +40,7 @@
     <link href="https://shenxianpeng.github.io/2025/06/jfrog-report/"/>
     <id>https://shenxianpeng.github.io/2025/06/jfrog-report/</id>
     <published>2025-06-28T01:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.128Z</updated>
+    <updated>2025-07-13T18:21:20.874Z</updated>
     
     
     <summary type="html">JFrog发布的《2025软件供应链现状报告》揭示了软件供应链的变化和风险，尤其是AI模型的安全问题。本文分享了报告中的关键发现和对DevOps从业者的启示。
@@ -63,7 +62,7 @@
     <link href="https://shenxianpeng.github.io/2025/06/show-badge-on-jenkins/"/>
     <id>https://shenxianpeng.github.io/2025/06/show-badge-on-jenkins/</id>
     <published>2025-06-23T15:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.128Z</updated>
+    <updated>2025-07-13T18:21:20.874Z</updated>
     
     
     <summary type="html">If your Shields.io badges (like build status or documentation status) aren’t showing up in your Jenkins dashboard, it’s likely due to Jenkins&#39; strict Content Security Policy (CSP).
@@ -84,7 +83,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/06/commit-message-template/"/>
     <id>https://shenxianpeng.github.io/2025/06/commit-message-template/</id>
     <published>2025-06-12T04:32:00.000Z</published>
-    <updated>2025-07-13T18:17:00.125Z</updated>
+    <updated>2025-07-13T18:21:20.871Z</updated>
     
     
     <summary type="html">在 Bitbucket 中使用 Commit Message Templates 功能，将 PR 描述自动写入 Git commit message，确保关键信息不会随工具变更而丢失。
@@ -106,7 +105,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/"/>
     <id>https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/</id>
     <published>2025-06-04T20:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.126Z</updated>
+    <updated>2025-07-13T18:21:20.872Z</updated>
     
     
     <summary type="html">在 Jenkins 中，`disableConcurrentBuilds` 选项用于管理并发构建。本文介绍了如何根据分支类型动态设置 `abortPrevious` 的值，从而实现更灵活的构建管理。
@@ -128,7 +127,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/"/>
     <id>https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/</id>
     <published>2025-06-04T15:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.127Z</updated>
+    <updated>2025-07-13T18:21:20.873Z</updated>
     
     
     <summary type="html">In Jenkins, the `disableConcurrentBuilds` option is used to manage concurrent builds. This article explains how to conditionally set the `abortPrevious` value based on the branch being built, allowing for more flexible build management.
@@ -150,7 +149,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/06/code-refactor/"/>
     <id>https://shenxianpeng.github.io/2025/06/code-refactor/</id>
     <published>2025-06-02T15:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.124Z</updated>
+    <updated>2025-07-13T18:21:20.870Z</updated>
     
     
     <summary type="html">在 DevOps 中，CI/CD 流水线需要持续维护和重构。本文探讨了为什么 CI/CD 不是一次性的建设项目，而是一个需要长期投入和持续演进的系统。
@@ -172,7 +171,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/05/asdf-clang-tools/"/>
     <id>https://shenxianpeng.github.io/2025/05/asdf-clang-tools/</id>
     <published>2025-05-29T13:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.124Z</updated>
+    <updated>2025-07-13T18:21:20.870Z</updated>
     
     
     <summary type="html">asdf-clang-tools 是一个 asdf 插件，用于安装和管理 Clang Tools 相关工具（如 clang-format、clang-tidy、clang-query 和 clang-apply-replacements 等）。
@@ -194,7 +193,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/05/ai/"/>
     <id>https://shenxianpeng.github.io/2025/05/ai/</id>
     <published>2025-05-26T15:32:00.000Z</published>
-    <updated>2025-07-13T18:17:00.123Z</updated>
+    <updated>2025-07-13T18:21:20.870Z</updated>
     
     
     <summary type="html">AI 的出现让很多人感到“虚”，但它不会取代我们的职位，而是改变我们的做事方式。本文分享了对 AI 的体会和每天一小步的坚持。
@@ -214,7 +213,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/05/docs-and-code/"/>
     <id>https://shenxianpeng.github.io/2025/05/docs-and-code/</id>
     <published>2025-05-14T13:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.124Z</updated>
+    <updated>2025-07-13T18:21:20.870Z</updated>
     
     
     <summary type="html">在企业中，Wiki 和 Confluence 等文档工具如果缺乏统一管理和审核机制，可能会导致信息混乱和知识沉淀失败。本文探讨了如何避免这种情况，并借鉴开源社区的成功经验。
@@ -238,7 +237,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/05/uv/"/>
     <id>https://shenxianpeng.github.io/2025/05/uv/</id>
     <published>2025-05-05T13:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.124Z</updated>
+    <updated>2025-07-13T18:21:20.870Z</updated>
     
     
     <summary type="html">uv 是一个由 Astral 团队开发的 Python 包管理工具，它能替代 pip、venv、pip-tools 的功能，提供更快的依赖解析速度和更现代的项目管理方式。
@@ -260,7 +259,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d3/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d3/</id>
     <published>2025-04-28T17:41:00.000Z</published>
-    <updated>2025-07-13T18:17:00.122Z</updated>
+    <updated>2025-07-13T18:21:20.869Z</updated>
     
     
     <summary type="html">今天是 PyCon LT 2025 的最后一天，主题是 AI and ML Day。分享了几位女性讲者的精彩演讲，以及对数据科学和 AI 的新认识。
@@ -284,7 +283,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d2/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d2/</id>
     <published>2025-04-24T13:10:00.000Z</published>
-    <updated>2025-07-13T18:17:00.122Z</updated>
+    <updated>2025-07-13T18:21:20.869Z</updated>
     
     
     <summary type="html">今天是 PyCon LT 2025 的 Data Day，主题是 Dataframes、Databases、Orchestration。虽然不太熟悉这些领域，但几位女性讲者的演讲让我印象深刻，收获颇丰。
@@ -308,7 +307,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d1/"/>
     <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d1/</id>
     <published>2025-04-23T15:10:00.000Z</published>
-    <updated>2025-07-13T18:17:00.122Z</updated>
+    <updated>2025-07-13T18:21:20.869Z</updated>
     
     
     <summary type="html">参加了 PyCon LT 2025 的第一天，分享了演讲内容、个人感受以及对 Python 社区的思考。
@@ -332,7 +331,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/one-night-in-beijing/"/>
     <id>https://shenxianpeng.github.io/2025/04/one-night-in-beijing/</id>
     <published>2025-04-15T19:43:00.000Z</published>
-    <updated>2025-07-13T18:17:00.122Z</updated>
+    <updated>2025-07-13T18:21:20.869Z</updated>
     
     
     <summary type="html">在北京停留的一晚，和同学小聚，感受到北京人下班的晚节奏，以及生活在大城市的压力和挑战。
@@ -352,7 +351,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/"/>
     <id>https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/</id>
     <published>2025-04-15T04:49:00.000Z</published>
-    <updated>2025-07-13T18:17:00.122Z</updated>
+    <updated>2025-07-13T18:21:20.868Z</updated>
     
     
     <summary type="html">cpp-linter-action 是一个 GitHub Action，提供 C/C++ 代码的格式化和静态分析功能。它使用 clang-format 和 clang-tidy，支持多种配置和自定义规则。项目自 2021 年创建以来，已被多个知名组织和开源项目使用。
@@ -378,7 +377,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/visit-github/"/>
     <id>https://shenxianpeng.github.io/2025/04/visit-github/</id>
     <published>2025-04-13T15:43:00.000Z</published>
-    <updated>2025-07-13T18:17:00.123Z</updated>
+    <updated>2025-07-13T18:21:20.870Z</updated>
     
     
     <summary type="html">GitHub 的访问问题让很多程序员感到困扰，尤其是在国内。本文分享了个人的体验和对网络问题的思考。
@@ -398,7 +397,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/"/>
     <id>https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/</id>
     <published>2025-04-12T15:00:00.000Z</published>
-    <updated>2025-07-13T18:17:00.123Z</updated>
+    <updated>2025-07-13T18:21:20.869Z</updated>
     
     
     <summary type="html">在开源项目或团队协作中，Sphinx + ReadTheDocs 是一个易于维护、可自动部署的文档系统。本文记录了配置过程和注意事项。
@@ -422,7 +421,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/md-vs-rst/"/>
     <id>https://shenxianpeng.github.io/2025/04/md-vs-rst/</id>
     <published>2025-04-10T17:00:00.000Z</published>
-    <updated>2025-07-13T18:17:00.122Z</updated>
+    <updated>2025-07-13T18:21:20.868Z</updated>
     
     
     <summary type="html">Markdown 和 reStructuredText（RST）是两种常用的标记语言。本文对比了它们的优缺点，并分享了在不同场景下的使用建议。
@@ -444,7 +443,7 @@ In this post, I’ll show you how to temporarily fix it using the Script Console
     <link href="https://shenxianpeng.github.io/2025/04/remember/"/>
     <id>https://shenxianpeng.github.io/2025/04/remember/</id>
     <published>2025-04-04T17:00:00.000Z</published>
-    <updated>2025-07-13T18:17:00.123Z</updated>
+    <updated>2025-07-13T18:21:20.869Z</updated>
     
     
     <summary type="html">回国两个月来，我一直想写一篇文章，来记录一下这两个月来的生活。虽然生活琐碎，但每个点滴都值得回忆。
