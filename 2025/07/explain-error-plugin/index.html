@@ -6,18 +6,18 @@
   
   <title>Jenkins 插件中心居然还没有这个功能？我写了一个！🤖 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个插件的主要功能，是让 Jenkins 构建过程中遇到的错误不再需要复制错误信息到 ChatGPT 等 AI 工具中进行分析，而是直接在 Jenkins 的构建日志中提供一个按钮，点击后可以自动将错误信息发送到 OpenAI 进行分析。你也可以在 pipeline 中添加 explainError() 步骤来对错误进行解释，从而帮助开发者更快地定位和解决问题。 这是我在 Jenkins 社区的第">
+  <meta name="description" content="正如标题所说，我最近上线了我的第一个 Jenkins 插件！🎉 这个插件的主要功能，是让 Jenkins 构建过程中遇到的错误不再需要复制错误信息到 ChatGPT 等 AI 工具中进行分析，而是直接在 Jenkins 的构建日志中提供一个按钮，点击后可以自动将错误信息发送到 OpenAI 进行分析。你也可以在 pipeline 中添加 explainError() 步骤来对错误进行解释，从而帮">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jenkins 插件中心居然还没有这个功能？我写了一个！🤖">
 <meta property="og:url" content="https://shenxianpeng.github.io/2025/07/explain-error-plugin/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="这个插件的主要功能，是让 Jenkins 构建过程中遇到的错误不再需要复制错误信息到 ChatGPT 等 AI 工具中进行分析，而是直接在 Jenkins 的构建日志中提供一个按钮，点击后可以自动将错误信息发送到 OpenAI 进行分析。你也可以在 pipeline 中添加 explainError() 步骤来对错误进行解释，从而帮助开发者更快地定位和解决问题。 这是我在 Jenkins 社区的第">
+<meta property="og:description" content="正如标题所说，我最近上线了我的第一个 Jenkins 插件！🎉 这个插件的主要功能，是让 Jenkins 构建过程中遇到的错误不再需要复制错误信息到 ChatGPT 等 AI 工具中进行分析，而是直接在 Jenkins 的构建日志中提供一个按钮，点击后可以自动将错误信息发送到 OpenAI 进行分析。你也可以在 pipeline 中添加 explainError() 步骤来对错误进行解释，从而帮">
 <meta property="og:locale">
 <meta property="og:image" content="https://shenxianpeng.github.io/2025/07/explain-error-plugin/1.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2025/07/explain-error-plugin/2.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2025/07/explain-error-plugin/3.png">
 <meta property="article:published_time" content="2025-07-29T14:41:00.000Z">
-<meta property="article:modified_time" content="2025-07-29T18:35:16.320Z">
+<meta property="article:modified_time" content="2025-07-29T19:02:31.091Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="AI">
@@ -134,7 +134,8 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这个插件的主要功能，是让 Jenkins 构建过程中遇到的错误不再需要复制错误信息到 ChatGPT 等 AI 工具中进行分析，而是<strong>直接在 Jenkins 的构建日志中提供一个按钮</strong>，点击后可以自动将错误信息发送到 OpenAI 进行分析。你也可以在 pipeline 中添加 <code>explainError()</code> 步骤来对错误进行解释，从而帮助开发者更快地定位和解决问题。</p>
+        <p>正如标题所说，我最近上线了我的第一个 Jenkins 插件！🎉</p>
+<p>这个插件的主要功能，是让 Jenkins 构建过程中遇到的错误不再需要复制错误信息到 ChatGPT 等 AI 工具中进行分析，而是<strong>直接在 Jenkins 的构建日志中提供一个按钮</strong>，点击后可以自动将错误信息发送到 OpenAI 进行分析。你也可以在 pipeline 中添加 <code>explainError()</code> 步骤来对错误进行解释，从而帮助开发者更快地定位和解决问题。</p>
 <p>这是我在 Jenkins 社区的第一个插件项目。之前之所以没有尝试，是因为我认为很多功能完全可以通过 pipeline 脚本来实现，没必要单独开发插件。</p>
 <p>但随着 AI 的使用越来越普及，我发现 Jenkins 插件中心居然还没有类似的插件，于是决定自己动手实现这个功能。在 AI 的加持下，经过两周左右的开发与测试，以及 Jenkins Hoster 多轮认真细致的 Code Review，终于在上周末提交到了 Jenkins 插件中心，<strong>正式上线</strong>。</p>
 <h2 id="插件介绍"><a href="#插件介绍" class="headerlink" title="插件介绍"></a>插件介绍</h2><p><strong>Explain Error Plugin</strong> 是一个基于 OpenAI 的 Jenkins 插件，它可以自动解析构建失败的日志信息，并生成可读性强的错误解释，适用于流水线（Pipeline）和自由风格（Freestyle）等常见的 Jenkins 作业类型。</p>
@@ -257,7 +258,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/07/explain-error-plugin/" data-id="cmdovnici0109pb9l7jclbqt3" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/07/explain-error-plugin/" data-id="cmdowmlwq010jrp9l1jelfwyb" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/07/explain-error-plugin/#disqus_thread" class="article-comment-link">Comments</a>
