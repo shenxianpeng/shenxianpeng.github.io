@@ -17,7 +17,7 @@
 <meta property="og:image" content="https://shenxianpeng.github.io/2025/07/explain-error-plugin/2.png">
 <meta property="og:image" content="https://shenxianpeng.github.io/2025/07/explain-error-plugin/3.png">
 <meta property="article:published_time" content="2025-07-29T14:41:00.000Z">
-<meta property="article:modified_time" content="2025-07-29T19:02:31.091Z">
+<meta property="article:modified_time" content="2025-07-29T19:20:07.620Z">
 <meta property="article:author" content="shenxianpeng">
 <meta property="article:tag" content="Jenkins">
 <meta property="article:tag" content="AI">
@@ -140,9 +140,11 @@ ga('send', 'pageview');
 <p>但随着 AI 的使用越来越普及，我发现 Jenkins 插件中心居然还没有类似的插件，于是决定自己动手实现这个功能。在 AI 的加持下，经过两周左右的开发与测试，以及 Jenkins Hoster 多轮认真细致的 Code Review，终于在上周末提交到了 Jenkins 插件中心，<strong>正式上线</strong>。</p>
 <h2 id="插件介绍"><a href="#插件介绍" class="headerlink" title="插件介绍"></a>插件介绍</h2><p><strong>Explain Error Plugin</strong> 是一个基于 OpenAI 的 Jenkins 插件，它可以自动解析构建失败的日志信息，并生成可读性强的错误解释，适用于流水线（Pipeline）和自由风格（Freestyle）等常见的 Jenkins 作业类型。</p>
 <ul>
-<li>💡 一键生成失败原因的AI解释</li>
-<li>🔧 在流水线中用一行代码调用AI解释功能</li>
-<li>🌐 在构建页面的侧边栏或控制台中查看 AI 分析结果</li>
+<li>🔍 一键分析控制台输出中的错误</li>
+<li>⚙️ 可在 Pipeline 中使用，只需一个简单的 <code>explainError()</code> 步骤</li>
+<li>💡 基于 OpenAI GPT 模型的 AI 智能解释</li>
+<li>🌐 提供两种 Web UI 展示 AI 生成的分析结果</li>
+<li>🎯 可定制：支持设置模型、API 地址、日志过滤器等配置</li>
 </ul>
 <h2 id="插件亮点功能"><a href="#插件亮点功能" class="headerlink" title="插件亮点功能"></a>插件亮点功能</h2><span id="more"></span>
 
@@ -258,7 +260,7 @@ ga('send', 'pageview');
       </script>
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenxianpeng.github.io/2025/07/explain-error-plugin/" data-id="cmdowmlwq010jrp9l1jelfwyb" class="article-share-link">Share</a>
+      <a data-url="https://shenxianpeng.github.io/2025/07/explain-error-plugin/" data-id="cmdox98fv0108pg9lgnw3g8rc" class="article-share-link">Share</a>
       <!-- <a class="article-feedback-link" href=https://github.com/shenxianpeng/blog/issues/new?assignees=&labels=feedback&template=feedback-template.md target="_blank" >Feedback</a> -->
       
         <a href="https://shenxianpeng.github.io/2025/07/explain-error-plugin/#disqus_thread" class="article-comment-link">Comments</a>
