@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clang on DevOps 攻城狮</title><link>https://shenxianpeng.github.io/tags/clang/</link><description>Recent content in Clang on DevOps 攻城狮</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>xianpeng.shen@gmail.com (沈显鹏)</managingEditor><webMaster>xianpeng.shen@gmail.com (沈显鹏)</webMaster><copyright>© 2017 - 2025 沈显鹏</copyright><lastBuildDate>Tue, 15 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://shenxianpeng.github.io/tags/clang/index.xml" rel="self" type="application/rss+xml"/><item><title>微软、NASA 都在用？我用业余时间维护了 4 年的项目破百了</title><link>https://shenxianpeng.github.io/posts/cpp-linter-action-milestone/</link><pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/cpp-linter-action-milestone/</guid><description>cpp-linter-action 是一个 GitHub Action，提供 C/C++ 代码的格式化和静态分析功能。它使用 clang-format 和 clang-tidy，支持多种配置和自定义规则。项目自 2021 年创建以来，已被多个知名组织和开源项目使用。</description></item><item><title>cpp-linter-action 最新版支持 Pull Request Review 功能了 👏</title><link>https://shenxianpeng.github.io/posts/cpp-linter-action/</link><pubDate>Sat, 17 Feb 2024 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/cpp-linter-action/</guid><description>&lt;p>作为 &lt;a
+href="https://github.com/cpp-linter"
+target="_blank"
+>cpp-linter&lt;/a> 的创建者和贡献者，我很高兴地宣布 —— cpp-linter-action 从 v2.9.0 版本开始支持 Pull Request Review 功能了 👏&lt;/p></description></item><item><title>C/C++ 代码格式化和静态分析检查的一站式工作流 Cpp Linter</title><link>https://shenxianpeng.github.io/posts/cpp-linter/</link><pubDate>Tue, 23 Aug 2022 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/cpp-linter/</guid><description>&lt;p>本篇是关于 C/C++ 代码格式化和静态分析检查的实践分享。&lt;/p>
+&lt;p>目前 C/C++ 语言的代码格式化和检查工具使用的最为广泛的是 &lt;a
+href="https://llvm.org/"
+target="_blank"
+>LLVM&lt;/a> 项目中的 &lt;a
+href="https://clang.llvm.org/docs/ClangFormat.html"
+target="_blank"
+>Clang-Format&lt;/a> 和 &lt;a
+href="https://clang.llvm.org/extra/clang-tidy/"
+target="_blank"
+>Clang-Tidy&lt;/a>。&lt;/p></description></item></channel></rss>

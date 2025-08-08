@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>HP-UX on DevOps 攻城狮</title><link>https://shenxianpeng.github.io/tags/hp-ux/</link><description>Recent content in HP-UX on DevOps 攻城狮</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>xianpeng.shen@gmail.com (沈显鹏)</managingEditor><webMaster>xianpeng.shen@gmail.com (沈显鹏)</webMaster><copyright>© 2017 - 2025 沈显鹏</copyright><lastBuildDate>Wed, 05 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://shenxianpeng.github.io/tags/hp-ux/index.xml" rel="self" type="application/rss+xml"/><item><title>HP-UX 安装工具以及一些使用总结</title><link>https://shenxianpeng.github.io/posts/hpxu-tips/</link><pubDate>Wed, 05 Feb 2020 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/hpxu-tips/</guid><description>&lt;h2 class="relative group">安装 Java8
+&lt;div id="安装-java8" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%89%e8%a3%85-java8" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>安装包下载链接是 &lt;a
+href="https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018"
+target="_blank"
+>https://h20392.www2.hpe.com/portal/swdepot/displayProductInfo.do?productNumber=JDKJRE8018&lt;/a>&lt;/p></description></item></channel></rss>

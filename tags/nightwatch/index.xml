@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nightwatch on DevOps 攻城狮</title><link>https://shenxianpeng.github.io/tags/nightwatch/</link><description>Recent content in Nightwatch on DevOps 攻城狮</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>xianpeng.shen@gmail.com (沈显鹏)</managingEditor><webMaster>xianpeng.shen@gmail.com (沈显鹏)</webMaster><copyright>© 2017 - 2025 沈显鹏</copyright><lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://shenxianpeng.github.io/tags/nightwatch/index.xml" rel="self" type="application/rss+xml"/><item><title>Nightwarch v1.3 介绍</title><link>https://shenxianpeng.github.io/posts/nightwatch-v1-3/</link><pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-v1-3/</guid><description>&lt;p>Nightwatch js 是我之前写自动化测试用例使用了很长一段时间的测试框架，我当时的使用 v0.9 版本并且对使用和 API 进行了翻译。作为一名前测试工程师，对于自动化的知识不能不更新下自己的知识库，一转眼 Nightwatch 1.3 版本已经发布了，可以看到它在 GitHub 上的使用和关注度还是很高的。&lt;/p></description></item><item><title>Nightwatch 使用 VS code 进行调试</title><link>https://shenxianpeng.github.io/posts/debug-nightwatch-in-vs/</link><pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/debug-nightwatch-in-vs/</guid><description>&lt;p>除了通过增加&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;===========&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>来调试 Nightwatch 代码，如何通过配置 VS code 来 Debug Nightwatch 代码？&lt;/p>
+&lt;p>Ctrl+Shift+D 打开 Debug 界面，配置如下：&lt;/p></description></item><item><title>Nightwatch 持续集成问题</title><link>https://shenxianpeng.github.io/posts/nightwatch-ci-problem/</link><pubDate>Mon, 15 Jan 2018 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-ci-problem/</guid><description>介绍如何在 Nightwatch 持续集成中处理自动化测试用例的常见问题，包括运行时间过长、程序卡住和异常处理。</description></item><item><title>Nightwatch 打开多个窗口</title><link>https://shenxianpeng.github.io/posts/open-multiple-windows/</link><pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/open-multiple-windows/</guid><description>如何在 Nightwatch 中打开多个浏览器窗口并切换控制。</description></item><item><title>Nightwatch wait For Text</title><link>https://shenxianpeng.github.io/posts/nightwatch-wait-for-text/</link><pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-wait-for-text/</guid><description>&lt;p>在使用 Nightwatch 做自动化测试的时候，会遇到这样一种情况：
+创建一个 query, 等待这个query的状态从 Wait 变成 Running 最后到 Available 时再执行操作。
+Nightwatch 并没有提供这样的方法，可以通过下面的方式解决。&lt;/p></description></item><item><title>Nightwatch 得到和验证 cookies</title><link>https://shenxianpeng.github.io/posts/nightwatch-handle-cookies/</link><pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-handle-cookies/</guid><description>&lt;h2 class="relative group">测试用例
+&lt;div id="测试用例" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%b5%8b%e8%af%95%e7%94%a8%e4%be%8b" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>验证登录 cookies 和清除 access_token。测试用例设计如下&lt;/p></description></item><item><title>Nightwatch 元素判断</title><link>https://shenxianpeng.github.io/posts/nightwatch-element-check/</link><pubDate>Thu, 14 Dec 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-element-check/</guid><description>&lt;h3 class="relative group">Nightwatch 元素常用验证方法
+&lt;div id="nightwatch-元素常用验证方法" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nightwatch-%e5%85%83%e7%b4%a0%e5%b8%b8%e7%94%a8%e9%aa%8c%e8%af%81%e6%96%b9%e6%b3%95" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;p>验证元素的值信息&lt;/p></description></item><item><title>Nightwatch 测试用例失败继续执行</title><link>https://shenxianpeng.github.io/posts/test-case-fails-to-continue-execution/</link><pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/test-case-fails-to-continue-execution/</guid><description>&lt;p>自动化测试中，有一个验证点，当测试通过时，后面的测试脚本继续执行；
+当出现异常时，你希望标记出来这个错误，但不影响后面的测试脚本执行，在 Nightwatch 中如何做？&lt;/p></description></item><item><title>Nightwatch 验证元素是否存在</title><link>https://shenxianpeng.github.io/posts/nightwatch-cdetermine-if-element-exists/</link><pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-cdetermine-if-element-exists/</guid><description>&lt;h2 class="relative group">元素常用验证方法
+&lt;div id="元素常用验证方法" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%83%e7%b4%a0%e5%b8%b8%e7%94%a8%e9%aa%8c%e8%af%81%e6%96%b9%e6%b3%95" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>验证元素的值信息&lt;/p></description></item><item><title>Nightwatch 自动化测试中比较颜色</title><link>https://shenxianpeng.github.io/posts/nightwatch-auto-compare-colors/</link><pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-auto-compare-colors/</guid><description>&lt;p>在做 Nightwatch 自动化测试中，出现需要比较颜色的时候如何来做？
+基本的思路是首先需要取到这个 element 的颜色值，然后跟预期的颜色进行对比。
+比如我要取下面这个会话窗口的颜色，选中这个图标，按 F12，查看这个图标的属性。发现Angular中的颜色属性不是 Elements 下，是在 Styles 下面，如何取到这个颜色值？&lt;/p></description></item><item><title>Nightwatch 获取接口返回数据</title><link>https://shenxianpeng.github.io/posts/nightwatch-get-interface-return-data/</link><pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-get-interface-return-data/</guid><description>&lt;p>如何在 JavaScript 通过接口自动生成和返回接口数据呢？&lt;/p>
+&lt;p>在自动化测试中常常遇到接口测试，或是使用的数据需要从接口返回，那么如何来实现这种情况？&lt;/p></description></item><item><title>Nightwatch 异步操作</title><link>https://shenxianpeng.github.io/posts/nightwatch-async-operation/</link><pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-async-operation/</guid><description>&lt;p>在自动化测试中常常需要通过一个 command（或 function ）中返回的值来进行下一步的操作，JavaScript 与 JAVA 在调用返回值时有所不同，JS 中需要特定的写法来进行这种异步操作。&lt;/p></description></item><item><title>Nightwatch 模拟键盘操作</title><link>https://shenxianpeng.github.io/posts/nightwatch-keyboard/</link><pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatch-keyboard/</guid><description>&lt;p>在自动化测试中有这样一个场景，在一个输入框中输入一串字符，然后执行敲回车键，验证搜索结果，以 Google 搜索为例，代码如下：&lt;/p></description></item><item><title>Nightwatchjs 中文参考手册</title><link>https://shenxianpeng.github.io/posts/nightwatchjs-guilde/</link><pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/nightwatchjs-guilde/</guid><description>&lt;p>&lt;a
+href="https://shenxianpeng.gitbooks.io/nightwatch-js-cn/content/"
+target="_blank"
+>Nightwatch中文参考手册&lt;/a>&lt;/p>
+&lt;h2 class="relative group">为何放弃 JAVA 改用 Nightwatch
+&lt;div id="为何放弃-java-改用-nightwatch" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%ba%e4%bd%95%e6%94%be%e5%bc%83-java-%e6%94%b9%e7%94%a8-nightwatch" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>项目初期用的是 Java + Selenium + TestNG 自动化框架，由于之前推行的力度不够，加上繁重的功能测试和频繁的项目变更导致自动化测试代码跟不上开发的进度，大量的测试代码无法正在运行。&lt;/li>
+&lt;li>我们的产品采用的 AngularJS 开发，前端开发人员对js对Java更精通，以后的自动化脚本开发也可以一起编写。&lt;/li>
+&lt;li>Nightwatch 的环境配置和执行简单，只要 npm install、npm test 就可以运行起来，方便配置，运行和继续集成。&lt;/li>
+&lt;/ul>
+&lt;p>因此，与其维护不可用的代码不如好好整理，不如在项目领导和开发的强力支持下重新开始做一套可用的 E2E 测试。&lt;/p></description></item></channel></rss>

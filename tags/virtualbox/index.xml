@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VirtualBox on DevOps 攻城狮</title><link>https://shenxianpeng.github.io/tags/virtualbox/</link><description>Recent content in VirtualBox on DevOps 攻城狮</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>xianpeng.shen@gmail.com (沈显鹏)</managingEditor><webMaster>xianpeng.shen@gmail.com (沈显鹏)</webMaster><copyright>© 2017 - 2025 沈显鹏</copyright><lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://shenxianpeng.github.io/tags/virtualbox/index.xml" rel="self" type="application/rss+xml"/><item><title>Vagrant 和 Docker 的区别，该如何选？</title><link>https://shenxianpeng.github.io/posts/vagrant-vs-docker/</link><pubDate>Mon, 14 Feb 2022 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/vagrant-vs-docker/</guid><description>&lt;p>关于 Vagrant 的介绍，可以参看前一篇文章：&lt;a
+href="https://shenxianpeng.github.io/2022/01/vagrant/"
+target="_blank"
+>什么是 Vagrant? Vagrant 和 VirtualBox 的区别&lt;/a>&lt;/p></description></item><item><title>什么是 Vagrant? Vagrant 和 VirtualBox 的区别</title><link>https://shenxianpeng.github.io/posts/vagrant/</link><pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/vagrant/</guid><description>&lt;h2 class="relative group">什么是 Vagrant
+&lt;div id="什么是-vagrant" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%80%e4%b9%88%e6%98%af-vagrant" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>Vagrant 是一种&lt;a
+href="https://github.com/hashicorp/vagrant"
+target="_blank"
+>开源&lt;/a>软件产品，用来方便构建和维护虚拟软件开发环境。&lt;/p></description></item><item><title>用 VirtualBox 配置一台 Linux 虚拟机</title><link>https://shenxianpeng.github.io/posts/setup-linux-in-virtualbox/</link><pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/setup-linux-in-virtualbox/</guid><description>&lt;p>如果你想使用 Linux 但又不想租用云厂商的虚拟机，那么 VirtualBox 是一个比较好的选择。我们可以在 VirtualBox 安装你需要的绝大数的操作系统。&lt;/p></description></item></channel></rss>

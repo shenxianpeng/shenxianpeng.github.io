@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CodeReview on DevOps 攻城狮</title><link>https://shenxianpeng.github.io/tags/codereview/</link><description>Recent content in CodeReview on DevOps 攻城狮</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>xianpeng.shen@gmail.com (沈显鹏)</managingEditor><webMaster>xianpeng.shen@gmail.com (沈显鹏)</webMaster><copyright>© 2017 - 2025 沈显鹏</copyright><lastBuildDate>Sat, 20 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://shenxianpeng.github.io/tags/codereview/index.xml" rel="self" type="application/rss+xml"/><item><title>基于谷歌代码审查（Code Review）法则的思考与实践</title><link>https://shenxianpeng.github.io/posts/code-review/</link><pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/code-review/</guid><description>&lt;h2 class="relative group">背景
+&lt;div id="背景" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%83%8c%e6%99%af" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>代码审查（Code Review），就是让别人来审查你的代码，其目的就是确保代码库的整体代码运行状况随着时间推移而不断改善。&lt;/p></description></item></channel></rss>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Disqus on DevOps 攻城狮</title><link>https://shenxianpeng.github.io/tags/disqus/</link><description>Recent content in Disqus on DevOps 攻城狮</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>xianpeng.shen@gmail.com (沈显鹏)</managingEditor><webMaster>xianpeng.shen@gmail.com (沈显鹏)</webMaster><copyright>© 2017 - 2025 沈显鹏</copyright><lastBuildDate>Sun, 07 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://shenxianpeng.github.io/tags/disqus/index.xml" rel="self" type="application/rss+xml"/><item><title>Hexo 添加 Disqus 留言功能</title><link>https://shenxianpeng.github.io/posts/add-disqus-to-hexo/</link><pubDate>Sun, 07 Jul 2019 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/posts/add-disqus-to-hexo/</guid><description>&lt;h2 class="relative group">在你的 Hexo 网站添加 Disqus
+&lt;div id="在你的-hexo-网站添加-disqus" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9c%a8%e4%bd%a0%e7%9a%84-hexo-%e7%bd%91%e7%ab%99%e6%b7%bb%e5%8a%a0-disqus" aria-label="锚点">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>去 Disqus 创建一个账号，在这个过程中有需要选择一个 shortname，完成后，你可以在设置页码找到你的 shortname&lt;/p></description></item></channel></rss>
