@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title></title>
+  
+  
+  <link href="https://shenxianpeng.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://shenxianpeng.github.io/"/>
+  <updated>2025-08-09T17:29:19.235Z</updated>
+  <id>https://shenxianpeng.github.io/</id>
+  
+  <author>
+    <name>shenxianpeng</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jenkins Explain Error Plugin 支持 Google Gemini 了！🤖</title>
+    <link href="https://shenxianpeng.github.io/2025/08/explain-error-plugin-support-gemini/"/>
+    <id>https://shenxianpeng.github.io/2025/08/explain-error-plugin-support-gemini/</id>
+    <published>2025-08-03T13:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.235Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;上周我发布了 &lt;a href=&quot;https://shenxianpeng.github.io/2025/07/explain-error-plugin/&quot;&gt;Jenkins Explain Error Plugin&lt;/a&gt;，旨在帮助 Jenkins 用户通过内置 AI 来更快地分析和解决 Jenkins 构建中的错误。&lt;/p&gt;
+&lt;p&gt;有读者朋友在评论区提到，希望插件支持 Google Gemini 模型进行错误分析，因为他们公司只能使用 Google 的 AI 服务。&lt;/p&gt;
+&lt;p&gt;今天，我很高兴地宣布，这个插件现在已经支持 Google Gemini 模型了！🎉&lt;/p&gt;
+&lt;h2 id=&quot;插件更新&quot;&gt;&lt;a href=&quot;#插件更新&quot; class=&quot;headerlink&quot; title=&quot;插件更新&quot;&gt;&lt;/a&gt;插件更新&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;新增对 Google Gemini 模型的支持&lt;/li&gt;
+&lt;li&gt;优化文档并补充了示例视频&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;如何使用-Google-Gemini&quot;&gt;&lt;a href=&quot;#如何使用-Google-Gemini&quot; class=&quot;headerlink&quot; title=&quot;如何使用 Google Gemini&quot;&gt;&lt;/a&gt;如何使用 Google Gemini&lt;/h2&gt;&lt;p&gt;在开始使用之前，请确保插件已更新到最新版本。&lt;br&gt;你可以在 Jenkins 插件管理器中找到 Explain Error Plugin，并将其升级到最新版&lt;/p&gt;
+&lt;p&gt;更新后，在插件配置中，你可以选择使用 Google Gemini 模型进行错误分析。只需在 &lt;code&gt;Manage Jenkins → Configure System&lt;/code&gt; 页面下的 &lt;strong&gt;Explain Error Plugin Configuration&lt;/strong&gt; 中，将模型设置为 &lt;code&gt;Google Gemini&lt;/code&gt;，并提供相应的 API 地址和密钥。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+    <category term="AI" scheme="https://shenxianpeng.github.io/tags/ai/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins 插件中心居然还没有 AI 插件？我写了一个！🤖</title>
+    <link href="https://shenxianpeng.github.io/2025/07/explain-error-plugin/"/>
+    <id>https://shenxianpeng.github.io/2025/07/explain-error-plugin/</id>
+    <published>2025-07-29T14:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.232Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;正如标题所说，我最近上线了我的第一个 Jenkins 插件！🎉&lt;/p&gt;
+&lt;p&gt;这个插件的主要功能，是让 Jenkins 构建过程中遇到的错误不再需要复制错误信息到 ChatGPT 等 AI 工具中进行分析，而是&lt;strong&gt;直接在 Jenkins 的构建日志中提供一个按钮&lt;/strong&gt;，点击后可以自动将错误信息发送到 OpenAI 进行分析。你也可以在 pipeline 中添加 &lt;code&gt;explainError()&lt;/code&gt; 步骤来对错误进行解释，从而帮助开发者更快地定位和解决问题。&lt;/p&gt;
+&lt;p&gt;这是我在 Jenkins 社区的第一个插件项目。之前之所以没有尝试，是因为我认为很多功能完全可以通过 pipeline 脚本来实现，没必要单独开发插件。&lt;/p&gt;
+&lt;p&gt;但随着 AI 的使用越来越普及，我发现 Jenkins 插件中心居然还没有类似的插件，于是决定自己动手实现这个功能。在 AI 的加持下，利用晚上时间断断续续地开发与测试，以及 Jenkins Hoster 多轮认真细致的 Code Review，终于在上周末提交到了 Jenkins 插件中心，&lt;strong&gt;正式上线&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;插件介绍&quot;&gt;&lt;a href=&quot;#插件介绍&quot; class=&quot;headerlink&quot; title=&quot;插件介绍&quot;&gt;&lt;/a&gt;插件介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Explain Error Plugin&lt;/strong&gt; 是一个基于 OpenAI 的 Jenkins 插件，它可以自动解析构建失败的日志信息，并生成可读性强的错误解释，适用于流水线（Pipeline）和自由风格（Freestyle）等常见的 Jenkins 作业类型。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🔍 一键分析控制台输出中的错误&lt;/li&gt;
+&lt;li&gt;⚙️ 可在 Pipeline 中使用，只需一个简单的 &lt;code&gt;explainError()&lt;/code&gt; 步骤&lt;/li&gt;
+&lt;li&gt;💡 基于 OpenAI GPT 模型的 AI 智能解释&lt;/li&gt;
+&lt;li&gt;🌐 提供两种 Web UI 展示 AI 生成的分析结果&lt;/li&gt;
+&lt;li&gt;🎯 可定制：支持设置模型、API 地址、日志过滤器等配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;插件亮点功能&quot;&gt;&lt;a href=&quot;#插件亮点功能&quot; class=&quot;headerlink&quot; title=&quot;插件亮点功能&quot;&gt;&lt;/a&gt;插件亮点功能&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+    <category term="AI" scheme="https://shenxianpeng.github.io/tags/ai/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>出国一年，我看清了：不是所有人都适合来欧洲</title>
+    <link href="https://shenxianpeng.github.io/2025/05/run-or-not/"/>
+    <id>https://shenxianpeng.github.io/2025/05/run-or-not/</id>
+    <published>2025-07-13T14:32:00.000Z</published>
+    <updated>2025-08-09T17:29:19.228Z</updated>
+    
+    
+    <summary type="html">哪些人适合来欧洲发展，哪些人可能会感到不适？从程序员和孩子爸爸的双重视角，聊聊出国生活的真实体验。</summary>
+    
+    
+    
+    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+    <category term="Thoughts" scheme="https://shenxianpeng.github.io/tags/thoughts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>🧊2025软件供应链现状报告：开源时代，我们究竟在和谁打交道？</title>
+    <link href="https://shenxianpeng.github.io/2025/06/jfrog-report/"/>
+    <id>https://shenxianpeng.github.io/2025/06/jfrog-report/</id>
+    <published>2025-06-28T01:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.232Z</updated>
+    
+    
+    <summary type="html">JFrog发布的《2025软件供应链现状报告》揭示了软件供应链的变化和风险，尤其是AI模型的安全问题。本文分享了报告中的关键发现和对DevOps从业者的启示。
+</summary>
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+    <category term="JFrog" scheme="https://shenxianpeng.github.io/tags/jfrog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to Fix Shields.io Badges Not Displaying in Jenkins</title>
+    <link href="https://shenxianpeng.github.io/2025/06/show-badge-on-jenkins/"/>
+    <id>https://shenxianpeng.github.io/2025/06/show-badge-on-jenkins/</id>
+    <published>2025-06-23T15:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.232Z</updated>
+    
+    
+    <summary type="html">If your Shields.io badges (like build status or documentation status) aren’t showing up in your Jenkins dashboard, it’s likely due to Jenkins&#39; strict Content Security Policy (CSP).
+In this post, I’ll show you how to temporarily fix it using the Script Console and make the change permanent by modifying Jenkins startup options. Safe for internal Jenkins setups and tested on modern Jenkins installations.
+</summary>
+    
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/categories/jenkins/"/>
+    
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>提升代码可追溯性：一招把 PR 描述写入 Git commit</title>
+    <link href="https://shenxianpeng.github.io/2025/06/commit-message-template/"/>
+    <id>https://shenxianpeng.github.io/2025/06/commit-message-template/</id>
+    <published>2025-06-12T04:32:00.000Z</published>
+    <updated>2025-08-09T17:29:19.229Z</updated>
+    
+    
+    <summary type="html">在 Bitbucket 中使用 Commit Message Templates 功能，将 PR 描述自动写入 Git commit message，确保关键信息不会随工具变更而丢失。
+</summary>
+    
+    
+    
+    <category term="Git" scheme="https://shenxianpeng.github.io/categories/git/"/>
+    
+    
+    <category term="Git" scheme="https://shenxianpeng.github.io/tags/git/"/>
+    
+    <category term="Bitbucket" scheme="https://shenxianpeng.github.io/tags/bitbucket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何优雅地控制 Jenkins 构建是否中断？只看这篇</title>
+    <link href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/"/>
+    <id>https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build-cn/</id>
+    <published>2025-06-04T20:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.231Z</updated>
+    
+    
+    <summary type="html">在 Jenkins 中，`disableConcurrentBuilds` 选项用于管理并发构建。本文介绍了如何根据分支类型动态设置 `abortPrevious` 的值，从而实现更灵活的构建管理。
+</summary>
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to Change abortPrevious Value in Jenkins?</title>
+    <link href="https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/"/>
+    <id>https://shenxianpeng.github.io/2025/06/jenkins-concurrent-build/</id>
+    <published>2025-06-04T15:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.232Z</updated>
+    
+    
+    <summary type="html">In Jenkins, the `disableConcurrentBuilds` option is used to manage concurrent builds. This article explains how to conditionally set the `abortPrevious` value based on the branch being built, allowing for more flexible build management.
+</summary>
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+    <category term="Jenkins" scheme="https://shenxianpeng.github.io/tags/jenkins/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CI/CD 不是一次性的项目，而是一个不断演进的系统</title>
+    <link href="https://shenxianpeng.github.io/2025/06/code-refactor/"/>
+    <id>https://shenxianpeng.github.io/2025/06/code-refactor/</id>
+    <published>2025-06-02T15:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.228Z</updated>
+    
+    
+    <summary type="html">在 DevOps 中，CI/CD 流水线需要持续维护和重构。本文探讨了为什么 CI/CD 不是一次性的建设项目，而是一个需要长期投入和持续演进的系统。
+</summary>
+    
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/categories/devops/"/>
+    
+    
+    <category term="DevOps" scheme="https://shenxianpeng.github.io/tags/devops/"/>
+    
+    <category term="CI/CD" scheme="https://shenxianpeng.github.io/tags/ci-cd/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>asdf-clang-tools：使用 asdf 安装 Clang 工具的新选择</title>
+    <link href="https://shenxianpeng.github.io/2025/05/asdf-clang-tools/"/>
+    <id>https://shenxianpeng.github.io/2025/05/asdf-clang-tools/</id>
+    <published>2025-05-29T13:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.228Z</updated>
+    
+    
+    <summary type="html">asdf-clang-tools 是一个 asdf 插件，用于安装和管理 Clang Tools 相关工具（如 clang-format、clang-tidy、clang-query 和 clang-apply-replacements 等）。
+</summary>
+    
+    
+    
+    <category term="asdf" scheme="https://shenxianpeng.github.io/categories/asdf/"/>
+    
+    
+    <category term="clang-tools" scheme="https://shenxianpeng.github.io/tags/clang-tools/"/>
+    
+    <category term="asdf" scheme="https://shenxianpeng.github.io/tags/asdf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ChatGPT 一开，谁还去“努力”？</title>
+    <link href="https://shenxianpeng.github.io/2025/05/ai/"/>
+    <id>https://shenxianpeng.github.io/2025/05/ai/</id>
+    <published>2025-05-26T15:32:00.000Z</published>
+    <updated>2025-08-09T17:29:19.228Z</updated>
+    
+    
+    <summary type="html">AI 的出现让很多人感到“虚”，但它不会取代我们的职位，而是改变我们的做事方式。本文分享了对 AI 的体会和每天一小步的坚持。
+</summary>
+    
+    
+    
+    <category term="AI" scheme="https://shenxianpeng.github.io/categories/ai/"/>
+    
+    
+    <category term="AI" scheme="https://shenxianpeng.github.io/tags/ai/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>还在用 Wiki/Confluence？你可能在生产垃圾</title>
+    <link href="https://shenxianpeng.github.io/2025/05/docs-and-code/"/>
+    <id>https://shenxianpeng.github.io/2025/05/docs-and-code/</id>
+    <published>2025-05-14T13:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.228Z</updated>
+    
+    
+    <summary type="html">在企业中，Wiki 和 Confluence 等文档工具如果缺乏统一管理和审核机制，可能会导致信息混乱和知识沉淀失败。本文探讨了如何避免这种情况，并借鉴开源社区的成功经验。
+</summary>
+    
+    
+    
+    <category term="Documentation" scheme="https://shenxianpeng.github.io/categories/documentation/"/>
+    
+    
+    <category term="Wiki" scheme="https://shenxianpeng.github.io/tags/wiki/"/>
+    
+    <category term="Confluence" scheme="https://shenxianpeng.github.io/tags/confluence/"/>
+    
+    <category term="Documentation" scheme="https://shenxianpeng.github.io/tags/documentation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>还在用 pip 和 venv？那你可真落伍了，赶紧体验 uv！</title>
+    <link href="https://shenxianpeng.github.io/2025/05/uv/"/>
+    <id>https://shenxianpeng.github.io/2025/05/uv/</id>
+    <published>2025-05-05T13:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.228Z</updated>
+    
+    
+    <summary type="html">uv 是一个由 Astral 团队开发的 Python 包管理工具，它能替代 pip、venv、pip-tools 的功能，提供更快的依赖解析速度和更现代的项目管理方式。
+</summary>
+    
+    
+    
+    <category term="Python" scheme="https://shenxianpeng.github.io/categories/python/"/>
+    
+    
+    <category term="uv" scheme="https://shenxianpeng.github.io/tags/uv/"/>
+    
+    <category term="pip" scheme="https://shenxianpeng.github.io/tags/pip/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全程记录｜PyCon LT 2025 第三天：AI 能取代你吗？</title>
+    <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d3/"/>
+    <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d3/</id>
+    <published>2025-04-28T17:41:00.000Z</published>
+    <updated>2025-08-09T17:29:19.227Z</updated>
+    
+    
+    <summary type="html">今天是 PyCon LT 2025 的最后一天，主题是 AI and ML Day。分享了几位女性讲者的精彩演讲，以及对数据科学和 AI 的新认识。
+</summary>
+    
+    
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/categories/pycon/"/>
+    
+    
+    <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/tags/pycon/"/>
+    
+    <category term="Lithuania" scheme="https://shenxianpeng.github.io/tags/lithuania/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全程记录｜PyCon LT 2025 第二天：被几位女性开发者圈粉了</title>
+    <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d2/"/>
+    <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d2/</id>
+    <published>2025-04-24T13:10:00.000Z</published>
+    <updated>2025-08-09T17:29:19.227Z</updated>
+    
+    
+    <summary type="html">今天是 PyCon LT 2025 的 Data Day，主题是 Dataframes、Databases、Orchestration。虽然不太熟悉这些领域，但几位女性讲者的演讲让我印象深刻，收获颇丰。
+</summary>
+    
+    
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/categories/pycon/"/>
+    
+    
+    <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/tags/pycon/"/>
+    
+    <category term="Lithuania" scheme="https://shenxianpeng.github.io/tags/lithuania/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全程记录｜PyCon LT 2025 第一天：我在异国 Python 大会上的见闻</title>
+    <link href="https://shenxianpeng.github.io/2025/04/pycon-lt-d1/"/>
+    <id>https://shenxianpeng.github.io/2025/04/pycon-lt-d1/</id>
+    <published>2025-04-23T15:10:00.000Z</published>
+    <updated>2025-08-09T17:29:19.227Z</updated>
+    
+    
+    <summary type="html">参加了 PyCon LT 2025 的第一天，分享了演讲内容、个人感受以及对 Python 社区的思考。
+</summary>
+    
+    
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/categories/pycon/"/>
+    
+    
+    <category term="Python" scheme="https://shenxianpeng.github.io/tags/python/"/>
+    
+    <category term="PyCon" scheme="https://shenxianpeng.github.io/tags/pycon/"/>
+    
+    <category term="Lithuania" scheme="https://shenxianpeng.github.io/tags/lithuania/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回国休假的一点感慨：北京的夜，好晚</title>
+    <link href="https://shenxianpeng.github.io/2025/04/one-night-in-beijing/"/>
+    <id>https://shenxianpeng.github.io/2025/04/one-night-in-beijing/</id>
+    <published>2025-04-15T19:43:00.000Z</published>
+    <updated>2025-08-09T17:29:19.227Z</updated>
+    
+    
+    <summary type="html">在北京停留的一晚，和同学小聚，感受到北京人下班的晚节奏，以及生活在大城市的压力和挑战。
+</summary>
+    
+    
+    
+    <category term="Others" scheme="https://shenxianpeng.github.io/categories/others/"/>
+    
+    
+    <category term="Life" scheme="https://shenxianpeng.github.io/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微软、NASA 都在用？我用业余时间维护了 4 年的项目破百了</title>
+    <link href="https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/"/>
+    <id>https://shenxianpeng.github.io/2025/04/cpp-linter-action-milestone/</id>
+    <published>2025-04-15T04:49:00.000Z</published>
+    <updated>2025-08-09T17:29:19.227Z</updated>
+    
+    
+    <summary type="html">cpp-linter-action 是一个 GitHub Action，提供 C/C++ 代码的格式化和静态分析功能。它使用 clang-format 和 clang-tidy，支持多种配置和自定义规则。项目自 2021 年创建以来，已被多个知名组织和开源项目使用。
+</summary>
+    
+    
+    
+    <category term="cpp-linter" scheme="https://shenxianpeng.github.io/categories/cpp-linter/"/>
+    
+    
+    <category term="clang-format" scheme="https://shenxianpeng.github.io/tags/clang-format/"/>
+    
+    <category term="clang-tidy" scheme="https://shenxianpeng.github.io/tags/clang-tidy/"/>
+    
+    <category term="clang" scheme="https://shenxianpeng.github.io/tags/clang/"/>
+    
+    <category term="cpp-linter" scheme="https://shenxianpeng.github.io/tags/cpp-linter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>访问 GitHub 的那点坚持，快磨没了</title>
+    <link href="https://shenxianpeng.github.io/2025/04/visit-github/"/>
+    <id>https://shenxianpeng.github.io/2025/04/visit-github/</id>
+    <published>2025-04-13T15:43:00.000Z</published>
+    <updated>2025-08-09T17:29:19.228Z</updated>
+    
+    
+    <summary type="html">GitHub 的访问问题让很多程序员感到困扰，尤其是在国内。本文分享了个人的体验和对网络问题的思考。
+</summary>
+    
+    
+    
+    <category term="GitHub" scheme="https://shenxianpeng.github.io/categories/github/"/>
+    
+    
+    <category term="GitHub" scheme="https://shenxianpeng.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零配置 Sphinx + ReadTheDocs：快速部署自动化文档</title>
+    <link href="https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/"/>
+    <id>https://shenxianpeng.github.io/2025/04/sphinx-readthedoc/</id>
+    <published>2025-04-12T15:00:00.000Z</published>
+    <updated>2025-08-09T17:29:19.227Z</updated>
+    
+    
+    <summary type="html">在开源项目或团队协作中，Sphinx + ReadTheDocs 是一个易于维护、可自动部署的文档系统。本文记录了配置过程和注意事项。
+</summary>
+    
+    
+    
+    <category term="Documentation" scheme="https://shenxianpeng.github.io/categories/documentation/"/>
+    
+    
+    <category term="RST" scheme="https://shenxianpeng.github.io/tags/rst/"/>
+    
+    <category term="Sphinx" scheme="https://shenxianpeng.github.io/tags/sphinx/"/>
+    
+    <category term="ReadTheDocs" scheme="https://shenxianpeng.github.io/tags/readthedocs/"/>
+    
+  </entry>
+  
+</feed>
