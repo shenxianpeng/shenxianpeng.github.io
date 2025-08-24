@@ -22,8 +22,8 @@
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>paths</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># 当我更新这个目录下的 Markdown 文件时触发翻译</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;content/posts/*.md&#39;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;content/misc/*.md&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;content/posts/**/*.md&#39;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s1>&#39;content/misc/**/*.md&#39;</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>schedule</span><span class=p>:</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># 这里之所以加这个定时是为了防止漏翻译的文章</span><span class=w>
 </span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c># 每天触发是防止 Gemini API 的免费额度用完</span><span class=w>
