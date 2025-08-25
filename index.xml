@@ -110,8 +110,8 @@ Open Source
 欢迎贡献
 &lt;/h4>
 &lt;div class="mb-6">
-欢迎任何形式的贡献——如果你觉得它们有趣或有用，期待你的参与！
-&lt;div class="github-card-wrapper">
+欢迎任何形式的贡献——如果你觉得它们有趣或有用，期待你的参与！详情见「作品」。
+&lt;!-- &lt;div class="github-card-wrapper">
 &lt;a id="github-0b3d1fda81f90e0ed4a2009d638aeca6" target="_blank" href="https://github.com/cpp-linter/cpp-linter-action" class="cursor-pointer">
 &lt;div
 class="w-full md:w-auto p-0 m-0 border border-neutral-200 dark:border-neutral-700 border rounded-md shadow-2xl">&lt;div class="w-full md:w-auto pt-3 p-5">
