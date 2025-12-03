@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Authors on DevOps 攻城狮</title><link>https://shenxianpeng.github.io/authors/</link><description>Recent content in Authors on DevOps 攻城狮</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><managingEditor>xianpeng.shen@gmail.com (沈显鹏)</managingEditor><webMaster>xianpeng.shen@gmail.com (沈显鹏)</webMaster><copyright>Copyright © 2017–2025 Xianpeng Shen. All rights reserved.</copyright><lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://shenxianpeng.github.io/authors/index.xml" rel="self" type="application/rss+xml"/><item><title>沈显鹏</title><link>https://shenxianpeng.github.io/authors/shenxianpeng/</link><pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate><author>xianpeng.shen@gmail.com (沈显鹏)</author><guid>https://shenxianpeng.github.io/authors/shenxianpeng/</guid><description>&lt;h3 class="relative group">你好👋, 我是 Xianpeng
 &lt;div id="你好-我是-xianpeng" class="anchor">&lt;/div>
 &lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100 select-none">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%a0%e5%a5%bd-%e6%88%91%e6%98%af-xianpeng" aria-label="锚点">#&lt;/a>
+class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+&lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#%e4%bd%a0%e5%a5%bd-%e6%88%91%e6%98%af-xianpeng" aria-label="锚点">#&lt;/a>
 &lt;/span>
 &lt;/h3>
 &lt;p>&lt;strong>DevOps &amp;amp; Build 工程师&lt;/strong> | &lt;strong>Python 爱好者&lt;/strong> | &lt;strong>开源项目维护者&lt;/strong>&lt;/p></description></item></channel></rss>
