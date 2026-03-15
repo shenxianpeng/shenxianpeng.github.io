@@ -144,6 +144,57 @@ All kinds of contributions and feedback are welcome. &lt;a href="../portfolio/">
  &lt;div class="flex">
  &lt;div
  class="bg-primary-500 dark:bg-primary-300 text-neutral-50 dark:text-neutral-700 min-w-[30px] h-8 text-2xl flex items-center justify-center rounded-full ltr:-ml-12 rtl:-mr-[79px] mt-5">
+ &lt;span class="relative block icon">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+&lt;path fill="currentColor" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>&lt;/svg>&lt;/span>
+ &lt;/div>
+ &lt;div class="block p-6 rounded-lg shadow-2xl flex-1 ms-6 mb-10 break-words">
+ &lt;div class="flex justify-between">
+ 
+ &lt;h2 class="mt-0">Support Me&lt;/h2>
+ 
+ 
+ &lt;h3 class="">
+ &lt;span class="flex cursor-pointer">
+ &lt;span
+ class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+ Donate
+ &lt;/span>
+&lt;/span>
+
+ &lt;/h3>
+ 
+ &lt;/div>
+ 
+ &lt;h4 class="mt-0">
+ Help keep this blog ad-free!
+ &lt;/h4>
+ 
+ &lt;div class="mb-6">
+ 
+
+This blog has always been ad-free — I want reading here to be a clean, distraction-free experience. Writing takes time, and your support means a lot. If you've found something useful here, consider buying me a coffee or sponsoring my work:
+
+&lt;ul>
+ &lt;li>🌟 &lt;a href="https://github.com/sponsors/shenxianpeng" target="_blank" rel="noopener">Sponsor me on GitHub Sponsors&lt;/a>&lt;/li>
+ &lt;li>💙 &lt;a href="https://thanks.dev/u/gh/shenxianpeng" target="_blank" rel="noopener">Support via Thanks.dev&lt;/a>&lt;/li>
+ &lt;li>☕ &lt;a href="https://buymeacoffee.com/shenxianpeng" target="_blank" rel="noopener">Buy Me a Coffee&lt;/a>&lt;/li>
+&lt;/ul>
+
+
+ &lt;/div>
+ &lt;/div>
+ &lt;/div>
+&lt;/li>
+
+
+
+
+
+
+&lt;li>
+ &lt;div class="flex">
+ &lt;div
+ class="bg-primary-500 dark:bg-primary-300 text-neutral-50 dark:text-neutral-700 min-w-[30px] h-8 text-2xl flex items-center justify-center rounded-full ltr:-ml-12 rtl:-mr-[79px] mt-5">
  &lt;span class="relative block icon">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">&lt;path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>&lt;/svg>&lt;/span>
  &lt;/div>
  &lt;div class="block p-6 rounded-lg shadow-2xl flex-1 ms-6 mb-10 break-words">
