@@ -229,19 +229,4 @@ xianpeng.shen@gmail.com
  &lt;div id="个人简介" class="anchor"&gt;&lt;/div&gt;
  
 &lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DevOps / Build / Release / AI Engineering 工程师&lt;/strong&gt;，长期关注软件交付效率、开发者体验与工程自动化。&lt;/li&gt;
-&lt;li&gt;自 2018 年起专注 DevOps，熟悉 Windows、Linux、AIX、Solaris、HP-UX 等操作系统及完整软件生命周期。&lt;/li&gt;
-&lt;li&gt;在企业环境中推动 &lt;strong&gt;Agentic DevOps&lt;/strong&gt; 与 AI-assisted developer tooling 探索，将 AI agents、CI/CD、代码理解与任务执行能力结合到开发工作流中。&lt;/li&gt;
-&lt;li&gt;擅长 &lt;strong&gt;Scan → Try → Scale&lt;/strong&gt; 方法，将行业最佳实践从小范围验证推广到团队和部门级落地。&lt;/li&gt;
-&lt;li&gt;熟练使用 Python / Shell / Groovy 构建 DevOps 工具、自动化系统与 AI 辅助开发解决方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;开源作者与维护者&lt;/strong&gt;：创建并维护 &lt;a href="https://github.com/cpp-linter" target="_blank" rel="noreferrer"&gt;cpp-linter&lt;/a&gt;、&lt;a href="https://github.com/commit-check" target="_blank" rel="noreferrer"&gt;commit-check&lt;/a&gt;、&lt;a href="https://github.com/conventional-branch" target="_blank" rel="noreferrer"&gt;conventional-branch&lt;/a&gt;、&lt;a href="https://github.com/devops-maturity" target="_blank" rel="noreferrer"&gt;devops-maturity&lt;/a&gt; 等项目，并参与 Jenkins、MkDocs 生态相关开源维护。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技术分享者&lt;/strong&gt;：在 &lt;a href="https://shenxianpeng.github.io" target="_blank" rel="noreferrer"&gt;博客&lt;/a&gt; 与公众号 &amp;ldquo;&lt;strong&gt;沈显鹏&lt;/strong&gt;&amp;rdquo; 发布数百篇原创文章，持续分享 DevOps、AI、CI/CD 与开源实践。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h2 class="relative group"&gt;工作经历
- &lt;div id="工作经历" class="anchor"&gt;&lt;/div&gt;
- 
-&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;高级 DevOps 工程师&lt;/strong&gt; | Rocket Software, 立陶宛 | &lt;em&gt;2024.07 - 至今&lt;/em&gt;&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://shenxianpeng.github.io/hireme/featured.jpg"/></item></channel></rss>
+&lt;p&gt;DevOps / AI 工程师，现居立陶宛维尔纽斯。十六年软件工程经验，从 QA、测试开发一路做到 DevOps，2015 年起在 Rocket Software 负责构建、发布与交付自动化。目前专注企业级 &lt;strong&gt;Agentic 应用&lt;/strong&gt;开发，让 AI 以受控的方式承担真实的工程任务。&lt;/p&gt;</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://shenxianpeng.github.io/hireme/featured.jpg"/></item></channel></rss>
